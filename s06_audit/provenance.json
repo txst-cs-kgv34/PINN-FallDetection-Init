@@ -1,0 +1,44 @@
+{
+  "repository": "https://github.com/txst-cs-smartfall/SmartFallMM-Dataset",
+  "commit": "c538ee0cfc985ebebab5dae013b544b8bc4ad6fd",
+  "analysis_date": "2026-09-21",
+  "source_glob": "old/skeleton/S06A08T0*.csv",
+  "files": [
+    {
+      "path": "old/skeleton/S06A08T01.csv",
+      "git_blob_sha1": "42689b380788b18e73cd1a217b11727cb6ff2b54",
+      "sha256": "0a06f7252b8d78030ee02b54ff683661e34e7e13ebc114f3efc34fe0359b2df0",
+      "frames": 252
+    },
+    {
+      "path": "old/skeleton/S06A08T02.csv",
+      "git_blob_sha1": "f72b611394226ba0725b9d5be3a30982bd92734c",
+      "sha256": "fbb360eab2aa7613ff1e92b15c447f4a41dd6a2f8d8fbb2d1d84ecdcc6bff908",
+      "frames": 161
+    },
+    {
+      "path": "old/skeleton/S06A08T03.csv",
+      "git_blob_sha1": "2867008b8390e830003e9febcd7eb75ebbf2ffe8",
+      "sha256": "7ea263eb911002ddc809d56da60845f31098c0775cda4bd4229ae88e0099d479",
+      "frames": 195
+    },
+    {
+      "path": "old/skeleton/S06A08T04.csv",
+      "git_blob_sha1": "3e29c25afdbadc32f89fc2076ce595da4f7c41ea",
+      "sha256": "ee58489b27df44cc9502a4f95f387c38c99e1d9af069c14636b38bebd758d07c",
+      "frames": 210
+    },
+    {
+      "path": "old/skeleton/S06A08T05.csv",
+      "git_blob_sha1": "acf4ccb9c5de4ecce74f32a30d3fbc77ac59a829",
+      "sha256": "d6cd15ebc42578312b508638ac8e8e84c3c64662247c942da7c1e410a80872fd",
+      "frames": 193
+    }
+  ],
+  "assumptions": [
+    "Standard Azure Kinect joint order",
+    "Coordinates in millimeters",
+    "Nominal 30 FPS without verified original timestamps"
+  ],
+  "raw_modified": false
+}

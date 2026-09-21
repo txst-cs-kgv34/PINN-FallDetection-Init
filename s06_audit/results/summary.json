@@ -1,0 +1,338 @@
+[
+  {
+    "trial": "S06A08T01",
+    "frames": 252,
+    "columns": 96,
+    "duration_nominal_s": 8.4,
+    "first_to_last_s": 8.366666666666667,
+    "nonfinite_values": 0,
+    "zero_values": 0,
+    "duplicate_rows": 0,
+    "max_any_joint_step_m": 0.5688817938690639,
+    "max_lower_trunk_step_m": 0.4591221620235997,
+    "max_core_step_m": 0.20884524157083334,
+    "max_pelvis_step_m": 0.08212623958006629,
+    "transitions_any_gt_0p2m": 9,
+    "transitions_lower_trunk_gt_0p2m": 6,
+    "transitions_lower_trunk_gt_0p1m": 53,
+    "transitions_lower_trunk_gt_0p3m": 1,
+    "max_step_joint": "wrist_right",
+    "max_step_from_index0": 118,
+    "max_step_to_index0": 119,
+    "limb_scale_min": 0.7971180705633434,
+    "limb_scale_max": 1.0506966246170963,
+    "limb_scale_end_start_ratio": 1.2141617224078807,
+    "pelvis_axis_range_m": [
+      1.8028435057,
+      0.4189068909,
+      2.54044165
+    ],
+    "knee_angle_first10_median_deg": [
+      89.18865293694249,
+      90.31640347505657
+    ],
+    "knee_angle_middle20pct_median_deg": [
+      160.89021106251573,
+      159.74530823963087
+    ],
+    "knee_angle_last10_median_deg": [
+      169.08842206405984,
+      132.8113540281866
+    ],
+    "screened_spans_index0": [
+      [
+        122,
+        216
+      ],
+      [
+        51,
+        86
+      ],
+      [
+        223,
+        251
+      ],
+      [
+        100,
+        113
+      ]
+    ],
+    "git_blob_sha1": "42689b380788b18e73cd1a217b11727cb6ff2b54",
+    "sha256": "0a06f7252b8d78030ee02b54ff683661e34e7e13ebc114f3efc34fe0359b2df0",
+    "min_pairwise_limb_scale_correlation": 0.9999999999563075,
+    "max_minus_min_limb_scale_percent_of_min": 31.811918888571,
+    "max_normalized_limb_spread": 2.968720210994036e-06
+  },
+  {
+    "trial": "S06A08T02",
+    "frames": 161,
+    "columns": 96,
+    "duration_nominal_s": 5.366666666666666,
+    "first_to_last_s": 5.333333333333333,
+    "nonfinite_values": 0,
+    "zero_values": 0,
+    "duplicate_rows": 0,
+    "max_any_joint_step_m": 0.9413412525316125,
+    "max_lower_trunk_step_m": 0.79063000281331,
+    "max_core_step_m": 0.4181844310735486,
+    "max_pelvis_step_m": 0.3779139472563449,
+    "transitions_any_gt_0p2m": 12,
+    "transitions_lower_trunk_gt_0p2m": 10,
+    "transitions_lower_trunk_gt_0p1m": 39,
+    "transitions_lower_trunk_gt_0p3m": 8,
+    "max_step_joint": "handtip_left",
+    "max_step_from_index0": 24,
+    "max_step_to_index0": 25,
+    "limb_scale_min": 0.8202313571159132,
+    "limb_scale_max": 1.0729950594296978,
+    "limb_scale_end_start_ratio": 1.1647969839367378,
+    "pelvis_axis_range_m": [
+      1.706097412,
+      0.435894928,
+      2.401477906
+    ],
+    "knee_angle_first10_median_deg": [
+      99.77999656771533,
+      96.03567636083102
+    ],
+    "knee_angle_middle20pct_median_deg": [
+      107.31299811643777,
+      103.63602211388707
+    ],
+    "knee_angle_last10_median_deg": [
+      176.277459100871,
+      136.1034720387182
+    ],
+    "screened_spans_index0": [
+      [
+        79,
+        160
+      ],
+      [
+        5,
+        16
+      ],
+      [
+        30,
+        36
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        64,
+        64
+      ]
+    ],
+    "git_blob_sha1": "f72b611394226ba0725b9d5be3a30982bd92734c",
+    "sha256": "fbb360eab2aa7613ff1e92b15c447f4a41dd6a2f8d8fbb2d1d84ecdcc6bff908",
+    "min_pairwise_limb_scale_correlation": 0.9999999999516752,
+    "max_minus_min_limb_scale_percent_of_min": 30.816147190781518,
+    "max_normalized_limb_spread": 3.522463895566652e-06
+  },
+  {
+    "trial": "S06A08T03",
+    "frames": 195,
+    "columns": 96,
+    "duration_nominal_s": 6.5,
+    "first_to_last_s": 6.466666666666667,
+    "nonfinite_values": 0,
+    "zero_values": 0,
+    "duplicate_rows": 0,
+    "max_any_joint_step_m": 0.9768279640117732,
+    "max_lower_trunk_step_m": 0.9768279640117732,
+    "max_core_step_m": 0.34253582145220124,
+    "max_pelvis_step_m": 0.2803989462118636,
+    "transitions_any_gt_0p2m": 21,
+    "transitions_lower_trunk_gt_0p2m": 8,
+    "transitions_lower_trunk_gt_0p1m": 35,
+    "transitions_lower_trunk_gt_0p3m": 5,
+    "max_step_joint": "foot_left",
+    "max_step_from_index0": 67,
+    "max_step_to_index0": 68,
+    "limb_scale_min": 0.8707116833590506,
+    "limb_scale_max": 1.088417636470276,
+    "limb_scale_end_start_ratio": 0.977704317791335,
+    "pelvis_axis_range_m": [
+      1.1832370600000002,
+      0.437582779,
+      1.4570864249999995
+    ],
+    "knee_angle_first10_median_deg": [
+      176.5573596155749,
+      163.1630821783806
+    ],
+    "knee_angle_middle20pct_median_deg": [
+      93.8684188989081,
+      85.42338141171446
+    ],
+    "knee_angle_last10_median_deg": [
+      135.06402676813195,
+      162.51640779890693
+    ],
+    "screened_spans_index0": [
+      [
+        73,
+        116
+      ],
+      [
+        151,
+        194
+      ],
+      [
+        20,
+        55
+      ],
+      [
+        132,
+        149
+      ],
+      [
+        0,
+        13
+      ]
+    ],
+    "git_blob_sha1": "2867008b8390e830003e9febcd7eb75ebbf2ffe8",
+    "sha256": "7ea263eb911002ddc809d56da60845f31098c0775cda4bd4229ae88e0099d479",
+    "min_pairwise_limb_scale_correlation": 0.999999999852456,
+    "max_minus_min_limb_scale_percent_of_min": 25.003219466558058,
+    "max_normalized_limb_spread": 5.935768250586726e-06
+  },
+  {
+    "trial": "S06A08T04",
+    "frames": 210,
+    "columns": 96,
+    "duration_nominal_s": 7.0,
+    "first_to_last_s": 6.966666666666667,
+    "nonfinite_values": 0,
+    "zero_values": 0,
+    "duplicate_rows": 0,
+    "max_any_joint_step_m": 1.0359299151887955,
+    "max_lower_trunk_step_m": 1.0359299151887955,
+    "max_core_step_m": 0.3622863591246196,
+    "max_pelvis_step_m": 0.3206788604598368,
+    "transitions_any_gt_0p2m": 29,
+    "transitions_lower_trunk_gt_0p2m": 18,
+    "transitions_lower_trunk_gt_0p1m": 56,
+    "transitions_lower_trunk_gt_0p3m": 13,
+    "max_step_joint": "foot_left",
+    "max_step_from_index0": 161,
+    "max_step_to_index0": 162,
+    "limb_scale_min": 0.8115291947768974,
+    "limb_scale_max": 1.1628326342599586,
+    "limb_scale_end_start_ratio": 0.8804149453260304,
+    "pelvis_axis_range_m": [
+      1.859831055,
+      0.46983653259999997,
+      2.483125122
+    ],
+    "knee_angle_first10_median_deg": [
+      162.14875300237972,
+      162.48019792293667
+    ],
+    "knee_angle_middle20pct_median_deg": [
+      115.23003335504504,
+      118.73595875871115
+    ],
+    "knee_angle_last10_median_deg": [
+      108.95819537417117,
+      99.7654088658667
+    ],
+    "screened_spans_index0": [
+      [
+        12,
+        61
+      ],
+      [
+        118,
+        145
+      ],
+      [
+        90,
+        110
+      ],
+      [
+        68,
+        83
+      ],
+      [
+        202,
+        209
+      ]
+    ],
+    "git_blob_sha1": "3e29c25afdbadc32f89fc2076ce595da4f7c41ea",
+    "sha256": "ee58489b27df44cc9502a4f95f387c38c99e1d9af069c14636b38bebd758d07c",
+    "min_pairwise_limb_scale_correlation": 0.9999999999163761,
+    "max_minus_min_limb_scale_percent_of_min": 43.289069788751135,
+    "max_normalized_limb_spread": 3.389887906601885e-06
+  },
+  {
+    "trial": "S06A08T05",
+    "frames": 193,
+    "columns": 96,
+    "duration_nominal_s": 6.433333333333334,
+    "first_to_last_s": 6.4,
+    "nonfinite_values": 0,
+    "zero_values": 0,
+    "duplicate_rows": 0,
+    "max_any_joint_step_m": 0.32640846203144674,
+    "max_lower_trunk_step_m": 0.32640846203144674,
+    "max_core_step_m": 0.08399517709553829,
+    "max_pelvis_step_m": 0.0578094803695865,
+    "transitions_any_gt_0p2m": 13,
+    "transitions_lower_trunk_gt_0p2m": 7,
+    "transitions_lower_trunk_gt_0p1m": 53,
+    "transitions_lower_trunk_gt_0p3m": 1,
+    "max_step_joint": "foot_left",
+    "max_step_from_index0": 167,
+    "max_step_to_index0": 168,
+    "limb_scale_min": 0.8297518714486978,
+    "limb_scale_max": 1.0367726655176153,
+    "limb_scale_end_start_ratio": 0.8708294159062038,
+    "pelvis_axis_range_m": [
+      1.9607320561,
+      0.2816562252,
+      2.38574707
+    ],
+    "knee_angle_first10_median_deg": [
+      166.19268457104937,
+      161.53774033903403
+    ],
+    "knee_angle_middle20pct_median_deg": [
+      163.55792568225218,
+      160.3610188208028
+    ],
+    "knee_angle_last10_median_deg": [
+      112.00925049380258,
+      108.59284797558297
+    ],
+    "screened_spans_index0": [
+      [
+        0,
+        103
+      ],
+      [
+        112,
+        138
+      ],
+      [
+        145,
+        151
+      ],
+      [
+        171,
+        174
+      ],
+      [
+        178,
+        180
+      ]
+    ],
+    "git_blob_sha1": "acf4ccb9c5de4ecce74f32a30d3fbc77ac59a829",
+    "sha256": "d6cd15ebc42578312b508638ac8e8e84c3c64662247c942da7c1e410a80872fd",
+    "min_pairwise_limb_scale_correlation": 0.9999999999288973,
+    "max_minus_min_limb_scale_percent_of_min": 24.949723066905705,
+    "max_normalized_limb_spread": 2.478916906523132e-06
+  }
+]

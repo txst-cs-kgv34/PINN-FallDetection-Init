@@ -1,0 +1,407 @@
+[
+  {
+    "trial": "S06A08T01",
+    "segment": "left_thigh",
+    "median_m": 0.398578615502176,
+    "min_m": 0.31771425519068264,
+    "max_m": 0.418785199658338,
+    "cv_percent": 6.723799325552638,
+    "p95_minus_p05_over_median_percent": 19.86314233836095
+  },
+  {
+    "trial": "S06A08T01",
+    "segment": "right_thigh",
+    "median_m": 0.398149649594681,
+    "min_m": 0.3173724224709832,
+    "max_m": 0.4183344595288299,
+    "cv_percent": 6.723797634491413,
+    "p95_minus_p05_over_median_percent": 19.86308676433617
+  },
+  {
+    "trial": "S06A08T01",
+    "segment": "left_shank",
+    "median_m": 0.3809181623860687,
+    "min_m": 0.3036366394145609,
+    "max_m": 0.400229375598816,
+    "cv_percent": 6.723804385050703,
+    "p95_minus_p05_over_median_percent": 19.86316729543334
+  },
+  {
+    "trial": "S06A08T01",
+    "segment": "right_shank",
+    "median_m": 0.3849252628679477,
+    "min_m": 0.30683084592430904,
+    "max_m": 0.40443968050394125,
+    "cv_percent": 6.723802667224315,
+    "p95_minus_p05_over_median_percent": 19.863102640335384
+  },
+  {
+    "trial": "S06A08T01",
+    "segment": "left_upper_arm",
+    "median_m": 0.2751298767939111,
+    "min_m": 0.21931103766207674,
+    "max_m": 0.28907791103219593,
+    "cv_percent": 6.723800856768884,
+    "p95_minus_p05_over_median_percent": 19.863172564212515
+  },
+  {
+    "trial": "S06A08T01",
+    "segment": "right_upper_arm",
+    "median_m": 0.2803349276381084,
+    "min_m": 0.22345995124296042,
+    "max_m": 0.29454710118289174,
+    "cv_percent": 6.723802262284043,
+    "p95_minus_p05_over_median_percent": 19.86312473826037
+  },
+  {
+    "trial": "S06A08T01",
+    "segment": "left_forearm",
+    "median_m": 0.2309188299050511,
+    "min_m": 0.18406933415480173,
+    "max_m": 0.24262571720575393,
+    "cv_percent": 6.723799442680707,
+    "p95_minus_p05_over_median_percent": 19.863021215599073
+  },
+  {
+    "trial": "S06A08T01",
+    "segment": "right_forearm",
+    "median_m": 0.23384186201123924,
+    "min_m": 0.18639965907738748,
+    "max_m": 0.2456969616015238,
+    "cv_percent": 6.723805015268091,
+    "p95_minus_p05_over_median_percent": 19.863167346201653
+  },
+  {
+    "trial": "S06A08T01",
+    "segment": "pelvis_chest",
+    "median_m": 0.3194989065064937,
+    "min_m": 0.2533444861748819,
+    "max_m": 0.3357771163372885,
+    "cv_percent": 6.985308453422344,
+    "p95_minus_p05_over_median_percent": 20.31800750033397
+  },
+  {
+    "trial": "S06A08T02",
+    "segment": "left_thigh",
+    "median_m": 0.38236979254787956,
+    "min_m": 0.3136314713327297,
+    "max_m": 0.4102811641908444,
+    "cv_percent": 7.555061396588963,
+    "p95_minus_p05_over_median_percent": 20.123995666428947
+  },
+  {
+    "trial": "S06A08T02",
+    "segment": "right_thigh",
+    "median_m": 0.3819582487505178,
+    "min_m": 0.3132940310294112,
+    "max_m": 0.4098392881251565,
+    "cv_percent": 7.5550648339797375,
+    "p95_minus_p05_over_median_percent": 20.1239188678457
+  },
+  {
+    "trial": "S06A08T02",
+    "segment": "left_shank",
+    "median_m": 0.3654274101609588,
+    "min_m": 0.29973540997658654,
+    "max_m": 0.3921018302635138,
+    "cv_percent": 7.555059950081355,
+    "p95_minus_p05_over_median_percent": 20.123922452330586
+  },
+  {
+    "trial": "S06A08T02",
+    "segment": "right_shank",
+    "median_m": 0.36927131965277615,
+    "min_m": 0.30288819031519876,
+    "max_m": 0.39622636376809317,
+    "cv_percent": 7.555066633505209,
+    "p95_minus_p05_over_median_percent": 20.123993110230916
+  },
+  {
+    "trial": "S06A08T02",
+    "segment": "left_upper_arm",
+    "median_m": 0.26394129787204235,
+    "min_m": 0.21649304824111554,
+    "max_m": 0.28320773398167076,
+    "cv_percent": 7.555064476753668,
+    "p95_minus_p05_over_median_percent": 20.123922575311283
+  },
+  {
+    "trial": "S06A08T02",
+    "segment": "right_upper_arm",
+    "median_m": 0.26893476571551295,
+    "min_m": 0.2205884821876102,
+    "max_m": 0.2885655090446588,
+    "cv_percent": 7.555066321859905,
+    "p95_minus_p05_over_median_percent": 20.123933093785386
+  },
+  {
+    "trial": "S06A08T02",
+    "segment": "left_forearm",
+    "median_m": 0.22152824156598855,
+    "min_m": 0.18170439109632439,
+    "max_m": 0.23769845777337195,
+    "cv_percent": 7.555065190247749,
+    "p95_minus_p05_over_median_percent": 20.12392490076095
+  },
+  {
+    "trial": "S06A08T02",
+    "segment": "right_forearm",
+    "median_m": 0.22433237498619518,
+    "min_m": 0.18400446774487056,
+    "max_m": 0.24070743195321012,
+    "cv_percent": 7.555062749510237,
+    "p95_minus_p05_over_median_percent": 20.123941335233653
+  },
+  {
+    "trial": "S06A08T02",
+    "segment": "pelvis_chest",
+    "median_m": 0.3012113997364005,
+    "min_m": 0.25147282503071,
+    "max_m": 0.3282060590007813,
+    "cv_percent": 7.670647706065072,
+    "p95_minus_p05_over_median_percent": 20.310623730920916
+  },
+  {
+    "trial": "S06A08T03",
+    "segment": "left_thigh",
+    "median_m": 0.3715159177262756,
+    "min_m": 0.32348260654614963,
+    "max_m": 0.4043637211378665,
+    "cv_percent": 5.238400725085207,
+    "p95_minus_p05_over_median_percent": 16.018306152643163
+  },
+  {
+    "trial": "S06A08T03",
+    "segment": "right_thigh",
+    "median_m": 0.3711149928594846,
+    "min_m": 0.32313443871999736,
+    "max_m": 0.4039284942218481,
+    "cv_percent": 5.23840089361855,
+    "p95_minus_p05_over_median_percent": 16.01843041967116
+  },
+  {
+    "trial": "S06A08T03",
+    "segment": "left_shank",
+    "median_m": 0.3550539531659545,
+    "min_m": 0.30914961175945926,
+    "max_m": 0.3864470190012014,
+    "cv_percent": 5.238405123091832,
+    "p95_minus_p05_over_median_percent": 16.018377449302466
+  },
+  {
+    "trial": "S06A08T03",
+    "segment": "right_shank",
+    "median_m": 0.3587889425052338,
+    "min_m": 0.31240187055461077,
+    "max_m": 0.3905121044733873,
+    "cv_percent": 5.238404491567882,
+    "p95_minus_p05_over_median_percent": 16.018373826170507
+  },
+  {
+    "trial": "S06A08T03",
+    "segment": "left_upper_arm",
+    "median_m": 0.2564486657653605,
+    "min_m": 0.22329285920366376,
+    "max_m": 0.27912326332174564,
+    "cv_percent": 5.2384016034214005,
+    "p95_minus_p05_over_median_percent": 16.018336477703564
+  },
+  {
+    "trial": "S06A08T03",
+    "segment": "right_upper_arm",
+    "median_m": 0.26130034892570586,
+    "min_m": 0.22751709390705224,
+    "max_m": 0.2844038952937317,
+    "cv_percent": 5.2384011802133,
+    "p95_minus_p05_over_median_percent": 16.018358714783723
+  },
+  {
+    "trial": "S06A08T03",
+    "segment": "left_forearm",
+    "median_m": 0.2152397669154401,
+    "min_m": 0.18741151105498133,
+    "max_m": 0.23427057648914568,
+    "cv_percent": 5.23839966245698,
+    "p95_minus_p05_over_median_percent": 16.018415064455848
+  },
+  {
+    "trial": "S06A08T03",
+    "segment": "right_forearm",
+    "median_m": 0.21796405349907808,
+    "min_m": 0.189783856947162,
+    "max_m": 0.2372361177043581,
+    "cv_percent": 5.2384055634200575,
+    "p95_minus_p05_over_median_percent": 16.018487582775297
+  },
+  {
+    "trial": "S06A08T03",
+    "segment": "pelvis_chest",
+    "median_m": 0.29694687651453033,
+    "min_m": 0.2592925948407896,
+    "max_m": 0.3239876131030415,
+    "cv_percent": 5.500152792978111,
+    "p95_minus_p05_over_median_percent": 17.195319711906897
+  },
+  {
+    "trial": "S06A08T04",
+    "segment": "left_thigh",
+    "median_m": 0.37751641183522133,
+    "min_m": 0.3063659088167794,
+    "max_m": 0.4389883537996272,
+    "cv_percent": 6.178484454074372,
+    "p95_minus_p05_over_median_percent": 18.40299650754442
+  },
+  {
+    "trial": "S06A08T04",
+    "segment": "right_thigh",
+    "median_m": 0.37711018267416463,
+    "min_m": 0.3060359846611426,
+    "max_m": 0.43851607728297576,
+    "cv_percent": 6.178481757626633,
+    "p95_minus_p05_over_median_percent": 18.402936925925008
+  },
+  {
+    "trial": "S06A08T04",
+    "segment": "left_shank",
+    "median_m": 0.3607891895508082,
+    "min_m": 0.29279056950978904,
+    "max_m": 0.4195372522138795,
+    "cv_percent": 6.178486244781986,
+    "p95_minus_p05_over_median_percent": 18.40302074852039
+  },
+  {
+    "trial": "S06A08T04",
+    "segment": "right_shank",
+    "median_m": 0.3645843106928959,
+    "min_m": 0.29587091909072577,
+    "max_m": 0.4239511289195623,
+    "cv_percent": 6.1784873562417895,
+    "p95_minus_p05_over_median_percent": 18.402984424021255
+  },
+  {
+    "trial": "S06A08T04",
+    "segment": "left_upper_arm",
+    "median_m": 0.2605910648087428,
+    "min_m": 0.21147703853823824,
+    "max_m": 0.3030238287672416,
+    "cv_percent": 6.178487770808646,
+    "p95_minus_p05_over_median_percent": 18.403005292990937
+  },
+  {
+    "trial": "S06A08T04",
+    "segment": "right_upper_arm",
+    "median_m": 0.26552106427682987,
+    "min_m": 0.21547813903948532,
+    "max_m": 0.3087564918904561,
+    "cv_percent": 6.178483063194704,
+    "p95_minus_p05_over_median_percent": 18.40297298318374
+  },
+  {
+    "trial": "S06A08T04",
+    "segment": "left_forearm",
+    "median_m": 0.21871629967110362,
+    "min_m": 0.17749455030685724,
+    "max_m": 0.2543305202665123,
+    "cv_percent": 6.1784952896122345,
+    "p95_minus_p05_over_median_percent": 18.403019629810373
+  },
+  {
+    "trial": "S06A08T04",
+    "segment": "right_forearm",
+    "median_m": 0.221484988156909,
+    "min_m": 0.1797414978132843,
+    "max_m": 0.257549894603876,
+    "cv_percent": 6.178486283937825,
+    "p95_minus_p05_over_median_percent": 18.403073756188945
+  },
+  {
+    "trial": "S06A08T04",
+    "segment": "pelvis_chest",
+    "median_m": 0.3018904268152064,
+    "min_m": 0.2456032574392874,
+    "max_m": 0.33973822941898285,
+    "cv_percent": 6.253784401330122,
+    "p95_minus_p05_over_median_percent": 18.859113310532965
+  },
+  {
+    "trial": "S06A08T05",
+    "segment": "left_thigh",
+    "median_m": 0.3986576797711693,
+    "min_m": 0.3307872711906106,
+    "max_m": 0.413317269821559,
+    "cv_percent": 4.157657457798317,
+    "p95_minus_p05_over_median_percent": 13.349959749933044
+  },
+  {
+    "trial": "S06A08T05",
+    "segment": "right_thigh",
+    "median_m": 0.39822864115818574,
+    "min_m": 0.33043096254290616,
+    "max_m": 0.41287256328451083,
+    "cv_percent": 4.157659092661232,
+    "p95_minus_p05_over_median_percent": 13.349996461345945
+  },
+  {
+    "trial": "S06A08T05",
+    "segment": "left_shank",
+    "median_m": 0.3809936709201125,
+    "min_m": 0.3161302092772081,
+    "max_m": 0.3950038266776197,
+    "cv_percent": 4.157658812343079,
+    "p95_minus_p05_over_median_percent": 13.349954851394697
+  },
+  {
+    "trial": "S06A08T05",
+    "segment": "right_shank",
+    "median_m": 0.3850015695141191,
+    "min_m": 0.3194557316627769,
+    "max_m": 0.3991591411302281,
+    "cv_percent": 4.15765897485208,
+    "p95_minus_p05_over_median_percent": 13.349979475178086
+  },
+  {
+    "trial": "S06A08T05",
+    "segment": "left_upper_arm",
+    "median_m": 0.2751843885536301,
+    "min_m": 0.22833486474397516,
+    "max_m": 0.2853037464271578,
+    "cv_percent": 4.157656549437412,
+    "p95_minus_p05_over_median_percent": 13.349944441786015
+  },
+  {
+    "trial": "S06A08T05",
+    "segment": "right_upper_arm",
+    "median_m": 0.28039066869081236,
+    "min_m": 0.23265459438031263,
+    "max_m": 0.29070116959788206,
+    "cv_percent": 4.157660645970345,
+    "p95_minus_p05_over_median_percent": 13.349943572131519
+  },
+  {
+    "trial": "S06A08T05",
+    "segment": "left_forearm",
+    "median_m": 0.2309646816843986,
+    "min_m": 0.19164335892628495,
+    "max_m": 0.23945786689267162,
+    "cv_percent": 4.157662718478365,
+    "p95_minus_p05_over_median_percent": 13.34997418150588
+  },
+  {
+    "trial": "S06A08T05",
+    "segment": "right_forearm",
+    "median_m": 0.23388837535672286,
+    "min_m": 0.19406938423643197,
+    "max_m": 0.24248912757189975,
+    "cv_percent": 4.15766113978009,
+    "p95_minus_p05_over_median_percent": 13.349942067056121
+  },
+  {
+    "trial": "S06A08T05",
+    "segment": "pelvis_chest",
+    "median_m": 0.319506689637452,
+    "min_m": 0.2609742163612593,
+    "max_m": 0.3310976710682587,
+    "cv_percent": 4.447960528533216,
+    "p95_minus_p05_over_median_percent": 14.391105237883435
+  }
+]

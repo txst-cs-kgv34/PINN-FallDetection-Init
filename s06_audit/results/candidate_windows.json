@@ -1,0 +1,32 @@
+[
+  {
+    "trial": "S06A08T05",
+    "from_index0": 0,
+    "to_index0": 45,
+    "label": "Early walking candidate",
+    "first_to_last_s": 1.5,
+    "max_lower_trunk_step_m": 0.14011407794185962,
+    "max_pelvis_step_m": 0.04712327005130275,
+    "limb_length_cv_percent_max": 0.874137130549979
+  },
+  {
+    "trial": "S06A08T05",
+    "from_index0": 0,
+    "to_index0": 103,
+    "label": "Longer candidate containing direction change",
+    "first_to_last_s": 3.433333333333333,
+    "max_lower_trunk_step_m": 0.14156256221409264,
+    "max_pelvis_step_m": 0.04712327005130275,
+    "limb_length_cv_percent_max": 0.8475576531636244
+  },
+  {
+    "trial": "S06A08T01",
+    "from_index0": 122,
+    "to_index0": 216,
+    "label": "Secondary reconstruction candidate",
+    "first_to_last_s": 3.1333333333333333,
+    "max_lower_trunk_step_m": 0.16898451773579584,
+    "max_pelvis_step_m": 0.06699242854567414,
+    "limb_length_cv_percent_max": 1.1242413532930622
+  }
+]
