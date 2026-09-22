@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Skeleton motion viewer</title>
+<link rel="stylesheet" href="style.css">
+<header><p class="eyebrow">PINN Fall Detection · Data inspection</p><h1>Skeleton motion viewer</h1><p>Open a 32-joint CSV and inspect the recorded motion. Files stay in your browser.</p></header>
+<main>
+<section class="toolbar" aria-label="Data controls">
+  <label class="file">Open CSV files <input id="files" type="file" accept=".csv,text/csv" multiple></label>
+  <label>Trial <select id="trial" disabled><option>No file loaded</option></select></label>
+  <label>Input units <select id="units"><option value="mm">Millimeters</option><option value="m">Meters</option></select></label>
+  <label>Sampling rate (FPS) <input id="fps" type="number" value="30" min="0.1" max="1000" step="0.1"></label>
+</section>
+<p id="error" role="alert"></p><p id="metadata" aria-live="polite">Expected: headerless CSV, one frame per row, 96 numeric columns (32 × xyz).</p>
+<section class="stage"><canvas id="canvas" aria-label="Skeleton projection. Drag to rotate the 3D view and scroll to zoom."></canvas><div id="empty">Choose a skeleton CSV to begin</div></section>
+<section class="toolbar" aria-label="View controls">
+  <label>View <select id="view"><option value="3d">3D orbit</option><option value="xy">Camera X / −Y</option><option value="yz">Camera Z / −Y</option><option value="xz">Camera X / Z</option></select></label>
+  <label><input id="follow" type="checkbox"> Center on pelvis</label>
+  <label><input id="labels" type="checkbox"> Joint indices</label>
+  <label><input id="trail" type="checkbox" checked> Pelvis trail</label>
+  <button id="reset">Reset view</button><button id="snapshot" disabled>Save PNG</button>
+</section>
+<section class="transport" aria-label="Playback controls">
+  <div class="toolbar"><button id="prev" disabled aria-label="Previous frame">← Frame</button><button id="play" disabled>Play</button><button id="next" disabled aria-label="Next frame">Frame →</button>
+    <label>Speed <select id="speed"><option value="0.25">0.25×</option><option value="0.5">0.5×</option><option value="1" selected>1×</option><option value="2">2×</option></select></label>
+    <label><input id="loop" type="checkbox" checked> Loop</label>
+    <label>Frame index <input id="frame" type="number" value="0" min="0" step="1" disabled></label>
+  </div>
+  <input id="scrubber" type="range" min="0" max="0" value="0" step="1" aria-label="Frame timeline" disabled>
+  <p id="position">No frame loaded</p><p id="jump"></p>
+</section>
+<p class="legend"><span class="left">● Anatomical left</span> <span class="right">● Anatomical right</span> <span>● Trunk / face</span></p>
+<details><summary>Format, controls and interpretation</summary><p>Use the standard Azure Kinect order: pelvis is joint 0, left hip/knee/ankle/foot are 18–21, and right hip/knee/ankle/foot are 22–25. CSV headers, frame-number columns, missing cells and nonfinite values are rejected with a line number. A UTF-8 BOM and trailing blank lines are allowed.</p><p>Drag to orbit in 3D, scroll to zoom, or choose a fixed projection. Arrow keys step frames and Space toggles playback when focus is outside a form control. The scene uses equal spatial scale on all axes. Centering on the pelvis removes translation for display only; it also hides the trail.</p><p>Time is nominal: frame index ÷ FPS. Playback uses real elapsed time and may skip displayed frames on a slow computer; every frame remains accessible with the slider. These coordinates are raw observations. Camera −Y is a display direction, not a calibrated gravity axis. No ground plane, contact, CoM, forces or fall labels are inferred.</p><p>Millimeters and 30 FPS are defaults for SmartFallMM, not verified metadata. Confirm the export conventions before physical interpretation. The adjacent-frame displacement is a diagnostic, not an error or fall classifier.</p></details>
+</main><footer>SmartFallMM data: SmartFall Group, Texas State University. No uploads, external scripts or network dependencies.</footer>
+<script src="skeleton.js"></script><script src="viewer.js"></script>
+</html>
