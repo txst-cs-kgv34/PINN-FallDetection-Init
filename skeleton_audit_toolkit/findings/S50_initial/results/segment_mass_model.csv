@@ -1,0 +1,15 @@
+name,mass_fraction,a,b,fraction,mapping,mass_kg
+head,0.0694,head,head,0.0,SDK HEAD point proxy; no vertex/neck anatomical head segment,5.194086228870001
+trunk,0.4346,neck,"hip_left,hip_right",0.5138,"NECK to midpoint(HIP_LEFT,HIP_RIGHT); NECK approximates proximal trunk landmark",32.52665526033
+upper_arm_left,0.0271,shoulder_left,elbow_left,0.5772,SDK joint centers approximate anatomical endpoints,2.028238282455
+forearm_left,0.0162,elbow_left,wrist_left,0.4574,SDK joint centers approximate anatomical endpoints,1.2124524050099998
+thigh_left,0.1416,hip_left,knee_left,0.4095,SDK joint centers approximate anatomical endpoints,10.597732132680001
+shank_left,0.0433,knee_left,ankle_left,0.4395,SDK joint centers approximate anatomical endpoints,3.240690687465
+hand_left,0.0061,hand_left,hand_left,0.0,"SDK HAND point proxy, not published wrist-to-finger CoM fraction",0.45654072040500004
+foot_left,0.0137,ankle_left,foot_left,0.5,ANKLE/FOOT midpoint proxy; heel and toe landmarks unavailable,1.0253455523850001
+upper_arm_right,0.0271,shoulder_right,elbow_right,0.5772,SDK joint centers approximate anatomical endpoints,2.028238282455
+forearm_right,0.0162,elbow_right,wrist_right,0.4574,SDK joint centers approximate anatomical endpoints,1.2124524050099998
+thigh_right,0.1416,hip_right,knee_right,0.4095,SDK joint centers approximate anatomical endpoints,10.597732132680001
+shank_right,0.0433,knee_right,ankle_right,0.4395,SDK joint centers approximate anatomical endpoints,3.240690687465
+hand_right,0.0061,hand_right,hand_right,0.0,"SDK HAND point proxy, not published wrist-to-finger CoM fraction",0.45654072040500004
+foot_right,0.0137,ankle_right,foot_right,0.5,ANKLE/FOOT midpoint proxy; heel and toe landmarks unavailable,1.0253455523850001

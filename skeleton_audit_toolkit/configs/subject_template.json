@@ -1,0 +1,24 @@
+{
+  "subject_id": "SXX",
+  "sex": "male",
+  "mass_lb": null,
+  "height_in": null,
+  "fps": 30,
+  "coordinate_units": "mm",
+  "units_status": "Provisional: Azure Kinect SDK convention and numerical scale; CSV has no header.",
+  "joint_order_status": "Provisional standard Azure Kinect 32-joint XYZ order.",
+  "fps_status": "Camera rate supplied by user; original timestamps and dropped-frame information absent.",
+  "ground_plane": null,
+  "gravity_direction_camera": null,
+  "force_data": false,
+  "perturbation_data": false,
+  "recovery_trials": false,
+  "activities": {},
+  "screening": {
+    "joint_step_m": 0.2,
+    "frame_scale_change_fraction": 0.03,
+    "short_clip_seconds": 1.0,
+    "note": "Exploratory review flags, not physiological limits, automatic exclusions, or fall labels."
+  },
+  "expected_trials": {}
+}

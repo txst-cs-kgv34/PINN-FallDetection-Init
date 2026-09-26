@@ -1,0 +1,13 @@
+[
+  {
+    "activity": "A08",
+    "description": "Timed Up and Go",
+    "expected": 5,
+    "nonempty": 5,
+    "unavailable_trials": [],
+    "frames": 1011,
+    "min_span_s": 5.333333333333333,
+    "max_span_s": 8.366666666666667,
+    "max_scale_range_pct": 43.289069788751156
+  }
+]

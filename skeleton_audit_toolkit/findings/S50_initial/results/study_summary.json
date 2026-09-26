@@ -1,0 +1,100 @@
+{
+  "subject": {
+    "subject_id": "S50",
+    "sex": "male",
+    "mass_lb": 165,
+    "height_in": 67,
+    "fps": 30,
+    "coordinate_units": "mm",
+    "units_status": "Provisional: Azure Kinect SDK convention and numerical scale; CSV has no header.",
+    "joint_order_status": "Provisional standard Azure Kinect 32-joint XYZ order.",
+    "fps_status": "Camera rate supplied by user; original timestamps and dropped-frame information absent.",
+    "ground_plane": null,
+    "gravity_direction_camera": null,
+    "force_data": false,
+    "perturbation_data": false,
+    "recovery_trials": false,
+    "activities": {
+      "A10": "Backfall",
+      "A11": "Frontfall",
+      "A12": "Leftfall",
+      "A13": "Rightfall",
+      "A14": "Rotatefall (turn and fall)"
+    },
+    "screening": {
+      "joint_step_m": 0.2,
+      "frame_scale_change_fraction": 0.03,
+      "short_clip_seconds": 1.0,
+      "note": "Exploratory review flags, not physiological limits, automatic exclusions, or fall labels."
+    },
+    "expected_trials": {
+      "A10": [
+        "T01",
+        "T02",
+        "T03",
+        "T04",
+        "T05"
+      ],
+      "A11": [
+        "T01",
+        "T02",
+        "T03",
+        "T04",
+        "T05"
+      ],
+      "A12": [
+        "T01",
+        "T02",
+        "T03",
+        "T04",
+        "T05"
+      ],
+      "A13": [
+        "T01",
+        "T02",
+        "T03",
+        "T04",
+        "T05"
+      ],
+      "A14": [
+        "T01",
+        "T02",
+        "T03",
+        "T04",
+        "T05"
+      ]
+    }
+  },
+  "mass_kg": 74.84274105,
+  "height_m": 1.7018,
+  "archive_sha256": "6d0661848f6a3a62cde1814cf8f20d1229b96c68e38f0f32078a5ff03eecfa7a",
+  "expected_files": 25,
+  "nonempty_files": 19,
+  "empty_files": 6,
+  "invalid_files": 0,
+  "missing_files": 0,
+  "total_frames": 895,
+  "first_to_last_span_min_s": 0.3333333333333333,
+  "first_to_last_span_max_s": 3.033333333333333,
+  "clips_under_one_second": 7,
+  "clips_start_angle_over_60deg": 18,
+  "clips_with_review_flags": 17,
+  "total_review_flagged_destination_frames": 136,
+  "global_limb_scale_range_pct_min": 2.353976299785243,
+  "global_limb_scale_range_pct_max": 39.9686555668163,
+  "global_max_joint_step_m": 1.1689306672536954,
+  "global_min_limb_correlation": 0.9999999955763778,
+  "nonfinite_values": 0,
+  "duplicate_rows_within": 6,
+  "cross_trial_duplicate_pairs": [],
+  "equal_joint_centroid_difference_median_m": 0.15242745704076432,
+  "anatomical_com_status": "Approximate segment-mass proxy only; landmark and tracking errors uncalibrated.",
+  "floor_height_status": "Unavailable. Camera axes and displacement proxies are exported instead.",
+  "training_status": "No PINN trained, no synthetic falls generated. All files inspected for quality only.",
+  "sources": {
+    "joints": "https://learn.microsoft.com/en-us/previous-versions/azure/kinect-dk/body-joints",
+    "axes": "https://learn.microsoft.com/en-us/previous-versions/azure/kinect-dk/coordinate-systems",
+    "parameters": "https://www.has-motion.com/wiki/doku.php?id=visual3d:documentation:definitions:adjusted_zatsiorsky-seluyanov_s_segment_inertia_parameters",
+    "paper": "https://doi.org/10.1016/0021-9290(95)00178-6"
+  }
+}

@@ -1,0 +1,37 @@
+[
+  {
+    "trial": "S06A08T01",
+    "trunk_shoulder_midpoint": 0.020068157314725662,
+    "head_neck_midpoint": 0.0029651688795754366,
+    "foot_point": 0.0025489592176376878,
+    "shank_fraction_0p4459": 0.00022271149550484283
+  },
+  {
+    "trial": "S06A08T02",
+    "trunk_shoulder_midpoint": 0.01860752515210629,
+    "head_neck_midpoint": 0.002904966167164123,
+    "foot_point": 0.0024837727108808928,
+    "shank_fraction_0p4459": 0.00021624462117379758
+  },
+  {
+    "trial": "S06A08T03",
+    "trunk_shoulder_midpoint": 0.020158123878055118,
+    "head_neck_midpoint": 0.0028630603562879936,
+    "foot_point": 0.002472035770244306,
+    "shank_fraction_0p4459": 0.0002137054341613257
+  },
+  {
+    "trial": "S06A08T04",
+    "trunk_shoulder_midpoint": 0.020362342130215077,
+    "head_neck_midpoint": 0.003108214891680326,
+    "foot_point": 0.002553007105993148,
+    "shank_fraction_0p4459": 0.0002198059149840109
+  },
+  {
+    "trial": "S06A08T05",
+    "trunk_shoulder_midpoint": 0.01938504596786944,
+    "head_neck_midpoint": 0.002926457801343412,
+    "foot_point": 0.00248092345841475,
+    "shank_fraction_0p4459": 0.00021641746801620752
+  }
+]
