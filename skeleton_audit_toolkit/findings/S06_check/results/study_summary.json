@@ -1,0 +1,68 @@
+{
+  "subject": {
+    "subject_id": "S06",
+    "sex": "male",
+    "mass_lb": 170,
+    "height_in": 70,
+    "fps": 30,
+    "coordinate_units": "mm",
+    "units_status": "Provisional: Azure Kinect SDK convention and numerical scale; CSV has no header.",
+    "joint_order_status": "Provisional standard Azure Kinect 32-joint XYZ order.",
+    "fps_status": "Camera rate supplied by user; original timestamps and dropped-frame information absent.",
+    "ground_plane": null,
+    "gravity_direction_camera": null,
+    "force_data": false,
+    "perturbation_data": false,
+    "recovery_trials": false,
+    "activities": {
+      "A08": "Timed Up and Go"
+    },
+    "screening": {
+      "joint_step_m": 0.2,
+      "frame_scale_change_fraction": 0.03,
+      "short_clip_seconds": 1.0,
+      "note": "Exploratory review flags, not physiological limits, automatic exclusions, or fall labels."
+    },
+    "expected_trials": {
+      "A08": [
+        "T01",
+        "T02",
+        "T03",
+        "T04",
+        "T05"
+      ]
+    }
+  },
+  "mass_kg": 77.1107029,
+  "height_m": 1.778,
+  "archive_sha256": null,
+  "expected_files": 5,
+  "nonempty_files": 5,
+  "empty_files": 0,
+  "invalid_files": 0,
+  "missing_files": 0,
+  "total_frames": 1011,
+  "first_to_last_span_min_s": 5.333333333333333,
+  "first_to_last_span_max_s": 8.366666666666667,
+  "clips_under_one_second": 0,
+  "clips_start_angle_over_60deg": 0,
+  "clips_with_review_flags": 5,
+  "total_review_flagged_destination_frames": 119,
+  "global_limb_scale_range_pct_min": 24.949723066905772,
+  "global_limb_scale_range_pct_max": 43.289069788751156,
+  "global_max_joint_step_m": 1.035929915188795,
+  "global_min_limb_correlation": 0.9999999998524559,
+  "nonfinite_values": 0,
+  "duplicate_rows_within": 0,
+  "cross_trial_duplicate_pairs": [],
+  "equal_joint_centroid_difference_median_m": 0.0444800555725245,
+  "anatomical_com_status": "Approximate segment-mass proxy only; landmark and tracking errors uncalibrated.",
+  "floor_height_status": "Unavailable. Camera axes and displacement proxies are exported instead.",
+  "training_status": "No PINN trained, no synthetic falls generated. All files inspected for quality only.",
+  "sources": {
+    "joints": "https://learn.microsoft.com/en-us/previous-versions/azure/kinect-dk/body-joints",
+    "axes": "https://learn.microsoft.com/en-us/previous-versions/azure/kinect-dk/coordinate-systems",
+    "parameters": "https://www.has-motion.com/wiki/doku.php?id=visual3d:documentation:definitions:adjusted_zatsiorsky-seluyanov_s_segment_inertia_parameters",
+    "paper": "https://doi.org/10.1016/0021-9290(95)00178-6"
+  }
+}

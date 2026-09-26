@@ -1,0 +1,47 @@
+[
+  {
+    "trial": "S06A08T01",
+    "activity": "A08",
+    "description": "Timed Up and Go",
+    "bytes": 293469,
+    "sha256": "0a06f7252b8d78030ee02b54ff683661e34e7e13ebc114f3efc34fe0359b2df0",
+    "source_member": "S06A08T01.csv",
+    "status": "numeric"
+  },
+  {
+    "trial": "S06A08T02",
+    "activity": "A08",
+    "description": "Timed Up and Go",
+    "bytes": 186892,
+    "sha256": "fbb360eab2aa7613ff1e92b15c447f4a41dd6a2f8d8fbb2d1d84ecdcc6bff908",
+    "source_member": "S06A08T02.csv",
+    "status": "numeric"
+  },
+  {
+    "trial": "S06A08T03",
+    "activity": "A08",
+    "description": "Timed Up and Go",
+    "bytes": 226355,
+    "sha256": "7ea263eb911002ddc809d56da60845f31098c0775cda4bd4229ae88e0099d479",
+    "source_member": "S06A08T03.csv",
+    "status": "numeric"
+  },
+  {
+    "trial": "S06A08T04",
+    "activity": "A08",
+    "description": "Timed Up and Go",
+    "bytes": 243925,
+    "sha256": "ee58489b27df44cc9502a4f95f387c38c99e1d9af069c14636b38bebd758d07c",
+    "source_member": "S06A08T04.csv",
+    "status": "numeric"
+  },
+  {
+    "trial": "S06A08T05",
+    "activity": "A08",
+    "description": "Timed Up and Go",
+    "bytes": 225097,
+    "sha256": "d6cd15ebc42578312b508638ac8e8e84c3c64662247c942da7c1e410a80872fd",
+    "source_member": "S06A08T05.csv",
+    "status": "numeric"
+  }
+]

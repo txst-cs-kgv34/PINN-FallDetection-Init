@@ -1,0 +1,14 @@
+{
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "matplotlib": "3.10.8",
+  "source": "/workspace/scratch/d8d03a60d780/s06_audit/raw",
+  "code_sha256": {
+    "core.py": "db168eff462084e510d4201a04e081e88e767cb94b5855a7ac04ca94f7a87c02",
+    "run_audit.py": "399f71e045aa2a74621f6bd99f2a338f4fa5e5f3608bc6f21ba17f58fcbccba8",
+    "verify.py": "bab3aef41194a3c9dfdb5f59e303cde9c884f744554807fc1c3a5addd6c3cbe6",
+    "build_report.py": "5ae20b61bfa6b7f7d86f582e7c1d8d71df02658d3843b15c8b2cec7edfc341a5",
+    "add_finding.py": "245f17b4653ff0c31a52d0bad2b6eba55c2d55598eff2f726d962a2fd1268b9d",
+    "make_evidence.py": "3fab27b80c4b8e06a3d618a54d9acf3b59b53fabd1a39ed6ad5c6ed3f0991c47"
+  }
+}
