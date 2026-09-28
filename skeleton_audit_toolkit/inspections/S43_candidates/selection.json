@@ -1,0 +1,35 @@
+{
+  "subject_id": "S43",
+  "decision_date_local": "2026-09-27",
+  "excluded_trials": {
+    "S43A10T01": "User-directed exclusion: 180 identical initial rows; only three distinct poses in 182 rows."
+  },
+  "remaining_candidate_trials": [
+    "S43A10T02",
+    "S43A10T03",
+    "S43A10T04",
+    "S43A10T05",
+    "S43A11T01",
+    "S43A11T02",
+    "S43A11T03",
+    "S43A11T04",
+    "S43A11T05",
+    "S43A12T01",
+    "S43A12T02",
+    "S43A12T03",
+    "S43A12T04",
+    "S43A12T05",
+    "S43A13T01",
+    "S43A13T02",
+    "S43A13T03",
+    "S43A13T04",
+    "S43A13T05",
+    "S43A14T01",
+    "S43A14T02",
+    "S43A14T03",
+    "S43A14T04",
+    "S43A14T05"
+  ],
+  "candidate_frames": 5898,
+  "status": "Candidate selection only; other trials are not automatically approved for training. Full audit retains all 25 files."
+}

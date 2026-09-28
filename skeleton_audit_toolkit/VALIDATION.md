@@ -33,3 +33,16 @@ At the female-model implementation stage, no real female subject recording had b
 - All previous male/female calculation and malformed-input regression tests passed.
 
 These tests verify computation and provenance. Repeated coordinates and common scale changes still limit physical interpretation.
+
+## Inspection and code organization update (2026-09-28)
+
+- Split the former core into skeleton_model.py, audit_data.py and plot_evidence.py, retaining compatibility imports. Main scripts now use clear formatting, task functions and main() entry points. Previous audit/model tests passed after the refactor; stored historical code remains unchanged.
+- Verified exact raw-coordinate preservation, nominal 30 FPS, 24 selected trials / 5,898 frames, 800 raw review flags and 1,211 repeated transitions in the inspection export.
+- Verified geometry against independent known-coordinate examples and translation invariance.
+- Checked optional filtering preserves source arrays and row counts, rejects invalid cutoffs, and skips unsupported short clips explicitly. Raw-only inspection was also exercised.
+- Verified candidate/exclusion conflicts fail before creating output.
+- Tested the delivered HTML in headless Chromium: trial selection, raw/filtered/overlay modes, all camera projections, frame-to-time conversion, review-flag jumps, playback end/restart behavior, manual-note export and narrow-screen layout. No page JavaScript errors or HTTP(S) requests occurred. Desktop screenshot was inspected.
+- Browser test source is tests/verify_viewer.cjs. It requires Playwright and its Chromium installation; optional PLAYWRIGHT_CHROMIUM_EXECUTABLE points to an existing compatible binary. This is a development-only check, not a requirement to open the player.
+- Filtering is exploratory: maximum CoM displacement from raw at the delivered 1.5 Hz setting is 0.273900453 m in S43A10T03. This is sensitivity to filtering, not an error estimate.
+
+No floor/contact calibration, physical stability validation or PINN training is claimed by these checks.
