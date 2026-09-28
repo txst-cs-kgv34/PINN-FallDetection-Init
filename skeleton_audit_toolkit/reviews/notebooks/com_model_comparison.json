@@ -1,0 +1,11 @@
+{
+  "notebook_sha256": "b7c76a5722ebce7e7ab702556740df0880f9ca29daaa9810c1608299fc7797d6",
+  "excluded_trials": [
+    "S43A10T01"
+  ],
+  "trials": 24,
+  "frames": 5898,
+  "median_3d_difference_m": 0.004470006282139323,
+  "max_3d_difference_m": 0.005328013809543924,
+  "method": "Notebook female table/formula versus toolkit female model; same float64 unfiltered coordinates in metres. Isolates coefficient/landmark choices; not accuracy validation and not a complete notebook execution."
+}
