@@ -28,9 +28,13 @@ The main scripts follow a clear order: load/validate inputs, calculate, then exp
 | `scripts/foot_geometry.py` | Calculate foot midpoint/separation and CoM relative to the midpoint |
 | `scripts/filter_motion.py` | Apply optional offline filtering with parameter/short-clip guards |
 | `scripts/build_viewer.py` | Build a portable HTML player from prepared inspection data |
+| `scripts/phase_annotations.py` | Validate exported manual phase marks and create ordered trial windows |
+| `scripts/merge_phase_notes.py` | Merge annotation exports under explicit per-trial eligibility decisions |
+| `scripts/build_phase_baseline.py` | Build raw onset-to-apparent-contact trajectories and a leave-one-trial-out reference baseline |
 | `viewer/inspection.html`, `inspection.js`, `inspection.css` | Player layout, interactions and appearance |
 | `scripts/verify.py` | Check audit and male/female CoM regression behavior |
 | `scripts/verify_inspection.py` | Check geometry, filtering, candidate selection and S43 inspection exports |
+| `scripts/verify_phase_baseline.py` | Check phase validation, alignment, outputs and S43 regression counts |
 
 `core.py` remains only as a compatibility import layer for older scripts. New code imports the task-specific modules. No additional CoM model was introduced during this organization change.
 
@@ -64,6 +68,7 @@ python scripts/build_viewer.py \
 
 python scripts/verify.py
 python scripts/verify_inspection.py
+python scripts/verify_phase_baseline.py
 ```
 
 For another subject, use its audit and a selection JSON with `subject_id`, `remaining_candidate_trials`, and `excluded_trials` (a trial-to-reason mapping). Optional collection metadata accompanies the historical audit; it does not silently replace coordinate units, model parameters or sampling rate. Rerun an audit if those computational inputs change.
@@ -86,6 +91,73 @@ CSV names explicitly identify the camera axes. The viewer negates Y only for the
 Filtering is optional and runs independently on joint XYZ coordinates using Butterworth second-order sections with forward-backward filtering. The default order is 6 per pass; a cutoff must be explicitly requested. SciPy settings and padding length are recorded. Short clips that cannot support padding retain their raw view and report `skipped_short_clip`. Filters do not interpolate, delete, deduplicate or retime rows. Raw audit flags and repeated-row indicators remain visible regardless of display mode. Filtered CoM uses the same anatomical proxy model on the filtered coordinates. Smoothing can alter motion and limb geometry and uses future samples; it is not validated for prospective prediction.
 
 Confirmed trimming-only provenance does not remove the observed repeat and common limb-length patterns. They are retained as data-quality observations with an unknown cause, not evidence of unreported preprocessing. The next work is phase inspection and reconstruction sensitivity analysis under the available-data constraints, with any later dynamics/contact assumptions stated explicitly.
+
+## Build a phase-aligned real-trial baseline
+
+The S43 viewer annotations are stored with the derived analysis in
+`analyses/S43_phase_baseline/S43_phase_notes.json`. They contain 80 manual,
+provisional skeleton observations: five ordered phase marks for each of 16
+trials. The validator checks the subject, nominal FPS, candidate list, frame
+bounds, phase completeness and phase order. It does not promote an
+`apparent_contact` mark to measured ground contact.
+
+```bash
+python scripts/build_phase_baseline.py \
+  --run findings/S43_audit \
+  --config configs/S43.json \
+  --selection configs/S43_modeling_selection.json \
+  --phase-notes analyses/S43_phase_baseline/S43_phase_notes.json \
+  --output analyses/S43_phase_baseline_new
+```
+
+The script uses raw coordinates converted to metres and the documented female
+segment-mass CoM proxy. It extracts each inclusive `fall_onset` to
+`apparent_contact` window, expresses CoM as displacement from the onset frame,
+and interpolates the window to 101 normalized phase points. Normalization makes
+trajectory shapes comparable but removes absolute duration; the original
+nominal durations are retained in `phase_windows.csv`.
+
+For each trial, the leave-one-out reference is the mean trajectory of the other
+annotated trials with the same activity code. This is a simple real-data
+benchmark, not a trained model and not synthetic data. `trial_priority.csv`
+ranks annotated trials only by transparent screening burden inside the dynamics
+window: the fraction of existing audit flags plus the fraction of exact repeated
+transitions. A lower rank is a practical review priority, not proof of physical
+validity. Keep whole trials together in every later train/validation/test split.
+
+### A13 completion review
+
+The follow-up A13 export confirms that S43A13T04 is truncated: its final marked
+descent is also the recording's final frame, and no apparent-contact or post-fall
+mark exists. It is excluded from onset-to-contact modeling. S43A13T05 contains
+fall onset, descent and apparent-contact marks but no post-fall movement. Because
+the pilot dynamics window ends at apparent contact, T05 is included for that
+window only. These decisions and the user's reasons are stored in
+`configs/S43_phase_eligibility.json`; the excluded T04 marks remain in the merge
+provenance rather than being discarded.
+
+The current combined checkpoint is `analyses/S43_phase_baseline_v2`. It has 17
+eligible annotated trials overall and four A13 onset-to-contact trials. Reproduce
+the merged input and baseline with:
+
+```bash
+python scripts/merge_phase_notes.py \
+  --base analyses/S43_phase_baseline/S43_phase_notes.json \
+  --supplement /path/to/S43_A13_phase_notes.json \
+  --eligibility configs/S43_phase_eligibility.json \
+  --output analysis_inputs/S43_phase_notes_with_A13_eligibility.json
+
+python scripts/build_phase_baseline.py \
+  --run findings/S43_audit \
+  --config configs/S43.json \
+  --selection configs/S43_modeling_selection.json \
+  --phase-notes analysis_inputs/S43_phase_notes_with_A13_eligibility.json \
+  --output analyses/S43_phase_baseline_v2
+```
+
+The four A13 trials support a small four-fold leave-one-trial-out pilot. They do
+not provide a strong independent train/validation/test study: any fixed split
+would leave only two training trials after reserving validation and test trials.
 
 ## Quick start
 

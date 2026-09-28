@@ -1,5 +1,19 @@
 # Validation performed
 
+## Phase-aligned S43 real-trial baseline (2026-09-28)
+
+`python scripts/verify_phase_baseline.py` rebuilds the phase baseline in a
+temporary directory and checks the supplied S43 annotation regression counts:
+84 included marks, 17 dynamics-complete trials, five fall types, 101 normalized
+points per trial, 17 leave-one-out comparisons, exclusion of S43A10T01 and
+incomplete S43A13T04, inclusion of the onset-to-contact-only S43A13T05, zero onset
+displacement and five generated plots. The full audit and inspection regression
+checks were rerun after adding this workflow and also passed.
+
+This test validates annotation handling, phase-window extraction, interpolation
+and table/figure generation. It does not validate manual phase accuracy,
+physical contact, anatomical CoM accuracy or model suitability.
+
 - Reproduced S50: 19 analyzed clips, 6 empty files, 895 frames.
 - Compared 582 shared numeric trial metrics to the previous S50 audit, with relative and absolute tolerance 1e-12; all matched.
 - Used a separate subject configuration and directory input for S06: 5 clips, 1,011 frames, activity A08.
