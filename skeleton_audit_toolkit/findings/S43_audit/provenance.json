@@ -1,0 +1,15 @@
+{
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "matplotlib": "3.10.8",
+  "source": "/workspace/scratch/d8d03a60d780/upload/S43_FallSamples.zip",
+  "code_sha256": {
+    "verify.py": "274b34a5989de9f8a8407a8db61d057ec3ba458aab832ed21770280bff10544b",
+    "core.py": "6710a4431f22a853f4d20988721c9cd3d2d177d8c3c920c083310770df6d8cc6",
+    "build_report.py": "36ace869fa380bd23cd41cfe05248a251a82c9e431958f3570bab25a0981c15f",
+    "run_audit.py": "7655b42bd282d76658e93899fcabe2fe269f87b0e1f0621a971a753f978de5c0",
+    "add_finding.py": "245f17b4653ff0c31a52d0bad2b6eba55c2d55598eff2f726d962a2fd1268b9d",
+    "make_evidence.py": "f687dd6d7eff8b50b275436bf2511e527bdf6a6f63f09bcf92f4bf0ec619e3b8",
+    "temporal_diagnostics.py": "7692722ba83dfa937cdb3432672ac7db7dd44c642893789efabb0750046591c1"
+  }
+}

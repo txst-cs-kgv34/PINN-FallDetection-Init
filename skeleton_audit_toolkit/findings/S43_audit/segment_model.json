@@ -1,0 +1,216 @@
+{
+  "status": "Approximate segment-mass CoM proxy, not validated anatomical CoM",
+  "mass_kg": 58.9670081,
+  "height_m": 1.6256,
+  "source": {
+    "joints": "https://learn.microsoft.com/en-us/previous-versions/azure/kinect-dk/body-joints",
+    "axes": "https://learn.microsoft.com/en-us/previous-versions/azure/kinect-dk/coordinate-systems",
+    "parameters": "https://www.has-motion.com/wiki/doku.php?id=visual3d:documentation:definitions:adjusted_zatsiorsky-seluyanov_s_segment_inertia_parameters",
+    "paper": "https://doi.org/10.1016/0021-9290(95)00178-6"
+  },
+  "segments": [
+    {
+      "name": "head",
+      "mass_fraction": 0.0668066806680668,
+      "a": [
+        26
+      ],
+      "b": [
+        26
+      ],
+      "fraction": 0.0,
+      "mapping": "SDK HEAD point proxy; no vertex/neck anatomical head segment",
+      "reported_mass_fraction": 0.0668,
+      "mass_kg": 3.9393900800880086
+    },
+    {
+      "name": "trunk",
+      "mass_fraction": 0.4257425742574258,
+      "a": [
+        3
+      ],
+      "b": [
+        18,
+        22
+      ],
+      "fraction": 0.4964,
+      "mapping": "NECK to midpoint(HIP_LEFT,HIP_RIGHT); NECK approximates proximal trunk landmark",
+      "reported_mass_fraction": 0.4257,
+      "mass_kg": 25.10476582475248
+    },
+    {
+      "name": "upper_arm_left",
+      "mass_fraction": 0.0255025502550255,
+      "a": [
+        5
+      ],
+      "b": [
+        6
+      ],
+      "fraction": 0.5754,
+      "mapping": "SDK joint centers approximate anatomical endpoints",
+      "reported_mass_fraction": 0.0255,
+      "mass_kg": 1.5038090874587458
+    },
+    {
+      "name": "forearm_left",
+      "mass_fraction": 0.0138013801380138,
+      "a": [
+        6
+      ],
+      "b": [
+        7
+      ],
+      "fraction": 0.4559,
+      "mapping": "SDK joint centers approximate anatomical endpoints",
+      "reported_mass_fraction": 0.0138,
+      "mass_kg": 0.8138260943894389
+    },
+    {
+      "name": "thigh_left",
+      "mass_fraction": 0.1478147814781478,
+      "a": [
+        18
+      ],
+      "b": [
+        19
+      ],
+      "fraction": 0.3612,
+      "mapping": "SDK joint centers approximate anatomical endpoints",
+      "reported_mass_fraction": 0.1478,
+      "mass_kg": 8.716195416721671
+    },
+    {
+      "name": "shank_left",
+      "mass_fraction": 0.0481048104810481,
+      "a": [
+        19
+      ],
+      "b": [
+        20
+      ],
+      "fraction": 0.4352,
+      "mapping": "SDK joint centers approximate anatomical endpoints",
+      "reported_mass_fraction": 0.0481,
+      "mass_kg": 2.8365967492849284
+    },
+    {
+      "name": "hand_left",
+      "mass_fraction": 0.0056005600560056,
+      "a": [
+        8
+      ],
+      "b": [
+        8
+      ],
+      "fraction": 0.0,
+      "mapping": "SDK HAND point proxy, not published wrist-to-finger CoM fraction",
+      "reported_mass_fraction": 0.0056,
+      "mass_kg": 0.3302482701870187
+    },
+    {
+      "name": "foot_left",
+      "mass_fraction": 0.0129012901290129,
+      "a": [
+        20
+      ],
+      "b": [
+        21
+      ],
+      "fraction": 0.5,
+      "mapping": "ANKLE/FOOT midpoint proxy; heel and toe landmarks unavailable",
+      "reported_mass_fraction": 0.0129,
+      "mass_kg": 0.7607504795379537
+    },
+    {
+      "name": "upper_arm_right",
+      "mass_fraction": 0.0255025502550255,
+      "a": [
+        12
+      ],
+      "b": [
+        13
+      ],
+      "fraction": 0.5754,
+      "mapping": "SDK joint centers approximate anatomical endpoints",
+      "reported_mass_fraction": 0.0255,
+      "mass_kg": 1.5038090874587458
+    },
+    {
+      "name": "forearm_right",
+      "mass_fraction": 0.0138013801380138,
+      "a": [
+        13
+      ],
+      "b": [
+        14
+      ],
+      "fraction": 0.4559,
+      "mapping": "SDK joint centers approximate anatomical endpoints",
+      "reported_mass_fraction": 0.0138,
+      "mass_kg": 0.8138260943894389
+    },
+    {
+      "name": "thigh_right",
+      "mass_fraction": 0.1478147814781478,
+      "a": [
+        22
+      ],
+      "b": [
+        23
+      ],
+      "fraction": 0.3612,
+      "mapping": "SDK joint centers approximate anatomical endpoints",
+      "reported_mass_fraction": 0.1478,
+      "mass_kg": 8.716195416721671
+    },
+    {
+      "name": "shank_right",
+      "mass_fraction": 0.0481048104810481,
+      "a": [
+        23
+      ],
+      "b": [
+        24
+      ],
+      "fraction": 0.4352,
+      "mapping": "SDK joint centers approximate anatomical endpoints",
+      "reported_mass_fraction": 0.0481,
+      "mass_kg": 2.8365967492849284
+    },
+    {
+      "name": "hand_right",
+      "mass_fraction": 0.0056005600560056,
+      "a": [
+        15
+      ],
+      "b": [
+        15
+      ],
+      "fraction": 0.0,
+      "mapping": "SDK HAND point proxy, not published wrist-to-finger CoM fraction",
+      "reported_mass_fraction": 0.0056,
+      "mass_kg": 0.3302482701870187
+    },
+    {
+      "name": "foot_right",
+      "mass_fraction": 0.0129012901290129,
+      "a": [
+        24
+      ],
+      "b": [
+        25
+      ],
+      "fraction": 0.5,
+      "mapping": "ANKLE/FOOT midpoint proxy; heel and toe landmarks unavailable",
+      "reported_mass_fraction": 0.0129,
+      "mass_kg": 0.7607504795379537
+    }
+  ],
+  "sex": "female",
+  "model_id": "visual3d_deleva_sdk_proxy_v2_female",
+  "reported_mass_fraction_sum": 0.9999,
+  "mass_normalization": "Female source fractions divided by their sum (0.9999); male fractions unchanged.",
+  "height_use": "Reported stature is retained for diagnostic ratios only. No eye-to-foot or per-frame rescaling.",
+  "parameter_note": "Female shank 0.4352; male-specific shank sensitivity is omitted."
+}
