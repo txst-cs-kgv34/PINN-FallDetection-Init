@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Skeleton inspection</title><style>/* INLINE_STYLE */</style></head>
+<body>
+<header><p class="eyebrow">PINN FALL RESEARCH · RECORDING INSPECTION</p><h1 id="title">Skeleton inspection</h1><p id="context"></p></header>
+<main>
+<section class="controls">
+<label>Trial<select id="trial"></select></label>
+<label>Display<select id="mode"><option value="raw">Raw</option><option value="filtered">Filtered</option><option value="overlay">Raw + filtered</option></select></label>
+<label>Camera projection<select id="view"><option value="xy">X / −Y</option><option value="xz">X / Z</option><option value="yz">Z / −Y</option></select></label>
+<label>Playback speed<select id="speed"><option value="0.25">0.25×</option><option value="0.5">0.5×</option><option value="1" selected>1×</option></select></label>
+</section>
+<section class="transport"><button id="previous" aria-label="Previous frame">← Frame</button><button id="play">Play</button><button id="next" aria-label="Next frame">Frame →</button><button id="nextFlag">Next review flag</button><input type="range" id="frame" min="0" value="0" aria-label="Frame"><output id="time"></output></section>
+<p id="status" role="status"></p>
+<div class="panels"><section class="card"><h2>Skeleton and CoM proxy</h2><canvas id="pose" width="800" height="660"></canvas><p class="legend"><span class="raw">● Raw</span><span class="filtered">● Filtered</span><span class="com">● CoM proxy</span><span class="foot">◆ Foot midpoint</span></p><p>One fixed initial-pelvis origin per trial. Equal spatial scale; dotted foot connection shows landmark geometry, not ground contact.</p></section>
+<section class="card"><h2>Foot separation · camera X/Z</h2><canvas id="separation" width="800" height="275"></canvas><h2>CoM relative to foot midpoint</h2><label class="inline">Coordinate<select id="traceAxis"><option value="0">Camera X</option><option value="1">Camera −Y</option><option value="2">Camera Z</option></select></label><canvas id="relative" width="800" height="275"></canvas><p>Traces are in metres against nominal seconds. Current frame is marked; shaded marks show raw audit flags.</p></section></div>
+<section class="card"><h2>Manual phase notes</h2><p>Record provisional observations from skeleton playback. These are not video-confirmed contacts or automatic event labels. Export notes before closing this page.</p><div class="controls"><label>Phase<select id="phase"><option value="initial_standing">Initial standing</option><option value="fall_onset">Fall onset</option><option value="descent">Descent</option><option value="apparent_contact">Apparent contact</option><option value="post_fall">Post-fall movement</option></select></label><label>Observation<input id="note" placeholder="Optional observation"></label><button id="mark">Mark this frame</button><button id="exportNotes">Export notes JSON</button><button id="clearNotes">Clear notes</button></div><pre id="notes">No phase notes recorded.</pre></section>
+<aside><strong>Interpretation</strong><p id="filterInfo"></p><p>Camera coordinates only. No calibrated floor height, contact-based BoS, forces or instability labels are inferred. Raw repeats and review flags remain visible in every mode; filtering does not repair the original recording.</p></aside>
+</main><script type="application/json" id="data">DATA_PLACEHOLDER</script><script>/* INLINE_SCRIPT */</script>
+</body></html>

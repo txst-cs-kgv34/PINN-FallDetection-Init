@@ -2,6 +2,91 @@
 
 Use this toolkit for a new subject by changing JSON configuration and the input path. It audits recordings, estimates a **segment-mass CoM proxy**, and generates the evidence figures and a findings report. It does not train a PINN or generate synthetic falls.
 
+## Start here: current S43 inspection
+
+The team confirmed on 2026-09-28 that these are original Azure Kinect joint positions with leading/trailing trimming only. No normalization, retargeting, rescaling or padding was reported. All young participants are adults older than 20. Original videos, timestamps, tracking confidence and camera/floor calibration are unavailable. These confirmations are stored in `configs/collection_metadata.json`; earlier audit snapshots retain their historical metadata.
+
+Open **`inspections/S43_candidates/INSPECT.html`** directly in a browser. It is self-contained and works offline without a server or FFmpeg. The included inspection contains 24 trials / 5,898 frames and enforces the S43A10T01 exclusion. It includes a 1.5 Hz filtering comparison following the main shared notebook; this is an exploratory setting, not a selected fall-model preprocessor. Raw is the initial display mode.
+
+Controls provide trial selection, frame stepping/scrubbing, nominal-speed playback, three camera projections, raw/filtered overlays, jumps to original audit flags, and provisional phase-note export. The data remain in the camera frame. The foot connection and midpoint are landmark geometry, not a support polygon or confirmed contact. Phase notes are held only in page memory: export them before closing the page. Save exported JSON alongside your run's research notes; no annotation is treated as ground truth automatically.
+
+## Main files and their tasks
+
+The main scripts follow a clear order: load/validate inputs, calculate, then export. Command-line entry points use `main()`; reusable functions contain the task logic. Historical `findings/*/code/` folders preserve their earlier versions and should not be used for new analyses.
+
+| Main file | Task |
+|---|---|
+| `scripts/run_audit.py` | Run a complete new audit, evidence generation and report |
+| `scripts/audit_data.py` | Read/validate recordings and export data-quality measurements |
+| `scripts/skeleton_model.py` | Define Kinect joints, segment masses, CoM and model sensitivity |
+| `scripts/make_evidence.py` | Regenerate all evidence figures for a saved audit |
+| `scripts/plot_evidence.py` | Draw CoM traces, tracking diagnostics and pose snapshots |
+| `scripts/temporal_diagnostics.py` | Locate exact repeated-pose intervals and shared limb-scale patterns |
+| `scripts/build_report.py` | Assemble generated findings, figures and research notes |
+| `scripts/add_finding.py` | Append a dated observation/evidence/interpretation/question |
+| `scripts/inspect_trials.py` | Apply candidate selection and prepare geometry, filtering comparison and player |
+| `scripts/foot_geometry.py` | Calculate foot midpoint/separation and CoM relative to the midpoint |
+| `scripts/filter_motion.py` | Apply optional offline filtering with parameter/short-clip guards |
+| `scripts/build_viewer.py` | Build a portable HTML player from prepared inspection data |
+| `viewer/inspection.html`, `inspection.js`, `inspection.css` | Player layout, interactions and appearance |
+| `scripts/verify.py` | Check audit and male/female CoM regression behavior |
+| `scripts/verify_inspection.py` | Check geometry, filtering, candidate selection and S43 inspection exports |
+
+`core.py` remains only as a compatibility import layer for older scripts. New code imports the task-specific modules. No additional CoM model was introduced during this organization change.
+
+## Reproduce the inspection
+
+The inspection uses an existing audit and an explicit subject-matched candidate list. It rejects candidates also present in the exclusion list, changed raw-file hashes, absent/invalid trials, and existing output directories.
+
+```bash
+# Optional filtering dependency; the raw-only inspection does not require SciPy.
+python -m pip install -r requirements-inspection.txt
+
+# Raw and filtered comparison (all original frames and flags retained).
+python scripts/inspect_trials.py \
+  --run findings/S43_audit \
+  --selection configs/S43_modeling_selection.json \
+  --metadata configs/collection_metadata.json \
+  --cutoff-hz 1.5 \
+  --output inspections/S43_new_comparison
+
+# Omit --cutoff-hz for raw-only inspection.
+python scripts/inspect_trials.py \
+  --run findings/S43_audit \
+  --selection configs/S43_modeling_selection.json \
+  --metadata configs/collection_metadata.json \
+  --output inspections/S43_new_raw
+
+# Rebuild just the portable player from existing derived data.
+python scripts/build_viewer.py \
+  --data inspections/S43_candidates/inspection_data.json \
+  --output inspections/S43_candidates/INSPECT.html
+
+python scripts/verify.py
+python scripts/verify_inspection.py
+```
+
+For another subject, use its audit and a selection JSON with `subject_id`, `remaining_candidate_trials`, and `excluded_trials` (a trial-to-reason mapping). Optional collection metadata accompanies the historical audit; it does not silently replace coordinate units, model parameters or sampling rate. Rerun an audit if those computational inputs change.
+
+Each inspection stores geometry CSVs, trial summaries, selection, collection confirmations, the exact segment model, source hashes, code/assets and an HTML player. For a reproducible historical player rebuild, run the copied `scripts/build_viewer.py` within that inspection directory so it uses the adjacent frozen `viewer/` assets.
+
+### Geometry definitions
+
+All calculations use metres and keep the original frame order:
+
+- Foot midpoint: `(FOOT_LEFT + FOOT_RIGHT) / 2` in camera XYZ.
+- Foot separation in camera X/Z: Euclidean distance after selecting X and Z.
+- Foot separation in camera X: absolute X-coordinate difference.
+- Relative CoM: `CoM - foot_midpoint` in camera XYZ.
+
+CSV names explicitly identify the camera axes. The viewer negates Y only for the labeled `Camera −Y` display. It uses a fixed initial-pelvis origin and equal spatial scaling for skeleton drawing, preserving translation within each trial. There is no floor estimate, contact classifier, MoS threshold or automatic fall label. Nominal time is frame0/30; original timestamps and trimmed start offsets are unknown.
+
+### Filtering and evidence
+
+Filtering is optional and runs independently on joint XYZ coordinates using Butterworth second-order sections with forward-backward filtering. The default order is 6 per pass; a cutoff must be explicitly requested. SciPy settings and padding length are recorded. Short clips that cannot support padding retain their raw view and report `skipped_short_clip`. Filters do not interpolate, delete, deduplicate or retime rows. Raw audit flags and repeated-row indicators remain visible regardless of display mode. Filtered CoM uses the same anatomical proxy model on the filtered coordinates. Smoothing can alter motion and limb geometry and uses future samples; it is not validated for prospective prediction.
+
+Confirmed trimming-only provenance does not remove the observed repeat and common limb-length patterns. They are retained as data-quality observations with an unknown cause, not evidence of unreported preprocessing. The next work is phase inspection and reconstruction sensitivity analysis under the available-data constraints, with any later dynamics/contact assumptions stated explicitly.
+
 ## Quick start
 
 Python 3.10+ is recommended. From this folder:
@@ -100,11 +185,11 @@ Before PINN fitting, resolve units/order, export preprocessing, event coverage a
 - Camera coordinate convention: https://learn.microsoft.com/en-us/previous-versions/azure/kinect-dk/coordinate-systems
 - Parameter implementation table: https://www.has-motion.com/wiki/doku.php?id=visual3d:documentation:definitions:adjusted_zatsiorsky-seluyanov_s_segment_inertia_parameters
 - de Leva (1996): https://doi.org/10.1016/0021-9290(95)00178-6
-- Subject measurements, FPS and activity descriptions were supplied by the user. Unit and joint-order assumptions remain provisional until confirmed against the export.
+- Subject measurements, FPS and activity descriptions were supplied by the user. S43 unit/order provenance was subsequently confirmed by the user/team; see current collection metadata. Historical snapshots preserve their earlier assumptions.
 
 ## S43 female-subject audit
 
-S43's configuration is `configs/S43.json`: female model, 130 lb (58.9670081 kg), 64 inches (1.6256 m), and nominal 30 FPS under the previously described acquisition protocol. Age was not supplied; confirm that adult anthropometric coefficients apply.
+S43's configuration is `configs/S43.json`: female model, 130 lb (58.9670081 kg), 64 inches (1.6256 m), and nominal 30 FPS under the previously described acquisition protocol. Adult applicability was subsequently confirmed: all young participants are older than 20.
 
 ```bash
 python scripts/run_audit.py --input /path/to/S43_FallSamples.zip --config configs/S43.json --output findings/S43_new_run
@@ -125,4 +210,4 @@ python scripts/build_report.py --run findings/S43_audit
 
 ## Shared notebook review and S43 selection
 
-`reviews/notebooks/REVIEW.md` explains all three shared notebooks, their CoM/BoS formulas, limitations and proposed reuse. The folder includes a reproducible CoM formula comparison on S43. `configs/S43_modeling_selection.json` records the user-directed exclusion of S43A10T01 from future modeling; all raw audit data remain preserved. This is a candidate manifest, not automatic training approval or an audit filter. No notebook BoS feature was integrated without review.
+`reviews/notebooks/REVIEW.md` explains all three shared notebooks, their CoM/BoS formulas, limitations and proposed reuse. The folder includes a reproducible CoM formula comparison on S43. `configs/S43_modeling_selection.json` records the user-directed exclusion of S43A10T01 from future modeling; all raw audit data remain preserved. This is a candidate manifest, not automatic training approval or an audit filter; the inspection runner now enforces it. No notebook BoS feature was integrated without review.

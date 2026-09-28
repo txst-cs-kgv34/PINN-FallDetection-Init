@@ -57,3 +57,9 @@ No synthetic falls, forces, BoS, PINN training or clinical conclusions were prod
 ## User decision — 2026-09-27
 
 Exclude S43A10T01 from future modeling. Raw data and the original 25-file audit remain preserved. The candidate manifest in configs/S43_modeling_selection.json lists 24 remaining trials (5,898 frames); it is not a training approval or a filter applied by the audit runner. Repeats and scale concerns remain in other trials.
+
+## Team confirmation and inspection update — 2026-09-28
+
+The user relayed that the CSVs are original Azure Kinect joint positions, only trimmed at the head/tail for sensor synchronization. No normalization, retargeting, rescaling or padding was reported. All young subjects are adults older than 20. Original videos, timestamps, tracking confidence and camera/floor calibration are unavailable. Prior questions about these items are now answered to that extent; original audit results and historical uncertainty statements above are retained.
+
+The repeated rows and near-common limb scaling remain empirical observations; their cause is unknown. Do not infer rescaling/padding from these findings. The new inspection stage enforces the S43A10T01 exclusion, retains nominal 30 FPS and raw flags, and adds optional filtering and descriptive foot geometry. No physical BoS, forces, PINN training or automatic event annotations are produced. Open inspections/S43_candidates/INSPECT.html from the toolkit root.

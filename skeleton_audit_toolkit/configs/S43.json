@@ -5,8 +5,8 @@
   "height_in": 64,
   "fps": 30,
   "coordinate_units": "mm",
-  "units_status": "Provisional: Azure Kinect SDK convention and numerical scale; CSV has no header.",
-  "joint_order_status": "Provisional standard Azure Kinect 32-joint XYZ order.",
+  "units_status": "Confirmed by user/team: original Azure Kinect joint positions in SDK format.",
+  "joint_order_status": "Confirmed by user/team: original Azure Kinect joint order.",
   "fps_status": "Camera rate supplied by user; original timestamps and dropped-frame information absent.",
   "ground_plane": null,
   "gravity_direction_camera": null,
@@ -63,5 +63,10 @@
       "T05"
     ]
   },
-  "metadata_source": "Subject sex, weight and height supplied 2026-09-26; activity labels and 30 FPS inherited from user-described collection protocol. Age not supplied; adult coefficient model applicability should be confirmed."
+  "metadata_source": "User/team confirmation 2026-09-28; see collection_metadata.json.",
+  "adult_model_applicable": true,
+  "processing_reported": "Leading/trailing trimming only; no normalization, retargeting, rescaling or padding reported.",
+  "timestamps_available": false,
+  "tracking_confidence_available": false,
+  "original_videos_available": false
 }
