@@ -20,8 +20,6 @@ Female; 130 lb = 58.9670081 kg; 5 ft 4 in = 1.6256 m. Female anthropometric sour
 - All 25 initial head-to-mid-ankle directions are within 60 degrees of camera negative Y. This differs from S50 (18/19 beyond 60 degrees) and is consistent with better initial upright coverage under the camera-axis assumption. It is not a calibrated body inclination or proof that every clip contains a complete fall.
 - Inspected A10 snapshots show upright-to-lowered/horizontal sequences in T02–T05, while T01 is nearly constant. Several clips return toward upright by their final snapshots; this alone does not establish a controlled recovery trial or validate the event labels.
 
-
-
 ## Evidence locations
 
 - results/manifest.json and trial_summary.csv: completeness, hashes, per-trial measurements.
@@ -31,21 +29,17 @@ Female; 130 lb = 58.9670081 kg; 5 ft 4 in = 1.6256 m. Female anthropometric sour
 - results/plots/A10_skeleton_snapshots.png: visual examples above.
 - results/plots/real_CoM_comparison.png: camera-axis displacement of female segment CoM proxy, not floor-referenced height.
 
-
-
 ## Comparison with S50
 
-
-| Measure                         | S50         | S43          |
-| ------------------------------- | ----------- | ------------ |
-| Numeric clips / expected        | 19/25       | 25/25        |
-| Empty files                     | 6           | 0            |
-| Frames                          | 895         | 6,080        |
-| Clip span, nominal seconds      | 0.333–3.033 | 5.167–10.033 |
-| Duplicate rows within clips     | 6           | 1,390        |
-| Flagged destination frames      | 136         | 802          |
-| Within-trial common-scale range | 2.35–39.97% | 9.12–80.40%  |
-
+| Measure | S50 | S43 |
+|---|---:|---:|
+| Numeric clips / expected | 19/25 | 25/25 |
+| Empty files | 6 | 0 |
+| Frames | 895 | 6,080 |
+| Clip span, nominal seconds | 0.333–3.033 | 5.167–10.033 |
+| Duplicate rows within clips | 6 | 1,390 |
+| Flagged destination frames | 136 | 802 |
+| Within-trial common-scale range | 2.35–39.97% | 9.12–80.40% |
 
 The larger flag count partly reflects many more frames. Counts alone should not rank tracking quality across subjects.
 
@@ -59,3 +53,7 @@ The larger flag count partly reflects many more frames. Counts alone should not 
 6. After resolving export quality, select complete trials, preserve trial-level evaluation splits, and begin reconstruction before attempting inferred forces or hypothetical perturbations.
 
 No synthetic falls, forces, BoS, PINN training or clinical conclusions were produced in this audit.
+
+## User decision — 2026-09-27
+
+Exclude S43A10T01 from future modeling. Raw data and the original 25-file audit remain preserved. The candidate manifest in configs/S43_modeling_selection.json lists 24 remaining trials (5,898 frames); it is not a training approval or a filter applied by the audit runner. Repeats and scale concerns remain in other trials.

@@ -122,3 +122,7 @@ python scripts/build_report.py --run findings/S43_audit
 `temporal_summary.csv/json` records distinct poses, repeated adjacent transitions, and longest constant-pose runs. `constant_pose_runs.csv/json` contains inclusive zero-based frame ranges. A run of N identical rows spans (N-1)/FPS nominal seconds. Repeat-transition percentages use (frames-1) as denominator; they are not percentages of missing frames. These metrics cannot determine whether repeats came from export, padding, tracking hold or another cause.
 
 `temporal_repeats.png` compares repeats and constant spans across trials. `shared_limb_scaling.png` overlays eight normalized limb lengths for the longest constant-pose trial and largest scale-range trial, deduplicating the selection. The scripts retain every input frame. Numeric processing order is now deterministic by basename, independent of ZIP entry order. Reports include temporal results and research notes; notes remain separately editable and are not overwritten.
+
+## Shared notebook review and S43 selection
+
+`reviews/notebooks/REVIEW.md` explains all three shared notebooks, their CoM/BoS formulas, limitations and proposed reuse. The folder includes a reproducible CoM formula comparison on S43. `configs/S43_modeling_selection.json` records the user-directed exclusion of S43A10T01 from future modeling; all raw audit data remain preserved. This is a candidate manifest, not automatic training approval or an audit filter. No notebook BoS feature was integrated without review.
