@@ -1,0 +1,20 @@
+{
+  "status": "valid",
+  "subject": "S43",
+  "nominal_fps": 30,
+  "annotation_status": "manual provisional skeleton observation",
+  "annotated_trials": 16,
+  "annotations": 80,
+  "required_phases": [
+    "initial_standing",
+    "fall_onset",
+    "descent",
+    "apparent_contact",
+    "post_fall"
+  ],
+  "phase_window": "fall_onset through apparent_contact, inclusive",
+  "interpolation_points": 101,
+  "coordinate_source": "raw supplied coordinates converted to metres; no filter",
+  "recommended_first_activity": "A13",
+  "contact_caution": "apparent_contact is not measured ground contact"
+}
