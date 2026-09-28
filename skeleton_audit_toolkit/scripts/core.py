@@ -127,7 +127,7 @@ def analyze(input_path, cfg, root):
             entries=[(i.filename,z.read(i)) for i in z.infolist() if not i.is_dir() and i.filename.lower().endswith('.csv')]
     seen=set()
     ignored=[]
-    for member,raw in entries:
+    for member,raw in sorted(entries,key=lambda item:Path(item[0]).name):
             name=Path(member).name;match=pattern.fullmatch(name)
             if '__MACOSX' in Path(member).parts or not match or match['subject'].upper()!=cfg['subject_id']:
                 ignored.append(member);continue

@@ -20,4 +20,16 @@ The delivered scripts support all-empty/invalid datasets without inventing plots
 - Recomputed every CoM frame in the included S50 and S06 recordings with the updated male model; all matched prior exported values at absolute tolerance 1e-12 m.
 - Original example runs and their frozen code remain unchanged. Female support is in the top-level scripts for new runs.
 
-No real female subject recording was supplied for this update; anatomical accuracy in women remains unvalidated.
+At the female-model implementation stage, no real female subject recording had been supplied. S43 was subsequently audited below; anatomical accuracy remains unvalidated.
+
+## S43 audit update (2026-09-26)
+
+- Ran all 25 uploaded S43 CSV files through the female model: 6,080 frames; zero empty, missing or invalid files.
+- Verified hashes and recomputed every exported female CoM frame directly from saved raw coordinates.
+- Confirmed 1,390 exact consecutive repeated transitions and the S43A10T01 interval of 180 identical rows at frames 0–179.
+- Verified duplicate-run interval boundary logic on independent constructed sequences.
+- Verified all nine evidence figures exist; inspected the montage and A10 pose figure for layout and interpretation.
+- Confirmed report regeneration preserves research_notes.md.
+- All previous male/female calculation and malformed-input regression tests passed.
+
+These tests verify computation and provenance. Repeated coordinates and common scale changes still limit physical interpretation.

@@ -14,6 +14,8 @@ def regenerate(run):
         coms[name]=com_proxy(data[name],segments)[0]
         frames=json.loads((run/'results/com_proxy_all_frames.json').read_text())
         scales[name]=np.array([f['median_normalized_limb_scale'] for f in frames if f['trial']==name])
+    from temporal_diagnostics import audit_temporal
+    audit_temporal(run)
     if data:make_plots(cfg,data,coms,scales,rows,run/'results/plots')
 
 if __name__=='__main__':

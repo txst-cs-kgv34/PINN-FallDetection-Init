@@ -69,6 +69,33 @@ with tempfile.TemporaryDirectory() as td:
     expected_com=sum((m/.9999)*((1-alpha)*xyz[0,seg['a']].mean(0)+alpha*xyz[0,seg['b']].mean(0))
                      for seg in female for m,alpha in [expected[seg['name'].removesuffix('_left').removesuffix('_right')]])
     np.testing.assert_allclose([frame['com_proxy_camera_'+axis+'_m'] for axis in 'xyz'],expected_com)
-    assert (out/'REPORT.html').exists() and len(list((out/'results/plots').glob('*.png')))==3
+    assert (out/'REPORT.html').exists() and len(list((out/'results/plots').glob('*.png')))==5
     assert json.loads((out/'config.json').read_text())['sex']=='female'
 print('PASS: female coefficients, normalization, independent CoM, exports/figures/report; all male CoM frames unchanged')
+
+from temporal_diagnostics import repeat_runs
+assert repeat_runs(np.array([[1],[1],[2],[3],[3],[3]]))==[(0,1),(3,5)]
+assert repeat_runs(np.array([[1],[2],[3]]))==[]
+s43=ROOT/'findings/S43_audit'
+if s43.exists():
+    summary=json.loads((s43/'results/study_summary.json').read_text())
+    assert (summary['nonempty_files'],summary['empty_files'],summary['missing_files'],summary['invalid_files'],summary['total_frames'])==(25,0,0,0,6080)
+    assert summary['duplicate_rows_within']==1390 and summary['total_review_flagged_destination_frames']==802
+    model=json.loads((s43/'segment_model.json').read_text());assert model['sex']=='female'
+    np.testing.assert_allclose(sum(s['mass_kg'] for s in model['segments']),58.9670081)
+    for row in json.loads((s43/'results/manifest.json').read_text()):
+        path=s43/'raw'/(row['trial']+'.csv')
+        assert hashlib.sha256(path.read_bytes()).hexdigest()==row['sha256']
+        xyz=np.loadtxt(path,delimiter=',').reshape(-1,32,3)*.001
+        export=np.genfromtxt(s43/'results/com'/(row['trial']+'_com_proxy.csv'),delimiter=',',names=True,dtype=None,encoding='utf-8')
+        observed=np.column_stack([export['com_proxy_camera_'+axis+'_m'] for axis in 'xyz'])
+        np.testing.assert_allclose(com_proxy(xyz,segment_model('female'))[0],observed,atol=1e-12)
+    temporal=json.loads((s43/'results/temporal_summary.json').read_text())
+    first=next(r for r in temporal if r['trial']=='S43A10T01')
+    assert first['distinct_rows']==3 and first['longest_constant_run_frames']==180
+    assert sum(r['adjacent_repeat_transitions'] for r in temporal)==1390
+    assert len(list((s43/'results/plots').glob('*.png')))==9
+    from build_report import report
+    before=(s43/'research_notes.md').read_bytes();report(s43)
+    assert (s43/'research_notes.md').read_bytes()==before
+    print('PASS: S43 25 files/6080 frames, female CoM exports, hashes, repeat intervals, nine figures, notes preserved')
