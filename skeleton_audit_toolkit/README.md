@@ -102,11 +102,11 @@ Confirmed trimming-only provenance does not remove the observed repeat and commo
 
 ## Build a phase-aligned real-trial baseline
 
-The S43 viewer annotations are stored with the derived analysis in
-`analyses/S43_phase_baseline/S43_phase_notes.json`. They contain 80 manual,
-provisional skeleton observations: five ordered phase marks for each of 16
-trials. The validator checks the subject, nominal FPS, candidate list, frame
-bounds, phase completeness and phase order. It does not promote an
+The current consolidated S43 annotations are stored in
+`analysis_inputs/S43_phase_notes_with_A13_eligibility.json`. This input combines
+the initial manual phase marks with the later A13 completion review and records
+the merge provenance. The validator checks the subject, nominal FPS, candidate
+list, frame bounds, phase completeness and phase order. It does not promote an
 `apparent_contact` mark to measured ground contact.
 
 ```bash
@@ -114,7 +114,7 @@ python scripts/build_phase_baseline.py \
   --run findings/S43_audit \
   --config configs/S43.json \
   --selection configs/S43_modeling_selection.json \
-  --phase-notes analyses/S43_phase_baseline/S43_phase_notes.json \
+  --phase-notes analysis_inputs/S43_phase_notes_with_A13_eligibility.json \
   --output analyses/S43_phase_baseline_new
 ```
 
@@ -144,23 +144,17 @@ window only. These decisions and the user's reasons are stored in
 `configs/S43_phase_eligibility.json`; the excluded T04 marks remain in the merge
 provenance rather than being discarded.
 
-The current combined checkpoint is `analyses/S43_phase_baseline_v2`. It has 17
-eligible annotated trials overall and four A13 onset-to-contact trials. Reproduce
-the merged input and baseline with:
+The retained checkpoint is `analyses/S43_phase_baseline_v2`. It has 17 eligible
+annotated trials overall and four A13 onset-to-contact trials. Reproduce the
+baseline from the consolidated input with:
 
 ```bash
-python scripts/merge_phase_notes.py \
-  --base analyses/S43_phase_baseline/S43_phase_notes.json \
-  --supplement /path/to/S43_A13_phase_notes.json \
-  --eligibility configs/S43_phase_eligibility.json \
-  --output analysis_inputs/S43_phase_notes_with_A13_eligibility.json
-
 python scripts/build_phase_baseline.py \
   --run findings/S43_audit \
   --config configs/S43.json \
   --selection configs/S43_modeling_selection.json \
   --phase-notes analysis_inputs/S43_phase_notes_with_A13_eligibility.json \
-  --output analyses/S43_phase_baseline_v2
+  --output analyses/S43_phase_baseline_new
 ```
 
 The four A13 trials support a small four-fold leave-one-trial-out pilot. They do
@@ -214,6 +208,10 @@ python scripts/run_pinn_pilot.py \
   --epochs 500 \
   --output analyses/S43_A13_pinn_pilot_new
 ```
+
+The retained fixed-run checkpoint is `analyses/S43_A13_pinn_pilot_v2`. It adds
+the held-out condition-distance diagnostic and updated interpretation to the
+initial run while keeping the same model settings.
 
 The network consumes physical time plus pre-onset CoM velocity, onset CoM
 relative to the foot midpoint and onset foot separation. Position is constructed
