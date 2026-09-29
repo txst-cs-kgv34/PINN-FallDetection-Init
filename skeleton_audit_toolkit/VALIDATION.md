@@ -14,6 +14,18 @@ This test validates annotation handling, phase-window extraction, interpolation
 and table/figure generation. It does not validate manual phase accuracy,
 physical contact, anatomical CoM accuracy or model suitability.
 
+## A13 reconstruction pilot (2026-09-28)
+
+`python scripts/verify_reconstruction_pilot.py` checks a constructed identity
+standing-body frame, orthonormal axes and point transformation. It then rebuilds
+the A13 pilot in a temporary directory and verifies four held-out trials, two
+fixed methods per fold, 404 prediction rows, zero onset displacement and four
+plots. All earlier audit, inspection and phase-baseline checks also pass.
+
+This verifies software behavior and whole-trial separation. It does not validate
+the standing-body axes as world gravity/floor coordinates, the CoM proxy as
+anatomical truth, or the reconstruction as a clinical/physical fall model.
+
 - Reproduced S50: 19 analyzed clips, 6 empty files, 895 frames.
 - Compared 582 shared numeric trial metrics to the previous S50 audit, with relative and absolute tolerance 1e-12; all matched.
 - Used a separate subject configuration and directory input for S06: 5 clips, 1,011 frames, activity A08.
