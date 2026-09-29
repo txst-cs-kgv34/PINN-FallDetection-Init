@@ -26,6 +26,19 @@ This verifies software behavior and whole-trial separation. It does not validate
 the standing-body axes as world gravity/floor coordinates, the CoM proxy as
 anatomical truth, or the reconstruction as a clinical/physical fall model.
 
+## First physical-time PINN pilot (2026-09-28/29)
+
+`python scripts/verify_pinn_pilot.py` checks finite automatic derivatives and the
+hard onset position/velocity construction on an independent numerical example.
+It then runs a two-epoch workflow smoke test and verifies four held-out trials,
+finite metrics, zero onset displacement, histories and four plots. The delivered
+500-epoch run was also executed end to end with fixed settings.
+
+Training objectives decreased substantially, but held-out performance was worse
+than the training-mean baseline in all four folds. This negative result is
+retained. Software execution does not validate the gravity proxy, effective
+force, loss weights, perturbations or synthetic trajectories.
+
 - Reproduced S50: 19 analyzed clips, 6 empty files, 895 frames.
 - Compared 582 shared numeric trial metrics to the previous S50 audit, with relative and absolute tolerance 1e-12; all matched.
 - Used a separate subject configuration and directory input for S06: 5 clips, 1,011 frames, activity A08.
