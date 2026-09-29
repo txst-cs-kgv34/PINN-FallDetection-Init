@@ -4,12 +4,10 @@
 
 Ran 4 leave-one-trial-out folds. Each fold used the other 3 trials and kept the held-out trial completely unseen.
 
-
-| Method           | Mean 3D RMSE (m) | Median 3D RMSE (m) |
-| ---------------- | ---------------- | ------------------ |
-| training_mean    | 0.1968           | 0.1499             |
-| polynomial_ridge | 0.1963           | 0.1494             |
-
+| Method | Mean 3D RMSE (m) | Median 3D RMSE (m) |
+|---|---:|---:|
+| training_mean | 0.1968 | 0.1499 |
+| polynomial_ridge | 0.1963 | 0.1494 |
 
 ## Key findings
 
@@ -44,4 +42,3 @@ Use CoM position as the observed state and obtain velocity/acceleration through 
 - `subject_frames.json`: per-trial fixed coordinate transforms and stature-span checks.
 - `model_parameters.json`: fixed polynomial/ridge settings and fitted fold coefficients.
 - `plots/`: held-out trajectory comparisons.
-

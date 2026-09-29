@@ -33,11 +33,14 @@ The main scripts follow a clear order: load/validate inputs, calculate, then exp
 | `scripts/build_phase_baseline.py` | Build raw onset-to-apparent-contact trajectories and a leave-one-trial-out reference baseline |
 | `scripts/subject_frame.py` | Define a fixed standing-body coordinate frame without claiming floor calibration |
 | `scripts/run_reconstruction_pilot.py` | Run fixed whole-trial A13 reconstruction folds and export predictions, errors and plots |
+| `scripts/pinn_autograd.py` | Define the differentiable CoM network, derivatives and effective-residual loss |
+| `scripts/run_pinn_pilot.py` | Train and evaluate the physical-time A13 PINN in four whole-trial folds |
 | `viewer/inspection.html`, `inspection.js`, `inspection.css` | Player layout, interactions and appearance |
 | `scripts/verify.py` | Check audit and male/female CoM regression behavior |
 | `scripts/verify_inspection.py` | Check geometry, filtering, candidate selection and S43 inspection exports |
 | `scripts/verify_phase_baseline.py` | Check phase validation, alignment, outputs and S43 regression counts |
 | `scripts/verify_reconstruction_pilot.py` | Check body-frame geometry and the four A13 reconstruction folds |
+| `scripts/verify_pinn_pilot.py` | Check automatic derivatives, hard initial conditions and the four-fold PINN workflow |
 
 `core.py` remains only as a compatibility import layer for older scripts. New code imports the task-specific modules. No additional CoM model was introduced during this organization change.
 
@@ -73,6 +76,7 @@ python scripts/verify.py
 python scripts/verify_inspection.py
 python scripts/verify_phase_baseline.py
 python scripts/verify_reconstruction_pilot.py
+python scripts/verify_pinn_pilot.py
 ```
 
 For another subject, use its audit and a selection JSON with `subject_id`, `remaining_candidate_trials`, and `excluded_trials` (a trial-to-reason mapping). Optional collection metadata accompanies the historical audit; it does not silently replace coordinate units, model parameters or sampling rate. Rerun an audit if those computational inputs change.
@@ -192,6 +196,46 @@ For S43, the polynomial and mean-template results are nearly identical: mean 3D
 RMSE 0.1963 m versus 0.1968 m. S43A13T02 is the largest-error fold and has a
 1.033 s duration error. These are preliminary subject/activity-specific
 benchmarks, not evidence of cross-subject generalization.
+
+## Run the first physical-time PINN pilot
+
+Install the small automatic-differentiation dependency and run the fixed
+experiment:
+
+```bash
+python -m pip install -r requirements-pinn.txt
+
+python scripts/run_pinn_pilot.py \
+  --run findings/S43_audit \
+  --config configs/S43.json \
+  --selection configs/S43_modeling_selection.json \
+  --phase-notes analysis_inputs/S43_phase_notes_with_A13_eligibility.json \
+  --activity A13 \
+  --epochs 500 \
+  --output analyses/S43_A13_pinn_pilot_new
+```
+
+The network consumes physical time plus pre-onset CoM velocity, onset CoM
+relative to the foot midpoint and onset foot separation. Position is constructed
+as `r(t) = v0*t + t^2*f(t, condition)`, which fixes onset position and velocity.
+Automatic differentiation supplies velocity and acceleration. The physics loss
+uses `r_ddot = g_proxy + a_effective`, where the gravity proxy follows the
+standing headward axis. The effective acceleration is regularized for magnitude
+and temporal roughness; multiplying it by subject mass produces an effective
+force in newtons.
+
+That force is not a recovered perturbation or ground-reaction force. It combines
+all unmeasured support, voluntary control, contact, model error and any true
+perturbation. The standing vertical is also a proxy rather than calibrated
+gravity.
+
+The delivered fixed run converges on its three training trials but generalizes
+poorly: mean held-out 3D RMSE is 0.5010 m versus 0.1961 m for the training-mean
+baseline, and it improves zero of four folds. T02 is strongly outside the tiny
+training condition range (maximum 21.0 training standard deviations). This is a
+negative pilot result: do not generate or claim validated synthetic falls from
+this model. The next experiment must compare a data-only network against this
+PINN and perform training-only loss-weight/conditioning sensitivity.
 
 ## Quick start
 
