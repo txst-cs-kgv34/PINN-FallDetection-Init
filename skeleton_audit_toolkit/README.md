@@ -31,10 +31,13 @@ The main scripts follow a clear order: load/validate inputs, calculate, then exp
 | `scripts/phase_annotations.py` | Validate exported manual phase marks and create ordered trial windows |
 | `scripts/merge_phase_notes.py` | Merge annotation exports under explicit per-trial eligibility decisions |
 | `scripts/build_phase_baseline.py` | Build raw onset-to-apparent-contact trajectories and a leave-one-trial-out reference baseline |
+| `scripts/subject_frame.py` | Define a fixed standing-body coordinate frame without claiming floor calibration |
+| `scripts/run_reconstruction_pilot.py` | Run fixed whole-trial A13 reconstruction folds and export predictions, errors and plots |
 | `viewer/inspection.html`, `inspection.js`, `inspection.css` | Player layout, interactions and appearance |
 | `scripts/verify.py` | Check audit and male/female CoM regression behavior |
 | `scripts/verify_inspection.py` | Check geometry, filtering, candidate selection and S43 inspection exports |
 | `scripts/verify_phase_baseline.py` | Check phase validation, alignment, outputs and S43 regression counts |
+| `scripts/verify_reconstruction_pilot.py` | Check body-frame geometry and the four A13 reconstruction folds |
 
 `core.py` remains only as a compatibility import layer for older scripts. New code imports the task-specific modules. No additional CoM model was introduced during this organization change.
 
@@ -69,6 +72,7 @@ python scripts/build_viewer.py \
 python scripts/verify.py
 python scripts/verify_inspection.py
 python scripts/verify_phase_baseline.py
+python scripts/verify_reconstruction_pilot.py
 ```
 
 For another subject, use its audit and a selection JSON with `subject_id`, `remaining_candidate_trials`, and `excluded_trials` (a trial-to-reason mapping). Optional collection metadata accompanies the historical audit; it does not silently replace coordinate units, model parameters or sampling rate. Rerun an audit if those computational inputs change.
@@ -158,6 +162,36 @@ python scripts/build_phase_baseline.py \
 The four A13 trials support a small four-fold leave-one-trial-out pilot. They do
 not provide a strong independent train/validation/test study: any fixed split
 would leave only two training trials after reserving validation and test trials.
+
+## Run the A13 kinematic reconstruction pilot
+
+```bash
+python scripts/run_reconstruction_pilot.py \
+  --run findings/S43_audit \
+  --config configs/S43.json \
+  --selection configs/S43_modeling_selection.json \
+  --phase-notes analysis_inputs/S43_phase_notes_with_A13_eligibility.json \
+  --activity A13 \
+  --output analyses/S43_A13_reconstruction_pilot_new
+```
+
+The pilot fixes a coordinate frame from a five-frame median around each manual
+initial-standing mark. Its axes are left-hip to right-hip, foot-midpoint to head,
+and an orthogonal forward proxy oriented toward the nose. This makes trials
+comparable in a subject-relative frame; it does not estimate the floor or a
+measured gravity vector.
+
+Each fold trains on three complete A13 dynamics windows and evaluates the fourth
+without frame leakage. Two pre-specified baselines are exported: the mean of the
+three training trajectories and a degree-5 ridge-polynomial shape constrained to
+zero onset displacement. Both use 101 normalized phase points. Duration is
+predicted separately as the median training duration, because normalized phase
+hides physical-time variation.
+
+For S43, the polynomial and mean-template results are nearly identical: mean 3D
+RMSE 0.1963 m versus 0.1968 m. S43A13T02 is the largest-error fold and has a
+1.033 s duration error. These are preliminary subject/activity-specific
+benchmarks, not evidence of cross-subject generalization.
 
 ## Quick start
 
