@@ -1,6 +1,6 @@
 # Reproducible skeleton audit and evidence figures
 
-Use this toolkit for a new subject by changing JSON configuration and the input path. It audits recordings, estimates a **segment-mass CoM proxy**, and generates the evidence figures and a findings report. It does not train a PINN or generate synthetic falls.
+Use this toolkit for a new subject by changing JSON configuration and the input path. It audits recordings, estimates a **segment-mass CoM proxy**, generates evidence figures, and includes explicitly limited reconstruction/PINN research pilots. It does not generate validated synthetic falls.
 
 ## Start here: current S43 inspection
 
@@ -35,12 +35,15 @@ The main scripts follow a clear order: load/validate inputs, calculate, then exp
 | `scripts/run_reconstruction_pilot.py` | Run fixed whole-trial A13 reconstruction folds and export predictions, errors and plots |
 | `scripts/pinn_autograd.py` | Define the differentiable CoM network, derivatives and effective-residual loss |
 | `scripts/run_pinn_pilot.py` | Train and evaluate the physical-time A13 PINN in four whole-trial folds |
+| `scripts/pinn_torch.py` | Define the controlled PyTorch trajectory/residual networks and dimensionless physics losses |
+| `scripts/run_physics_weight_experiment.py` | Compare data-only and physics-informed networks under matched folds, seeds and loss weights |
 | `viewer/inspection.html`, `inspection.js`, `inspection.css` | Player layout, interactions and appearance |
 | `scripts/verify.py` | Check audit and male/female CoM regression behavior |
 | `scripts/verify_inspection.py` | Check geometry, filtering, candidate selection and S43 inspection exports |
 | `scripts/verify_phase_baseline.py` | Check phase validation, alignment, outputs and S43 regression counts |
 | `scripts/verify_reconstruction_pilot.py` | Check body-frame geometry and the four A13 reconstruction folds |
 | `scripts/verify_pinn_pilot.py` | Check automatic derivatives, hard initial conditions and the four-fold PINN workflow |
+| `scripts/verify_physics_weight_experiment.py` | Check the PyTorch controls, gravity sanity baseline, exports and four-fold comparison workflow |
 
 `core.py` remains only as a compatibility import layer for older scripts. New code imports the task-specific modules. No additional CoM model was introduced during this organization change.
 
@@ -77,6 +80,7 @@ python scripts/verify_inspection.py
 python scripts/verify_phase_baseline.py
 python scripts/verify_reconstruction_pilot.py
 python scripts/verify_pinn_pilot.py
+python scripts/verify_physics_weight_experiment.py
 ```
 
 For another subject, use its audit and a selection JSON with `subject_id`, `remaining_candidate_trials`, and `excluded_trials` (a trial-to-reason mapping). Optional collection metadata accompanies the historical audit; it does not silently replace coordinate units, model parameters or sampling rate. Rerun an audit if those computational inputs change.
@@ -234,6 +238,45 @@ training condition range (maximum 21.0 training standard deviations). This is a
 negative pilot result: do not generate or claim validated synthetic falls from
 this model. The next experiment must compare a data-only network against this
 PINN and perform training-only loss-weight/conditioning sensitivity.
+
+## Run the controlled physics-weight experiment
+
+Install PyTorch plus the existing lightweight dependencies, then run the fixed
+data-only/PINN comparison:
+
+```bash
+python -m pip install -r requirements-pinn-comparison.txt
+
+python scripts/run_physics_weight_experiment.py \
+  --run findings/S43_audit \
+  --config configs/S43.json \
+  --selection configs/S43_modeling_selection.json \
+  --phase-notes analysis_inputs/S43_phase_notes_with_A13_eligibility.json \
+  --activity A13 \
+  --epochs 300 \
+  --physics-weights 0,0.01,0.1,1,10 \
+  --seeds 43013,43014 \
+  --output analyses/S43_A13_physics_weight_experiment_new
+```
+
+The comparison uses a three-layer, 32-unit `tanh` trajectory network and a
+smaller two-layer, 16-unit effective-residual network. Both data-only and PINN
+fits use the same physical-time input, hard onset position/velocity constraint,
+trial conditions, folds, optimizer, epochs and seeds. Condition statistics are
+computed from the three training trials in each fold. The data-only control is
+the zero physics-weight run. The gravity-only curve is untrained and is included
+only to demonstrate that unsupported ballistic motion is not a suitable fall
+reconstruction model.
+
+The retained result is `analyses/S43_A13_physics_weight_experiment`. Among the
+tested weights, λ=0.1 is best: mean held-out 3D RMSE decreases from 0.4618 m for
+the matched data-only network to 0.2975 m, and six of eight matched fold/seed
+runs improve. This is useful evidence that a moderate physics penalty regularizes
+the neural network. It is not sufficient validation: the simple training-mean
+baseline remains better at 0.1961 m, only four of eight best-PINN runs beat that
+baseline, and T02 remains strongly outside the training-condition range. The
+selected weight was chosen using these same four folds, not an independent
+validation set. Synthetic generation therefore remains gated.
 
 ## Quick start
 

@@ -1,0 +1,50 @@
+{
+  "activity": "A13",
+  "settings": {
+    "epochs": 300,
+    "collocation_points": 24,
+    "learning_rate": 0.003,
+    "physics_weights": [
+      0.0,
+      0.01,
+      0.1,
+      1.0,
+      10.0
+    ],
+    "seeds": [
+      43013,
+      43014
+    ],
+    "history_interval": 50,
+    "standing_radius": 2,
+    "velocity_window_frames": 5,
+    "effective_acceleration_l2": 0.0001,
+    "effective_acceleration_jerk": 0.001,
+    "architecture": {
+      "trajectory_hidden_size": 32,
+      "trajectory_hidden_layers": 3,
+      "residual_hidden_size": 16,
+      "residual_hidden_layers": 2
+    }
+  },
+  "seed_policy": "training seed = listed base seed + zero-based fold index",
+  "selected_best_nonzero_physics_weight": 0.1,
+  "selection_note": "Exploratory minimum mean held-out RMSE across the same four folds; not independent validation.",
+  "condition_order": [
+    "initial_velocity_lateral",
+    "initial_velocity_vertical",
+    "initial_velocity_forward",
+    "onset_relative_com_lateral",
+    "onset_relative_com_vertical",
+    "onset_relative_com_forward",
+    "onset_foot_separation_m",
+    "marked_onset_to_contact_duration_s"
+  ],
+  "gravity_proxy_m_s2": [
+    0.0,
+    -9.80665,
+    0.0
+  ],
+  "mass_kg": 58.9670081,
+  "height_m": 1.6256
+}
