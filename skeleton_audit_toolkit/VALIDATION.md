@@ -39,6 +39,29 @@ than the training-mean baseline in all four folds. This negative result is
 retained. Software execution does not validate the gravity proxy, effective
 force, loss weights, perturbations or synthetic trajectories.
 
+## Controlled PyTorch physics-weight experiment (2026-09-28)
+
+`python scripts/verify_physics_weight_experiment.py` checks the hard onset
+position/velocity constraint and finite automatic derivatives on an independent
+network instance, verifies the analytical gravity-only sanity curve, and runs a
+two-epoch four-fold workflow with data-only and nonzero-physics branches. It
+checks all expected trial/weight runs, finite metrics, zero onset displacement,
+histories, exported predictions, six plots and the force-interpretation warning.
+
+The delivered experiment ran 40 fits: four whole-trial folds, five physics
+weights and two base seeds, each for 300 epochs. The best tested nonzero weight
+was 0.1. Its mean held-out 3D CoM RMSE was 0.2975 m versus 0.4618 m for the
+matched data-only network; six of eight matched fold/seed runs improved and the
+mean held-out physics residual was 3.0733 m/s². However, the training-mean
+baseline remained better at 0.1961 m, only four of eight best-PINN runs beat it,
+and S43A13T02 remained the dominant error and was 21.0 training standard
+deviations outside at least one conditioning range.
+
+This verifies the controlled software comparison and shows a regularization
+benefit at moderate physics weight. It is not independent hyperparameter
+validation, force identification, cross-subject validation, clinical validation
+or permission to generate physically validated synthetic falls.
+
 - Reproduced S50: 19 analyzed clips, 6 empty files, 895 frames.
 - Compared 582 shared numeric trial metrics to the previous S50 audit, with relative and absolute tolerance 1e-12; all matched.
 - Used a separate subject configuration and directory input for S06: 5 clips, 1,011 frames, activity A08.
@@ -84,4 +107,5 @@ These tests verify computation and provenance. Repeated coordinates and common s
 - Browser test source is tests/verify_viewer.cjs. It requires Playwright and its Chromium installation; optional PLAYWRIGHT_CHROMIUM_EXECUTABLE points to an existing compatible binary. This is a development-only check, not a requirement to open the player.
 - Filtering is exploratory: maximum CoM displacement from raw at the delivered 1.5 Hz setting is 0.273900453 m in S43A10T03. This is sensitivity to filtering, not an error estimate.
 
-No floor/contact calibration, physical stability validation or PINN training is claimed by these checks.
+No floor/contact calibration, physical stability validation, recovered external
+force or physically validated synthetic-fall generation is claimed by these checks.

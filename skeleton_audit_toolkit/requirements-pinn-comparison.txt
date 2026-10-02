@@ -1,0 +1,2 @@
+-r requirements-pinn.txt
+torch>=2.2,<3
