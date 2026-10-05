@@ -6,7 +6,7 @@ Use this toolkit for a new subject by changing JSON configuration and the input 
 
 The team confirmed on 2026-09-28 that these are original Azure Kinect joint positions with leading/trailing trimming only. No normalization, retargeting, rescaling or padding was reported. All young participants are adults older than 20. Original videos, timestamps, tracking confidence and camera/floor calibration are unavailable. These confirmations are stored in `configs/collection_metadata.json`; earlier audit snapshots retain their historical metadata.
 
-Open **`inspections/S43_candidates/INSPECT.html`** directly in a browser. It is self-contained and works offline without a server or FFmpeg. The included inspection contains 24 trials / 5,898 frames and enforces the S43A10T01 exclusion. It includes a 1.5 Hz filtering comparison following the main shared notebook; this is an exploratory setting, not a selected fall-model preprocessor. Raw is the initial display mode.
+Open **`inspections/S43_candidates/INSPECT.html`** directly in a browser. It is self-contained and works offline without a server or FFmpeg. The included inspection contains 24 trials / 5,898 frames and enforces the S43A10T01 exclusion. It includes a 1.5 Hz filtering comparison following the main shared notebook; raw remains the initial inspection mode. The later Stage-1 experiment explicitly selects the same offline filter and reports that choice separately.
 
 Controls provide trial selection, frame stepping/scrubbing, nominal-speed playback, three camera projections, raw/filtered overlays, jumps to original audit flags, and provisional phase-note export. The data remain in the camera frame. The foot connection and midpoint are landmark geometry, not a support polygon or confirmed contact. Phase notes are held only in page memory: export them before closing the page. Save exported JSON alongside your run's research notes; no annotation is treated as ground truth automatically.
 
@@ -37,6 +37,8 @@ The main scripts follow a clear order: load/validate inputs, calculate, then exp
 | `scripts/run_pinn_pilot.py` | Train and evaluate the physical-time A13 PINN in four whole-trial folds |
 | `scripts/pinn_torch.py` | Define the controlled PyTorch trajectory/residual networks and dimensionless physics losses |
 | `scripts/run_physics_weight_experiment.py` | Compare data-only and physics-informed networks under matched folds, seeds and loss weights |
+| `scripts/inverted_pendulum_pinn.py` | Define the Stage-1 horizontal/vertical CoM network, angle derivatives, torque and inverted-pendulum loss |
+| `scripts/run_stage1_inverted_pendulum.py` | Run the framework-aligned A13 Stage-1 experiment with non-averaged controls |
 | `viewer/inspection.html`, `inspection.js`, `inspection.css` | Player layout, interactions and appearance |
 | `scripts/verify.py` | Check audit and male/female CoM regression behavior |
 | `scripts/verify_inspection.py` | Check geometry, filtering, candidate selection and S43 inspection exports |
@@ -44,6 +46,7 @@ The main scripts follow a clear order: load/validate inputs, calculate, then exp
 | `scripts/verify_reconstruction_pilot.py` | Check body-frame geometry and the four A13 reconstruction folds |
 | `scripts/verify_pinn_pilot.py` | Check automatic derivatives, hard initial conditions and the four-fold PINN workflow |
 | `scripts/verify_physics_weight_experiment.py` | Check the PyTorch controls, gravity sanity baseline, exports and four-fold comparison workflow |
+| `scripts/verify_stage1_inverted_pendulum.py` | Check CoM-to-angle geometry, hard onset constraints, controls and the Stage-1 four-fold workflow |
 
 `core.py` remains only as a compatibility import layer for older scripts. New code imports the task-specific modules. No additional CoM model was introduced during this organization change.
 
@@ -81,6 +84,7 @@ python scripts/verify_phase_baseline.py
 python scripts/verify_reconstruction_pilot.py
 python scripts/verify_pinn_pilot.py
 python scripts/verify_physics_weight_experiment.py
+python scripts/verify_stage1_inverted_pendulum.py
 ```
 
 For another subject, use its audit and a selection JSON with `subject_id`, `remaining_candidate_trials`, and `excluded_trials` (a trial-to-reason mapping). Optional collection metadata accompanies the historical audit; it does not silently replace coordinate units, model parameters or sampling rate. Rerun an audit if those computational inputs change.
@@ -277,6 +281,67 @@ baseline remains better at 0.1961 m, only four of eight best-PINN runs beat that
 baseline, and T02 remains strongly outside the training-condition range. The
 selected weight was chosen using these same four folds, not an independent
 validation set. Synthetic generation therefore remains gated.
+
+## Run Framework Stage 1 with inverted-pendulum physics
+
+This is the retained framework-aligned experiment. It follows the shared
+`skeleton_analysis_v4.ipynb` preprocessing choices where they are applicable:
+order-6, 1.5 Hz zero-phase Butterworth filtering of each complete trial and the
+female De Leva segment-weighted CoM. It then transforms the filtered motion to
+the fixed standing-subject frame used by this toolkit.
+
+```bash
+python -m pip install -r requirements-stage1.txt
+
+python scripts/run_stage1_inverted_pendulum.py \
+  --run findings/S43_audit \
+  --config configs/S43.json \
+  --selection configs/S43_modeling_selection.json \
+  --phase-notes analysis_inputs/S43_phase_notes_with_A13_eligibility.json \
+  --activity A13 \
+  --epochs 300 \
+  --physics-weights 0,0.01,0.1,1,10 \
+  --seeds 43013,43014 \
+  --output analyses/S43_A13_stage1_inverted_pendulum_new
+```
+
+For A13, horizontal is the subject-relative lateral direction and vertical is
+the standing headward direction. Both are measured relative to the foot
+midpoint fixed at marked fall onset. The angular state is derived rather than
+renaming a coordinate:
+
+```text
+theta(t) = atan2(horizontal_CoM(t), vertical_CoM(t))
+```
+
+The PINN enforces the reduced equation
+`I*theta_ddot = m*g*l*sin(theta) + tau_effective - b*theta_dot`, with the
+point-mass approximation `I=m*l^2` and `b=0` in this feasibility run. The
+horizontal/vertical state construction hard-enforces measured onset position
+and velocity. `tau_effective` remains an unidentified sum of human control,
+external perturbation, support/contact behavior and model error.
+
+The experiment deliberately does not use an averaged trial as a quantitative
+baseline. Its controls are the identical data-only network, constant-velocity
+extrapolation and a zero-torque inverted pendulum. The marked contact duration
+is not supplied as a condition, avoiding that future endpoint as an input.
+
+The retained checkpoint is
+`analyses/S43_A13_stage1_inverted_pendulum`. The full run contains 40 fits:
+four held-out trials, five physics weights and two seeds. No nonzero physics
+weight improved aggregate held-out accuracy. The least harmful nonzero weight,
+lambda=0.01, produced 0.4467 m horizontal/vertical CoM RMSE versus 0.4121 m for
+the data-only network and improved only two of eight matched runs. It reduced
+the angular-equation residual by 31.4%, but worsened trajectory RMSE by 8.4%.
+The constant-velocity control was strongest in aggregate at 0.3791 m. T02 again
+dominated failure because its 1.8 s trajectory substantially exceeds the
+shorter training trials.
+
+This negative result is scientifically useful: satisfying the reduced angular
+equation more closely does not yet improve held-out fall reconstruction. The
+observed CoM-to-pivot radius changes by 0.159--0.316 m within the selected
+windows, so the rigid single-link assumption is visibly violated. Stage 2 and
+synthetic generation remain gated.
 
 ## Quick start
 
