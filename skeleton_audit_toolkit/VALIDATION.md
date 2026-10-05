@@ -62,6 +62,33 @@ benefit at moderate physics weight. It is not independent hyperparameter
 validation, force identification, cross-subject validation, clinical validation
 or permission to generate physically validated synthetic falls.
 
+## Framework Stage-1 inverted-pendulum experiment (2026-10-02)
+
+`python scripts/verify_stage1_inverted_pendulum.py` checks the conversion from
+horizontal/vertical CoM to `theta=atan2(horizontal, vertical)`, the hard onset
+position and velocity construction, finite first/second automatic derivatives,
+constant-velocity and uncontrolled-pendulum controls, and a two-epoch
+four-fold workflow. It verifies all expected trials and branches, finite
+metrics, exact onset states, exported histories/predictions, six plots, absence
+of an averaged-trial baseline, and the effective-torque interpretation warning.
+
+The retained 300-epoch experiment ran 40 fits: four whole-trial folds, five
+physics weights and two seeds. The best tested nonzero setting by aggregate XY
+RMSE was lambda=0.01, but it was 8.4% worse than the identical data-only network
+(0.4467 m versus 0.4121 m) and improved only two of eight matched runs. It
+reduced the angular-equation residual from 336.87 to 231.18 N*m (31.4%) while
+worsening held-out trajectory accuracy. The constant-velocity control was best
+in aggregate at 0.3791 m; the uncontrolled zero-torque pendulum was 0.4882 m.
+T02 remained the dominant failure.
+
+This verifies the executable Stage-1 formulation and demonstrates that lower
+physics residual is not sufficient evidence of better held-out motion. The
+fixed onset foot midpoint is not measured center of pressure, the point-mass
+inertia and rigid link are approximations, and the learned effective torque is
+not separately identifiable as human control or external perturbation. The
+experiment does not validate Stage 2, synthetic falls, cross-subject behavior,
+or clinical fall detection.
+
 - Reproduced S50: 19 analyzed clips, 6 empty files, 895 frames.
 - Compared 582 shared numeric trial metrics to the previous S50 audit, with relative and absolute tolerance 1e-12; all matched.
 - Used a separate subject configuration and directory input for S06: 5 clips, 1,011 frames, activity A08.

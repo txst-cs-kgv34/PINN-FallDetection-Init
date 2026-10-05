@@ -26,7 +26,7 @@ def filter_motion(pose, fps, cutoff_hz, order=6):
         "cutoff_hz": cutoff_hz,
         "order_per_pass": order,
         "padlen": padlen,
-        "phase": "Offline comparison; uses future frames; not a selected prediction preprocessor",
+        "phase": "Offline zero-phase filtering; uses future frames and is not causal",
     }
     if len(pose) <= padlen + 1:
         return None, {**settings, "status": "skipped_short_clip"}
