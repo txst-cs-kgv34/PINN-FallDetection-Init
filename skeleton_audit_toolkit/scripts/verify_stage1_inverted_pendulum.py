@@ -78,9 +78,9 @@ def check_controls():
     assert np.allclose(np.linalg.norm(position, axis=1), length)
 
 
-def check_workflow():
+def check_workflow(activity, notes_name, expected_trials, expected_axis):
     with tempfile.TemporaryDirectory() as temp:
-        output = Path(temp) / "stage1"
+        output = Path(temp) / f"stage1_{activity.lower()}"
         command = [
             sys.executable,
             str(ROOT / "scripts" / "run_stage1_inverted_pendulum.py"),
@@ -91,9 +91,11 @@ def check_workflow():
             "--selection",
             str(ROOT / "configs" / "S43_modeling_selection.json"),
             "--phase-notes",
-            str(ROOT / "analysis_inputs" / "S43_phase_notes_with_A13_eligibility.json"),
+            str(ROOT / "analysis_inputs" / notes_name),
             "--output",
             str(output),
+            "--activity",
+            activity,
             "--epochs",
             "2",
             "--collocation-points",
@@ -110,12 +112,7 @@ def check_workflow():
         assert len(metrics) == 8
         assert len(history) == 16
         assert {float(row["physics_weight"]) for row in metrics} == {0.0, 0.1}
-        assert {row["held_out_trial"] for row in metrics} == {
-            "S43A13T01",
-            "S43A13T02",
-            "S43A13T03",
-            "S43A13T05",
-        }
+        assert {row["held_out_trial"] for row in metrics} == set(expected_trials)
         for row in metrics:
             for key, value in row.items():
                 if key not in {"held_out_trial", "training_trials"}:
@@ -137,6 +134,7 @@ def check_workflow():
         config = (output / "experiment_config.json").read_text(encoding="utf-8")
         assert "no averaged-trial trajectory" in config
         assert "onset-to-contact duration is deliberately not supplied" in config
+        assert f'"horizontal_axis": "{expected_axis}"' in config
         summary = (output / "SUMMARY.md").read_text(encoding="utf-8")
         assert "No trial-averaging trajectory" in summary
         assert "not an identified perturbation" in summary
@@ -145,8 +143,22 @@ def check_workflow():
 def main():
     check_hard_initial_state_and_angle()
     check_controls()
-    check_workflow()
-    print("PASS Stage-1 inverted-pendulum PINN, controls and four whole-trial folds")
+    check_workflow(
+        "A13",
+        "S43_phase_notes_with_A13_eligibility.json",
+        ("S43A13T01", "S43A13T02", "S43A13T03", "S43A13T05"),
+        "lateral",
+    )
+    check_workflow(
+        "A11",
+        "S43_A11_phase_notes.json",
+        ("S43A11T02", "S43A11T03", "S43A11T04", "S43A11T05"),
+        "forward",
+    )
+    print(
+        "PASS Stage-1 inverted-pendulum PINN, activity-specific axes, "
+        "controls and four whole-trial folds"
+    )
 
 
 if __name__ == "__main__":

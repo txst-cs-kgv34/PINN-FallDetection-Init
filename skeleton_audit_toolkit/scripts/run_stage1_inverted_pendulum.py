@@ -24,8 +24,25 @@ from skeleton_model import com_proxy, segment_model
 from subject_frame import standing_body_frame, to_subject_frame
 
 
-STATE_NAMES = ("horizontal_lateral", "vertical_headward")
-STATE_LABELS = ("Horizontal CoM relative to onset pivot (m)", "Vertical CoM relative to onset pivot (m)")
+HORIZONTAL_AXES = {
+    "lateral": {
+        "index": 0,
+        "state_name": "horizontal_lateral",
+        "description": "medial-lateral",
+        "plot_label": "Medial-lateral CoM (m)",
+        "support_joint_indices": (21, 25),
+        "support_definition": "left and right FOOT joint projections",
+    },
+    "forward": {
+        "index": 2,
+        "state_name": "horizontal_forward",
+        "description": "anterior-posterior (subject-forward)",
+        "plot_label": "Anterior-posterior CoM (m)",
+        "support_joint_indices": (20, 21, 24, 25),
+        "support_definition": "left/right ANKLE and FOOT joint projections",
+    },
+}
+DEFAULT_ACTIVITY_AXES = {"A11": "forward", "A13": "lateral"}
 
 
 def parse_list(value, cast):
@@ -69,6 +86,11 @@ def prepare_trial(run_dir, config, window, segments, settings):
     left_foot_body = to_subject_frame(filtered[:, 21], frame)
     right_foot_body = to_subject_frame(filtered[:, 25], frame)
     foot_midpoint_body = (left_foot_body + right_foot_body) / 2
+    axis = HORIZONTAL_AXES[settings["horizontal_axis"]]
+    horizontal_index = axis["index"]
+    support_body = to_subject_frame(
+        filtered[:, axis["support_joint_indices"]], frame
+    )
 
     onset = window["fall_onset_frame0"]
     contact = window["apparent_contact_frame0"]
@@ -77,7 +99,9 @@ def prepare_trial(run_dir, config, window, segments, settings):
 
     # Fixed onset foot midpoint is the explicit single-link pivot assumption.
     pivot = foot_midpoint_body[onset]
-    horizontal_vertical = com_body[:, :2] - pivot[:2]
+    horizontal_vertical = (
+        com_body[:, [horizontal_index, 1]] - pivot[[horizontal_index, 1]]
+    )
     position = horizontal_vertical[onset : contact + 1]
     initial_position = position[0].copy()
     initial_velocity = estimate_initial_velocity(
@@ -99,11 +123,12 @@ def prepare_trial(run_dir, config, window, segments, settings):
         )
         / np.dot(initial_position, initial_position)
     )
-    foot_left = float(left_foot_body[onset, 0] - pivot[0])
-    foot_right = float(right_foot_body[onset, 0] - pivot[0])
-    bos_left = min(foot_left, foot_right)
-    bos_right = max(foot_left, foot_right)
-    foot_separation = bos_right - bos_left
+    support_coordinates = (
+        support_body[onset, :, horizontal_index] - pivot[horizontal_index]
+    )
+    bos_left = float(np.min(support_coordinates))
+    bos_right = float(np.max(support_coordinates))
+    support_span = bos_right - bos_left
     duration_s = float(time_s[-1])
     condition = np.array(
         [
@@ -114,7 +139,7 @@ def prepare_trial(run_dir, config, window, segments, settings):
             theta0,
             theta_velocity0,
             pendulum_length,
-            foot_separation,
+            support_span,
         ]
     )
     return {
@@ -136,6 +161,8 @@ def prepare_trial(run_dir, config, window, segments, settings):
             np.ptp(np.linalg.vector_norm(position, axis=1))
         ),
         "pivot_definition": "fixed foot midpoint at marked fall onset",
+        "horizontal_axis": settings["horizontal_axis"],
+        "support_proxy_definition": axis["support_definition"],
     }
 
 
@@ -263,7 +290,7 @@ def margin_of_stability(position, velocity, pendulum_length_m, bos_left, bos_rig
     return xcom, margin
 
 
-def plot_rmse_sweep(metrics, output_path):
+def plot_rmse_sweep(metrics, output_path, subject, activity):
     weights = sorted({float(row["physics_weight"]) for row in metrics})
     groups = {
         weight: [
@@ -300,7 +327,7 @@ def plot_rmse_sweep(metrics, output_path):
     axis.set_xticks(x, [f"{w:g}" for w in weights])
     axis.set_xlabel("Inverted-pendulum physics weight λ (0 = data-only)")
     axis.set_ylabel("Held-out horizontal/vertical CoM RMSE (m)")
-    axis.set_title("S43 A13 Stage-1 physics-weight sensitivity")
+    axis.set_title(f"{subject} {activity} Stage-1 physics-weight sensitivity")
     axis.grid(alpha=0.22)
     axis.legend(frameon=False)
     figure.tight_layout()
@@ -324,7 +351,7 @@ def aggregate(metrics, weight):
     }
 
 
-def plot_fold_comparison(metrics, best_weight, output_path):
+def plot_fold_comparison(metrics, best_weight, output_path, subject, activity):
     trials = sorted({row["held_out_trial"] for row in metrics})
     methods = {
         "constant velocity": [],
@@ -348,7 +375,7 @@ def plot_fold_comparison(metrics, best_weight, output_path):
     figure, axis = plt.subplots(figsize=(8.5, 4.8))
     for index, (label, values) in enumerate(methods.items()):
         axis.bar(x + (index - 1.5) * width, values, width, label=label, color=colors[index])
-    axis.set_xticks(x, [trial.replace("S43A13", "") for trial in trials])
+    axis.set_xticks(x, [trial.replace(f"{subject}{activity}", "") for trial in trials])
     axis.set_xlabel("Held-out trial")
     axis.set_ylabel("Horizontal/vertical CoM RMSE (m)")
     axis.set_title("Whole-trial leave-one-out controls")
@@ -359,7 +386,7 @@ def plot_fold_comparison(metrics, best_weight, output_path):
     plt.close(figure)
 
 
-def plot_trial(trial, rows, best_weight, seed, output_path):
+def plot_trial(trial, rows, best_weight, seed, output_path, horizontal_axis):
     selected = [r for r in rows if int(r["seed"]) == seed]
     data_rows = sorted(
         [r for r in selected if float(r["physics_weight"]) == 0],
@@ -372,7 +399,12 @@ def plot_trial(trial, rows, best_weight, seed, output_path):
     time = np.array([float(r["time_s"]) for r in data_rows])
     figure, axes = plt.subplots(4, 1, figsize=(7.7, 9.1), sharex=True)
     series = [
-        ("actual_horizontal_m", "model_horizontal_m", "model_horizontal_m", "Horizontal CoM (m)"),
+        (
+            "actual_horizontal_m",
+            "model_horizontal_m",
+            "model_horizontal_m",
+            HORIZONTAL_AXES[horizontal_axis]["plot_label"],
+        ),
         ("actual_vertical_m", "model_vertical_m", "model_vertical_m", "Vertical CoM (m)"),
         ("actual_theta_deg", "model_theta_deg", "model_theta_deg", "Angle θ (degrees)"),
         ("actual_mos_m", "model_mos_m", "model_mos_m", "MoS proxy (m)"),
@@ -392,7 +424,15 @@ def plot_trial(trial, rows, best_weight, seed, output_path):
     plt.close(figure)
 
 
-def build_summary(output_dir, metrics, settings, best_weight, trials):
+def build_summary(
+    output_dir,
+    metrics,
+    settings,
+    best_weight,
+    trials,
+    subject,
+    activity,
+):
     data_only = aggregate(metrics, 0.0)
     best = aggregate(metrics, best_weight)
     constant_velocity = np.mean([float(r["constant_velocity_xy_rmse_m"]) for r in metrics])
@@ -415,6 +455,14 @@ def build_summary(output_dir, metrics, settings, best_weight, trials):
     )
     hardest = max(best_rows, key=lambda r: float(r["model_xy_rmse_m"]))
     radius_ranges = [trial["actual_radius_range_m"] for trial in trials]
+    axis = HORIZONTAL_AXES[settings["horizontal_axis"]]
+    aggregate_methods = {
+        "constant-velocity control": constant_velocity,
+        "uncontrolled-pendulum control": uncontrolled,
+        "data-only network": data_only["xy_rmse"],
+        f"PINN (lambda={best_weight:g})": best["xy_rmse"],
+    }
+    strongest_method = min(aggregate_methods, key=aggregate_methods.get)
     if improvement >= 0:
         accuracy_change = f"{improvement:.1f}% improvement"
         outcome = "The best nonzero physics weight improved aggregate held-out accuracy relative to the identical data-only network."
@@ -422,11 +470,11 @@ def build_summary(output_dir, metrics, settings, best_weight, trials):
         accuracy_change = f"{-improvement:.1f}% worse"
         outcome = "No tested nonzero physics weight improved aggregate held-out accuracy relative to the identical data-only network."
     lines = [
-        "# S43 A13 Stage-1 inverted-pendulum PINN",
+        f"# {subject} {activity} Stage-1 inverted-pendulum PINN",
         "",
         "## Outcome",
         "",
-        "This experiment implements Stage 1 of the framework as a reduced-order angular inverted-pendulum PINN. It uses notebook-aligned filtered, female segment-weighted CoM in the standing subject frame. Horizontal and vertical CoM are measured relative to the fixed foot midpoint at marked fall onset, and the CoM angle is `atan2(horizontal, vertical)`.",
+        f"This experiment implements Stage 1 of the framework as a reduced-order angular inverted-pendulum PINN. It uses notebook-aligned filtered, female segment-weighted CoM in the standing subject frame. The horizontal state is the {axis['description']} CoM direction. Horizontal and vertical CoM are measured relative to the fixed foot midpoint at marked fall onset, and the CoM angle is `atan2(horizontal, vertical)`.",
         "",
         outcome,
         "",
@@ -455,7 +503,9 @@ def build_summary(output_dir, metrics, settings, best_weight, trials):
         "",
         "## Data and validation",
         "",
-        "- Trials: S43A13T01, T02, T03 and T05; T04 remains excluded.",
+        f"- Trials: {', '.join(trial['trial'] for trial in trials)}.",
+        f"- Horizontal direction: {axis['description']} ({settings['horizontal_axis']}).",
+        f"- Support-span proxy: {axis['support_definition']} at onset.",
         "- Window: every filtered CoM frame from marked onset through apparent contact.",
         "- Four whole-trial leave-one-out folds and training-only condition normalization.",
         f"- Physics weights: {', '.join(f'{w:g}' for w in settings['physics_weights'])}.",
@@ -471,11 +521,11 @@ def build_summary(output_dir, metrics, settings, best_weight, trials):
         "The fixed onset foot midpoint is a deliberate reduced-order pivot, not a measured center of pressure. XCoM and Margin of Stability are notebook-derived validation diagnostics, not additional ground truth.",
         "",
         f"The hardest selected-weight run is {hardest['held_out_trial']} (seed {hardest['seed']}) at {float(hardest['model_xy_rmse_m']):.4f} m XY RMSE.",
-        "The constant-velocity control is the strongest aggregate method in this four-trial experiment. T02 dominates the network mean because its 1.8-second trajectory requires substantial extrapolation beyond the shorter training trials.",
+        f"The strongest aggregate method in this four-trial experiment is the {strongest_method} at {aggregate_methods[strongest_method]:.4f} m RMSE.",
         "",
         "## Decision gate",
         "",
-        "This run can establish whether the framework-aligned angular physics improves an identical data-only model on held-out S43 A13 trials. It cannot identify separate controller or perturbation torques, and it does not validate synthetic falls. Stage 2 remains gated on stronger identifiability evidence or additional measurements.",
+        f"This run can establish whether the framework-aligned angular physics improves an identical data-only model on held-out {subject} {activity} trials. It cannot identify separate controller or perturbation torques, and it does not validate synthetic falls. Stage 2 remains gated on stronger identifiability evidence or additional measurements.",
         "",
     ]
     (output_dir / "SUMMARY.md").write_text("\n".join(lines), encoding="utf-8")
@@ -494,6 +544,7 @@ def run_experiment(run_dir, config_path, selection_path, notes_path, output_dir,
         raise ValueError(f"this experiment expects four eligible {activity} trials")
 
     segments = segment_model(config["sex"])
+    subject = config["subject_id"]
     trials = [prepare_trial(run_dir, config, window, segments, settings) for window in windows]
     output_dir.mkdir(parents=True)
     (output_dir / "plots").mkdir()
@@ -651,8 +702,19 @@ def run_experiment(run_dir, config_path, selection_path, notes_path, output_dir,
     write_csv(output_dir / "fold_metrics.csv", metrics)
     write_csv(output_dir / "fold_predictions.csv", predictions)
     write_csv(output_dir / "training_history.csv", histories)
-    plot_rmse_sweep(metrics, output_dir / "plots" / "rmse_vs_physics_weight.png")
-    plot_fold_comparison(metrics, best_weight, output_dir / "plots" / "fold_rmse_comparison.png")
+    plot_rmse_sweep(
+        metrics,
+        output_dir / "plots" / "rmse_vs_physics_weight.png",
+        subject,
+        activity,
+    )
+    plot_fold_comparison(
+        metrics,
+        best_weight,
+        output_dir / "plots" / "fold_rmse_comparison.png",
+        subject,
+        activity,
+    )
     for trial in sorted({row["held_out_trial"] for row in predictions}):
         plot_trial(
             trial,
@@ -660,15 +722,20 @@ def run_experiment(run_dir, config_path, selection_path, notes_path, output_dir,
             best_weight,
             settings["seeds"][0],
             output_dir / "plots" / f"{trial}_stage1.png",
+            settings["horizontal_axis"],
         )
 
     experiment_config = {
         "activity": activity,
+        "subject": subject,
         "framework_stage": 1,
         "equation": "I*theta_ddot = m*g*l*sin(theta) + tau_effective - b*theta_dot",
         "inertia_assumption": "point mass I=m*l^2",
-        "theta_definition": "atan2(horizontal_lateral_com, vertical_headward_com) relative to fixed onset foot midpoint",
+        "horizontal_axis": settings["horizontal_axis"],
+        "horizontal_axis_description": HORIZONTAL_AXES[settings["horizontal_axis"]]["description"],
+        "theta_definition": f"atan2({HORIZONTAL_AXES[settings['horizontal_axis']]['state_name']}_com, vertical_headward_com) relative to fixed onset foot midpoint",
         "pivot_definition": "fixed foot midpoint at marked fall onset",
+        "support_proxy_definition": HORIZONTAL_AXES[settings["horizontal_axis"]]["support_definition"],
         "torque_interpretation": "unidentified effective sum; not measured human control or perturbation",
         "settings": settings,
         "seed_policy": "training seed = listed base seed + zero-based fold index",
@@ -682,7 +749,7 @@ def run_experiment(run_dir, config_path, selection_path, notes_path, output_dir,
             "initial_theta_rad",
             "initial_theta_velocity_rad_s",
             "onset_pendulum_length_m",
-            "onset_foot_separation_m",
+            "onset_support_span_m",
         ],
         "excluded_condition": "marked onset-to-contact duration is deliberately not supplied",
         "mass_kg": mass_kg,
@@ -692,7 +759,15 @@ def run_experiment(run_dir, config_path, selection_path, notes_path, output_dir,
     (output_dir / "experiment_config.json").write_text(
         json.dumps(experiment_config, indent=2) + "\n", encoding="utf-8"
     )
-    build_summary(output_dir, metrics, settings, best_weight, trials)
+    build_summary(
+        output_dir,
+        metrics,
+        settings,
+        best_weight,
+        trials,
+        subject,
+        activity,
+    )
     return {
         "activity": activity,
         "folds": 4,
@@ -711,6 +786,7 @@ def main():
     parser.add_argument("--phase-notes", required=True, type=Path)
     parser.add_argument("--output", required=True, type=Path)
     parser.add_argument("--activity", default="A13")
+    parser.add_argument("--horizontal-axis", choices=sorted(HORIZONTAL_AXES))
     parser.add_argument("--epochs", type=int, default=300)
     parser.add_argument("--collocation-points", type=int, default=24)
     parser.add_argument("--learning-rate", type=float, default=0.003)
@@ -723,6 +799,11 @@ def main():
         raise ValueError("physics weights must include 0 for the data-only control")
     if not any(weight > 0 for weight in physics_weights):
         raise ValueError("include at least one nonzero physics weight")
+    horizontal_axis = args.horizontal_axis or DEFAULT_ACTIVITY_AXES.get(args.activity)
+    if horizontal_axis is None:
+        raise ValueError(
+            "provide --horizontal-axis for activities without a predefined direction"
+        )
     settings = {
         "epochs": args.epochs,
         "collocation_points": args.collocation_points,
@@ -734,6 +815,7 @@ def main():
         "velocity_window_frames": 5,
         "filter_cutoff_hz": 1.5,
         "filter_order": 6,
+        "horizontal_axis": horizontal_axis,
         "damping_nms": 0.0,
         "rigid_length_ratio": 0.1,
         "effective_torque_l2": 0.0001,

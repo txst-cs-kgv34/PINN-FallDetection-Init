@@ -62,13 +62,13 @@ benefit at moderate physics weight. It is not independent hyperparameter
 validation, force identification, cross-subject validation, clinical validation
 or permission to generate physically validated synthetic falls.
 
-## Framework Stage-1 inverted-pendulum experiment (2026-10-02)
+## Framework Stage-1 inverted-pendulum experiments (2026-10-02/05)
 
 `python scripts/verify_stage1_inverted_pendulum.py` checks the conversion from
 horizontal/vertical CoM to `theta=atan2(horizontal, vertical)`, the hard onset
 position and velocity construction, finite first/second automatic derivatives,
 constant-velocity and uncontrolled-pendulum controls, and a two-epoch
-four-fold workflow. It verifies all expected trials and branches, finite
+four-fold workflows for A13 lateral and A11 anterior-posterior motion. It verifies all expected trials and branches, finite
 metrics, exact onset states, exported histories/predictions, six plots, absence
 of an averaged-trial baseline, and the effective-torque interpretation warning.
 
@@ -88,6 +88,18 @@ inertia and rigid link are approximations, and the learned effective torque is
 not separately identifiable as human control or external perturbation. The
 experiment does not validate Stage 2, synthetic falls, cross-subject behavior,
 or clinical fall detection.
+
+The retained A11 experiment also ran 40 fits using the user-reviewed T02--T05
+phase windows and the same architecture, weights, seeds, epochs, optimizer and
+loss terms as A13. Its horizontal state is subject-forward CoM and its support
+span proxy uses the anterior-posterior projections of the left/right ANKLE and
+FOOT landmarks. The data-only network achieved 0.2430 m mean held-out XY RMSE.
+The best nonzero setting, lambda=0.01, achieved 0.2520 m: 3.7% worse in
+trajectory RMSE, despite reducing the angular-equation residual by 33.9%. It
+improved four of eight matched fold/seed runs and improved angle RMSE by 5.1%.
+The software verifier checks automatic A11-to-forward and A13-to-lateral axis
+selection. The cross-activity export checks that the two activities are
+compared descriptively without pooling their different horizontal directions.
 
 - Reproduced S50: 19 analyzed clips, 6 empty files, 895 frames.
 - Compared 582 shared numeric trial metrics to the previous S50 audit, with relative and absolute tolerance 1e-12; all matched.
