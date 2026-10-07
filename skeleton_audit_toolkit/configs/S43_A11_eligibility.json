@@ -1,0 +1,16 @@
+{
+  "subject_id": "S43",
+  "activity": "A11",
+  "decision_date_local": "2026-10-05",
+  "trial_decisions": {
+    "S43A11T01": {
+      "onset_to_contact_eligible": false,
+      "reason": "User-confirmed invalid front-fall sample."
+    },
+    "S43A11T02": {"onset_to_contact_eligible": true},
+    "S43A11T03": {"onset_to_contact_eligible": true},
+    "S43A11T04": {"onset_to_contact_eligible": true},
+    "S43A11T05": {"onset_to_contact_eligible": true}
+  },
+  "scope": "Eligibility for the S43 A11 Stage-1 onset-to-apparent-contact inverted-pendulum experiment."
+}

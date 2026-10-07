@@ -38,7 +38,8 @@ The main scripts follow a clear order: load/validate inputs, calculate, then exp
 | `scripts/pinn_torch.py` | Define the controlled PyTorch trajectory/residual networks and dimensionless physics losses |
 | `scripts/run_physics_weight_experiment.py` | Compare data-only and physics-informed networks under matched folds, seeds and loss weights |
 | `scripts/inverted_pendulum_pinn.py` | Define the Stage-1 horizontal/vertical CoM network, angle derivatives, torque and inverted-pendulum loss |
-| `scripts/run_stage1_inverted_pendulum.py` | Run the framework-aligned A13 Stage-1 experiment with non-averaged controls |
+| `scripts/run_stage1_inverted_pendulum.py` | Run framework-aligned Stage-1 experiments with activity-specific horizontal axes and non-averaged controls |
+| `scripts/compare_stage1_activities.py` | Compare retained Stage-1 activity results without pooling unlike motion directions |
 | `viewer/inspection.html`, `inspection.js`, `inspection.css` | Player layout, interactions and appearance |
 | `scripts/verify.py` | Check audit and male/female CoM regression behavior |
 | `scripts/verify_inspection.py` | Check geometry, filtering, candidate selection and S43 inspection exports |
@@ -47,6 +48,7 @@ The main scripts follow a clear order: load/validate inputs, calculate, then exp
 | `scripts/verify_pinn_pilot.py` | Check automatic derivatives, hard initial conditions and the four-fold PINN workflow |
 | `scripts/verify_physics_weight_experiment.py` | Check the PyTorch controls, gravity sanity baseline, exports and four-fold comparison workflow |
 | `scripts/verify_stage1_inverted_pendulum.py` | Check CoM-to-angle geometry, hard onset constraints, controls and the Stage-1 four-fold workflow |
+| `scripts/verify_stage1_activity_comparison.py` | Check retained A11/A13 comparison metrics, activity axes and interpretation guards |
 
 `core.py` remains only as a compatibility import layer for older scripts. New code imports the task-specific modules. No additional CoM model was introduced during this organization change.
 
@@ -85,6 +87,7 @@ python scripts/verify_reconstruction_pilot.py
 python scripts/verify_pinn_pilot.py
 python scripts/verify_physics_weight_experiment.py
 python scripts/verify_stage1_inverted_pendulum.py
+python scripts/verify_stage1_activity_comparison.py
 ```
 
 For another subject, use its audit and a selection JSON with `subject_id`, `remaining_candidate_trials`, and `excluded_trials` (a trial-to-reason mapping). Optional collection metadata accompanies the historical audit; it does not silently replace coordinate units, model parameters or sampling rate. Rerun an audit if those computational inputs change.
@@ -116,6 +119,11 @@ the initial manual phase marks with the later A13 completion review and records
 the merge provenance. The validator checks the subject, nominal FPS, candidate
 list, frame bounds, phase completeness and phase order. It does not promote an
 `apparent_contact` mark to measured ground contact.
+
+The separately reviewed front-fall annotations are stored in
+`analysis_inputs/S43_A11_phase_notes.json`. They retain T02--T05 and record the
+user-confirmed exclusion of invalid fall T01. The explicit trial decisions are
+also stored in `configs/S43_A11_eligibility.json`.
 
 ```bash
 python scripts/build_phase_baseline.py \
@@ -303,10 +311,22 @@ python scripts/run_stage1_inverted_pendulum.py \
   --physics-weights 0,0.01,0.1,1,10 \
   --seeds 43013,43014 \
   --output analyses/S43_A13_stage1_inverted_pendulum_new
+
+python scripts/run_stage1_inverted_pendulum.py \
+  --run findings/S43_audit \
+  --config configs/S43.json \
+  --selection configs/S43_modeling_selection.json \
+  --phase-notes analysis_inputs/S43_A11_phase_notes.json \
+  --activity A11 \
+  --epochs 300 \
+  --physics-weights 0,0.01,0.1,1,10 \
+  --seeds 43013,43014 \
+  --output analyses/S43_A11_stage1_inverted_pendulum_new
 ```
 
-For A13, horizontal is the subject-relative lateral direction and vertical is
-the standing headward direction. Both are measured relative to the foot
+For A13, horizontal is the subject-relative lateral direction. For A11,
+horizontal is the subject-forward/anterior-posterior direction. Vertical is the
+standing headward direction in both experiments. Both are measured relative to the foot
 midpoint fixed at marked fall onset. The angular state is derived rather than
 renaming a coordinate:
 
@@ -325,6 +345,9 @@ The experiment deliberately does not use an averaged trial as a quantitative
 baseline. Its controls are the identical data-only network, constant-velocity
 extrapolation and a zero-torque inverted pendulum. The marked contact duration
 is not supplied as a condition, avoiding that future endpoint as an input.
+For the A11 anterior-posterior MoS diagnostic and onset support-span condition,
+the support proxy is the minimum/maximum projection of the left/right ANKLE and
+FOOT landmarks. It is not a measured support polygon or center of pressure.
 
 The retained checkpoint is
 `analyses/S43_A13_stage1_inverted_pendulum`. The full run contains 40 fits:
@@ -342,6 +365,31 @@ equation more closely does not yet improve held-out fall reconstruction. The
 observed CoM-to-pivot radius changes by 0.159--0.316 m within the selected
 windows, so the rigid single-link assumption is visibly violated. Stage 2 and
 synthetic generation remain gated.
+
+The retained front-fall checkpoint is
+`analyses/S43_A11_stage1_inverted_pendulum`. Its 40 matched fits use T02--T05,
+whose onset-to-contact durations range from 0.80 to 1.03 s. The data-only
+network achieved 0.2430 m held-out horizontal/vertical CoM RMSE. The best
+nonzero setting was again lambda=0.01 at 0.2520 m, 3.7% worse than data-only,
+although it reduced the angular-equation residual by 33.9% and improved angle
+RMSE by 5.1%. It won four of eight matched fold/seed comparisons. Unlike A13,
+both learned models beat the constant-velocity and uncontrolled-pendulum
+controls; the data-only network was strongest overall.
+
+The cross-activity checkpoint is
+`analyses/S43_stage1_activity_comparison`. Reproduce it with:
+
+```bash
+python scripts/compare_stage1_activities.py \
+  --a11 analyses/S43_A11_stage1_inverted_pendulum \
+  --a13 analyses/S43_A13_stage1_inverted_pendulum \
+  --output analyses/S43_stage1_activity_comparison_new
+```
+
+Across both fall directions, nonzero pendulum physics lowers the selected
+equation residual but does not improve aggregate held-out CoM accuracy. This
+repeated pattern supports retaining Stage 1 as an interpretable diagnostic or
+weak auxiliary prior, not yet as a generator of validated synthetic falls.
 
 ## Quick start
 
