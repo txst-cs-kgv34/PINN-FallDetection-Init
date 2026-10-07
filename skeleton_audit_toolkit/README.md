@@ -391,6 +391,39 @@ equation residual but does not improve aggregate held-out CoM accuracy. This
 repeated pattern supports retaining Stage 1 as an interpretable diagnostic or
 weak auxiliary prior, not yet as a generator of validated synthetic falls.
 
+## Stage-1.5 relaxed-mechanics ablation
+
+`scripts/run_stage1_relaxed_mechanics.py` tests two follow-up mechanics without
+altering either retained Stage-1 checkpoint:
+
+- `variable_length`: the predicted pivot-relative CoM radius defines `l(t)`;
+  the angular equation includes the polar coupling term
+  `2*m*l*l_dot*theta_dot`. The true held-out radius is never supplied.
+- `moving_support_variable_length`: the same variable-length equation also
+  uses the filtered left/right FOOT midpoint's horizontal displacement and
+  acceleration. This is an observed-support diagnostic, not a prospective
+  predictor or center-of-pressure estimate.
+
+Reproduce the software checks with:
+
+```bash
+python scripts/verify_stage1_relaxed_mechanics.py
+```
+
+The four retained 300-epoch experiments are under
+`analyses/S43_A11_stage1_5_*` and `analyses/S43_A13_stage1_5_*`. The consolidated
+comparison is `analyses/S43_stage1_5_relaxed_mechanics_comparison` and can be
+rebuilt with `python scripts/compare_stage1_relaxed_mechanics.py`.
+
+Neither relaxed model beat the original data-only network in both activities.
+The fixed-pivot variable-length PINN achieved 0.2500 m for A11 and 0.4857 m for
+A13, versus original data-only values of 0.2430 m and 0.4121 m. The moving-
+support diagnostic achieved 0.3176 m and 0.4955 m. These results close the
+relaxed-mechanics check as a negative ablation. The recommended next step is
+the framework's Stage-2 parameter-recovery benchmark on simulated trajectories
+with known controller gains and perturbations, before interpreting controller
+parameters from S43 falls.
+
 ## Quick start
 
 Python 3.10+ is recommended. From this folder:
