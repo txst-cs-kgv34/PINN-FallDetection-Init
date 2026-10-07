@@ -101,6 +101,36 @@ The software verifier checks automatic A11-to-forward and A13-to-lateral axis
 selection. The cross-activity export checks that the two activities are
 compared descriptively without pooling their different horizontal directions.
 
+## Stage-1.5 relaxed-mechanics validation (2026-10-07)
+
+`python scripts/verify_stage1_relaxed_mechanics.py` checks that the new
+variable-length residual reduces exactly to the original Stage-1 residual when
+`l_dot=0` and pivot acceleration is zero. It also runs independent two-epoch
+four-fold workflows for the fixed-pivot variable-length and measured moving-
+support variants. The check verifies finite metrics, both physics branches,
+exact onset position, expected trial counts, exported predictions, and the
+moving-support interpretation warning.
+
+Four full experiments were then run with the original Stage-1 training budget:
+four whole-trial folds, five physics weights, two seeds, 300 epochs, 24
+collocation points, and the same neural architectures and optimizer.
+
+- A11 fixed-pivot variable length: 0.2500 m best PINN RMSE, 2.9% worse than
+  original data-only and 32.4% lower residual than its matched data-only run.
+- A13 fixed-pivot variable length: 0.4857 m, 17.8% worse than original
+  data-only and 6.2% lower residual.
+- A11 moving-support diagnostic: 0.3176 m, 30.7% worse than original data-only.
+- A13 moving-support diagnostic: 0.4955 m, 20.2% worse than original data-only,
+  although it reduced residual by 57.6% relative to its matched moving-frame
+  data-only model.
+
+The moving-support workflow uses the held-out filtered FOOT midpoint trajectory
+as an observed exogenous diagnostic, so it is not a deployable forecast. It
+does not use held-out CoM after onset, but its support input would not be known
+for virtual perturbation simulation. These checks validate software behavior
+and the controlled comparison; they do not validate the support proxy,
+controller identification, synthetic falls, or clinical prediction.
+
 - Reproduced S50: 19 analyzed clips, 6 empty files, 895 frames.
 - Compared 582 shared numeric trial metrics to the previous S50 audit, with relative and absolute tolerance 1e-12; all matched.
 - Used a separate subject configuration and directory input for S06: 5 clips, 1,011 frames, activity A08.
