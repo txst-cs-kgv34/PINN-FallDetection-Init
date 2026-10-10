@@ -178,3 +178,28 @@ These tests verify computation and provenance. Repeated coordinates and common s
 
 No floor/contact calibration, physical stability validation, recovered external
 force or physically validated synthetic-fall generation is claimed by these checks.
+
+## Stage-2A delayed-PD parameter recovery (2026-10-07)
+
+`python scripts/verify_stage2a_parameter_recovery.py` checks the dimensionless
+subject scaling, exact torque clipping, deliberate saturation excitation,
+finite deterministic DDE simulation, 30 Hz sampling, and an independent clean
+three-trial parameter-recovery fixture. It also verifies the retained result's
+12 plant/profile/noise cases, 180 optimizer profiles, 1,776 held-out trajectory
+rows, three plots, and every prespecified acceptance gate.
+
+The retained simulation uses S43 mass and the median fixed-pivot onset lengths
+from the A11 and A13 Stage-1 experiments. Across three known controller
+profiles and two independent 0.12-degree noise seeds, all 12 cases passed.
+Median errors were 0.08% for Kp, 0.53% for Kd, zero 30 Hz frames for delay, and
+0.56% for torque limit. Median forward error on four unseen perturbations was
+0.014 degrees. The original Stage-1 order-6, 1.5 Hz zero-phase observation
+filter is applied identically to simulated observations and candidate forward
+predictions.
+
+This validates code-level recoverability under a correctly specified simulated
+plant with known perturbations and zero passive damping. It does not establish
+identifiability under plant mismatch, unknown human perturbations, unmeasured
+contact forces, skeleton-derived angle errors, or nonzero passive damping. It
+does not recover a physiological controller from S43 and is not a clinical
+validation or permission to generate validated human falls.

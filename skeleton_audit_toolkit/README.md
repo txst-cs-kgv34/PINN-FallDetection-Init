@@ -424,6 +424,53 @@ the framework's Stage-2 parameter-recovery benchmark on simulated trajectories
 with known controller gains and perturbations, before interpreting controller
 parameters from S43 falls.
 
+## Framework Stage 2A: delayed-PD parameter recovery in simulation
+
+Stage 2A is implemented as a separate simulation benchmark and does not modify
+the retained Stage-1 or Stage-1.5 results. It uses the original Stage-1 plant:
+a constant-length point mass rotating about a fixed pivot, with `I=m*l^2` and
+`b=0`. The known controller and perturbation are
+
+```text
+tau_control(t) = clip(-Kp*theta(t-delay) - Kd*theta_dot(t-delay),
+                      -tau_max, +tau_max)
+I*theta_ddot = m*g*l*sin(theta) + tau_control + tau_perturbation
+```
+
+The two plant lengths are the median onset lengths from the retained A11 and
+A13 Stage-1 folds (0.89809 m and 0.93523 m). Gains and torque limits are fitted
+in subject-scaled form, and the delay is profiled on the 30 Hz observation-frame
+grid. Eight known pulse trials are used for fitting and four different pulse
+trials are held out for forward validation. The benchmark spans three
+controller profiles, both plant lengths, and two independent observation-noise
+seeds. The 1.2 s horizon matches the scale of the marked S43 onset-to-contact
+windows and avoids treating multiple full rotations as postural recovery.
+
+Reproduce the retained run and verification with:
+
+```bash
+python -m pip install -r requirements-stage2a.txt
+python scripts/run_stage2a_parameter_recovery.py \
+  --config configs/S43_stage2a_simulation.json \
+  --output analyses/S43_stage2a_delayed_pd_parameter_recovery_new
+python scripts/verify_stage2a_parameter_recovery.py
+```
+
+The retained checkpoint is
+`analyses/S43_stage2a_delayed_pd_parameter_recovery`. All 12 cases passed the
+prespecified parameter and held-out gates. Median relative errors were 0.08%
+for Kp, 0.53% for Kd and 0.56% for the torque limit; median delay error was zero
+30 Hz frames and median held-out angle RMSE was 0.014 degrees. Saturation was
+active in every condition, so torque-limit recovery was tested rather than
+inferred from an entirely unsaturated response.
+
+This is a correctly specified simulation-recovery result, not evidence that the
+same parameters are identifiable from S43 skeleton falls. The human trials do
+not contain measured perturbation torque, center of pressure or ground-reaction
+force. The next scientific gate is a model-mismatch sensitivity study before
+any exploratory human-data fit; any later S43 estimates must be described as
+effective delayed-feedback parameters, not physiological measurements.
+
 ## Quick start
 
 Python 3.10+ is recommended. From this folder:

@@ -1,0 +1,77 @@
+{
+  "subject": "S43",
+  "framework_stage": "2A",
+  "purpose": "Recover known delayed-PD parameters from simulated subject-scaled trajectories before fitting human falls.",
+  "mass_kg": 58.9670081,
+  "height_m": 1.6256,
+  "plants": [
+    {
+      "plant_id": "A11_median_length",
+      "source_activity": "A11",
+      "length_m": 0.89809,
+      "length_source": "median of retained Stage-1 onset CoM-to-fixed-pivot lengths",
+      "damping_nms": 0.0
+    },
+    {
+      "plant_id": "A13_median_length",
+      "source_activity": "A13",
+      "length_m": 0.93523,
+      "length_source": "median of retained Stage-1 onset CoM-to-fixed-pivot lengths",
+      "damping_nms": 0.0
+    }
+  ],
+  "controller_profiles": [
+    {
+      "profile": "responsive",
+      "alpha_kp": 1.55,
+      "beta_kd": 0.55,
+      "delay_frames": 3,
+      "gamma_torque_limit": 0.18
+    },
+    {
+      "profile": "balanced",
+      "alpha_kp": 1.35,
+      "beta_kd": 0.45,
+      "delay_frames": 4,
+      "gamma_torque_limit": 0.15
+    },
+    {
+      "profile": "limited",
+      "alpha_kp": 1.20,
+      "beta_kd": 0.36,
+      "delay_frames": 5,
+      "gamma_torque_limit": 0.11
+    }
+  ],
+  "simulation": {
+    "duration_s": 1.2,
+    "internal_hz": 300,
+    "observation_hz": 30,
+    "noise_sd_deg": 0.12,
+    "noise_seeds": [43021, 43022],
+    "filter_cutoff_hz": 1.5,
+    "filter_order": 6
+  },
+  "recovery": {
+    "delay_frames": [2, 3, 4, 5, 6],
+    "bounds": {
+      "alpha_kp": [1.02, 1.9],
+      "beta_kd": [0.15, 0.85],
+      "gamma_torque_limit": [0.06, 0.3]
+    },
+    "starts": [
+      [1.15, 0.3, 0.1],
+      [1.4, 0.5, 0.16],
+      [1.7, 0.7, 0.23]
+    ],
+    "max_nfev": 60
+  },
+  "acceptance_gates": {
+    "kp_relative_error_max": 0.15,
+    "kd_relative_error_max": 0.15,
+    "delay_error_frames_max": 1,
+    "torque_limit_relative_error_max": 0.15,
+    "held_out_theta_rmse_deg_max": 1.0,
+    "required_case_pass_fraction": 0.8
+  }
+}
