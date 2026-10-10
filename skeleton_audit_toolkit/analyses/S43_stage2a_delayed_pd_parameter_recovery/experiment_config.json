@@ -1,0 +1,255 @@
+{
+  "subject": "S43",
+  "framework_stage": "2A",
+  "purpose": "Recover known delayed-PD parameters from simulated subject-scaled trajectories before fitting human falls.",
+  "mass_kg": 58.9670081,
+  "height_m": 1.6256,
+  "plants": [
+    {
+      "plant_id": "A11_median_length",
+      "source_activity": "A11",
+      "length_m": 0.89809,
+      "length_source": "median of retained Stage-1 onset CoM-to-fixed-pivot lengths",
+      "damping_nms": 0.0
+    },
+    {
+      "plant_id": "A13_median_length",
+      "source_activity": "A13",
+      "length_m": 0.93523,
+      "length_source": "median of retained Stage-1 onset CoM-to-fixed-pivot lengths",
+      "damping_nms": 0.0
+    }
+  ],
+  "controller_profiles": [
+    {
+      "profile": "responsive",
+      "alpha_kp": 1.55,
+      "beta_kd": 0.55,
+      "delay_frames": 3,
+      "gamma_torque_limit": 0.18
+    },
+    {
+      "profile": "balanced",
+      "alpha_kp": 1.35,
+      "beta_kd": 0.45,
+      "delay_frames": 4,
+      "gamma_torque_limit": 0.15
+    },
+    {
+      "profile": "limited",
+      "alpha_kp": 1.2,
+      "beta_kd": 0.36,
+      "delay_frames": 5,
+      "gamma_torque_limit": 0.11
+    }
+  ],
+  "simulation": {
+    "duration_s": 1.2,
+    "internal_hz": 300,
+    "observation_hz": 30,
+    "noise_sd_deg": 0.12,
+    "noise_seeds": [
+      43021,
+      43022
+    ],
+    "filter_cutoff_hz": 1.5,
+    "filter_order": 6
+  },
+  "recovery": {
+    "delay_frames": [
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "bounds": {
+      "alpha_kp": [
+        1.02,
+        1.9
+      ],
+      "beta_kd": [
+        0.15,
+        0.85
+      ],
+      "gamma_torque_limit": [
+        0.06,
+        0.3
+      ]
+    },
+    "starts": [
+      [
+        1.15,
+        0.3,
+        0.1
+      ],
+      [
+        1.4,
+        0.5,
+        0.16
+      ],
+      [
+        1.7,
+        0.7,
+        0.23
+      ]
+    ],
+    "max_nfev": 60
+  },
+  "acceptance_gates": {
+    "kp_relative_error_max": 0.15,
+    "kd_relative_error_max": 0.15,
+    "delay_error_frames_max": 1,
+    "torque_limit_relative_error_max": 0.15,
+    "held_out_theta_rmse_deg_max": 1.0,
+    "required_case_pass_fraction": 0.8
+  },
+  "trial_bank": [
+    {
+      "trial": "train_01",
+      "split": "train",
+      "initial_theta_rad": 0.03,
+      "initial_omega_rad_s": 0.0,
+      "pulse_onset_s": 0.2,
+      "pulse_duration_s": 0.18,
+      "pulse_amplitude_ratio": 0.12,
+      "pulse2_onset_s": null,
+      "pulse2_duration_s": null,
+      "pulse2_amplitude_ratio": 0.0
+    },
+    {
+      "trial": "train_02",
+      "split": "train",
+      "initial_theta_rad": -0.035,
+      "initial_omega_rad_s": 0.0,
+      "pulse_onset_s": 0.28,
+      "pulse_duration_s": 0.22,
+      "pulse_amplitude_ratio": -0.14,
+      "pulse2_onset_s": null,
+      "pulse2_duration_s": null,
+      "pulse2_amplitude_ratio": 0.0
+    },
+    {
+      "trial": "train_03",
+      "split": "train",
+      "initial_theta_rad": 0.0,
+      "initial_omega_rad_s": 0.05,
+      "pulse_onset_s": 0.18,
+      "pulse_duration_s": 0.16,
+      "pulse_amplitude_ratio": 0.22,
+      "pulse2_onset_s": null,
+      "pulse2_duration_s": null,
+      "pulse2_amplitude_ratio": 0.0
+    },
+    {
+      "trial": "train_04",
+      "split": "train",
+      "initial_theta_rad": 0.045,
+      "initial_omega_rad_s": -0.04,
+      "pulse_onset_s": 0.35,
+      "pulse_duration_s": 0.25,
+      "pulse_amplitude_ratio": -0.2,
+      "pulse2_onset_s": null,
+      "pulse2_duration_s": null,
+      "pulse2_amplitude_ratio": 0.0
+    },
+    {
+      "trial": "train_05",
+      "split": "train",
+      "initial_theta_rad": -0.055,
+      "initial_omega_rad_s": 0.03,
+      "pulse_onset_s": 0.22,
+      "pulse_duration_s": 0.28,
+      "pulse_amplitude_ratio": 0.27,
+      "pulse2_onset_s": null,
+      "pulse2_duration_s": null,
+      "pulse2_amplitude_ratio": 0.0
+    },
+    {
+      "trial": "train_06",
+      "split": "train",
+      "initial_theta_rad": 0.02,
+      "initial_omega_rad_s": 0.08,
+      "pulse_onset_s": 0.42,
+      "pulse_duration_s": 0.14,
+      "pulse_amplitude_ratio": -0.3,
+      "pulse2_onset_s": null,
+      "pulse2_duration_s": null,
+      "pulse2_amplitude_ratio": 0.0
+    },
+    {
+      "trial": "train_07",
+      "split": "train",
+      "initial_theta_rad": -0.015,
+      "initial_omega_rad_s": -0.08,
+      "pulse_onset_s": 0.16,
+      "pulse_duration_s": 0.32,
+      "pulse_amplitude_ratio": 0.18,
+      "pulse2_onset_s": null,
+      "pulse2_duration_s": null,
+      "pulse2_amplitude_ratio": 0.0
+    },
+    {
+      "trial": "train_08",
+      "split": "train",
+      "initial_theta_rad": 0.06,
+      "initial_omega_rad_s": 0.0,
+      "pulse_onset_s": 0.25,
+      "pulse_duration_s": 0.18,
+      "pulse_amplitude_ratio": 0.25,
+      "pulse2_onset_s": 0.78,
+      "pulse2_duration_s": 0.2,
+      "pulse2_amplitude_ratio": -0.18
+    },
+    {
+      "trial": "test_01",
+      "split": "test",
+      "initial_theta_rad": 0.025,
+      "initial_omega_rad_s": -0.02,
+      "pulse_onset_s": 0.31,
+      "pulse_duration_s": 0.2,
+      "pulse_amplitude_ratio": 0.17,
+      "pulse2_onset_s": null,
+      "pulse2_duration_s": null,
+      "pulse2_amplitude_ratio": 0.0
+    },
+    {
+      "trial": "test_02",
+      "split": "test",
+      "initial_theta_rad": -0.045,
+      "initial_omega_rad_s": 0.06,
+      "pulse_onset_s": 0.19,
+      "pulse_duration_s": 0.26,
+      "pulse_amplitude_ratio": -0.24,
+      "pulse2_onset_s": null,
+      "pulse2_duration_s": null,
+      "pulse2_amplitude_ratio": 0.0
+    },
+    {
+      "trial": "test_03",
+      "split": "test",
+      "initial_theta_rad": 0.01,
+      "initial_omega_rad_s": 0.0,
+      "pulse_onset_s": 0.24,
+      "pulse_duration_s": 0.15,
+      "pulse_amplitude_ratio": 0.28,
+      "pulse2_onset_s": 0.68,
+      "pulse2_duration_s": 0.24,
+      "pulse2_amplitude_ratio": -0.16
+    },
+    {
+      "trial": "test_04",
+      "split": "test",
+      "initial_theta_rad": -0.02,
+      "initial_omega_rad_s": -0.05,
+      "pulse_onset_s": 0.38,
+      "pulse_duration_s": 0.3,
+      "pulse_amplitude_ratio": -0.19,
+      "pulse2_onset_s": 0.92,
+      "pulse2_duration_s": 0.16,
+      "pulse2_amplitude_ratio": 0.23
+    }
+  ],
+  "source_config": "configs/S43_stage2a_simulation.json",
+  "source_config_sha256": "c0ddfad0e73a574250f623dffb4f629545f659f6719a41c2436109feeb8ef9d8"
+}
