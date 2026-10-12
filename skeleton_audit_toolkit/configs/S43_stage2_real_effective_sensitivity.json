@@ -1,0 +1,54 @@
+{
+  "subject": "S43",
+  "framework_stage": "Stage 2 final: Option 1 identifiability conclusion plus Option 2 exploratory real-data sensitivity",
+  "purpose": "Estimate assumption-dependent effective delayed-feedback parameters from real A11 and A13 skeleton falls and compare prospective held-out CoM paths without claiming physiological controller identification.",
+  "activities": [
+    {
+      "activity": "A11",
+      "horizontal_axis": "forward",
+      "phase_notes": "analysis_inputs/S43_A11_phase_notes.json"
+    },
+    {
+      "activity": "A13",
+      "horizontal_axis": "lateral",
+      "phase_notes": "analysis_inputs/S43_phase_notes_with_A13_eligibility.json"
+    }
+  ],
+  "preprocessing": {
+    "filter_cutoff_hz": 1.5,
+    "filter_order": 6,
+    "standing_radius": 2,
+    "velocity_window_frames": 5
+  },
+  "simulation": {
+    "internal_hz": 150,
+    "observation_hz": 30,
+    "pulse_onset_s": 0.0,
+    "pulse_duration_s": 0.25
+  },
+  "assumption_grid": {
+    "length_scales": [0.95, 1.0, 1.05],
+    "damping_ratios": [0.0, 0.1],
+    "perturbation_models": ["zero", "shared_pulse"]
+  },
+  "recovery": {
+    "delay_frames": [2, 3, 4, 5, 6],
+    "bounds": {
+      "alpha_kp": [0.0, 2.0],
+      "beta_kd": [0.0, 1.2],
+      "gamma_torque_limit": [0.02, 0.5],
+      "pulse_amplitude_ratio": [0.0, 0.6]
+    },
+    "starts": [
+      [0.8, 0.3, 0.12, 0.15],
+      [1.4, 0.7, 0.25, 0.35]
+    ],
+    "max_nfev": 25
+  },
+  "interpretation": {
+    "parameters": "effective and assumption-dependent; not physiological measurements",
+    "held_out_policy": "held-out CoM samples are not used in parameter or shared-pulse fitting",
+    "selection_policy": "the displayed central model selects zero versus shared-pulse forcing by training-only AIC; held-out samples are excluded",
+    "known_limitation": "no measured perturbation torque, force plate, ground-reaction force, center of pressure, or recovery-force data"
+  }
+}
