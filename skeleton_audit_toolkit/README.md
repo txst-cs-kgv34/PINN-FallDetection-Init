@@ -49,6 +49,9 @@ The main scripts follow a clear order: load/validate inputs, calculate, then exp
 | `scripts/verify_physics_weight_experiment.py` | Check the PyTorch controls, gravity sanity baseline, exports and four-fold comparison workflow |
 | `scripts/verify_stage1_inverted_pendulum.py` | Check CoM-to-angle geometry, hard onset constraints, controls and the Stage-1 four-fold workflow |
 | `scripts/verify_stage1_activity_comparison.py` | Check retained A11/A13 comparison metrics, activity axes and interpretation guards |
+| `scripts/stage2_real_effective.py` | Fit explicitly assumption-dependent delayed-feedback models to real Stage-1 trajectories |
+| `scripts/run_stage2_real_effective_sensitivity.py` | Run final Stage-2 leave-one-trial-out sensitivity fits and CoM-path comparisons |
+| `scripts/verify_stage2_final.py` | Check final Stage-2 counts, finite fits, held-out separation, training-only selection and plots |
 
 `core.py` remains only as a compatibility import layer for older scripts. New code imports the task-specific modules. No additional CoM model was introduced during this organization change.
 
@@ -510,6 +513,48 @@ quantitative S43 Kp, Kd, delay or torque-limit values as identified controller
 parameters. A later human-data fit can only be an explicitly exploratory
 effective-parameter sensitivity analysis unless instrumented perturbation and
 contact measurements become available.
+
+## Final Stage 2: identifiability decision and exploratory CoM prediction
+
+The final Stage-2 checkpoint is
+`analyses/S43_stage2_final_real_effective_sensitivity`. It implements the two
+available paths: (1) close formal physiological-parameter identification as
+unsupported by the current measurements, and (2) retain an exploratory
+effective-parameter analysis with honest whole-trial prediction. Option 3 is
+not run because the recordings contain skeleton positions but no measured
+perturbation, recovery force, ground-reaction force, center of pressure, or
+force-plate signal.
+
+For each activity independently, three real falls train one common effective
+delayed-feedback model and the fourth complete fall is held out. This is
+repeated for all four trials. The held-out CoM never enters fitting or model
+selection. The assumption grid crosses onset-length scales 0.95/1.00/1.05,
+normalized passive damping 0/0.10, and either zero perturbation or one shared
+training-estimated pulse proxy. The central displayed model chooses the latter
+two forcing assumptions by training-only AIC. The proxy is a sensitivity
+device, not a measured force.
+
+```bash
+python scripts/run_stage2_real_effective_sensitivity.py \
+  --config configs/S43_stage2_real_effective_sensitivity.json \
+  --output analyses/S43_stage2_final_real_effective_sensitivity_new
+python scripts/verify_stage2_final.py
+```
+
+Across A11, the selected model achieved 0.1216 m mean held-out XY CoM RMSE,
+better than constant velocity (0.2848 m) and the uncontrolled pendulum
+(0.2813 m). Across A13 it achieved 0.4332 m, worse than both constant velocity
+(0.2681 m) and the uncontrolled pendulum (0.3452 m). The long S43A13T02 fold
+was the decisive failure at 0.9439 m XY RMSE and 105.07 degrees angle RMSE.
+Thus the reduced delayed-feedback model has activity-dependent predictive
+utility, not general Stage-2 validation.
+
+The recovered dimensionless parameters vary strongly across the assumption
+grid and frequently meet tested bounds. These are effective curve-fitting
+parameters and must not be reported as physiological Kp, Kd, neural response
+delay, or torque capacity. A 300 Hz replay of all eight displayed 150 Hz
+solutions changed predicted position by at most 0.0000652 m, so the conclusion
+is not an internal integration-step artifact.
 
 ## Quick start
 

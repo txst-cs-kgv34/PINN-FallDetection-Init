@@ -231,3 +231,29 @@ parameters.
 These checks validate the implemented mismatch experiment and its retained
 decision. They do not define physiological uncertainty, validate the fixed-link
 plant, or make controller parameters identifiable in S43 skeleton falls.
+
+## Final Stage-2 real-data sensitivity and CoM paths (2026-10-11)
+
+`python scripts/verify_stage2_final.py` checks 96 fold/assumption fits, eight
+leave-one-trial-out displayed folds, 960 delay/start optimizer profiles, 244
+held-out CoM samples, two activity summaries and eight line/path figures. It
+requires every optimizer profile and exported metric to be finite, verifies
+that the held-out trial is absent from each training list, and independently
+recomputes the training-only AIC choice between the zero-perturbation and
+shared-pulse assumptions. The retained run contains no invalid profiles and no
+held-out leakage.
+
+The A11 selected-model mean held-out XY RMSE is 0.1216 m, compared with
+0.2848 m for constant velocity and 0.2813 m for an uncontrolled pendulum. The
+A13 mean is 0.4332 m, worse than both controls (0.2681 m and 0.3452 m), with
+the long S43A13T02 fold failing markedly at 0.9439 m. A separate numerical
+replay recomputed all eight displayed trajectories at 300 Hz instead of the
+retained 150 Hz integration rate; the maximum coordinate difference was
+0.0000652 m.
+
+This verifies workflow integrity, numerical stability and honest held-out
+comparison. It does not validate the reduced plant, the inferred pulse proxy,
+the physiological meaning of Kp/Kd/delay/torque limit, cross-subject
+generalization or clinical prediction. The correct final Stage-2 result is
+non-identifiability plus exploratory, activity-dependent prediction—not
+recovery of human controller parameters.
