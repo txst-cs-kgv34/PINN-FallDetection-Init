@@ -471,6 +471,46 @@ force. The next scientific gate is a model-mismatch sensitivity study before
 any exploratory human-data fit; any later S43 estimates must be described as
 effective delayed-feedback parameters, not physiological measurements.
 
+## Stage-2A robustness and mismatch study
+
+The retained robustness checkpoint is `analyses/S43_stage2a_robustness`. It
+keeps the original parameter and held-out trajectory gates unchanged and tests
+88 recovery cases. Nineteen one-factor conditions use the balanced controller
+across both S43-derived lengths and two noise seeds. A combined moderate
+mismatch additionally spans all three controller profiles.
+
+The tested factors are angle noise, assumed pendulum-length error, unmodelled
+passive damping, perturbation-torque calibration, and filter cutoff. Cases that
+initially fail are rerun with the original three-start optimizer before the
+failure is retained. Reproduce and verify with:
+
+```bash
+python scripts/run_stage2a_robustness.py \
+  --config configs/S43_stage2a_robustness.json \
+  --output analyses/S43_stage2a_robustness_new
+python scripts/verify_stage2a_robustness.py
+```
+
+The moderate robustness gate did not pass: five of ten required conditions
+passed. Recovery remained within all gates at 0.5 and 1.0 degrees of angle
+noise, at dimensionless unmodelled damping ratios 0.05 and 0.10, and for
+matched processing cutoffs from 1 to 3 Hz. It failed at 2 degrees of noise,
+at every tested ±5% or ±10% length mismatch, at damping ratio 0.20, and at
+every tested perturbation calibration error.
+
+The most important result is that trajectory accuracy can hide biased
+parameters. Under the combined moderate mismatch, all 12 held-out trajectories
+passed the 1-degree gate (median RMSE 0.325 degrees), but zero of 12 parameter
+sets passed; median Kd error was 39.9%. With perturbation completely unmeasured,
+zero of four cases passed and median held-out RMSE rose to 7.83 degrees.
+
+Because the S43 skeleton trials have no measured perturbation torque and the
+fixed pendulum length is only a proxy, this study does not support reporting
+quantitative S43 Kp, Kd, delay or torque-limit values as identified controller
+parameters. A later human-data fit can only be an explicitly exploratory
+effective-parameter sensitivity analysis unless instrumented perturbation and
+contact measurements become available.
+
 ## Quick start
 
 Python 3.10+ is recommended. From this folder:

@@ -1,0 +1,60 @@
+{
+  "subject": "S43",
+  "framework_stage": "2A robustness",
+  "base_config": "configs/S43_stage2a_simulation.json",
+  "purpose": "Measure delayed-PD recovery bias and failure boundaries under observation and model mismatch while preserving the original Stage-2A acceptance gates.",
+  "one_factor_profile": "balanced",
+  "neutral_start": [1.4, 0.5, 0.16],
+  "adaptive_multistart": true,
+  "max_nfev": 45,
+  "conditions": [
+    {"condition_id": "reference", "factor": "reference", "level": 0.0},
+
+    {"condition_id": "noise_0p5deg", "factor": "angle_noise_sd_deg", "level": 0.5},
+    {"condition_id": "noise_1p0deg", "factor": "angle_noise_sd_deg", "level": 1.0},
+    {"condition_id": "noise_2p0deg", "factor": "angle_noise_sd_deg", "level": 2.0},
+
+    {"condition_id": "length_minus10pct", "factor": "estimated_length_scale", "level": 0.90},
+    {"condition_id": "length_minus5pct", "factor": "estimated_length_scale", "level": 0.95},
+    {"condition_id": "length_plus5pct", "factor": "estimated_length_scale", "level": 1.05},
+    {"condition_id": "length_plus10pct", "factor": "estimated_length_scale", "level": 1.10},
+
+    {"condition_id": "damping_0p05", "factor": "unmodelled_damping_ratio", "level": 0.05},
+    {"condition_id": "damping_0p10", "factor": "unmodelled_damping_ratio", "level": 0.10},
+    {"condition_id": "damping_0p20", "factor": "unmodelled_damping_ratio", "level": 0.20},
+
+    {"condition_id": "perturb_unmeasured", "factor": "reported_perturbation_scale", "level": 0.00},
+    {"condition_id": "perturb_minus25pct", "factor": "reported_perturbation_scale", "level": 0.75},
+    {"condition_id": "perturb_minus10pct", "factor": "reported_perturbation_scale", "level": 0.90},
+    {"condition_id": "perturb_plus10pct", "factor": "reported_perturbation_scale", "level": 1.10},
+    {"condition_id": "perturb_plus25pct", "factor": "reported_perturbation_scale", "level": 1.25},
+
+    {"condition_id": "filter_1p0hz", "factor": "filter_cutoff_hz", "level": 1.0},
+    {"condition_id": "filter_2p0hz", "factor": "filter_cutoff_hz", "level": 2.0},
+    {"condition_id": "filter_3p0hz", "factor": "filter_cutoff_hz", "level": 3.0},
+
+    {
+      "condition_id": "combined_moderate",
+      "factor": "combined_mismatch",
+      "level": 1.0,
+      "profiles": "all",
+      "angle_noise_sd_deg": 0.5,
+      "estimated_length_scale": 1.05,
+      "unmodelled_damping_ratio": 0.05,
+      "reported_perturbation_scale": 0.90,
+      "filter_cutoff_hz": 1.5
+    }
+  ],
+  "moderate_gate_conditions": [
+    "reference",
+    "noise_0p5deg",
+    "length_minus5pct",
+    "length_plus5pct",
+    "damping_0p05",
+    "perturb_minus10pct",
+    "perturb_plus10pct",
+    "filter_1p0hz",
+    "filter_2p0hz",
+    "combined_moderate"
+  ]
+}

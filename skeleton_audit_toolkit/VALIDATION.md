@@ -203,3 +203,31 @@ identifiability under plant mismatch, unknown human perturbations, unmeasured
 contact forces, skeleton-derived angle errors, or nonzero passive damping. It
 does not recover a physiological controller from S43 and is not a clinical
 validation or permission to generate validated human falls.
+
+## Stage-2A robustness study (2026-10-09)
+
+`python scripts/verify_stage2a_robustness.py` checks the frozen 20-condition
+configuration, perturbation rescaling, 88 unique recovery cases, 20 condition
+summaries, adaptive optimizer-profile counts, 148 retained example-trajectory
+rows, and four figures. It confirms that the reference condition passes, the
+unmeasured-perturbation condition fails, and the combined moderate mismatch has
+the critical divergence of zero of 12 parameter passes versus 12 of 12
+trajectory passes.
+
+The robustness run retains failures only after rerunning them with the original
+three-start optimizer. In total, 54 of 88 cases required that safeguard and 980
+delay/start optimization results are retained. The moderate robustness gate
+failed because only five of ten required conditions passed.
+
+Recovery was robust through 1.0 degree of angle noise, through dimensionless
+unmodelled damping ratio 0.10, and across matched filter cutoffs from 1 to 3 Hz.
+It was not robust to any tested ±5% or ±10% pendulum-length error, any tested
+±10% or ±25% perturbation calibration error, completely unmeasured
+perturbation, 2-degree noise, damping ratio 0.20, or the combined moderate
+mismatch. Most of these failures still met the held-out trajectory gate, so
+trajectory agreement is not accepted as evidence of unbiased controller
+parameters.
+
+These checks validate the implemented mismatch experiment and its retained
+decision. They do not define physiological uncertainty, validate the fixed-link
+plant, or make controller parameters identifiable in S43 skeleton falls.
