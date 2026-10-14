@@ -43,6 +43,9 @@ The main scripts follow a clear order: load/validate inputs, calculate, then exp
 | `scripts/stage2_full_pid.py` | Define the frozen-dynamics delayed-PID inverse fit, nuisance sensitivity, and forward simulator |
 | `scripts/run_stage2_full_pid.py` | Retrain/freeze retained Stage 1 per fold, fit Stage 2, and export held-out CoM comparisons |
 | `scripts/verify_stage2_full_pid.py` | Check synthetic full-PID recovery, Stage-1 reproduction, leakage guards, and retained Stage-2 outputs |
+| `scripts/stage2_gradient_pid.py` | Define the revised autograd inverse problem through an exactly frozen Stage-1 checkpoint |
+| `scripts/run_stage2_gradient_pid.py` | Optimize only Kp, Kd, Ki, and continuous delay from the governing residual and evaluate held-out trials |
+| `scripts/verify_stage2_gradient_pid.py` | Check the revised method, synthetic recovery, Stage-1 reproduction, leakage guards, and decision gates |
 | `viewer/inspection.html`, `inspection.js`, `inspection.css` | Player layout, interactions and appearance |
 | `scripts/verify.py` | Check audit and male/female CoM regression behavior |
 | `scripts/verify_inspection.py` | Check geometry, filtering, candidate selection and S43 inspection exports |
@@ -580,6 +583,42 @@ model; quantitative gains, delay, and especially torque limit remain
 assumption-dependent effective values. Ground-reaction force, center of
 pressure, or known external perturbation measurements would be required to
 separate control torque from contact and perturbation torque physiologically.
+
+## Revised Stage 2: gradients through the frozen Stage-1 PINN
+
+The advisor-requested replacement is retained in
+`analyses/S43_stage2_gradient_pid`. The prior least-squares analysis above is
+preserved as legacy evidence, but it is not the primary Stage-2 result. The
+revision loads each exact Stage-1 fold/seed checkpoint and freezes all network
+weights. Only Kp, Kd, Ki, and continuous response delay are trainable. Automatic
+gradients pass through Stage 1 at both current and delayed times, and the loss is
+only the normalized governing-equation residual. Perturbation torque is fixed
+to zero. There is no learned nuisance torque, effective-torque matching term,
+torque saturation, or fitted torque limit.
+
+Reproduce and verify with:
+
+```bash
+python -m pip install -r requirements-stage2-gradient.txt
+python scripts/run_stage2_gradient_pid.py \
+  --config configs/S43_stage2_gradient_pid.json \
+  --output analyses/S43_stage2_gradient_pid_new
+python scripts/verify_stage2_gradient_pid.py
+```
+
+The synthetic known-controller gate passes. On S43, however, all 16 fold/seed
+fits place delay at its 0.2000-s upper bound, and the fitted controller does not
+beat both held-out controls for either activity. The real-data identification
+gate therefore fails. Do not interpret 0.2000 s as a measured physiological
+delay or report the fitted gains as an identified controller phenotype.
+
+The immediate next diagnostic is a predeclared fixed-delay profile: scan 0.05
+to 0.30 s, re-optimize only Kp/Kd/Ki at each delay, and inspect whether each
+loss curve has an interior minimum. Stage 3 should wait for an identified
+controller. If exploratory simulation is required now, freeze every fold/seed
+fit separately and label the output an assumption-based model recovery
+envelope, not physiological recovery or clinical fall risk. See
+`S43_STAGE2_GRADIENT_PID_REPORT.md` for the equations, results, and Stage-3 plan.
 
 ## Quick start
 

@@ -255,3 +255,27 @@ is dominated by the poorly generalized S43A13T02 fold. Regularized nuisance
 torque worsens mean held-out error in both activities. These checks establish
 correct implementation, frozen-stage sequencing, reproducibility, and honest
 held-out evaluation—not unbiased human controller parameters.
+
+## Revised gradient-based frozen-PINN Stage 2 (2026-10-14)
+
+`python scripts/verify_stage2_gradient_pid.py` checks that the retained method
+loads the exact 16 Stage-1 fold/seed checkpoints, freezes every Stage-1 weight,
+and declares only Kp, Kd, Ki, and continuous delay trainable. The configuration
+must explicitly disable effective-torque matching, nuisance torque, and torque
+saturation. The verifier also checks 16 held-out fits, 48 three-start optimizer
+profiles, 488 prediction rows, eight plots, finite gradients and simulations,
+whole-trial leakage guards, and exact reproduction of the earlier Stage-1 and
+constant-velocity controls. The maximum control difference is
+`2.220446049250313e-15` m.
+
+An independent zero-perturbation synthetic fixture recovered the dimensionless
+Kp, Kd, and Ki gains with 0.347%, 8.372%, and 1.288% error, respectively, and
+delay within 8.193 ms. The synthetic software gate passes.
+
+The S43 identification gate fails. All 16 real-data fits contact the 0.2000-s
+delay upper bound. Mean held-out XY RMSE for the gradient PID is 0.2767 m on
+A11 and 0.3981 m on A13; it does not beat both the frozen Stage-1 and
+constant-velocity controls for either activity. This is recorded as a negative
+result. It verifies the requested gradient implementation, not physiological
+identifiability, and it does not support advancing directly to a validated
+Stage-3 recovery claim.
