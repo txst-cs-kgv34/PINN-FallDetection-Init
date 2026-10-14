@@ -232,28 +232,26 @@ These checks validate the implemented mismatch experiment and its retained
 decision. They do not define physiological uncertainty, validate the fixed-link
 plant, or make controller parameters identifiable in S43 skeleton falls.
 
-## Final Stage-2 real-data sensitivity and CoM paths (2026-10-11)
+## Complete Stage-2 frozen-PINN delayed-PID fit (2026-10-12)
 
-`python scripts/verify_stage2_final.py` checks 96 fold/assumption fits, eight
-leave-one-trial-out displayed folds, 960 delay/start optimizer profiles, 244
-held-out CoM samples, two activity summaries and eight line/path figures. It
-requires every optimizer profile and exported metric to be finite, verifies
-that the held-out trial is absent from each training list, and independently
-recomputes the training-only AIC choice between the zero-perturbation and
-shared-pulse assumptions. The retained run contains no invalid profiles and no
-held-out leakage.
+`python scripts/verify_stage2_full_pid.py` independently constructs three
+known full-PID trajectories with active torque saturation. It verifies recovery
+of Kp, Kd, Ki and torque limit within `1e-4` in dimensionless units and the
+exact three-frame response delay. This closes the code-level recovery test for
+all five implemented controller terms under a correctly specified plant.
 
-The A11 selected-model mean held-out XY RMSE is 0.1216 m, compared with
-0.2848 m for constant velocity and 0.2813 m for an uncontrolled pendulum. The
-A13 mean is 0.4332 m, worse than both controls (0.2681 m and 0.3452 m), with
-the long S43A13T02 fold failing markedly at 0.9439 m. A separate numerical
-replay recomputed all eight displayed trajectories at 300 Hz instead of the
-retained 150 Hz integration rate; the maximum coordinate difference was
-0.0000652 m.
+For the retained S43 output, the verifier checks 16 independently retrained and
+saved Stage-1 fold/seed checkpoints, 64 selected Stage-2 fits, 960 delay/start
+optimization profiles, 1,952 held-out prediction rows, and eight line/path
+figures. It checks finite scores, both PD/PID branches, both zero/nuisance
+policies, zero Ki in the nested PD model, and whole-trial leakage guards. It
+also compares every reproduced Stage-1 held-out XY score against the retained
+physics-weight-0.01 A11/A13 row; the maximum absolute difference is below
+`1e-8` m.
 
-This verifies workflow integrity, numerical stability and honest held-out
-comparison. It does not validate the reduced plant, the inferred pulse proxy,
-the physiological meaning of Kp/Kd/delay/torque limit, cross-subject
-generalization or clinical prediction. The correct final Stage-2 result is
-non-identifiability plus exploratory, activity-dependent prediction—not
-recovery of human controller parameters.
+The real-data fit does not pass a physiological-identifiability claim. Many
+selected parameters lie at lower bounds, A11 Ki collapses to zero, and A13 Ki
+is dominated by the poorly generalized S43A13T02 fold. Regularized nuisance
+torque worsens mean held-out error in both activities. These checks establish
+correct implementation, frozen-stage sequencing, reproducibility, and honest
+held-out evaluation—not unbiased human controller parameters.

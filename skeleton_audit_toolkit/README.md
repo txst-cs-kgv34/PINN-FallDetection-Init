@@ -40,6 +40,9 @@ The main scripts follow a clear order: load/validate inputs, calculate, then exp
 | `scripts/inverted_pendulum_pinn.py` | Define the Stage-1 horizontal/vertical CoM network, angle derivatives, torque and inverted-pendulum loss |
 | `scripts/run_stage1_inverted_pendulum.py` | Run framework-aligned Stage-1 experiments with activity-specific horizontal axes and non-averaged controls |
 | `scripts/compare_stage1_activities.py` | Compare retained Stage-1 activity results without pooling unlike motion directions |
+| `scripts/stage2_full_pid.py` | Define the frozen-dynamics delayed-PID inverse fit, nuisance sensitivity, and forward simulator |
+| `scripts/run_stage2_full_pid.py` | Retrain/freeze retained Stage 1 per fold, fit Stage 2, and export held-out CoM comparisons |
+| `scripts/verify_stage2_full_pid.py` | Check synthetic full-PID recovery, Stage-1 reproduction, leakage guards, and retained Stage-2 outputs |
 | `viewer/inspection.html`, `inspection.js`, `inspection.css` | Player layout, interactions and appearance |
 | `scripts/verify.py` | Check audit and male/female CoM regression behavior |
 | `scripts/verify_inspection.py` | Check geometry, filtering, candidate selection and S43 inspection exports |
@@ -49,9 +52,6 @@ The main scripts follow a clear order: load/validate inputs, calculate, then exp
 | `scripts/verify_physics_weight_experiment.py` | Check the PyTorch controls, gravity sanity baseline, exports and four-fold comparison workflow |
 | `scripts/verify_stage1_inverted_pendulum.py` | Check CoM-to-angle geometry, hard onset constraints, controls and the Stage-1 four-fold workflow |
 | `scripts/verify_stage1_activity_comparison.py` | Check retained A11/A13 comparison metrics, activity axes and interpretation guards |
-| `scripts/stage2_real_effective.py` | Fit explicitly assumption-dependent delayed-feedback models to real Stage-1 trajectories |
-| `scripts/run_stage2_real_effective_sensitivity.py` | Run final Stage-2 leave-one-trial-out sensitivity fits and CoM-path comparisons |
-| `scripts/verify_stage2_final.py` | Check final Stage-2 counts, finite fits, held-out separation, training-only selection and plots |
 
 `core.py` remains only as a compatibility import layer for older scripts. New code imports the task-specific modules. No additional CoM model was introduced during this organization change.
 
@@ -514,47 +514,72 @@ parameters. A later human-data fit can only be an explicitly exploratory
 effective-parameter sensitivity analysis unless instrumented perturbation and
 contact measurements become available.
 
-## Final Stage 2: identifiability decision and exploratory CoM prediction
+## Complete Stage 2: frozen Stage-1 delayed-PID fit to S43
 
-The final Stage-2 checkpoint is
-`analyses/S43_stage2_final_real_effective_sensitivity`. It implements the two
-available paths: (1) close formal physiological-parameter identification as
-unsupported by the current measurements, and (2) retain an exploratory
-effective-parameter analysis with honest whole-trial prediction. Option 3 is
-not run because the recordings contain skeleton positions but no measured
-perturbation, recovery force, ground-reaction force, center of pressure, or
-force-plate signal.
+The retained complete computational Stage-2 checkpoint is
+`analyses/S43_stage2_full_pid`. It keeps the successful Stage-1 configuration
+exactly: fixed onset pivot and length, `I=m*l^2`, `b=0`, order-6 1.5 Hz filter,
+24 Stage-1 collocation points, 300 epochs, two seeds, whole-trial leave-one-out
+folds, and physics weight 0.01. Each Stage-1 fold is retrained and saved, then
+frozen before any controller parameter is optimized. The reproduced held-out
+Stage-1 XY errors match the retained A11/A13 rows to below `1e-8` m.
 
-For each activity independently, three real falls train one common effective
-delayed-feedback model and the fourth complete fall is held out. This is
-repeated for all four trials. The held-out CoM never enters fitting or model
-selection. The assumption grid crosses onset-length scales 0.95/1.00/1.05,
-normalized passive damping 0/0.10, and either zero perturbation or one shared
-training-estimated pulse proxy. The central displayed model chooses the latter
-two forcing assumptions by training-only AIC. The proxy is a sensitivity
-device, not a measured force.
+Stage 2 implements
 
-```bash
-python scripts/run_stage2_real_effective_sensitivity.py \
-  --config configs/S43_stage2_real_effective_sensitivity.json \
-  --output analyses/S43_stage2_final_real_effective_sensitivity_new
-python scripts/verify_stage2_final.py
+```text
+tau_raw(t) = -Kp*theta(t-delay) - Kd*theta_dot(t-delay)
+             - Ki*integral(theta(t), dt)
+tau_control(t) = clip(tau_raw(t), -tau_max, +tau_max)
+I*theta_ddot = m*g*l*sin(theta) + tau_control + tau_perturbation
+               - b*theta_dot
 ```
 
-Across A11, the selected model achieved 0.1216 m mean held-out XY CoM RMSE,
-better than constant velocity (0.2848 m) and the uncontrolled pendulum
-(0.2813 m). Across A13 it achieved 0.4332 m, worse than both constant velocity
-(0.2681 m) and the uncontrolled pendulum (0.3452 m). The long S43A13T02 fold
-was the decisive failure at 0.9439 m XY RMSE and 105.07 degrees angle RMSE.
-Thus the reduced delayed-feedback model has activity-dependent predictive
-utility, not general Stage-2 validation.
+This controller is not inserted into a new jointly trained Stage-1 loss.
+Instead, the frozen PINN supplies theta, angular derivatives, and its learned
+effective torque on the three training trials. The Stage-2 inverse objective
+matches controller torque to both the learned effective torque and the torque
+required by the frozen angular equation. This sequencing prevents controller
+parameters from changing the Stage-1 trajectory representation. Delay is
+profiled over 2--6 observation frames, and held-out trials are used only for
+forward simulation and scoring.
 
-The recovered dimensionless parameters vary strongly across the assumption
-grid and frequently meet tested bounds. These are effective curve-fitting
-parameters and must not be reported as physiological Kp, Kd, neural response
-delay, or torque capacity. A 300 Hz replay of all eight displayed 150 Hz
-solutions changed predicted position by at most 0.0000652 m, so the conclusion
-is not an internal integration-step artifact.
+The primary option fixes `tau_perturbation=0`, because no perturbation or
+recovery force was measured. A second sensitivity option fits only three
+regularized, smooth, shared nuisance-torque coefficients on the training
+trials. It is not interpreted as measured force. Nested PD and full PID are
+both evaluated so the integral term must earn its added complexity.
+
+Mean held-out XY RMSE was 0.2408 m for PID-zero and 0.2406 m for PD-zero on
+A11, versus 0.2520 m for Stage 1 and 0.4028 m for constant velocity. On A13 it
+was 0.4518 m for PID-zero and 0.4240 m for PD-zero, versus 0.4467 m for Stage 1
+and 0.3791 m for constant velocity. The nuisance branch worsened mean held-out
+error for both activities. A11's fitted Ki collapsed essentially to zero. The
+A13 mean Ki was driven by the failed S43A13T02 generalization fold; it did not
+constitute stable evidence for integral control.
+
+Reproduce and verify with:
+
+```bash
+python -m pip install -r requirements-stage2-full.txt
+python scripts/run_stage2_full_pid.py \
+  --config configs/S43_stage2_full_pid.json \
+  --output analyses/S43_stage2_full_pid_new
+python scripts/verify_stage2_full_pid.py \
+  --results analyses/S43_stage2_full_pid
+```
+
+The verification fixture deliberately activates saturation and recovers known
+Kp, Kd, Ki, delay, and torque limit from simulated trajectories. The retained
+S43 checks also verify 16 saved frozen Stage-1 checkpoints, 64 Stage-2 fold
+rows, 960 optimization profiles, 1,952 held-out prediction rows, eight plots,
+and no whole-trial leakage.
+
+This completes the Stage-2 implementation but not physiological validation.
+For these skeleton-only data, PD-zero is the supported parsimonious exploratory
+model; quantitative gains, delay, and especially torque limit remain
+assumption-dependent effective values. Ground-reaction force, center of
+pressure, or known external perturbation measurements would be required to
+separate control torque from contact and perturbation torque physiologically.
 
 ## Quick start
 
