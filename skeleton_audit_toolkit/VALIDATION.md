@@ -279,3 +279,21 @@ constant-velocity controls for either activity. This is recorded as a negative
 result. It verifies the requested gradient implementation, not physiological
 identifiability, and it does not support advancing directly to a validated
 Stage-3 recovery claim.
+
+## Fixed-delay profile diagnostic (2026-10-14)
+
+`python scripts/verify_stage2_fixed_delay_profile.py` checks a predeclared grid
+of 11 fixed delays from 0.05 to 0.30 s. At each point, only Kp, Kd and Ki are
+optimized by exact automatic gradients with bounded L-BFGS-B. All candidates
+use identical frozen Stage-1 collocation times at or after 0.30 s, preventing a
+longer delay from changing the scored time window. The verifier checks 16
+fold/seed profiles, 176 selected delay rows, 528 three-start optimization rows,
+11 plots, finite values, projected gradient norms below `1e-5`, and whole-trial
+leakage guards.
+
+The synthetic control has a known 0.100-s delay and its profile selects exactly
+0.100 s. For S43, all 16 profiles are monotonically non-increasing over the
+tested interval and all 16 select the 0.300-s upper boundary. Physics loss falls
+by 34.2--57.9% from 0.05 to 0.30 s. The real-data delay-identification gate
+fails. Extending the bound and reporting the next boundary would not constitute
+parameter recovery.

@@ -1,0 +1,35 @@
+{
+  "software_verification": "pass",
+  "synthetic_known_delay_profile": "pass",
+  "counts": {
+    "fold_seed_profiles": 16,
+    "fixed_delay_selected_rows": 176,
+    "fixed_delay_start_rows": 528,
+    "plots": 11
+  },
+  "real_data": {
+    "tested_delay_s": [
+      0.05,
+      0.075,
+      0.1,
+      0.125,
+      0.15,
+      0.175,
+      0.2,
+      0.225,
+      0.25,
+      0.275,
+      0.3
+    ],
+    "fold_seed_profiles": 16,
+    "interior_minima": 0,
+    "lower_boundary_minima": 0,
+    "upper_boundary_minima": 16,
+    "monotone_nonincreasing_profiles": 16,
+    "best_delay_min_s": 0.3,
+    "best_delay_max_s": 0.3,
+    "best_delay_span_s": 0.0,
+    "consistent_delay_identification_gate": "fail",
+    "decision": "Delay is not consistently identifiable across the frozen Stage-1 folds and seeds."
+  }
+}
