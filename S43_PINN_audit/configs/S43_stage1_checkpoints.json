@@ -1,0 +1,23 @@
+{
+  "subject": "S43",
+  "framework_stage": "Stage 1 checkpoint export for revised Stage 2",
+  "selected_physics_weight": 0.01,
+  "activities": [
+    {
+      "activity": "A11",
+      "phase_notes": "analysis_inputs/S43_A11_phase_notes.json",
+      "experiment_config": "analyses/S43_A11_stage1_inverted_pendulum/experiment_config.json"
+    },
+    {
+      "activity": "A13",
+      "phase_notes": "analysis_inputs/S43_phase_notes_with_A13_eligibility.json",
+      "experiment_config": "analyses/S43_A13_stage1_inverted_pendulum/experiment_config.json"
+    }
+  ],
+  "output": "checkpoints/S43_stage1_frozen_checkpoints.json",
+  "policy": {
+    "training": "retrain the selected Stage-1 PINN independently in each whole-trial fold and seed",
+    "freezing": "serialize the complete Stage-1 state_dict and normalization constants before Stage 2",
+    "stage2": "load these checkpoints and freeze every Stage-1 parameter"
+  }
+}

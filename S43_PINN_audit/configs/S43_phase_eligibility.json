@@ -1,0 +1,17 @@
+{
+  "subject_id": "S43",
+  "decision_date_local": "2026-09-28",
+  "trial_decisions": {
+    "S43A13T04": {
+      "onset_to_contact_eligible": false,
+      "post_fall_available": false,
+      "reason": "User-confirmed incomplete fall sample. The export ends at frame 241 during the marked descent and has no apparent-contact or post-fall mark."
+    },
+    "S43A13T05": {
+      "onset_to_contact_eligible": true,
+      "post_fall_available": false,
+      "reason": "User reported no post-fall movement. Fall onset, descent and apparent contact are marked, so only the onset-to-apparent-contact dynamics window is eligible."
+    }
+  },
+  "scope": "Eligibility for the annotated onset-to-apparent-contact pilot only; not a general clinical or data-quality label."
+}

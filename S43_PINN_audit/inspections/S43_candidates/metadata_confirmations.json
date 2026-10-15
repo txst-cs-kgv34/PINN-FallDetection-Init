@@ -1,0 +1,16 @@
+{
+  "confirmation_date_local": "2026-09-28",
+  "source": "User relaying collection-team confirmation",
+  "coordinate_provenance": "Original Azure Kinect joint positions; only leading/trailing frames trimmed for sensor synchronization. No normalization, retargeting, rescaling or padding reported.",
+  "units": "mm",
+  "joint_order": "Azure Kinect32 XYZ",
+  "adult_group_confirmed": true,
+  "age_group": "Young participants are adults older than 20; individual ages not supplied.",
+  "fps": 30,
+  "timing_note": "Nominal collection rate only; timestamps and confidence unavailable. Trimmed offsets unknown.",
+  "original_videos_available": false,
+  "timestamps_available": false,
+  "tracking_confidence_available": false,
+  "camera_floor_calibration_available": false,
+  "interpretation": "Repeated rows and shared limb-length variation remain empirical observations. No preprocessing cause is inferred from these observations."
+}

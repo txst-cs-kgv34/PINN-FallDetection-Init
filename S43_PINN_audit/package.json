@@ -1,0 +1,10 @@
+{
+  "name": "s43-pinn-audit-viewer-check",
+  "private": true,
+  "scripts": {
+    "verify-viewer": "node tests/verify_viewer.cjs"
+  },
+  "devDependencies": {
+    "playwright": "1.62.1"
+  }
+}

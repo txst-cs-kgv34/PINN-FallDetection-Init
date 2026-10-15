@@ -1,0 +1,26 @@
+{
+  "software_verification": "pass",
+  "synthetic_recovery_gate": "pass",
+  "real_data_controller_identification_gate": "fail",
+  "counts": {
+    "fold_seed_fits": 16,
+    "optimizer_profiles": 48,
+    "prediction_rows": 488,
+    "plots": 8,
+    "delay_upper_bound_contacts": 16,
+    "frozen_stage1_checkpoints": 16
+  },
+  "activity_results": {
+    "A11": {
+      "gradient_pid_xy_rmse_m": 0.27667689777520016,
+      "frozen_stage1_xy_rmse_m": 0.25198580349090816,
+      "constant_velocity_xy_rmse_m": 0.40280572110926727
+    },
+    "A13": {
+      "gradient_pid_xy_rmse_m": 0.39806117944285213,
+      "frozen_stage1_xy_rmse_m": 0.44674046876036655,
+      "constant_velocity_xy_rmse_m": 0.37910185757407
+    }
+  },
+  "decision": "Do not interpret the fitted real-data gains or delay as a validated controller phenotype. Stage 3 may proceed only as an explicitly assumption-based sensitivity simulation."
+}

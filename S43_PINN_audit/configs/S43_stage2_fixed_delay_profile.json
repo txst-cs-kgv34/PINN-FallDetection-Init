@@ -1,0 +1,34 @@
+{
+  "subject": "S43",
+  "diagnostic": "fixed-delay profile of the revised frozen-Stage-1 gradient PID model",
+  "source_stage2_config": "configs/S43_stage2_gradient_pid.json",
+  "fixed_delay_s": [
+    0.05,
+    0.075,
+    0.1,
+    0.125,
+    0.15,
+    0.175,
+    0.2,
+    0.225,
+    0.25,
+    0.275,
+    0.3
+  ],
+  "gain_optimizer": {
+    "method": "exact automatic gradients with bounded L-BFGS-B",
+    "trainable_parameters": ["Kp", "Kd", "Ki"],
+    "starts": [
+      [0.8, 0.3, 0.05],
+      [1.5, 0.8, 0.4],
+      [2.2, 1.2, 1.0]
+    ],
+    "lbfgs_max_iter": 200
+  },
+  "comparison_policy": "use the same collocation times at or after 0.30 s for every fixed delay",
+  "decision_policy": {
+    "interior_minimum": "best tested delay is neither 0.05 nor 0.30 s",
+    "consistent_identification": "at least 12 of 16 fold/seed profiles have an interior minimum and their best delays span no more than 0.05 s",
+    "boundary_warning": "a best loss at 0.30 s means the diagnostic still does not identify an upper-side delay minimum"
+  }
+}

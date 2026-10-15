@@ -1,0 +1,57 @@
+[
+  {
+    "activity": "A10",
+    "description": "Backfall",
+    "expected": 5,
+    "nonempty": 5,
+    "unavailable_trials": [],
+    "frames": 1063,
+    "min_span_s": 5.166666666666667,
+    "max_span_s": 8.033333333333333,
+    "max_scale_range_pct": 29.649890925717305
+  },
+  {
+    "activity": "A11",
+    "description": "Frontfall",
+    "expected": 5,
+    "nonempty": 5,
+    "unavailable_trials": [],
+    "frames": 1267,
+    "min_span_s": 8.0,
+    "max_span_s": 10.033333333333333,
+    "max_scale_range_pct": 41.36458691339031
+  },
+  {
+    "activity": "A12",
+    "description": "Leftfall",
+    "expected": 5,
+    "nonempty": 5,
+    "unavailable_trials": [],
+    "frames": 1162,
+    "min_span_s": 6.533333333333333,
+    "max_span_s": 8.033333333333333,
+    "max_scale_range_pct": 53.61127699187609
+  },
+  {
+    "activity": "A13",
+    "description": "Rightfall",
+    "expected": 5,
+    "nonempty": 5,
+    "unavailable_trials": [],
+    "frames": 1207,
+    "min_span_s": 8.0,
+    "max_span_s": 8.033333333333333,
+    "max_scale_range_pct": 44.79185848294656
+  },
+  {
+    "activity": "A14",
+    "description": "Rotatefall (turn and fall)",
+    "expected": 5,
+    "nonempty": 5,
+    "unavailable_trials": [],
+    "frames": 1381,
+    "min_span_s": 8.1,
+    "max_span_s": 10.033333333333333,
+    "max_scale_range_pct": 80.39580778526476
+  }
+]

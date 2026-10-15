@@ -1,0 +1,36 @@
+const {chromium} = require('playwright');
+const assert = require('node:assert/strict');
+(async()=>{
+ const browser=await chromium.launch({headless:true,executablePath:process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE,args:['--no-sandbox','--disable-gpu','--disable-dev-shm-usage','--no-zygote']});
+ const page=await browser.newPage({viewport:{width:1300,height:950}});
+ const errors=[],network=[];
+ page.on('pageerror',error=>errors.push(error.message));
+ page.on('request',request=>{if(/^https?:/.test(request.url()))network.push(request.url());});
+ await page.goto(require('node:url').pathToFileURL(require('node:path').resolve(__dirname,'../inspections/S43_candidates/INSPECT.html')).href);
+ assert.equal(await page.locator('#trial option').count(),24);
+ assert.equal(await page.locator('#trial').inputValue(),'0');
+ assert.match(await page.locator('#context').innerText(),/Excluded: S43A10T01/);
+ assert.match(await page.locator('#time').innerText(),/Frame 0 \/ 155/);
+ await page.locator('#mode').selectOption('overlay');
+ await page.locator('#frame').fill('100');
+ assert.match(await page.locator('#time').innerText(),/3.333 s/);
+ await page.locator('#nextFlag').click();
+ assert.match(await page.locator('#status').innerText(),/RAW REVIEW FLAG/);
+ for(const view of ['xz','yz','xy'])await page.locator('#view').selectOption(view);
+ await page.locator('#traceAxis').selectOption('1');
+ await page.locator('#mark').click();
+ const downloadPromise=page.waitForEvent('download');await page.locator('#exportNotes').click();const download=await downloadPromise;
+ assert.equal(download.suggestedFilename(),'S43_phase_notes.json');
+ await page.locator('#frame').fill('153');await page.locator('#play').click();
+ await page.waitForFunction(()=>document.getElementById('play').textContent==='Play');
+ assert.equal(await page.locator('#frame').inputValue(),'155');
+ await page.locator('#play').click();await page.waitForFunction(()=>Number(document.getElementById('frame').value)>=3);await page.locator('#play').click();
+ await page.locator('#mode').selectOption('filtered');await page.locator('#trial').selectOption('1');
+ assert.equal(await page.locator('#frame').inputValue(),'0');
+ await page.locator('#mode').selectOption('overlay');await page.locator('#frame').fill('150');
+
+ await page.setViewportSize({width:390,height:844});
+ assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth));
+ assert.deepEqual(errors,[]);assert.deepEqual(network,[]);
+ await browser.close();console.log('PASS: viewer trial exclusion, modes, projections, nominal time, review flags, playback endpoints, note export, mobile layout, no JS errors or network requests');
+})().catch(error=>{console.error(error);process.exit(1);});
