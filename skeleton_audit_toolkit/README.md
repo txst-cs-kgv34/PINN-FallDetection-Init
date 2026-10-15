@@ -46,6 +46,8 @@ The main scripts follow a clear order: load/validate inputs, calculate, then exp
 | `scripts/stage2_gradient_pid.py` | Define the revised autograd inverse problem through an exactly frozen Stage-1 checkpoint |
 | `scripts/run_stage2_gradient_pid.py` | Optimize only Kp, Kd, Ki, and continuous delay from the governing residual and evaluate held-out trials |
 | `scripts/verify_stage2_gradient_pid.py` | Check the revised method, synthetic recovery, Stage-1 reproduction, leakage guards, and decision gates |
+| `scripts/run_stage2_fixed_delay_profile.py` | Re-optimize Kp/Kd/Ki over a fixed 0.05--0.30 s delay grid using identical collocation times |
+| `scripts/verify_stage2_fixed_delay_profile.py` | Check the synthetic known-delay control, all real fold/seed profiles, gradients, counts, and delay decision |
 | `viewer/inspection.html`, `inspection.js`, `inspection.css` | Player layout, interactions and appearance |
 | `scripts/verify.py` | Check audit and male/female CoM regression behavior |
 | `scripts/verify_inspection.py` | Check geometry, filtering, candidate selection and S43 inspection exports |
@@ -612,13 +614,29 @@ beat both held-out controls for either activity. The real-data identification
 gate therefore fails. Do not interpret 0.2000 s as a measured physiological
 delay or report the fitted gains as an identified controller phenotype.
 
-The immediate next diagnostic is a predeclared fixed-delay profile: scan 0.05
-to 0.30 s, re-optimize only Kp/Kd/Ki at each delay, and inspect whether each
-loss curve has an interior minimum. Stage 3 should wait for an identified
-controller. If exploratory simulation is required now, freeze every fold/seed
-fit separately and label the output an assumption-based model recovery
-envelope, not physiological recovery or clinical fall risk. See
-`S43_STAGE2_GRADIENT_PID_REPORT.md` for the equations, results, and Stage-3 plan.
+The predeclared fixed-delay diagnostic is retained in
+`analyses/S43_stage2_fixed_delay_profile`. At 11 delays from 0.05 to 0.30 s it
+re-optimizes only Kp/Kd/Ki by exact gradients. Every delay is evaluated on the
+same collocation times at or after 0.30 s. The synthetic known-delay control
+selects the exact true 0.10-s delay. In contrast, all 16 S43 fold/seed profiles
+decrease monotonically and select the 0.30-s upper boundary. The real-data
+delay-identification gate therefore fails decisively.
+
+Reproduce and verify the diagnostic with:
+
+```bash
+python scripts/run_stage2_fixed_delay_profile.py \
+  --config configs/S43_stage2_fixed_delay_profile.json \
+  --output analyses/S43_stage2_fixed_delay_profile_new
+python scripts/verify_stage2_fixed_delay_profile.py
+```
+
+Stage 3 may proceed only as an assumption-based virtual perturbation sensitivity
+study. Use all delay-profile controllers as an uncertainty ensemble, prescribe
+external torque pulses in dimensionless subject-scaled units, and report a
+mathematical model-recovery envelope rather than physiological recovery or
+clinical fall risk. See `S43_STAGE3A_ASSUMPTION_BASED_PLAN.md` for the concrete
+100-scenario design.
 
 ## Quick start
 

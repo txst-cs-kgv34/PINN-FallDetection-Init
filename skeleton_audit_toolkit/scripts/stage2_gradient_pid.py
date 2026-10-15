@@ -203,6 +203,113 @@ def physics_loss(
     return anp.mean(anp.stack(trial_losses)), scaled, physical, residuals
 
 
+def fixed_delay_physics_loss(
+    scaled_gains, fixed_delay_s, records, mass_kg, reference_length_m,
+    integral_time_reference_s,
+):
+    """Physics loss at a fixed delay; only the three PID gains are variables."""
+
+    scaled = {
+        "alpha_kp": scaled_gains[0],
+        "beta_kd": scaled_gains[1],
+        "kappa_ki": scaled_gains[2],
+        "delay_s": anp.asarray(fixed_delay_s),
+    }
+    physical = _physical_parameters(
+        scaled, mass_kg, reference_length_m, integral_time_reference_s
+    )
+    trial_losses, residuals = [], []
+    for record in records:
+        delayed_theta, delayed_omega = _delayed_state(record, fixed_delay_s)
+        torque_control = (
+            -physical["kp"] * delayed_theta
+            - physical["kd"] * delayed_omega
+            - physical["ki"] * record["integral"]
+        )
+        residual = (
+            record["inertia"] * record["alpha"]
+            - record["gravity_scale"] * anp.sin(record["theta"])
+            + record["damping_nms"] * record["omega"]
+            - torque_control
+        )
+        trial_losses.append(anp.mean((residual / record["gravity_scale"]) ** 2))
+        residuals.append(residual)
+    return anp.mean(anp.stack(trial_losses)), scaled, physical, residuals
+
+
+def _projected_gradient(values, gradient_values, lower, upper, tolerance=1e-8):
+    """Return a box-constrained projected gradient for convergence reporting."""
+
+    projected = np.asarray(gradient_values, dtype=float).copy()
+    values = np.asarray(values, dtype=float)
+    lower = np.asarray(lower, dtype=float)
+    upper = np.asarray(upper, dtype=float)
+    projected[(values <= lower + tolerance) & (projected > 0.0)] = 0.0
+    projected[(values >= upper - tolerance) & (projected < 0.0)] = 0.0
+    return projected
+
+
+def identify_fixed_delay_gains(
+    records, fixed_delay_s, mass_kg, reference_length_m, bounds, starts,
+    lbfgs_max_iter=200, integral_time_reference_s=1.0,
+):
+    """Optimize Kp, Kd and Ki by exact gradients at one predeclared delay."""
+
+    lower = np.asarray(
+        [bounds.alpha_kp[0], bounds.beta_kd[0], bounds.kappa_ki[0]], dtype=float
+    )
+    upper = np.asarray(
+        [bounds.alpha_kp[1], bounds.beta_kd[1], bounds.kappa_ki[1]], dtype=float
+    )
+    scipy_bounds = list(zip(lower, upper))
+    objective = lambda gains: fixed_delay_physics_loss(
+        gains, fixed_delay_s, records, mass_kg, reference_length_m,
+        integral_time_reference_s,
+    )[0]
+    objective_gradient = grad(objective)
+    profiles = []
+    for start_index, start in enumerate(starts):
+        initial = np.clip(np.asarray(start[:3], dtype=float), lower, upper)
+        result = minimize(
+            lambda values: float(objective(values)),
+            initial,
+            jac=lambda values: np.asarray(objective_gradient(values), dtype=float),
+            method="L-BFGS-B",
+            bounds=scipy_bounds,
+            options={"maxiter": lbfgs_max_iter, "ftol": 1e-14, "gtol": 1e-10},
+        )
+        gains = np.asarray(result.x, dtype=float)
+        final_loss, scaled, physical, residuals = fixed_delay_physics_loss(
+            gains, fixed_delay_s, records, mass_kg, reference_length_m,
+            integral_time_reference_s,
+        )
+        gradient_values = np.asarray(objective_gradient(gains), dtype=float)
+        projected = _projected_gradient(gains, gradient_values, lower, upper)
+        residual_nm = np.concatenate([np.asarray(item, dtype=float) for item in residuals])
+        profiles.append({
+            "start_index": start_index,
+            "start_alpha_kp": float(start[0]),
+            "start_beta_kd": float(start[1]),
+            "start_kappa_ki": float(start[2]),
+            "training_physics_loss": float(final_loss),
+            "training_normalized_physics_rmse": float(np.sqrt(final_loss)),
+            "training_physics_rmse_nm": float(np.sqrt(np.mean(residual_nm**2))),
+            "final_gradient_norm": float(np.linalg.norm(gradient_values)),
+            "projected_gradient_norm": float(np.linalg.norm(projected)),
+            "optimizer_success": bool(result.success),
+            "optimizer_iterations": int(result.nit),
+            "alpha_kp": float(scaled["alpha_kp"]),
+            "beta_kd": float(scaled["beta_kd"]),
+            "kappa_ki": float(scaled["kappa_ki"]),
+            "delay_s": float(fixed_delay_s),
+            "kp_nm_per_rad": float(physical["kp"]),
+            "kd_nms_per_rad": float(physical["kd"]),
+            "ki_nm_per_rad_s": float(physical["ki"]),
+        })
+    profiles.sort(key=lambda item: item["training_physics_loss"])
+    return profiles[0], profiles
+
+
 def identify_gradient_pid(
     records, mass_kg, reference_length_m, bounds, starts, adam_epochs,
     adam_learning_rate, lbfgs_max_iter, gradient_clip_norm,

@@ -135,31 +135,38 @@ The integral term is close to zero for most folds but becomes very large for the
 
 The implementation follows the requested frozen-network gradient design, but the present real data do not support a validated controller phenotype.
 
+## Fixed-delay profile diagnostic
+
+The recommended diagnostic was completed over 11 predeclared delays from 0.05 to 0.30 s. At each delay, only \(K_p,K_d,K_i\) were re-optimized using exact gradients with bounded L-BFGS-B. Every candidate used the same frozen Stage-1 collocation times at or after 0.30 s, so differences in loss do not arise from scoring different time windows.
+
+The synthetic known-delay control selected its exact true delay of 0.100 s. For the S43 data:
+
+- 0 of 16 fold/seed profiles had an interior minimum.
+- 16 of 16 profiles selected the 0.300-s upper boundary.
+- 16 of 16 profiles were monotonically non-increasing.
+- Loss decreased by 34.2--57.9% from 0.05 to 0.30 s.
+
+This confirms that the earlier 0.200-s boundary was not a recovered optimum. Delay is not identifiable from these trajectories under the zero-perturbation, fixed-link model. The fitted gains also change substantially as delay changes, so the gain estimates inherit this uncertainty. Extending the delay bound again would only move the reported boundary and is not recommended.
+
 ## Recommended immediate next step
 
-Do not tune the optimizer to force the delay away from its bound. The next useful check is a predeclared delay-bound/profile diagnostic:
-
-1. Re-evaluate the physics loss over fixed delays from 0.05 to 0.30 s.
-2. Re-optimize only \(K_p,K_d,K_i\) at each fixed delay using gradients.
-3. Plot loss versus delay for every fold/seed.
-4. Determine whether the loss has an interior minimum or continues decreasing with delay.
-5. Present this result to the advisor before assigning physiological meaning to \(\Delta\).
-
-If loss continues decreasing, delay is not identified by these trials under the zero-perturbation single-link model. Increasing the bound and reporting the new boundary as an estimate would not solve the problem.
+Present the fixed-delay result as the Stage-2 conclusion and obtain advisor approval to treat Stage 3 as an assumption-based virtual sensitivity study. Do not select 0.300 s as the subject's response delay. Carry the complete fixed-delay controller ensemble into Stage 3A so uncertainty in delay and gains remains visible.
 
 ## How Stage 3 may proceed
 
-The framework's fully validated Stage 3 should wait for a Stage-2 controller that generalizes to unseen controlled perturbations. That gate is not passed here.
+The framework's fully validated Stage 3 would require a Stage-2 controller that generalizes to unseen controlled perturbations. That gate is not passed, and no force/contact collection is available. Stage 3 can nevertheless proceed as **Stage 3A: assumption-based virtual perturbation sensitivity**, not subject-specific physiological recovery prediction.
 
-If an exploratory Stage 3A is still requested, it should be explicitly labeled **assumption-based virtual sensitivity**, not subject-specific physiological recovery prediction:
+The recommended design is:
 
-1. Freeze every revised Stage-2 fold/seed controller separately; do not average incompatible parameters into one controller.
-2. Use the same fixed-length, fixed-pivot, \(b=0\) plant.
-3. Define initial \(\theta_0\) and \(\dot\theta_0\) grids from observed S43 onset ranges.
-4. Apply known synthetic torque pulses with predefined direction, amplitude, onset, duration, and waveform.
-5. Forward-simulate without retraining Stage 1 or Stage 2.
-6. Report peak angle, peak CoM excursion, time to a predefined mathematical stable region, integrated control effort, divergence rate, and threshold crossing.
-7. Propagate uncertainty across all fold/seed controllers and across plausible delay values; report ranges rather than one recovery boundary.
-8. Call the outcome a **model recovery envelope**. Do not call it physiological recovery or a clinical fall-risk measure.
+1. Retain all 88 activity-specific controllers per activity: four folds, two seeds and 11 fixed delays. Do not average them or choose the 0.300-s boundary fit.
+2. Use the same fixed-length, fixed-pivot, \(b=0\), unsaturated plant for the primary analysis.
+3. Define 50 prescribed perturbation scenarios per activity: five dimensionless amplitudes, five durations and two directions. Scale each pulse as \(\tau_p=\gamma mgl\), making the assumed strength transparent and subject-scaled.
+4. Cycle the initial \(\theta_0,\dot\theta_0,l\) values through the four observed activity-specific onset states. The total is 100 unique A11/A13 scenarios and 8,800 ensemble simulations.
+5. Apply a rectangular torque pulse at a predeclared onset. This is a known hypothetical input, not a reconstructed force or nuisance function.
+6. Stop simulations at a predeclared mathematical angle threshold because the fixed-pivot model is invalid after ground contact or stepping.
+7. Report peak angle, peak horizontal CoM excursion, mathematical stabilization time, integrated control effort, threshold crossing and divergence.
+8. Report median and 5th--95th percentile outcomes across the 88 controllers for each scenario. The width of that interval is the model/identification uncertainty.
+9. Include uncontrolled-pendulum and zero-perturbation simulations as numerical controls.
+10. Call the result a **model recovery envelope under assumed perturbations**. It is not a clinical fall boundary, measured perturbation response or physiological controller validation.
 
-The stronger alternative is to stop after the Stage-2 non-identifiability result and collect synchronized controlled perturbation and force/contact measurements before reopening Stage 2 and proceeding to a validated Stage 3.
+This approach is scientifically usable for sensitivity questions such as “under this model, which assumed perturbation combinations cause the simulated state to leave a defined region?” It cannot answer “what external force caused this recorded fall?” or “what perturbation can this person physiologically recover from?” See `S43_STAGE3A_ASSUMPTION_BASED_PLAN.md` for the full executable specification.
