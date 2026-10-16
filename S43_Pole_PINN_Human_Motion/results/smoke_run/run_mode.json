@@ -1,0 +1,7 @@
+{
+  "mode": "smoke",
+  "source_file": "source/pinn_pole_synthetic_data_generation.py",
+  "source_modified": false,
+  "input_folder": "data/pole_compatible/A11",
+  "note": "Smoke mode shortens epochs/batches only and is not a scientific result."
+}
