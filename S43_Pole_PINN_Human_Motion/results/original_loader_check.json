@@ -1,0 +1,34 @@
+{
+  "mode": "input-check",
+  "accepted_trials": 4,
+  "trials": [
+    {
+      "name": "SubjectB_S43A11T02.tsv",
+      "samples": 502,
+      "duration_s": 5.010000228881836,
+      "theta0_deg": -0.49674199589272056,
+      "x0_m": 0.0038721002638339996
+    },
+    {
+      "name": "SubjectB_S43A11T03.tsv",
+      "samples": 440,
+      "duration_s": 4.389999866485596,
+      "theta0_deg": -1.0531638368754854,
+      "x0_m": 0.0288409274071455
+    },
+    {
+      "name": "SubjectB_S43A11T04.tsv",
+      "samples": 310,
+      "duration_s": 3.0899999141693115,
+      "theta0_deg": 1.0565127640029073,
+      "x0_m": -0.005417221691459417
+    },
+    {
+      "name": "SubjectB_S43A11T05.tsv",
+      "samples": 270,
+      "duration_s": 2.690000057220459,
+      "theta0_deg": -1.5457132171957289,
+      "x0_m": 0.011037420481443405
+    }
+  ]
+}
