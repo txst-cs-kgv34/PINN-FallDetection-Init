@@ -1,0 +1,18 @@
+{
+  "subject": "B",
+  "tau_s": 0.23,
+  "pi_rad": 0.06294714659452438,
+  "pi_deg": 3.60660583225754,
+  "kp_theta": 145.13844299316406,
+  "kd_theta": 15.034581184387207,
+  "kp_x": 5.043493747711182,
+  "kd_x": 15.045682907104492,
+  "feedback_model": "reduced_delayed_state_feedback",
+  "predictor_integral_included": false,
+  "physical_parameters": {
+    "m_kg": 0.0138,
+    "m0_kg": 1.0,
+    "l_m": 0.57,
+    "g_m_s2": 9.81
+  }
+}
