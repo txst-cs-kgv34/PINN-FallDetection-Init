@@ -1,0 +1,7 @@
+{
+  "mode": "full",
+  "source_file": "source/pinn_pole_synthetic_data_generation.py",
+  "source_modified": false,
+  "input_folder": "data/pole_compatible/A11",
+  "note": "Full mode changes only input and output paths."
+}
