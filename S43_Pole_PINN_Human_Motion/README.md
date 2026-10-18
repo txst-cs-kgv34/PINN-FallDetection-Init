@@ -75,6 +75,30 @@ python tests/validate_smoke.py
 python runner/run_pipeline.py --mode full
 ```
 
+## Evaluate the completed full run
+
+The post-run evaluator compares `stage1_best.weights.h5` and
+`stage3_best.weights.h5` on the same complete measured dataset, writes the
+normalized reconstruction-loss evidence, summarizes all 100 synthetic files,
+and creates publication-ready line plots:
+
+```bash
+python analysis/evaluate_full_run.py
+```
+
+Its outputs are under `results/full_run_evaluation/`. To redraw only the saved
+synthetic trajectories (no TensorFlow and no retraining required), use:
+
+```bash
+python analysis/visualize_trajectories.py --horizon 5
+python analysis/visualize_trajectories.py --horizon 30 --count 20
+```
+
+The real-versus-synthetic overlay is qualitative. The generated curves use
+random initial angles and zero initial velocities, while the measured trials
+have trial-specific initial states; the 30-second region is also far beyond
+the available 2.69-5.01 second measured windows.
+
 ## Interpretation boundary
 
 This is a software/pipeline transfer experiment. Although the observed inputs

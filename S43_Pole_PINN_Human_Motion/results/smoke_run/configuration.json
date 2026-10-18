@@ -1,11 +1,11 @@
 {
-  "data_folder": "/Users/rakeshsuvvari/TXST/PINN Research/PINN-for-FallDetection/git/PINN-FallDetection-Init/S43_Pole_PINN_Human_Motion/data/pole_compatible/A11",
+  "data_folder": "/workspace/scratch/d8d03a60d780/S43_Pole_PINN_Human_Motion/data/pole_compatible/A11",
   "file_pattern": "SubjectB_*.tsv",
   "number_of_trials": 14,
   "original_rate_hz": 250,
   "processed_rate_hz": 100,
   "start_index_raw": 1024,
-  "output_folder": "/Users/rakeshsuvvari/TXST/PINN Research/PINN-for-FallDetection/git/PINN-FallDetection-Init/S43_Pole_PINN_Human_Motion/results/smoke_run",
+  "output_folder": "/workspace/scratch/d8d03a60d780/S43_Pole_PINN_Human_Motion/results/smoke_run",
   "stick_mass_kg": 0.0138,
   "stick_length_m": 0.57,
   "gravity_m_s2": 9.81,
