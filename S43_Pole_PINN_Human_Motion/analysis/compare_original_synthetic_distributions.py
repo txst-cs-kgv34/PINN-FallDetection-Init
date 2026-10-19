@@ -200,16 +200,16 @@ def plot_matched_lines(real_trials, synthetic_paths, trajectories):
 
 def plot_wasserstein_time(time, theta_distance, x_distance):
     fig, axes = plt.subplots(2, 1, figsize=(12, 7), sharex=True)
-    for ax, values, ylabel, color in (
-        (axes[0], theta_distance, "W1(theta) [deg]", "#6A4C93"),
-        (axes[1], x_distance, "W1(x) [cm]", "#2A9D8F"),
+    for ax, values, ylabel, color, distance_label in (
+        (axes[0], theta_distance, "W1(theta) [deg]", "#6A4C93", "W1(original theta, synthetic theta)"),
+        (axes[1], x_distance, "W1(x) [cm]", "#2A9D8F", "W1(original x, synthetic x)"),
     ):
-        ax.plot(time, values, color=color, lw=2.0)
+        ax.plot(time, values, color=color, lw=2.0, label=distance_label)
         ax.axhline(np.mean(values), color="#D1495B", ls="--", lw=1.2, label=f"Time mean = {np.mean(values):.3f}")
         ax.grid(alpha=0.25)
         ax.set_ylabel(ylabel)
         ax.legend()
-    axes[0].set_title("Time-resolved Wasserstein-1 distance: original vs synthetic distributions")
+    axes[0].set_title("Wasserstein-1 distance between original and synthetic distributions over time")
     axes[1].set_xlabel("Time from marked onset [s]")
     fig.tight_layout()
     fig.savefig(OUTPUT / "wasserstein_distance_over_time.png", dpi=220)
