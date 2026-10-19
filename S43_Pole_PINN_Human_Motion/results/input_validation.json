@@ -5,66 +5,66 @@
   "trials": [
     {
       "trial": "S43A11T02",
-      "resampling_check": "scipy fallback (install resampy for exact check)",
-      "decoded_samples_100hz": 574,
+      "resampling_check": "resampy (exact pole loader method)",
+      "decoded_samples_100hz": 573,
       "usable_samples_after_20deg_rule": 502,
       "usable_duration_s": 5.01,
-      "theta0_deg": -0.5091715794457357,
+      "theta0_deg": -0.49674198882276466,
       "theta_range_deg_before_trim": [
-        -2.1670339551311764,
-        71.98475405933166
+        -2.1658365925774863,
+        73.20200043442495
       ],
       "centered_x_range_m_before_trim": [
-        -0.02316452111336314,
-        1.1878100344491707
+        -0.023132486556928115,
+        1.2169843525248332
       ]
     },
     {
       "trial": "S43A11T03",
-      "resampling_check": "scipy fallback (install resampy for exact check)",
-      "decoded_samples_100hz": 518,
+      "resampling_check": "resampy (exact pole loader method)",
+      "decoded_samples_100hz": 517,
       "usable_samples_after_20deg_rule": 440,
       "usable_duration_s": 4.39,
-      "theta0_deg": -1.0737418461646266,
+      "theta0_deg": -1.0531638133388594,
       "theta_range_deg_before_trim": [
-        -3.47933705748758,
-        79.69993936747703
+        -3.4898519824797023,
+        79.55375612303091
       ],
       "centered_x_range_m_before_trim": [
-        -0.011165212342426761,
-        1.2384400391554564
+        -0.011340442152585672,
+        1.2361507058062837
       ]
     },
     {
       "trial": "S43A11T04",
-      "resampling_check": "scipy fallback (install resampy for exact check)",
-      "decoded_samples_100hz": 381,
+      "resampling_check": "resampy (exact pole loader method)",
+      "decoded_samples_100hz": 380,
       "usable_samples_after_20deg_rule": 310,
       "usable_duration_s": 3.09,
-      "theta0_deg": 1.0821437921090924,
+      "theta0_deg": 1.056512712762377,
       "theta_range_deg_before_trim": [
-        1.0821437921090924,
-        81.42966045033303
+        1.056512712762377,
+        82.54265106179416
       ],
       "centered_x_range_m_before_trim": [
-        -0.0050054242652691205,
-        1.2118615954446266
+        -0.005417221682261598,
+        1.2291209430633068
       ]
     },
     {
       "trial": "S43A11T05",
-      "resampling_check": "scipy fallback (install resampy for exact check)",
-      "decoded_samples_100hz": 318,
+      "resampling_check": "resampy (exact pole loader method)",
+      "decoded_samples_100hz": 317,
       "usable_samples_after_20deg_rule": 270,
       "usable_duration_s": 2.69,
-      "theta0_deg": -1.583394416297201,
+      "theta0_deg": -1.5457132616445128,
       "theta_range_deg_before_trim": [
-        -2.4297028977275623,
-        74.21396763290859
+        -2.462921949096968,
+        74.08079369133975
       ],
       "centered_x_range_m_before_trim": [
-        -0.0025933757481156824,
-        1.1010830146678974
+        -0.0031000473663897535,
+        1.099125674611667
       ]
     }
   ]
