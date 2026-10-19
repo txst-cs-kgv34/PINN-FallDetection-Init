@@ -99,6 +99,26 @@ random initial angles and zero initial velocities, while the measured trials
 have trial-specific initial states; the 30-second region is also far beyond
 the available 2.69-5.01 second measured windows.
 
+## Compare original and synthetic CoM distributions
+
+The distribution-comparison script creates original-versus-synthetic line
+plots and computes marginal Wasserstein-1 distances for CoM angle and forward
+CoM position:
+
+```bash
+python analysis/compare_original_synthetic_distributions.py
+```
+
+Outputs are written to `results/full_run_distribution_comparison/`. The primary
+comparison uses 0-2.69 seconds, the interval available for every real and
+synthetic trajectory. The script also reports trajectory-bootstrap confidence
+intervals, time-resolved distances, real-to-real variability, synthetic
+split-half variability, and initial-angle-matched trajectory comparisons.
+
+Wasserstein distances are computed separately for `theta` (degrees) and `x`
+(centimeters). They are marginal distribution distances, not a claim of a
+joint multivariate Wasserstein metric or held-out clinical validation.
+
 ## Interpretation boundary
 
 This is a software/pipeline transfer experiment. Although the observed inputs

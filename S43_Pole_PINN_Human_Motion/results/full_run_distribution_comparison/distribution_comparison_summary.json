@@ -1,0 +1,69 @@
+{
+  "method": {
+    "metric": "one-dimensional Wasserstein-1 distance",
+    "common_time_start_s": 0.0,
+    "common_time_end_s": 2.69,
+    "common_samples_per_trajectory": 270,
+    "sample_rate_hz": 100,
+    "original_trajectories": 4,
+    "synthetic_trajectories": 100,
+    "bootstrap_replicates": 500,
+    "bootstrap_unit": "whole trajectory",
+    "note": "theta and x are evaluated as separate marginal distributions; no joint multivariate Wasserstein claim is made"
+  },
+  "theta": {
+    "variable": "theta",
+    "unit": "deg",
+    "pooled_w1": 1.0692634789121351,
+    "bootstrap_ci_2.5": 0.4044484590160698,
+    "bootstrap_ci_97.5": 2.3815461757368954,
+    "time_mean_w1": 1.2301401256527835,
+    "time_median_w1": 1.0675073529175543,
+    "time_p95_w1": 2.5718599702746006,
+    "time_max_w1": 3.3920199718673354,
+    "time_of_max_s": 2.69,
+    "real_pairwise_median_w1": 2.0221925225470208,
+    "synthetic_split_median_w1": 0.2260925761242559,
+    "normalization_scale": 25.0,
+    "normalized_pooled_w1": 0.042770539156485404,
+    "original_points_inside_synthetic_5_95_pct": 71.29629629629629
+  },
+  "x": {
+    "variable": "x",
+    "unit": "cm",
+    "pooled_w1": 1.8389257593257384,
+    "bootstrap_ci_2.5": 1.2046251895923237,
+    "bootstrap_ci_97.5": 2.471561418471715,
+    "time_mean_w1": 2.305559852779685,
+    "time_median_w1": 1.157573057222228,
+    "time_p95_w1": 7.255661272181515,
+    "time_max_w1": 8.104286818895423,
+    "time_of_max_s": 2.37,
+    "real_pairwise_median_w1": 1.4166508706012575,
+    "synthetic_split_median_w1": 0.07448243191613008,
+    "normalization_scale": 25.0,
+    "normalized_pooled_w1": 0.07355703037302953,
+    "original_points_inside_synthetic_5_95_pct": 6.296296296296296
+  },
+  "mean_normalized_marginal_w1": 0.05816378476475747,
+  "horizon_sensitivity": [
+    {
+      "horizon_s": 1.0,
+      "samples_per_trajectory": 101,
+      "theta_w1_deg": 0.6302240107560714,
+      "x_w1_cm": 0.5229710851929935
+    },
+    {
+      "horizon_s": 2.0,
+      "samples_per_trajectory": 201,
+      "theta_w1_deg": 1.0334422107377956,
+      "x_w1_cm": 0.5168778544848913
+    },
+    {
+      "horizon_s": 2.69,
+      "samples_per_trajectory": 270,
+      "theta_w1_deg": 1.0692634789121351,
+      "x_w1_cm": 1.8389257593257384
+    }
+  ]
+}
