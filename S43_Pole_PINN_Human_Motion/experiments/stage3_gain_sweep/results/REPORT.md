@@ -1,10 +1,10 @@
-# Stage-3 fixed-gain sweep results
+# Stage 3 fixed-gain sweep results
 
-Completed 10 of 10 requested chunks.
+Completed 10 of 10 requested chunks. Each chunk started from the same Stage 1 weights and used the original Stage 3 training function. Only the four Kp/Kd gains changed; Pi and tau remained fixed.
 
-Each chunk started from the same Stage-1 weights and used the original Stage-3 training function. Only the four Kp/Kd gains changed. Pi and tau remained fixed.
+The minimum pooled normalized MSE is chunk 1 at `1.23802`. Chunk 5 is second overall and has the minimum forward-CoM MSE. Chunk 7 has the minimum angle MSE but the maximum forward-CoM and combined MSE. The Subject A paper endpoint, chunk 10, ranks eighth and is 3.24% above chunk 1 in normalized MSE.
 
-The current minimum pooled normalized MSE is chunk 1 at 1.23802.
+See [`../FINDINGS.md`](../FINDINGS.md) for the complete ten-chunk gain table, per-chunk takeaways, trial-level analysis, metric interpretation, validation checks, and limitations.
 
 ## Ranked pooled reconstruction metrics
 
@@ -21,4 +21,6 @@ The current minimum pooled normalized MSE is chunk 1 at 1.23802.
 | 9 | 9 | 1.295477 | 215.387161 | 594.285645 | 3.602893 | 6.039833 |
 | 10 | 7 | 1.304078 | 209.263550 | 605.785461 | 3.610101 | 6.667836 |
 
-The Wasserstein figures show both real and synthetic means, their ranges, the time-resolved W1 distribution distance, and the absolute difference between the means. W1 and mean difference answer different questions and are labeled separately.
+The Wasserstein figures show both real and synthetic means, their ranges, the time-resolved W1 distribution distance, and the absolute difference between the means. W1 and mean difference answer different questions and are labeled separately. W1 also differs from paired MSE: chunk 4 has the lowest theta W1 but the highest theta MSE, and chunk 8 has the lowest pooled x W1 while chunk 5 has the lowest x MSE.
+
+T03 contributes 94.29-94.55% of pooled theta squared error and 94.65-96.01% of pooled x squared error across the sweep, despite containing only 440 of 1,522 samples. The pooled ranking is therefore largely controlled by T03.
