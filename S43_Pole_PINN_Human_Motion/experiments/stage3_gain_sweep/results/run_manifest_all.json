@@ -1,0 +1,36 @@
+{
+  "source_file": "source/pinn_pole_synthetic_data_generation.py",
+  "source_modified": false,
+  "stage1_checkpoint": "results/full_run/stage1_best.weights.h5",
+  "input_folder": "data/pole_compatible/A11",
+  "seed_reset_for_every_chunk": 1234,
+  "fixed_pi_deg": 3.6066,
+  "fixed_tau_s": 0.23,
+  "stage3_epochs": 5000,
+  "stage3_batch_size": 4096,
+  "selected_chunks": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "s43_endpoint": {
+    "kp_theta": 145.1384,
+    "kd_theta": 15.0346,
+    "kp_x": 5.0435,
+    "kd_x": 15.0457
+  },
+  "subject_a_paper_endpoint": {
+    "kp_theta": 240.0,
+    "kd_theta": 30.0,
+    "kp_x": 13.0,
+    "kd_x": 30.0
+  },
+  "gain_construction": "10 equally spaced linear interpolations including both endpoints"
+}
