@@ -1,10 +1,8 @@
-# Stage-3 fixed-gain sweep results
+# Stage 3 fixed-gain sweep results
 
-Completed 11 of 11 requested chunks.
+Completed 11 of 11 requested chunks. Each chunk started from the same Stage 1 weights and used the original Stage 3 training function. Only the four Kp/Kd gains changed; Pi and tau remained fixed.
 
-Each chunk started from the same Stage-1 weights and used the original Stage-3 training function. Only the four Kp/Kd gains changed. Pi and tau remained fixed.
-
-The current minimum pooled normalized MSE is chunk 11 at 1.09499.
+Chunk 11, the exact Subject A gain set, has the lowest pooled normalized MSE (`1.09499`) and x MSE (`442.04 cm^2`). It also has the highest theta MSE (`242.33 deg^2`) and theta W1 (`3.863 deg`). The result is therefore a forward-CoM improvement with an angle tradeoff, not a uniform reconstruction improvement.
 
 ## Ranked pooled reconstruction metrics
 
@@ -22,4 +20,6 @@ The current minimum pooled normalized MSE is chunk 11 at 1.09499.
 | 10 | 9 | 1.295477 | 215.387161 | 594.285645 | 3.602893 | 6.039833 |
 | 11 | 7 | 1.304078 | 209.263550 | 605.785461 | 3.610101 | 6.667836 |
 
-The Wasserstein figures show both real and synthetic means, their ranges, the time-resolved W1 distribution distance, and the absolute difference between the means. W1 and mean difference answer different questions and are labeled separately.
+Compared with chunk 1, chunk 11 reduces normalized MSE by 11.55% and x MSE by 21.22%, while increasing theta MSE by 13.96%. T03 contributes 90.69% of chunk 11's pooled x squared error and is the main reason the pooled x result improves. T02 and T04 are worse under chunk 11, so the gain preference is trial-dependent.
+
+The Wasserstein figures show real and synthetic means, their ranges, time-resolved W1 distribution distance, and absolute difference between the means. W1 measures distribution displacement and does not replace paired trajectory MSE. See the parent `FINDINGS.md` for the full analysis and limitations.
