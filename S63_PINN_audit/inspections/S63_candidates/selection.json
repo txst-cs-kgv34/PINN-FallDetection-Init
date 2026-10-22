@@ -1,0 +1,33 @@
+{
+  "subject_id": "S63",
+  "decision_date_local": "2026-10-22",
+  "excluded_trials": {},
+  "remaining_candidate_trials": [
+    "S63A10T01",
+    "S63A10T02",
+    "S63A10T03",
+    "S63A10T04",
+    "S63A10T05",
+    "S63A11T01",
+    "S63A11T02",
+    "S63A11T03",
+    "S63A11T04",
+    "S63A11T05",
+    "S63A12T01",
+    "S63A12T02",
+    "S63A12T03",
+    "S63A12T04",
+    "S63A12T05",
+    "S63A13T01",
+    "S63A13T02",
+    "S63A13T03",
+    "S63A13T04",
+    "S63A13T05",
+    "S63A14T01",
+    "S63A14T02",
+    "S63A14T03",
+    "S63A14T04",
+    "S63A14T05"
+  ],
+  "status": "Initial inspection selection includes all 25 numerically valid trials. Manual phase review will determine front-fall eligibility."
+}

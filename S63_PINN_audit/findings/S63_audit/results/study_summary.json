@@ -1,0 +1,106 @@
+{
+  "subject": {
+    "subject_id": "S63",
+    "sex": "male",
+    "mass_lb": 180,
+    "height_in": 66,
+    "fps": 30,
+    "coordinate_units": "mm",
+    "units_status": "Dataset-level assumption inherited from the SmartFallMM Azure Kinect export; verify with the collection team if S63 used a different export path.",
+    "joint_order_status": "Dataset-level assumption: original Azure Kinect 32-joint SDK order.",
+    "fps_status": "Nominal camera rate is 30 FPS; original timestamps and dropped-frame information are unavailable.",
+    "ground_plane": null,
+    "gravity_direction_camera": null,
+    "force_data": false,
+    "perturbation_data": false,
+    "recovery_trials": false,
+    "activities": {
+      "A10": "Backfall",
+      "A11": "Frontfall",
+      "A12": "Leftfall",
+      "A13": "Rightfall",
+      "A14": "Rotatefall (turn and fall)"
+    },
+    "screening": {
+      "joint_step_m": 0.2,
+      "frame_scale_change_fraction": 0.03,
+      "short_clip_seconds": 1.0,
+      "note": "Exploratory review flags copied from the S43 audit for comparability. They are not physiological limits, automatic exclusions, or fall labels."
+    },
+    "expected_trials": {
+      "A10": [
+        "T01",
+        "T02",
+        "T03",
+        "T04",
+        "T05"
+      ],
+      "A11": [
+        "T01",
+        "T02",
+        "T03",
+        "T04",
+        "T05"
+      ],
+      "A12": [
+        "T01",
+        "T02",
+        "T03",
+        "T04",
+        "T05"
+      ],
+      "A13": [
+        "T01",
+        "T02",
+        "T03",
+        "T04",
+        "T05"
+      ],
+      "A14": [
+        "T01",
+        "T02",
+        "T03",
+        "T04",
+        "T05"
+      ]
+    },
+    "metadata_source": "User-provided S63 demographics on 2026-10-22; collection-format fields inherited from the confirmed SmartFallMM dataset metadata.",
+    "adult_model_applicable": true,
+    "processing_reported": "Leading/trailing trimming only; no normalization, retargeting, rescaling, or padding reported at dataset level.",
+    "timestamps_available": false,
+    "tracking_confidence_available": false,
+    "original_videos_available": false
+  },
+  "mass_kg": 81.6466266,
+  "height_m": 1.6764,
+  "archive_sha256": "a75f074a51524dc2b7aa06e01bdd6be8e8c18adc2cfcb1d41e2f817c968e5637",
+  "expected_files": 25,
+  "nonempty_files": 25,
+  "empty_files": 0,
+  "invalid_files": 0,
+  "missing_files": 0,
+  "total_frames": 3897,
+  "first_to_last_span_min_s": 3.2666666666666666,
+  "first_to_last_span_max_s": 8.4,
+  "clips_under_one_second": 0,
+  "clips_start_angle_over_60deg": 1,
+  "clips_with_review_flags": 25,
+  "total_review_flagged_destination_frames": 318,
+  "global_limb_scale_range_pct_min": 7.28066555800031,
+  "global_limb_scale_range_pct_max": 51.015880663786106,
+  "global_max_joint_step_m": 0.8448743193340068,
+  "global_min_limb_correlation": 0.9999999989947792,
+  "nonfinite_values": 0,
+  "duplicate_rows_within": 90,
+  "cross_trial_duplicate_pairs": [],
+  "equal_joint_centroid_difference_median_m": 0.11435760323847677,
+  "anatomical_com_status": "Approximate segment-mass proxy only; landmark and tracking errors uncalibrated.",
+  "floor_height_status": "Unavailable. Camera axes and displacement proxies are exported instead.",
+  "training_status": "No PINN trained, no synthetic falls generated. All files inspected for quality only.",
+  "sources": {
+    "joints": "https://learn.microsoft.com/en-us/previous-versions/azure/kinect-dk/body-joints",
+    "axes": "https://learn.microsoft.com/en-us/previous-versions/azure/kinect-dk/coordinate-systems",
+    "parameters": "https://www.has-motion.com/wiki/doku.php?id=visual3d:documentation:definitions:adjusted_zatsiorsky-seluyanov_s_segment_inertia_parameters",
+    "paper": "https://doi.org/10.1016/0021-9290(95)00178-6"
+  }
+}

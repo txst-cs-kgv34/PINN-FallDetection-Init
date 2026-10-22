@@ -1,0 +1,6 @@
+trial,frames,raw_flagged_frames,raw_repeat_transitions,filter_status,max_filtered_com_change_m
+S63A11T01,131,17,5,available,0.05198683596900246
+S63A11T02,158,18,1,available,0.050918349609662183
+S63A11T03,158,12,12,available,0.041428481425588866
+S63A11T04,185,13,1,available,0.04269117108129402
+S63A11T05,144,17,3,available,0.05466603003177973
