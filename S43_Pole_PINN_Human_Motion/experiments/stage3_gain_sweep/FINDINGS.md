@@ -2,109 +2,106 @@
 
 ## Executive conclusion
 
-The completed ten-run experiment supports using the S43-specific controller rather than substituting the Subject B paper controller for this subject. Chunk 1, the S43-identified endpoint, has the lowest pooled normalized MSE (`1.2380`). Chunk 10, the Subject B endpoint, is eighth (`1.2782`), 3.24% higher than chunk 1. The exact Subject A gains are now configured as chunk 11, but no result is reported until that run completes.
+The exact Subject A Kp/Kd values in chunk 11 produce the lowest pooled normalized MSE (`1.09499`) and the lowest forward-CoM MSE (`442.04 cm^2`) of all eleven settings. Relative to chunk 1, the previous overall winner, those metrics improve by 11.55% and 21.22%, respectively.
 
-## Pending Subject A comparison
+The improvement is specific to translation. Chunk 11 raises angle MSE by 13.96% relative to chunk 1 and is worst among all chunks for angle MSE, pooled angle W1, mean time-resolved angle W1, and time-mean angle mean difference. It is therefore accurate to call the Subject A result promising for forward-CoM reconstruction, but not to call it the best controller overall without stating the angle tradeoff.
 
-| Chunk | Kp_theta | Kd_theta | Kp_x | Kd_x | Pi used by this run | Status |
-|---:|---:|---:|---:|---:|:---|:---|
-| 11 | 120 | 28 | 14 | 19 | fixed at 3.6066 deg | Pending local execution |
-
-The supplied paper table also reports `Pi=1.75` for Subject A. It is recorded as reference metadata but is not assigned in chunk 11 because the advisor's experiment changes only the four Kp/Kd values. Tau also remains fixed at `0.23 s`.
-
-There is no single gain set that wins every metric:
+## Best setting by metric
 
 | Question | Best chunk | Result |
 |:---|---:|---:|
-| Best combined paired reconstruction | 1 | normalized MSE = **1.2380** |
+| Best combined paired reconstruction | 11 | normalized MSE = **1.09499** |
 | Best paired angle reconstruction | 7 | theta MSE = **209.26 deg^2** |
-| Best paired forward-CoM reconstruction | 5 | x MSE = **560.96 cm^2** |
+| Best paired forward-CoM reconstruction | 11 | x MSE = **442.04 cm^2** |
 | Best pooled angle distribution match | 4 | theta W1 = **3.423 deg** |
-| Best pooled forward-CoM distribution match | 8 | x W1 = **5.914 cm** |
-| Best time-resolved angle distribution match | 4 | mean time-resolved W1 = **3.759 deg** |
-| Best time-resolved forward-CoM distribution match | 5 | mean time-resolved W1 = **6.457 cm** |
+| Best pooled forward-CoM distribution match | 11 | x W1 = **5.198 cm** |
+| Best time-resolved angle distribution match | 4 | mean W1 = **3.759 deg** |
+| Best time-resolved forward-CoM distribution match | 11 | mean W1 = **5.524 cm** |
+| Closest angle means over time | 4 | mean absolute difference = **2.572 deg** |
+| Closest forward-CoM means over time | 11 | mean absolute difference = **3.517 cm** |
 
-This is a genuine angle-versus-translation and paired-error-versus-distribution tradeoff. Therefore, the report should not call any W1 winner the "best reconstruction" without naming the metric.
+No chunk wins both the angle and forward-CoM metrics.
 
-## All ten completed chunks
+## Ranked combined reconstruction
 
-All values below are pooled over the same 1,522 samples from T02-T05. Lower is better.
+All values below pool the same 1,522 samples from T02-T05. Lower is better.
 
-| Combined rank | Chunk | Kp_theta | Kd_theta | Kp_x | Kd_x | Normalized MSE | Theta MSE (deg^2) | x MSE (cm^2) | Theta W1 (deg) | x W1 (cm) | Interpretation |
-|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---|
-| 1 | 1 | 145.14 | 15.03 | 5.04 | 15.05 | **1.2380** | 212.64 | 561.12 | 3.600 | 6.247 | Best combined result; S43 endpoint. |
-| 2 | 5 | 187.30 | 21.69 | 8.58 | 21.69 | **1.2461** | 217.83 | **560.96** | 3.455 | 5.931 | Best x MSE and a close overall second. |
-| 3 | 6 | 197.84 | 23.35 | 9.46 | 23.35 | 1.2608 | 215.27 | 572.76 | 3.593 | 5.984 | Balanced third-place result. |
-| 4 | 2 | 155.68 | 16.70 | 5.93 | 16.71 | 1.2619 | 211.11 | 577.59 | 3.616 | 6.693 | Good angle MSE; weakest pooled W1. |
-| 5 | 3 | 166.22 | 18.36 | 6.81 | 18.37 | 1.2693 | 213.77 | 579.58 | 3.529 | 6.453 | Mid-ranked across the main metrics. |
-| 6 | 4 | 176.76 | 20.02 | 7.70 | 20.03 | 1.2751 | 221.24 | 575.69 | **3.423** | 5.992 | Best theta W1 but worst theta MSE. |
-| 7 | 8 | 218.92 | 26.67 | 11.23 | 26.68 | 1.2752 | 216.41 | 580.56 | 3.551 | **5.914** | Best pooled x W1; middling paired MSE. |
-| 8 | 10 | 240.00 | 30.00 | 13.00 | 30.00 | 1.2782 | 214.63 | 584.22 | 3.531 | 5.933 | Subject B paper endpoint; does not beat the S43 endpoint. |
-| 9 | 9 | 229.46 | 28.34 | 12.12 | 28.34 | 1.2955 | 215.39 | 594.29 | 3.603 | 6.040 | High x error lowers the combined rank. |
-| 10 | 7 | 208.38 | 25.01 | 10.35 | 25.02 | 1.3041 | **209.26** | 605.79 | 3.610 | 6.668 | Best theta MSE but worst x and combined MSE. |
+| Combined rank | Chunk | Gain source | Kp_theta | Kd_theta | Kp_x | Kd_x | Normalized MSE | Theta MSE (deg^2) | x MSE (cm^2) | Theta W1 (deg) | x W1 (cm) |
+|---:|---:|:---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| 1 | 11 | Subject A | 120.00 | 28.00 | 14.00 | 19.00 | **1.094987** | 242.3315 | **442.0355** | 3.8633 | **5.1980** |
+| 2 | 1 | S43 endpoint | 145.14 | 15.03 | 5.04 | 15.05 | 1.238019 | 212.6420 | 561.1196 | 3.5997 | 6.2466 |
+| 3 | 5 | Interpolation | 187.30 | 21.69 | 8.58 | 21.69 | 1.246065 | 217.8275 | 560.9632 | 3.4549 | 5.9305 |
+| 4 | 6 | Interpolation | 197.84 | 23.35 | 9.46 | 23.35 | 1.260837 | 215.2662 | 572.7567 | 3.5934 | 5.9845 |
+| 5 | 2 | Interpolation | 155.68 | 16.70 | 5.93 | 16.71 | 1.261927 | 211.1144 | 577.5899 | 3.6158 | 6.6929 |
+| 6 | 3 | Interpolation | 166.22 | 18.36 | 6.81 | 18.37 | 1.269347 | 213.7665 | 579.5756 | 3.5285 | 6.4533 |
+| 7 | 4 | Interpolation | 176.76 | 20.02 | 7.70 | 20.03 | 1.275084 | 221.2402 | 575.6876 | **3.4227** | 5.9918 |
+| 8 | 8 | Interpolation | 218.92 | 26.67 | 11.23 | 26.68 | 1.275158 | 216.4110 | 580.5627 | 3.5511 | 5.9141 |
+| 9 | 10 | Subject B | 240.00 | 30.00 | 13.00 | 30.00 | 1.278162 | 214.6274 | 584.2239 | 3.5310 | 5.9329 |
+| 10 | 9 | Interpolation | 229.46 | 28.34 | 12.12 | 28.34 | 1.295477 | 215.3872 | 594.2856 | 3.6029 | 6.0398 |
+| 11 | 7 | Interpolation | 208.38 | 25.01 | 10.35 | 25.02 | 1.304078 | **209.2636** | 605.7855 | 3.6101 | 6.6678 |
 
-## What changed as gains increased
+## Direct comparisons
 
-The sweep does not show a smooth optimum along the line between the two endpoints. Normalized MSE rises overall with interpolation fraction (`r = 0.66`), but local reversals are large: chunks 5 and 6 improve over chunks 3 and 4, and chunk 10 improves over chunks 7 and 9.
+Relative to the S43-identified gains in chunk 1, chunk 11 has:
 
-The total best-to-worst spread is modest:
+- 11.55% lower normalized MSE;
+- 21.22% lower x MSE;
+- 16.79% lower pooled x W1 and 43.99% lower time-mean x mean difference;
+- 13.96% higher theta MSE;
+- 7.32% higher pooled theta W1 and 13.11% higher time-mean theta mean difference.
 
-- normalized MSE: 1.2380 to 1.3041, a 5.34% spread relative to the minimum;
-- theta MSE: 209.26 to 221.24 deg^2, a 5.72% spread;
-- x MSE: 560.96 to 605.79 cm^2, a 7.99% spread.
+Relative to the Subject B gains in chunk 10, chunk 11 has 14.33% lower normalized MSE and 24.34% lower x MSE, but 12.91% higher theta MSE. Thus, Subject A gains are clearly preferable to Subject B gains when forward-CoM or combined MSE is the priority on these S43 trials, while Subject B remains better for angle reconstruction.
 
-This means the controller gains affect reconstruction, but the choice among these ten completed gain sets is not the main source of the remaining error. The synthetic mean trajectories still diverge from the real means late in the common 2.69 s window, particularly in forward CoM.
+Chunk 11 also expands the total sensitivity range. Across all eleven settings, the best-to-worst normalized-MSE difference is 16.03% relative to the worst value; this is substantially larger than the 5.34% spread observed among chunks 1-10.
 
-## Trial-level result
+## Chunk 11 by trial
 
-The gain preference is trial-dependent:
+| Trial | Samples | Normalized MSE | Theta MSE (deg^2) | x MSE (cm^2) | Standing among 11 chunks |
+|:---|---:|---:|---:|---:|:---|
+| T02 | 502 | 0.18047 | 29.28 | 83.52 | Worst for all three metrics. |
+| T03 | 440 | **3.46584** | 779.51 | **1,386.63** | Best combined and x MSE; worst theta MSE. |
+| T04 | 310 | 0.10287 | 11.17 | 53.13 | Near-best theta MSE, but worst combined and x MSE. |
+| T05 | 270 | **0.07080** | 28.46 | **15.79** | Best combined and x MSE; worst theta MSE. |
+| Pooled | 1,522 | **1.09499** | 242.33 | **442.04** | Best combined and x; worst theta. |
 
-| Trial | Best normalized MSE | Best theta MSE | Best x MSE |
-|:---|:---|:---|:---|
-| T02 | chunk 1: **0.06089** | chunk 2: **15.84 deg^2** | chunk 1: **21.51 cm^2** |
-| T03 | chunk 5: **4.09304** | chunk 7: **682.85 deg^2** | chunk 5: **1845.69 cm^2** |
-| T04 | chunk 7: **0.02433** | chunk 7: **10.83 deg^2** | chunk 2: **4.01 cm^2** |
-| T05 | chunk 4: **0.14188** | chunk 4: **19.53 deg^2** | chunk 4: **69.14 cm^2** |
+T03 contributes 92.99% of chunk 11's theta squared error and 90.69% of its x squared error while containing only 28.9% of the samples. The pooled ranking is therefore driven mainly by the large reduction in T03 forward-CoM error. Chunk 11 is not uniformly better: it improves T03 and T05 translation but degrades T02 and T04.
 
-T03 is the dominant source of pooled error. It contains 28.9% of the samples but contributes 94.29-94.55% of theta squared error and 94.65-96.01% of x squared error, depending on the chunk. Consequently, the pooled normalized-MSE ranking is mostly a ranking of how each controller handles T03. This should be stated whenever the pooled result is presented.
+## Interpretation of the trajectory and Wasserstein figures
 
-## How to interpret MSE and Wasserstein-1 together
+Paired MSE and W1 answer different questions:
 
-The metrics answer different questions:
+- Paired MSE measures time-aligned error between each real trial and its corresponding simulation.
+- Pooled W1 measures the displacement between all real and synthetic values after pooling; it ignores which trial and time produced each value.
+- Time-resolved W1 compares the real and synthetic four-trial distributions at every time. Its horizontal mean line summarizes the average height of that W1 curve over the shared 2.69 s window.
+- Absolute mean difference measures only separation of the two mean curves. W1 can be larger because it also detects different spread and distribution shape.
 
-- **Paired MSE** compares each synthetic trajectory with its matching real trial at the same time points. It measures whether the simulation follows the correct trajectory.
-- **Pooled W1** compares all real samples with all synthetic samples after pooling. It measures distributional displacement in the original unit but discards trial and time pairing.
-- **Time-resolved W1** compares the four real trial values with the four matched synthetic values at each time, then the reported line is the mean of those distances over the shared 2.69 s interval.
-- **Absolute mean difference** compares only the real and synthetic means. It can be smaller than W1 because W1 also responds to spread and shape differences.
+In chunk 11's means-and-distances plot, the synthetic angle mean drifts negative late while the real mean turns positive. The angle W1 and mean-difference curves rise accordingly, explaining the worst angle-distribution scores. The synthetic forward-CoM mean is closer to the real mean, which explains the strong x metrics. However, x W1 still rises late because the four synthetic trajectories do not reproduce the real across-trial spread even where their means are relatively close.
 
-The observed disagreement is expected. Chunk 4 has the lowest theta W1 but the highest theta MSE, and chunk 8 has the lowest pooled x W1 while chunk 5 has the lowest x MSE. A distribution can be in the right overall region while individual simulated trajectories are paired incorrectly or diverge at the wrong times.
+The trial plot explains the aggregate result: T03 still diverges strongly but its x error is much smaller than under every other gain setting; T05 also improves in x. T02 shows larger oscillation/overshoot, and T04 develops substantial x error. This is why the combined score improves while two trials get worse.
 
-The per-chunk means-and-distances plots add the missing context from the earlier W1-only plots: they show the real and synthetic means, their ranges, the instantaneous W1 curve, and the absolute mean difference on the same time base. For chunk 1, both angle and forward-CoM distances increase strongly late in the window, matching the visible separation of the mean curves.
+## Stage 3 objective versus reconstruction
 
-## Stage 3 objective versus reconstruction error
+The Stage 3 best objective is a weighted sum of physics residual, real-data, and history/initial-condition terms. It is not the reported trajectory MSE and has different units and scaling.
 
-The Stage 3 training objective is not the same quantity as the reported reconstruction MSE. It combines weighted physics residual, real-data, and history/initial-condition terms, with different units and scaling. The best Stage 3 objective therefore should not be interpreted as a physical trajectory MSE.
-
-Across the ten completed runs, the best Stage 3 objective and normalized reconstruction MSE have only a moderate association (`r = 0.63`). Model selection for the advisor's question should use the post-training matched reconstruction metrics, not the raw Stage 3 objective magnitude.
+Chunk 11's best objective is `437.58`, which is higher than chunk 1's `354.24`, even though chunk 11 has better post-training combined reconstruction. Conversely, chunk 10 has a much larger objective (`905.43`) while its angle MSE is better than chunk 11. Model selection for this question should therefore use the matched reconstruction metrics, not the raw Stage 3 loss magnitude.
 
 ## Reliability checks
 
-- The original 10 chunks completed; chunk 11 is configured and pending.
+- All 11 requested chunks completed.
 - Every chunk used 5,000 Stage 3 epochs and batch size 4,096.
 - `Pi = 3.6066 deg` and `tau = 0.23 s` stayed fixed.
-- Every chunk has exactly four matched synthetic trajectory CSVs.
-- Every chunk has 5,000 finite loss-history entries and 270 time-resolved comparison rows.
-- Each saved best checkpoint's objective agrees with the minimum in its loss history.
+- Every chunk contains four matched synthetic trajectory CSVs, one for each real trial.
+- Every chunk contains five MSE rows (four trials plus pooled), 270 time-resolved rows, and 5,000 finite loss-history rows.
+- Each saved best objective agrees with the minimum in its loss history.
 - Aggregate CSV values agree with the corresponding per-chunk JSON records.
+- Chunk 11's best checkpoint occurred at epoch 4,399 and was restored before evaluation; its final-epoch loss was higher, as expected in a noisy optimization.
 
 ## Limitations and next experiment
 
-This sweep changes all four gains together along one interpolation line. It cannot determine which individual gain caused a change. It also uses one deterministic seed per setting, so the small 0.65% difference between chunks 1 and 5 may not be robust to optimization randomness.
+This experiment changes all four gains together, so it cannot identify whether the observed tradeoff comes from the theta gains, the x gains, or their interaction. It also uses one deterministic seed per setting. Finally, Subject A controller gains are applied to S43 data; this tests parameter transfer, not subject-matched motion reconstruction.
 
-The highest-value follow-up is:
+The most informative follow-up is to vary the angle-gain pair and position-gain pair separately, repeat the strongest settings across several seeds, and inspect T03 alignment and initial conditions because T03 dominates the pooled score.
 
-1. Diagnose T03 separately for alignment, onset marking, initial state, and range because it dominates the pooled result.
-2. Repeat chunks 1 and 5 over multiple seeds to quantify optimization variability.
-3. If the result is stable, run a small local grid around chunks 1 and 5, varying the theta and x gain pairs separately rather than moving all four gains together.
+## Advisor-ready takeaway
 
-Until the Subject A result is available, chunk 1 is the defensible overall choice, chunk 5 is the forward-CoM alternative, and chunk 7 should only be selected if angle MSE is explicitly prioritized over forward-CoM accuracy.
+Using Subject A's Kp/Kd values in the same Stage 3 pipeline is promising for forward-CoM reconstruction: it gives the lowest combined MSE and improves x MSE by 21.22% over the previous best chunk. The gain set does not improve the whole reconstruction, because angle error and angle Wasserstein distance are the worst of all tested settings, and T02/T04 become worse. The defensible conclusion is that Subject A gains provide a strong translation-oriented setting whose benefit is mostly driven by T03, while a different or separately tuned theta-gain pair is needed to preserve angle accuracy.
