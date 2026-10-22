@@ -2,7 +2,7 @@
 
 This directory is the pre-modeling audit for Subject 63. It checks the supplied fall recordings, preserves the original CSV bytes, computes a male segment-mass CoM proxy using the supplied demographics, creates reproducible evidence figures, and provides offline viewers for manual phase marking.
 
-No PINN, controller, Stage 1, Stage 2, Stage 3, or synthetic-fall experiment is included here. The intended next project, `S63_Pole_PINN_Human_Motion`, should begin only after the A11 phase notes have been manually reviewed.
+No PINN, controller, Stage 1, Stage 2, Stage 3, or synthetic-fall experiment is included here. The manually reviewed A11 phase notes have now been added under `analysis_inputs/`; the separate `S63_Pole_PINN_Human_Motion` project consumes a copy of that file.
 
 ## Subject and recording assumptions
 
@@ -39,10 +39,17 @@ See [`S63_AUDIT_SUMMARY.md`](S63_AUDIT_SUMMARY.md) for the detailed interpretati
 | `findings/S63_audit/` | Immutable audit run, copied raw files, measurements, evidence plots, provenance, and generated findings |
 | `inspections/S63_candidates/` | Offline viewer containing all 25 trials |
 | `inspections/S63_A11_frontfall/` | Focused viewer containing only the five front-fall trials |
+| `analysis_inputs/S63_A11_phase_notes.json` | Canonical copy of the manually exported phase observations for all five A11 trials |
 | `scripts/` | Reusable audit, plotting, viewer, geometry, filtering, and verification code copied from the S43 workflow |
 | `viewer/` | Source assets used to build the self-contained inspection HTML |
 
 ## Manual A11 phase marking
+
+**Status: complete.** The returned file passed structural checks: 25 observations, five required phases for each of T01-T05, frame/time agreement at 30 FPS, and all frame numbers within their source recordings. Keep the file at:
+
+`S63_PINN_audit/analysis_inputs/S63_A11_phase_notes.json`
+
+The steps below document how the file was produced if the markings need to be revised.
 
 1. Open `inspections/S63_A11_frontfall/INSPECT.html` in a browser.
 2. Start with the `Raw` display. Use the filtered or overlay views only as a sensitivity comparison.

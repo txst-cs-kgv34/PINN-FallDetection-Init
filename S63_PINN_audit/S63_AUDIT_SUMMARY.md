@@ -2,7 +2,7 @@
 
 ## Decision
 
-Proceed with manual phase marking before creating `S63_Pole_PINN_Human_Motion`. The supplied dataset is complete and all five A11 front-fall trials pass the numeric input checks. No trial should be accepted or rejected for training solely from the automated flags; the focused viewer is the final pre-modeling review step.
+Manual phase marking is complete for all five A11 front-fall trials. The returned notes contain the five requested observations for T01-T05 and passed frame/time/range checks. The pole-transfer project may therefore proceed with all five manually marked trials; no automated audit flag is being used as an exclusion rule.
 
 ## Dataset inventory
 
@@ -52,6 +52,6 @@ Open `inspections/S63_A11_frontfall/INSPECT.html`. It is self-contained and work
 
 Raw is the authoritative view. The optional 1.5 Hz forward-backward Butterworth trace shows sensitivity to smoothing and must not be interpreted as a correction or as the required preprocessing for the pole pipeline.
 
-## Recommended next step
+## Phase-note handoff
 
-Return the exported `S63_phase_notes.json` after marking all five A11 trials. I can then create `S63_Pole_PINN_Human_Motion` using the same pole-balancing pipeline structure as S43, substitute S63's male anthropometric model and demographics, use only manually approved A11 trials, and keep the initial rerun separate from later framework-stage experiments.
+The exported notes are stored at `analysis_inputs/S63_A11_phase_notes.json`. They cover T01-T05. The separate `S63_Pole_PINN_Human_Motion` project copies this file, uses S63's male anthropometric model and demographics, preserves the S43 pole-pipeline architecture, and keeps later Stage-3 gain-sweep experiments out of scope.
