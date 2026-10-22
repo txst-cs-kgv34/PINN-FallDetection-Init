@@ -1,0 +1,28 @@
+{
+  "subject_id": "S63",
+  "sex": "male",
+  "reported_weight_lb": 180,
+  "reported_height_ft_in": "5 ft 6 in",
+  "reported_height_in": 66,
+  "reported_mass_kg": 81.6466266,
+  "reported_height_m": 1.6764,
+  "nominal_fps": 30,
+  "sensor": "Azure Kinect",
+  "coordinate_layout": "32 joints x XYZ = 96 values per frame",
+  "activities": {
+    "A10": "Backfall",
+    "A11": "Frontfall",
+    "A12": "Leftfall",
+    "A13": "Rightfall",
+    "A14": "Rotatefall"
+  },
+  "limitations": [
+    "No original timestamps",
+    "No body-tracking confidence values",
+    "No floor or camera calibration",
+    "No force-plate or ground-reaction-force measurements",
+    "No measured perturbation or corrective torque",
+    "No original RGB/depth videos in the supplied archive"
+  ],
+  "source_note": "Demographics were supplied by the user on 2026-10-22. Collection-format details follow the previously confirmed SmartFallMM dataset metadata and should be revised if S63 used a different export path."
+}

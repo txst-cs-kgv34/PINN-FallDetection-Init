@@ -1,0 +1,13 @@
+{
+  "subject_id": "S63",
+  "decision_date_local": "2026-10-22",
+  "excluded_trials": {},
+  "remaining_candidate_trials": [
+    "S63A11T01",
+    "S63A11T02",
+    "S63A11T03",
+    "S63A11T04",
+    "S63A11T05"
+  ],
+  "status": "Focused front-fall inspection set. No A11 trial is excluded before manual phase review."
+}
