@@ -1,0 +1,5 @@
+{
+  "file": "source/pinn_pole_synthetic_data_generation.py",
+  "sha256": "604985d2344350789929c3554f9ce4351b826f69be1dfe9dee0b20acb586e0a9",
+  "policy": "The pole source is byte-identical to the S43 transfer project. S63-specific work is confined to configuration, raw data, the upstream adapter, launcher, validation, and post-run analysis."
+}

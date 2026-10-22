@@ -1,0 +1,13 @@
+{
+  "subject": "S63",
+  "activity": "A11",
+  "included_trials": [
+    "S63A11T01",
+    "S63A11T02",
+    "S63A11T03",
+    "S63A11T04",
+    "S63A11T05"
+  ],
+  "excluded_trials": {},
+  "basis": "All five A11 recordings contain complete standing-to-fallen sequences and now have manual phase observations. Automated audit flags remain review cues, not exclusions."
+}
