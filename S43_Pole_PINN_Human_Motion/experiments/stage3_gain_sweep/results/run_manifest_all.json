@@ -26,11 +26,22 @@
     "kp_x": 5.0435,
     "kd_x": 15.0457
   },
-  "subject_a_paper_endpoint": {
+  "subject_b_paper_endpoint": {
     "kp_theta": 240.0,
     "kd_theta": 30.0,
     "kp_x": 13.0,
     "kd_x": 30.0
   },
-  "gain_construction": "10 equally spaced linear interpolations including both endpoints"
+  "subject_a_paper_comparison_pending": {
+    "chunk": 11,
+    "kp_theta": 120.0,
+    "kd_theta": 28.0,
+    "kp_x": 14.0,
+    "kd_x": 19.0
+  },
+  "paper_pi_reported_rad_reference_only": {
+    "subject_a": 1.75,
+    "subject_b": 3.0
+  },
+  "gain_construction": "chunks 1-10 are equally spaced S43-to-Subject-B interpolations; chunk 11 is the exact Subject-A Kp/Kd set"
 }

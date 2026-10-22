@@ -1,6 +1,6 @@
 # Stage 3 fixed-gain sweep
 
-This experiment tests the sensitivity of the unchanged pole-PINN Stage 3 forward block to ten manually supplied controller-gain sets for the same S43 A11 subject data.
+This experiment tests the sensitivity of the unchanged pole-PINN Stage 3 forward block to eleven manually supplied controller-gain sets for the same S43 A11 subject data.
 
 ## Controlled design
 
@@ -10,13 +10,18 @@ This experiment tests the sensitivity of the unchanged pole-PINN Stage 3 forward
 - Same original Stage 3 architecture, equations, losses, 5,000 epochs, batch size, and seed.
 - Fixed `Pi = 3.6066 deg` and `tau = 0.23 s`.
 - Only `kp_theta`, `kd_theta`, `kp_x`, and `kd_x` vary.
-- The ten gain sets linearly interpolate between the controller previously identified from S43 and the Subject A values printed as the paper reference in the original pole code.
+- Chunks 1-10 linearly interpolate between the controller previously identified from S43 and the Subject B paper values.
+- Chunk 11 uses the exact Subject A paper gains: `Kp_theta=120`, `Kd_theta=28`, `Kp_x=14`, and `Kd_x=19`.
 
 Each chunk is independent. Before every Stage 3 run, the script rebuilds the model, reloads the same `results/full_run/stage1_best.weights.h5`, assigns one gain set, and resets all random seeds.
 
+The supplied table identifies `240, 30, 13, 30` as **Subject B**, not Subject A. The code and documentation now use the corrected label. The table also reports `Pi=1.75` for Subject A and `Pi=3.00` for Subject B, but those values are not used here because the requested experiment changes only Kp/Kd. The pipeline keeps `Pi=3.6066 deg` and `tau=0.23 s` fixed for a controlled comparison.
+
+The archived `results/gain_sets.csv` still represents the ten completed runs. The updated script rewrites that configuration table with the chunk 11 row immediately when you launch the new run, before any training starts.
+
 ## Completed results
 
-All 10 chunks completed. The primary ranking metric is pooled normalized MSE on the same 1,522 measured samples from T02-T05. Lower is better for every metric in this table.
+Chunks 1-10 are completed. Chunk 11 is configured but has not been run yet. The primary ranking metric is pooled normalized MSE on the same 1,522 measured samples from T02-T05. Lower is better for every metric in this table.
 
 | Chunk | Kp_theta | Kd_theta | Kp_x | Kd_x | Normalized MSE | Theta MSE (deg^2) | x MSE (cm^2) | Theta pooled W1 (deg) | x pooled W1 (cm) | Takeaway |
 |---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|:---|
@@ -29,11 +34,12 @@ All 10 chunks completed. The primary ranking metric is pooled normalized MSE on 
 | 7 | 208.38 | 25.01 | 10.35 | 25.02 | 1.3041 | **209.26** | 605.79 | 3.610 | 6.668 | Best theta MSE but worst combined and x MSE; clear angle-versus-translation tradeoff. |
 | 8 | 218.92 | 26.67 | 11.23 | 26.68 | 1.2752 | 216.41 | 580.56 | 3.551 | **5.914** | Best pooled x W1, but only seventh by paired normalized MSE. |
 | 9 | 229.46 | 28.34 | 12.12 | 28.34 | 1.2955 | 215.39 | 594.29 | 3.603 | 6.040 | Ninth overall; the higher x error drives the poor combined rank. |
-| 10 | 240.00 | 30.00 | 13.00 | 30.00 | 1.2782 | 214.63 | 584.22 | 3.531 | 5.933 | Subject A paper endpoint; eighth overall and 3.24% above chunk 1 in normalized MSE. |
+| 10 | 240.00 | 30.00 | 13.00 | 30.00 | 1.2782 | 214.63 | 584.22 | 3.531 | 5.933 | Subject B paper endpoint; eighth overall and 3.24% above chunk 1 in normalized MSE. |
+| 11 | 120.00 | 28.00 | 14.00 | 19.00 | Pending | Pending | Pending | Pending | Pending | New exact Subject A Kp/Kd comparison. |
 
 ### Main interpretation
 
-- The S43-identified gains in chunk 1 gave the lowest combined reconstruction error. The Subject A paper gains in chunk 10 did not improve this subject's paired reconstruction.
+- Among the completed chunks, the S43-identified gains in chunk 1 gave the lowest combined reconstruction error. The Subject B paper gains in chunk 10 did not improve this subject's paired reconstruction.
 - The sweep is not monotonic. Chunk 5 nearly matches chunk 1 overall and has the lowest forward-CoM MSE, while chunk 7 improves angle MSE at a substantial cost to forward-CoM accuracy.
 - The full normalized-MSE spread is only 5.34% from best to worst, so the gain choice matters, but none of these ten settings fixes the larger reconstruction mismatch.
 - T03 dominates the pooled result: although it contains 440 of 1,522 samples, it contributes 94.29-94.55% of theta squared error and 94.65-96.01% of x squared error across the sweep.
@@ -41,24 +47,37 @@ All 10 chunks completed. The primary ranking metric is pooled normalized MSE on 
 
 See [`FINDINGS.md`](FINDINGS.md) for the ranked comparisons, trial-level interpretation, metric definitions, limitations, and recommended next experiment.
 
-## Full run
+## Run only the new Subject A comparison
 
-Activate the same virtual environment that worked for the completed S43 run. From the repository root on macOS, run:
+From the repository root on macOS, activate the same environment used for the completed S43 run and execute:
 
 ```bash
 bash experiments/stage3_gain_sweep/run_on_mac.sh
 ```
 
-The launcher uses `caffeinate`, runs all ten chunks sequentially, and keeps the original 5,000 Stage 3 epochs and batch size of 4,096. The command is resumable. Existing chunks with a `result.json` file are skipped; an interrupted chunk is rerun from the common Stage 1 checkpoint.
-
-To run a particular subset manually:
+This launcher now runs only chunk 11. It does not rerun chunks 1-10. The equivalent direct command is:
 
 ```bash
 python experiments/stage3_gain_sweep/run_gain_sweep.py \
-  --chunks 1,2,3 \
+  --chunks 11 \
   --epochs 5000 \
   --batch-size 4096
 ```
+
+When chunk 11 finishes, the script automatically rebuilds the aggregate CSV, summary, MSE graph, Wasserstein graph, and report using every completed chunk found in the results folder.
+
+## Optional full or resumed run
+
+To request every chunk explicitly, use:
+
+```bash
+python experiments/stage3_gain_sweep/run_gain_sweep.py \
+  --chunks all \
+  --epochs 5000 \
+  --batch-size 4096
+```
+
+The command is resumable. Existing chunks with a `result.json` file are skipped; an interrupted chunk is rerun from the common Stage 1 checkpoint.
 
 ## What is compared
 
@@ -96,13 +115,13 @@ The aggregate MSE figure should be used for matched trajectory accuracy. The W1 
 
 ## Package the completed results
 
-After the run prints that ten chunks were aggregated:
+After the run prints that eleven chunks were aggregated:
 
 ```bash
 bash experiments/stage3_gain_sweep/package_results.sh
 ```
 
-Upload `S43_Stage3_Gain_Sweep_Results.zip` for interpretation. It includes the exact gain table, per-trial and pooled metrics, all real-versus-synthetic CoM CSV files, the revised mean-and-distance figures, aggregate MSE/Wasserstein graphs, the report, and the ten saved Stage 3 checkpoints.
+Upload `S43_Stage3_Gain_Sweep_Results.zip` for interpretation. It includes the exact gain table, per-trial and pooled metrics, all real-versus-synthetic CoM CSV files, the revised mean-and-distance figures, aggregate MSE/Wasserstein graphs, the report, and the eleven saved Stage 3 checkpoints.
 
 ## Scope
 

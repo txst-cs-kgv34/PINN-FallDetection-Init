@@ -17,7 +17,7 @@ fi
 command=(
   "${PYTHON_BIN}"
   "experiments/stage3_gain_sweep/run_gain_sweep.py"
-  "--chunks" "all"
+  "--chunks" "11"
   "--epochs" "5000"
   "--batch-size" "4096"
 )
@@ -31,5 +31,5 @@ else
 fi
 
 echo
-echo "Gain sweep finished. Package results with:"
+echo "Subject-A chunk 11 finished. Package all results with:"
 echo "  bash experiments/stage3_gain_sweep/package_results.sh"

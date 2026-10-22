@@ -2,7 +2,15 @@
 
 ## Executive conclusion
 
-The ten-run experiment supports using the S43-specific controller rather than substituting the Subject A paper controller for this subject. Chunk 1, the S43-identified endpoint, has the lowest pooled normalized MSE (`1.2380`). Chunk 10, the Subject A endpoint, is eighth (`1.2782`), 3.24% higher than chunk 1.
+The completed ten-run experiment supports using the S43-specific controller rather than substituting the Subject B paper controller for this subject. Chunk 1, the S43-identified endpoint, has the lowest pooled normalized MSE (`1.2380`). Chunk 10, the Subject B endpoint, is eighth (`1.2782`), 3.24% higher than chunk 1. The exact Subject A gains are now configured as chunk 11, but no result is reported until that run completes.
+
+## Pending Subject A comparison
+
+| Chunk | Kp_theta | Kd_theta | Kp_x | Kd_x | Pi used by this run | Status |
+|---:|---:|---:|---:|---:|:---|:---|
+| 11 | 120 | 28 | 14 | 19 | fixed at 3.6066 deg | Pending local execution |
+
+The supplied paper table also reports `Pi=1.75` for Subject A. It is recorded as reference metadata but is not assigned in chunk 11 because the advisor's experiment changes only the four Kp/Kd values. Tau also remains fixed at `0.23 s`.
 
 There is no single gain set that wins every metric:
 
@@ -18,7 +26,7 @@ There is no single gain set that wins every metric:
 
 This is a genuine angle-versus-translation and paired-error-versus-distribution tradeoff. Therefore, the report should not call any W1 winner the "best reconstruction" without naming the metric.
 
-## All ten chunks
+## All ten completed chunks
 
 All values below are pooled over the same 1,522 samples from T02-T05. Lower is better.
 
@@ -31,7 +39,7 @@ All values below are pooled over the same 1,522 samples from T02-T05. Lower is b
 | 5 | 3 | 166.22 | 18.36 | 6.81 | 18.37 | 1.2693 | 213.77 | 579.58 | 3.529 | 6.453 | Mid-ranked across the main metrics. |
 | 6 | 4 | 176.76 | 20.02 | 7.70 | 20.03 | 1.2751 | 221.24 | 575.69 | **3.423** | 5.992 | Best theta W1 but worst theta MSE. |
 | 7 | 8 | 218.92 | 26.67 | 11.23 | 26.68 | 1.2752 | 216.41 | 580.56 | 3.551 | **5.914** | Best pooled x W1; middling paired MSE. |
-| 8 | 10 | 240.00 | 30.00 | 13.00 | 30.00 | 1.2782 | 214.63 | 584.22 | 3.531 | 5.933 | Paper endpoint; does not beat the S43 endpoint. |
+| 8 | 10 | 240.00 | 30.00 | 13.00 | 30.00 | 1.2782 | 214.63 | 584.22 | 3.531 | 5.933 | Subject B paper endpoint; does not beat the S43 endpoint. |
 | 9 | 9 | 229.46 | 28.34 | 12.12 | 28.34 | 1.2955 | 215.39 | 594.29 | 3.603 | 6.040 | High x error lowers the combined rank. |
 | 10 | 7 | 208.38 | 25.01 | 10.35 | 25.02 | 1.3041 | **209.26** | 605.79 | 3.610 | 6.668 | Best theta MSE but worst x and combined MSE. |
 
@@ -45,7 +53,7 @@ The total best-to-worst spread is modest:
 - theta MSE: 209.26 to 221.24 deg^2, a 5.72% spread;
 - x MSE: 560.96 to 605.79 cm^2, a 7.99% spread.
 
-This means the controller gains affect reconstruction, but the choice among these ten gain sets is not the main source of the remaining error. The synthetic mean trajectories still diverge from the real means late in the common 2.69 s window, particularly in forward CoM.
+This means the controller gains affect reconstruction, but the choice among these ten completed gain sets is not the main source of the remaining error. The synthetic mean trajectories still diverge from the real means late in the common 2.69 s window, particularly in forward CoM.
 
 ## Trial-level result
 
@@ -77,11 +85,11 @@ The per-chunk means-and-distances plots add the missing context from the earlier
 
 The Stage 3 training objective is not the same quantity as the reported reconstruction MSE. It combines weighted physics residual, real-data, and history/initial-condition terms, with different units and scaling. The best Stage 3 objective therefore should not be interpreted as a physical trajectory MSE.
 
-Across these ten runs, the best Stage 3 objective and normalized reconstruction MSE have only a moderate association (`r = 0.63`). Model selection for the advisor's question should use the post-training matched reconstruction metrics, not the raw Stage 3 objective magnitude.
+Across the ten completed runs, the best Stage 3 objective and normalized reconstruction MSE have only a moderate association (`r = 0.63`). Model selection for the advisor's question should use the post-training matched reconstruction metrics, not the raw Stage 3 objective magnitude.
 
 ## Reliability checks
 
-- 10 of 10 requested chunks completed.
+- The original 10 chunks completed; chunk 11 is configured and pending.
 - Every chunk used 5,000 Stage 3 epochs and batch size 4,096.
 - `Pi = 3.6066 deg` and `tau = 0.23 s` stayed fixed.
 - Every chunk has exactly four matched synthetic trajectory CSVs.
@@ -99,4 +107,4 @@ The highest-value follow-up is:
 2. Repeat chunks 1 and 5 over multiple seeds to quantify optimization variability.
 3. If the result is stable, run a small local grid around chunks 1 and 5, varying the theta and x gain pairs separately rather than moving all four gains together.
 
-Until that follow-up, chunk 1 is the defensible overall choice, chunk 5 is the forward-CoM alternative, and chunk 7 should only be selected if angle MSE is explicitly prioritized over forward-CoM accuracy.
+Until the Subject A result is available, chunk 1 is the defensible overall choice, chunk 5 is the forward-CoM alternative, and chunk 7 should only be selected if angle MSE is explicitly prioritized over forward-CoM accuracy.

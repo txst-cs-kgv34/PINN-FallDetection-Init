@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Run ten controlled Stage-3 gain experiments for S43 A11.
+"""Run the controlled Stage-3 gain experiments for S43 A11.
 
 The preserved pole-PINN source is imported without modification.  Every chunk:
 
@@ -10,9 +10,10 @@ The preserved pole-PINN source is imported without modification.  Every chunk:
 * predicts each real trial from that trial's measured initial conditions; and
 * reports paired reconstruction MSE and real-vs-synthetic distribution metrics.
 
-The ten gain sets linearly interpolate between the S43 controller identified in
-the completed run and the Subject-A/paper reference values printed by the
-original pole code.
+Chunks 1-10 linearly interpolate between the S43 controller identified in the
+completed run and the Subject-B paper reference.  Chunk 11 is the exact
+Subject-A paper Kp/Kd set.  Pi and tau remain fixed for every chunk so that only
+the four controller gains change.
 """
 
 from __future__ import annotations
@@ -51,14 +52,24 @@ S43_GAINS = {
     "kp_x": 5.0435,
     "kd_x": 15.0457,
 }
-SUBJECT_A_GAINS = {
+SUBJECT_B_PAPER_GAINS = {
     "kp_theta": 240.0,
     "kd_theta": 30.0,
     "kp_x": 13.0,
     "kd_x": 30.0,
 }
+SUBJECT_A_PAPER_GAINS = {
+    "kp_theta": 120.0,
+    "kd_theta": 28.0,
+    "kp_x": 14.0,
+    "kd_x": 19.0,
+}
+# The supplied paper table labels these Pi values in radians.  They are kept as
+# provenance only and are deliberately not assigned in this Kp/Kd-only test.
+PAPER_PI_REPORTED_RAD = {"subject_a": 1.75, "subject_b": 3.00}
 FIXED_PI_DEG = 3.6066
 FIXED_TAU_S = 0.23
+CHUNK_COUNT = 11
 
 
 def load_pipeline():
@@ -86,8 +97,12 @@ def gain_sets() -> list[dict]:
     for index, alpha in enumerate(np.linspace(0.0, 1.0, 10), start=1):
         row = {"chunk": index, "alpha": float(alpha)}
         for name in S43_GAINS:
-            row[name] = float((1.0 - alpha) * S43_GAINS[name] + alpha * SUBJECT_A_GAINS[name])
+            row[name] = float(
+                (1.0 - alpha) * S43_GAINS[name]
+                + alpha * SUBJECT_B_PAPER_GAINS[name]
+            )
         rows.append(row)
+    rows.append({"chunk": 11, "alpha": None, **SUBJECT_A_PAPER_GAINS})
     return rows
 
 
@@ -554,10 +569,12 @@ def aggregate(output_root: Path, expected_chunks: list[int]) -> list[dict]:
 
 def parse_chunk_selection(value: str) -> list[int]:
     if value.strip().lower() == "all":
-        return list(range(1, 11))
+        return list(range(1, CHUNK_COUNT + 1))
     selected = sorted({int(item.strip()) for item in value.split(",") if item.strip()})
-    if not selected or any(item < 1 or item > 10 for item in selected):
-        raise argparse.ArgumentTypeError("chunks must be 'all' or comma-separated integers from 1 to 10")
+    if not selected or any(item < 1 or item > CHUNK_COUNT for item in selected):
+        raise argparse.ArgumentTypeError(
+            f"chunks must be 'all' or comma-separated integers from 1 to {CHUNK_COUNT}"
+        )
     return selected
 
 
@@ -580,8 +597,9 @@ def main() -> None:
     args.output.mkdir(parents=True, exist_ok=True)
     gains = gain_sets()
     gain_path = args.output / "gain_sets.csv"
-    if not gain_path.exists():
-        write_csv(gain_path, gains)
+    # Rewrite the small configuration table on every invocation so an existing
+    # ten-chunk results folder gains the new Subject-A row before training.
+    write_csv(gain_path, gains)
 
     manifest = {
         "source_file": str(SOURCE.relative_to(ROOT)),
@@ -595,10 +613,19 @@ def main() -> None:
         "stage3_batch_size": args.batch_size,
         "selected_chunks": selected,
         "s43_endpoint": S43_GAINS,
-        "subject_a_paper_endpoint": SUBJECT_A_GAINS,
-        "gain_construction": "10 equally spaced linear interpolations including both endpoints",
+        "subject_b_paper_endpoint": SUBJECT_B_PAPER_GAINS,
+        "subject_a_paper_comparison": SUBJECT_A_PAPER_GAINS,
+        "paper_pi_reported_rad_reference_only": PAPER_PI_REPORTED_RAD,
+        "gain_construction": (
+            "chunks 1-10 are equally spaced S43-to-Subject-B interpolations; "
+            "chunk 11 is the exact Subject-A Kp/Kd set"
+        ),
     }
-    selection_label = "all" if selected == list(range(1, 11)) else "_".join(f"{item:02d}" for item in selected)
+    selection_label = (
+        "all"
+        if selected == list(range(1, CHUNK_COUNT + 1))
+        else "_".join(f"{item:02d}" for item in selected)
+    )
     (args.output / f"run_manifest_{selection_label}.json").write_text(
         json.dumps(manifest, indent=2) + "\n", encoding="utf-8"
     )
@@ -611,7 +638,7 @@ def main() -> None:
         for chunk in selected:
             row = gains[chunk - 1]
             print("\n" + "=" * 78)
-            print(f"GAIN SWEEP CHUNK {chunk:02d}/10")
+            print(f"GAIN SWEEP CHUNK {chunk:02d}/{CHUNK_COUNT}")
             print(json.dumps(row, indent=2))
             run_chunk(
                 pipeline,
@@ -626,7 +653,7 @@ def main() -> None:
             tf.keras.backend.clear_session()
 
     if not args.skip_aggregate:
-        rows = aggregate(args.output, list(range(1, 11)))
+        rows = aggregate(args.output, list(range(1, CHUNK_COUNT + 1)))
         print(f"\nCompleted result aggregation for {len(rows)} chunk(s): {args.output.resolve()}")
 
 
