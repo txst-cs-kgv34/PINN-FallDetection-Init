@@ -1,0 +1,11 @@
+{
+  "mode": "full",
+  "source_file": "source/pinn_pole_synthetic_data_generation.py",
+  "source_modified": false,
+  "input_folder": "data/pole_compatible/A11",
+  "runtime_overrides": {
+    "minimum_trial_seconds": 0.25,
+    "reason": "Every S63 A11 clip reaches the unchanged 20-degree cutoff before the source default of 2.0 seconds. A 0.25-second gate retains the observed pre-cutoff data without adding artificial stationary frames. The source file and network architecture remain unchanged."
+  },
+  "note": "Full mode preserves the architecture and training/generation settings; only paths and the documented S63 input-duration eligibility gate are overridden."
+}
