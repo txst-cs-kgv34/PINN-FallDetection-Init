@@ -8,13 +8,13 @@ RESULTS_DIR="${SCRIPT_DIR}/results"
 ARCHIVE="${ROOT_DIR}/S43_Stage3_Gain_Sweep_Results.zip"
 
 if [[ ! -f "${RESULTS_DIR}/summary.json" ]]; then
-  echo "The aggregate summary is missing. Complete all ten chunks first." >&2
+  echo "The aggregate summary is missing. Complete all eleven chunks first." >&2
   exit 1
 fi
 
 completed_count="$(find "${RESULTS_DIR}" -maxdepth 2 -name result.json -type f | wc -l | tr -d ' ')"
-if [[ "${completed_count}" != "10" ]]; then
-  echo "Expected 10 completed chunks, found ${completed_count}." >&2
+if [[ "${completed_count}" != "11" ]]; then
+  echo "Expected 11 completed chunks, found ${completed_count}." >&2
   exit 1
 fi
 

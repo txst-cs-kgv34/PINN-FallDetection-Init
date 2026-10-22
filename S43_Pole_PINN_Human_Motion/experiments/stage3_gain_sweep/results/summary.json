@@ -1,5 +1,5 @@
 {
-  "completed_chunks": 10,
+  "completed_chunks": 11,
   "expected_chunks": [
     1,
     2,
@@ -10,104 +10,112 @@
     7,
     8,
     9,
-    10
+    10,
+    11
   ],
   "ranking_metric": "pooled normalized MSE on the same 1,522 measured samples",
   "best_chunk": {
-    "chunk": 1,
-    "alpha": 0.0,
-    "kp_theta": 145.1384,
-    "kd_theta": 15.0346,
-    "kp_x": 5.0435,
-    "kd_x": 15.0457,
+    "chunk": 11,
+    "alpha": null,
+    "kp_theta": 120.0,
+    "kd_theta": 28.0,
+    "kp_x": 14.0,
+    "kd_x": 19.0,
     "fixed_pi_deg": 3.6066,
     "fixed_tau_s": 0.23,
     "stage3_epochs": 5000,
     "stage3_batch_size": 4096,
-    "stage3_best_objective": 354.2430419921875,
+    "stage3_best_objective": 437.5768127441406,
     "trial": "POOLED",
     "samples": 1522,
-    "theta_mse_deg2": 212.64199829101562,
-    "theta_rmse_deg": 14.582249641418457,
-    "theta_mae_deg": 8.01278018951416,
-    "x_mse_cm2": 561.11962890625,
-    "x_rmse_cm": 23.687963485717773,
-    "x_mae_cm": 12.588199615478516,
-    "normalized_mse": 1.2380186319351196,
+    "theta_mse_deg2": 242.33151245117188,
+    "theta_rmse_deg": 15.567000389099121,
+    "theta_mae_deg": 8.67396068572998,
+    "x_mse_cm2": 442.0354919433594,
+    "x_rmse_cm": 21.024641036987305,
+    "x_mae_cm": 12.320561408996582,
+    "normalized_mse": 1.094987154006958,
     "common_window_end_s": 2.69,
-    "theta_pooled_w1_deg": 3.5997422529326086,
-    "x_pooled_w1_cm": 6.246578137233572,
-    "theta_time_mean_w1_deg": 3.948472332621072,
-    "x_time_mean_w1_cm": 6.798709228951737,
-    "theta_time_mean_absolute_mean_difference_deg": 2.990063097333674,
-    "x_time_mean_absolute_mean_difference_cm": 6.2784275128511124
+    "theta_pooled_w1_deg": 3.8632558660756238,
+    "x_pooled_w1_cm": 5.197951004812358,
+    "theta_time_mean_w1_deg": 4.177307439261671,
+    "x_time_mean_w1_cm": 5.5237083173848545,
+    "theta_time_mean_absolute_mean_difference_deg": 3.3820515712626333,
+    "x_time_mean_absolute_mean_difference_cm": 3.5165338844481475
   },
   "ranked_chunks": [
     {
       "rank": 1,
+      "chunk": 11,
+      "normalized_mse": 1.094987154006958,
+      "theta_mse_deg2": 242.33151245117188,
+      "x_mse_cm2": 442.0354919433594
+    },
+    {
+      "rank": 2,
       "chunk": 1,
       "normalized_mse": 1.2380186319351196,
       "theta_mse_deg2": 212.64199829101562,
       "x_mse_cm2": 561.11962890625
     },
     {
-      "rank": 2,
+      "rank": 3,
       "chunk": 5,
       "normalized_mse": 1.2460650205612183,
       "theta_mse_deg2": 217.82745361328125,
       "x_mse_cm2": 560.9631958007812
     },
     {
-      "rank": 3,
+      "rank": 4,
       "chunk": 6,
       "normalized_mse": 1.2608366012573242,
       "theta_mse_deg2": 215.2661590576172,
       "x_mse_cm2": 572.7566528320312
     },
     {
-      "rank": 4,
+      "rank": 5,
       "chunk": 2,
       "normalized_mse": 1.2619271278381348,
       "theta_mse_deg2": 211.11441040039062,
       "x_mse_cm2": 577.5899047851562
     },
     {
-      "rank": 5,
+      "rank": 6,
       "chunk": 3,
       "normalized_mse": 1.2693473100662231,
       "theta_mse_deg2": 213.76646423339844,
       "x_mse_cm2": 579.5756225585938
     },
     {
-      "rank": 6,
+      "rank": 7,
       "chunk": 4,
       "normalized_mse": 1.275084376335144,
       "theta_mse_deg2": 221.2401885986328,
       "x_mse_cm2": 575.6875610351562
     },
     {
-      "rank": 7,
+      "rank": 8,
       "chunk": 8,
       "normalized_mse": 1.2751579284667969,
       "theta_mse_deg2": 216.41094970703125,
       "x_mse_cm2": 580.5626831054688
     },
     {
-      "rank": 8,
+      "rank": 9,
       "chunk": 10,
       "normalized_mse": 1.2781622409820557,
       "theta_mse_deg2": 214.6273651123047,
       "x_mse_cm2": 584.2239379882812
     },
     {
-      "rank": 9,
+      "rank": 10,
       "chunk": 9,
       "normalized_mse": 1.2954766750335693,
       "theta_mse_deg2": 215.3871612548828,
       "x_mse_cm2": 594.28564453125
     },
     {
-      "rank": 10,
+      "rank": 11,
       "chunk": 7,
       "normalized_mse": 1.304078459739685,
       "theta_mse_deg2": 209.2635498046875,
