@@ -1,0 +1,63 @@
+{
+  "method": {
+    "metric": "one-dimensional Wasserstein-1 distance",
+    "common_time_start_s": 0.0,
+    "common_time_end_s": 0.33,
+    "common_samples_per_trajectory": 34,
+    "sample_rate_hz": 100,
+    "original_trajectories": 5,
+    "synthetic_trajectories": 100,
+    "bootstrap_replicates": 500,
+    "bootstrap_unit": "whole trajectory",
+    "note": "theta and x are evaluated as separate marginal distributions; no joint multivariate Wasserstein claim is made"
+  },
+  "theta": {
+    "variable": "theta",
+    "unit": "deg",
+    "pooled_w1": 1.5295825259589249,
+    "bootstrap_ci_2.5": 0.8388854999295307,
+    "bootstrap_ci_97.5": 3.775397913765935,
+    "time_mean_w1": 1.9526782142102566,
+    "time_median_w1": 1.6143552410277482,
+    "time_p95_w1": 3.7275502745978,
+    "time_max_w1": 4.002272246486499,
+    "time_of_max_s": 0.33,
+    "real_pairwise_median_w1": 5.025044873946484,
+    "synthetic_split_median_w1": 0.3401797744257633,
+    "normalization_scale": 25.0,
+    "normalized_pooled_w1": 0.061183301038356994,
+    "original_points_inside_synthetic_5_95_pct": 61.76470588235294
+  },
+  "x": {
+    "variable": "x",
+    "unit": "cm",
+    "pooled_w1": 2.6673821638817112,
+    "bootstrap_ci_2.5": 1.0837083140922237,
+    "bootstrap_ci_97.5": 5.622514814549753,
+    "time_mean_w1": 2.67314145192021,
+    "time_median_w1": 2.5825716958121077,
+    "time_p95_w1": 5.345388533054619,
+    "time_max_w1": 5.712409876777983,
+    "time_of_max_s": 0.01,
+    "real_pairwise_median_w1": 0.48869039389287666,
+    "synthetic_split_median_w1": 0.007917375952315257,
+    "normalization_scale": 25.0,
+    "normalized_pooled_w1": 0.10669528655526844,
+    "original_points_inside_synthetic_5_95_pct": 9.411764705882353
+  },
+  "mean_normalized_marginal_w1": 0.08393929379681273,
+  "horizon_sensitivity": [
+    {
+      "horizon_s": 0.25,
+      "samples_per_trajectory": 26,
+      "theta_w1_deg": 1.2400710678032991,
+      "x_w1_cm": 3.199589905904889
+    },
+    {
+      "horizon_s": 0.33,
+      "samples_per_trajectory": 34,
+      "theta_w1_deg": 1.5295825259589249,
+      "x_w1_cm": 2.6673821638817112
+    }
+  ]
+}
