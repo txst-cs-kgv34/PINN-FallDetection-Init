@@ -1,0 +1,89 @@
+{
+  "status": "pass",
+  "core_pipeline_sha256": "604985d2344350789929c3554f9ce4351b826f69be1dfe9dee0b20acb586e0a9",
+  "core_pipeline_unchanged": true,
+  "minimum_trial_seconds": 0.25,
+  "duration_override_reason": "Every S63 A11 clip reaches the unchanged 20-degree cutoff before the source default of 2.0 seconds. A 0.25-second gate retains the observed pre-cutoff data without adding artificial stationary frames. The source file and network architecture remain unchanged.",
+  "trials": [
+    {
+      "trial": "S63A11T01",
+      "resampling_check": "scipy fallback (install resampy for exact check)",
+      "decoded_samples_100hz": 134,
+      "usable_samples_after_20deg_rule": 74,
+      "usable_duration_s": 0.73,
+      "theta0_deg": -0.8834875063948734,
+      "theta_range_deg_before_trim": [
+        -1.3484341896289045,
+        74.12425836898711
+      ],
+      "centered_x_range_m_before_trim": [
+        -0.024443803995593188,
+        0.8729311318622199
+      ]
+    },
+    {
+      "trial": "S63A11T02",
+      "resampling_check": "scipy fallback (install resampy for exact check)",
+      "decoded_samples_100hz": 184,
+      "usable_samples_after_20deg_rule": 123,
+      "usable_duration_s": 1.22,
+      "theta0_deg": -1.9726605285123828,
+      "theta_range_deg_before_trim": [
+        -3.02396877435166,
+        64.58387793450645
+      ],
+      "centered_x_range_m_before_trim": [
+        -0.025030450514060137,
+        0.6832851417070971
+      ]
+    },
+    {
+      "trial": "S63A11T03",
+      "resampling_check": "scipy fallback (install resampy for exact check)",
+      "decoded_samples_100hz": 171,
+      "usable_samples_after_20deg_rule": 70,
+      "usable_duration_s": 0.69,
+      "theta0_deg": 3.291205140712137,
+      "theta_range_deg_before_trim": [
+        3.291205140712137,
+        65.82526241769598
+      ],
+      "centered_x_range_m_before_trim": [
+        -0.03804336376210661,
+        0.5443560474054802
+      ]
+    },
+    {
+      "trial": "S63A11T04",
+      "resampling_check": "scipy fallback (install resampy for exact check)",
+      "decoded_samples_100hz": 201,
+      "usable_samples_after_20deg_rule": 111,
+      "usable_duration_s": 1.1,
+      "theta0_deg": -0.7388442945716974,
+      "theta_range_deg_before_trim": [
+        -1.0773572728691307,
+        66.98965780815985
+      ],
+      "centered_x_range_m_before_trim": [
+        -0.03286158467053477,
+        0.5711136924262673
+      ]
+    },
+    {
+      "trial": "S63A11T05",
+      "resampling_check": "scipy fallback (install resampy for exact check)",
+      "decoded_samples_100hz": 94,
+      "usable_samples_after_20deg_rule": 34,
+      "usable_duration_s": 0.33,
+      "theta0_deg": -2.2839255229415523,
+      "theta_range_deg_before_trim": [
+        -3.0439995837823375,
+        53.767063064900796
+      ],
+      "centered_x_range_m_before_trim": [
+        -0.19269590451560906,
+        0.5712360080720753
+      ]
+    }
+  ]
+}

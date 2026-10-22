@@ -1,0 +1,170 @@
+{
+  "experiment": "S63 A11 human motion through unchanged pole PINN pipeline",
+  "subject": {
+    "id": "S63",
+    "sex": "male",
+    "mass_lb": 180,
+    "mass_kg": 81.6466266,
+    "height_in": 66,
+    "height_m": 1.6764,
+    "skeleton_rate_hz": 30
+  },
+  "input_definition": {
+    "theta": "atan2(forward CoM, vertical CoM) relative to fixed foot midpoint at marked fall onset",
+    "x": "subject-forward whole-body CoM coordinate relative to the same fixed onset foot midpoint; original pole loader subsequently centers its first 0.5 s",
+    "com": "male segment-mass-weighted CoM from 32 Azure Kinect joints",
+    "signal_filter": "none; only linear interpolation from 30 Hz to the pole loader's required 250 Hz input rate",
+    "activity": "A11 Frontfall only"
+  },
+  "pole_compatibility": {
+    "columns": [
+      "x1_mm",
+      "y1_mm",
+      "z1_mm",
+      "x2_mm",
+      "y2_mm",
+      "z2_mm"
+    ],
+    "encoding_length_mm": 570.0,
+    "warmup_rows_removed_by_original_loader": 1024,
+    "file_pattern": "SubjectB_*.tsv",
+    "filename_note": "SubjectB_ is the unchanged source loader's filename contract; these files contain S63 data."
+  },
+  "core_pipeline": {
+    "file": "source/pinn_pole_synthetic_data_generation.py",
+    "sha256": "604985d2344350789929c3554f9ce4351b826f69be1dfe9dee0b20acb586e0a9",
+    "modified": false
+  },
+  "trials": [
+    {
+      "trial": "S63A11T01",
+      "raw_file": "data/raw/S63A11T01.csv",
+      "raw_sha256": "be114eafa83ca9f2f257d742f6dc9759d5ab77c2fb5d64ff6f21ba5027da5d42",
+      "pole_input_file": "data/pole_compatible/A11/SubjectB_S63A11T01.tsv",
+      "derived_signal_file": "data/derived/A11/S63A11T01_human_theta_x.csv",
+      "raw_frames_used": 41,
+      "source_rate_hz": 30.0,
+      "encoded_rate_hz": 250,
+      "encoded_signal_rows": 334,
+      "total_tsv_rows": 1358,
+      "theta_min_deg": -1.2631092745176526,
+      "theta_max_deg": 72.47106402194932,
+      "x_min_m": -0.02010605359557558,
+      "x_max_m": 0.8619853003713506,
+      "first_abs_theta_20deg_s_from_clip_start": 0.8333333333333334,
+      "initial_standing_frame0": 1,
+      "fall_onset_frame0": 12,
+      "apparent_contact_frame0": 40,
+      "fixed_pivot_subject_frame_m": [
+        -0.01571187611364401,
+        0.01216920255977723,
+        0.008005704226281024
+      ],
+      "tsv_sha256": "6a8dd0150d85676c347f3bc72e51b4dbc868d6988772ffa19de3c00c60c09db6"
+    },
+    {
+      "trial": "S63A11T02",
+      "raw_file": "data/raw/S63A11T02.csv",
+      "raw_sha256": "a40500c3a777347cfadf026bd0e9b5349f0e329d8ac854c1d124e13d1bcd89ec",
+      "pole_input_file": "data/pole_compatible/A11/SubjectB_S63A11T02.tsv",
+      "derived_signal_file": "data/derived/A11/S63A11T02_human_theta_x.csv",
+      "raw_frames_used": 56,
+      "source_rate_hz": 30.0,
+      "encoded_rate_hz": 250,
+      "encoded_signal_rows": 459,
+      "total_tsv_rows": 1483,
+      "theta_min_deg": -2.817868132134291,
+      "theta_max_deg": 63.30660344331615,
+      "x_min_m": -0.04474658641499932,
+      "x_max_m": 0.6386821051993811,
+      "first_abs_theta_20deg_s_from_clip_start": 1.3333333333333333,
+      "initial_standing_frame0": 11,
+      "fall_onset_frame0": 28,
+      "apparent_contact_frame0": 55,
+      "fixed_pivot_subject_frame_m": [
+        -0.04676940614756108,
+        2.8208342848883017e-05,
+        0.015842822842653023
+      ],
+      "tsv_sha256": "423492701f88930d56ca519e10aa856d48aa1f3299b0c95de06ef9ba42d53397"
+    },
+    {
+      "trial": "S63A11T03",
+      "raw_file": "data/raw/S63A11T03.csv",
+      "raw_sha256": "ed6c2c0c8abe3a54036f60f04859bbeb98dc1f081fbe8a025e8b3f1373d63f1e",
+      "pole_input_file": "data/pole_compatible/A11/SubjectB_S63A11T03.tsv",
+      "derived_signal_file": "data/derived/A11/S63A11T03_human_theta_x.csv",
+      "raw_frames_used": 52,
+      "source_rate_hz": 30.0,
+      "encoded_rate_hz": 250,
+      "encoded_signal_rows": 426,
+      "total_tsv_rows": 1450,
+      "theta_min_deg": 4.696143279173517,
+      "theta_max_deg": 62.36927460887608,
+      "x_min_m": 0.07474396356041486,
+      "x_max_m": 0.6342213611598042,
+      "first_abs_theta_20deg_s_from_clip_start": 0.8,
+      "initial_standing_frame0": 2,
+      "fall_onset_frame0": 10,
+      "apparent_contact_frame0": 51,
+      "fixed_pivot_subject_frame_m": [
+        0.034159723374732526,
+        0.002329666933534553,
+        -0.07003857141791098
+      ],
+      "tsv_sha256": "bb719e751a3401d7f22e5bedc23da88e51a3c722f48aa7508a5087f79023c312"
+    },
+    {
+      "trial": "S63A11T04",
+      "raw_file": "data/raw/S63A11T04.csv",
+      "raw_sha256": "5145046629622c825c88a89f5113032376313a360ee7f876f543996bea57fbca",
+      "pole_input_file": "data/pole_compatible/A11/SubjectB_S63A11T04.tsv",
+      "derived_signal_file": "data/derived/A11/S63A11T04_human_theta_x.csv",
+      "raw_frames_used": 61,
+      "source_rate_hz": 30.0,
+      "encoded_rate_hz": 250,
+      "encoded_signal_rows": 501,
+      "total_tsv_rows": 1525,
+      "theta_min_deg": -1.0624933181851515,
+      "theta_max_deg": 62.713044367045875,
+      "x_min_m": -0.017137846888006653,
+      "x_max_m": 0.5747922754166331,
+      "first_abs_theta_20deg_s_from_clip_start": 1.2,
+      "initial_standing_frame0": 1,
+      "fall_onset_frame0": 21,
+      "apparent_contact_frame0": 60,
+      "fixed_pivot_subject_frame_m": [
+        -0.03707825585979665,
+        -0.008117063089442142,
+        0.0024762340480795793
+      ],
+      "tsv_sha256": "12edecf0b5f6bd9ff2d6176c53c39ed1623cb68a67b686aca97b5968ca64f351"
+    },
+    {
+      "trial": "S63A11T05",
+      "raw_file": "data/raw/S63A11T05.csv",
+      "raw_sha256": "7eb9fb3e35a416a28e8674f8943372ebfb29e8fe76fb3af9403ef22c1de02f5f",
+      "pole_input_file": "data/pole_compatible/A11/SubjectB_S63A11T05.tsv",
+      "derived_signal_file": "data/derived/A11/S63A11T05_human_theta_x.csv",
+      "raw_frames_used": 29,
+      "source_rate_hz": 30.0,
+      "encoded_rate_hz": 250,
+      "encoded_signal_rows": 234,
+      "total_tsv_rows": 1258,
+      "theta_min_deg": -3.328586076539927,
+      "theta_max_deg": 52.08319214326598,
+      "x_min_m": -0.054628522243370684,
+      "x_max_m": 0.6923608548150908,
+      "first_abs_theta_20deg_s_from_clip_start": 0.43333333333333335,
+      "initial_standing_frame0": 0,
+      "fall_onset_frame0": 1,
+      "apparent_contact_frame0": 28,
+      "fixed_pivot_subject_frame_m": [
+        0.0050113311131575545,
+        -0.009141211497537752,
+        -0.0019496329184420492
+      ],
+      "tsv_sha256": "8c10ce14391eb5a101e70d584bcfec61e88aca8758c73ff292046a4233d33dc3"
+    }
+  ]
+}
