@@ -4,6 +4,24 @@ This project reruns the same four-stage pole-balancing PINN used for S43 with Su
 
 The core source at `source/pinn_pole_synthetic_data_generation.py` is byte-identical to the S43 project. Its SHA-256 is locked in `CORE_PIPELINE_LOCK.json`. The conditional network, hard initial-state construction, controller, delayed feedback, cart-pole equations, losses, four stages, full-run epochs/batches, 30-second generation horizon, and 100 generated trajectories are unchanged. No Stage-3 gain sweep is included.
 
+## Full-run status and headline result
+
+The S63 full run completed successfully with the preserved pipeline: all five trials were accepted, all scheduled epochs ran, and 100 finite synthetic trajectories were generated. The scientific outcome is mixed.
+
+| Result | Value |
+|---|---:|
+| Observed training data | 412 samples across 5 trials |
+| Stage 1 reconstruction | 0.337 deg theta RMSE; 0.529 cm x RMSE |
+| Stage 3 reconstruction | 5.903 deg theta RMSE; 5.987 cm x RMSE |
+| Stage 3 / Stage 1 normalized loss | 179.65x |
+| Identified gains `(Kp_theta, Kd_theta, Kp_x, Kd_x)` | `(145.109, 15.049, 14.933, 15.048)` |
+| Identified `Pi`; fixed delay `tau` | 3.629 deg; 0.230 s |
+| Early pooled W1 `(theta, x)` | 1.530 deg; 2.667 cm |
+| Real samples inside synthetic 5-95% envelope `(theta, x)` | 61.8%; 9.4% |
+| Generated set | 100 finite trajectories, 30 s each |
+
+Stage 1 fits the short observed windows well. Stage 3 reduces its physics-dominated objective by roughly 94,800-fold, but worsens the measured-data fit by large factors. This indicates tension between the unchanged cart-pole physics and S63 human CoM data. The fitted values are therefore effective pole-model parameters, not direct measurements of human neuromuscular control. See `FINDINGS.md` for the complete interpretation.
+
 ## Inputs
 
 The canonical manual phase file is `config/S63_A11_phase_notes.json`. Trial inclusion is kept separately in `config/S63_A11_experiment_scope.json`, so the manual observations remain unchanged.
@@ -73,9 +91,16 @@ The analysis creates checkpoint reconstruction tables, real-versus-synthetic CoM
 
 Wasserstein distances are computed separately for `theta` in degrees and `x` in centimeters. They are marginal distances, not a joint multivariate metric. Because the common S63 pre-cutoff window is short and the five real trials were used for fitting, these plots are descriptive training-set checks rather than held-out validation.
 
-## Return for analysis
+Key completed outputs are:
 
-After `full` and `analyze` finish, run `./run_on_mac.sh package` and return `S63_Pole_PINN_full_run_results.zip`. The packager includes the controller parameters, configuration, logs, checkpoints, all 100 synthetic `.npy` trajectories, input-validation evidence, evaluation tables, and comparison figures. If packaging fails, return the complete `results/` directory instead.
+- `FINDINGS.md`: full scientific interpretation, limitations, and recommended follow-up experiments;
+- `results/full_run_evaluation/REPORT.md`: checkpoint-level and trial-level reconstruction metrics;
+- `results/full_run_distribution_comparison/REPORT.md`: real-versus-synthetic Wasserstein and coverage metrics;
+- `results/full_run_distribution_comparison/real_vs_synthetic_means_and_wasserstein.png`: means, spreads, W1 curves, and time-mean lines in one figure.
+
+## Completed results package
+
+The accompanying `S63_Pole_PINN_full_run_results.zip` contains the controller parameters, configuration, logs, checkpoints, all 100 synthetic `.npy` trajectories, input-validation evidence, evaluation tables, comparison figures, this README, and the completed findings report.
 
 ## Interpretation boundary
 
