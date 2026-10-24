@@ -25,6 +25,7 @@ if [[ -e "${ARCHIVE}" ]]; then
 fi
 zip -r "${ARCHIVE}" \
   "experiments/stage3_gain_sweep/README.md" \
+  "experiments/stage3_gain_sweep/FINDINGS.md" \
   "experiments/stage3_gain_sweep/check_setup.py" \
   "experiments/stage3_gain_sweep/run_gain_sweep.py" \
   "experiments/stage3_gain_sweep/run_on_mac.sh" \

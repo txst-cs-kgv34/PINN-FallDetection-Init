@@ -1,6 +1,6 @@
 # S63 Stage 3 fixed-gain sweep
 
-This experiment repeats the controlled S43 gain-chunk study for Subject 63 A11 front-fall data. It keeps the existing S63 pole-PINN architecture, equations, losses, data, seed, and Stage 1 checkpoint unchanged. Only the four controller gains supplied to Stage 3 change.
+This completed experiment repeats the controlled S43 gain-chunk study for Subject 63 A11 front-fall data. It keeps the existing S63 pole-PINN architecture, equations, losses, data, seed, and Stage 1 checkpoint unchanged. Only the four controller gains supplied to Stage 3 change. All 11 requested chunks completed successfully.
 
 ## Experimental question
 
@@ -38,6 +38,35 @@ Chunks 1-10 are equally spaced between the S63-identified gains and the Subject 
 
 The paper's reported Pi values are provenance only. They are not assigned because this controlled experiment varies only Kp/Kd. This means the sweep tests gain sensitivity; it is not a new joint parameter-identification run.
 
+## Completed results
+
+The primary ranking metric is pooled normalized MSE over the same 412 measured samples from T01-T05. Lower is better. Chunk 6 is the numerical winner, but chunks 6, 7, and 11 are separated by only 0.54%, so a single deterministic run cannot establish that their ordering is robust.
+
+| Combined rank | Chunk | Kp_theta | Kd_theta | Kp_x | Kd_x | Normalized MSE | Theta MSE (deg^2) | x MSE (cm^2) | Theta pooled W1 (deg) | x pooled W1 (cm) |
+|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| 1 | 6 | 197.83 | 23.35 | 13.86 | 23.35 | **0.103263** | 36.790 | **27.749** | 0.492 | 0.663 |
+| 2 | 7 | 208.37 | 25.02 | 13.64 | 25.02 | 0.103304 | 34.603 | 29.962 | **0.490** | 0.632 |
+| 3 | 11 | 120.00 | 28.00 | 14.00 | 19.00 | 0.103816 | 37.051 | 27.835 | 0.498 | 0.513 |
+| 4 | 10 | 240.00 | 30.00 | 13.00 | 30.00 | 0.105267 | 36.003 | 29.788 | 0.498 | 0.462 |
+| 5 | 5 | 187.28 | 21.69 | 14.07 | 21.69 | 0.105910 | 35.566 | 30.627 | 0.494 | 0.664 |
+| 6 | 8 | 218.91 | 26.68 | 13.43 | 26.68 | 0.106734 | 34.525 | 32.184 | 0.501 | 0.446 |
+| 7 | 9 | 229.46 | 28.34 | 13.21 | 28.34 | 0.107154 | 36.428 | 30.543 | 0.505 | 0.497 |
+| 8 | 3 | 166.20 | 18.37 | 14.50 | 18.37 | 0.108744 | 35.356 | 32.609 | 0.498 | 0.672 |
+| 9 | 2 | 155.65 | 16.71 | 14.72 | 16.71 | 0.109965 | 36.367 | 32.362 | 0.496 | 0.680 |
+| 10 | 4 | 176.74 | 20.03 | 14.29 | 20.03 | 0.114410 | 36.364 | 35.143 | 0.502 | 0.627 |
+| 11 | 1 | 145.11 | 15.05 | 14.93 | 15.05 | 0.127258 | **30.677** | 48.859 | 0.507 | **0.371** |
+
+### Main interpretation
+
+- Chunk 6 gives the lowest combined error and lowest forward-x MSE. Its normalized MSE is 18.86% below the S63-identified endpoint in chunk 1.
+- Chunk 7 is only 0.04% above chunk 6 and gives the best theta W1. These two chunks are effectively tied until repeated across multiple seeds.
+- The exact Subject A gains in chunk 11 rank third, only 0.54% above chunk 6 and 1.38% better than the Subject B endpoint in chunk 10.
+- Chunk 1 is best for theta MSE and early pooled x W1, yet worst for combined MSE because its full-trajectory x MSE is 76.1% above chunk 6. W1 over the common 0.33 s window and paired MSE over complete trials answer different questions.
+- T02 drives the pooled ranking: it contains 29.9% of the samples but contributes about 70% of theta squared error and 41-83% of x squared error, depending on the chunk.
+- The smallest Stage 3 training objective occurs in chunk 1, not chunk 6. The physics-weighted Stage 3 objective must not be interpreted as reconstruction MSE.
+
+See `FINDINGS.md` for the trial-level analysis, endpoint comparisons, Wasserstein interpretation, limitations, and advisor-ready conclusion.
+
 ## Where to place this code
 
 Unzip the supplied code package into the root of your existing `S63_Pole_PINN_Human_Motion` directory. After extraction, this file should be located at:
@@ -62,7 +91,7 @@ The `SubjectB_` filename prefix is only the unchanged loader contract; the files
 
 The runner reapplies the documented S63 `minimum_trial_seconds = 0.25` eligibility override. Without it, the unchanged source default of two seconds would reject every short S63 trial. This is the same disclosed wrapper setting used for the completed S63 full run; it does not modify the pole source or network architecture.
 
-## Run on the MacBook
+## Reproduce on the MacBook
 
 From the root of `S63_Pole_PINN_Human_Motion`:
 
@@ -129,7 +158,7 @@ Aggregate files include:
 - `wasserstein_by_gain_chunk.png`; and
 - `best_chunk_real_vs_synthetic_means_and_distances.png`.
 
-## Package the results
+## Package reproduced results
 
 After all 11 chunks finish:
 
@@ -137,7 +166,7 @@ After all 11 chunks finish:
 bash experiments/stage3_gain_sweep/package_results.sh
 ```
 
-This creates `S63_Stage3_Gain_Sweep_Results.zip` in the project root. Return that ZIP for analysis. It contains the exact experiment code, gain table, all per-trial and pooled metrics, matched trajectory CSVs, plots, and saved Stage 3 checkpoints.
+This creates `S63_Stage3_Gain_Sweep_Results.zip` in the project root. It contains the exact experiment code, gain table, all per-trial and pooled metrics, matched trajectory CSVs, plots, and saved Stage 3 checkpoints.
 
 ## Interpretation boundary
 
