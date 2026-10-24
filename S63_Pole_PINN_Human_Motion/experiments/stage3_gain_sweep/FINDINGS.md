@@ -42,7 +42,7 @@ The primary ranking metric is pooled normalized MSE over the same 412 real sampl
 | Combined rank | Chunk | Kp_theta | Kd_theta | Kp_x | Kd_x | Normalized MSE | Theta MSE (deg^2) | x MSE (cm^2) | Theta W1 (deg) | x W1 (cm) | Takeaway |
 |---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|
 | 1 | 6 | 197.83 | 23.35 | 13.86 | 23.35 | **0.103263** | 36.790 | **27.749** | 0.492 | 0.663 | Best combined and x MSE. |
-| 2 | 7 | 208.37 | 25.02 | 13.64 | 25.02 | 0.103304 | 34.603 | 29.962 | **0.490** | Only 0.04% behind chunk 6; best theta W1. |
+| 2 | 7 | 208.37 | 25.02 | 13.64 | 25.02 | 0.103304 | 34.603 | 29.962 | **0.490** | 0.632 | Only 0.04% behind chunk 6; best theta W1. |
 | 3 | 11 | 120.00 | 28.00 | 14.00 | 19.00 | 0.103816 | 37.051 | 27.835 | 0.498 | 0.513 | Subject A gains; only 0.54% behind chunk 6. |
 | 4 | 10 | 240.00 | 30.00 | 13.00 | 30.00 | 0.105267 | 36.003 | 29.788 | 0.498 | 0.462 | Subject B endpoint; competitive but not best. |
 | 5 | 5 | 187.28 | 21.69 | 14.07 | 21.69 | 0.105910 | 35.566 | 30.627 | 0.494 | 0.664 | Balanced middle-high-gain result. |
