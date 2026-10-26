@@ -1,0 +1,104 @@
+{
+  "distinct_subject_count": 2,
+  "experiment": "S43_S63_conditional_deeponet_few_shot_v1",
+  "horizon_s": 3.0,
+  "limitations": [
+    "There are three teacher gain anchors but only two human subjects.",
+    "These trajectories are teacher-PINN outputs, not additional measured falls.",
+    "The 3 s full horizon is a synthetic pilot horizon and is not evidence of 3 s real-data validity for every subject."
+  ],
+  "mode": "full",
+  "sample_rate_hz": 100,
+  "seed": 20261026,
+  "shared_initial_conditions": true,
+  "teacher_count": 3,
+  "teachers": [
+    {
+      "checkpoint": "/Users/rakeshsuvvari/TXST/PINN Research/PINN-for-FallDetection/git/PINN-FallDetection-Init/S43_Pole_PINN_Human_Motion/experiments/stage3_gain_sweep/results/chunk_01/stage3_best.weights.h5",
+      "checkpoint_sha256": "fdc99a122979aa8d267706e128426215ecc682fe041d1db58f2efe2a1150ba80",
+      "data_file": "s43_chunk1.npz",
+      "gain_names": [
+        "kp_theta",
+        "kd_theta",
+        "kp_x",
+        "kd_x"
+      ],
+      "gain_result": "/Users/rakeshsuvvari/TXST/PINN Research/PINN-for-FallDetection/git/PINN-FallDetection-Init/S43_Pole_PINN_Human_Motion/experiments/stage3_gain_sweep/results/chunk_01/result.json",
+      "gains": [
+        145.1384,
+        15.0346,
+        5.0435,
+        15.0457
+      ],
+      "height_m": 1.6256,
+      "id": "s43_chunk1",
+      "mass_kg": 58.9670081,
+      "pi_deg": 3.6066,
+      "pi_rad": 0.06294704480242748,
+      "pipeline_source": "/Users/rakeshsuvvari/TXST/PINN Research/PINN-for-FallDetection/git/PINN-FallDetection-Init/S43_Pole_PINN_Human_Motion/source/pinn_pole_synthetic_data_generation.py",
+      "pipeline_source_sha256": "604985d2344350789929c3554f9ce4351b826f69be1dfe9dee0b20acb586e0a9",
+      "sample_count": 301,
+      "subject": "S43",
+      "tau_s": 0.23,
+      "trajectory_count": 100
+    },
+    {
+      "checkpoint": "/Users/rakeshsuvvari/TXST/PINN Research/PINN-for-FallDetection/git/PINN-FallDetection-Init/S63_Pole_PINN_Human_Motion/experiments/stage3_gain_sweep/results/chunk_01/stage3_best.weights.h5",
+      "checkpoint_sha256": "abd71a7cd4f493b9d780dc3a0cbeee950aec342bd229fe3c0e94b9844f524a11",
+      "data_file": "s63_chunk1.npz",
+      "gain_names": [
+        "kp_theta",
+        "kd_theta",
+        "kp_x",
+        "kd_x"
+      ],
+      "gain_result": "/Users/rakeshsuvvari/TXST/PINN Research/PINN-for-FallDetection/git/PINN-FallDetection-Init/S63_Pole_PINN_Human_Motion/experiments/stage3_gain_sweep/results/chunk_01/result.json",
+      "gains": [
+        145.109024,
+        15.048624,
+        14.932888,
+        15.048451
+      ],
+      "height_m": 1.6764,
+      "id": "s63_chunk1",
+      "mass_kg": 81.6466266,
+      "pi_deg": 3.628571,
+      "pi_rad": 0.06333051109238316,
+      "pipeline_source": "/Users/rakeshsuvvari/TXST/PINN Research/PINN-for-FallDetection/git/PINN-FallDetection-Init/S63_Pole_PINN_Human_Motion/source/pinn_pole_synthetic_data_generation.py",
+      "pipeline_source_sha256": "604985d2344350789929c3554f9ce4351b826f69be1dfe9dee0b20acb586e0a9",
+      "sample_count": 301,
+      "subject": "S63",
+      "tau_s": 0.23,
+      "trajectory_count": 100
+    },
+    {
+      "checkpoint": "/Users/rakeshsuvvari/TXST/PINN Research/PINN-for-FallDetection/git/PINN-FallDetection-Init/S63_Pole_PINN_Human_Motion/experiments/stage3_gain_sweep/results/chunk_06/stage3_best.weights.h5",
+      "checkpoint_sha256": "ea2603278244c19b9e340b75aaa854a14330e5411226bf940191368afa3c7799",
+      "data_file": "s63_chunk6.npz",
+      "gain_names": [
+        "kp_theta",
+        "kd_theta",
+        "kp_x",
+        "kd_x"
+      ],
+      "gain_result": "/Users/rakeshsuvvari/TXST/PINN Research/PINN-for-FallDetection/git/PINN-FallDetection-Init/S63_Pole_PINN_Human_Motion/experiments/stage3_gain_sweep/results/chunk_06/result.json",
+      "gains": [
+        197.8262328888889,
+        23.354944,
+        13.859061333333333,
+        23.354867111111112
+      ],
+      "height_m": 1.6764,
+      "id": "s63_chunk6",
+      "mass_kg": 81.6466266,
+      "pi_deg": 3.628571,
+      "pi_rad": 0.06333051109238316,
+      "pipeline_source": "/Users/rakeshsuvvari/TXST/PINN Research/PINN-for-FallDetection/git/PINN-FallDetection-Init/S63_Pole_PINN_Human_Motion/source/pinn_pole_synthetic_data_generation.py",
+      "pipeline_source_sha256": "604985d2344350789929c3554f9ce4351b826f69be1dfe9dee0b20acb586e0a9",
+      "sample_count": 301,
+      "subject": "S63",
+      "tau_s": 0.23,
+      "trajectory_count": 100
+    }
+  ]
+}
