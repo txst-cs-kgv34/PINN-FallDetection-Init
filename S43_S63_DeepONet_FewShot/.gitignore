@@ -1,0 +1,6 @@
+.venv/
+__pycache__/
+*.pyc
+outputs/
+results/
+S43_S63_DeepONet_FewShot_Results.zip

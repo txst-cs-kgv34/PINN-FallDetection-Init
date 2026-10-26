@@ -1,0 +1,78 @@
+{
+  "experiment_name": "S43_S63_conditional_deeponet_few_shot_v1",
+  "seed": 20261026,
+  "teachers": [
+    {
+      "id": "s43_chunk1",
+      "subject": "S43",
+      "checkpoint": "../S43_Pole_PINN_Human_Motion/experiments/stage3_gain_sweep/results/chunk_01/stage3_best.weights.h5",
+      "gain_result": "../S43_Pole_PINN_Human_Motion/experiments/stage3_gain_sweep/results/chunk_01/result.json",
+      "pipeline_source": "../S43_Pole_PINN_Human_Motion/source/pinn_pole_synthetic_data_generation.py",
+      "mass_lb": 130.0,
+      "height_in": 64.0
+    },
+    {
+      "id": "s63_chunk1",
+      "subject": "S63",
+      "checkpoint": "../S63_Pole_PINN_Human_Motion/experiments/stage3_gain_sweep/results/chunk_01/stage3_best.weights.h5",
+      "gain_result": "../S63_Pole_PINN_Human_Motion/experiments/stage3_gain_sweep/results/chunk_01/result.json",
+      "pipeline_source": "../S63_Pole_PINN_Human_Motion/source/pinn_pole_synthetic_data_generation.py",
+      "mass_lb": 180.0,
+      "height_in": 66.0
+    },
+    {
+      "id": "s63_chunk6",
+      "subject": "S63",
+      "checkpoint": "../S63_Pole_PINN_Human_Motion/experiments/stage3_gain_sweep/results/chunk_06/stage3_best.weights.h5",
+      "gain_result": "../S63_Pole_PINN_Human_Motion/experiments/stage3_gain_sweep/results/chunk_06/result.json",
+      "pipeline_source": "../S63_Pole_PINN_Human_Motion/source/pinn_pole_synthetic_data_generation.py",
+      "mass_lb": 180.0,
+      "height_in": 66.0
+    }
+  ],
+  "teacher_generation": {
+    "trajectory_count": 100,
+    "horizon_s": 3.0,
+    "sample_rate_hz": 100,
+    "theta0_min_deg": -3.0,
+    "theta0_max_deg": 3.0,
+    "x0_min_m": -0.01,
+    "x0_max_m": 0.01,
+    "theta_dot0_std_rad_s": 0.04,
+    "x_dot0_std_m_s": 0.02,
+    "prediction_batch_size": 8192
+  },
+  "model": {
+    "latent_width": 96,
+    "context_embedding": 96,
+    "fourier_modes": 12,
+    "context_window_s": 0.25,
+    "context_region_s": 1.0,
+    "max_context_windows": 4,
+    "gain_scale": [250.0, 30.0, 20.0, 30.0],
+    "theta_scale_rad": 0.4363323129985824,
+    "x_scale_m": 0.25
+  },
+  "training": {
+    "epochs": 500,
+    "batch_size": 12,
+    "learning_rate": 0.0005,
+    "weight_decay": 0.000001,
+    "early_stopping_patience": 60,
+    "train_fraction": 0.70,
+    "validation_fraction": 0.15,
+    "data_weight": 1.0,
+    "gain_weight": 0.30,
+    "consistency_weight": 0.50,
+    "physics_weight": 0.01,
+    "physics_every_batches": 4,
+    "gradient_clip_norm": 5.0
+  },
+  "physics": {
+    "stick_mass_kg": 0.0138,
+    "effective_cart_mass_kg": 1.0,
+    "stick_length_m": 0.57,
+    "gravity_m_s2": 9.81,
+    "deadzone_sharpness": 50.0
+  }
+}
