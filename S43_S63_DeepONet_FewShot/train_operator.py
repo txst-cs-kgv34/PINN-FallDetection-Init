@@ -353,13 +353,18 @@ def evaluate(model, test_set, config, device, output_dir: Path, baseline_gain: n
                     row[f"std_{gain_name}"] = float(gain_std[gain_index])
                 rows.append(row)
                 teacher = str(raw["teacher_id"])
+                trajectory_index = int(raw["trajectory_index"])
                 if teacher not in examples:
                     examples[teacher] = {
+                        "trajectory_index": trajectory_index,
                         "time": time,
                         "target_theta": target_theta,
                         "target_x": target_x,
                     }
-                if number_windows in (1, maximum_windows):
+                if (
+                    trajectory_index == examples[teacher]["trajectory_index"]
+                    and number_windows in (1, maximum_windows)
+                ):
                     examples[teacher][f"prediction_{number_windows}"] = predicted
 
     write_csv(output_dir / "few_shot_per_trajectory.csv", rows)
