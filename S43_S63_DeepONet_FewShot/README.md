@@ -182,7 +182,7 @@ The mean-gain baseline tests whether the context encoder actually extracts
 useful motion information. A few-shot model that does not outperform this
 baseline is not yet providing evidence of context-dependent gain recovery.
 
-### Step 9 — Optional leave-one-teacher-out evaluation
+### Step 9 — Leave-one-teacher-out evaluation
 
 `run_cross_teacher_tests.sh` performs three additional fits. Each fit excludes
 one complete teacher checkpoint from training and tests on that checkpoint.
@@ -191,6 +191,78 @@ This is a more demanding gain-anchor test, but it is still not a new-subject
 test when an S63 checkpoint is held out while the other S63 checkpoint remains
 in training. Holding out S43 is the closest available subject-level test, but
 it is only one subject and cannot establish population generalization.
+
+## Completed experiments and results
+
+The results archive contains one full pooled run and three full
+leave-one-teacher-out runs. All runs used the MPS device, a fixed seed of
+`20261026`, and the same 100 matched initial conditions per teacher.
+
+### Experiment A — Full pooled model
+
+This model was trained on all three teacher/gain anchors. Initial-condition
+indices were grouped across teachers before the 70/15/15 split, producing 210
+training, 45 validation, and 45 test trajectories. It therefore tests new
+initial conditions for **known** gain anchors; it is not an unseen-gain or
+unseen-subject test.
+
+| Context windows | Gain RMSE | Gain baseline | Theta RMSE (deg) | Theta baseline (deg) | x RMSE (cm) | x baseline (cm) |
+|---:|---:|---:|---:|---:|---:|---:|
+| 1 | 0.065565 | 0.150660 | 1.862 | 3.416 | 7.222 | 12.242 |
+| 2 | 0.011775 | 0.150660 | 1.697 | 3.416 | 1.506 | 12.242 |
+| 4 | **0.006612** | 0.150660 | 1.709 | 3.416 | **1.169** | 12.242 |
+
+At four windows, the pooled model improves normalized gain RMSE by 95.6%,
+theta forecast RMSE by 50.0%, and x forecast RMSE by 90.5% relative to the
+training-mean-gain baseline. Mean relative error for every predicted gain is
+below 1.1%. Two windows already separate all three known anchors; the main
+remaining benefit of four windows is improved gain and x accuracy.
+
+### Experiment B — Teacher-holdout models
+
+Each teacher-holdout model was trained on 170 trajectories and validated on 30
+trajectories from the other two teachers. All 100 trajectories from the named
+teacher were excluded from training and validation and used for testing.
+Because the teachers share a matched initial-condition bank, corresponding
+initial conditions from the two retained teachers can still appear in training;
+this isolates teacher/gain-anchor transfer, not transfer to a new initial-state
+distribution.
+
+The table below reports the four-window result. Positive percentages mean the
+few-shot estimate improves on the training-mean-gain baseline; negative values
+mean it is worse.
+
+| Held-out teacher | Gain RMSE | Gain change vs baseline | Theta RMSE (deg) | Theta change | x RMSE (cm) | x change |
+|---|---:|---:|---:|---:|---:|---:|
+| S43 chunk 1 | 0.258838 | +0.05% | 9.838 | +2.88% | 37.340 | -7.59% |
+| S63 chunk 1 | 0.223938 | -26.93% | 2.659 | +32.30% | 24.155 | -6.86% |
+| S63 chunk 6 | 0.224402 | +7.49% | 3.226 | +38.14% | 23.639 | +4.18% |
+
+These runs do **not** demonstrate unseen-gain recovery. When S63 chunk 1 is
+held out, the encoder predicts approximately the known S63 chunk 6 gains. When
+S63 chunk 6 is held out, it predicts the low-gain S43/S63-chunk-1 region. When
+S43 is held out, the unseen low `Kp_x` value cannot be reconstructed because
+both remaining training teachers have `Kp_x` near 14. More context windows
+produce almost no improvement in any of the three holdout runs.
+
+Forecast RMSE can improve even when gain recovery fails because the forward
+operator itself is also being evaluated outside its trained gain anchors. The
+occasionally worse oracle error confirms this off-anchor surrogate error.
+Consequently, holdout trajectory RMSE must not be used as evidence that the
+held-out physical gains were recovered.
+
+See `FINDINGS.md` for per-window results, predicted gains, training diagnostics,
+limitations, defensible claims, and recommended next experiments.
+
+## Important figure note
+
+The `teacher_vs_operator_examples.png` files already present in this archive
+were produced with a plotting bookkeeping error: the stored target trajectory
+could be paired with a prediction from a different test trajectory. This does
+not affect any CSV/JSON metrics, which were computed sample by sample before
+plot storage. `train_operator.py` has been corrected in this package, but the
+existing example figures should not be used in a report until they are
+regenerated from the local teacher arrays.
 
 ## Installation on an M3 Mac
 
@@ -258,7 +330,10 @@ python train_operator.py --mode full --device cpu
 
 ## Outputs
 
-The main run writes to `results/full_pooled/`:
+The pooled run writes to `results/full_pooled/`. The completed cross-teacher
+runs use `results/full_holdout_s43_chunk1/`,
+`results/full_holdout_s63_chunk1/`, and
+`results/full_holdout_s63_chunk6/`. Each result directory contains:
 
 - `unified_operator.pt`
 - `best_model_state.pt`
