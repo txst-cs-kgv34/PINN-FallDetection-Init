@@ -1,0 +1,24 @@
+{
+  "holdout_teacher": null,
+  "note": "The same initial-condition index is kept in one split across all teachers.",
+  "sample_counts": {
+    "test": 3,
+    "train": 12,
+    "validation": 3
+  },
+  "shared_initial_condition_indices": {
+    "test": [
+      1
+    ],
+    "train": [
+      0,
+      3,
+      4,
+      5
+    ],
+    "validation": [
+      2
+    ]
+  },
+  "strategy": "grouped_initial_condition"
+}
