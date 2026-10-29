@@ -1,0 +1,12 @@
+trial,start_row1,end_row1,frame_count,method,previous_valid_row1,next_valid_row1
+S55A10T01,9,9,1,forward_fill_short_gap,8,10
+S55A10T01,35,35,1,forward_fill_short_gap,34,36
+S55A10T01,40,41,2,forward_fill_short_gap,39,42
+S55A10T01,46,55,10,linear_interpolation_long_gap,45,56
+S55A10T01,59,69,11,linear_interpolation_long_gap,58,70
+S55A10T01,85,85,1,forward_fill_short_gap,84,86
+S55A10T02,124,127,4,linear_interpolation_long_gap,123,128
+S55A10T02,149,149,1,forward_fill_short_gap,148,150
+S55A13T01,82,82,1,forward_fill_short_gap,81,83
+S55A14T01,4,4,1,forward_fill_short_gap,3,5
+S55A14T01,6,52,47,linear_interpolation_long_gap,5,53

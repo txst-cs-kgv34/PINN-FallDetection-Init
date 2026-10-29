@@ -1,0 +1,13 @@
+{
+  "subject_id": "S62",
+  "decision_date_local": "2026-10-29",
+  "excluded_trials": {},
+  "remaining_candidate_trials": [
+    "S62A10T01", "S62A10T02", "S62A10T03", "S62A10T04", "S62A10T05",
+    "S62A11T01", "S62A11T02", "S62A11T03", "S62A11T04", "S62A11T05",
+    "S62A12T01", "S62A12T02", "S62A12T03", "S62A12T04", "S62A12T05",
+    "S62A13T01", "S62A13T02", "S62A13T03", "S62A13T04", "S62A13T05",
+    "S62A14T01", "S62A14T02", "S62A14T03", "S62A14T04", "S62A14T05"
+  ],
+  "status": "Repaired-data inspection candidates. Manual phase, repair-impact, and eligibility review are required before modeling."
+}

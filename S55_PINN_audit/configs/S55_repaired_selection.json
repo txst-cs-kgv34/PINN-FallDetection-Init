@@ -1,0 +1,13 @@
+{
+  "subject_id": "S55",
+  "decision_date_local": "2026-10-29",
+  "excluded_trials": {},
+  "remaining_candidate_trials": [
+    "S55A10T01", "S55A10T02", "S55A10T03", "S55A10T04", "S55A10T05",
+    "S55A11T01", "S55A11T02", "S55A11T03", "S55A11T04", "S55A11T05",
+    "S55A12T01", "S55A12T02", "S55A12T03", "S55A12T04", "S55A12T05",
+    "S55A13T01", "S55A13T02", "S55A13T03", "S55A13T04", "S55A13T05",
+    "S55A14T01", "S55A14T02", "S55A14T03", "S55A14T04", "S55A14T05"
+  ],
+  "status": "Repaired-data inspection candidates. Manual phase, repair-impact, and eligibility review are required before modeling."
+}

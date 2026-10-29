@@ -1,0 +1,18 @@
+{
+  "trial": "S62A12T04",
+  "source_member": "S62A12T04.csv",
+  "source_sha256": "89850b5077e4a7460969fb9a15711241c7c5fa8a83de1386d14feea1853b8f24",
+  "repaired_sha256": "6c52d81c78b67b0eb1fdc989e6b8057796f94ffe566df96bb400a32acd15ad94",
+  "rows": 151,
+  "repaired_rows": 4,
+  "gaps": [
+    {
+      "start_row1": 111,
+      "end_row1": 114,
+      "frame_count": 4,
+      "method": "linear_interpolation_long_gap",
+      "previous_valid_row1": 110,
+      "next_valid_row1": 115
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "trial": "S55A10T01",
+  "source_member": "S55A10T01.csv",
+  "source_sha256": "f0c24decef5527392ca6eecdfac54cdd4a3a20536e94c9aad6615d20a0965768",
+  "repaired_sha256": "cd88473f83cc7c96e88ab6d6c94a20ec3af8f3738bbc5948a4aa962c10f28b49",
+  "rows": 105,
+  "repaired_rows": 26,
+  "gaps": [
+    {
+      "start_row1": 9,
+      "end_row1": 9,
+      "frame_count": 1,
+      "method": "forward_fill_short_gap",
+      "previous_valid_row1": 8,
+      "next_valid_row1": 10
+    },
+    {
+      "start_row1": 35,
+      "end_row1": 35,
+      "frame_count": 1,
+      "method": "forward_fill_short_gap",
+      "previous_valid_row1": 34,
+      "next_valid_row1": 36
+    },
+    {
+      "start_row1": 40,
+      "end_row1": 41,
+      "frame_count": 2,
+      "method": "forward_fill_short_gap",
+      "previous_valid_row1": 39,
+      "next_valid_row1": 42
+    },
+    {
+      "start_row1": 46,
+      "end_row1": 55,
+      "frame_count": 10,
+      "method": "linear_interpolation_long_gap",
+      "previous_valid_row1": 45,
+      "next_valid_row1": 56
+    },
+    {
+      "start_row1": 59,
+      "end_row1": 69,
+      "frame_count": 11,
+      "method": "linear_interpolation_long_gap",
+      "previous_valid_row1": 58,
+      "next_valid_row1": 70
+    },
+    {
+      "start_row1": 85,
+      "end_row1": 85,
+      "frame_count": 1,
+      "method": "forward_fill_short_gap",
+      "previous_valid_row1": 84,
+      "next_valid_row1": 86
+    }
+  ]
+}
