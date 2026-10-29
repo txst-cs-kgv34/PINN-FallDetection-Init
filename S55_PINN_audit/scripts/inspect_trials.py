@@ -2,6 +2,7 @@
 
 from pathlib import Path
 import argparse
+import csv
 import hashlib
 import json
 import platform
@@ -17,7 +18,13 @@ from skeleton_model import NAMES, PARENTS, com_proxy
 
 
 def prepare_inspection(
-    run, selection_path, output, metadata_path=None, cutoff_hz=None, order=6
+    run,
+    selection_path,
+    output,
+    metadata_path=None,
+    cutoff_hz=None,
+    order=6,
+    repair_mask_path=None,
 ):
     """Validate selection, preserve raw timing, calculate geometry and build the player."""
     # 1. Resolve the existing audit and an explicit, subject-matched selection.
@@ -43,6 +50,17 @@ def prepare_inspection(
         trial: [r["review_flag"] for r in audit_frames if r["trial"] == trial]
         for trial in candidates
     }
+    repair_masks = {trial: {} for trial in candidates}
+    if repair_mask_path:
+        with repair_mask_path.open(newline="") as handle:
+            for row in csv.DictReader(handle):
+                trial = row["trial"]
+                if trial not in repair_masks:
+                    continue
+                frame = int(row["frame0"])
+                if frame in repair_masks[trial]:
+                    raise ValueError(f"Duplicate repair-mask frame: {trial} frame {frame}")
+                repair_masks[trial][frame] = row["method"]
     if cutoff_hz is not None:
         # Validate settings and SciPy availability before creating a new output folder.
         filter_motion(np.ones((40, 32, 3)), fps, cutoff_hz, order)
@@ -69,11 +87,16 @@ def prepare_inspection(
                 modes["filtered"] = filtered
         if len(flags[trial]) != len(pose):
             raise ValueError(f"Frame flag count mismatch: {trial}")
+        invalid_repair_frames = set(repair_masks[trial]) - set(range(len(pose)))
+        if invalid_repair_frames:
+            raise ValueError(f"Repair-mask frame outside trial: {trial}")
+        repair_methods = [repair_masks[trial].get(frame) for frame in range(len(pose))]
         item = {
             "trial": trial,
             "frames": len(pose),
             "raw_review_flags": flags[trial],
             "raw_repeated_previous": repeated.tolist(),
+            "repair_methods": repair_methods,
             "filter": filter_settings,
             "modes": {},
         }
@@ -97,6 +120,7 @@ def prepare_inspection(
                     "nominal_time_s": frame / fps,
                     "raw_review_flag": flags[trial][frame],
                     "raw_repeated_previous": bool(repeated[frame]),
+                    "repair_method": repair_methods[frame] or "",
                     "foot_separation_camera_xz_m": float(
                         geometry["foot_separation_camera_xz"][frame]
                     ),
@@ -121,6 +145,7 @@ def prepare_inspection(
                 "frames": len(pose),
                 "raw_flagged_frames": sum(flags[trial]),
                 "raw_repeat_transitions": int(repeated.sum()),
+                "repaired_frames": sum(method is not None for method in repair_methods),
                 "filter_status": filter_settings["status"],
                 "max_filtered_com_change_m": filtered_change,
             }
@@ -134,6 +159,7 @@ def prepare_inspection(
         "fps": fps,
         "joint_names": NAMES,
         "parents": PARENTS,
+        "repair_mask_supplied": bool(repair_mask_path),
         "trials": trials,
     }
     (output / "inspection_data.json").write_text(
@@ -168,6 +194,11 @@ def prepare_inspection(
             for p in code_files
         },
     }
+    if repair_mask_path:
+        provenance["repair_mask"] = str(repair_mask_path.resolve())
+        provenance["repair_mask_sha256"] = hashlib.sha256(
+            repair_mask_path.read_bytes()
+        ).hexdigest()
     if cutoff_hz is not None:
         import scipy
 
@@ -198,6 +229,11 @@ def main():
         help="Optional offline low-pass comparison; raw is always retained",
     )
     parser.add_argument("--filter-order", type=int, default=6)
+    parser.add_argument(
+        "--repair-mask",
+        type=Path,
+        help="Optional repaired_frames.csv; repaired frames are marked in the viewer",
+    )
     args = parser.parse_args()
     prepare_inspection(
         args.run,
@@ -206,6 +242,7 @@ def main():
         args.metadata,
         args.cutoff_hz,
         args.filter_order,
+        args.repair_mask,
     )
 
 

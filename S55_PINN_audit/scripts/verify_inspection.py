@@ -36,6 +36,7 @@ def main():
         np.testing.assert_array_equal(np.asarray(item["modes"]["raw"]["pose"]), raw)
         assert item["frames"] == len(raw)
         assert len(item["raw_review_flags"]) == len(raw)
+        assert len(item.get("repair_methods", [])) in (0, len(raw))
         geometry = np.genfromtxt(
             inspection / "geometry" / f"{trial}.csv",
             delimiter=",",
@@ -44,6 +45,17 @@ def main():
             encoding="utf-8",
         )
         assert len(geometry) >= len(raw)
+
+    if data.get("repair_mask_supplied"):
+        expected_repairs = sum(
+            method is not None
+            for item in data["trials"]
+            for method in item["repair_methods"]
+        )
+        summaries = json.loads(
+            (inspection / "inspection_summary.json").read_text(encoding="utf-8")
+        )
+        assert expected_repairs == sum(row["repaired_frames"] for row in summaries)
 
     print(
         f"PASS: {selection['subject_id']} inspection; "

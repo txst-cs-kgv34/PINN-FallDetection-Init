@@ -47,7 +47,13 @@ def main():
     ]
     assert all(path.exists() and path.stat().st_size for path in required)
     if args.source:
-        assert hashlib.sha256(args.source.read_bytes()).hexdigest() == summary["archive_sha256"]
+        if args.source.is_dir():
+            by_name = {path.name.upper(): path for path in args.source.rglob("*.csv")}
+            for row in numeric:
+                source_path = by_name[f"{row['trial']}.csv".upper()]
+                assert hashlib.sha256(source_path.read_bytes()).hexdigest() == row["sha256"]
+        else:
+            assert hashlib.sha256(args.source.read_bytes()).hexdigest() == summary["archive_sha256"]
 
     print(
         f"PASS: {config['subject_id']} audit; {expected} expected, "
