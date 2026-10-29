@@ -16,7 +16,7 @@ def report(run):
         "",
         f"Review-flagged destination frames: {s['total_review_flagged_destination_frames']}. Duplicate rows within clips: {s['duplicate_rows_within']}.",
         "",
-        "These are data-quality screening results, not validated fall labels or anatomical CoM. No frames are repaired or interpolated. Invalid trials remain in raw/ and manifest.json but are withheld from calculations.",
+        "These are data-quality screening results, not validated fall labels or anatomical CoM. The audit does not repair inputs itself; when a derived repaired-data directory is supplied, consult its repair manifest and frame mask. Invalid trials remain in raw/ and manifest.json but are withheld from calculations.",
         "",
         "| Trial | Status | Frames | Span (s) | Review frames | Duplicate rows | Scale range (%) |",
         "|---|---|---:|---:|---:|---:|---:|",

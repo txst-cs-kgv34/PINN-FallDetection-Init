@@ -6,6 +6,7 @@
   "height_ft_in": "5 ft 5 in",
   "height_in": 65,
   "recording_assumptions": "Azure Kinect 32-joint XYZ, millimeters, nominal 30 FPS, consistent with the established project audit workflow.",
+  "repair_policy": "Derived repair only: gaps of 1-3 frames forward-filled; longer internal gaps linearly interpolated; boundary gaps carried from nearest valid frame.",
   "timestamps_available": false,
   "tracking_confidence_available": false,
   "camera_floor_calibration_available": false,

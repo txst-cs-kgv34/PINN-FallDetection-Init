@@ -68,6 +68,8 @@ function drawTrace(id,values) {
     const extra=Math.max((high-low)*.12,.01);low-=extra;high+=extra;
     const x=f=>pad+(w-pad*2)*f/(trial.frames-1),y=v=>h-pad-(h-pad*2)*(v-low)/(high-low);
     ctx.clearRect(0,0,w,h);
+    ctx.fillStyle="#eee2f4";
+    (trial.repair_methods||[]).forEach((method,f)=>{if(method)ctx.fillRect(x(f)-1,pad,2,h-2*pad);});
     ctx.fillStyle="#f8e6e1";
     trial.raw_review_flags.forEach((flag,f)=>{if(flag)ctx.fillRect(x(f)-1,pad,2,h-2*pad);});
     ctx.font="14px system-ui";ctx.fillStyle="#607783";
@@ -89,6 +91,8 @@ function render() {
     const trial=currentTrial();ui.frame.value=String(index);
     ui.time.textContent=`Frame ${index} / ${trial.frames-1} · ${(index/data.fps).toFixed(3)} s`;
     const flags=[];
+    const repairMethod=(trial.repair_methods||[])[index];
+    if(repairMethod)flags.push(`REPAIRED FRAME: ${repairMethod}`);
     if(trial.raw_review_flags[index])flags.push("RAW REVIEW FLAG");
     if(trial.raw_repeated_previous[index])flags.push("RAW POSE REPEATS PREVIOUS FRAME");
     ui.status.textContent=flags.join(" · ") || "No raw review flag at this frame; this is not a validity guarantee.";
@@ -115,7 +119,8 @@ function tick(now) {
 
 for(const [i,trial] of data.trials.entries())ui.trial.add(new Option(trial.trial,String(i)));
 document.getElementById("title").textContent=`${data.subject.subject_id} · Candidate recording inspection`;
-document.getElementById("context").textContent=`${data.trials.length} candidate trials · ${data.subject.sex} CoM model · nominal ${data.fps} FPS · ${data.subject.mass_lb} lb · ${data.subject.height_in} in. Excluded: ${Object.keys(data.selection.excluded_trials||{}).join(", ")||"none"}.`;
+const repairedCount=data.trials.reduce((total,trial)=>total+(trial.repair_methods||[]).filter(Boolean).length,0);
+document.getElementById("context").textContent=`${data.trials.length} candidate trials · ${data.subject.sex} CoM model · nominal ${data.fps} FPS · ${data.subject.mass_lb} lb · ${data.subject.height_in} in · ${repairedCount} repaired frames. Excluded: ${Object.keys(data.selection.excluded_trials||{}).join(", ")||"none"}.`;
 ui.trial.addEventListener("change",selectTrial);
 ui.view.addEventListener("change",()=>{setBounds();render();});
 ui.mode.addEventListener("change",render);ui.traceAxis.addEventListener("change",render);
@@ -129,7 +134,7 @@ ui.play.addEventListener("click",()=>{
 document.getElementById("previous").addEventListener("click",()=>{stop();index=Math.max(0,index-1);render();});
 document.getElementById("next").addEventListener("click",()=>{stop();index=Math.min(currentTrial().frames-1,index+1);render();});
 document.getElementById("nextFlag").addEventListener("click",()=>{
-    stop();const flags=currentTrial().raw_review_flags;
+    stop();const trial=currentTrial(),flags=trial.raw_review_flags.map((flag,f)=>flag||Boolean((trial.repair_methods||[])[f]));
     let found=flags.findIndex((flag,f)=>flag&&f>index);if(found<0)found=flags.indexOf(true);if(found>=0)index=found;render();
 });
 document.getElementById("mark").addEventListener("click",()=>{

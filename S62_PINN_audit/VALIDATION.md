@@ -15,3 +15,14 @@ After manual notes are exported:
 ```bash
 python scripts/validate_phase_notes.py --notes analysis_inputs/S62_phase_notes.json --run findings/S62_audit --selection configs/S62_inspection_selection.json --output analysis_inputs/S62_phase_windows.json
 ```
+
+## Repaired workflow
+
+```bash
+python scripts/verify_audit.py --run findings/S62_audit_repaired --source repaired_data/S62
+python scripts/verify_inspection.py --run findings/S62_audit_repaired --inspection inspections/S62_candidates_repaired
+python -m compileall -q scripts
+```
+
+Expected repaired status: 25 numeric trials, 4,390 analyzed frames, 109 repaired
+frames represented in the inspection mask, and 25 inspection trials.
