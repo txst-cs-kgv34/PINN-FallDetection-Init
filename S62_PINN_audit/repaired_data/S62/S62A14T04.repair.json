@@ -1,0 +1,18 @@
+{
+  "trial": "S62A14T04",
+  "source_member": "S62A14T04.csv",
+  "source_sha256": "f3ec68e8fe8e84e660e5cad44864560b81dde0da10a859679744c479ef056010",
+  "repaired_sha256": "c06c5934de9a7e51820bfe44ab35081b835e85d5abdbd33e0442c036c590bcda",
+  "rows": 186,
+  "repaired_rows": 2,
+  "gaps": [
+    {
+      "start_row1": 107,
+      "end_row1": 108,
+      "frame_count": 2,
+      "method": "forward_fill_short_gap",
+      "previous_valid_row1": 106,
+      "next_valid_row1": 109
+    }
+  ]
+}

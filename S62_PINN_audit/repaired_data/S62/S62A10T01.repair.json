@@ -1,0 +1,18 @@
+{
+  "trial": "S62A10T01",
+  "source_member": "S62A10T01.csv",
+  "source_sha256": "1640631aae3e885e8d4a8cb08b400c1309e07abb206ad895eff76c41468795a2",
+  "repaired_sha256": "58479d152105683ce57dfa517023dbbf28315cec11953ae47761cc8e67248acd",
+  "rows": 222,
+  "repaired_rows": 24,
+  "gaps": [
+    {
+      "start_row1": 109,
+      "end_row1": 132,
+      "frame_count": 24,
+      "method": "linear_interpolation_long_gap",
+      "previous_valid_row1": 108,
+      "next_valid_row1": 133
+    }
+  ]
+}

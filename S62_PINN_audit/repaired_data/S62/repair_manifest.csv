@@ -1,0 +1,12 @@
+trial,start_row1,end_row1,frame_count,method,previous_valid_row1,next_valid_row1
+S62A10T01,109,132,24,linear_interpolation_long_gap,108,133
+S62A10T02,67,83,17,linear_interpolation_long_gap,66,84
+S62A10T03,136,149,14,linear_interpolation_long_gap,135,150
+S62A10T03,157,157,1,forward_fill_short_gap,156,158
+S62A10T03,164,166,3,forward_fill_short_gap,163,167
+S62A10T03,168,168,1,forward_fill_short_gap,167,169
+S62A10T04,91,106,16,linear_interpolation_long_gap,90,107
+S62A10T04,113,126,14,linear_interpolation_long_gap,112,127
+S62A10T05,72,84,13,linear_interpolation_long_gap,71,85
+S62A12T04,111,114,4,linear_interpolation_long_gap,110,115
+S62A14T04,107,108,2,forward_fill_short_gap,106,109

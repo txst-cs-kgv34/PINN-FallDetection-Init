@@ -1,0 +1,42 @@
+{
+  "trial": "S62A10T03",
+  "source_member": "S62A10T03.csv",
+  "source_sha256": "b08701902e900b391be5cdc4e6bd4ebce2b7d05d10f71e4b5dd8186433d942fb",
+  "repaired_sha256": "2d5ea9a746aa9dcd3d1554ef36bb8ee133de0bc51354b2303e58af49b63da287",
+  "rows": 229,
+  "repaired_rows": 19,
+  "gaps": [
+    {
+      "start_row1": 136,
+      "end_row1": 149,
+      "frame_count": 14,
+      "method": "linear_interpolation_long_gap",
+      "previous_valid_row1": 135,
+      "next_valid_row1": 150
+    },
+    {
+      "start_row1": 157,
+      "end_row1": 157,
+      "frame_count": 1,
+      "method": "forward_fill_short_gap",
+      "previous_valid_row1": 156,
+      "next_valid_row1": 158
+    },
+    {
+      "start_row1": 164,
+      "end_row1": 166,
+      "frame_count": 3,
+      "method": "forward_fill_short_gap",
+      "previous_valid_row1": 163,
+      "next_valid_row1": 167
+    },
+    {
+      "start_row1": 168,
+      "end_row1": 168,
+      "frame_count": 1,
+      "method": "forward_fill_short_gap",
+      "previous_valid_row1": 167,
+      "next_valid_row1": 169
+    }
+  ]
+}

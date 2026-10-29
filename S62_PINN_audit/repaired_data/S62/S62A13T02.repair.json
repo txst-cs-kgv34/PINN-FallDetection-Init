@@ -1,0 +1,9 @@
+{
+  "trial": "S62A13T02",
+  "source_member": "S62A13T02.csv",
+  "source_sha256": "ed1374f8032680f3e4a241d4ec1e43caac83790294f3a0ec5587ae14ab900b5f",
+  "repaired_sha256": "77065963cfa58d33098254dedede0e0598130f959e8f4edcb8b5dab8bc5669d9",
+  "rows": 177,
+  "repaired_rows": 0,
+  "gaps": []
+}

@@ -1,0 +1,26 @@
+{
+  "trial": "S62A10T04",
+  "source_member": "S62A10T04.csv",
+  "source_sha256": "934e6df48dcfa07e13ca31b7af23e6b75d705b046048f7f0ec0417746cfba555",
+  "repaired_sha256": "ebd4dcace02654ecac7e788f56925524134dd8dc9f33195f54aef10ab043be95",
+  "rows": 180,
+  "repaired_rows": 30,
+  "gaps": [
+    {
+      "start_row1": 91,
+      "end_row1": 106,
+      "frame_count": 16,
+      "method": "linear_interpolation_long_gap",
+      "previous_valid_row1": 90,
+      "next_valid_row1": 107
+    },
+    {
+      "start_row1": 113,
+      "end_row1": 126,
+      "frame_count": 14,
+      "method": "linear_interpolation_long_gap",
+      "previous_valid_row1": 112,
+      "next_valid_row1": 127
+    }
+  ]
+}

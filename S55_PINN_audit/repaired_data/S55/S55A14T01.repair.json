@@ -1,0 +1,26 @@
+{
+  "trial": "S55A14T01",
+  "source_member": "S55A14T01.csv",
+  "source_sha256": "7ef0eaba8a3ec1da173bb3db9f6881a5aaca5011964c883301fc72a996babe32",
+  "repaired_sha256": "eef282aab0575392bf00525f27dc2461039156aa2685e62a2322eb20eb9b6c27",
+  "rows": 212,
+  "repaired_rows": 48,
+  "gaps": [
+    {
+      "start_row1": 4,
+      "end_row1": 4,
+      "frame_count": 1,
+      "method": "forward_fill_short_gap",
+      "previous_valid_row1": 3,
+      "next_valid_row1": 5
+    },
+    {
+      "start_row1": 6,
+      "end_row1": 52,
+      "frame_count": 47,
+      "method": "linear_interpolation_long_gap",
+      "previous_valid_row1": 5,
+      "next_valid_row1": 53
+    }
+  ]
+}

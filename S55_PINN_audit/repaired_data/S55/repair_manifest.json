@@ -1,0 +1,114 @@
+{
+  "subject": "S55",
+  "policy": {
+    "short_gap_max_frames": 3,
+    "short_gap_method": "forward fill from previous valid frame",
+    "long_internal_gap_method": "per-coordinate linear interpolation between valid boundary frames",
+    "boundary_gap_method": "nearest valid frame carry because two-sided interpolation is impossible",
+    "original_files_modified": false
+  },
+  "trial_count": 25,
+  "repaired_gap_count": 11,
+  "repaired_frame_count": 80,
+  "gaps": [
+    {
+      "trial": "S55A10T01",
+      "start_row1": 9,
+      "end_row1": 9,
+      "frame_count": 1,
+      "method": "forward_fill_short_gap",
+      "previous_valid_row1": 8,
+      "next_valid_row1": 10
+    },
+    {
+      "trial": "S55A10T01",
+      "start_row1": 35,
+      "end_row1": 35,
+      "frame_count": 1,
+      "method": "forward_fill_short_gap",
+      "previous_valid_row1": 34,
+      "next_valid_row1": 36
+    },
+    {
+      "trial": "S55A10T01",
+      "start_row1": 40,
+      "end_row1": 41,
+      "frame_count": 2,
+      "method": "forward_fill_short_gap",
+      "previous_valid_row1": 39,
+      "next_valid_row1": 42
+    },
+    {
+      "trial": "S55A10T01",
+      "start_row1": 46,
+      "end_row1": 55,
+      "frame_count": 10,
+      "method": "linear_interpolation_long_gap",
+      "previous_valid_row1": 45,
+      "next_valid_row1": 56
+    },
+    {
+      "trial": "S55A10T01",
+      "start_row1": 59,
+      "end_row1": 69,
+      "frame_count": 11,
+      "method": "linear_interpolation_long_gap",
+      "previous_valid_row1": 58,
+      "next_valid_row1": 70
+    },
+    {
+      "trial": "S55A10T01",
+      "start_row1": 85,
+      "end_row1": 85,
+      "frame_count": 1,
+      "method": "forward_fill_short_gap",
+      "previous_valid_row1": 84,
+      "next_valid_row1": 86
+    },
+    {
+      "trial": "S55A10T02",
+      "start_row1": 124,
+      "end_row1": 127,
+      "frame_count": 4,
+      "method": "linear_interpolation_long_gap",
+      "previous_valid_row1": 123,
+      "next_valid_row1": 128
+    },
+    {
+      "trial": "S55A10T02",
+      "start_row1": 149,
+      "end_row1": 149,
+      "frame_count": 1,
+      "method": "forward_fill_short_gap",
+      "previous_valid_row1": 148,
+      "next_valid_row1": 150
+    },
+    {
+      "trial": "S55A13T01",
+      "start_row1": 82,
+      "end_row1": 82,
+      "frame_count": 1,
+      "method": "forward_fill_short_gap",
+      "previous_valid_row1": 81,
+      "next_valid_row1": 83
+    },
+    {
+      "trial": "S55A14T01",
+      "start_row1": 4,
+      "end_row1": 4,
+      "frame_count": 1,
+      "method": "forward_fill_short_gap",
+      "previous_valid_row1": 3,
+      "next_valid_row1": 5
+    },
+    {
+      "trial": "S55A14T01",
+      "start_row1": 6,
+      "end_row1": 52,
+      "frame_count": 47,
+      "method": "linear_interpolation_long_gap",
+      "previous_valid_row1": 5,
+      "next_valid_row1": 53
+    }
+  ]
+}

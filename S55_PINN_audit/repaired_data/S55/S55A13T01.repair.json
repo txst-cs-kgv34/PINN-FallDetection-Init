@@ -1,0 +1,18 @@
+{
+  "trial": "S55A13T01",
+  "source_member": "S55A13T01.csv",
+  "source_sha256": "1a4d94a2c911e91ce088b8d32db24d11cdd4c08653e9451e6563c70ffef32419",
+  "repaired_sha256": "4cffd9e2a1e3273c2e74c938a79173762f14853cf33695a6cf9a2f4260135068",
+  "rows": 147,
+  "repaired_rows": 1,
+  "gaps": [
+    {
+      "start_row1": 82,
+      "end_row1": 82,
+      "frame_count": 1,
+      "method": "forward_fill_short_gap",
+      "previous_valid_row1": 81,
+      "next_valid_row1": 83
+    }
+  ]
+}

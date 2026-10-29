@@ -1,0 +1,9 @@
+{
+  "trial": "S55A11T05",
+  "source_member": "S55A11T05.csv",
+  "source_sha256": "b0593446b94cd00bc59c112cd5b2c0cecf98d80f1e0afcf38b77f839c54dfa18",
+  "repaired_sha256": "6435b39d41d75c090dc5941cb46299fc1f43948b7635f1f68e2534a261766ec9",
+  "rows": 168,
+  "repaired_rows": 0,
+  "gaps": []
+}
