@@ -1,0 +1,18 @@
+{
+  "trial": "S57A13T05",
+  "source_member": "S57_FallSamples/S57A13T05.csv",
+  "source_sha256": "22a9694650b167210d497719261a0b468f543ff9e79ca76444977963cc149987",
+  "repaired_sha256": "0f6dc191afac3b6c55721859e7365a4507b701a6b50dac93adfaca074769c306",
+  "rows": 136,
+  "repaired_rows": 1,
+  "gaps": [
+    {
+      "start_row1": 37,
+      "end_row1": 37,
+      "frame_count": 1,
+      "method": "forward_fill_short_gap",
+      "previous_valid_row1": 36,
+      "next_valid_row1": 38
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "matplotlib": "3.10.8",
+  "source": "/workspace/scratch/d8d03a60d780/S57_PINN_audit/repaired_data/S57",
+  "code_sha256": {
+    "run_audit.py": "eea09a3b37c51a571120688c0e96a8e54db63614c7d03b927e1933db61b183e1",
+    "filter_motion.py": "6784ecc9984f06ae5aeba35b3ecc11cbfa1688966e0643b750e7ab9d216d067d",
+    "temporal_diagnostics.py": "e8c05167a61a5fe4022283b43b395c9e9b00a89964324e382435ff6818ae3546",
+    "subject_frame.py": "9675eae7bc00978073954894b9c1e8750af745b0a3c46ca4a9c43053f45706dc",
+    "make_evidence.py": "5e538df62b958dfd3b26cf4d7305b64ab8432323ee7764108d17990ef117a02d",
+    "validate_phase_notes.py": "f5d918ea352aaac390ccc2c1cc8657af6d14cb424eeb3862bf493056863b2442",
+    "verify_audit.py": "b80caec2a3e45842e067288a53c53aaee838bd48f811d08b299f32ba411bbc9f",
+    "build_report.py": "f0e5451310905f72b9158b0be9f0f124ffb971adb752495178209175e871ff6e",
+    "foot_geometry.py": "a44711654967c0f908696fb352d0f9108367786cdea806ae4081624e639dbc60",
+    "plot_evidence.py": "a2c407133b2252259053eec4b0adc070edecafb94aa8353a55243971c11d49aa",
+    "phase_annotations.py": "7de5d731848086b5f2aac0df89bdd73c4cba2566a246c266e261095dea151253",
+    "inspect_trials.py": "960c304d8d21d3c8b6315d16bcbf42c65c923fa76f56c66e2c82e5deea238193",
+    "suggest_phases.py": "f0ffd119b045eb889ee92bbd4156937626e1d3de5b9399c4832862a548b965d0",
+    "repair_blank_rows.py": "746d8db1669273b9ee82bd0f211aec3d13c96a6a7473ae6b28a72cfc0ba901d6",
+    "audit_data.py": "e3ad79075973cec0e0e0aa62a78dd81dba5391767103c97a2212986432280a79",
+    "add_finding.py": "a0447c187223686bb4f9e099c4eaebd41c7a31612752985c7dbceafd3c24d125",
+    "skeleton_model.py": "2fa422e39dd5e4697e714219ef7c141db33aaa46ccb96ac1ce4359723d39f683",
+    "verify_inspection.py": "2a16da7f0992596e4be3d0949ee1989266806c69276e9869a129c4573fbc1770",
+    "build_viewer.py": "5676f1e2d6e7cb35b66e6e94b700af8b682f840ad3c2cb15b29f079550c0affb"
+  }
+}
