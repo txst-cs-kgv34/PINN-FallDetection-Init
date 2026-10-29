@@ -1,0 +1,121 @@
+[
+  {
+    "trial": "S62A11T02",
+    "start_frame0": 124,
+    "end_frame0": 126,
+    "frames": 3,
+    "nominal_span_s": 0.06666666666666667
+  },
+  {
+    "trial": "S62A11T04",
+    "start_frame0": 83,
+    "end_frame0": 84,
+    "frames": 2,
+    "nominal_span_s": 0.03333333333333333
+  },
+  {
+    "trial": "S62A11T04",
+    "start_frame0": 117,
+    "end_frame0": 118,
+    "frames": 2,
+    "nominal_span_s": 0.03333333333333333
+  },
+  {
+    "trial": "S62A11T05",
+    "start_frame0": 157,
+    "end_frame0": 158,
+    "frames": 2,
+    "nominal_span_s": 0.03333333333333333
+  },
+  {
+    "trial": "S62A11T05",
+    "start_frame0": 168,
+    "end_frame0": 169,
+    "frames": 2,
+    "nominal_span_s": 0.03333333333333333
+  },
+  {
+    "trial": "S62A11T05",
+    "start_frame0": 181,
+    "end_frame0": 184,
+    "frames": 4,
+    "nominal_span_s": 0.1
+  },
+  {
+    "trial": "S62A11T05",
+    "start_frame0": 185,
+    "end_frame0": 186,
+    "frames": 2,
+    "nominal_span_s": 0.03333333333333333
+  },
+  {
+    "trial": "S62A12T02",
+    "start_frame0": 98,
+    "end_frame0": 99,
+    "frames": 2,
+    "nominal_span_s": 0.03333333333333333
+  },
+  {
+    "trial": "S62A12T02",
+    "start_frame0": 117,
+    "end_frame0": 118,
+    "frames": 2,
+    "nominal_span_s": 0.03333333333333333
+  },
+  {
+    "trial": "S62A13T01",
+    "start_frame0": 77,
+    "end_frame0": 79,
+    "frames": 3,
+    "nominal_span_s": 0.06666666666666667
+  },
+  {
+    "trial": "S62A13T02",
+    "start_frame0": 13,
+    "end_frame0": 14,
+    "frames": 2,
+    "nominal_span_s": 0.03333333333333333
+  },
+  {
+    "trial": "S62A13T02",
+    "start_frame0": 26,
+    "end_frame0": 27,
+    "frames": 2,
+    "nominal_span_s": 0.03333333333333333
+  },
+  {
+    "trial": "S62A13T05",
+    "start_frame0": 19,
+    "end_frame0": 20,
+    "frames": 2,
+    "nominal_span_s": 0.03333333333333333
+  },
+  {
+    "trial": "S62A14T05",
+    "start_frame0": 84,
+    "end_frame0": 85,
+    "frames": 2,
+    "nominal_span_s": 0.03333333333333333
+  },
+  {
+    "trial": "S62A14T05",
+    "start_frame0": 108,
+    "end_frame0": 109,
+    "frames": 2,
+    "nominal_span_s": 0.03333333333333333
+  },
+  {
+    "trial": "S62A14T05",
+    "start_frame0": 120,
+    "end_frame0": 121,
+    "frames": 2,
+    "nominal_span_s": 0.03333333333333333
+  },
+  {
+    "trial": "S62A14T05",
+    "start_frame0": 125,
+    "end_frame0": 126,
+    "frames": 2,
+    "nominal_span_s": 0.03333333333333333
+  }
+]

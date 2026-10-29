@@ -1,0 +1,26 @@
+trial,activity,description,bytes,sha256,source_member,status,error
+S62A10T01,A10,Backfall,340371,1640631aae3e885e8d4a8cb08b400c1309e07abb206ad895eff76c41468795a2,S62_FallSamples/S62A10T01.csv,invalid,"could not convert string '' to float64 at row 108, column 1."
+S62A10T02,A10,Backfall,267275,7ff0a9ebd685a3d461fe648c0851e20cf19205ca4f5a825d70daa53a6052a68c,S62_FallSamples/S62A10T02.csv,invalid,"could not convert string '' to float64 at row 66, column 1."
+S62A10T03,A10,Backfall,363766,b08701902e900b391be5cdc4e6bd4ebce2b7d05d10f71e4b5dd8186433d942fb,S62_FallSamples/S62A10T03.csv,invalid,"could not convert string '' to float64 at row 135, column 1."
+S62A10T04,A10,Backfall,261426,934e6df48dcfa07e13ca31b7af23e6b75d705b046048f7f0ec0417746cfba555,S62_FallSamples/S62A10T04.csv,invalid,"could not convert string '' to float64 at row 90, column 1."
+S62A10T05,A10,Backfall,276235,6730501859e1399b4664e1a52044ec41e652fbf25e7ab0aea50eab49348b6a39,S62_FallSamples/S62A10T05.csv,invalid,"could not convert string '' to float64 at row 71, column 1."
+S62A11T01,A11,Frontfall,386042,592f89705b6d62982226c45b573fc58339cd08b037be9a93d14598a58908b975,S62_FallSamples/S62A11T01.csv,numeric,
+S62A11T02,A11,Frontfall,247867,bbe84042068ae8774da28d2f2f4489c58e07c93da89078a6f2a5f47c787ae325,S62_FallSamples/S62A11T02.csv,numeric,
+S62A11T03,A11,Frontfall,343339,d67a0bf384b4a592610aa5fafb20633792b82840f6c1464b2ede712d408ed91a,S62_FallSamples/S62A11T03.csv,numeric,
+S62A11T04,A11,Frontfall,260879,c24bb50fdf3b4cd380d79e45e6ec2553951bb30df3680775dedb270104043d18,S62_FallSamples/S62A11T04.csv,numeric,
+S62A11T05,A11,Frontfall,366076,2640e81bbf4c1ccb3b2409c91576277ad8d352c06089f3d02d2cc954dc8a1f62,S62_FallSamples/S62A11T05.csv,numeric,
+S62A12T01,A12,Leftfall,301444,5206cfe72de704a12a09fdf193b43600e0941b8566de032388d06c4f73e08aac,S62_FallSamples/S62A12T01.csv,numeric,
+S62A12T02,A12,Leftfall,244678,93bc53a520431b6c08e71e299ffad628f2dd9840a3a31fc174e3516be8363c97,S62_FallSamples/S62A12T02.csv,numeric,
+S62A12T03,A12,Leftfall,298521,141730e53d4c4559f0ae49e3b530e9fc931d72ca4790b0d0edbf16e4d5a79d67,S62_FallSamples/S62A12T03.csv,numeric,
+S62A12T04,A12,Leftfall,251541,89850b5077e4a7460969fb9a15711241c7c5fa8a83de1386d14feea1853b8f24,S62_FallSamples/S62A12T04.csv,invalid,"could not convert string '' to float64 at row 110, column 1."
+S62A12T05,A12,Leftfall,256123,b417a564a64ac83981f2112173890b2628e09fc0d6702f6cbf6cdce893c52372,S62_FallSamples/S62A12T05.csv,numeric,
+S62A13T01,A13,Rightfall,264414,60f3805fb4a300c9efa2f06dfca4a8e9dee411844768d38b4721e6ab015870af,S62_FallSamples/S62A13T01.csv,numeric,
+S62A13T02,A13,Rightfall,302927,ed1374f8032680f3e4a241d4ec1e43caac83790294f3a0ec5587ae14ab900b5f,S62_FallSamples/S62A13T02.csv,numeric,
+S62A13T03,A13,Rightfall,266627,5f06ba639bb858e827998a4de1b46e3e5bf7a80a18bce968eae77ae391ce6d8e,S62_FallSamples/S62A13T03.csv,numeric,
+S62A13T04,A13,Rightfall,345350,cf7c8746c2ed8f8eed387e8f218db15ab38a9a832adb10f386a867c00d452f69,S62_FallSamples/S62A13T04.csv,numeric,
+S62A13T05,A13,Rightfall,325659,77cdf0314a19ade0994a0a149920f3971e2334a3a34343c80c5c8f1bb05ed5fd,S62_FallSamples/S62A13T05.csv,numeric,
+S62A14T01,A14,Rotatefall (turn and fall),271330,039f9695edb82fcb754c29b6a2f54cde8893513078dea6238a6593e692f2f895,S62_FallSamples/S62A14T01.csv,numeric,
+S62A14T02,A14,Rotatefall (turn and fall),264946,88743bfe0bed15c21e339b2e18339085f7901be45bd5c204b41f91090b5322f8,S62_FallSamples/S62A14T02.csv,numeric,
+S62A14T03,A14,Rotatefall (turn and fall),269287,798f3e0c4697095a5611750dae70ececebb0382cc5c1db14f784d0f55924aadf,S62_FallSamples/S62A14T03.csv,numeric,
+S62A14T04,A14,Rotatefall (turn and fall),314960,f3ec68e8fe8e84e660e5cad44864560b81dde0da10a859679744c479ef056010,S62_FallSamples/S62A14T04.csv,invalid,"could not convert string '' to float64 at row 106, column 1."
+S62A14T05,A14,Rotatefall (turn and fall),237772,11e1f66e67be68e68642a35a17ae5dcb949277e2f2495e3fdbc8aad66a931927,S62_FallSamples/S62A14T05.csv,numeric,

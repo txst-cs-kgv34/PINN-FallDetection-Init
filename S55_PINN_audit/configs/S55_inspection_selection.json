@@ -1,0 +1,18 @@
+{
+  "subject_id": "S55",
+  "decision_date_local": "2026-10-29",
+  "excluded_trials": {
+    "S55A10T01": "Audit input failure: contains a nonnumeric/blank coordinate row.",
+    "S55A10T02": "Audit input failure: contains a nonnumeric/blank coordinate row.",
+    "S55A13T01": "Audit input failure: contains a nonnumeric/blank coordinate row.",
+    "S55A14T01": "Audit input failure: contains a nonnumeric/blank coordinate row."
+  },
+  "remaining_candidate_trials": [
+    "S55A10T03", "S55A10T04", "S55A10T05",
+    "S55A11T01", "S55A11T02", "S55A11T03", "S55A11T04", "S55A11T05",
+    "S55A12T01", "S55A12T02", "S55A12T03", "S55A12T04", "S55A12T05",
+    "S55A13T02", "S55A13T03", "S55A13T04", "S55A13T05",
+    "S55A14T02", "S55A14T03", "S55A14T04", "S55A14T05"
+  ],
+  "status": "Preliminary inspection selection. No numeric trial is automatically approved for training; manual phase and eligibility review are pending."
+}

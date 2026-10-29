@@ -1,0 +1,78 @@
+<!doctype html><meta charset="utf-8"><title>Skeleton audit</title><style>body{font:16px sans-serif;max-width:1200px;margin:30px auto;padding:20px}pre{white-space:pre-wrap}img{width:100%}</style><h1>Skeleton audit</h1><p>See research_notes.md for manual notes.</p><pre># S62 audit findings
+
+Clips passing numeric input checks: 18; empty: 0; missing expected: 0; invalid: 7; analyzed frames: 3077.
+
+Review-flagged destination frames: 507. Duplicate rows within clips: 21.
+
+These are data-quality screening results, not validated fall labels or anatomical CoM. No frames are repaired or interpolated. Invalid trials remain in raw/ and manifest.json but are withheld from calculations.
+
+| Trial | Status | Frames | Span (s) | Review frames | Duplicate rows | Scale range (%) |
+|---|---|---:|---:|---:|---:|---:|
+| S62A10T01 | invalid | 0 | — | — | — | — |
+| S62A10T02 | invalid | 0 | — | — | — | — |
+| S62A10T03 | invalid | 0 | — | — | — | — |
+| S62A10T04 | invalid | 0 | — | — | — | — |
+| S62A10T05 | invalid | 0 | — | — | — | — |
+| S62A11T01 | numeric | 225 | 7.466666666666667 | 30 | 0 | 36.4184319106031 |
+| S62A11T02 | numeric | 146 | 4.833333333333333 | 30 | 2 | 38.69770754203732 |
+| S62A11T03 | numeric | 201 | 6.666666666666667 | 39 | 0 | 61.31684281455871 |
+| S62A11T04 | numeric | 153 | 5.066666666666666 | 23 | 2 | 30.81085326987163 |
+| S62A11T05 | numeric | 214 | 7.1 | 29 | 6 | 36.75936522620551 |
+| S62A12T01 | numeric | 177 | 5.866666666666666 | 37 | 0 | 67.44769455559398 |
+| S62A12T02 | numeric | 144 | 4.766666666666667 | 15 | 2 | 32.44237382765742 |
+| S62A12T03 | numeric | 175 | 5.8 | 26 | 0 | 51.596230435046685 |
+| S62A12T04 | invalid | 0 | — | — | — | — |
+| S62A12T05 | numeric | 150 | 4.966666666666667 | 39 | 0 | 100.57837395903562 |
+| S62A13T01 | numeric | 155 | 5.133333333333334 | 43 | 2 | 78.93686987864088 |
+| S62A13T02 | numeric | 177 | 5.866666666666666 | 29 | 2 | 23.851896499750925 |
+| S62A13T03 | numeric | 156 | 5.166666666666667 | 26 | 0 | 63.487130107216714 |
+| S62A13T04 | numeric | 202 | 6.7 | 15 | 0 | 32.13995224802011 |
+| S62A13T05 | numeric | 191 | 6.333333333333333 | 14 | 1 | 70.06868344951552 |
+| S62A14T01 | numeric | 159 | 5.266666666666667 | 32 | 0 | 36.3936924677627 |
+| S62A14T02 | numeric | 155 | 5.133333333333334 | 31 | 0 | 35.668102827081796 |
+| S62A14T03 | numeric | 158 | 5.233333333333333 | 32 | 0 | 50.80186745214368 |
+| S62A14T04 | invalid | 0 | — | — | — | — |
+| S62A14T05 | numeric | 139 | 4.6 | 17 | 4 | 104.5029482431298 |
+
+## Temporal audit
+
+| Trial | Distinct poses | Repeated transitions (%) | Longest constant span (s) |
+|---|---:|---:|---:|
+| S62A11T01 | 225 | 0.00 | 0.000 |
+| S62A11T02 | 144 | 1.38 | 0.067 |
+| S62A11T03 | 201 | 0.00 | 0.000 |
+| S62A11T04 | 151 | 1.32 | 0.033 |
+| S62A11T05 | 208 | 2.82 | 0.100 |
+| S62A12T01 | 177 | 0.00 | 0.000 |
+| S62A12T02 | 142 | 1.40 | 0.033 |
+| S62A12T03 | 175 | 0.00 | 0.000 |
+| S62A12T05 | 150 | 0.00 | 0.000 |
+| S62A13T01 | 153 | 1.30 | 0.067 |
+| S62A13T02 | 175 | 1.14 | 0.033 |
+| S62A13T03 | 156 | 0.00 | 0.000 |
+| S62A13T04 | 202 | 0.00 | 0.000 |
+| S62A13T05 | 190 | 0.53 | 0.033 |
+| S62A14T01 | 159 | 0.00 | 0.000 |
+| S62A14T02 | 155 | 0.00 | 0.000 |
+| S62A14T03 | 158 | 0.00 | 0.000 |
+| S62A14T05 | 135 | 2.90 | 0.033 |
+
+Exact repeats mean identical exported coordinates, not confirmed biological stillness. See results/constant_pose_runs.csv for inclusive zero-based frame ranges. No repeats are deleted.
+
+## Evidence and reproducibility
+
+- results/manifest.json: source paths, hashes and parsing errors.
+- results/trial_summary.csv: clip-level measurements.
+- results/review_events.csv (when flags exist): exact frame pairs for inspection.
+- results/com/: per-frame CoM and camera displacements.
+- results/segment_mass_model.csv and segment_model.json: full mass and landmark mapping.
+- results/landmark_sensitivity.csv: alternative mappings, not uncertainty bounds.
+- config.json and code/: frozen configuration and scripts.
+
+## Questions for the team
+
+Confirm XYZ units/order, camera-to-floor orientation, original timestamps, missing/trimmed recordings and body-tracking confidence. Determine whether changing limb scale is in the raw export or preprocessing. Review full event coverage before selecting PINN trials. No ground contact, BoS, joint forces or external perturbations are inferred here.
+</pre><h2>Research notes</h2><pre># Research notes
+
+Append observations, evidence paths, interpretation, open questions and decisions here. This file is never regenerated.
+</pre><h2>A11_skeleton_snapshots</h2><img src="results/plots/A11_skeleton_snapshots.png"><h2>A12_skeleton_snapshots</h2><img src="results/plots/A12_skeleton_snapshots.png"><h2>A13_skeleton_snapshots</h2><img src="results/plots/A13_skeleton_snapshots.png"><h2>A14_skeleton_snapshots</h2><img src="results/plots/A14_skeleton_snapshots.png"><h2>real_CoM_comparison</h2><img src="results/plots/real_CoM_comparison.png"><h2>shared_limb_scaling</h2><img src="results/plots/shared_limb_scaling.png"><h2>temporal_repeats</h2><img src="results/plots/temporal_repeats.png"><h2>tracking_diagnostics</h2><img src="results/plots/tracking_diagnostics.png">

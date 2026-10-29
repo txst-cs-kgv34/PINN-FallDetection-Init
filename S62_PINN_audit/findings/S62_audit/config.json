@@ -1,0 +1,72 @@
+{
+  "subject_id": "S62",
+  "sex": "male",
+  "mass_lb": 155,
+  "height_in": 64,
+  "fps": 30,
+  "coordinate_units": "mm",
+  "units_status": "Assumed consistent with the SmartFallMM Azure Kinect export used in the established audit workflow; verify with collection metadata.",
+  "joint_order_status": "Assumed Azure Kinect 32-joint XYZ order; verify with collection metadata.",
+  "fps_status": "Nominal Azure Kinect rate; original timestamps and dropped-frame information are unavailable.",
+  "ground_plane": null,
+  "gravity_direction_camera": null,
+  "force_data": false,
+  "perturbation_data": false,
+  "recovery_trials": false,
+  "activities": {
+    "A10": "Backfall",
+    "A11": "Frontfall",
+    "A12": "Leftfall",
+    "A13": "Rightfall",
+    "A14": "Rotatefall (turn and fall)"
+  },
+  "screening": {
+    "joint_step_m": 0.2,
+    "frame_scale_change_fraction": 0.03,
+    "short_clip_seconds": 1.0,
+    "note": "Exploratory review flags, not physiological limits, automatic exclusions, or fall labels."
+  },
+  "expected_trials": {
+    "A10": [
+      "T01",
+      "T02",
+      "T03",
+      "T04",
+      "T05"
+    ],
+    "A11": [
+      "T01",
+      "T02",
+      "T03",
+      "T04",
+      "T05"
+    ],
+    "A12": [
+      "T01",
+      "T02",
+      "T03",
+      "T04",
+      "T05"
+    ],
+    "A13": [
+      "T01",
+      "T02",
+      "T03",
+      "T04",
+      "T05"
+    ],
+    "A14": [
+      "T01",
+      "T02",
+      "T03",
+      "T04",
+      "T05"
+    ]
+  },
+  "metadata_source": "User-provided demographics 2026-10-29; recording assumptions inherited from the established SmartFallMM audit workflow.",
+  "adult_model_applicable": true,
+  "processing_reported": "Leading/trailing trimming assumed from the established collection workflow; no normalization or rescaling is inferred.",
+  "timestamps_available": false,
+  "tracking_confidence_available": false,
+  "original_videos_available": false
+}

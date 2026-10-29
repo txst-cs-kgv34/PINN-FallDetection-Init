@@ -1,0 +1,13 @@
+{
+  "subject_id": "S62",
+  "demographics_source": "User supplied 2026-10-29",
+  "sex": "male",
+  "weight_lb": 155,
+  "height_ft_in": "5 ft 4 in",
+  "height_in": 64,
+  "recording_assumptions": "Azure Kinect 32-joint XYZ, millimeters, nominal 30 FPS, consistent with the established project audit workflow.",
+  "timestamps_available": false,
+  "tracking_confidence_available": false,
+  "camera_floor_calibration_available": false,
+  "original_videos_available": false
+}
