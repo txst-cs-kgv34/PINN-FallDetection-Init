@@ -58,8 +58,8 @@
     },
     {
       "trial": "S62A11T02",
-      "frame0": 0,
-      "nominal_time_s": 0,
+      "frame0": 1,
+      "nominal_time_s": 0.03333333333333333,
       "view_mode": "raw",
       "phase": "fall_onset",
       "note": "",

@@ -11,9 +11,9 @@ retained; the repaired audit and inspection are the preferred review path.
 - `repaired_data/S62/repair_manifest.json`: exact gaps, methods, and boundary frames.
 - `repaired_data/S62/repaired_frames.csv`: frame-level repair mask.
 - `analysis_inputs/S62_automatic_phase_suggestions_repaired.json`: provisional candidates, not labels.
-- `analysis_inputs/S62_phase_notes.json`: original user-supplied A11 annotations.
-- `analysis_inputs/S62_A11_phase_windows.json`: four validated model-input windows.
-- `analysis_inputs/FRONTFALL_PHASE_STATUS.md`: T02 phase-order issue and quality summary.
+- `analysis_inputs/S62_phase_notes.json`: user-confirmed A11 annotations.
+- `analysis_inputs/S62_A11_phase_windows.json`: five validated model-input windows.
+- `analysis_inputs/FRONTFALL_PHASE_STATUS.md`: phase-validation and quality summary.
 
 The player marks repaired frames in purple and raw audit flags in peach. Short
 fully blank gaps of at most 3 frames (0.10 s at 30 Hz) were forward-filled from
@@ -29,10 +29,9 @@ or leave-one-trial-out sensitivity analysis. S62A12T04 has 4 repaired frames
 
 ## Manual phases
 
-Manual A11 phases validate for T01 and T03–T05. T02 has both initial standing
-and fall onset marked at frame 0, so it is preserved in the original notes but
-excluded from the current model-ready windows pending re-marking. Three T03
-phase frames overlap raw audit review flags; see
+Manual A11 phases validate for T01–T05. For T02, the user confirmed initial
+standing at frame 0 and fall onset at frame 1. Three T02 and three T03 phase
+frames overlap raw audit review flags; see
 `analysis_inputs/S62_A11_phase_quality_flags.csv`. Apparent contact is a
 skeleton observation, not force-confirmed contact.
 
