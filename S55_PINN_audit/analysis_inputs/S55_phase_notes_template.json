@@ -1,0 +1,6 @@
+{
+  "subject": "S55",
+  "nominal_fps": 30,
+  "notes": [],
+  "instructions": "Use inspections/S55_candidates/INSPECT.html to mark initial_standing, fall_onset, descent, apparent_contact, and post_fall. Export the viewer JSON and replace this template only after manual review."
+}
