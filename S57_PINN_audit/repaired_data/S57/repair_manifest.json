@@ -1,0 +1,141 @@
+{
+  "subject": "S57",
+  "policy": {
+    "short_gap_max_frames": 3,
+    "short_gap_method": "forward fill from previous valid frame",
+    "long_internal_gap_method": "per-coordinate linear interpolation between valid boundary frames",
+    "boundary_gap_method": "nearest valid frame carry because two-sided interpolation is impossible",
+    "original_files_modified": false
+  },
+  "trial_count": 25,
+  "repaired_gap_count": 14,
+  "repaired_frame_count": 139,
+  "gaps": [
+    {
+      "trial": "S57A10T03",
+      "start_row1": 102,
+      "end_row1": 104,
+      "frame_count": 3,
+      "method": "forward_fill_short_gap",
+      "previous_valid_row1": 101,
+      "next_valid_row1": 105
+    },
+    {
+      "trial": "S57A10T03",
+      "start_row1": 107,
+      "end_row1": 110,
+      "frame_count": 4,
+      "method": "linear_interpolation_long_gap",
+      "previous_valid_row1": 106,
+      "next_valid_row1": 111
+    },
+    {
+      "trial": "S57A10T03",
+      "start_row1": 112,
+      "end_row1": 116,
+      "frame_count": 5,
+      "method": "linear_interpolation_long_gap",
+      "previous_valid_row1": 111,
+      "next_valid_row1": 117
+    },
+    {
+      "trial": "S57A12T01",
+      "start_row1": 73,
+      "end_row1": 73,
+      "frame_count": 1,
+      "method": "forward_fill_short_gap",
+      "previous_valid_row1": 72,
+      "next_valid_row1": 74
+    },
+    {
+      "trial": "S57A12T02",
+      "start_row1": 89,
+      "end_row1": 89,
+      "frame_count": 1,
+      "method": "forward_fill_short_gap",
+      "previous_valid_row1": 88,
+      "next_valid_row1": 90
+    },
+    {
+      "trial": "S57A12T04",
+      "start_row1": 78,
+      "end_row1": 79,
+      "frame_count": 2,
+      "method": "forward_fill_short_gap",
+      "previous_valid_row1": 77,
+      "next_valid_row1": 80
+    },
+    {
+      "trial": "S57A12T04",
+      "start_row1": 81,
+      "end_row1": 158,
+      "frame_count": 78,
+      "method": "forward_fill_trailing_boundary",
+      "previous_valid_row1": 80,
+      "next_valid_row1": null
+    },
+    {
+      "trial": "S57A13T01",
+      "start_row1": 119,
+      "end_row1": 119,
+      "frame_count": 1,
+      "method": "forward_fill_short_gap",
+      "previous_valid_row1": 118,
+      "next_valid_row1": 120
+    },
+    {
+      "trial": "S57A13T01",
+      "start_row1": 124,
+      "end_row1": 124,
+      "frame_count": 1,
+      "method": "forward_fill_short_gap",
+      "previous_valid_row1": 123,
+      "next_valid_row1": 125
+    },
+    {
+      "trial": "S57A13T01",
+      "start_row1": 126,
+      "end_row1": 133,
+      "frame_count": 8,
+      "method": "linear_interpolation_long_gap",
+      "previous_valid_row1": 125,
+      "next_valid_row1": 134
+    },
+    {
+      "trial": "S57A13T01",
+      "start_row1": 136,
+      "end_row1": 142,
+      "frame_count": 7,
+      "method": "linear_interpolation_long_gap",
+      "previous_valid_row1": 135,
+      "next_valid_row1": 143
+    },
+    {
+      "trial": "S57A13T01",
+      "start_row1": 145,
+      "end_row1": 165,
+      "frame_count": 21,
+      "method": "forward_fill_trailing_boundary",
+      "previous_valid_row1": 144,
+      "next_valid_row1": null
+    },
+    {
+      "trial": "S57A13T02",
+      "start_row1": 57,
+      "end_row1": 62,
+      "frame_count": 6,
+      "method": "linear_interpolation_long_gap",
+      "previous_valid_row1": 56,
+      "next_valid_row1": 63
+    },
+    {
+      "trial": "S57A13T05",
+      "start_row1": 37,
+      "end_row1": 37,
+      "frame_count": 1,
+      "method": "forward_fill_short_gap",
+      "previous_valid_row1": 36,
+      "next_valid_row1": 38
+    }
+  ]
+}

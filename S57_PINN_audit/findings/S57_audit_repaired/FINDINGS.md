@@ -1,0 +1,112 @@
+# S57 audit findings
+
+Clips passing numeric input checks: 25; empty: 0; missing expected: 0; invalid: 0; analyzed frames: 3841.
+
+Review-flagged destination frames: 909. Duplicate rows within clips: 157.
+
+These are data-quality screening results, not validated fall labels or anatomical CoM. This run audits repaired numeric copies; every replacement is recorded in `../../repaired_data/S57`. Invalid trials would remain in `raw/` and `manifest.json` but be withheld from calculations.
+
+## Blank-row repair assessment
+
+The repair layer replaced 139 fully blank frames in 14 gaps. Gaps of 1–3 frames
+were forward-filled; longer internal gaps were linearly interpolated. Because
+two-sided interpolation is impossible at a trailing boundary, S57A12T04 carries
+the last valid pose for 78 trailing frames and S57A13T01 for 21. Exclude
+S57A12T04 (80/158 repaired, 50.6%) and S57A13T01 (38/165, 23.0%) from primary
+modeling. S57A10T03 (12/201, 6.0%) and S57A13T02 (6/123, 4.9%) require
+sensitivity checks. All A11 front-fall clips have zero blank-row repairs.
+
+| Trial | Status | Frames | Span (s) | Review frames | Duplicate rows | Scale range (%) |
+|---|---|---:|---:|---:|---:|---:|
+| S57A10T01 | numeric | 113 | 3.7333333333333334 | 30 | 2 | 37.27246966735465 |
+| S57A10T02 | numeric | 147 | 4.866666666666666 | 64 | 0 | 76.37717775622725 |
+| S57A10T03 | numeric | 201 | 6.666666666666667 | 49 | 12 | 62.552837473685365 |
+| S57A10T04 | numeric | 130 | 4.3 | 46 | 3 | 85.30252812750652 |
+| S57A10T05 | numeric | 144 | 4.766666666666667 | 29 | 7 | 67.18156363222899 |
+| S57A11T01 | numeric | 96 | 3.1666666666666665 | 20 | 1 | 22.343679739689914 |
+| S57A11T02 | numeric | 87 | 2.8666666666666667 | 14 | 3 | 25.722927477363044 |
+| S57A11T03 | numeric | 165 | 5.466666666666667 | 45 | 0 | 30.473614937486794 |
+| S57A11T04 | numeric | 164 | 5.433333333333334 | 23 | 8 | 27.65642762780114 |
+| S57A11T05 | numeric | 176 | 5.833333333333333 | 30 | 0 | 29.503932316504567 |
+| S57A12T01 | numeric | 241 | 8.0 | 87 | 7 | 32.90570134830233 |
+| S57A12T02 | numeric | 164 | 5.433333333333334 | 35 | 1 | 55.39623450066975 |
+| S57A12T03 | numeric | 173 | 5.733333333333333 | 60 | 1 | 29.9901742806298 |
+| S57A12T04 | numeric | 158 | 5.233333333333333 | 26 | 80 | 57.89606876347986 |
+| S57A12T05 | numeric | 200 | 6.633333333333334 | 31 | 0 | 62.08596334443568 |
+| S57A13T01 | numeric | 165 | 5.466666666666667 | 36 | 24 | 60.86431797407956 |
+| S57A13T02 | numeric | 123 | 4.066666666666666 | 36 | 0 | 53.857109458461515 |
+| S57A13T03 | numeric | 135 | 4.466666666666667 | 31 | 3 | 77.5940316581354 |
+| S57A13T04 | numeric | 129 | 4.266666666666667 | 32 | 0 | 75.24848053895413 |
+| S57A13T05 | numeric | 136 | 4.5 | 46 | 1 | 87.13100941114453 |
+| S57A14T01 | numeric | 156 | 5.166666666666667 | 57 | 0 | 65.68338555795611 |
+| S57A14T02 | numeric | 165 | 5.466666666666667 | 38 | 0 | 59.29641482363015 |
+| S57A14T03 | numeric | 163 | 5.4 | 14 | 2 | 22.83533972026217 |
+| S57A14T04 | numeric | 132 | 4.366666666666666 | 13 | 1 | 16.556925461838823 |
+| S57A14T05 | numeric | 178 | 5.9 | 17 | 1 | 23.77103023235172 |
+
+## Temporal audit
+
+| Trial | Distinct poses | Repeated transitions (%) | Longest constant span (s) |
+|---|---:|---:|---:|
+| S57A10T01 | 111 | 1.79 | 0.033 |
+| S57A10T02 | 147 | 0.00 | 0.000 |
+| S57A10T03 | 189 | 6.00 | 0.100 |
+| S57A10T04 | 127 | 2.33 | 0.033 |
+| S57A10T05 | 137 | 4.90 | 0.067 |
+| S57A11T01 | 95 | 1.05 | 0.033 |
+| S57A11T02 | 84 | 3.49 | 0.033 |
+| S57A11T03 | 165 | 0.00 | 0.000 |
+| S57A11T04 | 156 | 4.91 | 0.167 |
+| S57A11T05 | 176 | 0.00 | 0.000 |
+| S57A12T01 | 234 | 2.92 | 0.167 |
+| S57A12T02 | 163 | 0.61 | 0.033 |
+| S57A12T03 | 172 | 0.58 | 0.033 |
+| S57A12T04 | 78 | 50.96 | 2.600 |
+| S57A12T05 | 200 | 0.00 | 0.000 |
+| S57A13T01 | 141 | 14.63 | 0.700 |
+| S57A13T02 | 123 | 0.00 | 0.000 |
+| S57A13T03 | 132 | 2.24 | 0.100 |
+| S57A13T04 | 129 | 0.00 | 0.000 |
+| S57A13T05 | 135 | 0.74 | 0.033 |
+| S57A14T01 | 156 | 0.00 | 0.000 |
+| S57A14T02 | 165 | 0.00 | 0.000 |
+| S57A14T03 | 161 | 1.23 | 0.067 |
+| S57A14T04 | 131 | 0.76 | 0.033 |
+| S57A14T05 | 177 | 0.56 | 0.033 |
+
+Exact repeats mean identical exported coordinates, not confirmed biological stillness. See results/constant_pose_runs.csv for inclusive zero-based frame ranges. No repeats are deleted.
+
+## Evidence and reproducibility
+
+- results/manifest.json: source paths, hashes and parsing errors.
+- results/trial_summary.csv: clip-level measurements.
+- results/review_events.csv (when flags exist): exact frame pairs for inspection.
+- results/com/: per-frame CoM and camera displacements.
+- results/segment_mass_model.csv and segment_model.json: full mass and landmark mapping.
+- results/landmark_sensitivity.csv: alternative mappings, not uncertainty bounds.
+- config.json and code/: frozen configuration and scripts.
+
+## Questions for the team
+
+Confirm XYZ units/order, camera-to-floor orientation, original timestamps, missing/trimmed recordings and body-tracking confidence. Determine whether changing limb scale is in the raw export or preprocessing. Review full event coverage before selecting PINN trials. No ground contact, BoS, joint forces or external perturbations are inferred here.
+
+## Evidence figures
+
+![A10_skeleton_snapshots](results/plots/A10_skeleton_snapshots.png)
+
+![A11_skeleton_snapshots](results/plots/A11_skeleton_snapshots.png)
+
+![A12_skeleton_snapshots](results/plots/A12_skeleton_snapshots.png)
+
+![A13_skeleton_snapshots](results/plots/A13_skeleton_snapshots.png)
+
+![A14_skeleton_snapshots](results/plots/A14_skeleton_snapshots.png)
+
+![real_CoM_comparison](results/plots/real_CoM_comparison.png)
+
+![shared_limb_scaling](results/plots/shared_limb_scaling.png)
+
+![temporal_repeats](results/plots/temporal_repeats.png)
+
+![tracking_diagnostics](results/plots/tracking_diagnostics.png)
+

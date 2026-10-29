@@ -1,0 +1,15 @@
+trial,start_row1,end_row1,frame_count,method,previous_valid_row1,next_valid_row1
+S57A10T03,102,104,3,forward_fill_short_gap,101,105
+S57A10T03,107,110,4,linear_interpolation_long_gap,106,111
+S57A10T03,112,116,5,linear_interpolation_long_gap,111,117
+S57A12T01,73,73,1,forward_fill_short_gap,72,74
+S57A12T02,89,89,1,forward_fill_short_gap,88,90
+S57A12T04,78,79,2,forward_fill_short_gap,77,80
+S57A12T04,81,158,78,forward_fill_trailing_boundary,80,
+S57A13T01,119,119,1,forward_fill_short_gap,118,120
+S57A13T01,124,124,1,forward_fill_short_gap,123,125
+S57A13T01,126,133,8,linear_interpolation_long_gap,125,134
+S57A13T01,136,142,7,linear_interpolation_long_gap,135,143
+S57A13T01,145,165,21,forward_fill_trailing_boundary,144,
+S57A13T02,57,62,6,linear_interpolation_long_gap,56,63
+S57A13T05,37,37,1,forward_fill_short_gap,36,38

@@ -1,0 +1,18 @@
+{
+  "trial": "S57A13T02",
+  "source_member": "S57_FallSamples/S57A13T02.csv",
+  "source_sha256": "64150be5319d00c26a8c4fa2bb3efaf6c8e5f32f63c4e210564158a3cf6fafea",
+  "repaired_sha256": "2283f516529c10676d666cf08254335de0b146031c44a927c89db2800a785044",
+  "rows": 123,
+  "repaired_rows": 6,
+  "gaps": [
+    {
+      "start_row1": 57,
+      "end_row1": 62,
+      "frame_count": 6,
+      "method": "linear_interpolation_long_gap",
+      "previous_valid_row1": 56,
+      "next_valid_row1": 63
+    }
+  ]
+}

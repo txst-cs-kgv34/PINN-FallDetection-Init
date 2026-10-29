@@ -1,0 +1,6 @@
+{
+  "subject": "S57",
+  "nominal_fps": 30,
+  "notes": [],
+  "instructions": "Use inspections/S57_candidates_repaired/INSPECT.html. Review repaired-frame locations before marking phases, then export the manually corrected notes."
+}

@@ -1,0 +1,9 @@
+{
+  "trial": "S57A14T01",
+  "source_member": "S57_FallSamples/S57A14T01.csv",
+  "source_sha256": "c94e17ae8e328b1f607477528e9c204d75bcfb1ab55f40456fa4ccaa5a28c1ee",
+  "repaired_sha256": "ef92d56eb5cc55c036de54c4e49c1e5e575b13037059e0450e4e078d5393a868",
+  "rows": 156,
+  "repaired_rows": 0,
+  "gaps": []
+}
