@@ -1,0 +1,15 @@
+{
+  "subject_id": "S57",
+  "decision_date_local": "2026-10-29",
+  "activity": "A11",
+  "excluded_trials": {
+    "S57A11T01": "User reported the front-fall recording is incomplete; no phases marked.",
+    "S57A11T02": "User reported the front-fall recording is incomplete; no phases marked."
+  },
+  "remaining_candidate_trials": [
+    "S57A11T03",
+    "S57A11T04",
+    "S57A11T05"
+  ],
+  "status": "Model-ready front-fall phase selection after user review."
+}

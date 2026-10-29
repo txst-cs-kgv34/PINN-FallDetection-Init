@@ -10,7 +10,9 @@ training. S57 is recorded as male, 180 lb, 5 ft 8 in.
 - `repaired_data/S57/repair_manifest.json`: exact gaps, methods, and boundary frames.
 - `repaired_data/S57/repaired_frames.csv`: frame-level repair mask.
 - `analysis_inputs/S57_automatic_phase_suggestions_repaired.json`: provisional candidates, not labels.
-- `analysis_inputs/S57_phase_notes_template.json`: template for manual phase review.
+- `analysis_inputs/S57_phase_notes.json`: user-supplied manual A11 annotations.
+- `analysis_inputs/S57_A11_phase_windows.json`: three validated model-input windows.
+- `analysis_inputs/FRONTFALL_PHASE_STATUS.md`: exclusions and quality-flag summary.
 
 The player marks repaired frames in purple and raw audit flags in peach. Short
 fully blank gaps of at most 3 frames (0.10 s at 30 Hz) were forward-filled from
@@ -31,10 +33,11 @@ for manual phase review, subject to the other audit flags.
 
 ## Manual phases
 
-Open `inspections/S57_candidates_repaired/INSPECT.html`. For each retained
-trial, mark `initial_standing`, `fall_onset`, `descent`, `apparent_contact`, and
-`post_fall`, then export the notes. Apparent contact is a skeleton observation,
-not force-plate-confirmed contact.
+Manual A11 phases are complete and validated for T03–T05. The user identified
+T01 and T02 as incomplete, so they are explicitly excluded from the A11
+model-ready selection. Three selected phase frames overlap raw audit review
+flags; see `analysis_inputs/S57_A11_phase_quality_flags.csv`. Apparent contact
+is a skeleton observation, not force-confirmed contact.
 
 ## Reproduce the repaired workflow
 

@@ -11,7 +11,9 @@ retained; the repaired audit and inspection are the preferred review path.
 - `repaired_data/S55/repair_manifest.json`: exact gaps, methods, and boundary frames.
 - `repaired_data/S55/repaired_frames.csv`: frame-level repair mask.
 - `analysis_inputs/S55_automatic_phase_suggestions_repaired.json`: provisional candidates, not labels.
-- `analysis_inputs/S55_phase_notes_template.json`: template for manual phase review.
+- `analysis_inputs/S55_phase_notes.json`: user-supplied manual A11 annotations.
+- `analysis_inputs/S55_A11_phase_windows.json`: five validated model-input windows.
+- `analysis_inputs/FRONTFALL_PHASE_STATUS.md`: validation and quality-flag summary.
 
 The player marks repaired frames in purple and raw audit flags in peach. Short
 fully blank gaps of at most 3 frames (0.10 s at 30 Hz) were forward-filled from
@@ -27,10 +29,10 @@ sensitivity analysis. S55A10T02 has 5 repaired frames and S55A13T01 has 1.
 
 ## Manual phases
 
-Open `inspections/S55_candidates_repaired/INSPECT.html`. For each retained
-trial, mark `initial_standing`, `fall_onset`, `descent`, `apparent_contact`, and
-`post_fall`, then export the notes. Apparent contact is a skeleton observation,
-not force-plate-confirmed contact.
+Manual A11 phases are complete for T01–T05 and pass phase-order validation.
+Four selected phase frames overlap raw audit review flags; these are documented
+in `analysis_inputs/S55_A11_phase_quality_flags.csv` and are not automatic
+exclusions. Apparent contact is a skeleton observation, not force-confirmed contact.
 
 ## Reproduce the repaired workflow
 

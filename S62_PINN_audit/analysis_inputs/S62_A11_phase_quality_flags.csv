@@ -1,0 +1,7 @@
+trial,phase,frame0,repair_overlap,raw_review_flag,disposition
+S62A11T02,descent,13,false,true,excluded_phase_order_failure
+S62A11T02,apparent_contact,27,false,true,excluded_phase_order_failure
+S62A11T02,post_fall,38,false,true,excluded_phase_order_failure
+S62A11T03,descent,86,false,true,manual_review_recommended
+S62A11T03,apparent_contact,99,false,true,manual_review_recommended
+S62A11T03,post_fall,124,false,true,manual_review_recommended

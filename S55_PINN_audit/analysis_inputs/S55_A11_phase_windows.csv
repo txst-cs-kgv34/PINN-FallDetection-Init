@@ -1,0 +1,6 @@
+trial,activity,frame_count,annotation_status,initial_standing_frame0,initial_standing_time_s,fall_onset_frame0,fall_onset_time_s,descent_frame0,descent_time_s,apparent_contact_frame0,apparent_contact_time_s,post_fall_frame0,post_fall_time_s,onset_to_apparent_contact_s,initial_to_post_fall_s
+S55A11T01,A11,141,manual_provisional_skeleton_observation,24,0.8,35,1.1666666666666667,51,1.7,61,2.033333333333333,111,3.7,0.8666666666666667,2.9
+S55A11T02,A11,131,manual_provisional_skeleton_observation,1,0.03333333333333333,5,0.16666666666666666,18,0.6,37,1.2333333333333334,57,1.9,1.0666666666666667,1.8666666666666667
+S55A11T03,A11,155,manual_provisional_skeleton_observation,18,0.6,31,1.0333333333333334,47,1.5666666666666667,60,2.0,86,2.8666666666666667,0.9666666666666667,2.2666666666666666
+S55A11T04,A11,147,manual_provisional_skeleton_observation,16,0.5333333333333333,26,0.8666666666666667,49,1.6333333333333333,62,2.066666666666667,83,2.7666666666666666,1.2,2.2333333333333334
+S55A11T05,A11,168,manual_provisional_skeleton_observation,3,0.1,34,1.1333333333333333,56,1.8666666666666667,70,2.3333333333333335,93,3.1,1.2,3.0

@@ -1,0 +1,5 @@
+trial,phase,frame0,repair_overlap,raw_review_flag,disposition
+S55A11T01,post_fall,111,false,true,manual_review_recommended
+S55A11T02,apparent_contact,37,false,true,manual_review_recommended
+S55A11T03,post_fall,86,false,true,manual_review_recommended
+S55A11T04,post_fall,83,false,true,manual_review_recommended
