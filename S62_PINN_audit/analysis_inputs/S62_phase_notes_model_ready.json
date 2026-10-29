@@ -48,6 +48,51 @@
       "status": "manual_provisional_skeleton_observation"
     },
     {
+      "trial": "S62A11T02",
+      "frame0": 0,
+      "nominal_time_s": 0,
+      "view_mode": "raw",
+      "phase": "initial_standing",
+      "note": "",
+      "status": "manual_provisional_skeleton_observation"
+    },
+    {
+      "trial": "S62A11T02",
+      "frame0": 1,
+      "nominal_time_s": 0.03333333333333333,
+      "view_mode": "raw",
+      "phase": "fall_onset",
+      "note": "",
+      "status": "manual_provisional_skeleton_observation"
+    },
+    {
+      "trial": "S62A11T02",
+      "frame0": 13,
+      "nominal_time_s": 0.43333333333333335,
+      "view_mode": "raw",
+      "phase": "descent",
+      "note": "",
+      "status": "manual_provisional_skeleton_observation"
+    },
+    {
+      "trial": "S62A11T02",
+      "frame0": 27,
+      "nominal_time_s": 0.9,
+      "view_mode": "raw",
+      "phase": "apparent_contact",
+      "note": "",
+      "status": "manual_provisional_skeleton_observation"
+    },
+    {
+      "trial": "S62A11T02",
+      "frame0": 38,
+      "nominal_time_s": 1.2666666666666666,
+      "view_mode": "raw",
+      "phase": "post_fall",
+      "note": "",
+      "status": "manual_provisional_skeleton_observation"
+    },
+    {
       "trial": "S62A11T03",
       "frame0": 52,
       "nominal_time_s": 1.7333333333333334,

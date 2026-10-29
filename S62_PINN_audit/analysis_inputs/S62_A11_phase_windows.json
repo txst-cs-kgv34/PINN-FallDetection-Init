@@ -18,6 +18,24 @@
     "initial_to_post_fall_s": 3.6
   },
   {
+    "trial": "S62A11T02",
+    "activity": "A11",
+    "frame_count": 146,
+    "annotation_status": "manual_provisional_skeleton_observation",
+    "initial_standing_frame0": 0,
+    "initial_standing_time_s": 0.0,
+    "fall_onset_frame0": 1,
+    "fall_onset_time_s": 0.03333333333333333,
+    "descent_frame0": 13,
+    "descent_time_s": 0.43333333333333335,
+    "apparent_contact_frame0": 27,
+    "apparent_contact_time_s": 0.9,
+    "post_fall_frame0": 38,
+    "post_fall_time_s": 1.2666666666666666,
+    "onset_to_apparent_contact_s": 0.8666666666666667,
+    "initial_to_post_fall_s": 1.2666666666666666
+  },
+  {
     "trial": "S62A11T03",
     "activity": "A11",
     "frame_count": 201,

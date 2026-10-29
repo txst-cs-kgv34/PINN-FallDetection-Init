@@ -2,14 +2,13 @@
   "subject_id": "S62",
   "decision_date_local": "2026-10-29",
   "activity": "A11",
-  "excluded_trials": {
-    "S62A11T02": "Initial standing and fall onset were both marked at frame 0; strict phase order is unavailable. Re-mark before modeling."
-  },
+  "excluded_trials": {},
   "remaining_candidate_trials": [
     "S62A11T01",
+    "S62A11T02",
     "S62A11T03",
     "S62A11T04",
     "S62A11T05"
   ],
-  "status": "Model-ready front-fall phase selection; T02 annotation preserved separately and flagged for re-marking."
+  "status": "All five A11 trials have user-confirmed, strictly ordered phase annotations."
 }
