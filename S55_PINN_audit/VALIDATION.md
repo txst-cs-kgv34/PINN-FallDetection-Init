@@ -26,3 +26,11 @@ python -m compileall -q scripts
 
 Expected repaired status: 25 numeric trials, 4,240 analyzed frames, 80 repaired
 frames represented in the inspection mask, and 25 inspection trials.
+
+## Validated A11 phase windows
+
+```bash
+python scripts/validate_phase_notes.py --notes analysis_inputs/S55_phase_notes.json --run findings/S55_audit_repaired --selection configs/S55_A11_phase_selection.json --output analysis_inputs/S55_A11_phase_windows.json
+```
+
+Expected status: 5 complete, ordered phase-marked A11 trials.

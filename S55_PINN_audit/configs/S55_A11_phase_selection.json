@@ -1,0 +1,14 @@
+{
+  "subject_id": "S55",
+  "decision_date_local": "2026-10-29",
+  "activity": "A11",
+  "excluded_trials": {},
+  "remaining_candidate_trials": [
+    "S55A11T01",
+    "S55A11T02",
+    "S55A11T03",
+    "S55A11T04",
+    "S55A11T05"
+  ],
+  "status": "User-supplied manual front-fall phase annotations."
+}

@@ -1,0 +1,4 @@
+trial,phase,frame0,repair_overlap,raw_review_flag,disposition
+S57A11T03,apparent_contact,73,false,true,manual_review_recommended
+S57A11T03,post_fall,93,false,true,manual_review_recommended
+S57A11T05,descent,75,false,true,manual_review_recommended
