@@ -1,0 +1,33 @@
+{
+  "mode": "input-check",
+  "accepted_trials": 3,
+  "input_inventory_validated": true,
+  "input_files": [
+    "SubjectB_S57A11T03.tsv",
+    "SubjectB_S57A11T04.tsv",
+    "SubjectB_S57A11T05.tsv"
+  ],
+  "trials": [
+    {
+      "name": "SubjectB_S57A11T03.tsv",
+      "samples": 188,
+      "duration_s": 1.8700000047683716,
+      "theta0_deg": -2.9164779689907507,
+      "x0_m": 0.021913371980190277
+    },
+    {
+      "name": "SubjectB_S57A11T04.tsv",
+      "samples": 208,
+      "duration_s": 2.069999933242798,
+      "theta0_deg": -7.295996118576573,
+      "x0_m": 0.055481452494859695
+    },
+    {
+      "name": "SubjectB_S57A11T05.tsv",
+      "samples": 213,
+      "duration_s": 2.119999885559082,
+      "theta0_deg": -0.8923513017357664,
+      "x0_m": -0.018652601167559624
+    }
+  ]
+}
