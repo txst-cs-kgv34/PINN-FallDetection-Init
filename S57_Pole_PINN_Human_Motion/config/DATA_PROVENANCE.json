@@ -1,0 +1,7 @@
+{
+  "source_audit": "S57_PINN_audit",
+  "source_layer": "findings/S57_audit_repaired/raw",
+  "copied_trials": ["S57A11T03", "S57A11T04", "S57A11T05"],
+  "excluded_trials": ["S57A11T01", "S57A11T02"],
+  "note": "T01-T02 were excluded as incomplete by manual review. The copied A11 inputs contain no blank-row repairs, but the repaired audit layer is used as the canonical numeric source."
+}
