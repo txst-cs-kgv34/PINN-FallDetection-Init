@@ -1,0 +1,62 @@
+{
+  "mode": "input-check",
+  "accepted_trials": 8,
+  "trials": [
+    {
+      "name": "SubjectB_S57A11T03.tsv",
+      "samples": 188,
+      "duration_s": 1.8700000047683716,
+      "theta0_deg": -2.9164779689907507,
+      "x0_m": 0.021913371980190277
+    },
+    {
+      "name": "SubjectB_S57A11T04.tsv",
+      "samples": 208,
+      "duration_s": 2.069999933242798,
+      "theta0_deg": -7.295996118576573,
+      "x0_m": 0.055481452494859695
+    },
+    {
+      "name": "SubjectB_S57A11T05.tsv",
+      "samples": 213,
+      "duration_s": 2.119999885559082,
+      "theta0_deg": -0.8923513017357664,
+      "x0_m": -0.018652601167559624
+    },
+    {
+      "name": "SubjectB_S63A11T01.tsv",
+      "samples": 74,
+      "duration_s": 0.7300000190734863,
+      "theta0_deg": -0.8626879502529596,
+      "x0_m": -0.01672358438372612
+    },
+    {
+      "name": "SubjectB_S63A11T02.tsv",
+      "samples": 123,
+      "duration_s": 1.2200000286102295,
+      "theta0_deg": -1.925018381242278,
+      "x0_m": -0.007577857468277216
+    },
+    {
+      "name": "SubjectB_S63A11T03.tsv",
+      "samples": 70,
+      "duration_s": 0.6899999976158142,
+      "theta0_deg": 3.2134955752379253,
+      "x0_m": -0.03929440304636955
+    },
+    {
+      "name": "SubjectB_S63A11T04.tsv",
+      "samples": 111,
+      "duration_s": 1.100000023841858,
+      "theta0_deg": -0.7205690025413309,
+      "x0_m": -0.027110112830996513
+    },
+    {
+      "name": "SubjectB_S63A11T05.tsv",
+      "samples": 34,
+      "duration_s": 0.33000001311302185,
+      "theta0_deg": -2.2208654638204415,
+      "x0_m": -0.17926672101020813
+    }
+  ]
+}
