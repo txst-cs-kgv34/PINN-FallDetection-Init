@@ -1,0 +1,14 @@
+{
+  "subject": "S57",
+  "activity": "A11",
+  "included_trials": [
+    "S57A11T03",
+    "S57A11T04",
+    "S57A11T05"
+  ],
+  "excluded_trials": {
+    "S57A11T01": "Incomplete front-fall recording; excluded by manual review.",
+    "S57A11T02": "Incomplete front-fall recording; excluded by manual review."
+  },
+  "basis": "Only T03-T05 contain complete front-fall sequences and have complete manual phase observations. T01-T02 are retained in the audit package but are intentionally not model inputs."
+}

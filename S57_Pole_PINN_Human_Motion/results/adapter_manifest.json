@@ -1,0 +1,127 @@
+{
+  "experiment": "S57 A11 human motion through unchanged pole PINN pipeline",
+  "subject": {
+    "id": "S57",
+    "sex": "male",
+    "mass_lb": 180,
+    "mass_kg": 81.6466266,
+    "height_in": 68,
+    "height_m": 1.7271999999999998,
+    "skeleton_rate_hz": 30
+  },
+  "input_definition": {
+    "theta": "atan2(forward CoM, vertical CoM) relative to fixed foot midpoint at marked fall onset",
+    "x": "subject-forward whole-body CoM coordinate relative to the same fixed onset foot midpoint; original pole loader subsequently centers its first 0.5 s",
+    "com": "male segment-mass-weighted CoM from 32 Azure Kinect joints",
+    "signal_filter": "none; only linear interpolation from 30 Hz to the pole loader's required 250 Hz input rate",
+    "activity": "A11 Frontfall only"
+  },
+  "pole_compatibility": {
+    "columns": [
+      "x1_mm",
+      "y1_mm",
+      "z1_mm",
+      "x2_mm",
+      "y2_mm",
+      "z2_mm"
+    ],
+    "encoding_length_mm": 570.0,
+    "warmup_rows_removed_by_original_loader": 1024,
+    "file_pattern": "SubjectB_*.tsv",
+    "filename_note": "SubjectB_ is the unchanged source loader's filename contract; these files contain S57 data."
+  },
+  "core_pipeline": {
+    "file": "source/pinn_pole_synthetic_data_generation.py",
+    "sha256": "604985d2344350789929c3554f9ce4351b826f69be1dfe9dee0b20acb586e0a9",
+    "modified": false
+  },
+  "trials": [
+    {
+      "trial": "S57A11T03",
+      "raw_file": "data/raw/S57A11T03.csv",
+      "raw_sha256": "510bb690270d43058ab84a83bf6029680678fc3fae73713f1ddac4c7501b2b97",
+      "pole_input_file": "data/pole_compatible/A11/SubjectB_S57A11T03.tsv",
+      "derived_signal_file": "data/derived/A11/S57A11T03_human_theta_x.csv",
+      "raw_frames_used": 74,
+      "requested_contact_frame0": 73,
+      "arcsin_compatibility_trim_frame0": null,
+      "training_samples_changed_by_compatibility_trim": false,
+      "source_rate_hz": 30.0,
+      "encoded_rate_hz": 250,
+      "encoded_signal_rows": 609,
+      "total_tsv_rows": 1633,
+      "theta_min_deg": -4.877895586888186,
+      "theta_max_deg": 61.90112392084612,
+      "x_min_m": -0.08560633584938117,
+      "x_max_m": 0.7312954868952009,
+      "first_abs_theta_20deg_s_from_clip_start": 1.9666666666666666,
+      "initial_standing_frame0": 19,
+      "fall_onset_frame0": 45,
+      "apparent_contact_frame0": 73,
+      "fixed_pivot_subject_frame_m": [
+        0.0005760478140948177,
+        -0.05653344172782046,
+        -0.0020862545065279126
+      ],
+      "tsv_sha256": "2b1adb59178de6293488cc15bf1587edf6723820dcde07d5412a53efa03da655"
+    },
+    {
+      "trial": "S57A11T04",
+      "raw_file": "data/raw/S57A11T04.csv",
+      "raw_sha256": "2a344afefea90c84a139275c43fe43bf84f476e54f1347ceb2d4078c0a84e46e",
+      "pole_input_file": "data/pole_compatible/A11/SubjectB_S57A11T04.tsv",
+      "derived_signal_file": "data/derived/A11/S57A11T04_human_theta_x.csv",
+      "raw_frames_used": 81,
+      "requested_contact_frame0": 80,
+      "arcsin_compatibility_trim_frame0": null,
+      "training_samples_changed_by_compatibility_trim": false,
+      "source_rate_hz": 30.0,
+      "encoded_rate_hz": 250,
+      "encoded_signal_rows": 668,
+      "total_tsv_rows": 1692,
+      "theta_min_deg": -10.674523572874842,
+      "theta_max_deg": 59.358830165215274,
+      "x_min_m": -0.1849827729649588,
+      "x_max_m": 0.6144223273736665,
+      "first_abs_theta_20deg_s_from_clip_start": 2.1666666666666665,
+      "initial_standing_frame0": 42,
+      "fall_onset_frame0": 48,
+      "apparent_contact_frame0": 80,
+      "fixed_pivot_subject_frame_m": [
+        -0.02795477898530796,
+        -0.023358876255950792,
+        0.015380505324602271
+      ],
+      "tsv_sha256": "6a19cae9832f2d9abe7a189ad9deb14f2239590aaaf76da0341645def0221a28"
+    },
+    {
+      "trial": "S57A11T05",
+      "raw_file": "data/raw/S57A11T05.csv",
+      "raw_sha256": "57bab07dcbc8e2ab6c86dcb44dc7b8ac44608354a1fd43d6103228afef6661f9",
+      "pole_input_file": "data/pole_compatible/A11/SubjectB_S57A11T05.tsv",
+      "derived_signal_file": "data/derived/A11/S57A11T05_human_theta_x.csv",
+      "raw_frames_used": 87,
+      "requested_contact_frame0": 86,
+      "arcsin_compatibility_trim_frame0": null,
+      "training_samples_changed_by_compatibility_trim": false,
+      "source_rate_hz": 30.0,
+      "encoded_rate_hz": 250,
+      "encoded_signal_rows": 718,
+      "total_tsv_rows": 1742,
+      "theta_min_deg": -1.3272254753645434,
+      "theta_max_deg": 68.64703372335202,
+      "x_min_m": -0.023826229885725865,
+      "x_max_m": 1.0191809777245406,
+      "first_abs_theta_20deg_s_from_clip_start": 2.2333333333333334,
+      "initial_standing_frame0": 22,
+      "fall_onset_frame0": 58,
+      "apparent_contact_frame0": 86,
+      "fixed_pivot_subject_frame_m": [
+        0.07990007003801794,
+        -0.07712409884228677,
+        -0.039615427821618025
+      ],
+      "tsv_sha256": "85b2f3ad63abdb77bbfec0bcabfbe6a6f66cca585f46973ea5efd39cb77f3f59"
+    }
+  ]
+}
