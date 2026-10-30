@@ -1,0 +1,61 @@
+{
+  "status": "pass",
+  "meaning": "All four original stages executed and wrote finite outputs.",
+  "scientific_interpretation": "none; two epochs per stage are an execution test only",
+  "plausibility_warning": "Smoke trajectories are intentionally undertrained and have extreme ranges.",
+  "controller": {
+    "kp_theta": 149.99899291992188,
+    "kd_theta": 19.999000549316406,
+    "kp_x": 9.99899959564209,
+    "kd_x": 19.999000549316406,
+    "pi_deg": 3.0000000834826057,
+    "tau_s": 0.23
+  },
+  "trajectories": [
+    {
+      "file": "synth_B_0000.npy",
+      "shape": [
+        3001,
+        4
+      ],
+      "theta_deg_range": [
+        -9158.8076171875,
+        13683.171875
+      ],
+      "x_m_range": [
+        -133.00767517089844,
+        125.54580688476562
+      ]
+    },
+    {
+      "file": "synth_B_0001.npy",
+      "shape": [
+        3001,
+        4
+      ],
+      "theta_deg_range": [
+        -9382.5234375,
+        13409.04296875
+      ],
+      "x_m_range": [
+        -135.17282104492188,
+        124.32421112060547
+      ]
+    },
+    {
+      "file": "synth_B_0002.npy",
+      "shape": [
+        3001,
+        4
+      ],
+      "theta_deg_range": [
+        -9531.578125,
+        13223.375
+      ],
+      "x_m_range": [
+        -136.62234497070312,
+        123.48360443115234
+      ]
+    }
+  ]
+}
