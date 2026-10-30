@@ -40,12 +40,25 @@ def main() -> None:
     if core_hash != EXPECTED_CORE_SHA256 or core_hash != manifest["core_pipeline"]["sha256"]:
         raise AssertionError("the supplied pole main file was modified")
 
+    expected_files = sorted(Path(item["pole_input_file"]).name for item in manifest["trials"])
+    actual_files = sorted(
+        path.name for path in (ROOT / "data" / "pole_compatible" / "A11").glob("SubjectB_*.tsv")
+    )
+    if actual_files != expected_files:
+        missing = sorted(set(expected_files) - set(actual_files))
+        unexpected = sorted(set(actual_files) - set(expected_files))
+        raise AssertionError(
+            f"subject input inventory mismatch: missing={missing}; unexpected={unexpected}"
+        )
+
     report = {
         "status": "pass",
         "core_pipeline_sha256": core_hash,
         "core_pipeline_unchanged": True,
         "minimum_trial_seconds": minimum_duration_s,
         "duration_override_reason": runtime_overrides["reason"],
+        "input_inventory_validated": True,
+        "input_files": actual_files,
         "trials": [],
     }
     for item in manifest["trials"]:
