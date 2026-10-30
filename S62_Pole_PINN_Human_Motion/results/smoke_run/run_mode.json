@@ -1,0 +1,11 @@
+{
+  "mode": "smoke",
+  "source_file": "source/pinn_pole_synthetic_data_generation.py",
+  "source_modified": false,
+  "input_folder": "data/pole_compatible/A11",
+  "runtime_overrides": {
+    "minimum_trial_seconds": 0.2,
+    "reason": "After the unchanged loader's pre-20-degree trim, S62 T02 retains 0.23 seconds while the other trials retain 0.64-2.96 seconds. A 0.20-second gate retains the manually accepted T02 without padding. The source architecture is unchanged; the very short T02 window must be disclosed as a limitation."
+  },
+  "note": "Smoke mode shortens epochs/batches only and is not a scientific result."
+}
