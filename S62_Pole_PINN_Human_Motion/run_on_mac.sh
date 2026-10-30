@@ -5,11 +5,20 @@ ROOT_DIR="$(cd "$(dirname "$0")" && pwd)"
 cd "$ROOT_DIR"
 
 MODE="${1:-help}"
-PYTHON_BIN="$ROOT_DIR/.venv/bin/python"
+VENV_ACTIVATE="$HOME/.venv/bin/activate"
+
+if [[ ! -f "$VENV_ACTIVATE" ]]; then
+  echo "Home virtual environment not found: $VENV_ACTIVATE" >&2
+  echo "Create it first with: python3 -m venv \"$HOME/.venv\"" >&2
+  exit 1
+fi
+
+# Use the existing home virtual environment for every command.
+source "$VENV_ACTIVATE"
+PYTHON_BIN="$(command -v python)"
 
 case "$MODE" in
   setup)
-    python3 -m venv .venv
     "$PYTHON_BIN" -m pip install --upgrade pip
     "$PYTHON_BIN" -m pip install -r requirements.txt
     "$PYTHON_BIN" -c 'import platform, tensorflow as tf; print("Python:", platform.python_version()); print("Machine:", platform.machine()); print("TensorFlow:", tf.__version__)'
