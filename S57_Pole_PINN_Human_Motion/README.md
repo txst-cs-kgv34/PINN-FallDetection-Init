@@ -25,7 +25,7 @@ chmod +x run_on_mac.sh
 ./run_on_mac.sh build
 ./run_on_mac.sh input-check
 ./run_on_mac.sh smoke
-./run_on_mac.sh full
+PYTHONUNBUFFERED=1 ./run_on_mac.sh full
 ./run_on_mac.sh analyze
 ./run_on_mac.sh package
 ```

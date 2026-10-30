@@ -1,0 +1,11 @@
+{
+  "mode": "full",
+  "source_file": "source/pinn_pole_synthetic_data_generation.py",
+  "source_modified": false,
+  "input_folder": "data/pole_compatible/A11",
+  "runtime_overrides": {
+    "minimum_trial_seconds": 0.25,
+    "reason": "After the unchanged loader's pre-20-degree trim, the S57 trials retain 1.87-2.12 seconds. The source default of 2.0 seconds would reject T03, so the same 0.25-second eligibility gate documented for S63 is used. No samples are padded and the source architecture is unchanged."
+  },
+  "note": "Full mode preserves the architecture and training/generation settings; only paths and the documented S57 input-duration eligibility gate are overridden."
+}
