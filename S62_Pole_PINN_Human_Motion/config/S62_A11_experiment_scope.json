@@ -1,0 +1,13 @@
+{
+  "subject": "S62",
+  "activity": "A11",
+  "included_trials": [
+    "S62A11T01",
+    "S62A11T02",
+    "S62A11T03",
+    "S62A11T04",
+    "S62A11T05"
+  ],
+  "excluded_trials": {},
+  "basis": "All five A11 recordings have complete manual phase observations. For T02, frame 0 is initial_standing and frame 1 is fall_onset, per the user's correction."
+}

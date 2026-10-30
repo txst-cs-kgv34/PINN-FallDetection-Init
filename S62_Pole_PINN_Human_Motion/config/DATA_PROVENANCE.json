@@ -1,0 +1,7 @@
+{
+  "source_audit": "S62_PINN_audit",
+  "source_layer": "findings/S62_audit_repaired/raw",
+  "copied_trials": ["S62A11T01", "S62A11T02", "S62A11T03", "S62A11T04", "S62A11T05"],
+  "phase_correction": "S62A11T02 frame 0 initial_standing; frame 1 fall_onset",
+  "orientation_note": "The subject-forward frame is derived from the skeleton and oriented toward the nose, rather than from a fixed camera axis."
+}

@@ -1,0 +1,89 @@
+{
+  "status": "pass",
+  "core_pipeline_sha256": "604985d2344350789929c3554f9ce4351b826f69be1dfe9dee0b20acb586e0a9",
+  "core_pipeline_unchanged": true,
+  "minimum_trial_seconds": 0.2,
+  "duration_override_reason": "After the unchanged loader's pre-20-degree trim, S62 T02 retains 0.23 seconds while the other trials retain 0.64-2.96 seconds. A 0.20-second gate retains the manually accepted T02 without padding. The source architecture is unchanged; the very short T02 window must be disclosed as a limitation.",
+  "trials": [
+    {
+      "trial": "S62A11T01",
+      "resampling_check": "scipy fallback (install resampy for exact check)",
+      "decoded_samples_100hz": 368,
+      "usable_samples_after_20deg_rule": 297,
+      "usable_duration_s": 2.96,
+      "theta0_deg": -1.0769264580635503,
+      "theta_range_deg_before_trim": [
+        -1.7555292227626402,
+        94.68886350435879
+      ],
+      "centered_x_range_m_before_trim": [
+        -0.003746749029456889,
+        1.094757687656508
+      ]
+    },
+    {
+      "trial": "S62A11T02",
+      "resampling_check": "scipy fallback (install resampy for exact check)",
+      "decoded_samples_100hz": 91,
+      "usable_samples_after_20deg_rule": 24,
+      "usable_duration_s": 0.23,
+      "theta0_deg": -1.5019052738833776,
+      "theta_range_deg_before_trim": [
+        -1.836987257755492,
+        80.09199059925882
+      ],
+      "centered_x_range_m_before_trim": [
+        -0.16731323135808351,
+        0.8773367248087183
+      ]
+    },
+    {
+      "trial": "S62A11T03",
+      "resampling_check": "scipy fallback (install resampy for exact check)",
+      "decoded_samples_100hz": 318,
+      "usable_samples_after_20deg_rule": 263,
+      "usable_duration_s": 2.62,
+      "theta0_deg": -5.82148829775819,
+      "theta_range_deg_before_trim": [
+        -8.864760317805368,
+        96.05613741613196
+      ],
+      "centered_x_range_m_before_trim": [
+        -0.019193821632680574,
+        1.1367602704607862
+      ]
+    },
+    {
+      "trial": "S62A11T04",
+      "resampling_check": "scipy fallback (install resampy for exact check)",
+      "decoded_samples_100hz": 114,
+      "usable_samples_after_20deg_rule": 65,
+      "usable_duration_s": 0.64,
+      "theta0_deg": -4.1628489632783605,
+      "theta_range_deg_before_trim": [
+        -6.259187371777498,
+        85.48394366588006
+      ],
+      "centered_x_range_m_before_trim": [
+        -0.06573860465036621,
+        0.7730159001698662
+      ]
+    },
+    {
+      "trial": "S62A11T05",
+      "resampling_check": "scipy fallback (install resampy for exact check)",
+      "decoded_samples_100hz": 281,
+      "usable_samples_after_20deg_rule": 229,
+      "usable_duration_s": 2.28,
+      "theta0_deg": -5.648555066574532,
+      "theta_range_deg_before_trim": [
+        -8.682348908887601,
+        93.29757392708152
+      ],
+      "centered_x_range_m_before_trim": [
+        -0.009877193008687668,
+        1.0009667898823704
+      ]
+    }
+  ]
+}
