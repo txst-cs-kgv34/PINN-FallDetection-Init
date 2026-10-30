@@ -57,6 +57,15 @@ def main() -> None:
     assert set(scope["excluded_trials"]) == {"S57A11T01", "S57A11T02"}
     assert float(override["minimum_trial_seconds"]) == 0.25
 
+    expected_tsv = sorted(f"SubjectB_{trial}.tsv" for trial in scope["included_trials"])
+    actual_tsv = sorted(
+        path.name for path in (ROOT / "data" / "pole_compatible" / "A11").glob("SubjectB_*.tsv")
+    )
+    # This preflight runs before the adapter, so missing generated TSVs are
+    # allowed.  Foreign/stale TSVs are not; the post-build input validator
+    # later requires the inventory to match exactly.
+    assert set(actual_tsv).issubset(set(expected_tsv)), (expected_tsv, actual_tsv)
+
     for trial in scope["included_trials"]:
         notes = [note for note in phases["notes"] if note["trial"] == trial]
         assert [note["phase"] for note in notes] == REQUIRED_PHASES

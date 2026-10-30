@@ -4,53 +4,59 @@
   "core_pipeline_unchanged": true,
   "minimum_trial_seconds": 0.25,
   "duration_override_reason": "After the unchanged loader's pre-20-degree trim, the S57 trials retain 1.87-2.12 seconds. The source default of 2.0 seconds would reject T03, so the same 0.25-second eligibility gate documented for S63 is used. No samples are padded and the source architecture is unchanged.",
+  "input_inventory_validated": true,
+  "input_files": [
+    "SubjectB_S57A11T03.tsv",
+    "SubjectB_S57A11T04.tsv",
+    "SubjectB_S57A11T05.tsv"
+  ],
   "trials": [
     {
       "trial": "S57A11T03",
-      "resampling_check": "resampy (exact pole loader method)",
-      "decoded_samples_100hz": 243,
+      "resampling_check": "scipy fallback (install resampy for exact check)",
+      "decoded_samples_100hz": 244,
       "usable_samples_after_20deg_rule": 188,
       "usable_duration_s": 1.87,
-      "theta0_deg": -2.91647802157239,
+      "theta0_deg": -2.9883268288047287,
       "theta_range_deg_before_trim": [
-        -4.868810847892472,
-        61.944474398775895
+        -4.86959137101896,
+        61.796755222964734
       ],
       "centered_x_range_m_before_trim": [
-        -0.011917165324161247,
-        0.8346274750606052
+        -0.011872202224566114,
+        0.8158744773478477
       ]
     },
     {
       "trial": "S57A11T04",
-      "resampling_check": "resampy (exact pole loader method)",
-      "decoded_samples_100hz": 267,
+      "resampling_check": "scipy fallback (install resampy for exact check)",
+      "decoded_samples_100hz": 268,
       "usable_samples_after_20deg_rule": 208,
       "usable_duration_s": 2.07,
-      "theta0_deg": -7.295996394338512,
+      "theta0_deg": -7.473900288083075,
       "theta_range_deg_before_trim": [
-        -11.624880819263824,
-        59.35876092583285
+        -11.468031892005522,
+        59.26905884594418
       ],
       "centered_x_range_m_before_trim": [
-        -0.019536475053227725,
-        0.8263796209380634
+        -0.016668462315476917,
+        0.8277513687859126
       ]
     },
     {
       "trial": "S57A11T05",
-      "resampling_check": "resampy (exact pole loader method)",
-      "decoded_samples_100hz": 287,
+      "resampling_check": "scipy fallback (install resampy for exact check)",
+      "decoded_samples_100hz": 288,
       "usable_samples_after_20deg_rule": 213,
       "usable_duration_s": 2.12,
-      "theta0_deg": -0.8923512857836416,
+      "theta0_deg": -0.916151508812017,
       "theta_range_deg_before_trim": [
-        -1.3038170230152397,
-        70.72496366828031
+        -1.2831650811127493,
+        70.85165743690958
       ],
       "centered_x_range_m_before_trim": [
-        -0.026035874390758905,
-        1.1079908335311468
+        -0.02569117890327206,
+        1.1098257387112307
       ]
     }
   ]

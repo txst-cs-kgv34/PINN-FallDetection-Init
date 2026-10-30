@@ -1,5 +1,7 @@
 # Delivery status
 
+> Correction: the first returned full run included five stale S63 TSV inputs and is invalid as an S57-only result. This package removes those files and adds hard inventory checks. A clean full rerun is required before the gain sweep.
+
 - Manual phase observations validated for S57A11T03-T05.
 - Incomplete S57A11T01-T02 are explicitly excluded and are not present in the model input directory.
 - Three repaired-audit-layer A11 CSV files copied and converted successfully.
@@ -8,4 +10,4 @@
 - Core SHA-256 matches the locked S43/S63 pole source.
 - Source defaults remain 7,000/5,000/5,000 epochs for Stages 1/2/3 and 100 generated trajectories.
 - Python syntax, shell syntax, phase ordering, raw shape/finite checks, and adapter contracts pass locally.
-- TensorFlow was not installed or run in this workspace. Run `smoke` and `full` on the MacBook using `run_on_mac.sh`.
+- TensorFlow was not installed or run in this workspace. Run `smoke`, `full`, and then `gain-sweep` on the MacBook using `run_on_mac.sh`.
