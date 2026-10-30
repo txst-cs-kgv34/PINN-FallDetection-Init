@@ -1,0 +1,57 @@
+{
+  "method": {
+    "metric": "one-dimensional Wasserstein-1 distance",
+    "common_time_start_s": 0.0,
+    "common_time_end_s": 0.23,
+    "common_samples_per_trajectory": 24,
+    "sample_rate_hz": 100,
+    "original_trajectories": 5,
+    "synthetic_trajectories": 100,
+    "bootstrap_replicates": 500,
+    "bootstrap_unit": "whole trajectory",
+    "note": "theta and x are evaluated as separate marginal distributions; no joint multivariate Wasserstein claim is made"
+  },
+  "theta": {
+    "variable": "theta",
+    "unit": "deg",
+    "pooled_w1": 4.471234665206277,
+    "bootstrap_ci_2.5": 2.2843778981328313,
+    "bootstrap_ci_97.5": 7.113604595117836,
+    "time_mean_w1": 4.5267598029298375,
+    "time_median_w1": 4.568199808635304,
+    "time_p95_w1": 5.0380478008793945,
+    "time_max_w1": 5.615581820373844,
+    "time_of_max_s": 0.01,
+    "real_pairwise_median_w1": 6.122247741941161,
+    "synthetic_split_median_w1": 0.3498920868585508,
+    "normalization_scale": 25.0,
+    "normalized_pooled_w1": 0.17884938660825106,
+    "original_points_inside_synthetic_5_95_pct": 32.5
+  },
+  "x": {
+    "variable": "x",
+    "unit": "cm",
+    "pooled_w1": 2.789593879993952,
+    "bootstrap_ci_2.5": 0.3028070293219019,
+    "bootstrap_ci_97.5": 6.297623375403476,
+    "time_mean_w1": 2.7954459565012146,
+    "time_median_w1": 2.768742435440143,
+    "time_p95_w1": 5.04840683018215,
+    "time_max_w1": 5.3897163364104586,
+    "time_of_max_s": 0.01,
+    "real_pairwise_median_w1": 3.507988379170021,
+    "synthetic_split_median_w1": 0.00046918742197703977,
+    "normalization_scale": 25.0,
+    "normalized_pooled_w1": 0.11158375519975808,
+    "original_points_inside_synthetic_5_95_pct": 0.0
+  },
+  "mean_normalized_marginal_w1": 0.14521657090400458,
+  "horizon_sensitivity": [
+    {
+      "horizon_s": 0.23,
+      "samples_per_trajectory": 24,
+      "theta_w1_deg": 4.471234665206277,
+      "x_w1_cm": 2.789593879993952
+    }
+  ]
+}
