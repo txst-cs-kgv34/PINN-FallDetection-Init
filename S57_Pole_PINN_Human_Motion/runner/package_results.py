@@ -23,6 +23,8 @@ def sha256(path: Path) -> str:
 
 def main() -> None:
     full_run = ROOT / "results" / "full_run"
+    scope = json.loads((ROOT / "config" / "S57_A11_experiment_scope.json").read_text())
+    expected_inputs = sorted(f"SubjectB_{trial}.tsv" for trial in scope["included_trials"])
     required = [
         full_run / "identified_parameters.json",
         full_run / "configuration.json",
@@ -31,6 +33,18 @@ def main() -> None:
         full_run / "conditional_forward_pinn.weights.h5",
     ]
     missing = [str(path.relative_to(ROOT)) for path in required if not path.is_file()]
+    run_mode_path = full_run / "run_mode.json"
+    if not run_mode_path.is_file():
+        missing.append("results/full_run/run_mode.json")
+    else:
+        run_mode = json.loads(run_mode_path.read_text(encoding="utf-8"))
+        if not run_mode.get("input_inventory_validated"):
+            missing.append("full run lacks validated subject-only input provenance")
+        if run_mode.get("input_files") != expected_inputs:
+            missing.append(
+                f"full run input inventory mismatch: expected {expected_inputs}; "
+                f"found {run_mode.get('input_files')}"
+            )
     synthetic = sorted((full_run / "synthetic_subjectB_PINN").glob("synth_B_*.npy"))
     if len(synthetic) != 100:
         missing.append(f"expected 100 synthetic trajectories; found {len(synthetic)}")
@@ -41,7 +55,12 @@ def main() -> None:
         ROOT / "results",
         ROOT / "config",
     ]
-    fixed_files = [ROOT / "CORE_PIPELINE_LOCK.json", ROOT / "README.md"]
+    fixed_files = [
+        ROOT / "CORE_PIPELINE_LOCK.json",
+        ROOT / "README.md",
+        ROOT / "FINDINGS.md",
+        ROOT / "RETURN_FILES.md",
+    ]
     files = sorted(
         {path for base in include_roots for path in base.rglob("*") if path.is_file()}
         | set(fixed_files)
