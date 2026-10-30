@@ -19,7 +19,7 @@ After the source loader's pre-20-degree trim, usable windows range from 0.23 to 
 
 ## Run on a MacBook Air M3
 
-Python 3.11 is recommended. In Terminal, enter this directory and run:
+Python 3.11 is recommended. The launcher activates the existing home virtual environment at `~/.venv/bin/activate`; it does not create a project-local environment. In Terminal, enter this directory and run:
 
 ```bash
 chmod +x run_on_mac.sh
