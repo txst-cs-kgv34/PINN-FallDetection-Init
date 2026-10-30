@@ -48,8 +48,14 @@ case "$MODE" in
   package)
     "$PYTHON_BIN" runner/package_results.py
     ;;
+  gain-sweep)
+    bash experiments/stage3_gain_sweep/run_on_mac.sh
+    ;;
+  gain-sweep-package)
+    bash experiments/stage3_gain_sweep/package_results.sh
+    ;;
   *)
-    echo "Usage: ./run_on_mac.sh {setup|build|input-check|smoke|full|analyze|package}"
+    echo "Usage: ./run_on_mac.sh {setup|build|input-check|smoke|full|analyze|package|gain-sweep|gain-sweep-package}"
     exit 2
     ;;
 esac

@@ -1,3 +1,6 @@
 .venv/
 __pycache__/
 *.pyc
+results/full_run/
+experiments/stage3_gain_sweep/results/
+*_Stage3_Gain_Sweep_Results.zip

@@ -222,6 +222,16 @@ def main() -> None:
     segments = segment_model(subject["sex"])
     trials = [build_trial(w, subject, segments) for w in phase_windows(phases, scope)]
 
+    expected_files = sorted(Path(item["pole_input_file"]).name for item in trials)
+    actual_files = sorted(path.name for path in TSV_DIR.glob("SubjectB_*.tsv"))
+    if actual_files != expected_files:
+        missing = sorted(set(expected_files) - set(actual_files))
+        unexpected = sorted(set(actual_files) - set(expected_files))
+        raise RuntimeError(
+            f"subject input inventory mismatch after adapter build: missing={missing}; "
+            f"unexpected={unexpected}. Extract the corrected project into a clean directory."
+        )
+
     manifest = {
         "experiment": "S62 A11 human motion through unchanged pole PINN pipeline",
         "subject": {

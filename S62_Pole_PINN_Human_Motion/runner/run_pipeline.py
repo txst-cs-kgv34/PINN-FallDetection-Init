@@ -14,6 +14,21 @@ ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "source" / "pinn_pole_synthetic_data_generation.py"
 INPUTS = ROOT / "data" / "pole_compatible" / "A11"
 RUNTIME_OVERRIDES = ROOT / "config" / "S62_runtime_overrides.json"
+ADAPTER_MANIFEST = ROOT / "results" / "adapter_manifest.json"
+
+
+def validate_input_inventory() -> list[str]:
+    manifest = json.loads(ADAPTER_MANIFEST.read_text(encoding="utf-8"))
+    expected = sorted(Path(item["pole_input_file"]).name for item in manifest["trials"])
+    actual = sorted(path.name for path in INPUTS.glob("SubjectB_*.tsv"))
+    if actual != expected:
+        missing = sorted(set(expected) - set(actual))
+        unexpected = sorted(set(actual) - set(expected))
+        raise RuntimeError(
+            f"subject input inventory mismatch: missing={missing}; unexpected={unexpected}. "
+            "Do not train until stale cross-subject files are removed."
+        )
+    return actual
 
 
 def load_pipeline():
@@ -31,6 +46,7 @@ def main() -> None:
     parser.add_argument("--mode", choices=("input-check", "smoke", "full"), default="input-check")
     args = parser.parse_args()
 
+    input_files = validate_input_inventory()
     pipeline = load_pipeline()
     runtime_overrides = json.loads(RUNTIME_OVERRIDES.read_text(encoding="utf-8"))
     pipeline.CFG.minimum_trial_seconds = float(runtime_overrides["minimum_trial_seconds"])
@@ -43,6 +59,8 @@ def main() -> None:
         result = {
             "mode": args.mode,
             "accepted_trials": len(trials),
+            "input_inventory_validated": True,
+            "input_files": input_files,
             "trials": [
                 {
                     "name": trial.name,
@@ -80,6 +98,8 @@ def main() -> None:
         "source_file": str(SOURCE.relative_to(ROOT)),
         "source_modified": False,
         "input_folder": str(INPUTS.relative_to(ROOT)),
+        "input_inventory_validated": True,
+        "input_files": input_files,
         "runtime_overrides": {
             "minimum_trial_seconds": pipeline.CFG.minimum_trial_seconds,
             "reason": runtime_overrides["reason"],

@@ -4,85 +4,93 @@
   "core_pipeline_unchanged": true,
   "minimum_trial_seconds": 0.2,
   "duration_override_reason": "After the unchanged loader's pre-20-degree trim, S62 T02 retains 0.23 seconds while the other trials retain 0.64-2.96 seconds. A 0.20-second gate retains the manually accepted T02 without padding. The source architecture is unchanged; the very short T02 window must be disclosed as a limitation.",
+  "input_inventory_validated": true,
+  "input_files": [
+    "SubjectB_S62A11T01.tsv",
+    "SubjectB_S62A11T02.tsv",
+    "SubjectB_S62A11T03.tsv",
+    "SubjectB_S62A11T04.tsv",
+    "SubjectB_S62A11T05.tsv"
+  ],
   "trials": [
     {
       "trial": "S62A11T01",
-      "resampling_check": "resampy (exact pole loader method)",
-      "decoded_samples_100hz": 367,
+      "resampling_check": "scipy fallback (install resampy for exact check)",
+      "decoded_samples_100hz": 368,
       "usable_samples_after_20deg_rule": 297,
       "usable_duration_s": 2.96,
-      "theta0_deg": -1.0511438271294615,
+      "theta0_deg": -1.0769264580635503,
       "theta_range_deg_before_trim": [
-        -1.7561340270310901,
-        94.5164331461952
+        -1.7555292227626402,
+        94.68886350435879
       ],
       "centered_x_range_m_before_trim": [
-        -0.0037946563154645646,
-        1.0927019975636678
+        -0.003746749029456889,
+        1.094757687656508
       ]
     },
     {
       "trial": "S62A11T02",
-      "resampling_check": "resampy (exact pole loader method)",
-      "decoded_samples_100hz": 90,
+      "resampling_check": "scipy fallback (install resampy for exact check)",
+      "decoded_samples_100hz": 91,
       "usable_samples_after_20deg_rule": 24,
       "usable_duration_s": 0.23,
-      "theta0_deg": -1.4574764857388443,
+      "theta0_deg": -1.5019052738833776,
       "theta_range_deg_before_trim": [
-        -1.873167530648344,
-        81.18761972460001
+        -1.836987257755492,
+        80.09199059925882
       ],
       "centered_x_range_m_before_trim": [
-        -0.1677883350105848,
-        0.8910400754930362
+        -0.16731323135808351,
+        0.8773367248087183
       ]
     },
     {
       "trial": "S62A11T03",
-      "resampling_check": "resampy (exact pole loader method)",
-      "decoded_samples_100hz": 317,
+      "resampling_check": "scipy fallback (install resampy for exact check)",
+      "decoded_samples_100hz": 318,
       "usable_samples_after_20deg_rule": 263,
       "usable_duration_s": 2.62,
-      "theta0_deg": -5.681456307403914,
+      "theta0_deg": -5.82148829775819,
       "theta_range_deg_before_trim": [
-        -8.987974523166507,
-        95.87799210603174
+        -8.864760317805368,
+        96.05613741613196
       ],
       "centered_x_range_m_before_trim": [
-        -0.020692056835834333,
-        1.13475991415916
+        -0.019193821632680574,
+        1.1367602704607862
       ]
     },
     {
       "trial": "S62A11T04",
-      "resampling_check": "resampy (exact pole loader method)",
-      "decoded_samples_100hz": 113,
+      "resampling_check": "scipy fallback (install resampy for exact check)",
+      "decoded_samples_100hz": 114,
       "usable_samples_after_20deg_rule": 65,
       "usable_duration_s": 0.64,
-      "theta0_deg": -4.061634791651303,
+      "theta0_deg": -4.1628489632783605,
       "theta_range_deg_before_trim": [
-        -6.347609010561936,
-        87.63562897590994
+        -6.259187371777498,
+        85.48394366588006
       ],
       "centered_x_range_m_before_trim": [
-        -0.06685800454635209,
-        0.7927402098142864
+        -0.06573860465036621,
+        0.7730159001698662
       ]
     },
     {
       "trial": "S62A11T05",
-      "resampling_check": "resampy (exact pole loader method)",
-      "decoded_samples_100hz": 280,
+      "resampling_check": "scipy fallback (install resampy for exact check)",
+      "decoded_samples_100hz": 281,
       "usable_samples_after_20deg_rule": 229,
       "usable_duration_s": 2.28,
-      "theta0_deg": -5.514545076852182,
+      "theta0_deg": -5.648555066574532,
       "theta_range_deg_before_trim": [
-        -8.800375565145458,
-        94.60725063543956
+        -8.682348908887601,
+        93.29757392708152
       ],
       "centered_x_range_m_before_trim": [
-        -0.011411087708861858,
-        0.9997530763287906
+        -0.009877193008687668,
+        1.0009667898823704
       ]
     }
   ]
