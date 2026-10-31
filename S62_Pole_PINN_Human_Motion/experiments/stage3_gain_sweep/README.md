@@ -58,6 +58,20 @@ The primary ranking is pooled normalized MSE because it preserves matched trial/
 
 Each `results/chunk_XX/` directory contains the Stage-3 checkpoint, loss history, per-trial CSV files, paired metrics, and figures. Aggregate outputs include `gain_sets.csv`, `gain_sweep_metrics.csv`, `summary.json`, `REPORT.md`, and cross-chunk MSE/Wasserstein plots.
 
+## Completed S62 result
+
+All 11 chunks completed on the clean five-trial S62 inventory. The primary pooled normalized-MSE ranking selects chunk 11:
+
+| Chunk | Gain set | Normalized MSE | Theta RMSE | x RMSE |
+|---:|---|---:|---:|---:|
+| 1 | Identified S62 endpoint | 0.236283 | 8.152 deg | 9.012 cm |
+| 10 | Subject-B endpoint `(240, 30, 13, 30)` | 0.377634 | **7.329 deg** | 13.502 cm |
+| 11 | Subject-A comparison `(120, 28, 14, 19)` | **0.212552** | 7.698 deg | **8.578 cm** |
+
+Chunk 11 reduces normalized MSE by 10.0%, theta MSE by 10.8%, x MSE by 9.4%, and the best Stage-3 objective by 13.1% relative to chunk 1. It is the best balanced S62 candidate under the current protocol. However, T02 restricts all-trial Wasserstein comparisons to 0.23 s, so those W1 values cannot validate later fall behavior.
+
+This sweep produces matched simulations and checkpoints, not 100 new random-condition falls. A new 100-trajectory generation pass is required if chunk 11 is selected as a teacher.
+
 ## Package results
 
 After all eleven chunks finish:
