@@ -1,0 +1,55 @@
+{
+  "source_file": "source/pinn_pole_synthetic_data_generation.py",
+  "source_modified": false,
+  "stage1_checkpoint": "results/full_run/stage1_best.weights.h5",
+  "input_folder": "data/pole_compatible/A11",
+  "seed_reset_for_every_chunk": 1234,
+  "fixed_pi_deg": 3.6295279471121025,
+  "fixed_tau_s": 0.23,
+  "stage3_epochs": 5000,
+  "stage3_batch_size": 4096,
+  "selected_chunks": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "subject": "S57",
+  "validated_input_files": [
+    "SubjectB_S57A11T03.tsv",
+    "SubjectB_S57A11T04.tsv",
+    "SubjectB_S57A11T05.tsv"
+  ],
+  "subject_identified_endpoint": {
+    "kp_theta": 145.06138610839844,
+    "kd_theta": 15.055509567260742,
+    "kp_x": 5.063249588012695,
+    "kd_x": 15.056714057922363
+  },
+  "fixed_subject_pi_deg": 3.6295279471121025,
+  "fixed_subject_tau_s": 0.23,
+  "subject_b_paper_endpoint": {
+    "kp_theta": 240.0,
+    "kd_theta": 30.0,
+    "kp_x": 13.0,
+    "kd_x": 30.0
+  },
+  "subject_a_paper_comparison": {
+    "kp_theta": 120.0,
+    "kd_theta": 28.0,
+    "kp_x": 14.0,
+    "kd_x": 19.0
+  },
+  "paper_pi_reported_reference_only": {
+    "subject_a": 1.75,
+    "subject_b": 3.0
+  },
+  "gain_construction": "chunks 1-10 are equally spaced S57-identified-to-Subject-B interpolations; chunk 11 is the exact Subject-A Kp/Kd set"
+}
