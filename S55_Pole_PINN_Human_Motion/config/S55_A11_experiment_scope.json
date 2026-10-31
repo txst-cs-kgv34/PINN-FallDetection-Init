@@ -1,0 +1,13 @@
+{
+  "subject": "S55",
+  "activity": "A11",
+  "included_trials": [
+    "S55A11T01",
+    "S55A11T02",
+    "S55A11T03",
+    "S55A11T04",
+    "S55A11T05"
+  ],
+  "excluded_trials": {},
+  "basis": "All five S55 A11 recordings have complete, ordered manual phase observations and passed the audit phase-window validation."
+}
