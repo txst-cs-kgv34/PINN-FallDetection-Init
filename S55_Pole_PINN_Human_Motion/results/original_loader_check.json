@@ -1,0 +1,49 @@
+{
+  "mode": "input-check",
+  "accepted_trials": 5,
+  "input_inventory_validated": true,
+  "input_files": [
+    "SubjectB_S55A11T01.tsv",
+    "SubjectB_S55A11T02.tsv",
+    "SubjectB_S55A11T03.tsv",
+    "SubjectB_S55A11T04.tsv",
+    "SubjectB_S55A11T05.tsv"
+  ],
+  "trials": [
+    {
+      "name": "SubjectB_S55A11T01.tsv",
+      "samples": 147,
+      "duration_s": 1.4600000381469727,
+      "theta0_deg": -3.0484327414437544,
+      "x0_m": 0.020704664289951324
+    },
+    {
+      "name": "SubjectB_S55A11T02.tsv",
+      "samples": 54,
+      "duration_s": 0.5299999713897705,
+      "theta0_deg": -2.028419761313455,
+      "x0_m": -0.062475498765707016
+    },
+    {
+      "name": "SubjectB_S55A11T03.tsv",
+      "samples": 136,
+      "duration_s": 1.350000023841858,
+      "theta0_deg": -4.409042496046848,
+      "x0_m": 0.02959437668323517
+    },
+    {
+      "name": "SubjectB_S55A11T04.tsv",
+      "samples": 134,
+      "duration_s": 1.3300000429153442,
+      "theta0_deg": -3.237512441350394,
+      "x0_m": 0.009779618121683598
+    },
+    {
+      "name": "SubjectB_S55A11T05.tsv",
+      "samples": 153,
+      "duration_s": 1.5199999809265137,
+      "theta0_deg": -0.6283730814120889,
+      "x0_m": -0.018675049766898155
+    }
+  ]
+}
