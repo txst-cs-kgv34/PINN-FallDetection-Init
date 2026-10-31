@@ -1,0 +1,97 @@
+{
+  "status": "pass",
+  "core_pipeline_sha256": "604985d2344350789929c3554f9ce4351b826f69be1dfe9dee0b20acb586e0a9",
+  "core_pipeline_unchanged": true,
+  "minimum_trial_seconds": 0.5,
+  "duration_override_reason": "After the unchanged loader's pre-20-degree trim, the five S55 trials retain 0.53-1.52 seconds. A 0.50-second eligibility gate retains all five manually accepted trials without padding. The network architecture, equations, loss functions, controller, and training schedules remain unchanged.",
+  "input_inventory_validated": true,
+  "input_files": [
+    "SubjectB_S55A11T01.tsv",
+    "SubjectB_S55A11T02.tsv",
+    "SubjectB_S55A11T03.tsv",
+    "SubjectB_S55A11T04.tsv",
+    "SubjectB_S55A11T05.tsv"
+  ],
+  "trials": [
+    {
+      "trial": "S55A11T01",
+      "resampling_check": "scipy fallback (install resampy for exact check)",
+      "decoded_samples_100hz": 204,
+      "usable_samples_after_20deg_rule": 147,
+      "usable_duration_s": 1.46,
+      "theta0_deg": -3.122531339992602,
+      "theta_range_deg_before_trim": [
+        -4.803948364229942,
+        68.2226000445008
+      ],
+      "centered_x_range_m_before_trim": [
+        -0.008911765102780606,
+        0.8482439314906475
+      ]
+    },
+    {
+      "trial": "S55A11T02",
+      "resampling_check": "scipy fallback (install resampy for exact check)",
+      "decoded_samples_100hz": 124,
+      "usable_samples_after_20deg_rule": 54,
+      "usable_duration_s": 0.53,
+      "theta0_deg": -2.0811326769744936,
+      "theta_range_deg_before_trim": [
+        -2.998052589795546,
+        59.6733299780461
+      ],
+      "centered_x_range_m_before_trim": [
+        -0.07791601080348767,
+        0.5939335543226523
+      ]
+    },
+    {
+      "trial": "S55A11T03",
+      "resampling_check": "scipy fallback (install resampy for exact check)",
+      "decoded_samples_100hz": 201,
+      "usable_samples_after_20deg_rule": 136,
+      "usable_duration_s": 1.35,
+      "theta0_deg": -4.515416862796303,
+      "theta_range_deg_before_trim": [
+        -6.988207159019578,
+        71.22208420583138
+      ],
+      "centered_x_range_m_before_trim": [
+        -0.011969797738234561,
+        0.8499147297380316
+      ]
+    },
+    {
+      "trial": "S55A11T04",
+      "resampling_check": "scipy fallback (install resampy for exact check)",
+      "decoded_samples_100hz": 208,
+      "usable_samples_after_20deg_rule": 134,
+      "usable_duration_s": 1.33,
+      "theta0_deg": -3.3166495817916277,
+      "theta_range_deg_before_trim": [
+        -5.089603413890812,
+        82.25496931035515
+      ],
+      "centered_x_range_m_before_trim": [
+        -0.01999932114322682,
+        1.157142544772619
+      ]
+    },
+    {
+      "trial": "S55A11T05",
+      "resampling_check": "scipy fallback (install resampy for exact check)",
+      "decoded_samples_100hz": 234,
+      "usable_samples_after_20deg_rule": 153,
+      "usable_duration_s": 1.52,
+      "theta0_deg": -0.6440801879777013,
+      "theta_range_deg_before_trim": [
+        -0.9326719855400221,
+        69.91597902509476
+      ],
+      "centered_x_range_m_before_trim": [
+        -0.023287899231548146,
+        0.8054586939627534
+      ]
+    }
+  ]
+}

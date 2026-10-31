@@ -1,0 +1,9 @@
+{
+  "source_audit": "S55_PINN_audit",
+  "source_layer": "repaired_data/S55",
+  "copied_trials": ["S55A11T01", "S55A11T02", "S55A11T03", "S55A11T04", "S55A11T05"],
+  "repair_note": "The audit repair workflow was used as the source layer. None of the five A11 files required repaired rows; their repair manifests report repaired_rows=0.",
+  "phase_source": "analysis_inputs/S55_phase_notes.json from S55_PINN_audit",
+  "orientation_note": "The subject-forward frame is derived independently for every trial from the standing skeleton and oriented toward the nose proxy, rather than from a fixed camera axis.",
+  "subject_isolation": "Only S55A11T01-T05 are copied. Build, runner, and gain-sweep validators reject missing, extra, or foreign SubjectB_*.tsv files."
+}

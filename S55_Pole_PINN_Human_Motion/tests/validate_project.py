@@ -1,0 +1,86 @@
+#!/usr/bin/env python3
+"""Static and byte-level preflight checks that do not import TensorFlow."""
+
+from __future__ import annotations
+
+import ast
+import hashlib
+import json
+from pathlib import Path
+
+import numpy as np
+
+
+ROOT = Path(__file__).resolve().parents[1]
+CORE = ROOT / "source" / "pinn_pole_synthetic_data_generation.py"
+EXPECTED_CORE_SHA256 = "604985d2344350789929c3554f9ce4351b826f69be1dfe9dee0b20acb586e0a9"
+REQUIRED_PHASES = [
+    "initial_standing",
+    "fall_onset",
+    "descent",
+    "apparent_contact",
+    "post_fall",
+]
+
+
+def sha256(path: Path) -> str:
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def config_default(name: str) -> object:
+    tree = ast.parse(CORE.read_text(encoding="utf-8"))
+    for node in tree.body:
+        if isinstance(node, ast.ClassDef) and node.name == "Config":
+            for statement in node.body:
+                if isinstance(statement, ast.AnnAssign) and isinstance(statement.target, ast.Name):
+                    if statement.target.id == name:
+                        return ast.literal_eval(statement.value)
+    raise KeyError(name)
+
+
+def main() -> None:
+    lock = json.loads((ROOT / "CORE_PIPELINE_LOCK.json").read_text())
+    assert sha256(CORE) == EXPECTED_CORE_SHA256 == lock["sha256"]
+    assert config_default("number_generated_trajectories") == 100
+    assert config_default("stage1_epochs") == 7000
+    assert config_default("stage2_epochs") == 5000
+    assert config_default("stage3_epochs") == 5000
+
+    subject = json.loads((ROOT / "config" / "S55.json").read_text())
+    phases = json.loads((ROOT / "config" / "S55_A11_phase_notes.json").read_text())
+    scope = json.loads((ROOT / "config" / "S55_A11_experiment_scope.json").read_text())
+    override = json.loads((ROOT / "config" / "S55_runtime_overrides.json").read_text())
+    assert subject["subject_id"] == phases["subject"] == scope["subject"] == "S55"
+    assert subject["sex"] == "male"
+    assert subject["mass_lb"] == 145 and subject["height_in"] == 65
+    assert scope["included_trials"] == [f"S55A11T{i:02d}" for i in range(1, 6)]
+    assert float(override["minimum_trial_seconds"]) == 0.50
+
+    expected_tsv = sorted(f"SubjectB_{trial}.tsv" for trial in scope["included_trials"])
+    actual_tsv = sorted(
+        path.name for path in (ROOT / "data" / "pole_compatible" / "A11").glob("SubjectB_*.tsv")
+    )
+    # This preflight runs before the adapter, so missing generated TSVs are
+    # allowed.  Foreign/stale TSVs are not; the post-build input validator
+    # later requires the inventory to match exactly.
+    assert set(actual_tsv).issubset(set(expected_tsv)), (expected_tsv, actual_tsv)
+
+    expected_raw = sorted(f"{trial}.csv" for trial in scope["included_trials"])
+    actual_raw = sorted(path.name for path in (ROOT / "data" / "raw").glob("*.csv"))
+    assert actual_raw == expected_raw, (expected_raw, actual_raw)
+
+    for trial in scope["included_trials"]:
+        notes = [note for note in phases["notes"] if note["trial"] == trial]
+        assert [note["phase"] for note in notes] == REQUIRED_PHASES
+        raw = np.loadtxt(ROOT / "data" / "raw" / f"{trial}.csv", delimiter=",", ndmin=2)
+        assert raw.shape[1] == 96 and np.isfinite(raw).all()
+        assert max(note["frame0"] for note in notes) < len(raw)
+        assert all(abs(note["nominal_time_s"] - note["frame0"] / 30.0) < 1e-12 for note in notes)
+
+    print("PASS: S55 project preflight checks succeeded")
+    print("  unchanged core; original epochs; 100 generated trajectories")
+    print("  five valid A11 inputs with complete manual phase observations")
+
+
+if __name__ == "__main__":
+    main()

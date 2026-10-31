@@ -1,0 +1,4 @@
+{
+  "minimum_trial_seconds": 0.50,
+  "reason": "After the unchanged loader's pre-20-degree trim, the five S55 trials retain 0.53-1.52 seconds. A 0.50-second eligibility gate retains all five manually accepted trials without padding. The network architecture, equations, loss functions, controller, and training schedules remain unchanged."
+}
