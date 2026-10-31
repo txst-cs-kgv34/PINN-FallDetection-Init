@@ -58,6 +58,20 @@ The primary ranking is pooled normalized MSE because it preserves matched trial/
 
 Each `results/chunk_XX/` directory contains the Stage-3 checkpoint, loss history, per-trial CSV files, paired metrics, and figures. Aggregate outputs include `gain_sets.csv`, `gain_sweep_metrics.csv`, `summary.json`, `REPORT.md`, and cross-chunk MSE/Wasserstein plots.
 
+## Completed S57 result
+
+All 11 chunks completed on the clean three-trial S57 inventory. The primary pooled normalized-MSE ranking selects chunk 10:
+
+| Chunk | Gain set | Normalized MSE | Theta RMSE | x RMSE |
+|---:|---|---:|---:|---:|
+| 1 | Identified S57 endpoint | 1.258779 | 18.602 deg | 20.993 cm |
+| 10 | Subject-B endpoint `(240, 30, 13, 30)` | **1.098801** | 19.856 deg | **17.102 cm** |
+| 11 | Subject-A comparison `(120, 28, 14, 19)` | 1.286592 | 19.526 deg | 20.563 cm |
+
+Chunk 10 reduces the combined metric by 12.7% relative to chunk 1, driven by a 33.6% reduction in x MSE. Theta MSE increases by 13.9%, and the best Stage-3 objective rises from 1,676.61 to 8,116.70. Therefore, chunk 10 is the combined-reconstruction winner, while chunk 1 remains the more favorable angle/objective comparison. See the root `FINDINGS.md` before using either as a teacher.
+
+This sweep produces matched simulations and checkpoints, not 100 new random-condition falls. A new 100-trajectory generation pass is required if chunk 10 is selected as a teacher.
+
 ## Package results
 
 After all eleven chunks finish:

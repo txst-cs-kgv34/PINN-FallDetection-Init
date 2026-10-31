@@ -1,13 +1,9 @@
 # Delivery status
 
-> Correction: the first returned full run included five stale S63 TSV inputs and is invalid as an S57-only result. This package removes those files and adds hard inventory checks. A clean full rerun is required before the gain sweep.
-
-- Manual phase observations validated for S57A11T03-T05.
-- Incomplete S57A11T01-T02 are explicitly excluded and are not present in the model input directory.
-- Three repaired-audit-layer A11 CSV files copied and converted successfully.
-- All three six-column pole-compatible TSV files pass the unchanged loader-contract decoder.
-- Usable pre-20-degree windows: T03 1.87 s, T04 2.07 s, T05 2.12 s.
-- Core SHA-256 matches the locked S43/S63 pole source.
-- Source defaults remain 7,000/5,000/5,000 epochs for Stages 1/2/3 and 100 generated trajectories.
-- Python syntax, shell syntax, phase ordering, raw shape/finite checks, and adapter contracts pass locally.
-- TensorFlow was not installed or run in this workspace. Run `smoke`, `full`, and then `gain-sweep` on the MacBook using `run_on_mac.sh`.
+- Corrected subject-only full run completed and analyzed.
+- Input inventory validated as exactly S57A11T03-T05; incomplete T01-T02 and stale S63 files are absent.
+- Full 7,000/5,000/5,000 Stage 1/2/3 schedule completed with 100 generated trajectories.
+- All 11 Stage-3 gain chunks completed from the same clean Stage-1 checkpoint.
+- Primary sweep result: chunk 10 minimizes pooled normalized reconstruction MSE, with the theta/objective tradeoff documented in `FINDINGS.md`.
+- Core SHA-256 remains locked at `604985d2344350789929c3554f9ce4351b826f69be1dfe9dee0b20acb586e0a9`.
+- The first mixed S57/S63 run is superseded and must not be reused.
