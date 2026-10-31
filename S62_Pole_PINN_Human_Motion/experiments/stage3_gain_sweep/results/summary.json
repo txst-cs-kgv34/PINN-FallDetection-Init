@@ -1,0 +1,127 @@
+{
+  "subject": "S62",
+  "completed_chunks": 11,
+  "expected_chunks": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "ranking_metric": "pooled normalized MSE on the same 878 measured samples",
+  "best_chunk": {
+    "chunk": 11,
+    "alpha": null,
+    "kp_theta": 120.0,
+    "kd_theta": 28.0,
+    "kp_x": 14.0,
+    "kd_x": 19.0,
+    "subject": "S62",
+    "fixed_pi_deg": 3.692217557748595,
+    "fixed_tau_s": 0.23,
+    "stage3_epochs": 5000,
+    "stage3_batch_size": 4096,
+    "stage3_best_objective": 1195.1348876953125,
+    "trial": "POOLED",
+    "samples": 878,
+    "theta_mse_deg2": 59.265708923339844,
+    "theta_rmse_deg": 7.698422431945801,
+    "theta_mae_deg": 5.601091384887695,
+    "x_mse_cm2": 73.57936096191406,
+    "x_rmse_cm": 8.577840805053711,
+    "x_mae_cm": 6.309434413909912,
+    "normalized_mse": 0.21255213022232056,
+    "common_window_end_s": 0.23,
+    "theta_pooled_w1_deg": 0.9111086496889037,
+    "x_pooled_w1_cm": 1.0509208246013029,
+    "theta_time_mean_w1_deg": 0.9171258281025017,
+    "x_time_mean_w1_cm": 1.142645202616541,
+    "theta_time_mean_absolute_mean_difference_deg": 0.8070532744768243,
+    "x_time_mean_absolute_mean_difference_cm": 1.0430087140425923
+  },
+  "ranked_chunks": [
+    {
+      "rank": 1,
+      "chunk": 11,
+      "normalized_mse": 0.21255213022232056,
+      "theta_mse_deg2": 59.265708923339844,
+      "x_mse_cm2": 73.57936096191406
+    },
+    {
+      "rank": 2,
+      "chunk": 1,
+      "normalized_mse": 0.23628340661525726,
+      "theta_mse_deg2": 66.45626831054688,
+      "x_mse_cm2": 81.22085571289062
+    },
+    {
+      "rank": 3,
+      "chunk": 2,
+      "normalized_mse": 0.24725979566574097,
+      "theta_mse_deg2": 66.1681900024414,
+      "x_mse_cm2": 88.36917877197266
+    },
+    {
+      "rank": 4,
+      "chunk": 6,
+      "normalized_mse": 0.2527051866054535,
+      "theta_mse_deg2": 60.64145278930664,
+      "x_mse_cm2": 97.29928588867188
+    },
+    {
+      "rank": 5,
+      "chunk": 3,
+      "normalized_mse": 0.2548268735408783,
+      "theta_mse_deg2": 65.5801773071289,
+      "x_mse_cm2": 93.68663024902344
+    },
+    {
+      "rank": 6,
+      "chunk": 5,
+      "normalized_mse": 0.2597712278366089,
+      "theta_mse_deg2": 65.95320129394531,
+      "x_mse_cm2": 96.4038314819336
+    },
+    {
+      "rank": 7,
+      "chunk": 4,
+      "normalized_mse": 0.26189544796943665,
+      "theta_mse_deg2": 67.0504150390625,
+      "x_mse_cm2": 96.63422393798828
+    },
+    {
+      "rank": 8,
+      "chunk": 8,
+      "normalized_mse": 0.27294987440109253,
+      "theta_mse_deg2": 58.713783264160156,
+      "x_mse_cm2": 111.87987518310547
+    },
+    {
+      "rank": 9,
+      "chunk": 7,
+      "normalized_mse": 0.27311429381370544,
+      "theta_mse_deg2": 59.046077728271484,
+      "x_mse_cm2": 111.65034484863281
+    },
+    {
+      "rank": 10,
+      "chunk": 9,
+      "normalized_mse": 0.28403526544570923,
+      "theta_mse_deg2": 63.45159149169922,
+      "x_mse_cm2": 114.07044219970703
+    },
+    {
+      "rank": 11,
+      "chunk": 10,
+      "normalized_mse": 0.37763410806655884,
+      "theta_mse_deg2": 53.71498107910156,
+      "x_mse_cm2": 182.30633544921875
+    }
+  ]
+}
