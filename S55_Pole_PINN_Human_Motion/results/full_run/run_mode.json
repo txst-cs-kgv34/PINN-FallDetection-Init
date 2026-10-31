@@ -1,0 +1,19 @@
+{
+  "mode": "full",
+  "source_file": "source/pinn_pole_synthetic_data_generation.py",
+  "source_modified": false,
+  "input_folder": "data/pole_compatible/A11",
+  "input_inventory_validated": true,
+  "input_files": [
+    "SubjectB_S55A11T01.tsv",
+    "SubjectB_S55A11T02.tsv",
+    "SubjectB_S55A11T03.tsv",
+    "SubjectB_S55A11T04.tsv",
+    "SubjectB_S55A11T05.tsv"
+  ],
+  "runtime_overrides": {
+    "minimum_trial_seconds": 0.5,
+    "reason": "After the unchanged loader's pre-20-degree trim, the five S55 trials retain 0.53-1.52 seconds. A 0.50-second eligibility gate retains all five manually accepted trials without padding. The network architecture, equations, loss functions, controller, and training schedules remain unchanged."
+  },
+  "note": "Full mode preserves the architecture and training/generation settings; only paths and the documented S55 input-duration eligibility gate are overridden."
+}
