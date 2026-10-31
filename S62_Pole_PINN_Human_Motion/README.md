@@ -4,11 +4,13 @@ This project runs Subject 62's manually marked A11 front-fall motion through the
 
 The core file `source/pinn_pole_synthetic_data_generation.py` is byte-identical to the S63 project and locked by `CORE_PIPELINE_LOCK.json` (SHA-256 `604985d2344350789929c3554f9ce4351b826f69be1dfe9dee0b20acb586e0a9`). The network, equations, losses, controller, delayed feedback, four stages, full-run epochs, 30-second horizon, and 100 generated trajectories are unchanged. Subject-specific Stage-3 gain-sweep code is included under `experiments/stage3_gain_sweep`.
 
-## Important correction after the first returned full run
+## Completed clean rerun and gain sweep
 
-The first returned full-run archive is not a clean S62 experiment. Its reconstruction table contains the five S62 trials plus five stale S63 trials, for 10 accepted trajectories and 1,290 pooled samples. Consequently, its identified gains, checkpoints, 100 generated falls, and distribution plots are mixed S62/S63 results and must not be used as the S62 baseline or as a gain-sweep teacher.
+The corrected rerun and all 11 gain chunks completed successfully with exactly `S62A11T01-T05` (878 measured samples). The first mixed S62/S63 archive is superseded and must not be used.
 
-This corrected package contains exactly `S62A11T01-T05`. The adapter, validator, runner, full-run packager, and gain-sweep launcher now reject any extra `SubjectB_*.tsv` files. See `FINDINGS.md` for the numerical audit and interpretation.
+The clean full run identified gains `(145.046, 15.025, 14.962, 15.025)`, Pi `3.6922 deg`, and tau `0.23 s`. Stage 1 reconstructed the fitted data closely (`normalized loss = 0.007509`); Stage 3 increased it to `0.238906`, indicating a data-fit versus physics-refinement tradeoff.
+
+The sweep selects chunk 11, the Subject-A comparison gains `(120, 28, 14, 19)`, with normalized MSE `0.212552`. Relative to chunk 1, it improves theta error, x error, and the Stage-3 objective. S62 T02 still limits all-trial Wasserstein comparisons to 0.23 s, so longer-window sensitivity analysis is required before a final teacher claim. See `FINDINGS.md` for details.
 
 ## Inputs, orientation, and adapter
 
@@ -33,7 +35,7 @@ chmod +x run_on_mac.sh
 ./run_on_mac.sh build
 ./run_on_mac.sh input-check
 ./run_on_mac.sh smoke
-PYTHONUNBUFFERED=1 ./run_on_mac.sh full
+./run_on_mac.sh full
 ./run_on_mac.sh analyze
 ./run_on_mac.sh package
 ./run_on_mac.sh gain-sweep
