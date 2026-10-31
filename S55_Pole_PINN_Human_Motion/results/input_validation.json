@@ -15,82 +15,82 @@
   "trials": [
     {
       "trial": "S55A11T01",
-      "resampling_check": "scipy fallback (install resampy for exact check)",
-      "decoded_samples_100hz": 204,
+      "resampling_check": "resampy (exact pole loader method)",
+      "decoded_samples_100hz": 203,
       "usable_samples_after_20deg_rule": 147,
       "usable_duration_s": 1.46,
-      "theta0_deg": -3.122531339992602,
+      "theta0_deg": -3.048432714381049,
       "theta_range_deg_before_trim": [
-        -4.803948364229942,
-        68.2226000445008
+        -4.869458429323595,
+        69.91853291154271
       ],
       "centered_x_range_m_before_trim": [
-        -0.008911765102780606,
-        0.8482439314906475
+        -0.01009595079697255,
+        0.8675851530934959
       ]
     },
     {
       "trial": "S55A11T02",
-      "resampling_check": "scipy fallback (install resampy for exact check)",
-      "decoded_samples_100hz": 124,
+      "resampling_check": "resampy (exact pole loader method)",
+      "decoded_samples_100hz": 123,
       "usable_samples_after_20deg_rule": 54,
       "usable_duration_s": 0.53,
-      "theta0_deg": -2.0811326769744936,
+      "theta0_deg": -2.0284198268351346,
       "theta_range_deg_before_trim": [
-        -2.998052589795546,
-        59.6733299780461
+        -3.042869716755919,
+        61.15344733442668
       ],
       "centered_x_range_m_before_trim": [
-        -0.07791601080348767,
-        0.5939335543226523
+        -0.07864839446611292,
+        0.5960541781368326
       ]
     },
     {
       "trial": "S55A11T03",
-      "resampling_check": "scipy fallback (install resampy for exact check)",
-      "decoded_samples_100hz": 201,
+      "resampling_check": "resampy (exact pole loader method)",
+      "decoded_samples_100hz": 200,
       "usable_samples_after_20deg_rule": 136,
       "usable_duration_s": 1.35,
-      "theta0_deg": -4.515416862796303,
+      "theta0_deg": -4.409042610636082,
       "theta_range_deg_before_trim": [
-        -6.988207159019578,
-        71.22208420583138
+        -7.081403126918677,
+        72.20315988276441
       ],
       "centered_x_range_m_before_trim": [
-        -0.011969797738234561,
-        0.8499147297380316
+        -0.013245487766340644,
+        0.860480526569973
       ]
     },
     {
       "trial": "S55A11T04",
-      "resampling_check": "scipy fallback (install resampy for exact check)",
-      "decoded_samples_100hz": 208,
+      "resampling_check": "resampy (exact pole loader method)",
+      "decoded_samples_100hz": 207,
       "usable_samples_after_20deg_rule": 134,
       "usable_duration_s": 1.33,
-      "theta0_deg": -3.3166495817916277,
+      "theta0_deg": -3.237512527825481,
       "theta_range_deg_before_trim": [
-        -5.089603413890812,
-        82.25496931035515
+        -5.1594792035473365,
+        82.10523540082227
       ],
       "centered_x_range_m_before_trim": [
-        -0.01999932114322682,
-        1.157142544772619
+        -0.021117686516593903,
+        1.155171528817953
       ]
     },
     {
       "trial": "S55A11T05",
-      "resampling_check": "scipy fallback (install resampy for exact check)",
-      "decoded_samples_100hz": 234,
+      "resampling_check": "resampy (exact pole loader method)",
+      "decoded_samples_100hz": 233,
       "usable_samples_after_20deg_rule": 153,
       "usable_duration_s": 1.52,
-      "theta0_deg": -0.6440801879777013,
+      "theta0_deg": -0.6283730845158452,
       "theta_range_deg_before_trim": [
-        -0.9326719855400221,
-        69.91597902509476
+        -0.946081152885274,
+        69.92864999415286
       ],
       "centered_x_range_m_before_trim": [
-        -0.023287899231548146,
-        0.8054586939627534
+        -0.02349492139983819,
+        0.8255315063845023
       ]
     }
   ]
