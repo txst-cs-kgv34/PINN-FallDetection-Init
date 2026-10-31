@@ -4,11 +4,13 @@ This project runs Subject 57's manually marked A11 front-fall motion through the
 
 The core file `source/pinn_pole_synthetic_data_generation.py` is byte-identical to the S63 project and locked by `CORE_PIPELINE_LOCK.json` (SHA-256 `604985d2344350789929c3554f9ce4351b826f69be1dfe9dee0b20acb586e0a9`). The network, equations, losses, controller, delayed feedback, four stages, full-run epochs, 30-second horizon, and 100 generated trajectories are unchanged. Subject-specific Stage-3 gain-sweep code is included under `experiments/stage3_gain_sweep`.
 
-## Important correction after the first returned full run
+## Completed clean rerun and gain sweep
 
-The first returned full-run archive is not a clean S57 experiment. Its reconstruction table contains the three S57 trials plus five stale S63 trials, for 8 accepted trajectories and 1,021 pooled samples. Consequently, its identified gains, checkpoints, 100 generated falls, and distribution plots are mixed S57/S63 results and must not be used as the S57 baseline or as a gain-sweep teacher.
+The corrected rerun and all 11 gain chunks completed successfully with exactly `S57A11T03-T05` (609 measured samples). The first mixed S57/S63 archive is superseded and must not be used.
 
-This corrected package contains exactly `S57A11T03-T05`. The adapter, validator, runner, full-run packager, and gain-sweep launcher now reject any extra `SubjectB_*.tsv` files. See `FINDINGS.md` for the numerical audit and interpretation.
+The clean full run identified gains `(145.061, 15.056, 5.063, 15.057)`, Pi `3.6295 deg`, and tau `0.23 s`. Stage 1 reconstructed the fitted data closely (`normalized loss = 0.002222`), but Stage 3 increased it to `1.269441`, showing a large data-fit versus physics-refinement tradeoff.
+
+The sweep's primary combined reconstruction metric selects chunk 10, the Subject-B endpoint `(240, 30, 13, 30)`, with normalized MSE `1.098801`. Relative to chunk 1, it improves x error but worsens theta error and the Stage-3 objective, so it is not a universally superior control set. See `FINDINGS.md` for the full numerical interpretation and teacher-selection cautions.
 
 ## Inputs and adapter
 
