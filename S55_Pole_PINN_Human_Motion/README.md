@@ -1,55 +1,64 @@
 # S55 Pole PINN Human Motion
 
-This project runs Subject 55's five manually phase-marked A11 front-fall trials through the same four-stage pole-balancing PINN used for the earlier subjects. S55 is male, 145 lb (65.7709 kg), and 5 ft 5 in (1.6510 m).
-
-The project contains both:
-
-- the complete pole-PINN pipeline that identifies the controller and generates 100 synthetic trajectories; and
-- `experiments/stage3_gain_sweep`, which runs the later 11-chunk fixed-gain experiment.
+This project runs Subject 55's five manually phase-marked A11 front-fall trials through the unchanged pole-balancing PINN and includes the 11-chunk Stage-3 fixed-gain sweep. S55 is male, 145 lb (65.7709 kg), and 5 ft 5 in (1.6510 m).
 
 ## Subject-only input guarantee
 
-Only these files are included and accepted:
+Only `S55A11T01.csv` through `S55A11T05.csv` are included and accepted. They came from `S55_PINN_audit/repaired_data/S55`; the repair manifests report zero repaired rows for all five A11 trials. The adapter and both launchers verify the exact five-file inventory and stop on missing or extra data. The retained `SubjectB_` TSV prefix is only the original loader's naming contract; every input is S55.
 
-- `S55A11T01.csv`
-- `S55A11T02.csv`
-- `S55A11T03.csv`
-- `S55A11T04.csv`
-- `S55A11T05.csv`
-
-They were copied from `S55_PINN_audit/repaired_data/S55`. The audit repair manifests report `repaired_rows = 0` for all five A11 trials. The repaired audit layer is still used for consistent provenance, but no S55 A11 coordinates were filled or interpolated.
-
-The build preflight requires the raw inventory to match those five filenames exactly. The adapter, full-run launcher, and gain-sweep launcher also compare the expected and actual `SubjectB_*.tsv` inventories and stop on any missing or extra file. The `SubjectB_` prefix is only the preserved loader filename contract; every packaged TSV contains S55 data.
-
-## Preserved pipeline
-
-`source/pinn_pole_synthetic_data_generation.py` is byte-identical to the validated S43/S57/S62/S63 core and is locked by `CORE_PIPELINE_LOCK.json`:
+The unchanged core is locked to SHA-256:
 
 ```text
 604985d2344350789929c3554f9ce4351b826f69be1dfe9dee0b20acb586e0a9
 ```
 
-The network architecture, equations, losses, controller, delayed feedback, training schedules, 30-second generation horizon, and 100-trajectory output are unchanged. Subject-specific work is confined to the S55 data, demographics, manual phases, adapter, paths, validation, and the documented input-duration gate.
+## Accepted motion windows
 
-The adapter derives a fixed body coordinate frame from each trial's marked standing pose. Whole-body CoM is calculated with the male segment-mass model. Human theta and forward x are represented relative to the fixed foot midpoint at fall onset, then encoded into the unchanged six-column pole loader format.
+| Trial | Samples at 100 Hz | Duration | Initial theta |
+|:---|---:|---:|---:|
+| S55A11T01 | 147 | 1.46 s | -3.048 deg |
+| S55A11T02 | 54 | 0.53 s | -2.028 deg |
+| S55A11T03 | 136 | 1.35 s | -4.409 deg |
+| S55A11T04 | 134 | 1.33 s | -3.238 deg |
+| S55A11T05 | 153 | 1.52 s | -0.628 deg |
 
-## Validated input windows
+The five trials provide 624 measured samples. The 0.50-second eligibility gate retains short trial T02 without padding.
 
-After the original loader's preprocessing and pre-20° cutoff:
+## Completed full-run result
 
-| Trial | Usable samples at 100 Hz | Usable duration |
-|---|---:|---:|
-| S55A11T01 | 147 | 1.46 s |
-| S55A11T02 | 54 | 0.53 s |
-| S55A11T03 | 136 | 1.35 s |
-| S55A11T04 | 134 | 1.33 s |
-| S55A11T05 | 153 | 1.52 s |
+The clean run identified:
 
-`config/S55_runtime_overrides.json` sets `minimum_trial_seconds` to 0.50 so all five manually accepted trials remain eligible without padding.
+| Parameter | Value |
+|:---|---:|
+| `Kp_theta` | 145.145752 |
+| `Kd_theta` | 15.052888 |
+| `Kp_x` | 5.059635 |
+| `Kd_x` | 15.053013 |
+| `Pi` | 3.625025 deg |
+| `tau` | 0.23 s |
 
-## Run on the MacBook
+| Checkpoint | Normalized MSE | Theta RMSE | x RMSE |
+|:---|---:|---:|---:|
+| Stage 1 | 0.002987 | 0.7108 deg | 1.1668 cm |
+| Stage 3/final | 0.483574 | 9.6187 deg | 14.4815 cm |
 
-The launchers use the existing home virtual environment at `~/.venv/bin/activate`.
+Stage 1 reconstructs the measured windows well. Stage 3 is substantially worse on the time-aligned reconstruction, especially for T01, T03, and T04. The 100 requested synthetic trajectories were generated and are finite, but all first cross 20 degrees at 4.84-5.15 s, well beyond the 0.53-1.52 s measured support. They should therefore be treated as model extrapolations, not validated 30-second human falls. See `FINDINGS.md` for the full interpretation.
+
+## Completed gain-sweep result
+
+All 11 chunks completed. Ranked by pooled normalized MSE, chunk 5 is best:
+
+| Rank | Chunk | Gain source | Normalized MSE | Theta MSE | x MSE |
+|---:|---:|:---|---:|---:|---:|
+| 1 | 5 | 44.4% interpolation | **0.430774** | 94.059 deg^2 | **175.175 cm^2** |
+| 2 | 10 | Subject-B endpoint | 0.433449 | 94.779 deg^2 | 176.127 cm^2 |
+| 3 | 8 | 77.8% interpolation | 0.438054 | 92.794 deg^2 | 180.990 cm^2 |
+
+Chunk 5 improves normalized MSE by 5.52% and x MSE by 9.24% relative to chunk 1, but its theta MSE is 2.30% higher. Chunk 11 has the best theta MSE and the lowest training objective, yet ranks last on the combined metric because of its large x error. The full 11-row ranking and metric-specific winners are in `experiments/stage3_gain_sweep/FINDINGS.md`.
+
+## Run on macOS
+
+The launchers activate the existing home environment at `~/.venv/bin/activate`.
 
 ```bash
 cd S55_Pole_PINN_Human_Motion
@@ -59,34 +68,12 @@ chmod +x run_on_mac.sh experiments/stage3_gain_sweep/run_on_mac.sh experiments/s
 ./run_on_mac.sh build
 ./run_on_mac.sh input-check
 ./run_on_mac.sh smoke
-```
-
-The smoke run is only a wiring test. For the real experiment:
-
-```bash
 ./run_on_mac.sh full
 ./run_on_mac.sh analyze
 ./run_on_mac.sh package
-```
 
-Both smoke and full modes stream logs to the terminal through `tee` and save copies under `results/`.
-
-## Run the gain sweep
-
-The gain sweep requires the completed clean full run because chunks 1–10 start from the S55-identified controller and every chunk restores the same S55 Stage-1 checkpoint.
-
-```bash
 ./run_on_mac.sh gain-sweep
 ./run_on_mac.sh gain-sweep-package
 ```
 
-See `experiments/stage3_gain_sweep/README.md` for the chunk definitions and metrics.
-
-## Files to return
-
-Please return both:
-
-1. `S55_Pole_PINN_full_run_results.zip`
-2. `S55_Stage3_Gain_Sweep_Results.zip`
-
-The gain sweep should only be started after the clean S55 full run succeeds.
+Both full and sweep launchers stream output through `tee` and also save logs under their result directories.
