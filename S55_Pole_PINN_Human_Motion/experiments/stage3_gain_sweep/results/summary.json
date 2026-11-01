@@ -1,0 +1,127 @@
+{
+  "subject": "S55",
+  "completed_chunks": 11,
+  "expected_chunks": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "ranking_metric": "pooled normalized MSE on the same 624 measured samples",
+  "best_chunk": {
+    "chunk": 5,
+    "alpha": 0.4444444444444444,
+    "kp_theta": 187.30319552951389,
+    "kd_theta": 21.69604884253608,
+    "kp_x": 8.588685936397976,
+    "kd_x": 21.69611824883355,
+    "subject": "S55",
+    "fixed_pi_deg": 3.625025144901772,
+    "fixed_tau_s": 0.23,
+    "stage3_epochs": 5000,
+    "stage3_batch_size": 4096,
+    "stage3_best_objective": 2246.7666015625,
+    "trial": "POOLED",
+    "samples": 624,
+    "theta_mse_deg2": 94.05874633789062,
+    "theta_rmse_deg": 9.698389053344727,
+    "theta_mae_deg": 6.336817264556885,
+    "x_mse_cm2": 175.17532348632812,
+    "x_rmse_cm": 13.235381126403809,
+    "x_mae_cm": 8.629801750183105,
+    "normalized_mse": 0.4307744801044464,
+    "common_window_end_s": 0.52,
+    "theta_pooled_w1_deg": 0.8376486663901144,
+    "x_pooled_w1_cm": 0.9598695501188054,
+    "theta_time_mean_w1_deg": 1.3456021072257336,
+    "x_time_mean_w1_cm": 1.8220763074925241,
+    "theta_time_mean_absolute_mean_difference_deg": 0.9222540762814824,
+    "x_time_mean_absolute_mean_difference_cm": 1.6607972035610357
+  },
+  "ranked_chunks": [
+    {
+      "rank": 1,
+      "chunk": 5,
+      "normalized_mse": 0.4307744801044464,
+      "theta_mse_deg2": 94.05874633789062,
+      "x_mse_cm2": 175.17532348632812
+    },
+    {
+      "rank": 2,
+      "chunk": 10,
+      "normalized_mse": 0.43344929814338684,
+      "theta_mse_deg2": 94.77880859375,
+      "x_mse_cm2": 176.12698364257812
+    },
+    {
+      "rank": 3,
+      "chunk": 8,
+      "normalized_mse": 0.4380538761615753,
+      "theta_mse_deg2": 92.79400634765625,
+      "x_mse_cm2": 180.98963928222656
+    },
+    {
+      "rank": 4,
+      "chunk": 9,
+      "normalized_mse": 0.4416140913963318,
+      "theta_mse_deg2": 94.55315399169922,
+      "x_mse_cm2": 181.45565795898438
+    },
+    {
+      "rank": 5,
+      "chunk": 7,
+      "normalized_mse": 0.4512184262275696,
+      "theta_mse_deg2": 92.61509704589844,
+      "x_mse_cm2": 189.3964385986328
+    },
+    {
+      "rank": 6,
+      "chunk": 4,
+      "normalized_mse": 0.4520355463027954,
+      "theta_mse_deg2": 93.03687286376953,
+      "x_mse_cm2": 189.4853515625
+    },
+    {
+      "rank": 7,
+      "chunk": 1,
+      "normalized_mse": 0.4559193253517151,
+      "theta_mse_deg2": 91.94144439697266,
+      "x_mse_cm2": 193.0081329345703
+    },
+    {
+      "rank": 8,
+      "chunk": 6,
+      "normalized_mse": 0.4594893157482147,
+      "theta_mse_deg2": 90.97845458984375,
+      "x_mse_cm2": 196.2023162841797
+    },
+    {
+      "rank": 9,
+      "chunk": 3,
+      "normalized_mse": 0.46848878264427185,
+      "theta_mse_deg2": 89.86907196044922,
+      "x_mse_cm2": 202.9364013671875
+    },
+    {
+      "rank": 10,
+      "chunk": 2,
+      "normalized_mse": 0.480435311794281,
+      "theta_mse_deg2": 91.71743774414062,
+      "x_mse_cm2": 208.55458068847656
+    },
+    {
+      "rank": 11,
+      "chunk": 11,
+      "normalized_mse": 0.49921679496765137,
+      "theta_mse_deg2": 87.12010192871094,
+      "x_mse_cm2": 224.890380859375
+    }
+  ]
+}
