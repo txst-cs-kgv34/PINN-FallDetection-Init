@@ -1,0 +1,180 @@
+{
+  "aggregation_unit": "held-out test subject; every subject contributes exactly once",
+  "experiment": "five_subject_deeponet_leave_two_out_v1",
+  "fold_count": 5,
+  "limitations": [
+    "Five subjects make this a pilot generalization study.",
+    "Validation and test use real trajectories; training uses only three subjects' PINN trajectories per fold.",
+    "Trials shorter than the fixed 0.40-second four-window context are excluded and listed in the real-data manifest."
+  ],
+  "metrics": {
+    "deeponet": {
+      "normalized_mse": {
+        "mean_across_test_subjects": 0.7782109081745148,
+        "std_across_test_subjects": 0.7990021704796069,
+        "values_by_test_subject": {
+          "S43": 0.37599727511405945,
+          "S55": 0.6273279786109924,
+          "S57": 2.1898903846740723,
+          "S62": 0.41078686714172363,
+          "S63": 0.2870520353317261
+        }
+      },
+      "theta_mae_deg": {
+        "mean_across_test_subjects": 8.991800117492676,
+        "std_across_test_subjects": 3.191258007793913,
+        "values_by_test_subject": {
+          "S43": 5.7543559074401855,
+          "S55": 8.525507926940918,
+          "S57": 14.094917297363281,
+          "S62": 9.520339965820312,
+          "S63": 7.063879489898682
+        }
+      },
+      "theta_rmse_deg": {
+        "mean_across_test_subjects": 11.619963836669921,
+        "std_across_test_subjects": 3.482265771206151,
+        "values_by_test_subject": {
+          "S43": 8.902691841125488,
+          "S55": 10.842122077941895,
+          "S57": 17.06961441040039,
+          "S62": 12.75306224822998,
+          "S63": 8.532328605651855
+        }
+      },
+      "theta_w1_deg": {
+        "mean_across_test_subjects": 7.811516762197374,
+        "std_across_test_subjects": 2.7594271570128144,
+        "values_by_test_subject": {
+          "S43": 4.629067782565402,
+          "S55": 6.240383264362673,
+          "S57": 11.603913714195047,
+          "S62": 9.520339453478158,
+          "S63": 7.0638795963855925
+        }
+      },
+      "x_mae_cm": {
+        "mean_across_test_subjects": 12.987336665391922,
+        "std_across_test_subjects": 7.035346781913831,
+        "values_by_test_subject": {
+          "S43": 10.225030779838562,
+          "S55": 13.494503498077393,
+          "S57": 24.93877410888672,
+          "S62": 7.784993201494217,
+          "S63": 8.49338173866272
+        }
+      },
+      "x_rmse_cm": {
+        "mean_across_test_subjects": 16.37930601835251,
+        "std_across_test_subjects": 9.57703136924932,
+        "values_by_test_subject": {
+          "S43": 12.479598075151443,
+          "S55": 16.568899154663086,
+          "S57": 32.822394371032715,
+          "S62": 9.700577706098557,
+          "S63": 10.325060784816742
+        }
+      },
+      "x_w1_cm": {
+        "mean_across_test_subjects": 10.508000300264275,
+        "std_across_test_subjects": 6.447586009676942,
+        "values_by_test_subject": {
+          "S43": 8.623922634812088,
+          "S55": 9.193916620210008,
+          "S57": 21.580902799532574,
+          "S62": 4.6478774039972555,
+          "S63": 8.493382042769444
+        }
+      }
+    },
+    "mean_gain_baseline": {
+      "normalized_mse": {
+        "mean_across_test_subjects": 0.7290166556835175,
+        "std_across_test_subjects": 0.6016737201863926,
+        "values_by_test_subject": {
+          "S43": 0.44727781414985657,
+          "S55": 0.627131462097168,
+          "S57": 1.7907527685165405,
+          "S62": 0.41326433420181274,
+          "S63": 0.3666568994522095
+        }
+      },
+      "theta_mae_deg": {
+        "mean_across_test_subjects": 8.886393451690674,
+        "std_across_test_subjects": 3.032929248233951,
+        "values_by_test_subject": {
+          "S43": 5.500970363616943,
+          "S55": 8.527180671691895,
+          "S57": 13.556498527526855,
+          "S62": 9.641523361206055,
+          "S63": 7.205794334411621
+        }
+      },
+      "theta_rmse_deg": {
+        "mean_across_test_subjects": 11.40052146911621,
+        "std_across_test_subjects": 3.278709486044575,
+        "values_by_test_subject": {
+          "S43": 8.429606437683105,
+          "S55": 10.843470573425293,
+          "S57": 16.27178382873535,
+          "S62": 12.877324104309082,
+          "S63": 8.580422401428223
+        }
+      },
+      "theta_w1_deg": {
+        "mean_across_test_subjects": 7.64846862860684,
+        "std_across_test_subjects": 2.752582189003075,
+        "values_by_test_subject": {
+          "S43": 4.10278376916991,
+          "S55": 6.240283429394212,
+          "S57": 11.051958181417277,
+          "S62": 9.641523233294132,
+          "S63": 7.205794529758667
+        }
+      },
+      "x_mae_cm": {
+        "mean_across_test_subjects": 13.435636460781097,
+        "std_across_test_subjects": 6.301397313420002,
+        "values_by_test_subject": {
+          "S43": 11.71756237745285,
+          "S55": 13.476786017417908,
+          "S57": 24.06032532453537,
+          "S62": 7.74485170841217,
+          "S63": 10.178656876087189
+        }
+      },
+      "x_rmse_cm": {
+        "mean_across_test_subjects": 16.464354395866394,
+        "std_across_test_subjects": 7.581934250594552,
+        "values_by_test_subject": {
+          "S43": 14.439195394515991,
+          "S55": 16.56430810689926,
+          "S57": 29.230967164039612,
+          "S62": 9.615857154130936,
+          "S63": 12.47144415974617
+        }
+      },
+      "x_w1_cm": {
+        "mean_across_test_subjects": 9.719969286455528,
+        "std_across_test_subjects": 3.473334580859553,
+        "values_by_test_subject": {
+          "S43": 10.639382007330674,
+          "S55": 9.217647690798227,
+          "S57": 14.107257767246201,
+          "S62": 4.456902538123607,
+          "S63": 10.178656428778936
+        }
+      }
+    }
+  },
+  "mode": "full",
+  "percent_improvement_over_training_mean_gain_baseline": {
+    "normalized_mse": -6.748028609150684,
+    "theta_mae_deg": -1.186157988333819,
+    "theta_rmse_deg": -1.9248450007148885,
+    "theta_w1_deg": -2.131774888645037,
+    "x_mae_cm": 3.3366472567025154,
+    "x_rmse_cm": 0.5165606586750713,
+    "x_w1_cm": -8.107340574695465
+  }
+}
