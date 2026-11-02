@@ -1,0 +1,104 @@
+{
+  "experiment_name": "five_subject_deeponet_experiment2_direct_unified_physics_v1",
+  "model_id": "B",
+  "display_name": "Model B — direct unified physics DeepONet",
+  "training_regime": "direct_physics",
+  "requires_teachers": false,
+  "training_sources": ["real"],
+  "result_archive": "Five_Subject_DeepONet_Experiment2_Results.zip",
+  "seed": 20261101,
+  "split_seed": 220,
+  "randomized_subject_order": ["S43", "S63", "S55", "S57", "S62"],
+  "subjects": [
+    {
+      "id": "S43",
+      "real_data_glob": "../S43_Pole_PINN_Human_Motion/data/pole_compatible/A11/SubjectB_S43A11T*.tsv",
+      "mass_lb": 130.0,
+      "height_in": 64.0
+    },
+    {
+      "id": "S63",
+      "real_data_glob": "../S63_Pole_PINN_Human_Motion/data/pole_compatible/A11/SubjectB_S63A11T*.tsv",
+      "mass_lb": 180.0,
+      "height_in": 66.0
+    },
+    {
+      "id": "S55",
+      "real_data_glob": "../S55_Pole_PINN_Human_Motion/data/pole_compatible/A11/SubjectB_S55A11T*.tsv",
+      "mass_lb": 145.0,
+      "height_in": 65.0
+    },
+    {
+      "id": "S57",
+      "real_data_glob": "../S57_Pole_PINN_Human_Motion/data/pole_compatible/A11/SubjectB_S57A11T*.tsv",
+      "mass_lb": 180.0,
+      "height_in": 68.0
+    },
+    {
+      "id": "S62",
+      "real_data_glob": "../S62_Pole_PINN_Human_Motion/data/pole_compatible/A11/SubjectB_S62A11T*.tsv",
+      "mass_lb": 155.0,
+      "height_in": 64.0
+    }
+  ],
+  "folds": [
+    {"id": 1, "train": ["S55", "S57", "S62"], "validation": "S63", "test": "S43"},
+    {"id": 2, "train": ["S43", "S57", "S62"], "validation": "S55", "test": "S63"},
+    {"id": 3, "train": ["S43", "S63", "S62"], "validation": "S57", "test": "S55"},
+    {"id": 4, "train": ["S43", "S63", "S55"], "validation": "S62", "test": "S57"},
+    {"id": 5, "train": ["S63", "S55", "S57"], "validation": "S43", "test": "S62"}
+  ],
+  "data": {
+    "horizon_s": 3.0,
+    "sample_rate_hz": 100
+  },
+  "real_data": {
+    "raw_warmup_rows": 1024,
+    "source_rate_hz": 250,
+    "target_rate_hz": 100,
+    "fall_angle_deg": 20.0,
+    "prefall_margin_s": 0.08,
+    "derivative_fit_samples": 11,
+    "minimum_context_duration_s": 0.40
+  },
+  "model": {
+    "latent_width": 96,
+    "context_embedding": 96,
+    "fourier_modes": 12,
+    "context_windows": 4,
+    "context_window_s": 0.10,
+    "context_region_s": 0.40,
+    "controller_semantics": "physical_gains",
+    "controller_uncertainty_trained": false,
+    "gain_scale": [250.0, 30.0, 20.0, 30.0],
+    "theta_scale_rad": 0.4363323129985824,
+    "x_scale_m": 0.25
+  },
+  "training": {
+    "epochs": 800,
+    "real_batch_size": 4,
+    "synthetic_batch_size": 12,
+    "learning_rate": 0.0005,
+    "weight_decay": 0.000001,
+    "early_stopping_patience": 100,
+    "use_physics": true,
+    "data_weight": 1.0,
+    "gain_weight": 0.0,
+    "consistency_weight": 0.0,
+    "physics_weight": 0.01,
+    "physics_every_batches": 1,
+    "real_source_weight": 1.0,
+    "synthetic_source_weight": 0.0,
+    "gradient_clip_norm": 5.0
+  },
+  "physics": {
+    "stick_mass_kg": 0.0138,
+    "effective_cart_mass_kg": 1.0,
+    "stick_length_m": 0.57,
+    "gravity_m_s2": 9.81,
+    "deadzone_sharpness": 50.0,
+    "fixed_pi_rad": 0.0635,
+    "fixed_tau_s": 0.23
+  }
+}
+
