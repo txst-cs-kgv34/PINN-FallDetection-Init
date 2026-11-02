@@ -1,0 +1,98 @@
+{
+  "aggregation_unit": "held-out test subject; every subject contributes exactly once",
+  "display_name": "Model B \u2014 direct unified physics DeepONet",
+  "experiment": "five_subject_deeponet_experiment2_direct_unified_physics_v1",
+  "fold_count": 5,
+  "limitations": [
+    "Five subjects make this a pilot generalization study.",
+    "Every checkpoint is selected only on a real validation subject.",
+    "Trials shorter than the fixed 0.40-second context are excluded before fitting.",
+    "Optimization-seed uncertainty requires repeated full runs with different seeds."
+  ],
+  "metrics": {
+    "normalized_mse": {
+      "mean_across_test_subjects": 0.23362144827842712,
+      "std_across_test_subjects": 0.05937427103297502,
+      "values_by_test_subject": {
+        "S43": 0.32204821705818176,
+        "S55": 0.169148787856102,
+        "S57": 0.24402126669883728,
+        "S62": 0.24315540492534637,
+        "S63": 0.1897335648536682
+      }
+    },
+    "theta_mae_deg": {
+      "mean_across_test_subjects": 5.162041139602661,
+      "std_across_test_subjects": 1.4559288854228076,
+      "values_by_test_subject": {
+        "S43": 7.238509654998779,
+        "S55": 3.592231512069702,
+        "S57": 4.228859901428223,
+        "S62": 5.984032154083252,
+        "S63": 4.76657247543335
+      }
+    },
+    "theta_rmse_deg": {
+      "mean_across_test_subjects": 6.844000720977784,
+      "std_across_test_subjects": 1.7102613873254084,
+      "values_by_test_subject": {
+        "S43": 9.29194164276123,
+        "S55": 5.233695983886719,
+        "S57": 5.979848861694336,
+        "S62": 7.9452314376831055,
+        "S63": 5.769285678863525
+      }
+    },
+    "theta_w1_deg": {
+      "mean_across_test_subjects": 3.7864666610497437,
+      "std_across_test_subjects": 2.3695297433108453,
+      "values_by_test_subject": {
+        "S43": 7.2035328574474145,
+        "S55": 1.6274496675732562,
+        "S57": 1.5150626061997494,
+        "S62": 3.819715823862106,
+        "S63": 4.766572350166191
+      }
+    },
+    "x_mae_cm": {
+      "mean_across_test_subjects": 7.403009012341499,
+      "std_across_test_subjects": 0.7503667334102614,
+      "values_by_test_subject": {
+        "S43": 8.14211517572403,
+        "S55": 6.174717471003532,
+        "S57": 7.7320486307144165,
+        "S62": 7.287976145744324,
+        "S63": 7.6781876385211945
+      }
+    },
+    "x_rmse_cm": {
+      "mean_across_test_subjects": 9.807610660791397,
+      "std_across_test_subjects": 0.8970950961394678,
+      "values_by_test_subject": {
+        "S43": 10.721004754304886,
+        "S55": 8.850221335887909,
+        "S57": 10.805308818817139,
+        "S62": 9.425783157348633,
+        "S63": 9.23573523759842
+      }
+    },
+    "x_w1_cm": {
+      "mean_across_test_subjects": 5.043908440212394,
+      "std_across_test_subjects": 2.535593370146471,
+      "values_by_test_subject": {
+        "S43": 7.938319708206676,
+        "S55": 3.2044401074351105,
+        "S57": 2.874439153613633,
+        "S62": 3.5241553497316866,
+        "S63": 7.678187882074864
+      }
+    }
+  },
+  "mode": "full",
+  "model_id": "B",
+  "physics_loss_enabled": true,
+  "training_regime": "direct_physics",
+  "training_sources": [
+    "real"
+  ]
+}
