@@ -242,6 +242,30 @@ It includes code, teacher and real-data provenance manifests, logs, selected
 model states, test predictions, metrics, and cross-fold summaries. Prepared raw
 arrays are excluded unless `package_results.py --include-arrays` is requested.
 
+## Completed full-run and four-model result
+
+All five hybrid folds and the A/B/C/D comparison completed. Model D improved
+substantially over synthetic-only Model C, but it did not outperform direct
+real+physics Model B.
+
+| Model | Normalized MSE | Theta RMSE (deg) | x RMSE (cm) |
+|:---|---:|---:|---:|
+| A — real data-only | 0.408 | 7.636 | 13.362 |
+| **B — direct real + physics** | **0.234** | **6.844** | **9.808** |
+| C — subject-PINN distillation | 0.778 | 11.620 | 16.379 |
+| D — hybrid | 0.474 | 7.333 | 14.337 |
+
+Relative to C, D reduced normalized MSE by 39.09%, theta RMSE by 36.89%, and
+x RMSE by 12.47%. Relative to B, however, D was worse by 50.71% in normalized
+MSE, 6.67% in theta RMSE, and 31.59% in x RMSE. S57 remained the decisive hybrid
+failure: normalized MSE 1.212 and x RMSE 23.798 cm.
+
+The main result is therefore that real trajectories and explicit physics worked
+best when trained directly. Adding the current synthetic-teacher objective did
+not improve the direct model and reintroduced synthetic-to-real instability.
+See `FINDINGS.md` for all seven metrics, subject-level tables, gain diagnostics,
+and interpretation limits.
+
 ## Four-model interpretation
 
 | Comparison | Interpretation |
