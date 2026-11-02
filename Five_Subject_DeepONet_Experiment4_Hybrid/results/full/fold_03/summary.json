@@ -1,0 +1,38 @@
+{
+  "checkpoint_selected_only_on_real_validation_subject": true,
+  "context_region_s": 0.4,
+  "display_name": "Model D \u2014 hybrid real + subject-PINN DeepONet",
+  "experiment_name": "five_subject_deeponet_experiment4_hybrid_v1",
+  "fold": 3,
+  "four_window_context": true,
+  "model_id": "D",
+  "physics_loss_enabled": true,
+  "test_forecast_sample_count": 424,
+  "test_pooled_metrics": {
+    "normalized_mse": 0.2223449945449829,
+    "theta_mae_deg": 2.2109456062316895,
+    "theta_rmse_deg": 3.459390163421631,
+    "theta_w1_deg": 1.2634131378716051,
+    "x_mae_cm": 8.400297909975052,
+    "x_rmse_cm": 11.269349604845047,
+    "x_w1_cm": 7.8230502319693525
+  },
+  "test_subject": "S55",
+  "test_trial_count": 5,
+  "test_trial_mean_metrics": {
+    "normalized_mse": 0.2084692746400833,
+    "theta_mae_deg": 2.583524990081787,
+    "theta_rmse_deg": 3.525879144668579,
+    "theta_w1_deg": 2.5795712032769003,
+    "x_mae_cm": 8.285857513546944,
+    "x_rmse_cm": 10.294549390673637,
+    "x_w1_cm": 8.188178760064842
+  },
+  "train_subjects": [
+    "S43",
+    "S63",
+    "S62"
+  ],
+  "training_regime": "hybrid",
+  "validation_subject": "S57"
+}

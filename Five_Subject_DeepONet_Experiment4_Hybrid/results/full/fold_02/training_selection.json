@@ -1,0 +1,7 @@
+{
+  "best_epoch": 74,
+  "best_validation_value": 0.18708798456937076,
+  "selection_metric": "real validation-subject forecast normalized MSE",
+  "test_subject_used_for_selection": false,
+  "training_regime": "hybrid"
+}
