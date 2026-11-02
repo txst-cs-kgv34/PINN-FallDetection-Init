@@ -1,0 +1,38 @@
+{
+  "checkpoint_selected_only_on_real_validation_subject": true,
+  "context_region_s": 0.4,
+  "display_name": "Model A \u2014 real data-only DeepONet",
+  "experiment_name": "five_subject_deeponet_experiment3_real_data_only_v1",
+  "fold": 2,
+  "four_window_context": true,
+  "model_id": "A",
+  "physics_loss_enabled": false,
+  "test_forecast_sample_count": 218,
+  "test_pooled_metrics": {
+    "normalized_mse": 0.21388454735279083,
+    "theta_mae_deg": 4.727750301361084,
+    "theta_rmse_deg": 6.179563999176025,
+    "theta_w1_deg": 4.602794324449443,
+    "x_mae_cm": 7.588231563568115,
+    "x_rmse_cm": 9.771940857172012,
+    "x_w1_cm": 7.521809467652795
+  },
+  "test_subject": "S63",
+  "test_trial_count": 4,
+  "test_trial_mean_metrics": {
+    "normalized_mse": 0.20571420341730118,
+    "theta_mae_deg": 4.590566635131836,
+    "theta_rmse_deg": 5.8155288100242615,
+    "theta_w1_deg": 4.494649430228707,
+    "x_mae_cm": 7.451298087835312,
+    "x_rmse_cm": 9.285782929509878,
+    "x_w1_cm": 7.400311562580471
+  },
+  "train_subjects": [
+    "S43",
+    "S57",
+    "S62"
+  ],
+  "training_regime": "real_data_only",
+  "validation_subject": "S55"
+}
