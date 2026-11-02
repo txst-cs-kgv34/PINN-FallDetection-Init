@@ -1,0 +1,200 @@
+{
+  "experiment_name": "five_subject_deeponet_experiment4_hybrid_v1",
+  "model_id": "D",
+  "display_name": "Model D — hybrid real + subject-PINN DeepONet",
+  "training_regime": "hybrid",
+  "requires_teachers": true,
+  "training_sources": [
+    "real",
+    "subject_pinn_synthetic"
+  ],
+  "result_archive": "Five_Subject_DeepONet_Experiment4_Results.zip",
+  "seed": 20261101,
+  "split_seed": 220,
+  "randomized_subject_order": [
+    "S43",
+    "S63",
+    "S55",
+    "S57",
+    "S62"
+  ],
+  "subjects": [
+    {
+      "id": "S43",
+      "teacher_id": "s43_chunk1",
+      "selected_chunk": 1,
+      "checkpoint": "../S43_Pole_PINN_Human_Motion/experiments/stage3_gain_sweep/results/chunk_01/stage3_best.weights.h5",
+      "gain_result": "../S43_Pole_PINN_Human_Motion/experiments/stage3_gain_sweep/results/chunk_01/result.json",
+      "pipeline_source": "../S43_Pole_PINN_Human_Motion/source/pinn_pole_synthetic_data_generation.py",
+      "real_data_glob": "../S43_Pole_PINN_Human_Motion/data/pole_compatible/A11/SubjectB_S43A11T*.tsv",
+      "mass_lb": 130,
+      "height_in": 64
+    },
+    {
+      "id": "S63",
+      "teacher_id": "s63_chunk6",
+      "selected_chunk": 6,
+      "checkpoint": "../S63_Pole_PINN_Human_Motion/experiments/stage3_gain_sweep/results/chunk_06/stage3_best.weights.h5",
+      "gain_result": "../S63_Pole_PINN_Human_Motion/experiments/stage3_gain_sweep/results/chunk_06/result.json",
+      "pipeline_source": "../S63_Pole_PINN_Human_Motion/source/pinn_pole_synthetic_data_generation.py",
+      "real_data_glob": "../S63_Pole_PINN_Human_Motion/data/pole_compatible/A11/SubjectB_S63A11T*.tsv",
+      "mass_lb": 180,
+      "height_in": 66
+    },
+    {
+      "id": "S55",
+      "teacher_id": "s55_chunk5",
+      "selected_chunk": 5,
+      "checkpoint": "../S55_Pole_PINN_Human_Motion/experiments/stage3_gain_sweep/results/chunk_05/stage3_best.weights.h5",
+      "gain_result": "../S55_Pole_PINN_Human_Motion/experiments/stage3_gain_sweep/results/chunk_05/result.json",
+      "pipeline_source": "../S55_Pole_PINN_Human_Motion/source/pinn_pole_synthetic_data_generation.py",
+      "real_data_glob": "../S55_Pole_PINN_Human_Motion/data/pole_compatible/A11/SubjectB_S55A11T*.tsv",
+      "mass_lb": 145,
+      "height_in": 65
+    },
+    {
+      "id": "S57",
+      "teacher_id": "s57_chunk9",
+      "selected_chunk": 9,
+      "checkpoint": "../S57_Pole_PINN_Human_Motion/experiments/stage3_gain_sweep/results/chunk_09/stage3_best.weights.h5",
+      "gain_result": "../S57_Pole_PINN_Human_Motion/experiments/stage3_gain_sweep/results/chunk_09/result.json",
+      "pipeline_source": "../S57_Pole_PINN_Human_Motion/source/pinn_pole_synthetic_data_generation.py",
+      "real_data_glob": "../S57_Pole_PINN_Human_Motion/data/pole_compatible/A11/SubjectB_S57A11T*.tsv",
+      "mass_lb": 180,
+      "height_in": 68
+    },
+    {
+      "id": "S62",
+      "teacher_id": "s62_chunk1",
+      "selected_chunk": 1,
+      "checkpoint": "../S62_Pole_PINN_Human_Motion/experiments/stage3_gain_sweep/results/chunk_01/stage3_best.weights.h5",
+      "gain_result": "../S62_Pole_PINN_Human_Motion/experiments/stage3_gain_sweep/results/chunk_01/result.json",
+      "pipeline_source": "../S62_Pole_PINN_Human_Motion/source/pinn_pole_synthetic_data_generation.py",
+      "real_data_glob": "../S62_Pole_PINN_Human_Motion/data/pole_compatible/A11/SubjectB_S62A11T*.tsv",
+      "mass_lb": 155,
+      "height_in": 64
+    }
+  ],
+  "folds": [
+    {
+      "id": 1,
+      "train": [
+        "S55",
+        "S57",
+        "S62"
+      ],
+      "validation": "S63",
+      "test": "S43"
+    },
+    {
+      "id": 2,
+      "train": [
+        "S43",
+        "S57",
+        "S62"
+      ],
+      "validation": "S55",
+      "test": "S63"
+    },
+    {
+      "id": 3,
+      "train": [
+        "S43",
+        "S63",
+        "S62"
+      ],
+      "validation": "S57",
+      "test": "S55"
+    },
+    {
+      "id": 4,
+      "train": [
+        "S43",
+        "S63",
+        "S55"
+      ],
+      "validation": "S62",
+      "test": "S57"
+    },
+    {
+      "id": 5,
+      "train": [
+        "S63",
+        "S55",
+        "S57"
+      ],
+      "validation": "S43",
+      "test": "S62"
+    }
+  ],
+  "data": {
+    "horizon_s": 3,
+    "sample_rate_hz": 100
+  },
+  "teacher_generation": {
+    "trajectory_count": 100,
+    "horizon_s": 3,
+    "sample_rate_hz": 100,
+    "theta0_min_deg": -3,
+    "theta0_max_deg": 3,
+    "x0_min_m": -0.01,
+    "x0_max_m": 0.01,
+    "theta_dot0_std_rad_s": 0.04,
+    "x_dot0_std_m_s": 0.02,
+    "prediction_batch_size": 8192
+  },
+  "real_data": {
+    "raw_warmup_rows": 1024,
+    "source_rate_hz": 250,
+    "target_rate_hz": 100,
+    "fall_angle_deg": 20,
+    "prefall_margin_s": 0.08,
+    "derivative_fit_samples": 11,
+    "minimum_context_duration_s": 0.4
+  },
+  "model": {
+    "latent_width": 96,
+    "context_embedding": 96,
+    "fourier_modes": 12,
+    "context_windows": 4,
+    "context_window_s": 0.1,
+    "context_region_s": 0.4,
+    "controller_semantics": "physical_gains",
+    "controller_uncertainty_trained": true,
+    "gain_scale": [
+      250,
+      30,
+      20,
+      30
+    ],
+    "theta_scale_rad": 0.4363323129985824,
+    "x_scale_m": 0.25
+  },
+  "training": {
+    "epochs": 500,
+    "real_batch_size": 4,
+    "synthetic_batch_size": 12,
+    "learning_rate": 0.0005,
+    "weight_decay": 0.000001,
+    "early_stopping_patience": 60,
+    "use_physics": true,
+    "data_weight": 1,
+    "gain_weight": 0.3,
+    "consistency_weight": 0.5,
+    "physics_weight": 0.01,
+    "physics_every_batches": 4,
+    "real_source_weight": 0.5,
+    "synthetic_source_weight": 0.5,
+    "gradient_clip_norm": 5
+  },
+  "physics": {
+    "stick_mass_kg": 0.0138,
+    "effective_cart_mass_kg": 1,
+    "stick_length_m": 0.57,
+    "gravity_m_s2": 9.81,
+    "deadzone_sharpness": 50,
+    "fixed_pi_rad": 0.0635,
+    "fixed_tau_s": 0.23
+  }
+}
+
