@@ -1,0 +1,99 @@
+{
+  "aggregation_unit": "held-out test subject; every subject contributes exactly once",
+  "display_name": "Model D \u2014 hybrid real + subject-PINN DeepONet",
+  "experiment": "five_subject_deeponet_experiment4_hybrid_v1",
+  "fold_count": 5,
+  "limitations": [
+    "Five subjects make this a pilot generalization study.",
+    "Every checkpoint is selected only on a real validation subject.",
+    "Trials shorter than the fixed 0.40-second context are excluded before fitting.",
+    "Optimization-seed uncertainty requires repeated full runs with different seeds."
+  ],
+  "metrics": {
+    "normalized_mse": {
+      "mean_across_test_subjects": 0.4740162581205368,
+      "std_across_test_subjects": 0.4192915378019555,
+      "values_by_test_subject": {
+        "S43": 0.4100818634033203,
+        "S55": 0.2223449945449829,
+        "S57": 1.2119208574295044,
+        "S62": 0.29545626044273376,
+        "S63": 0.23027731478214264
+      }
+    },
+    "theta_mae_deg": {
+      "mean_across_test_subjects": 5.45435676574707,
+      "std_across_test_subjects": 3.220920012641028,
+      "values_by_test_subject": {
+        "S43": 6.632175445556641,
+        "S55": 2.2109456062316895,
+        "S57": 10.442817687988281,
+        "S62": 3.527085781097412,
+        "S63": 4.458759307861328
+      }
+    },
+    "theta_rmse_deg": {
+      "mean_across_test_subjects": 7.333431529998779,
+      "std_across_test_subjects": 4.122317999104484,
+      "values_by_test_subject": {
+        "S43": 8.810693740844727,
+        "S55": 3.459390163421631,
+        "S57": 13.824884414672852,
+        "S62": 4.924580097198486,
+        "S63": 5.647609233856201
+      }
+    },
+    "theta_w1_deg": {
+      "mean_across_test_subjects": 4.188195239996488,
+      "std_across_test_subjects": 2.8609628418544872,
+      "values_by_test_subject": {
+        "S43": 5.813888999083995,
+        "S55": 1.2634131378716051,
+        "S57": 7.938277608575966,
+        "S62": 1.4666368382961439,
+        "S63": 4.458759616154733
+      }
+    },
+    "x_mae_cm": {
+      "mean_across_test_subjects": 11.314294338226318,
+      "std_across_test_subjects": 4.2994972594846415,
+      "values_by_test_subject": {
+        "S43": 10.15831008553505,
+        "S55": 8.400297909975052,
+        "S57": 18.826788663864136,
+        "S62": 10.528989136219025,
+        "S63": 8.65708589553833
+      }
+    },
+    "x_rmse_cm": {
+      "mean_across_test_subjects": 14.336664527654648,
+      "std_across_test_subjects": 5.402102577607152,
+      "values_by_test_subject": {
+        "S43": 13.366857171058655,
+        "S55": 11.269349604845047,
+        "S57": 23.797541856765747,
+        "S62": 12.66525387763977,
+        "S63": 10.58432012796402
+      }
+    },
+    "x_w1_cm": {
+      "mean_across_test_subjects": 8.662967629375782,
+      "std_across_test_subjects": 0.5785174319720389,
+      "values_by_test_subject": {
+        "S43": 9.457509053306348,
+        "S55": 7.8230502319693525,
+        "S57": 8.706261503198785,
+        "S62": 8.670931124377336,
+        "S63": 8.65708623402709
+      }
+    }
+  },
+  "mode": "full",
+  "model_id": "D",
+  "physics_loss_enabled": true,
+  "training_regime": "hybrid",
+  "training_sources": [
+    "real",
+    "subject_pinn_synthetic"
+  ]
+}
