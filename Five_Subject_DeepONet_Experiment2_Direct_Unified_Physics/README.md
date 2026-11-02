@@ -196,6 +196,32 @@ It contains configuration, provenance manifests, logs, validation-selected
 states, training histories, test predictions, per-trial metrics, fold summaries,
 and the cross-fold aggregate. Raw prepared arrays are omitted by default.
 
+## Completed full-run result
+
+All five MPS folds completed with strict subject isolation. Across 20 real test
+trials and 2,838 forecast samples, Model B achieved the best subject-averaged
+value of all four models for every reported metric.
+
+| Metric | Model B mean ± subject SD | Improvement over A | Improvement over C | Improvement over D |
+|:---|---:|---:|---:|---:|
+| Normalized MSE | 0.234 ± 0.059 | 42.73% | 69.98% | 50.71% |
+| Theta RMSE (deg) | 6.844 ± 1.710 | 10.38% | 41.10% | 6.67% |
+| Theta MAE (deg) | 5.162 ± 1.456 | 14.68% | 42.59% | 5.36% |
+| x RMSE (cm) | 9.808 ± 0.897 | 26.60% | 40.12% | 31.59% |
+| x MAE (cm) | 7.403 ± 0.750 | 31.08% | 43.00% | 34.57% |
+| Theta W1 (deg) | 3.786 ± 2.370 | 15.84% | 51.53% | 9.59% |
+| x W1 (cm) | 5.044 ± 2.536 | 32.52% | 52.00% | 41.78% |
+
+Model B had the lowest normalized MSE and x RMSE for every held-out subject,
+including S57. This supports the direct-real physics approach descriptively.
+It does not establish that the inferred gains are physiological: gains collapsed
+close to zero for the S63 and S57 test trials while their trajectory errors
+remained good. The safe conclusion is that the explicit residual improved
+trajectory generalization, not that it recovered unique human control gains.
+
+See `FINDINGS.md` for fold tables, gain diagnostics, four-model comparisons,
+limitations, and recommended follow-up tests.
+
 ## Interpretation
 
 - Compare B with A to determine whether the explicit physics loss helps real
