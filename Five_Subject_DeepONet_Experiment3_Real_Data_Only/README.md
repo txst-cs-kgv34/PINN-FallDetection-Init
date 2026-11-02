@@ -177,6 +177,31 @@ The archive includes all code, configuration, manifests, logs, model states,
 test trajectories, metrics, and aggregate plots, but omits prepared arrays by
 default.
 
+## Completed full-run result
+
+All five real-only folds completed on MPS. Across the five equally weighted
+held-out subjects, Model A produced:
+
+| Metric | Mean ± subject SD |
+|:---|---:|
+| Normalized MSE | 0.408 ± 0.249 |
+| Theta RMSE (deg) | 7.636 ± 2.861 |
+| Theta MAE (deg) | 6.050 ± 2.524 |
+| x RMSE (cm) | 13.362 ± 3.804 |
+| x MAE (cm) | 10.742 ± 3.563 |
+| Theta W1 (deg) | 4.499 ± 3.353 |
+| x W1 (cm) | 7.475 ± 4.895 |
+
+The real data-only operator outperformed the synthetic-only Model C on every
+subject-averaged metric, but the direct-physics Model B improved over Model A by
+42.73% in normalized MSE, 10.38% in theta RMSE, and 26.60% in x RMSE. This makes
+Model A a useful control: real data alone transfers better than synthetic-only
+distillation, while explicit physics adds a further and more consistent gain.
+
+S43 was the main Model A failure case, with normalized MSE 0.802 and x RMSE
+18.660 cm. Detailed fold results and the complete four-model interpretation are
+in `FINDINGS.md`.
+
 ## How this result will be used
 
 - A versus B: whether explicit pole-balancing physics improves direct real
