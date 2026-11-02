@@ -1,0 +1,38 @@
+{
+  "checkpoint_selected_only_on_real_validation_subject": true,
+  "context_region_s": 0.4,
+  "display_name": "Model B \u2014 direct unified physics DeepONet",
+  "experiment_name": "five_subject_deeponet_experiment2_direct_unified_physics_v1",
+  "fold": 5,
+  "four_window_context": true,
+  "model_id": "B",
+  "physics_loss_enabled": true,
+  "test_forecast_sample_count": 694,
+  "test_pooled_metrics": {
+    "normalized_mse": 0.24315540492534637,
+    "theta_mae_deg": 5.984032154083252,
+    "theta_rmse_deg": 7.9452314376831055,
+    "theta_w1_deg": 3.819715823862106,
+    "x_mae_cm": 7.287976145744324,
+    "x_rmse_cm": 9.425783157348633,
+    "x_w1_cm": 3.5241553497316866
+  },
+  "test_subject": "S62",
+  "test_trial_count": 4,
+  "test_trial_mean_metrics": {
+    "normalized_mse": 0.23644197173416615,
+    "theta_mae_deg": 6.252182185649872,
+    "theta_rmse_deg": 7.561099648475647,
+    "theta_w1_deg": 6.25218212948193,
+    "x_mae_cm": 7.359572034329176,
+    "x_rmse_cm": 8.89922697097063,
+    "x_w1_cm": 7.359571985320459
+  },
+  "train_subjects": [
+    "S63",
+    "S55",
+    "S57"
+  ],
+  "training_regime": "direct_physics",
+  "validation_subject": "S43"
+}
