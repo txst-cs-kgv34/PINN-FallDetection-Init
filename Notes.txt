@@ -1,2 +1,16 @@
 Subject 51's front fall; it does not seem complete.
 Subject 62's samples has different camera orientation. The fall displacement is mainly along camera (Z) instead of camera (X) as the forward displacement.
+
+Complete DeepONet information flow
+flowchart TD
+    A["First 0.40 s: θ, x, θ̇, ẋ"] --> B["Four context windows"]
+    B --> C["Context encoder"]
+    D["Mass and height"] --> C
+    C --> E["Four latent/controller coordinates"]
+    E --> F["Forward operator branch"]
+    G["Initial state and auxiliary values"] --> F
+    H["Future query time"] --> I["Time trunk"]
+    F --> J["Branch–trunk combination"]
+    I --> J
+    J --> K["Predicted future θ and x"]
+    K --> L["Compare with measured future"]
