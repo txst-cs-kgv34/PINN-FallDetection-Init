@@ -1,0 +1,30 @@
+{
+  "context_windows": 4,
+  "controller_semantics": "physical_gains",
+  "device": "mps",
+  "experiment_name": "five_subject_deeponet_experiment5_b_no_physics_v1",
+  "fixed_pi_rad": 0.0635,
+  "fixed_tau_s": 0.23,
+  "fold": {
+    "id": 4,
+    "test": "S57",
+    "train": [
+      "S43",
+      "S63",
+      "S55"
+    ],
+    "validation": "S62"
+  },
+  "mode": "full",
+  "model_id": "B0",
+  "physics_loss_enabled": false,
+  "real_training_trial_count": 13,
+  "seed": 20261105,
+  "synthetic_training_trajectory_count": 0,
+  "test_real_data_used_for_model_selection": false,
+  "test_real_trial_count": 3,
+  "training_regime": "direct_no_physics",
+  "training_teacher_ids": [],
+  "validation_and_test_subjects_used_for_training": false,
+  "validation_real_trial_count": 4
+}

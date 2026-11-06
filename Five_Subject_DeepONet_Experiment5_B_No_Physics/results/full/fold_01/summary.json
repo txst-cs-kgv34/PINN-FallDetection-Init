@@ -1,0 +1,38 @@
+{
+  "checkpoint_selected_only_on_real_validation_subject": true,
+  "context_region_s": 0.4,
+  "display_name": "Model B-no-physics \u2014 matched DeepONet ablation",
+  "experiment_name": "five_subject_deeponet_experiment5_b_no_physics_v1",
+  "fold": 1,
+  "four_window_context": true,
+  "model_id": "B0",
+  "physics_loss_enabled": false,
+  "test_forecast_sample_count": 1013,
+  "test_pooled_metrics": {
+    "normalized_mse": 0.8304081559181213,
+    "theta_mae_deg": 10.39363956451416,
+    "theta_rmse_deg": 12.601130485534668,
+    "theta_w1_deg": 9.934212135335073,
+    "x_mae_cm": 16.177165508270264,
+    "x_rmse_cm": 18.979373574256897,
+    "x_w1_cm": 14.895728719794722
+  },
+  "test_subject": "S43",
+  "test_trial_count": 4,
+  "test_trial_mean_metrics": {
+    "normalized_mse": 0.8179600909352303,
+    "theta_mae_deg": 10.317112684249878,
+    "theta_rmse_deg": 12.060611248016357,
+    "theta_w1_deg": 10.251711727630447,
+    "x_mae_cm": 16.01126715540886,
+    "x_rmse_cm": 18.440956622362137,
+    "x_w1_cm": 15.916716598187904
+  },
+  "train_subjects": [
+    "S55",
+    "S57",
+    "S62"
+  ],
+  "training_regime": "direct_no_physics",
+  "validation_subject": "S63"
+}
