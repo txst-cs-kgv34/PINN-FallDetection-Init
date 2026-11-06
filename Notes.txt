@@ -41,3 +41,7 @@ flowchart TD
     I --> J
     J --> K["Predicted future θ and x"]
     K --> L["Compare with measured future"]
+
+We model the human body as a reduced-order cart-pole/inverted-pendulum system. Human CoM trajectories provide the angular and horizontal motion variables, and the physics residual enforces the corresponding biomechanical balance equations.
+
+Model B (Real-data training with physics) uses an explicit reduced-order human biomechanics residual derived from the cart-pole representation of human CoM motion.
