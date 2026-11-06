@@ -1,0 +1,152 @@
+[
+  {
+    "trial": "S30A10T01",
+    "trunk_shoulder_midpoint": 0.019696087031282165,
+    "head_neck_midpoint": 0.0027770407162356825,
+    "foot_point": 0.002340328277732635
+  },
+  {
+    "trial": "S30A10T02",
+    "trunk_shoulder_midpoint": 0.021668803531352702,
+    "head_neck_midpoint": 0.0029265223827106245,
+    "foot_point": 0.0024782762441046776
+  },
+  {
+    "trial": "S30A10T03",
+    "trunk_shoulder_midpoint": 0.02033096290037742,
+    "head_neck_midpoint": 0.002999964751827514,
+    "foot_point": 0.0025488481689990173
+  },
+  {
+    "trial": "S30A10T04",
+    "trunk_shoulder_midpoint": 0.02103042818990242,
+    "head_neck_midpoint": 0.002868511630949466,
+    "foot_point": 0.0024294748580523723
+  },
+  {
+    "trial": "S30A10T05",
+    "trunk_shoulder_midpoint": 0.019917650407083053,
+    "head_neck_midpoint": 0.002815688495566574,
+    "foot_point": 0.0023942445507283442
+  },
+  {
+    "trial": "S30A11T01",
+    "trunk_shoulder_midpoint": 0.018977913985219398,
+    "head_neck_midpoint": 0.002648833699864387,
+    "foot_point": 0.0022371153447234026
+  },
+  {
+    "trial": "S30A11T02",
+    "trunk_shoulder_midpoint": 0.017902394779036095,
+    "head_neck_midpoint": 0.0026895232213284413,
+    "foot_point": 0.002265585516419937
+  },
+  {
+    "trial": "S30A11T03",
+    "trunk_shoulder_midpoint": 0.018983178431601612,
+    "head_neck_midpoint": 0.002698875835866915,
+    "foot_point": 0.0022528747298997637
+  },
+  {
+    "trial": "S30A11T04",
+    "trunk_shoulder_midpoint": 0.017361713153432035,
+    "head_neck_midpoint": 0.0027043221895358374,
+    "foot_point": 0.002271315581401984
+  },
+  {
+    "trial": "S30A11T05",
+    "trunk_shoulder_midpoint": 0.01897306258275619,
+    "head_neck_midpoint": 0.0026621533370509236,
+    "foot_point": 0.0022499449319887993
+  },
+  {
+    "trial": "S30A12T01",
+    "trunk_shoulder_midpoint": 0.023581023576645026,
+    "head_neck_midpoint": 0.0030112704659717078,
+    "foot_point": 0.0025326743068097308
+  },
+  {
+    "trial": "S30A12T02",
+    "trunk_shoulder_midpoint": 0.021375198964279057,
+    "head_neck_midpoint": 0.002773119122285418,
+    "foot_point": 0.0023138634979082483
+  },
+  {
+    "trial": "S30A12T03",
+    "trunk_shoulder_midpoint": 0.017117279412165225,
+    "head_neck_midpoint": 0.0027663237774246422,
+    "foot_point": 0.0023435151849160495
+  },
+  {
+    "trial": "S30A12T04",
+    "trunk_shoulder_midpoint": 0.019018646366444708,
+    "head_neck_midpoint": 0.0027481316287436717,
+    "foot_point": 0.0023098603881695962
+  },
+  {
+    "trial": "S30A12T05",
+    "trunk_shoulder_midpoint": 0.019262946551350014,
+    "head_neck_midpoint": 0.002693398044347834,
+    "foot_point": 0.002271514362883806
+  },
+  {
+    "trial": "S30A13T01",
+    "trunk_shoulder_midpoint": 0.0219503894543267,
+    "head_neck_midpoint": 0.002765388535817536,
+    "foot_point": 0.0023221154874882304
+  },
+  {
+    "trial": "S30A13T02",
+    "trunk_shoulder_midpoint": 0.019607000748957704,
+    "head_neck_midpoint": 0.002725500788716676,
+    "foot_point": 0.002309075915205598
+  },
+  {
+    "trial": "S30A13T03",
+    "trunk_shoulder_midpoint": 0.01984383820669891,
+    "head_neck_midpoint": 0.002717566065820913,
+    "foot_point": 0.0023030720575629533
+  },
+  {
+    "trial": "S30A13T04",
+    "trunk_shoulder_midpoint": 0.019525818865345934,
+    "head_neck_midpoint": 0.0027560006801131925,
+    "foot_point": 0.0023332092088695668
+  },
+  {
+    "trial": "S30A13T05",
+    "trunk_shoulder_midpoint": 0.020403305545046987,
+    "head_neck_midpoint": 0.002826972165907777,
+    "foot_point": 0.0023760799664211494
+  },
+  {
+    "trial": "S30A14T01",
+    "trunk_shoulder_midpoint": 0.022115604549144154,
+    "head_neck_midpoint": 0.0027398698849716995,
+    "foot_point": 0.0023132493103819
+  },
+  {
+    "trial": "S30A14T02",
+    "trunk_shoulder_midpoint": 0.02442002656958726,
+    "head_neck_midpoint": 0.0028366973771063674,
+    "foot_point": 0.002376883703926573
+  },
+  {
+    "trial": "S30A14T03",
+    "trunk_shoulder_midpoint": 0.019332858051868115,
+    "head_neck_midpoint": 0.0029201289186886388,
+    "foot_point": 0.002460287040070126
+  },
+  {
+    "trial": "S30A14T04",
+    "trunk_shoulder_midpoint": 0.020418354546544806,
+    "head_neck_midpoint": 0.002738062466412652,
+    "foot_point": 0.0023179800425576686
+  },
+  {
+    "trial": "S30A14T05",
+    "trunk_shoulder_midpoint": 0.022072726039150864,
+    "head_neck_midpoint": 0.002748105446107653,
+    "foot_point": 0.002318933604640507
+  }
+]

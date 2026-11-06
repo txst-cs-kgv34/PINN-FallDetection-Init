@@ -1,0 +1,227 @@
+[
+  {
+    "trial": "S30A10T01",
+    "frames": 226,
+    "raw_flagged_frames": 37,
+    "raw_repeat_transitions": 12,
+    "repaired_frames": 0,
+    "filter_status": "available",
+    "max_filtered_com_change_m": 0.08391872565036827
+  },
+  {
+    "trial": "S30A10T02",
+    "frames": 205,
+    "raw_flagged_frames": 26,
+    "raw_repeat_transitions": 5,
+    "repaired_frames": 0,
+    "filter_status": "available",
+    "max_filtered_com_change_m": 0.09563407087742379
+  },
+  {
+    "trial": "S30A10T03",
+    "frames": 206,
+    "raw_flagged_frames": 20,
+    "raw_repeat_transitions": 64,
+    "repaired_frames": 0,
+    "filter_status": "available",
+    "max_filtered_com_change_m": 0.19286391557784202
+  },
+  {
+    "trial": "S30A10T04",
+    "frames": 203,
+    "raw_flagged_frames": 44,
+    "raw_repeat_transitions": 17,
+    "repaired_frames": 0,
+    "filter_status": "available",
+    "max_filtered_com_change_m": 0.06106477465176629
+  },
+  {
+    "trial": "S30A10T05",
+    "frames": 182,
+    "raw_flagged_frames": 19,
+    "raw_repeat_transitions": 61,
+    "repaired_frames": 0,
+    "filter_status": "available",
+    "max_filtered_com_change_m": 0.09492879666242388
+  },
+  {
+    "trial": "S30A11T01",
+    "frames": 229,
+    "raw_flagged_frames": 21,
+    "raw_repeat_transitions": 86,
+    "repaired_frames": 0,
+    "filter_status": "available",
+    "max_filtered_com_change_m": 0.08661528969016685
+  },
+  {
+    "trial": "S30A11T02",
+    "frames": 251,
+    "raw_flagged_frames": 18,
+    "raw_repeat_transitions": 88,
+    "repaired_frames": 0,
+    "filter_status": "available",
+    "max_filtered_com_change_m": 0.04908854560276217
+  },
+  {
+    "trial": "S30A11T03",
+    "frames": 232,
+    "raw_flagged_frames": 23,
+    "raw_repeat_transitions": 67,
+    "repaired_frames": 0,
+    "filter_status": "available",
+    "max_filtered_com_change_m": 0.059271808279974234
+  },
+  {
+    "trial": "S30A11T04",
+    "frames": 234,
+    "raw_flagged_frames": 25,
+    "raw_repeat_transitions": 62,
+    "repaired_frames": 0,
+    "filter_status": "available",
+    "max_filtered_com_change_m": 0.09111686045287565
+  },
+  {
+    "trial": "S30A11T05",
+    "frames": 231,
+    "raw_flagged_frames": 31,
+    "raw_repeat_transitions": 57,
+    "repaired_frames": 0,
+    "filter_status": "available",
+    "max_filtered_com_change_m": 0.10671041982214749
+  },
+  {
+    "trial": "S30A12T01",
+    "frames": 206,
+    "raw_flagged_frames": 49,
+    "raw_repeat_transitions": 2,
+    "repaired_frames": 0,
+    "filter_status": "available",
+    "max_filtered_com_change_m": 0.12016073289567542
+  },
+  {
+    "trial": "S30A12T02",
+    "frames": 211,
+    "raw_flagged_frames": 34,
+    "raw_repeat_transitions": 2,
+    "repaired_frames": 0,
+    "filter_status": "available",
+    "max_filtered_com_change_m": 0.10008429110947265
+  },
+  {
+    "trial": "S30A12T03",
+    "frames": 128,
+    "raw_flagged_frames": 36,
+    "raw_repeat_transitions": 5,
+    "repaired_frames": 0,
+    "filter_status": "available",
+    "max_filtered_com_change_m": 0.0987203797615536
+  },
+  {
+    "trial": "S30A12T04",
+    "frames": 214,
+    "raw_flagged_frames": 58,
+    "raw_repeat_transitions": 6,
+    "repaired_frames": 0,
+    "filter_status": "available",
+    "max_filtered_com_change_m": 0.06197594272898874
+  },
+  {
+    "trial": "S30A12T05",
+    "frames": 216,
+    "raw_flagged_frames": 60,
+    "raw_repeat_transitions": 0,
+    "repaired_frames": 0,
+    "filter_status": "available",
+    "max_filtered_com_change_m": 0.04812780030974099
+  },
+  {
+    "trial": "S30A13T01",
+    "frames": 203,
+    "raw_flagged_frames": 19,
+    "raw_repeat_transitions": 2,
+    "repaired_frames": 0,
+    "filter_status": "available",
+    "max_filtered_com_change_m": 0.04297494511547592
+  },
+  {
+    "trial": "S30A13T02",
+    "frames": 219,
+    "raw_flagged_frames": 20,
+    "raw_repeat_transitions": 70,
+    "repaired_frames": 0,
+    "filter_status": "available",
+    "max_filtered_com_change_m": 0.056633991194677484
+  },
+  {
+    "trial": "S30A13T03",
+    "frames": 208,
+    "raw_flagged_frames": 35,
+    "raw_repeat_transitions": 73,
+    "repaired_frames": 0,
+    "filter_status": "available",
+    "max_filtered_com_change_m": 0.30597207759585304
+  },
+  {
+    "trial": "S30A13T04",
+    "frames": 208,
+    "raw_flagged_frames": 22,
+    "raw_repeat_transitions": 70,
+    "repaired_frames": 0,
+    "filter_status": "available",
+    "max_filtered_com_change_m": 0.060624267317824526
+  },
+  {
+    "trial": "S30A13T05",
+    "frames": 194,
+    "raw_flagged_frames": 32,
+    "raw_repeat_transitions": 66,
+    "repaired_frames": 0,
+    "filter_status": "available",
+    "max_filtered_com_change_m": 0.10128172432550378
+  },
+  {
+    "trial": "S30A14T01",
+    "frames": 335,
+    "raw_flagged_frames": 57,
+    "raw_repeat_transitions": 86,
+    "repaired_frames": 0,
+    "filter_status": "available",
+    "max_filtered_com_change_m": 0.21514598522324907
+  },
+  {
+    "trial": "S30A14T02",
+    "frames": 262,
+    "raw_flagged_frames": 45,
+    "raw_repeat_transitions": 84,
+    "repaired_frames": 0,
+    "filter_status": "available",
+    "max_filtered_com_change_m": 0.07822546679101541
+  },
+  {
+    "trial": "S30A14T03",
+    "frames": 298,
+    "raw_flagged_frames": 34,
+    "raw_repeat_transitions": 127,
+    "repaired_frames": 0,
+    "filter_status": "available",
+    "max_filtered_com_change_m": 0.164077873314977
+  },
+  {
+    "trial": "S30A14T04",
+    "frames": 240,
+    "raw_flagged_frames": 48,
+    "raw_repeat_transitions": 57,
+    "repaired_frames": 0,
+    "filter_status": "available",
+    "max_filtered_com_change_m": 0.14115150072050459
+  },
+  {
+    "trial": "S30A14T05",
+    "frames": 230,
+    "raw_flagged_frames": 28,
+    "raw_repeat_transitions": 91,
+    "repaired_frames": 0,
+    "filter_status": "available",
+    "max_filtered_com_change_m": 0.20077326530035713
+  }
+]
