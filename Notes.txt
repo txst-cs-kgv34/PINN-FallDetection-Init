@@ -21,7 +21,6 @@ S62,Male,155,5,4
 S63,Male,180,5,6
 
 S59,Male,220,6,0
-S58,Male,190,5,10
 S56,Male,165,5,10
 S49,Female,165,4,11
 S48,Male,188,5,8
@@ -30,6 +29,7 @@ S45,Male,170,5,11
 S44,Male,180,6,1
 S34,Female,125,5,6
 S32,Male,160,5,10
+S30,Female,190,5,6
 
 
 Complete DeepONet information flow
