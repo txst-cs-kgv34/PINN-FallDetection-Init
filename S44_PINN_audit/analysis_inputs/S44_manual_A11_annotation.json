@@ -1,0 +1,103 @@
+{
+  "subject": "S44",
+  "source_phase_notes": "S44_phase_notes_manual.json",
+  "marked_trial_count": 5,
+  "strict_validation_status": "pass",
+  "errors": [],
+  "manual_observation": "All A11 trials were phase marked. Front-fall progression is slightly tilted toward the camera and therefore has a camera-Z component in addition to camera X.",
+  "fall_motion_camera_axis": "camera_x_with_z_component",
+  "modeling_decision": "usable_after_axis_alignment",
+  "modeling_recommendation": "Use a subject-centric horizontal fall direction (or an equivalent X-Z rotation) so the Z tilt is not treated as out-of-plane error.",
+  "trials": [
+    {
+      "trial": "S44A11T01",
+      "phase_frames0": {
+        "initial_standing": 90,
+        "fall_onset": 98,
+        "descent": 104,
+        "apparent_contact": 122,
+        "post_fall": 209
+      },
+      "strict_order": true,
+      "within_audited_frame_range": true,
+      "onset_to_contact_frames": 25,
+      "onset_to_contact_repaired": 0,
+      "onset_to_contact_repair_fraction": 0.0,
+      "contact_repaired": false,
+      "post_fall_repaired": false,
+      "total_repaired_frames_in_trial": 0
+    },
+    {
+      "trial": "S44A11T02",
+      "phase_frames0": {
+        "initial_standing": 150,
+        "fall_onset": 155,
+        "descent": 164,
+        "apparent_contact": 183,
+        "post_fall": 258
+      },
+      "strict_order": true,
+      "within_audited_frame_range": true,
+      "onset_to_contact_frames": 29,
+      "onset_to_contact_repaired": 0,
+      "onset_to_contact_repair_fraction": 0.0,
+      "contact_repaired": false,
+      "post_fall_repaired": false,
+      "total_repaired_frames_in_trial": 0
+    },
+    {
+      "trial": "S44A11T03",
+      "phase_frames0": {
+        "initial_standing": 143,
+        "fall_onset": 148,
+        "descent": 154,
+        "apparent_contact": 178,
+        "post_fall": 254
+      },
+      "strict_order": true,
+      "within_audited_frame_range": true,
+      "onset_to_contact_frames": 31,
+      "onset_to_contact_repaired": 0,
+      "onset_to_contact_repair_fraction": 0.0,
+      "contact_repaired": false,
+      "post_fall_repaired": false,
+      "total_repaired_frames_in_trial": 0
+    },
+    {
+      "trial": "S44A11T04",
+      "phase_frames0": {
+        "initial_standing": 135,
+        "fall_onset": 140,
+        "descent": 148,
+        "apparent_contact": 165,
+        "post_fall": 243
+      },
+      "strict_order": true,
+      "within_audited_frame_range": true,
+      "onset_to_contact_frames": 26,
+      "onset_to_contact_repaired": 0,
+      "onset_to_contact_repair_fraction": 0.0,
+      "contact_repaired": false,
+      "post_fall_repaired": false,
+      "total_repaired_frames_in_trial": 0
+    },
+    {
+      "trial": "S44A11T05",
+      "phase_frames0": {
+        "initial_standing": 130,
+        "fall_onset": 137,
+        "descent": 148,
+        "apparent_contact": 162,
+        "post_fall": 241
+      },
+      "strict_order": true,
+      "within_audited_frame_range": true,
+      "onset_to_contact_frames": 26,
+      "onset_to_contact_repaired": 0,
+      "onset_to_contact_repair_fraction": 0.0,
+      "contact_repaired": false,
+      "post_fall_repaired": false,
+      "total_repaired_frames_in_trial": 0
+    }
+  ]
+}

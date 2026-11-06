@@ -106,3 +106,16 @@ Confirm XYZ units/order, camera-to-floor orientation, original timestamps, missi
 The supplied archive contains 24 numeric trials out of 25 expected. The derived repair layer replaced 2087 fully blank frames across 57 gaps. Original files were not modified. Short gaps of 1–3 frames use the preceding valid row; longer internal gaps use per-coordinate linear interpolation; boundary gaps use the nearest valid row. Entire missing or empty trials are never synthesized.
 
 See `../../REPAIR_ASSESSMENT.md` for trial-level repair fractions, boundary carries, and missing/empty trials.
+
+<!-- MANUAL_A11_PHASE_UPDATE_START -->
+## Manual A11 phase update
+
+- Marked trials: 5.
+- Strict phase-order validation: **fail**.
+- Manual observation: All A11 trials were marked, but real rows stop immediately before true ground contact. The marked apparent-contact frames are pre-contact proxies, and subsequent rows are repaired rather than observed contact/post-fall motion.
+- Camera-axis interpretation: `camera_x`.
+- Modeling decision: `exclude_primary_training_and_generalization`.
+- Recommendation: Do not use S58 for primary full-trajectory training, contact/post-fall supervision, or headline generalization metrics. It may be retained only for an explicitly labeled exploratory pre-contact or censored-data analysis with repaired frames masked.
+
+See `../../analysis_inputs/FRONTFALL_PHASE_STATUS.md` for trial-level repair overlap and phase frames. The automatic suggestions are superseded by the manual notes.
+<!-- MANUAL_A11_PHASE_UPDATE_END -->

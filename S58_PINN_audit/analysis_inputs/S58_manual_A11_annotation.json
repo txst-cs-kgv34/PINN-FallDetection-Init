@@ -1,0 +1,106 @@
+{
+  "subject": "S58",
+  "source_phase_notes": "S58_phase_notes_manual.json",
+  "marked_trial_count": 5,
+  "strict_validation_status": "fail",
+  "errors": [
+    "S58A11T03: phase frames are not strictly increasing",
+    "S58A11T04: phase frames are not strictly increasing"
+  ],
+  "manual_observation": "All A11 trials were marked, but real rows stop immediately before true ground contact. The marked apparent-contact frames are pre-contact proxies, and subsequent rows are repaired rather than observed contact/post-fall motion.",
+  "fall_motion_camera_axis": "camera_x",
+  "modeling_decision": "exclude_primary_training_and_generalization",
+  "modeling_recommendation": "Do not use S58 for primary full-trajectory training, contact/post-fall supervision, or headline generalization metrics. It may be retained only for an explicitly labeled exploratory pre-contact or censored-data analysis with repaired frames masked.",
+  "trials": [
+    {
+      "trial": "S58A11T01",
+      "phase_frames0": {
+        "initial_standing": 0,
+        "fall_onset": 16,
+        "descent": 33,
+        "apparent_contact": 50,
+        "post_fall": 54
+      },
+      "strict_order": true,
+      "within_audited_frame_range": true,
+      "onset_to_contact_frames": 35,
+      "onset_to_contact_repaired": 0,
+      "onset_to_contact_repair_fraction": 0.0,
+      "contact_repaired": false,
+      "post_fall_repaired": true,
+      "total_repaired_frames_in_trial": 108
+    },
+    {
+      "trial": "S58A11T02",
+      "phase_frames0": {
+        "initial_standing": 25,
+        "fall_onset": 32,
+        "descent": 73,
+        "apparent_contact": 88,
+        "post_fall": 107
+      },
+      "strict_order": true,
+      "within_audited_frame_range": true,
+      "onset_to_contact_frames": 57,
+      "onset_to_contact_repaired": 0,
+      "onset_to_contact_repair_fraction": 0.0,
+      "contact_repaired": false,
+      "post_fall_repaired": true,
+      "total_repaired_frames_in_trial": 121
+    },
+    {
+      "trial": "S58A11T03",
+      "phase_frames0": {
+        "initial_standing": 8,
+        "fall_onset": 21,
+        "descent": 40,
+        "apparent_contact": 52,
+        "post_fall": 52
+      },
+      "strict_order": false,
+      "within_audited_frame_range": true,
+      "onset_to_contact_frames": 32,
+      "onset_to_contact_repaired": 1,
+      "onset_to_contact_repair_fraction": 0.03125,
+      "contact_repaired": false,
+      "post_fall_repaired": false,
+      "total_repaired_frames_in_trial": 107
+    },
+    {
+      "trial": "S58A11T04",
+      "phase_frames0": {
+        "initial_standing": 26,
+        "fall_onset": 46,
+        "descent": 65,
+        "apparent_contact": 81,
+        "post_fall": 81
+      },
+      "strict_order": false,
+      "within_audited_frame_range": true,
+      "onset_to_contact_frames": 36,
+      "onset_to_contact_repaired": 1,
+      "onset_to_contact_repair_fraction": 0.027777777777777776,
+      "contact_repaired": false,
+      "post_fall_repaired": false,
+      "total_repaired_frames_in_trial": 107
+    },
+    {
+      "trial": "S58A11T05",
+      "phase_frames0": {
+        "initial_standing": 1,
+        "fall_onset": 5,
+        "descent": 24,
+        "apparent_contact": 34,
+        "post_fall": 36
+      },
+      "strict_order": true,
+      "within_audited_frame_range": true,
+      "onset_to_contact_frames": 30,
+      "onset_to_contact_repaired": 0,
+      "onset_to_contact_repair_fraction": 0.0,
+      "contact_repaired": false,
+      "post_fall_repaired": true,
+      "total_repaired_frames_in_trial": 112
+    }
+  ]
+}

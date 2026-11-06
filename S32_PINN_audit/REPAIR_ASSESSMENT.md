@@ -23,3 +23,19 @@ The supplied archive contains 21 numeric trials out of 25 expected. The derived 
 - `minor_repair_review`: less than 5% repaired without a boundary carry.
 
 These are conservative audit recommendations, not validated fall labels. Manual inspection can impose stricter exclusions.
+
+<!-- MANUAL_A11_REPAIR_UPDATE_START -->
+## Phase-aware repair interpretation
+
+All A11 trials were phase marked. Front-fall progression is toward the camera, primarily along camera Z rather than camera X.
+
+| Trial | Phase order | Onset-contact repaired | Contact repaired | Post-fall repaired |
+|:---|:---:|---:|:---:|:---:|
+| S32A11T01 | pass | 0/54 (0.0%) | no | no |
+| S32A11T02 | pass | 0/52 (0.0%) | no | no |
+| S32A11T03 | pass | 0/47 (0.0%) | no | no |
+| S32A11T04 | pass | 0/58 (0.0%) | no | no |
+| S32A11T05 | pass | 0/58 (0.0%) | no | no |
+
+**Decision:** `usable_after_axis_alignment`. Use after mapping the subject-specific horizontal fall direction to the Model B progression coordinate; do not interpret fixed camera X as the sagittal fall coordinate.
+<!-- MANUAL_A11_REPAIR_UPDATE_END -->

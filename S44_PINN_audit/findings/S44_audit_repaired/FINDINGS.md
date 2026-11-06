@@ -107,3 +107,16 @@ Confirm XYZ units/order, camera-to-floor orientation, original timestamps, missi
 The supplied archive contains 25 numeric trials out of 25 expected. The derived repair layer replaced 0 fully blank frames across 0 gaps. Original files were not modified. Short gaps of 1–3 frames use the preceding valid row; longer internal gaps use per-coordinate linear interpolation; boundary gaps use the nearest valid row. Entire missing or empty trials are never synthesized.
 
 See `../../REPAIR_ASSESSMENT.md` for trial-level repair fractions, boundary carries, and missing/empty trials.
+
+<!-- MANUAL_A11_PHASE_UPDATE_START -->
+## Manual A11 phase update
+
+- Marked trials: 5.
+- Strict phase-order validation: **pass**.
+- Manual observation: All A11 trials were phase marked. Front-fall progression is slightly tilted toward the camera and therefore has a camera-Z component in addition to camera X.
+- Camera-axis interpretation: `camera_x_with_z_component`.
+- Modeling decision: `usable_after_axis_alignment`.
+- Recommendation: Use a subject-centric horizontal fall direction (or an equivalent X-Z rotation) so the Z tilt is not treated as out-of-plane error.
+
+See `../../analysis_inputs/FRONTFALL_PHASE_STATUS.md` for trial-level repair overlap and phase frames. The automatic suggestions are superseded by the manual notes.
+<!-- MANUAL_A11_PHASE_UPDATE_END -->

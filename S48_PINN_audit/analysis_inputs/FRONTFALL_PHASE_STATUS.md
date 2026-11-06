@@ -1,11 +1,21 @@
 # S48 A11 manual phase status
 
-Manual phase marks are pending. Use `../inspections/S48_candidates_repaired/INSPECT.html` and return five ordered phase frames for each usable A11 trial: initial standing, fall onset, descent, apparent contact, and post-fall.
+Manual phase notes were received for **5** trial(s). Strict validation: **pass**.
 
-- S48A11T01: available; 31.2% repaired; exclude_primary_modeling.
-- S48A11T02: available; 29.4% repaired; exclude_primary_modeling.
-- S48A11T03: available; 4.7% repaired; minor_repair_review.
-- S48A11T04: available; 15.2% repaired; sensitivity_check_required.
-- S48A11T05: available; 43.8% repaired; exclude_primary_modeling.
+**Manual observation:** All A11 trials were phase marked. The repaired rows occur after apparent contact with the ground.
 
-Automatic suggestions are review aids only and are not labels. Apparent contact is a skeleton observation, not force-confirmed contact.
+**Camera-axis interpretation:** `camera_x`.
+
+**Modeling decision:** `usable_onset_through_contact_with_post_contact_masking` — Use the observed onset-through-apparent-contact interval. Mask repaired post-contact frames and do not use them as measured post-fall supervision.
+
+## Phase/repair intersection
+
+| Trial | Phase order | Onset-contact repaired | Contact repaired | Post-fall repaired |
+|:---|:---:|---:|:---:|:---:|
+| S48A11T01 | pass | 0/40 (0.0%) | no | no |
+| S48A11T02 | pass | 0/33 (0.0%) | no | no |
+| S48A11T03 | pass | 0/44 (0.0%) | no | no |
+| S48A11T04 | pass | 0/45 (0.0%) | no | no |
+| S48A11T05 | pass | 0/58 (0.0%) | no | yes |
+
+The contact label is an apparent skeleton-based contact observation, not force-plate-confirmed contact. Automatic suggestions are superseded by the manual notes.

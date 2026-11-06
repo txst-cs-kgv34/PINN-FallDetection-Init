@@ -1,0 +1,103 @@
+{
+  "subject": "S45",
+  "source_phase_notes": "S45_phase_notes_manual.json",
+  "marked_trial_count": 5,
+  "strict_validation_status": "pass",
+  "errors": [],
+  "manual_observation": "All A11 trials were phase marked.",
+  "fall_motion_camera_axis": "camera_x",
+  "modeling_decision": "usable",
+  "modeling_recommendation": "Usable for the planned A11 analysis, subject to the existing audit flags and the provisional nature of skeleton-observed contact.",
+  "trials": [
+    {
+      "trial": "S45A11T01",
+      "phase_frames0": {
+        "initial_standing": 53,
+        "fall_onset": 70,
+        "descent": 84,
+        "apparent_contact": 103,
+        "post_fall": 195
+      },
+      "strict_order": true,
+      "within_audited_frame_range": true,
+      "onset_to_contact_frames": 34,
+      "onset_to_contact_repaired": 0,
+      "onset_to_contact_repair_fraction": 0.0,
+      "contact_repaired": false,
+      "post_fall_repaired": false,
+      "total_repaired_frames_in_trial": 0
+    },
+    {
+      "trial": "S45A11T02",
+      "phase_frames0": {
+        "initial_standing": 79,
+        "fall_onset": 93,
+        "descent": 114,
+        "apparent_contact": 136,
+        "post_fall": 215
+      },
+      "strict_order": true,
+      "within_audited_frame_range": true,
+      "onset_to_contact_frames": 44,
+      "onset_to_contact_repaired": 0,
+      "onset_to_contact_repair_fraction": 0.0,
+      "contact_repaired": false,
+      "post_fall_repaired": false,
+      "total_repaired_frames_in_trial": 0
+    },
+    {
+      "trial": "S45A11T03",
+      "phase_frames0": {
+        "initial_standing": 105,
+        "fall_onset": 122,
+        "descent": 152,
+        "apparent_contact": 164,
+        "post_fall": 270
+      },
+      "strict_order": true,
+      "within_audited_frame_range": true,
+      "onset_to_contact_frames": 43,
+      "onset_to_contact_repaired": 0,
+      "onset_to_contact_repair_fraction": 0.0,
+      "contact_repaired": false,
+      "post_fall_repaired": false,
+      "total_repaired_frames_in_trial": 0
+    },
+    {
+      "trial": "S45A11T04",
+      "phase_frames0": {
+        "initial_standing": 70,
+        "fall_onset": 86,
+        "descent": 103,
+        "apparent_contact": 118,
+        "post_fall": 242
+      },
+      "strict_order": true,
+      "within_audited_frame_range": true,
+      "onset_to_contact_frames": 33,
+      "onset_to_contact_repaired": 0,
+      "onset_to_contact_repair_fraction": 0.0,
+      "contact_repaired": false,
+      "post_fall_repaired": false,
+      "total_repaired_frames_in_trial": 0
+    },
+    {
+      "trial": "S45A11T05",
+      "phase_frames0": {
+        "initial_standing": 53,
+        "fall_onset": 64,
+        "descent": 86,
+        "apparent_contact": 113,
+        "post_fall": 240
+      },
+      "strict_order": true,
+      "within_audited_frame_range": true,
+      "onset_to_contact_frames": 50,
+      "onset_to_contact_repaired": 0,
+      "onset_to_contact_repair_fraction": 0.0,
+      "contact_repaired": false,
+      "post_fall_repaired": false,
+      "total_repaired_frames_in_trial": 0
+    }
+  ]
+}
