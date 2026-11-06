@@ -1,6 +1,3 @@
 .venv/
 __pycache__/
 *.py[cod]
-outputs/
-results/
-Fifteen_Subject_ModelB_Direct_Unified_Physics_Results.zip
