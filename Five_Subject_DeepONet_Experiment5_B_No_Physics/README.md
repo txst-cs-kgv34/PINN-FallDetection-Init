@@ -210,3 +210,51 @@ trajectory model.
 Five subjects and one seed remain a pilot result. After this matched run, the
 most important confirmation is repeating B and B-no-physics with multiple
 seeds.
+
+## Completed results
+
+The five-fold run completed successfully on the same 20 held-out real trials
+and 2,838 forecast samples used for Model B.
+
+| Metric | Model B | B-no-physics | Model B error reduction |
+|:---|---:|---:|---:|
+| Normalized MSE | **0.234** | 0.788 | **70.34%** |
+| Theta RMSE | **6.844 deg** | 10.415 deg | **34.29%** |
+| Theta MAE | **5.162 deg** | 8.269 deg | **37.57%** |
+| x RMSE | **9.808 cm** | 17.978 cm | **45.45%** |
+| x MAE | **7.403 cm** | 14.302 cm | **48.24%** |
+| Theta Wasserstein-1 | **3.786 deg** | 5.852 deg | **35.30%** |
+| x Wasserstein-1 | **5.044 cm** | 11.005 cm | **54.17%** |
+
+All metrics are errors, so lower is better. Model B ranked first on every
+aggregate metric. It also achieved lower normalized MSE and x RMSE for every
+held-out test subject. B-no-physics achieved lower theta RMSE only for S55;
+Model B was better for the other four subjects.
+
+![Model B versus B-no-physics](results/full/model_b_vs_b_no_physics_comparison.png)
+
+Removing the biomechanics residual caused the largest degradation for S57 and
+S62. It also allowed the positive controller coordinates to become very large
+and variable because no residual or gain labels tied them to the delayed
+balance equations. These coordinates must therefore be treated as latent
+values in B-no-physics, not physiological gains.
+
+The matched conclusion is:
+
+> With Model B's architecture, data, folds, seed, preprocessing, optimizer,
+> and validation rule held fixed, the explicit reduced-order biomechanics
+> residual materially improved unseen-subject trajectory prediction.
+
+See `FINDINGS.md` for the subject-level table, trial-level win counts, training
+behavior, controller-coordinate analysis, limitations, and recommended
+multi-seed confirmation.
+
+## Added comparison outputs
+
+```text
+FINDINGS.md
+results/full/model_b_vs_b_no_physics_comparison.png
+results/full/model_b_vs_b_no_physics_aggregate.csv
+results/full/model_b_vs_b_no_physics_by_subject.csv
+results/full/model_b_vs_b_no_physics_summary.json
+```
