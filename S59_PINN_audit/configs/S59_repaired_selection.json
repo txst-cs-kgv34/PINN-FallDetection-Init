@@ -1,0 +1,34 @@
+{
+  "subject_id": "S59",
+  "decision_date_local": "2026-11-06",
+  "excluded_trials": {
+    "S59A14T02": "Trial is absent from the supplied archive.",
+    "S59A14T03": "Trial is absent from the supplied archive.",
+    "S59A14T04": "Trial is absent from the supplied archive.",
+    "S59A14T05": "Trial is absent from the supplied archive."
+  },
+  "remaining_candidate_trials": [
+    "S59A10T01",
+    "S59A10T02",
+    "S59A10T03",
+    "S59A10T04",
+    "S59A10T05",
+    "S59A11T01",
+    "S59A11T02",
+    "S59A11T03",
+    "S59A11T04",
+    "S59A11T05",
+    "S59A12T01",
+    "S59A12T02",
+    "S59A12T03",
+    "S59A12T04",
+    "S59A12T05",
+    "S59A13T01",
+    "S59A13T02",
+    "S59A13T03",
+    "S59A13T04",
+    "S59A13T05",
+    "S59A14T01"
+  ],
+  "status": "Repaired-data inspection candidates. Manual phase, repair-impact, and eligibility review are required before modeling."
+}

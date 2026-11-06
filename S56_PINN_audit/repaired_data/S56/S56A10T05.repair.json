@@ -1,0 +1,50 @@
+{
+  "trial": "S56A10T05",
+  "source_member": "S56_FallSamples/S56A10T05.csv",
+  "source_sha256": "8094c1686d8b3563d45de57abc89674e90d0f4b8e1afb7714b9bf320f8df32d5",
+  "repaired_sha256": "c1316cf02de700f9f2b7757a061b78cf77e343e47447fc921cfa4d7cbb07467b",
+  "rows": 178,
+  "repaired_rows": 49,
+  "gaps": [
+    {
+      "start_row1": 35,
+      "end_row1": 44,
+      "frame_count": 10,
+      "method": "linear_interpolation_long_gap",
+      "previous_valid_row1": 34,
+      "next_valid_row1": 45
+    },
+    {
+      "start_row1": 71,
+      "end_row1": 71,
+      "frame_count": 1,
+      "method": "forward_fill_short_gap",
+      "previous_valid_row1": 70,
+      "next_valid_row1": 72
+    },
+    {
+      "start_row1": 85,
+      "end_row1": 93,
+      "frame_count": 9,
+      "method": "linear_interpolation_long_gap",
+      "previous_valid_row1": 84,
+      "next_valid_row1": 94
+    },
+    {
+      "start_row1": 96,
+      "end_row1": 118,
+      "frame_count": 23,
+      "method": "linear_interpolation_long_gap",
+      "previous_valid_row1": 95,
+      "next_valid_row1": 119
+    },
+    {
+      "start_row1": 172,
+      "end_row1": 177,
+      "frame_count": 6,
+      "method": "linear_interpolation_long_gap",
+      "previous_valid_row1": 171,
+      "next_valid_row1": 178
+    }
+  ]
+}

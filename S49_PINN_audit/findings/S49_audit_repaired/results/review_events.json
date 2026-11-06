@@ -1,0 +1,5782 @@
+[
+  {
+    "trial": "S49A10T01",
+    "from_frame0": 0,
+    "to_frame0": 1,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.44373238641651835,
+    "com_step_m": 0.05444126980902994,
+    "limb_scale_step_fraction": 0.010559897424255046,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A10T01",
+    "from_frame0": 6,
+    "to_frame0": 7,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.28895310918963557,
+    "com_step_m": 0.05300301941877495,
+    "limb_scale_step_fraction": 0.007451706415445242,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A10T01",
+    "from_frame0": 11,
+    "to_frame0": 12,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.20931739575299374,
+    "com_step_m": 0.032864741755587006,
+    "limb_scale_step_fraction": 0.005058146437695324,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A10T01",
+    "from_frame0": 12,
+    "to_frame0": 13,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.3177180488520573,
+    "com_step_m": 0.024969309497142628,
+    "limb_scale_step_fraction": 0.017083996099724136,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A10T01",
+    "from_frame0": 17,
+    "to_frame0": 18,
+    "max_joint": "hand_left",
+    "max_joint_step_m": 0.2771185341470196,
+    "com_step_m": 0.026230478940475806,
+    "limb_scale_step_fraction": 0.005071078066294201,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A10T02",
+    "from_frame0": 19,
+    "to_frame0": 20,
+    "max_joint": "thumb_right",
+    "max_joint_step_m": 0.22625938787202463,
+    "com_step_m": 0.06931113017759954,
+    "limb_scale_step_fraction": 0.010001800219579462,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A10T02",
+    "from_frame0": 21,
+    "to_frame0": 22,
+    "max_joint": "handtip_right",
+    "max_joint_step_m": 0.23123090128845522,
+    "com_step_m": 0.05119350500778499,
+    "limb_scale_step_fraction": 0.014498439608973969,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A10T02",
+    "from_frame0": 22,
+    "to_frame0": 23,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.2977738690141532,
+    "com_step_m": 0.02007927522345311,
+    "limb_scale_step_fraction": 0.008593126697977196,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A10T02",
+    "from_frame0": 25,
+    "to_frame0": 26,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.32513818988951926,
+    "com_step_m": 0.048863834076209686,
+    "limb_scale_step_fraction": 0.012732283765445947,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A10T02",
+    "from_frame0": 30,
+    "to_frame0": 31,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.35190340148568483,
+    "com_step_m": 0.030503120673132985,
+    "limb_scale_step_fraction": 0.0011195478280867349,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A10T02",
+    "from_frame0": 32,
+    "to_frame0": 33,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.2552890299256217,
+    "com_step_m": 0.01729354616564602,
+    "limb_scale_step_fraction": 0.013396108004963143,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A10T02",
+    "from_frame0": 33,
+    "to_frame0": 34,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.31686320337983065,
+    "com_step_m": 0.03169273896715248,
+    "limb_scale_step_fraction": 0.023577345967236756,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A10T02",
+    "from_frame0": 34,
+    "to_frame0": 35,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.40174650313484916,
+    "com_step_m": 0.02986638071069015,
+    "limb_scale_step_fraction": 0.01546942250233983,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A10T02",
+    "from_frame0": 45,
+    "to_frame0": 46,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.11552250835671518,
+    "com_step_m": 0.02814299959209821,
+    "limb_scale_step_fraction": 0.03282408694934116,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A10T02",
+    "from_frame0": 47,
+    "to_frame0": 48,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.232456881129416,
+    "com_step_m": 0.031813681425061247,
+    "limb_scale_step_fraction": 0.025081212786685066,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A10T02",
+    "from_frame0": 60,
+    "to_frame0": 61,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.11255015962534012,
+    "com_step_m": 0.04781642238723421,
+    "limb_scale_step_fraction": 0.054222945944181374,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A10T02",
+    "from_frame0": 61,
+    "to_frame0": 62,
+    "max_joint": "ankle_left",
+    "max_joint_step_m": 0.10478963952897222,
+    "com_step_m": 0.013149712349858908,
+    "limb_scale_step_fraction": 0.04527507405412597,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A10T03",
+    "from_frame0": 1,
+    "to_frame0": 2,
+    "max_joint": "handtip_left",
+    "max_joint_step_m": 0.3042652162242604,
+    "com_step_m": 0.02256823654544685,
+    "limb_scale_step_fraction": 0.010886929408737185,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A10T03",
+    "from_frame0": 11,
+    "to_frame0": 12,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.11496427892097935,
+    "com_step_m": 0.05082459877465155,
+    "limb_scale_step_fraction": 0.03773808358427317,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A10T03",
+    "from_frame0": 13,
+    "to_frame0": 14,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.3723197934210718,
+    "com_step_m": 0.05559244817711306,
+    "limb_scale_step_fraction": 0.044403964649868635,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A10T03",
+    "from_frame0": 14,
+    "to_frame0": 15,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.4418696675337073,
+    "com_step_m": 0.033202107267385886,
+    "limb_scale_step_fraction": 0.022194824849626843,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A10T03",
+    "from_frame0": 16,
+    "to_frame0": 17,
+    "max_joint": "wrist_left",
+    "max_joint_step_m": 0.2211292496855887,
+    "com_step_m": 0.039151906288180875,
+    "limb_scale_step_fraction": 0.002921672076906411,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A10T03",
+    "from_frame0": 30,
+    "to_frame0": 31,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.21401614428794766,
+    "com_step_m": 0.013180185604036977,
+    "limb_scale_step_fraction": 0.014117469721858782,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A10T04",
+    "from_frame0": 98,
+    "to_frame0": 99,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.2517166250693101,
+    "com_step_m": 0.04214182651570694,
+    "limb_scale_step_fraction": 0.004269758645026857,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A10T04",
+    "from_frame0": 111,
+    "to_frame0": 112,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.12935580474040875,
+    "com_step_m": 0.05892586594145128,
+    "limb_scale_step_fraction": 0.033527881643035856,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A10T04",
+    "from_frame0": 115,
+    "to_frame0": 116,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.6363052623828186,
+    "com_step_m": 0.04568781353196468,
+    "limb_scale_step_fraction": 0.04072636222791295,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A10T04",
+    "from_frame0": 121,
+    "to_frame0": 122,
+    "max_joint": "wrist_left",
+    "max_joint_step_m": 0.3289123606114181,
+    "com_step_m": 0.016728793787559985,
+    "limb_scale_step_fraction": 0.01592120117426227,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A10T04",
+    "from_frame0": 122,
+    "to_frame0": 123,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.3322020218139775,
+    "com_step_m": 0.026878844713505903,
+    "limb_scale_step_fraction": 0.012343289816547087,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A10T04",
+    "from_frame0": 123,
+    "to_frame0": 124,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.44523257192196314,
+    "com_step_m": 0.08801701472142426,
+    "limb_scale_step_fraction": 0.04756284525355468,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A10T04",
+    "from_frame0": 126,
+    "to_frame0": 127,
+    "max_joint": "ankle_right",
+    "max_joint_step_m": 0.27270045510997226,
+    "com_step_m": 0.045317986710694334,
+    "limb_scale_step_fraction": 0.001672352877789806,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A10T04",
+    "from_frame0": 130,
+    "to_frame0": 131,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.5216263150983329,
+    "com_step_m": 0.05941268019137194,
+    "limb_scale_step_fraction": 0.0012767045962359576,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A10T04",
+    "from_frame0": 131,
+    "to_frame0": 132,
+    "max_joint": "handtip_right",
+    "max_joint_step_m": 0.0823512817253237,
+    "com_step_m": 0.013001448020372317,
+    "limb_scale_step_fraction": 0.040226972877406994,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A10T04",
+    "from_frame0": 139,
+    "to_frame0": 140,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.28348450739440156,
+    "com_step_m": 0.032740771668929275,
+    "limb_scale_step_fraction": 0.013623024921299421,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A10T04",
+    "from_frame0": 144,
+    "to_frame0": 145,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.08096995031771989,
+    "com_step_m": 0.0263799571979529,
+    "limb_scale_step_fraction": 0.03753509474684834,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A10T05",
+    "from_frame0": 5,
+    "to_frame0": 6,
+    "max_joint": "thumb_left",
+    "max_joint_step_m": 0.34550860805544026,
+    "com_step_m": 0.027722878205431976,
+    "limb_scale_step_fraction": 0.013065979668461944,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A10T05",
+    "from_frame0": 20,
+    "to_frame0": 21,
+    "max_joint": "wrist_right",
+    "max_joint_step_m": 0.2712026598622666,
+    "com_step_m": 0.050152748398274855,
+    "limb_scale_step_fraction": 0.017414709860339526,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A10T05",
+    "from_frame0": 21,
+    "to_frame0": 22,
+    "max_joint": "wrist_right",
+    "max_joint_step_m": 0.2169722447231372,
+    "com_step_m": 0.014237729020943102,
+    "limb_scale_step_fraction": 0.06910467473962478,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A10T05",
+    "from_frame0": 23,
+    "to_frame0": 24,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.20141532575561694,
+    "com_step_m": 0.032607550821834974,
+    "limb_scale_step_fraction": 0.00971452559997695,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A10T05",
+    "from_frame0": 24,
+    "to_frame0": 25,
+    "max_joint": "handtip_left",
+    "max_joint_step_m": 0.26176907624314516,
+    "com_step_m": 0.030921578651684264,
+    "limb_scale_step_fraction": 0.03849885366595441,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A10T05",
+    "from_frame0": 25,
+    "to_frame0": 26,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.1663349444868275,
+    "com_step_m": 0.04620429081621542,
+    "limb_scale_step_fraction": 0.03374820070577754,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A10T05",
+    "from_frame0": 30,
+    "to_frame0": 31,
+    "max_joint": "handtip_right",
+    "max_joint_step_m": 0.7601395071744184,
+    "com_step_m": 0.06398465180587898,
+    "limb_scale_step_fraction": 0.0014657760479145096,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A10T05",
+    "from_frame0": 31,
+    "to_frame0": 32,
+    "max_joint": "handtip_right",
+    "max_joint_step_m": 0.5700026607232811,
+    "com_step_m": 0.11932588289498912,
+    "limb_scale_step_fraction": 0.012343909562935317,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A10T05",
+    "from_frame0": 33,
+    "to_frame0": 34,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.21370727958600486,
+    "com_step_m": 0.008668315336104414,
+    "limb_scale_step_fraction": 0.02956011439782452,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A10T05",
+    "from_frame0": 36,
+    "to_frame0": 37,
+    "max_joint": "ankle_left",
+    "max_joint_step_m": 0.20440181925124845,
+    "com_step_m": 0.017506685722390242,
+    "limb_scale_step_fraction": 0.00697783299145955,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A10T05",
+    "from_frame0": 37,
+    "to_frame0": 38,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.049000387381611006,
+    "com_step_m": 0.013306107396940752,
+    "limb_scale_step_fraction": 0.05129018147676127,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A10T05",
+    "from_frame0": 39,
+    "to_frame0": 40,
+    "max_joint": "elbow_left",
+    "max_joint_step_m": 0.16072340238369845,
+    "com_step_m": 0.02106656994697544,
+    "limb_scale_step_fraction": 0.033826978701171774,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A10T05",
+    "from_frame0": 40,
+    "to_frame0": 41,
+    "max_joint": "hand_left",
+    "max_joint_step_m": 0.2785400027899924,
+    "com_step_m": 0.023348137956493188,
+    "limb_scale_step_fraction": 0.007303971496465695,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A10T05",
+    "from_frame0": 46,
+    "to_frame0": 47,
+    "max_joint": "hand_right",
+    "max_joint_step_m": 0.16316560827776513,
+    "com_step_m": 0.02053050626901283,
+    "limb_scale_step_fraction": 0.040269654846604844,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T01",
+    "from_frame0": 11,
+    "to_frame0": 12,
+    "max_joint": "elbow_left",
+    "max_joint_step_m": 0.26624011260865593,
+    "com_step_m": 0.047013934294852226,
+    "limb_scale_step_fraction": 0.08072299552256017,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T01",
+    "from_frame0": 12,
+    "to_frame0": 13,
+    "max_joint": "wrist_left",
+    "max_joint_step_m": 0.15393873441634098,
+    "com_step_m": 0.023594878677513084,
+    "limb_scale_step_fraction": 0.03383723073642512,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T01",
+    "from_frame0": 50,
+    "to_frame0": 51,
+    "max_joint": "hip_left",
+    "max_joint_step_m": 0.19387758171927744,
+    "com_step_m": 0.060960711082972116,
+    "limb_scale_step_fraction": 0.09180242465914615,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T01",
+    "from_frame0": 51,
+    "to_frame0": 52,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.11347753759380373,
+    "com_step_m": 0.009222836151944747,
+    "limb_scale_step_fraction": 0.03207478488482196,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T01",
+    "from_frame0": 52,
+    "to_frame0": 53,
+    "max_joint": "ankle_right",
+    "max_joint_step_m": 0.17339498749552856,
+    "com_step_m": 0.029599576844260764,
+    "limb_scale_step_fraction": 0.172071159900563,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T01",
+    "from_frame0": 54,
+    "to_frame0": 55,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.21711942417440833,
+    "com_step_m": 0.02988311597602521,
+    "limb_scale_step_fraction": 0.0900617537115508,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T01",
+    "from_frame0": 55,
+    "to_frame0": 56,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.13388663658684208,
+    "com_step_m": 0.03564436367283687,
+    "limb_scale_step_fraction": 0.04515387655442933,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T01",
+    "from_frame0": 56,
+    "to_frame0": 57,
+    "max_joint": "ear_left",
+    "max_joint_step_m": 0.17466974071929986,
+    "com_step_m": 0.04613730924250899,
+    "limb_scale_step_fraction": 0.06738994147237172,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T01",
+    "from_frame0": 59,
+    "to_frame0": 60,
+    "max_joint": "elbow_right",
+    "max_joint_step_m": 0.3974840577227126,
+    "com_step_m": 0.024357527109108077,
+    "limb_scale_step_fraction": 0.010394579285409395,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T01",
+    "from_frame0": 60,
+    "to_frame0": 61,
+    "max_joint": "elbow_right",
+    "max_joint_step_m": 0.17981650492225598,
+    "com_step_m": 0.02129493619966183,
+    "limb_scale_step_fraction": 0.03946528135004401,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T01",
+    "from_frame0": 61,
+    "to_frame0": 62,
+    "max_joint": "handtip_left",
+    "max_joint_step_m": 0.10693383397477735,
+    "com_step_m": 0.013488491155071322,
+    "limb_scale_step_fraction": 0.0552100170007923,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T01",
+    "from_frame0": 62,
+    "to_frame0": 63,
+    "max_joint": "wrist_right",
+    "max_joint_step_m": 0.3045460773710853,
+    "com_step_m": 0.02295028405801109,
+    "limb_scale_step_fraction": 0.03617972343522811,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T01",
+    "from_frame0": 63,
+    "to_frame0": 64,
+    "max_joint": "hand_right",
+    "max_joint_step_m": 0.2754748241804664,
+    "com_step_m": 0.013916390122788547,
+    "limb_scale_step_fraction": 0.0012448705184911072,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T01",
+    "from_frame0": 74,
+    "to_frame0": 75,
+    "max_joint": "elbow_right",
+    "max_joint_step_m": 0.08328379840358287,
+    "com_step_m": 0.010043800074828524,
+    "limb_scale_step_fraction": 0.04250503275729919,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T01",
+    "from_frame0": 75,
+    "to_frame0": 76,
+    "max_joint": "hand_right",
+    "max_joint_step_m": 0.3279571885410065,
+    "com_step_m": 0.07573847036728103,
+    "limb_scale_step_fraction": 0.10464475359491522,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T01",
+    "from_frame0": 76,
+    "to_frame0": 77,
+    "max_joint": "ankle_left",
+    "max_joint_step_m": 0.21359486746692968,
+    "com_step_m": 0.01767693662569845,
+    "limb_scale_step_fraction": 0.007011352714935641,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T01",
+    "from_frame0": 77,
+    "to_frame0": 78,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.24940302539099543,
+    "com_step_m": 0.03306488886236477,
+    "limb_scale_step_fraction": 0.12054041495625545,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T01",
+    "from_frame0": 78,
+    "to_frame0": 79,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.246919413601016,
+    "com_step_m": 0.025230892990771445,
+    "limb_scale_step_fraction": 0.008059395961124852,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T01",
+    "from_frame0": 82,
+    "to_frame0": 83,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.2406546477511312,
+    "com_step_m": 0.0701439732365518,
+    "limb_scale_step_fraction": 0.10722480497824433,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T01",
+    "from_frame0": 83,
+    "to_frame0": 84,
+    "max_joint": "hand_right",
+    "max_joint_step_m": 0.2810254182436971,
+    "com_step_m": 0.03330176539176775,
+    "limb_scale_step_fraction": 0.0232064487459566,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T01",
+    "from_frame0": 85,
+    "to_frame0": 86,
+    "max_joint": "elbow_left",
+    "max_joint_step_m": 0.2956618559567894,
+    "com_step_m": 0.028532297529071323,
+    "limb_scale_step_fraction": 0.011580061874787379,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T01",
+    "from_frame0": 86,
+    "to_frame0": 87,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.16992673321321775,
+    "com_step_m": 0.02317310112625756,
+    "limb_scale_step_fraction": 0.06896816633830503,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T01",
+    "from_frame0": 90,
+    "to_frame0": 91,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.1745309250730131,
+    "com_step_m": 0.015237011425326404,
+    "limb_scale_step_fraction": 0.04168648566011972,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T01",
+    "from_frame0": 95,
+    "to_frame0": 96,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.19248457465865804,
+    "com_step_m": 0.015016080144760286,
+    "limb_scale_step_fraction": 0.0676877192042026,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T02",
+    "from_frame0": 16,
+    "to_frame0": 17,
+    "max_joint": "wrist_right",
+    "max_joint_step_m": 0.4068801081030966,
+    "com_step_m": 0.01689275947642616,
+    "limb_scale_step_fraction": 0.0059075075575817145,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T02",
+    "from_frame0": 17,
+    "to_frame0": 18,
+    "max_joint": "wrist_right",
+    "max_joint_step_m": 0.23339515641542816,
+    "com_step_m": 0.01435397406839241,
+    "limb_scale_step_fraction": 0.003809067906705719,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T02",
+    "from_frame0": 26,
+    "to_frame0": 27,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.22448291521306268,
+    "com_step_m": 0.013088676290508075,
+    "limb_scale_step_fraction": 0.002202762425583697,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T02",
+    "from_frame0": 27,
+    "to_frame0": 28,
+    "max_joint": "thumb_right",
+    "max_joint_step_m": 0.2453241537792235,
+    "com_step_m": 0.020995551936385227,
+    "limb_scale_step_fraction": 0.004365854032011751,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T02",
+    "from_frame0": 40,
+    "to_frame0": 41,
+    "max_joint": "thumb_left",
+    "max_joint_step_m": 0.26808112673970586,
+    "com_step_m": 0.05474451759460706,
+    "limb_scale_step_fraction": 0.017685759550380663,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T02",
+    "from_frame0": 43,
+    "to_frame0": 44,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.3693928236678989,
+    "com_step_m": 0.03326018029732259,
+    "limb_scale_step_fraction": 0.026637779889413682,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T02",
+    "from_frame0": 45,
+    "to_frame0": 46,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.2153983305283303,
+    "com_step_m": 0.06476425225157066,
+    "limb_scale_step_fraction": 0.014807847095116082,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T02",
+    "from_frame0": 46,
+    "to_frame0": 47,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.2595944525814317,
+    "com_step_m": 0.05171917946922106,
+    "limb_scale_step_fraction": 0.0036898240731583322,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T02",
+    "from_frame0": 48,
+    "to_frame0": 49,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.20841394229958832,
+    "com_step_m": 0.06880780549863147,
+    "limb_scale_step_fraction": 0.0032121111657078165,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T02",
+    "from_frame0": 50,
+    "to_frame0": 51,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.33895807844867315,
+    "com_step_m": 0.03646992042277127,
+    "limb_scale_step_fraction": 0.013203758263988044,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T02",
+    "from_frame0": 52,
+    "to_frame0": 53,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.2336669975271149,
+    "com_step_m": 0.09442574961352172,
+    "limb_scale_step_fraction": 0.09475281161493058,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T02",
+    "from_frame0": 53,
+    "to_frame0": 54,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.3316608759538843,
+    "com_step_m": 0.0351741493542489,
+    "limb_scale_step_fraction": 0.1373314705801477,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T02",
+    "from_frame0": 54,
+    "to_frame0": 55,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.2447042834856013,
+    "com_step_m": 0.06012498986607816,
+    "limb_scale_step_fraction": 0.12910636000150552,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T02",
+    "from_frame0": 55,
+    "to_frame0": 56,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.2262211827027851,
+    "com_step_m": 0.03021763081378475,
+    "limb_scale_step_fraction": 0.09003126919488898,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T02",
+    "from_frame0": 56,
+    "to_frame0": 57,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.16658400197627946,
+    "com_step_m": 0.02503570007063775,
+    "limb_scale_step_fraction": 0.10251788784816625,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T02",
+    "from_frame0": 58,
+    "to_frame0": 59,
+    "max_joint": "hand_right",
+    "max_joint_step_m": 0.39608760049989966,
+    "com_step_m": 0.03550424315974435,
+    "limb_scale_step_fraction": 0.011888067014977235,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T02",
+    "from_frame0": 65,
+    "to_frame0": 66,
+    "max_joint": "ear_left",
+    "max_joint_step_m": 0.09269261377060291,
+    "com_step_m": 0.04116714403863983,
+    "limb_scale_step_fraction": 0.03173556137047471,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T02",
+    "from_frame0": 69,
+    "to_frame0": 70,
+    "max_joint": "elbow_right",
+    "max_joint_step_m": 0.22528704678020256,
+    "com_step_m": 0.011257196201698754,
+    "limb_scale_step_fraction": 0.002113879293897665,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T02",
+    "from_frame0": 70,
+    "to_frame0": 71,
+    "max_joint": "handtip_right",
+    "max_joint_step_m": 0.6485371243142508,
+    "com_step_m": 0.06328274196691035,
+    "limb_scale_step_fraction": 0.02303947649958874,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T02",
+    "from_frame0": 72,
+    "to_frame0": 73,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.203296042882198,
+    "com_step_m": 0.005177263524697796,
+    "limb_scale_step_fraction": 0.0026769500251874016,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T02",
+    "from_frame0": 73,
+    "to_frame0": 74,
+    "max_joint": "handtip_left",
+    "max_joint_step_m": 0.24044674562017015,
+    "com_step_m": 0.015882258444543627,
+    "limb_scale_step_fraction": 7.713038573243443e-05,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T02",
+    "from_frame0": 85,
+    "to_frame0": 86,
+    "max_joint": "handtip_right",
+    "max_joint_step_m": 0.6345450926043191,
+    "com_step_m": 0.012723997119116273,
+    "limb_scale_step_fraction": 0.0025008065442404417,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T02",
+    "from_frame0": 86,
+    "to_frame0": 87,
+    "max_joint": "wrist_right",
+    "max_joint_step_m": 0.20316858433893475,
+    "com_step_m": 0.012157072806640327,
+    "limb_scale_step_fraction": 0.02572479491373745,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T02",
+    "from_frame0": 87,
+    "to_frame0": 88,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.34348513484519694,
+    "com_step_m": 0.02677919694370333,
+    "limb_scale_step_fraction": 0.007307686499867066,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T02",
+    "from_frame0": 88,
+    "to_frame0": 89,
+    "max_joint": "elbow_right",
+    "max_joint_step_m": 0.31683537380864474,
+    "com_step_m": 0.019012307913306315,
+    "limb_scale_step_fraction": 0.009402208692412166,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T02",
+    "from_frame0": 93,
+    "to_frame0": 94,
+    "max_joint": "elbow_right",
+    "max_joint_step_m": 0.40154848818891964,
+    "com_step_m": 0.015693319123136356,
+    "limb_scale_step_fraction": 0.02532180621731198,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T02",
+    "from_frame0": 94,
+    "to_frame0": 95,
+    "max_joint": "elbow_right",
+    "max_joint_step_m": 0.21584316131556566,
+    "com_step_m": 0.009235166083999448,
+    "limb_scale_step_fraction": 0.0043398513786907416,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T02",
+    "from_frame0": 101,
+    "to_frame0": 102,
+    "max_joint": "wrist_right",
+    "max_joint_step_m": 0.3439126812932766,
+    "com_step_m": 0.040275833761210605,
+    "limb_scale_step_fraction": 0.004834076454514756,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T02",
+    "from_frame0": 102,
+    "to_frame0": 103,
+    "max_joint": "elbow_right",
+    "max_joint_step_m": 0.22748844207897223,
+    "com_step_m": 0.008901258702288525,
+    "limb_scale_step_fraction": 0.0025583364690701486,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T02",
+    "from_frame0": 106,
+    "to_frame0": 107,
+    "max_joint": "ankle_right",
+    "max_joint_step_m": 0.2090417672379617,
+    "com_step_m": 0.022094225640373343,
+    "limb_scale_step_fraction": 0.019163495346353993,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T02",
+    "from_frame0": 107,
+    "to_frame0": 108,
+    "max_joint": "hand_right",
+    "max_joint_step_m": 0.30800487562526896,
+    "com_step_m": 0.01604619830639216,
+    "limb_scale_step_fraction": 0.012072413676835153,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T02",
+    "from_frame0": 108,
+    "to_frame0": 109,
+    "max_joint": "elbow_right",
+    "max_joint_step_m": 0.20102079413172252,
+    "com_step_m": 0.007198643542567112,
+    "limb_scale_step_fraction": 0.013903221603074408,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T02",
+    "from_frame0": 111,
+    "to_frame0": 112,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.20984865460384003,
+    "com_step_m": 0.015144896924292722,
+    "limb_scale_step_fraction": 0.007364044051576297,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T02",
+    "from_frame0": 115,
+    "to_frame0": 116,
+    "max_joint": "wrist_right",
+    "max_joint_step_m": 0.4425611593846423,
+    "com_step_m": 0.010794560003504159,
+    "limb_scale_step_fraction": 0.0011692928857745487,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T02",
+    "from_frame0": 117,
+    "to_frame0": 118,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.2199886803836623,
+    "com_step_m": 0.017661246284998763,
+    "limb_scale_step_fraction": 0.004372432709712178,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T02",
+    "from_frame0": 121,
+    "to_frame0": 122,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.20538768189589207,
+    "com_step_m": 0.015510644937417651,
+    "limb_scale_step_fraction": 0.004189565330819477,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T02",
+    "from_frame0": 122,
+    "to_frame0": 123,
+    "max_joint": "ankle_right",
+    "max_joint_step_m": 0.20127588891366552,
+    "com_step_m": 0.016476733181063113,
+    "limb_scale_step_fraction": 0.003701461101305529,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T02",
+    "from_frame0": 126,
+    "to_frame0": 127,
+    "max_joint": "ankle_right",
+    "max_joint_step_m": 0.21535672280753404,
+    "com_step_m": 0.021138119038997077,
+    "limb_scale_step_fraction": 0.0002257841204381851,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T02",
+    "from_frame0": 127,
+    "to_frame0": 128,
+    "max_joint": "ankle_right",
+    "max_joint_step_m": 0.207742196210661,
+    "com_step_m": 0.018593523628407313,
+    "limb_scale_step_fraction": 0.0009621962080092903,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T02",
+    "from_frame0": 161,
+    "to_frame0": 162,
+    "max_joint": "ankle_right",
+    "max_joint_step_m": 0.3077223769411896,
+    "com_step_m": 0.03285500762153324,
+    "limb_scale_step_fraction": 0.002062184855197367,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T02",
+    "from_frame0": 162,
+    "to_frame0": 163,
+    "max_joint": "ankle_right",
+    "max_joint_step_m": 0.22889633457853337,
+    "com_step_m": 0.026561387288050978,
+    "limb_scale_step_fraction": 0.007343478007371731,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T02",
+    "from_frame0": 170,
+    "to_frame0": 171,
+    "max_joint": "ankle_right",
+    "max_joint_step_m": 0.2996276308669753,
+    "com_step_m": 0.020249406956100162,
+    "limb_scale_step_fraction": 0.010312731184880164,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T02",
+    "from_frame0": 172,
+    "to_frame0": 173,
+    "max_joint": "ankle_right",
+    "max_joint_step_m": 0.20286341258360047,
+    "com_step_m": 0.027902688839199902,
+    "limb_scale_step_fraction": 0.004062048102334279,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T02",
+    "from_frame0": 179,
+    "to_frame0": 180,
+    "max_joint": "nose",
+    "max_joint_step_m": 0.051868973545795935,
+    "com_step_m": 0.006583696089049411,
+    "limb_scale_step_fraction": 0.03040147518571257,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T02",
+    "from_frame0": 183,
+    "to_frame0": 184,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.27674381017557204,
+    "com_step_m": 0.023339914068557215,
+    "limb_scale_step_fraction": 0.021413593121509096,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T02",
+    "from_frame0": 189,
+    "to_frame0": 190,
+    "max_joint": "elbow_left",
+    "max_joint_step_m": 0.26226787706630095,
+    "com_step_m": 0.022248706666141555,
+    "limb_scale_step_fraction": 0.025638786055602252,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T02",
+    "from_frame0": 190,
+    "to_frame0": 191,
+    "max_joint": "elbow_left",
+    "max_joint_step_m": 0.2508311347708003,
+    "com_step_m": 0.018001993420974596,
+    "limb_scale_step_fraction": 0.0060872792103129495,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T02",
+    "from_frame0": 191,
+    "to_frame0": 192,
+    "max_joint": "ankle_right",
+    "max_joint_step_m": 0.2586509751554211,
+    "com_step_m": 0.029150018695219906,
+    "limb_scale_step_fraction": 0.01565225974417872,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T02",
+    "from_frame0": 194,
+    "to_frame0": 195,
+    "max_joint": "ankle_right",
+    "max_joint_step_m": 0.24206096432043583,
+    "com_step_m": 0.023032773974058927,
+    "limb_scale_step_fraction": 0.0018519728766948334,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T02",
+    "from_frame0": 195,
+    "to_frame0": 196,
+    "max_joint": "hand_right",
+    "max_joint_step_m": 0.31514315815986804,
+    "com_step_m": 0.013601278169078402,
+    "limb_scale_step_fraction": 0.0007884249277892427,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T02",
+    "from_frame0": 200,
+    "to_frame0": 201,
+    "max_joint": "wrist_left",
+    "max_joint_step_m": 0.20428081806181056,
+    "com_step_m": 0.025286724460814515,
+    "limb_scale_step_fraction": 0.0009141147315165514,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T02",
+    "from_frame0": 205,
+    "to_frame0": 206,
+    "max_joint": "thumb_left",
+    "max_joint_step_m": 0.32414131569883364,
+    "com_step_m": 0.03243025944130789,
+    "limb_scale_step_fraction": 0.010987133552738046,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T02",
+    "from_frame0": 207,
+    "to_frame0": 208,
+    "max_joint": "ankle_right",
+    "max_joint_step_m": 0.41694060108982384,
+    "com_step_m": 0.03782656502920662,
+    "limb_scale_step_fraction": 0.01617186268226182,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T02",
+    "from_frame0": 208,
+    "to_frame0": 209,
+    "max_joint": "ankle_right",
+    "max_joint_step_m": 0.23886817977859703,
+    "com_step_m": 0.025558103175305796,
+    "limb_scale_step_fraction": 0.002759847654924008,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T02",
+    "from_frame0": 211,
+    "to_frame0": 212,
+    "max_joint": "ankle_right",
+    "max_joint_step_m": 0.1719740973853424,
+    "com_step_m": 0.07520084181947992,
+    "limb_scale_step_fraction": 0.08986665403915699,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T02",
+    "from_frame0": 212,
+    "to_frame0": 213,
+    "max_joint": "ankle_right",
+    "max_joint_step_m": 0.09494137101349165,
+    "com_step_m": 0.051009255892064974,
+    "limb_scale_step_fraction": 0.047712608878952865,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T02",
+    "from_frame0": 213,
+    "to_frame0": 214,
+    "max_joint": "knee_left",
+    "max_joint_step_m": 0.10554140139947553,
+    "com_step_m": 0.04841515736327753,
+    "limb_scale_step_fraction": 0.032829457271926536,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T02",
+    "from_frame0": 215,
+    "to_frame0": 216,
+    "max_joint": "ankle_right",
+    "max_joint_step_m": 0.07027793393242548,
+    "com_step_m": 0.021802005550206185,
+    "limb_scale_step_fraction": 0.03527885285980241,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T02",
+    "from_frame0": 217,
+    "to_frame0": 218,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.14556307557723017,
+    "com_step_m": 0.0674506731555557,
+    "limb_scale_step_fraction": 0.09415504365618249,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T02",
+    "from_frame0": 218,
+    "to_frame0": 219,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.3295217719611303,
+    "com_step_m": 0.07280859128449305,
+    "limb_scale_step_fraction": 0.0843164865887036,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T02",
+    "from_frame0": 219,
+    "to_frame0": 220,
+    "max_joint": "ankle_right",
+    "max_joint_step_m": 0.21931095601055708,
+    "com_step_m": 0.02295283056445895,
+    "limb_scale_step_fraction": 0.0028215467827884546,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T02",
+    "from_frame0": 224,
+    "to_frame0": 225,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.27256599135049236,
+    "com_step_m": 0.025236861054713025,
+    "limb_scale_step_fraction": 0.009457165412705446,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T02",
+    "from_frame0": 230,
+    "to_frame0": 231,
+    "max_joint": "ankle_right",
+    "max_joint_step_m": 0.23431726156813754,
+    "com_step_m": 0.022392329039225046,
+    "limb_scale_step_fraction": 0.00128312330208651,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T02",
+    "from_frame0": 232,
+    "to_frame0": 233,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.13110678705181505,
+    "com_step_m": 0.05407498251358643,
+    "limb_scale_step_fraction": 0.07967368576849077,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T02",
+    "from_frame0": 233,
+    "to_frame0": 234,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.08595782066124337,
+    "com_step_m": 0.027163315184507493,
+    "limb_scale_step_fraction": 0.038983754971392635,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T02",
+    "from_frame0": 237,
+    "to_frame0": 238,
+    "max_joint": "ankle_right",
+    "max_joint_step_m": 0.3435542917795538,
+    "com_step_m": 0.03328954163432354,
+    "limb_scale_step_fraction": 0.019751244952359144,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T02",
+    "from_frame0": 238,
+    "to_frame0": 239,
+    "max_joint": "ankle_right",
+    "max_joint_step_m": 0.24823651157040272,
+    "com_step_m": 0.023430585621244962,
+    "limb_scale_step_fraction": 0.005232720240340423,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T02",
+    "from_frame0": 239,
+    "to_frame0": 240,
+    "max_joint": "ankle_right",
+    "max_joint_step_m": 0.24908939877882638,
+    "com_step_m": 0.020374869987576087,
+    "limb_scale_step_fraction": 0.002650792071616933,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T02",
+    "from_frame0": 241,
+    "to_frame0": 242,
+    "max_joint": "ankle_right",
+    "max_joint_step_m": 0.21766744915953992,
+    "com_step_m": 0.014705137601173717,
+    "limb_scale_step_fraction": 0.010975874492921854,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T04",
+    "from_frame0": 2,
+    "to_frame0": 3,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.2111915282103353,
+    "com_step_m": 0.054107624217846234,
+    "limb_scale_step_fraction": 0.007757962581771395,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T04",
+    "from_frame0": 5,
+    "to_frame0": 6,
+    "max_joint": "ear_right",
+    "max_joint_step_m": 0.1255209029102121,
+    "com_step_m": 0.05703381094444507,
+    "limb_scale_step_fraction": 0.04437273538078761,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T04",
+    "from_frame0": 7,
+    "to_frame0": 8,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.32941000319909314,
+    "com_step_m": 0.05381108006935077,
+    "limb_scale_step_fraction": 0.04483648626069084,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T04",
+    "from_frame0": 8,
+    "to_frame0": 9,
+    "max_joint": "eye_left",
+    "max_joint_step_m": 0.2086857421424788,
+    "com_step_m": 0.10004149771754937,
+    "limb_scale_step_fraction": 0.09397884281154491,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T04",
+    "from_frame0": 9,
+    "to_frame0": 10,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.42430583315775966,
+    "com_step_m": 0.052510149189920384,
+    "limb_scale_step_fraction": 0.01101245941793279,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T04",
+    "from_frame0": 10,
+    "to_frame0": 11,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.29528478413694836,
+    "com_step_m": 0.04587894269120646,
+    "limb_scale_step_fraction": 0.005793369272314169,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T04",
+    "from_frame0": 11,
+    "to_frame0": 12,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.16147644506627104,
+    "com_step_m": 0.03777755911345687,
+    "limb_scale_step_fraction": 0.051475661092357405,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T04",
+    "from_frame0": 13,
+    "to_frame0": 14,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.3193240700506366,
+    "com_step_m": 0.03833179632850068,
+    "limb_scale_step_fraction": 0.007965681280031315,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T04",
+    "from_frame0": 14,
+    "to_frame0": 15,
+    "max_joint": "wrist_left",
+    "max_joint_step_m": 0.20511619160533495,
+    "com_step_m": 0.026332962488492383,
+    "limb_scale_step_fraction": 0.004625121442924865,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T04",
+    "from_frame0": 17,
+    "to_frame0": 18,
+    "max_joint": "wrist_right",
+    "max_joint_step_m": 0.2594573939108565,
+    "com_step_m": 0.02250276585958779,
+    "limb_scale_step_fraction": 0.025466364941932055,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T04",
+    "from_frame0": 18,
+    "to_frame0": 19,
+    "max_joint": "wrist_right",
+    "max_joint_step_m": 0.12758226252960936,
+    "com_step_m": 0.03148753094529924,
+    "limb_scale_step_fraction": 0.04561667734115263,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T04",
+    "from_frame0": 20,
+    "to_frame0": 21,
+    "max_joint": "nose",
+    "max_joint_step_m": 0.20627877247325963,
+    "com_step_m": 0.027430446525444612,
+    "limb_scale_step_fraction": 0.020085486372552978,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T04",
+    "from_frame0": 21,
+    "to_frame0": 22,
+    "max_joint": "hand_right",
+    "max_joint_step_m": 0.3639317030956248,
+    "com_step_m": 0.027539297636858785,
+    "limb_scale_step_fraction": 0.007994127345138453,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T04",
+    "from_frame0": 22,
+    "to_frame0": 23,
+    "max_joint": "elbow_right",
+    "max_joint_step_m": 0.20570156435642717,
+    "com_step_m": 0.03399285087408189,
+    "limb_scale_step_fraction": 0.0006491574840945647,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T04",
+    "from_frame0": 25,
+    "to_frame0": 26,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.3672299929856473,
+    "com_step_m": 0.0605390417918265,
+    "limb_scale_step_fraction": 0.009636810059920542,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T04",
+    "from_frame0": 26,
+    "to_frame0": 27,
+    "max_joint": "elbow_right",
+    "max_joint_step_m": 0.18210001772781134,
+    "com_step_m": 0.02972179912030748,
+    "limb_scale_step_fraction": 0.04345092932000752,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T04",
+    "from_frame0": 28,
+    "to_frame0": 29,
+    "max_joint": "hand_right",
+    "max_joint_step_m": 0.07675195874982983,
+    "com_step_m": 0.00681255656368684,
+    "limb_scale_step_fraction": 0.030750590173951875,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T04",
+    "from_frame0": 29,
+    "to_frame0": 30,
+    "max_joint": "nose",
+    "max_joint_step_m": 0.15646700184153425,
+    "com_step_m": 0.01541206826145396,
+    "limb_scale_step_fraction": 0.046912857803642925,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T04",
+    "from_frame0": 30,
+    "to_frame0": 31,
+    "max_joint": "elbow_right",
+    "max_joint_step_m": 0.4552244998960966,
+    "com_step_m": 0.04198201050963,
+    "limb_scale_step_fraction": 0.038273654665765884,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T04",
+    "from_frame0": 34,
+    "to_frame0": 35,
+    "max_joint": "elbow_right",
+    "max_joint_step_m": 0.1456222416228687,
+    "com_step_m": 0.01991441143217441,
+    "limb_scale_step_fraction": 0.03337039729338339,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T04",
+    "from_frame0": 35,
+    "to_frame0": 36,
+    "max_joint": "elbow_right",
+    "max_joint_step_m": 0.21703618619555692,
+    "com_step_m": 0.012563089307928085,
+    "limb_scale_step_fraction": 0.007153249308853488,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T04",
+    "from_frame0": 36,
+    "to_frame0": 37,
+    "max_joint": "elbow_right",
+    "max_joint_step_m": 0.2311993788614612,
+    "com_step_m": 0.04922974794705031,
+    "limb_scale_step_fraction": 0.08151087845883073,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T04",
+    "from_frame0": 38,
+    "to_frame0": 39,
+    "max_joint": "nose",
+    "max_joint_step_m": 0.08430528799120934,
+    "com_step_m": 0.016582369865540004,
+    "limb_scale_step_fraction": 0.033696528210507684,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T04",
+    "from_frame0": 43,
+    "to_frame0": 44,
+    "max_joint": "nose",
+    "max_joint_step_m": 0.1645619459528325,
+    "com_step_m": 0.07392770298672165,
+    "limb_scale_step_fraction": 0.15319430587331817,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T04",
+    "from_frame0": 45,
+    "to_frame0": 46,
+    "max_joint": "nose",
+    "max_joint_step_m": 0.11684548163577034,
+    "com_step_m": 0.048543900681820296,
+    "limb_scale_step_fraction": 0.11211864657275183,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T04",
+    "from_frame0": 46,
+    "to_frame0": 47,
+    "max_joint": "nose",
+    "max_joint_step_m": 0.0785925089078754,
+    "com_step_m": 0.03553494075189443,
+    "limb_scale_step_fraction": 0.06279959278674235,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T04",
+    "from_frame0": 47,
+    "to_frame0": 48,
+    "max_joint": "nose",
+    "max_joint_step_m": 0.1320565568133526,
+    "com_step_m": 0.0517757729181907,
+    "limb_scale_step_fraction": 0.1300000863220719,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T04",
+    "from_frame0": 55,
+    "to_frame0": 56,
+    "max_joint": "wrist_left",
+    "max_joint_step_m": 0.40572151612438867,
+    "com_step_m": 0.004251002649914415,
+    "limb_scale_step_fraction": 0.0044177162229356685,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T04",
+    "from_frame0": 57,
+    "to_frame0": 58,
+    "max_joint": "wrist_left",
+    "max_joint_step_m": 0.17063019654992084,
+    "com_step_m": 0.0458856364600612,
+    "limb_scale_step_fraction": 0.05606113806858921,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T04",
+    "from_frame0": 124,
+    "to_frame0": 125,
+    "max_joint": "ear_left",
+    "max_joint_step_m": 0.04188356665065412,
+    "com_step_m": 0.006337481212817213,
+    "limb_scale_step_fraction": 0.034355701184847494,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T04",
+    "from_frame0": 144,
+    "to_frame0": 145,
+    "max_joint": "hand_right",
+    "max_joint_step_m": 0.2665263403864474,
+    "com_step_m": 0.029588135699910756,
+    "limb_scale_step_fraction": 0.039915338599580096,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T04",
+    "from_frame0": 150,
+    "to_frame0": 151,
+    "max_joint": "thumb_right",
+    "max_joint_step_m": 0.2823372393409442,
+    "com_step_m": 0.02737750939631944,
+    "limb_scale_step_fraction": 0.050557769503670164,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T04",
+    "from_frame0": 166,
+    "to_frame0": 167,
+    "max_joint": "hand_right",
+    "max_joint_step_m": 0.2256731146320233,
+    "com_step_m": 0.043333992505559804,
+    "limb_scale_step_fraction": 0.057668715982318895,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T04",
+    "from_frame0": 177,
+    "to_frame0": 178,
+    "max_joint": "knee_left",
+    "max_joint_step_m": 0.12577493709594365,
+    "com_step_m": 0.03047878029778915,
+    "limb_scale_step_fraction": 0.04145903223732489,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T04",
+    "from_frame0": 178,
+    "to_frame0": 179,
+    "max_joint": "wrist_right",
+    "max_joint_step_m": 0.24945476872206448,
+    "com_step_m": 0.058804062187675143,
+    "limb_scale_step_fraction": 0.023317418808198032,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T05",
+    "from_frame0": 2,
+    "to_frame0": 3,
+    "max_joint": "wrist_right",
+    "max_joint_step_m": 0.24474543190035622,
+    "com_step_m": 0.007728679063651323,
+    "limb_scale_step_fraction": 0.0009045908822343322,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T05",
+    "from_frame0": 17,
+    "to_frame0": 18,
+    "max_joint": "ankle_right",
+    "max_joint_step_m": 0.21126663930162043,
+    "com_step_m": 0.036081855160306826,
+    "limb_scale_step_fraction": 0.027394579046941828,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T05",
+    "from_frame0": 23,
+    "to_frame0": 24,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.23493225026092632,
+    "com_step_m": 0.05649511774304522,
+    "limb_scale_step_fraction": 0.009831912583433806,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T05",
+    "from_frame0": 27,
+    "to_frame0": 28,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.2364578188428637,
+    "com_step_m": 0.08414975316802487,
+    "limb_scale_step_fraction": 0.06496953140696066,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T05",
+    "from_frame0": 28,
+    "to_frame0": 29,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.5085660978390821,
+    "com_step_m": 0.038862769232956285,
+    "limb_scale_step_fraction": 0.10314647575819914,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T05",
+    "from_frame0": 30,
+    "to_frame0": 31,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.2118950339649399,
+    "com_step_m": 0.0567114045052908,
+    "limb_scale_step_fraction": 0.0461826340081413,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T05",
+    "from_frame0": 31,
+    "to_frame0": 32,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.5213749809537014,
+    "com_step_m": 0.06236492227661993,
+    "limb_scale_step_fraction": 0.002083919959576507,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T05",
+    "from_frame0": 32,
+    "to_frame0": 33,
+    "max_joint": "handtip_left",
+    "max_joint_step_m": 0.1764783054691126,
+    "com_step_m": 0.03585887489173185,
+    "limb_scale_step_fraction": 0.030611640639344923,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T05",
+    "from_frame0": 34,
+    "to_frame0": 35,
+    "max_joint": "handtip_left",
+    "max_joint_step_m": 0.2541344141609753,
+    "com_step_m": 0.028096268447763063,
+    "limb_scale_step_fraction": 0.02450349935174762,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T05",
+    "from_frame0": 41,
+    "to_frame0": 42,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.1938612337122646,
+    "com_step_m": 0.02580202353949319,
+    "limb_scale_step_fraction": 0.06184429777260221,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T05",
+    "from_frame0": 45,
+    "to_frame0": 46,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.5035987727535823,
+    "com_step_m": 0.07764447826991501,
+    "limb_scale_step_fraction": 0.045365344295083904,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T05",
+    "from_frame0": 55,
+    "to_frame0": 56,
+    "max_joint": "handtip_right",
+    "max_joint_step_m": 1.0429190077048074,
+    "com_step_m": 0.0255491206239553,
+    "limb_scale_step_fraction": 0.023575554710783524,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T05",
+    "from_frame0": 59,
+    "to_frame0": 60,
+    "max_joint": "thumb_left",
+    "max_joint_step_m": 0.5881806154668339,
+    "com_step_m": 0.025142273613158895,
+    "limb_scale_step_fraction": 0.020211245534842236,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T05",
+    "from_frame0": 70,
+    "to_frame0": 71,
+    "max_joint": "knee_left",
+    "max_joint_step_m": 0.16309936076401937,
+    "com_step_m": 0.036264615822586214,
+    "limb_scale_step_fraction": 0.047859576863554215,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T05",
+    "from_frame0": 71,
+    "to_frame0": 72,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.3181597912846916,
+    "com_step_m": 0.03284584620690575,
+    "limb_scale_step_fraction": 0.022790960364190236,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T05",
+    "from_frame0": 75,
+    "to_frame0": 76,
+    "max_joint": "elbow_left",
+    "max_joint_step_m": 0.2796898493115121,
+    "com_step_m": 0.029203018694547497,
+    "limb_scale_step_fraction": 0.005995266339010461,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T05",
+    "from_frame0": 76,
+    "to_frame0": 77,
+    "max_joint": "elbow_right",
+    "max_joint_step_m": 0.25176943408965746,
+    "com_step_m": 0.019033197997203558,
+    "limb_scale_step_fraction": 0.005437405931599454,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T05",
+    "from_frame0": 77,
+    "to_frame0": 78,
+    "max_joint": "elbow_left",
+    "max_joint_step_m": 0.24272539907355703,
+    "com_step_m": 0.01189305939042776,
+    "limb_scale_step_fraction": 0.016067874356631612,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T05",
+    "from_frame0": 88,
+    "to_frame0": 89,
+    "max_joint": "elbow_left",
+    "max_joint_step_m": 0.2533012892017776,
+    "com_step_m": 0.017183236707227906,
+    "limb_scale_step_fraction": 0.012278150071697238,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T05",
+    "from_frame0": 89,
+    "to_frame0": 90,
+    "max_joint": "elbow_left",
+    "max_joint_step_m": 0.21963505157270644,
+    "com_step_m": 0.02119544699910581,
+    "limb_scale_step_fraction": 0.0028974025713831672,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T05",
+    "from_frame0": 90,
+    "to_frame0": 91,
+    "max_joint": "elbow_left",
+    "max_joint_step_m": 0.22560918922339135,
+    "com_step_m": 0.011665213820085186,
+    "limb_scale_step_fraction": 0.0005853733062906458,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T05",
+    "from_frame0": 91,
+    "to_frame0": 92,
+    "max_joint": "elbow_left",
+    "max_joint_step_m": 0.20186604232444566,
+    "com_step_m": 0.01209453762679875,
+    "limb_scale_step_fraction": 0.0022565449043892337,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T05",
+    "from_frame0": 93,
+    "to_frame0": 94,
+    "max_joint": "elbow_left",
+    "max_joint_step_m": 0.26690005652291043,
+    "com_step_m": 0.01994052148166247,
+    "limb_scale_step_fraction": 0.0014210313910952076,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T05",
+    "from_frame0": 94,
+    "to_frame0": 95,
+    "max_joint": "elbow_left",
+    "max_joint_step_m": 0.2258004032885434,
+    "com_step_m": 0.008660612181691365,
+    "limb_scale_step_fraction": 0.002889417789240272,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T05",
+    "from_frame0": 96,
+    "to_frame0": 97,
+    "max_joint": "elbow_left",
+    "max_joint_step_m": 0.3181053190571504,
+    "com_step_m": 0.01568173675583349,
+    "limb_scale_step_fraction": 0.0007844523570518628,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T05",
+    "from_frame0": 97,
+    "to_frame0": 98,
+    "max_joint": "elbow_left",
+    "max_joint_step_m": 0.21944629133393873,
+    "com_step_m": 0.010674832355011661,
+    "limb_scale_step_fraction": 0.0019975986133892883,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T05",
+    "from_frame0": 101,
+    "to_frame0": 102,
+    "max_joint": "elbow_left",
+    "max_joint_step_m": 0.3392080291626256,
+    "com_step_m": 0.03519890811697902,
+    "limb_scale_step_fraction": 0.0015843725548332725,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T05",
+    "from_frame0": 103,
+    "to_frame0": 104,
+    "max_joint": "elbow_left",
+    "max_joint_step_m": 0.36200547033654024,
+    "com_step_m": 0.03190288636309118,
+    "limb_scale_step_fraction": 0.003198845584597519,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T05",
+    "from_frame0": 107,
+    "to_frame0": 108,
+    "max_joint": "elbow_left",
+    "max_joint_step_m": 0.2572428912411611,
+    "com_step_m": 0.015081723803976195,
+    "limb_scale_step_fraction": 0.010394941208447568,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T05",
+    "from_frame0": 108,
+    "to_frame0": 109,
+    "max_joint": "elbow_left",
+    "max_joint_step_m": 0.21924230182111334,
+    "com_step_m": 0.009857459060799056,
+    "limb_scale_step_fraction": 0.006911085879920062,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T05",
+    "from_frame0": 124,
+    "to_frame0": 125,
+    "max_joint": "handtip_left",
+    "max_joint_step_m": 0.1492571360338751,
+    "com_step_m": 0.02722904972387269,
+    "limb_scale_step_fraction": 0.07445617869792642,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T05",
+    "from_frame0": 125,
+    "to_frame0": 126,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.08885356045610603,
+    "com_step_m": 0.021250563961216096,
+    "limb_scale_step_fraction": 0.03366286639118927,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T05",
+    "from_frame0": 129,
+    "to_frame0": 130,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.26195453748541864,
+    "com_step_m": 0.020421088098620924,
+    "limb_scale_step_fraction": 0.030133976606197002,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T05",
+    "from_frame0": 132,
+    "to_frame0": 133,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.23331193560267346,
+    "com_step_m": 0.025678222150238454,
+    "limb_scale_step_fraction": 0.0009029277347048364,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T05",
+    "from_frame0": 137,
+    "to_frame0": 138,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.11416170477216207,
+    "com_step_m": 0.02865966923361241,
+    "limb_scale_step_fraction": 0.06574537660549264,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T05",
+    "from_frame0": 144,
+    "to_frame0": 145,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.29212072639239556,
+    "com_step_m": 0.029722511977665098,
+    "limb_scale_step_fraction": 0.001404044307679278,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T05",
+    "from_frame0": 166,
+    "to_frame0": 167,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.363769746495303,
+    "com_step_m": 0.03441648239983366,
+    "limb_scale_step_fraction": 0.013095120314230456,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T05",
+    "from_frame0": 168,
+    "to_frame0": 169,
+    "max_joint": "wrist_right",
+    "max_joint_step_m": 0.22572915066960994,
+    "com_step_m": 0.014615556848213826,
+    "limb_scale_step_fraction": 0.02104643089311202,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T05",
+    "from_frame0": 169,
+    "to_frame0": 170,
+    "max_joint": "wrist_left",
+    "max_joint_step_m": 0.21273456055596293,
+    "com_step_m": 0.017820191427074486,
+    "limb_scale_step_fraction": 0.012809470541833998,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T05",
+    "from_frame0": 171,
+    "to_frame0": 172,
+    "max_joint": "elbow_right",
+    "max_joint_step_m": 0.39844722873456845,
+    "com_step_m": 0.04169279951150441,
+    "limb_scale_step_fraction": 0.043280573849793495,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T05",
+    "from_frame0": 172,
+    "to_frame0": 173,
+    "max_joint": "elbow_right",
+    "max_joint_step_m": 0.2222351517651764,
+    "com_step_m": 0.009770441723621202,
+    "limb_scale_step_fraction": 0.023836676455977764,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T05",
+    "from_frame0": 175,
+    "to_frame0": 176,
+    "max_joint": "elbow_left",
+    "max_joint_step_m": 0.06913830292573887,
+    "com_step_m": 0.02553998082171762,
+    "limb_scale_step_fraction": 0.03032085447633713,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T05",
+    "from_frame0": 176,
+    "to_frame0": 177,
+    "max_joint": "wrist_right",
+    "max_joint_step_m": 0.3040351394771477,
+    "com_step_m": 0.01576506971751713,
+    "limb_scale_step_fraction": 0.01871450680646813,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T05",
+    "from_frame0": 178,
+    "to_frame0": 179,
+    "max_joint": "wrist_left",
+    "max_joint_step_m": 0.4999690704004883,
+    "com_step_m": 0.027144374074984653,
+    "limb_scale_step_fraction": 0.02025174424931297,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T05",
+    "from_frame0": 179,
+    "to_frame0": 180,
+    "max_joint": "wrist_left",
+    "max_joint_step_m": 0.21324344319557165,
+    "com_step_m": 0.046599606727995374,
+    "limb_scale_step_fraction": 0.051851342382605074,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T05",
+    "from_frame0": 180,
+    "to_frame0": 181,
+    "max_joint": "elbow_right",
+    "max_joint_step_m": 0.25468013669963524,
+    "com_step_m": 0.015176143141421797,
+    "limb_scale_step_fraction": 0.009556887825518556,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A11T05",
+    "from_frame0": 181,
+    "to_frame0": 182,
+    "max_joint": "hand_left",
+    "max_joint_step_m": 0.3936306859522274,
+    "com_step_m": 0.03125254705595307,
+    "limb_scale_step_fraction": 0.02827172879266117,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A12T02",
+    "from_frame0": 1,
+    "to_frame0": 2,
+    "max_joint": "ankle_left",
+    "max_joint_step_m": 0.22037116305345347,
+    "com_step_m": 0.024267030275467286,
+    "limb_scale_step_fraction": 0.024507199220521483,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A12T02",
+    "from_frame0": 3,
+    "to_frame0": 4,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.25361613865593763,
+    "com_step_m": 0.012048183837703667,
+    "limb_scale_step_fraction": 0.04419764502382862,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A12T02",
+    "from_frame0": 5,
+    "to_frame0": 6,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.19580011922337315,
+    "com_step_m": 0.017441792064199744,
+    "limb_scale_step_fraction": 0.03571597981994269,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A12T02",
+    "from_frame0": 7,
+    "to_frame0": 8,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.22575265648110754,
+    "com_step_m": 0.01705931809746441,
+    "limb_scale_step_fraction": 0.014001607178219608,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A12T02",
+    "from_frame0": 8,
+    "to_frame0": 9,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.2677402746053108,
+    "com_step_m": 0.015509238975015152,
+    "limb_scale_step_fraction": 0.0558819640305089,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A12T02",
+    "from_frame0": 10,
+    "to_frame0": 11,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.27978482136760746,
+    "com_step_m": 0.029293784580285354,
+    "limb_scale_step_fraction": 0.024280465667285773,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A12T02",
+    "from_frame0": 11,
+    "to_frame0": 12,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.21374784985425058,
+    "com_step_m": 0.026589799664733692,
+    "limb_scale_step_fraction": 0.025591180176357052,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A12T02",
+    "from_frame0": 15,
+    "to_frame0": 16,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.2379700546281261,
+    "com_step_m": 0.04524516328662342,
+    "limb_scale_step_fraction": 0.11306615492023538,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A12T02",
+    "from_frame0": 16,
+    "to_frame0": 17,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.10353782321875232,
+    "com_step_m": 0.01829632331420083,
+    "limb_scale_step_fraction": 0.037047656113128144,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A12T02",
+    "from_frame0": 17,
+    "to_frame0": 18,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.14058448238158255,
+    "com_step_m": 0.03137914350868265,
+    "limb_scale_step_fraction": 0.05596679890853905,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A12T02",
+    "from_frame0": 18,
+    "to_frame0": 19,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.08879721176736372,
+    "com_step_m": 0.014747174426246288,
+    "limb_scale_step_fraction": 0.04832157811910211,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A12T02",
+    "from_frame0": 20,
+    "to_frame0": 21,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.48864058604651184,
+    "com_step_m": 0.03532084270378586,
+    "limb_scale_step_fraction": 0.01922994999904059,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A12T02",
+    "from_frame0": 21,
+    "to_frame0": 22,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.1439603590314603,
+    "com_step_m": 0.022335230679347597,
+    "limb_scale_step_fraction": 0.036758594781413745,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A12T02",
+    "from_frame0": 23,
+    "to_frame0": 24,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.25529687299369225,
+    "com_step_m": 0.01755360405310915,
+    "limb_scale_step_fraction": 0.0055493560877648675,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A12T02",
+    "from_frame0": 27,
+    "to_frame0": 28,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.2500439551172052,
+    "com_step_m": 0.007583090536404244,
+    "limb_scale_step_fraction": 0.004747043321428709,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A12T02",
+    "from_frame0": 42,
+    "to_frame0": 43,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.23526194188079086,
+    "com_step_m": 0.0095280209119659,
+    "limb_scale_step_fraction": 0.001765341162925602,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A12T02",
+    "from_frame0": 56,
+    "to_frame0": 57,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.22098707457815228,
+    "com_step_m": 0.04078865811850809,
+    "limb_scale_step_fraction": 0.08135465967675953,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A12T02",
+    "from_frame0": 57,
+    "to_frame0": 58,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.19748742951520687,
+    "com_step_m": 0.029137944993982007,
+    "limb_scale_step_fraction": 0.04311989132212312,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A12T02",
+    "from_frame0": 75,
+    "to_frame0": 76,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.22302033214081712,
+    "com_step_m": 0.005155203595474619,
+    "limb_scale_step_fraction": 0.0037005192448914303,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A12T02",
+    "from_frame0": 108,
+    "to_frame0": 109,
+    "max_joint": "hand_right",
+    "max_joint_step_m": 0.24759789411225575,
+    "com_step_m": 0.003638096804158194,
+    "limb_scale_step_fraction": 0.0172644041025548,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A12T03",
+    "from_frame0": 23,
+    "to_frame0": 24,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.1588575761766386,
+    "com_step_m": 0.052774182937936794,
+    "limb_scale_step_fraction": 0.04922525458511992,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A12T03",
+    "from_frame0": 24,
+    "to_frame0": 25,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.14168553635949452,
+    "com_step_m": 0.04292424906184647,
+    "limb_scale_step_fraction": 0.0322235734148798,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A12T03",
+    "from_frame0": 25,
+    "to_frame0": 26,
+    "max_joint": "ear_right",
+    "max_joint_step_m": 0.11596221832877718,
+    "com_step_m": 0.0344306167574957,
+    "limb_scale_step_fraction": 0.06589911131905439,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A12T03",
+    "from_frame0": 26,
+    "to_frame0": 27,
+    "max_joint": "ankle_right",
+    "max_joint_step_m": 0.14124238276175505,
+    "com_step_m": 0.028129332081014074,
+    "limb_scale_step_fraction": 0.0453422897055044,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A12T03",
+    "from_frame0": 27,
+    "to_frame0": 28,
+    "max_joint": "ear_right",
+    "max_joint_step_m": 0.1424054052622825,
+    "com_step_m": 0.04545567411045654,
+    "limb_scale_step_fraction": 0.05725591921456265,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A12T03",
+    "from_frame0": 29,
+    "to_frame0": 30,
+    "max_joint": "wrist_right",
+    "max_joint_step_m": 0.20437226657313437,
+    "com_step_m": 0.03318066615430199,
+    "limb_scale_step_fraction": 0.004710567314650179,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A12T03",
+    "from_frame0": 36,
+    "to_frame0": 37,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.3583360020377117,
+    "com_step_m": 0.021268241345592232,
+    "limb_scale_step_fraction": 0.0014403941485149688,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A12T03",
+    "from_frame0": 37,
+    "to_frame0": 38,
+    "max_joint": "handtip_right",
+    "max_joint_step_m": 0.212004121232782,
+    "com_step_m": 0.0006061297844442873,
+    "limb_scale_step_fraction": 0.01845591404196889,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A12T03",
+    "from_frame0": 40,
+    "to_frame0": 41,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.3954699267820081,
+    "com_step_m": 0.008866598466521509,
+    "limb_scale_step_fraction": 0.015123489446505364,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A12T03",
+    "from_frame0": 43,
+    "to_frame0": 44,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.12967385317287713,
+    "com_step_m": 0.009272915676658154,
+    "limb_scale_step_fraction": 0.036450737100154326,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A12T03",
+    "from_frame0": 44,
+    "to_frame0": 45,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.2787628019975707,
+    "com_step_m": 0.007960115800954392,
+    "limb_scale_step_fraction": 0.009236843939767272,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A12T03",
+    "from_frame0": 71,
+    "to_frame0": 72,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.20152040645298117,
+    "com_step_m": 0.006479981277274784,
+    "limb_scale_step_fraction": 0.01002100254892625,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A12T03",
+    "from_frame0": 146,
+    "to_frame0": 147,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.24016828980050275,
+    "com_step_m": 0.01275681121020636,
+    "limb_scale_step_fraction": 0.01056317142706028,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A12T03",
+    "from_frame0": 158,
+    "to_frame0": 159,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.21525151649811905,
+    "com_step_m": 0.007859133974415051,
+    "limb_scale_step_fraction": 0.014346554912231045,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A12T03",
+    "from_frame0": 160,
+    "to_frame0": 161,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.20433431071035088,
+    "com_step_m": 0.006143078621119739,
+    "limb_scale_step_fraction": 0.0019357116358465194,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A12T04",
+    "from_frame0": 7,
+    "to_frame0": 8,
+    "max_joint": "hand_right",
+    "max_joint_step_m": 0.2918617409263714,
+    "com_step_m": 0.049164111583369065,
+    "limb_scale_step_fraction": 0.02465719592321025,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A12T04",
+    "from_frame0": 8,
+    "to_frame0": 9,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.15524778321577873,
+    "com_step_m": 0.08599097212659436,
+    "limb_scale_step_fraction": 0.034216622469658044,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A12T04",
+    "from_frame0": 9,
+    "to_frame0": 10,
+    "max_joint": "thumb_right",
+    "max_joint_step_m": 0.22649940004793498,
+    "com_step_m": 0.07221417972521438,
+    "limb_scale_step_fraction": 0.028228265572654707,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A12T04",
+    "from_frame0": 11,
+    "to_frame0": 12,
+    "max_joint": "knee_right",
+    "max_joint_step_m": 0.3924592628773288,
+    "com_step_m": 0.03821789734598024,
+    "limb_scale_step_fraction": 0.008910626194018483,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A12T04",
+    "from_frame0": 12,
+    "to_frame0": 13,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.27905774808462974,
+    "com_step_m": 0.04056236161668222,
+    "limb_scale_step_fraction": 0.01723261544117955,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A12T04",
+    "from_frame0": 13,
+    "to_frame0": 14,
+    "max_joint": "wrist_right",
+    "max_joint_step_m": 0.12034547665258774,
+    "com_step_m": 0.037919707188630025,
+    "limb_scale_step_fraction": 0.031377737120192935,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A12T04",
+    "from_frame0": 14,
+    "to_frame0": 15,
+    "max_joint": "eye_left",
+    "max_joint_step_m": 0.10130005442956938,
+    "com_step_m": 0.02826647065031742,
+    "limb_scale_step_fraction": 0.0503567140784961,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A12T04",
+    "from_frame0": 16,
+    "to_frame0": 17,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.10345044232166584,
+    "com_step_m": 0.02368939208249147,
+    "limb_scale_step_fraction": 0.03313764161546682,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A12T04",
+    "from_frame0": 23,
+    "to_frame0": 24,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.26309933781246087,
+    "com_step_m": 0.014997096993178612,
+    "limb_scale_step_fraction": 0.002015178792700108,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A12T04",
+    "from_frame0": 28,
+    "to_frame0": 29,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.27629341285307235,
+    "com_step_m": 0.009891882755152185,
+    "limb_scale_step_fraction": 0.00819780362627428,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A12T04",
+    "from_frame0": 29,
+    "to_frame0": 30,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.11436336691829398,
+    "com_step_m": 0.02870800654164447,
+    "limb_scale_step_fraction": 0.07077531639486319,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A12T04",
+    "from_frame0": 30,
+    "to_frame0": 31,
+    "max_joint": "handtip_right",
+    "max_joint_step_m": 0.3732644258084221,
+    "com_step_m": 0.018680447694807274,
+    "limb_scale_step_fraction": 0.0012022257783118663,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A12T04",
+    "from_frame0": 31,
+    "to_frame0": 32,
+    "max_joint": "thumb_right",
+    "max_joint_step_m": 0.24000768048042623,
+    "com_step_m": 0.02382272057582019,
+    "limb_scale_step_fraction": 0.015481865071678631,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A12T04",
+    "from_frame0": 32,
+    "to_frame0": 33,
+    "max_joint": "elbow_right",
+    "max_joint_step_m": 0.3135484706248056,
+    "com_step_m": 0.03437224661968283,
+    "limb_scale_step_fraction": 0.02318216463432639,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A12T04",
+    "from_frame0": 36,
+    "to_frame0": 37,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.09803922090339885,
+    "com_step_m": 0.021898488274034643,
+    "limb_scale_step_fraction": 0.05368205209457553,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A12T04",
+    "from_frame0": 37,
+    "to_frame0": 38,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.2721097924898068,
+    "com_step_m": 0.02526604778780589,
+    "limb_scale_step_fraction": 0.01072895151598063,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A12T04",
+    "from_frame0": 59,
+    "to_frame0": 60,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.23051147669541042,
+    "com_step_m": 0.011349832039181303,
+    "limb_scale_step_fraction": 0.01140381304275811,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A12T05",
+    "from_frame0": 2,
+    "to_frame0": 3,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.3132212280811098,
+    "com_step_m": 0.009142570821703893,
+    "limb_scale_step_fraction": 0.000382897359160808,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A12T05",
+    "from_frame0": 3,
+    "to_frame0": 4,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.21685168096852828,
+    "com_step_m": 0.014300750585544027,
+    "limb_scale_step_fraction": 0.01752167588427576,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A12T05",
+    "from_frame0": 4,
+    "to_frame0": 5,
+    "max_joint": "wrist_right",
+    "max_joint_step_m": 0.1343314070043118,
+    "com_step_m": 0.021635326523793148,
+    "limb_scale_step_fraction": 0.056849580473411314,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A12T05",
+    "from_frame0": 6,
+    "to_frame0": 7,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.19953721029788776,
+    "com_step_m": 0.011751344883686619,
+    "limb_scale_step_fraction": 0.06832302644086821,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A12T05",
+    "from_frame0": 15,
+    "to_frame0": 16,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.2304640271530484,
+    "com_step_m": 0.028186520460652918,
+    "limb_scale_step_fraction": 0.05924421798279544,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A12T05",
+    "from_frame0": 16,
+    "to_frame0": 17,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.1110245916641751,
+    "com_step_m": 0.02125585186478037,
+    "limb_scale_step_fraction": 0.09798727403182715,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A12T05",
+    "from_frame0": 34,
+    "to_frame0": 35,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.21892905690375059,
+    "com_step_m": 0.010428323997232486,
+    "limb_scale_step_fraction": 0.021437431514256658,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A12T05",
+    "from_frame0": 39,
+    "to_frame0": 40,
+    "max_joint": "elbow_right",
+    "max_joint_step_m": 0.25179927349428277,
+    "com_step_m": 0.005181851649298709,
+    "limb_scale_step_fraction": 0.015917074518368567,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A12T05",
+    "from_frame0": 40,
+    "to_frame0": 41,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.33621825826480106,
+    "com_step_m": 0.08067095537497963,
+    "limb_scale_step_fraction": 0.18246298719801005,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A12T05",
+    "from_frame0": 41,
+    "to_frame0": 42,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.15031003536270768,
+    "com_step_m": 0.04333766538530962,
+    "limb_scale_step_fraction": 0.1666023508229393,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A12T05",
+    "from_frame0": 44,
+    "to_frame0": 45,
+    "max_joint": "elbow_right",
+    "max_joint_step_m": 0.21790624924435964,
+    "com_step_m": 0.007108470987210426,
+    "limb_scale_step_fraction": 0.007862060139800682,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A12T05",
+    "from_frame0": 45,
+    "to_frame0": 46,
+    "max_joint": "elbow_right",
+    "max_joint_step_m": 0.1957846512564345,
+    "com_step_m": 0.009213139194789409,
+    "limb_scale_step_fraction": 0.0440574762699223,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A12T05",
+    "from_frame0": 95,
+    "to_frame0": 96,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.21880201738460758,
+    "com_step_m": 0.018715772272267898,
+    "limb_scale_step_fraction": 0.00633056345358135,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A12T05",
+    "from_frame0": 115,
+    "to_frame0": 116,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.2003462616159177,
+    "com_step_m": 0.016879768307527448,
+    "limb_scale_step_fraction": 0.004527401791070234,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A12T05",
+    "from_frame0": 120,
+    "to_frame0": 121,
+    "max_joint": "ankle_right",
+    "max_joint_step_m": 0.20175898297637648,
+    "com_step_m": 0.01550165784866788,
+    "limb_scale_step_fraction": 0.035640193800910686,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A12T05",
+    "from_frame0": 121,
+    "to_frame0": 122,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.20038980537143353,
+    "com_step_m": 0.008418544576723511,
+    "limb_scale_step_fraction": 0.034496614103999707,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A12T05",
+    "from_frame0": 133,
+    "to_frame0": 134,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.20226977823276293,
+    "com_step_m": 0.011083986512296182,
+    "limb_scale_step_fraction": 0.012201211318045737,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T01",
+    "from_frame0": 3,
+    "to_frame0": 4,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.11488505515432285,
+    "com_step_m": 0.03461465685032258,
+    "limb_scale_step_fraction": 0.04625733885623825,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T01",
+    "from_frame0": 4,
+    "to_frame0": 5,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.0635457129614406,
+    "com_step_m": 0.023717864368981434,
+    "limb_scale_step_fraction": 0.030733279132775806,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T01",
+    "from_frame0": 6,
+    "to_frame0": 7,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.17806765547630715,
+    "com_step_m": 0.0330004420658088,
+    "limb_scale_step_fraction": 0.0609786113266376,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T01",
+    "from_frame0": 18,
+    "to_frame0": 19,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.3516963130060922,
+    "com_step_m": 0.09592680761753353,
+    "limb_scale_step_fraction": 0.011255223193682173,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T01",
+    "from_frame0": 19,
+    "to_frame0": 20,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.3268386987662974,
+    "com_step_m": 0.08344352626986347,
+    "limb_scale_step_fraction": 0.037805340468714775,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T01",
+    "from_frame0": 20,
+    "to_frame0": 21,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.6839372933092466,
+    "com_step_m": 0.1261993613187374,
+    "limb_scale_step_fraction": 0.032190861045847174,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T01",
+    "from_frame0": 21,
+    "to_frame0": 22,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.24478808223298099,
+    "com_step_m": 0.043942709889593895,
+    "limb_scale_step_fraction": 0.026082837582826097,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T01",
+    "from_frame0": 22,
+    "to_frame0": 23,
+    "max_joint": "handtip_left",
+    "max_joint_step_m": 0.28792520101310315,
+    "com_step_m": 0.044741843106149363,
+    "limb_scale_step_fraction": 0.002534822865154963,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T01",
+    "from_frame0": 23,
+    "to_frame0": 24,
+    "max_joint": "handtip_left",
+    "max_joint_step_m": 0.31223826427600865,
+    "com_step_m": 0.041317715820329316,
+    "limb_scale_step_fraction": 0.05976916543922292,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T01",
+    "from_frame0": 24,
+    "to_frame0": 25,
+    "max_joint": "nose",
+    "max_joint_step_m": 0.10908355490658998,
+    "com_step_m": 0.03874612830485356,
+    "limb_scale_step_fraction": 0.03879317043633204,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T01",
+    "from_frame0": 25,
+    "to_frame0": 26,
+    "max_joint": "wrist_left",
+    "max_joint_step_m": 0.25987263487482265,
+    "com_step_m": 0.09118211583741063,
+    "limb_scale_step_fraction": 0.11387633675142524,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T01",
+    "from_frame0": 26,
+    "to_frame0": 27,
+    "max_joint": "elbow_right",
+    "max_joint_step_m": 0.10678750665141838,
+    "com_step_m": 0.025023866445468758,
+    "limb_scale_step_fraction": 0.07417701110164482,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T01",
+    "from_frame0": 27,
+    "to_frame0": 28,
+    "max_joint": "wrist_left",
+    "max_joint_step_m": 0.07875201170185196,
+    "com_step_m": 0.007691821476146823,
+    "limb_scale_step_fraction": 0.03370295565145878,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T01",
+    "from_frame0": 28,
+    "to_frame0": 29,
+    "max_joint": "hand_right",
+    "max_joint_step_m": 0.16490110556244847,
+    "com_step_m": 0.02315285220489945,
+    "limb_scale_step_fraction": 0.087309046411863,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T01",
+    "from_frame0": 29,
+    "to_frame0": 30,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.22094005107823772,
+    "com_step_m": 0.028790826213616942,
+    "limb_scale_step_fraction": 0.021689137824987867,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T01",
+    "from_frame0": 30,
+    "to_frame0": 31,
+    "max_joint": "thumb_right",
+    "max_joint_step_m": 0.2116355211785877,
+    "com_step_m": 0.028885052280125743,
+    "limb_scale_step_fraction": 0.0019995769888157735,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T01",
+    "from_frame0": 31,
+    "to_frame0": 32,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.28521641377986956,
+    "com_step_m": 0.022285397334191687,
+    "limb_scale_step_fraction": 0.005458699699658086,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T01",
+    "from_frame0": 34,
+    "to_frame0": 35,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.2286328559382927,
+    "com_step_m": 0.01591807271794056,
+    "limb_scale_step_fraction": 0.025000020814136686,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T01",
+    "from_frame0": 40,
+    "to_frame0": 41,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.4459364217712002,
+    "com_step_m": 0.023164053449027593,
+    "limb_scale_step_fraction": 0.048343669637276765,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T01",
+    "from_frame0": 41,
+    "to_frame0": 42,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.14661090536956328,
+    "com_step_m": 0.02183425072001152,
+    "limb_scale_step_fraction": 0.05705390637093149,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T01",
+    "from_frame0": 47,
+    "to_frame0": 48,
+    "max_joint": "ankle_right",
+    "max_joint_step_m": 0.07094128963266245,
+    "com_step_m": 0.0048364631093901975,
+    "limb_scale_step_fraction": 0.03842873425714381,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T01",
+    "from_frame0": 48,
+    "to_frame0": 49,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.4789327591290374,
+    "com_step_m": 0.03779388995141864,
+    "limb_scale_step_fraction": 0.04807911743105374,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T01",
+    "from_frame0": 53,
+    "to_frame0": 54,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.36884863116308647,
+    "com_step_m": 0.015637516478268495,
+    "limb_scale_step_fraction": 0.02134706340714522,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T01",
+    "from_frame0": 54,
+    "to_frame0": 55,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.16649590238235634,
+    "com_step_m": 0.0035111011505516107,
+    "limb_scale_step_fraction": 0.04756075233276748,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T01",
+    "from_frame0": 58,
+    "to_frame0": 59,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.1385773258568585,
+    "com_step_m": 0.008982050283012166,
+    "limb_scale_step_fraction": 0.0333649571572155,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T01",
+    "from_frame0": 61,
+    "to_frame0": 62,
+    "max_joint": "elbow_left",
+    "max_joint_step_m": 0.09928190876716811,
+    "com_step_m": 0.036259783975835694,
+    "limb_scale_step_fraction": 0.06190695277997353,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T01",
+    "from_frame0": 62,
+    "to_frame0": 63,
+    "max_joint": "ear_right",
+    "max_joint_step_m": 0.09530566096821916,
+    "com_step_m": 0.027767698624307634,
+    "limb_scale_step_fraction": 0.048973815011561124,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T01",
+    "from_frame0": 65,
+    "to_frame0": 66,
+    "max_joint": "nose",
+    "max_joint_step_m": 0.26882044232920327,
+    "com_step_m": 0.021624295283029078,
+    "limb_scale_step_fraction": 0.08809268259483147,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T01",
+    "from_frame0": 66,
+    "to_frame0": 67,
+    "max_joint": "ear_left",
+    "max_joint_step_m": 0.21587346439137028,
+    "com_step_m": 0.10139889132896016,
+    "limb_scale_step_fraction": 0.2354587396328871,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T01",
+    "from_frame0": 68,
+    "to_frame0": 69,
+    "max_joint": "elbow_right",
+    "max_joint_step_m": 0.09589279366525545,
+    "com_step_m": 0.0332686868144338,
+    "limb_scale_step_fraction": 0.0611193495528985,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T01",
+    "from_frame0": 69,
+    "to_frame0": 70,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.07817848783738666,
+    "com_step_m": 0.014340150788099797,
+    "limb_scale_step_fraction": 0.04550032428339488,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T01",
+    "from_frame0": 70,
+    "to_frame0": 71,
+    "max_joint": "nose",
+    "max_joint_step_m": 0.4210230599636821,
+    "com_step_m": 0.09561832769768679,
+    "limb_scale_step_fraction": 0.3153165866733118,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T01",
+    "from_frame0": 74,
+    "to_frame0": 75,
+    "max_joint": "thumb_left",
+    "max_joint_step_m": 0.25744524790318896,
+    "com_step_m": 0.01078708456040068,
+    "limb_scale_step_fraction": 0.0015030009893047822,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T01",
+    "from_frame0": 76,
+    "to_frame0": 77,
+    "max_joint": "eye_left",
+    "max_joint_step_m": 0.30419144760718086,
+    "com_step_m": 0.0639098650526257,
+    "limb_scale_step_fraction": 0.06440938687527849,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T01",
+    "from_frame0": 81,
+    "to_frame0": 82,
+    "max_joint": "head",
+    "max_joint_step_m": 0.0737170362431263,
+    "com_step_m": 0.036328048240194845,
+    "limb_scale_step_fraction": 0.08611667242814304,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T01",
+    "from_frame0": 82,
+    "to_frame0": 83,
+    "max_joint": "nose",
+    "max_joint_step_m": 0.43826828549759794,
+    "com_step_m": 0.13642405747712827,
+    "limb_scale_step_fraction": 0.3353790022217919,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T01",
+    "from_frame0": 85,
+    "to_frame0": 86,
+    "max_joint": "handtip_right",
+    "max_joint_step_m": 0.48916868942628183,
+    "com_step_m": 0.012197167504480022,
+    "limb_scale_step_fraction": 0.018220929513049204,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T01",
+    "from_frame0": 89,
+    "to_frame0": 90,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.09605727549874558,
+    "com_step_m": 0.020872352817216562,
+    "limb_scale_step_fraction": 0.04057099431679763,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T02",
+    "from_frame0": 4,
+    "to_frame0": 5,
+    "max_joint": "handtip_left",
+    "max_joint_step_m": 0.06338439165704697,
+    "com_step_m": 0.02765789083628952,
+    "limb_scale_step_fraction": 0.03312885196645701,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T02",
+    "from_frame0": 13,
+    "to_frame0": 14,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.2610529640670845,
+    "com_step_m": 0.06688615569751287,
+    "limb_scale_step_fraction": 0.00982314273618238,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T02",
+    "from_frame0": 14,
+    "to_frame0": 15,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.26715218782855393,
+    "com_step_m": 0.08152923299094329,
+    "limb_scale_step_fraction": 0.048750922376751604,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T02",
+    "from_frame0": 15,
+    "to_frame0": 16,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.32451021329028656,
+    "com_step_m": 0.023868995241112263,
+    "limb_scale_step_fraction": 0.021568777790412795,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T02",
+    "from_frame0": 16,
+    "to_frame0": 17,
+    "max_joint": "ear_right",
+    "max_joint_step_m": 0.11740108060138814,
+    "com_step_m": 0.02595458991990187,
+    "limb_scale_step_fraction": 0.048420610659839394,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T02",
+    "from_frame0": 17,
+    "to_frame0": 18,
+    "max_joint": "handtip_left",
+    "max_joint_step_m": 0.22912368585043313,
+    "com_step_m": 0.02334832515145895,
+    "limb_scale_step_fraction": 0.034759657678075186,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T02",
+    "from_frame0": 19,
+    "to_frame0": 20,
+    "max_joint": "wrist_left",
+    "max_joint_step_m": 0.20123260586679365,
+    "com_step_m": 0.04524672436427209,
+    "limb_scale_step_fraction": 0.011886268799346842,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T02",
+    "from_frame0": 20,
+    "to_frame0": 21,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.10031364839613527,
+    "com_step_m": 0.02800519290789366,
+    "limb_scale_step_fraction": 0.03714017698702642,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T02",
+    "from_frame0": 22,
+    "to_frame0": 23,
+    "max_joint": "wrist_right",
+    "max_joint_step_m": 0.23090034735776452,
+    "com_step_m": 0.02574359373422476,
+    "limb_scale_step_fraction": 0.00594666727476926,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T02",
+    "from_frame0": 31,
+    "to_frame0": 32,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.31270510487557224,
+    "com_step_m": 0.015485156668317603,
+    "limb_scale_step_fraction": 0.0018323009669210834,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T02",
+    "from_frame0": 33,
+    "to_frame0": 34,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.2261787488224688,
+    "com_step_m": 0.019532925567026703,
+    "limb_scale_step_fraction": 0.053974212430676884,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T02",
+    "from_frame0": 34,
+    "to_frame0": 35,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.2570413356057786,
+    "com_step_m": 0.026427258475430638,
+    "limb_scale_step_fraction": 0.06891917738173271,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T02",
+    "from_frame0": 38,
+    "to_frame0": 39,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.235141382732684,
+    "com_step_m": 0.024174671279159902,
+    "limb_scale_step_fraction": 0.024725746357491387,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T02",
+    "from_frame0": 49,
+    "to_frame0": 50,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.20589837256624416,
+    "com_step_m": 0.0034239450122567376,
+    "limb_scale_step_fraction": 0.02289294619094225,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T02",
+    "from_frame0": 61,
+    "to_frame0": 62,
+    "max_joint": "hand_left",
+    "max_joint_step_m": 0.2020463806536898,
+    "com_step_m": 0.008310873121298733,
+    "limb_scale_step_fraction": 0.016869472273877164,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T02",
+    "from_frame0": 64,
+    "to_frame0": 65,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.2496195626273273,
+    "com_step_m": 0.04834188192079993,
+    "limb_scale_step_fraction": 0.14930697914307464,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T02",
+    "from_frame0": 65,
+    "to_frame0": 66,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.20136578102552075,
+    "com_step_m": 0.02233282246357592,
+    "limb_scale_step_fraction": 0.08077417144775717,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T02",
+    "from_frame0": 66,
+    "to_frame0": 67,
+    "max_joint": "hand_left",
+    "max_joint_step_m": 0.06694109678397658,
+    "com_step_m": 0.0068221659036112854,
+    "limb_scale_step_fraction": 0.03904172404644641,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T02",
+    "from_frame0": 69,
+    "to_frame0": 70,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.25336501902492575,
+    "com_step_m": 0.022631980102274678,
+    "limb_scale_step_fraction": 0.06626224101017239,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T02",
+    "from_frame0": 71,
+    "to_frame0": 72,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.2276105331679112,
+    "com_step_m": 0.04545575120435501,
+    "limb_scale_step_fraction": 0.13642594408022385,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T02",
+    "from_frame0": 72,
+    "to_frame0": 73,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.5861690962059958,
+    "com_step_m": 0.09555299494755098,
+    "limb_scale_step_fraction": 0.33258319981653717,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T02",
+    "from_frame0": 73,
+    "to_frame0": 74,
+    "max_joint": "handtip_left",
+    "max_joint_step_m": 0.4488972657877539,
+    "com_step_m": 0.025473688794126478,
+    "limb_scale_step_fraction": 0.040683452415187234,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T02",
+    "from_frame0": 79,
+    "to_frame0": 80,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.17494105462598963,
+    "com_step_m": 0.032846720354452554,
+    "limb_scale_step_fraction": 0.14392824860436443,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T02",
+    "from_frame0": 80,
+    "to_frame0": 81,
+    "max_joint": "wrist_left",
+    "max_joint_step_m": 0.1533539104619686,
+    "com_step_m": 0.02125629620599971,
+    "limb_scale_step_fraction": 0.05360341838315119,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T02",
+    "from_frame0": 81,
+    "to_frame0": 82,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.35559918825827636,
+    "com_step_m": 0.05691446339567156,
+    "limb_scale_step_fraction": 0.2639173615128298,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T02",
+    "from_frame0": 82,
+    "to_frame0": 83,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.19864809997901337,
+    "com_step_m": 0.02881192804423113,
+    "limb_scale_step_fraction": 0.14229486208459544,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T02",
+    "from_frame0": 83,
+    "to_frame0": 84,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.1668563606745187,
+    "com_step_m": 0.03245621919100402,
+    "limb_scale_step_fraction": 0.10456669163363402,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T02",
+    "from_frame0": 84,
+    "to_frame0": 85,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.2176375954048674,
+    "com_step_m": 0.013631536868795964,
+    "limb_scale_step_fraction": 0.01758600601732403,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T02",
+    "from_frame0": 85,
+    "to_frame0": 86,
+    "max_joint": "wrist_right",
+    "max_joint_step_m": 0.16768899591849437,
+    "com_step_m": 0.02808242917702341,
+    "limb_scale_step_fraction": 0.06553045586359856,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T02",
+    "from_frame0": 87,
+    "to_frame0": 88,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.37445450179553225,
+    "com_step_m": 0.0340731016213539,
+    "limb_scale_step_fraction": 0.07538607490726923,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T02",
+    "from_frame0": 89,
+    "to_frame0": 90,
+    "max_joint": "hand_right",
+    "max_joint_step_m": 0.12380347759991987,
+    "com_step_m": 0.009471991436383904,
+    "limb_scale_step_fraction": 0.06195036397176166,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T02",
+    "from_frame0": 91,
+    "to_frame0": 92,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.23233294746354655,
+    "com_step_m": 0.003964820815307925,
+    "limb_scale_step_fraction": 0.0003736416055324894,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T02",
+    "from_frame0": 94,
+    "to_frame0": 95,
+    "max_joint": "handtip_right",
+    "max_joint_step_m": 0.1840360311831879,
+    "com_step_m": 0.006328650744131506,
+    "limb_scale_step_fraction": 0.04533382410609707,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T02",
+    "from_frame0": 113,
+    "to_frame0": 114,
+    "max_joint": "hand_left",
+    "max_joint_step_m": 0.2106351110507913,
+    "com_step_m": 0.0062508705262184295,
+    "limb_scale_step_fraction": 0.00669119723759807,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T02",
+    "from_frame0": 136,
+    "to_frame0": 137,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.19729227794657186,
+    "com_step_m": 0.016624326492152768,
+    "limb_scale_step_fraction": 0.045182194339087586,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T02",
+    "from_frame0": 137,
+    "to_frame0": 138,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.2266569652168421,
+    "com_step_m": 0.012329663840486439,
+    "limb_scale_step_fraction": 0.00964562697049954,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T03",
+    "from_frame0": 6,
+    "to_frame0": 7,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.16421285792502296,
+    "com_step_m": 0.018863695655812637,
+    "limb_scale_step_fraction": 0.05022701010425582,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T03",
+    "from_frame0": 7,
+    "to_frame0": 8,
+    "max_joint": "ankle_right",
+    "max_joint_step_m": 0.11814346850952408,
+    "com_step_m": 0.02578183719072017,
+    "limb_scale_step_fraction": 0.045745148875217675,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T03",
+    "from_frame0": 9,
+    "to_frame0": 10,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.24787403507983438,
+    "com_step_m": 0.02255322160214706,
+    "limb_scale_step_fraction": 0.0229961498039956,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T03",
+    "from_frame0": 16,
+    "to_frame0": 17,
+    "max_joint": "wrist_left",
+    "max_joint_step_m": 0.20690617025528737,
+    "com_step_m": 0.005121897202153617,
+    "limb_scale_step_fraction": 0.001514031811597174,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T03",
+    "from_frame0": 23,
+    "to_frame0": 24,
+    "max_joint": "handtip_left",
+    "max_joint_step_m": 0.10177356655825279,
+    "com_step_m": 0.016915147814036347,
+    "limb_scale_step_fraction": 0.03608331945042378,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T03",
+    "from_frame0": 27,
+    "to_frame0": 28,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.0966234771797015,
+    "com_step_m": 0.01918201675843287,
+    "limb_scale_step_fraction": 0.04570410718794133,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T03",
+    "from_frame0": 77,
+    "to_frame0": 78,
+    "max_joint": "handtip_left",
+    "max_joint_step_m": 0.23715034963836573,
+    "com_step_m": 0.007254577899504982,
+    "limb_scale_step_fraction": 0.0035079433828298563,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T04",
+    "from_frame0": 11,
+    "to_frame0": 12,
+    "max_joint": "handtip_left",
+    "max_joint_step_m": 0.2242647297044298,
+    "com_step_m": 0.04728368612935067,
+    "limb_scale_step_fraction": 0.0072243306048361865,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T04",
+    "from_frame0": 22,
+    "to_frame0": 23,
+    "max_joint": "handtip_right",
+    "max_joint_step_m": 0.13428738973976118,
+    "com_step_m": 0.030987829682175762,
+    "limb_scale_step_fraction": 0.04696440972336118,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T04",
+    "from_frame0": 24,
+    "to_frame0": 25,
+    "max_joint": "wrist_right",
+    "max_joint_step_m": 0.13400559846695437,
+    "com_step_m": 0.019915805275370065,
+    "limb_scale_step_fraction": 0.03200707205200591,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T04",
+    "from_frame0": 25,
+    "to_frame0": 26,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.285675588626511,
+    "com_step_m": 0.05982889439807268,
+    "limb_scale_step_fraction": 0.017411247793459914,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T04",
+    "from_frame0": 30,
+    "to_frame0": 31,
+    "max_joint": "thumb_right",
+    "max_joint_step_m": 0.2090271854341745,
+    "com_step_m": 0.0288206774417115,
+    "limb_scale_step_fraction": 0.016542581380276616,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T04",
+    "from_frame0": 32,
+    "to_frame0": 33,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.24362876771579198,
+    "com_step_m": 0.03950601202209686,
+    "limb_scale_step_fraction": 0.0054524110052126045,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T04",
+    "from_frame0": 35,
+    "to_frame0": 36,
+    "max_joint": "thumb_left",
+    "max_joint_step_m": 0.21246053271423448,
+    "com_step_m": 0.019699777957006455,
+    "limb_scale_step_fraction": 0.022736725691052548,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T04",
+    "from_frame0": 39,
+    "to_frame0": 40,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.24516922746563893,
+    "com_step_m": 0.010856387385960722,
+    "limb_scale_step_fraction": 0.0363022106476176,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T04",
+    "from_frame0": 41,
+    "to_frame0": 42,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.2864874736825254,
+    "com_step_m": 0.03327248651861323,
+    "limb_scale_step_fraction": 0.028921682024248944,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T04",
+    "from_frame0": 43,
+    "to_frame0": 44,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.2520257534156203,
+    "com_step_m": 0.01843295336746087,
+    "limb_scale_step_fraction": 0.00962907459926107,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T04",
+    "from_frame0": 45,
+    "to_frame0": 46,
+    "max_joint": "ankle_left",
+    "max_joint_step_m": 0.09659991242198945,
+    "com_step_m": 0.0233525657760356,
+    "limb_scale_step_fraction": 0.05373906882492541,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T04",
+    "from_frame0": 52,
+    "to_frame0": 53,
+    "max_joint": "ankle_left",
+    "max_joint_step_m": 0.09128632577435447,
+    "com_step_m": 0.03176429556349743,
+    "limb_scale_step_fraction": 0.03413555364968209,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T04",
+    "from_frame0": 58,
+    "to_frame0": 59,
+    "max_joint": "knee_left",
+    "max_joint_step_m": 0.044508908793729825,
+    "com_step_m": 0.007238418052797909,
+    "limb_scale_step_fraction": 0.03090752865154917,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T05",
+    "from_frame0": 11,
+    "to_frame0": 12,
+    "max_joint": "handtip_left",
+    "max_joint_step_m": 0.1075616782210214,
+    "com_step_m": 0.034977956602038535,
+    "limb_scale_step_fraction": 0.033360328048564605,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T05",
+    "from_frame0": 17,
+    "to_frame0": 18,
+    "max_joint": "handtip_left",
+    "max_joint_step_m": 0.09976614292394463,
+    "com_step_m": 0.054683053475055234,
+    "limb_scale_step_fraction": 0.030810648780207534,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T05",
+    "from_frame0": 19,
+    "to_frame0": 20,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.2181903114509004,
+    "com_step_m": 0.04792582607906874,
+    "limb_scale_step_fraction": 0.01580238833282768,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T05",
+    "from_frame0": 21,
+    "to_frame0": 22,
+    "max_joint": "thumb_right",
+    "max_joint_step_m": 0.1435234656223836,
+    "com_step_m": 0.04224790938526959,
+    "limb_scale_step_fraction": 0.038008214672141556,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T05",
+    "from_frame0": 23,
+    "to_frame0": 24,
+    "max_joint": "wrist_right",
+    "max_joint_step_m": 0.16044471142775066,
+    "com_step_m": 0.03968053599027748,
+    "limb_scale_step_fraction": 0.03406221378466104,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T05",
+    "from_frame0": 25,
+    "to_frame0": 26,
+    "max_joint": "ear_left",
+    "max_joint_step_m": 0.09303986443615611,
+    "com_step_m": 0.02990861393440635,
+    "limb_scale_step_fraction": 0.0320917784736315,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T05",
+    "from_frame0": 27,
+    "to_frame0": 28,
+    "max_joint": "handtip_left",
+    "max_joint_step_m": 0.21020342646752382,
+    "com_step_m": 0.02238403113837844,
+    "limb_scale_step_fraction": 0.01496429472680406,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T05",
+    "from_frame0": 29,
+    "to_frame0": 30,
+    "max_joint": "handtip_right",
+    "max_joint_step_m": 0.14297366345470927,
+    "com_step_m": 0.018453299755282277,
+    "limb_scale_step_fraction": 0.03196582571078535,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T05",
+    "from_frame0": 32,
+    "to_frame0": 33,
+    "max_joint": "handtip_right",
+    "max_joint_step_m": 0.2180359243241837,
+    "com_step_m": 0.013517834960180952,
+    "limb_scale_step_fraction": 0.005347699408062241,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T05",
+    "from_frame0": 36,
+    "to_frame0": 37,
+    "max_joint": "handtip_left",
+    "max_joint_step_m": 0.25102575380430175,
+    "com_step_m": 0.006419218614611983,
+    "limb_scale_step_fraction": 0.02387844096978894,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T05",
+    "from_frame0": 37,
+    "to_frame0": 38,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.21651271437224884,
+    "com_step_m": 0.010772471196123484,
+    "limb_scale_step_fraction": 0.03303864685786574,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T05",
+    "from_frame0": 43,
+    "to_frame0": 44,
+    "max_joint": "elbow_left",
+    "max_joint_step_m": 0.07424680343178157,
+    "com_step_m": 0.007026103787330337,
+    "limb_scale_step_fraction": 0.0435536872439167,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A13T05",
+    "from_frame0": 45,
+    "to_frame0": 46,
+    "max_joint": "handtip_left",
+    "max_joint_step_m": 0.22620508215046042,
+    "com_step_m": 0.008775042895705677,
+    "limb_scale_step_fraction": 0.0019934023417401037,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T01",
+    "from_frame0": 8,
+    "to_frame0": 9,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.3907411110106788,
+    "com_step_m": 0.06787709634500246,
+    "limb_scale_step_fraction": 0.025697604987853777,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T01",
+    "from_frame0": 12,
+    "to_frame0": 13,
+    "max_joint": "ear_right",
+    "max_joint_step_m": 0.16819036451074076,
+    "com_step_m": 0.04892479593706747,
+    "limb_scale_step_fraction": 0.03452796341296718,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T01",
+    "from_frame0": 13,
+    "to_frame0": 14,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.2606927579035708,
+    "com_step_m": 0.10498562628199772,
+    "limb_scale_step_fraction": 0.13623480946916652,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T01",
+    "from_frame0": 14,
+    "to_frame0": 15,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.3768255350194725,
+    "com_step_m": 0.014805967065624025,
+    "limb_scale_step_fraction": 0.16859531905153535,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T01",
+    "from_frame0": 15,
+    "to_frame0": 16,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.2242681401037902,
+    "com_step_m": 0.030608191812714788,
+    "limb_scale_step_fraction": 0.03229385590870204,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T01",
+    "from_frame0": 19,
+    "to_frame0": 20,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.18775818624420337,
+    "com_step_m": 0.047850546134175616,
+    "limb_scale_step_fraction": 0.05457390675603194,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T01",
+    "from_frame0": 20,
+    "to_frame0": 21,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.4175061715320633,
+    "com_step_m": 0.05217374734052726,
+    "limb_scale_step_fraction": 0.07660980942647859,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T01",
+    "from_frame0": 25,
+    "to_frame0": 26,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.2774055956914547,
+    "com_step_m": 0.0799305953024568,
+    "limb_scale_step_fraction": 0.14037026480439543,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T01",
+    "from_frame0": 26,
+    "to_frame0": 27,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.31518911964475854,
+    "com_step_m": 0.0506695464846652,
+    "limb_scale_step_fraction": 0.12397273687279603,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T01",
+    "from_frame0": 28,
+    "to_frame0": 29,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.39525905006371953,
+    "com_step_m": 0.09233240936714217,
+    "limb_scale_step_fraction": 0.17660535733011576,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T01",
+    "from_frame0": 29,
+    "to_frame0": 30,
+    "max_joint": "handtip_left",
+    "max_joint_step_m": 0.9257541129838357,
+    "com_step_m": 0.2148854385324679,
+    "limb_scale_step_fraction": 0.12183874522251247,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T01",
+    "from_frame0": 30,
+    "to_frame0": 31,
+    "max_joint": "handtip_left",
+    "max_joint_step_m": 0.8950306858308573,
+    "com_step_m": 0.19850685473738422,
+    "limb_scale_step_fraction": 0.19028644725777044,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T01",
+    "from_frame0": 31,
+    "to_frame0": 32,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.11561238814832721,
+    "com_step_m": 0.03653570907169762,
+    "limb_scale_step_fraction": 0.08044334695716147,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T01",
+    "from_frame0": 32,
+    "to_frame0": 33,
+    "max_joint": "wrist_right",
+    "max_joint_step_m": 0.2547663020220402,
+    "com_step_m": 0.01886448525122138,
+    "limb_scale_step_fraction": 0.04879891671575022,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T01",
+    "from_frame0": 33,
+    "to_frame0": 34,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.15741108309084367,
+    "com_step_m": 0.04418530197091161,
+    "limb_scale_step_fraction": 0.0895440469998722,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T01",
+    "from_frame0": 35,
+    "to_frame0": 36,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.3981819082188499,
+    "com_step_m": 0.04268058142402664,
+    "limb_scale_step_fraction": 0.002190107548332947,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T01",
+    "from_frame0": 37,
+    "to_frame0": 38,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.28726965021807455,
+    "com_step_m": 0.0712935370560221,
+    "limb_scale_step_fraction": 0.05725670606300343,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T01",
+    "from_frame0": 62,
+    "to_frame0": 63,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.3162505681141975,
+    "com_step_m": 0.026893485191544185,
+    "limb_scale_step_fraction": 0.004096169109603908,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T01",
+    "from_frame0": 80,
+    "to_frame0": 81,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.3082012596442424,
+    "com_step_m": 0.021827670265783146,
+    "limb_scale_step_fraction": 0.012144910602689712,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T02",
+    "from_frame0": 0,
+    "to_frame0": 1,
+    "max_joint": "hand_right",
+    "max_joint_step_m": 0.3254862743681558,
+    "com_step_m": 0.016348792029264394,
+    "limb_scale_step_fraction": 0.01791199869609757,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T02",
+    "from_frame0": 6,
+    "to_frame0": 7,
+    "max_joint": "handtip_right",
+    "max_joint_step_m": 0.24213722030940785,
+    "com_step_m": 0.02607948351176189,
+    "limb_scale_step_fraction": 0.027495112499458445,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T02",
+    "from_frame0": 22,
+    "to_frame0": 23,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.23593430803009074,
+    "com_step_m": 0.06292147047463226,
+    "limb_scale_step_fraction": 0.003019869914583431,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T02",
+    "from_frame0": 23,
+    "to_frame0": 24,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.27152927302677327,
+    "com_step_m": 0.07048588421540705,
+    "limb_scale_step_fraction": 0.029447098870866856,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T02",
+    "from_frame0": 28,
+    "to_frame0": 29,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.31693773829753114,
+    "com_step_m": 0.05520966953838071,
+    "limb_scale_step_fraction": 0.011180605517242252,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T02",
+    "from_frame0": 30,
+    "to_frame0": 31,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.8815900969186367,
+    "com_step_m": 0.04328821263514745,
+    "limb_scale_step_fraction": 0.0095656673035071,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T02",
+    "from_frame0": 31,
+    "to_frame0": 32,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.18393631990895257,
+    "com_step_m": 0.06119954050470502,
+    "limb_scale_step_fraction": 0.04899912043080059,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T02",
+    "from_frame0": 32,
+    "to_frame0": 33,
+    "max_joint": "thumb_left",
+    "max_joint_step_m": 0.16482649970256918,
+    "com_step_m": 0.07514119534181263,
+    "limb_scale_step_fraction": 0.04924639815941111,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T02",
+    "from_frame0": 33,
+    "to_frame0": 34,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.46794164152562323,
+    "com_step_m": 0.03952353391315463,
+    "limb_scale_step_fraction": 0.11312117772836716,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T02",
+    "from_frame0": 34,
+    "to_frame0": 35,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.2703865462660582,
+    "com_step_m": 0.09790797489111161,
+    "limb_scale_step_fraction": 0.10116877701606236,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T02",
+    "from_frame0": 35,
+    "to_frame0": 36,
+    "max_joint": "ankle_right",
+    "max_joint_step_m": 0.2261214527187323,
+    "com_step_m": 0.05883218463342672,
+    "limb_scale_step_fraction": 0.018679598017567516,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T02",
+    "from_frame0": 36,
+    "to_frame0": 37,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.48268885989675286,
+    "com_step_m": 0.07484634224230312,
+    "limb_scale_step_fraction": 0.14202331158631776,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T02",
+    "from_frame0": 37,
+    "to_frame0": 38,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.38933057234720225,
+    "com_step_m": 0.08479829742392052,
+    "limb_scale_step_fraction": 0.03230774787464028,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T02",
+    "from_frame0": 38,
+    "to_frame0": 39,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.1717825587923374,
+    "com_step_m": 0.05743753757198129,
+    "limb_scale_step_fraction": 0.1027165459540655,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T02",
+    "from_frame0": 39,
+    "to_frame0": 40,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.4949939971618139,
+    "com_step_m": 0.026841356646249856,
+    "limb_scale_step_fraction": 0.008090002969131779,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T02",
+    "from_frame0": 42,
+    "to_frame0": 43,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.23920977472395794,
+    "com_step_m": 0.07303450088554457,
+    "limb_scale_step_fraction": 0.11256653649646368,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T02",
+    "from_frame0": 43,
+    "to_frame0": 44,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.22368073133912766,
+    "com_step_m": 0.06811606253911584,
+    "limb_scale_step_fraction": 0.11171882895115895,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T02",
+    "from_frame0": 45,
+    "to_frame0": 46,
+    "max_joint": "hand_right",
+    "max_joint_step_m": 0.2159914372130502,
+    "com_step_m": 0.02311227379060352,
+    "limb_scale_step_fraction": 0.008593418573323146,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T02",
+    "from_frame0": 47,
+    "to_frame0": 48,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.2945604755755445,
+    "com_step_m": 0.027550375373364792,
+    "limb_scale_step_fraction": 0.016991735528437316,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T02",
+    "from_frame0": 48,
+    "to_frame0": 49,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.2550951712517157,
+    "com_step_m": 0.025216047175168364,
+    "limb_scale_step_fraction": 0.024714540830380657,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T02",
+    "from_frame0": 49,
+    "to_frame0": 50,
+    "max_joint": "handtip_right",
+    "max_joint_step_m": 0.5774594788603304,
+    "com_step_m": 0.16574330849461416,
+    "limb_scale_step_fraction": 0.0704910758572682,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T02",
+    "from_frame0": 51,
+    "to_frame0": 52,
+    "max_joint": "handtip_right",
+    "max_joint_step_m": 0.564418192314671,
+    "com_step_m": 0.13260280159109597,
+    "limb_scale_step_fraction": 0.18107312742013798,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T02",
+    "from_frame0": 53,
+    "to_frame0": 54,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.23245848806195887,
+    "com_step_m": 0.014108821882271949,
+    "limb_scale_step_fraction": 0.001694769031922204,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T02",
+    "from_frame0": 57,
+    "to_frame0": 58,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.09325266223094404,
+    "com_step_m": 0.029510277974099754,
+    "limb_scale_step_fraction": 0.03479696937873415,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T02",
+    "from_frame0": 58,
+    "to_frame0": 59,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.11981973394565647,
+    "com_step_m": 0.02363709873165635,
+    "limb_scale_step_fraction": 0.04474374862684465,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T02",
+    "from_frame0": 59,
+    "to_frame0": 60,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.1262815100298274,
+    "com_step_m": 0.03513522035249276,
+    "limb_scale_step_fraction": 0.03020406891317574,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T02",
+    "from_frame0": 61,
+    "to_frame0": 62,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.28327877365073967,
+    "com_step_m": 0.015991158195629768,
+    "limb_scale_step_fraction": 0.016545113454769268,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T02",
+    "from_frame0": 63,
+    "to_frame0": 64,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.1971632906390092,
+    "com_step_m": 0.02458480626111176,
+    "limb_scale_step_fraction": 0.04447490025278707,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T02",
+    "from_frame0": 73,
+    "to_frame0": 74,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.3744583902510141,
+    "com_step_m": 0.04382282737342555,
+    "limb_scale_step_fraction": 0.12507855032304016,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T02",
+    "from_frame0": 74,
+    "to_frame0": 75,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.1588297094513243,
+    "com_step_m": 0.03639327708709459,
+    "limb_scale_step_fraction": 0.032021163399881855,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T02",
+    "from_frame0": 79,
+    "to_frame0": 80,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.22184188289434983,
+    "com_step_m": 0.011996863641370691,
+    "limb_scale_step_fraction": 0.03222243818205736,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T02",
+    "from_frame0": 91,
+    "to_frame0": 92,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.41456622504781426,
+    "com_step_m": 0.03989644838943159,
+    "limb_scale_step_fraction": 0.04365237842570764,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T02",
+    "from_frame0": 92,
+    "to_frame0": 93,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.27935243028274453,
+    "com_step_m": 0.027074018799901237,
+    "limb_scale_step_fraction": 0.03491153559672407,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T02",
+    "from_frame0": 93,
+    "to_frame0": 94,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.279657733659211,
+    "com_step_m": 0.02477595268897509,
+    "limb_scale_step_fraction": 0.03995386026824611,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T02",
+    "from_frame0": 96,
+    "to_frame0": 97,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.23849014739481222,
+    "com_step_m": 0.018547852329627256,
+    "limb_scale_step_fraction": 0.04110374992974248,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T02",
+    "from_frame0": 98,
+    "to_frame0": 99,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.30323208056606615,
+    "com_step_m": 0.022476822520020458,
+    "limb_scale_step_fraction": 0.04039765142112198,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T02",
+    "from_frame0": 99,
+    "to_frame0": 100,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.2438205252941571,
+    "com_step_m": 0.01617208237322268,
+    "limb_scale_step_fraction": 0.03220991455323152,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T02",
+    "from_frame0": 100,
+    "to_frame0": 101,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.25140404587416726,
+    "com_step_m": 0.015371710064204798,
+    "limb_scale_step_fraction": 0.03563596004029793,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T02",
+    "from_frame0": 102,
+    "to_frame0": 103,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.2310893381611717,
+    "com_step_m": 0.014370257059136726,
+    "limb_scale_step_fraction": 0.03331592093055991,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T03",
+    "from_frame0": 0,
+    "to_frame0": 1,
+    "max_joint": "handtip_left",
+    "max_joint_step_m": 0.39099109939255206,
+    "com_step_m": 0.005692056385709311,
+    "limb_scale_step_fraction": 0.00403348291993756,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T03",
+    "from_frame0": 3,
+    "to_frame0": 4,
+    "max_joint": "handtip_left",
+    "max_joint_step_m": 0.2704480114620451,
+    "com_step_m": 0.009505856297564584,
+    "limb_scale_step_fraction": 0.015621953512845607,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T03",
+    "from_frame0": 9,
+    "to_frame0": 10,
+    "max_joint": "wrist_right",
+    "max_joint_step_m": 0.25944581929228483,
+    "com_step_m": 0.010448813144500345,
+    "limb_scale_step_fraction": 0.004939652024135444,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T03",
+    "from_frame0": 10,
+    "to_frame0": 11,
+    "max_joint": "handtip_right",
+    "max_joint_step_m": 0.3892831837466603,
+    "com_step_m": 0.01918954743297044,
+    "limb_scale_step_fraction": 0.02235321231898694,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T03",
+    "from_frame0": 14,
+    "to_frame0": 15,
+    "max_joint": "wrist_left",
+    "max_joint_step_m": 0.3751321025338921,
+    "com_step_m": 0.030933846418181785,
+    "limb_scale_step_fraction": 0.0024914449242984297,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T03",
+    "from_frame0": 15,
+    "to_frame0": 16,
+    "max_joint": "elbow_right",
+    "max_joint_step_m": 0.27874097503870077,
+    "com_step_m": 0.010820010377058337,
+    "limb_scale_step_fraction": 0.004277455187586113,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T03",
+    "from_frame0": 16,
+    "to_frame0": 17,
+    "max_joint": "elbow_right",
+    "max_joint_step_m": 0.35999511412839474,
+    "com_step_m": 0.05156338924203021,
+    "limb_scale_step_fraction": 0.009703299519728469,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T03",
+    "from_frame0": 17,
+    "to_frame0": 18,
+    "max_joint": "elbow_right",
+    "max_joint_step_m": 0.2305067818377674,
+    "com_step_m": 0.04978932673512405,
+    "limb_scale_step_fraction": 0.01949807444421522,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T03",
+    "from_frame0": 18,
+    "to_frame0": 19,
+    "max_joint": "hand_left",
+    "max_joint_step_m": 0.2782666952872084,
+    "com_step_m": 0.01355525595877891,
+    "limb_scale_step_fraction": 0.002288159204736253,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T03",
+    "from_frame0": 19,
+    "to_frame0": 20,
+    "max_joint": "thumb_right",
+    "max_joint_step_m": 0.3378583797964764,
+    "com_step_m": 0.035500253727153964,
+    "limb_scale_step_fraction": 0.010218057925112383,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T03",
+    "from_frame0": 20,
+    "to_frame0": 21,
+    "max_joint": "handtip_right",
+    "max_joint_step_m": 0.22815878841912154,
+    "com_step_m": 0.0374295227918032,
+    "limb_scale_step_fraction": 0.0005981452356360787,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T03",
+    "from_frame0": 21,
+    "to_frame0": 22,
+    "max_joint": "handtip_right",
+    "max_joint_step_m": 0.2786503230584763,
+    "com_step_m": 0.02107013719327449,
+    "limb_scale_step_fraction": 0.024276298091656007,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T03",
+    "from_frame0": 23,
+    "to_frame0": 24,
+    "max_joint": "handtip_right",
+    "max_joint_step_m": 0.22397490784460572,
+    "com_step_m": 0.021742317153058407,
+    "limb_scale_step_fraction": 0.005201626507662356,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T03",
+    "from_frame0": 25,
+    "to_frame0": 26,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.2684454541328641,
+    "com_step_m": 0.04291455081981237,
+    "limb_scale_step_fraction": 0.015845249966254235,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T03",
+    "from_frame0": 33,
+    "to_frame0": 34,
+    "max_joint": "thumb_left",
+    "max_joint_step_m": 0.2407716799920817,
+    "com_step_m": 0.04927741058826191,
+    "limb_scale_step_fraction": 0.006433199115379634,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T03",
+    "from_frame0": 37,
+    "to_frame0": 38,
+    "max_joint": "handtip_left",
+    "max_joint_step_m": 0.2877926962220681,
+    "com_step_m": 0.07703733438702887,
+    "limb_scale_step_fraction": 0.019464810338761192,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T03",
+    "from_frame0": 38,
+    "to_frame0": 39,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.6004157480161242,
+    "com_step_m": 0.018719155404595917,
+    "limb_scale_step_fraction": 0.023571861433870685,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T03",
+    "from_frame0": 40,
+    "to_frame0": 41,
+    "max_joint": "thumb_left",
+    "max_joint_step_m": 0.19016008701912795,
+    "com_step_m": 0.06273496352966224,
+    "limb_scale_step_fraction": 0.03271053983157189,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T03",
+    "from_frame0": 41,
+    "to_frame0": 42,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.3253884651442015,
+    "com_step_m": 0.028815609579220892,
+    "limb_scale_step_fraction": 0.00723315608437368,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T03",
+    "from_frame0": 44,
+    "to_frame0": 45,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.29845321402235103,
+    "com_step_m": 0.05207152974088403,
+    "limb_scale_step_fraction": 0.0078079753462741855,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T03",
+    "from_frame0": 45,
+    "to_frame0": 46,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.36978959826616997,
+    "com_step_m": 0.08780322888878757,
+    "limb_scale_step_fraction": 0.03130007035559818,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T03",
+    "from_frame0": 46,
+    "to_frame0": 47,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.16631453124744952,
+    "com_step_m": 0.044906341021874886,
+    "limb_scale_step_fraction": 0.04217213625648691,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T03",
+    "from_frame0": 47,
+    "to_frame0": 48,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.09458126113148577,
+    "com_step_m": 0.04309622703644302,
+    "limb_scale_step_fraction": 0.03127957581033618,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T03",
+    "from_frame0": 48,
+    "to_frame0": 49,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.2063970927673063,
+    "com_step_m": 0.039035694542150216,
+    "limb_scale_step_fraction": 0.018114245026089333,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T03",
+    "from_frame0": 50,
+    "to_frame0": 51,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.3665897631248573,
+    "com_step_m": 0.0336961076170775,
+    "limb_scale_step_fraction": 0.08991017423827466,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T03",
+    "from_frame0": 51,
+    "to_frame0": 52,
+    "max_joint": "ankle_left",
+    "max_joint_step_m": 0.15658634946105673,
+    "com_step_m": 0.022311538045461918,
+    "limb_scale_step_fraction": 0.06634525906001139,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T03",
+    "from_frame0": 52,
+    "to_frame0": 53,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.18909636396387242,
+    "com_step_m": 0.04696286645976903,
+    "limb_scale_step_fraction": 0.05584345323020101,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T03",
+    "from_frame0": 53,
+    "to_frame0": 54,
+    "max_joint": "knee_right",
+    "max_joint_step_m": 0.1560660622874673,
+    "com_step_m": 0.06202276907519277,
+    "limb_scale_step_fraction": 0.0844899631543577,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T03",
+    "from_frame0": 55,
+    "to_frame0": 56,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.23963733273022608,
+    "com_step_m": 0.05344888654588281,
+    "limb_scale_step_fraction": 0.1021280626257127,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T03",
+    "from_frame0": 57,
+    "to_frame0": 58,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.14468183908771648,
+    "com_step_m": 0.017883884954766255,
+    "limb_scale_step_fraction": 0.034437452395165574,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T03",
+    "from_frame0": 59,
+    "to_frame0": 60,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.1503977111840327,
+    "com_step_m": 0.05212779647643792,
+    "limb_scale_step_fraction": 0.10527140679327987,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T03",
+    "from_frame0": 60,
+    "to_frame0": 61,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.286402061807354,
+    "com_step_m": 0.0935172498423669,
+    "limb_scale_step_fraction": 0.21927522659160936,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T03",
+    "from_frame0": 61,
+    "to_frame0": 62,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.31945519761538,
+    "com_step_m": 0.05671135119388388,
+    "limb_scale_step_fraction": 0.10856879833803804,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T03",
+    "from_frame0": 62,
+    "to_frame0": 63,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.41790039675127866,
+    "com_step_m": 0.05514657937809028,
+    "limb_scale_step_fraction": 0.15353123151857537,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T03",
+    "from_frame0": 64,
+    "to_frame0": 65,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.3010232900477661,
+    "com_step_m": 0.021902710978307253,
+    "limb_scale_step_fraction": 0.033367090711215186,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T03",
+    "from_frame0": 66,
+    "to_frame0": 67,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.13416827976859008,
+    "com_step_m": 0.04855838453802321,
+    "limb_scale_step_fraction": 0.04076735615080444,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T03",
+    "from_frame0": 68,
+    "to_frame0": 69,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.10854250159636107,
+    "com_step_m": 0.007139059896378654,
+    "limb_scale_step_fraction": 0.047942210066406775,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T03",
+    "from_frame0": 69,
+    "to_frame0": 70,
+    "max_joint": "ankle_left",
+    "max_joint_step_m": 0.2673611840461922,
+    "com_step_m": 0.06639420313108806,
+    "limb_scale_step_fraction": 0.004341386134505819,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T03",
+    "from_frame0": 73,
+    "to_frame0": 74,
+    "max_joint": "wrist_right",
+    "max_joint_step_m": 0.2583149189756868,
+    "com_step_m": 0.031008212798376993,
+    "limb_scale_step_fraction": 0.060224310670731314,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T03",
+    "from_frame0": 76,
+    "to_frame0": 77,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.28164795207516674,
+    "com_step_m": 0.024181205271841318,
+    "limb_scale_step_fraction": 0.06987281857039619,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T03",
+    "from_frame0": 80,
+    "to_frame0": 81,
+    "max_joint": "thumb_right",
+    "max_joint_step_m": 0.25227531507071743,
+    "com_step_m": 0.029435312300537232,
+    "limb_scale_step_fraction": 0.03757324275542192,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T03",
+    "from_frame0": 90,
+    "to_frame0": 91,
+    "max_joint": "handtip_left",
+    "max_joint_step_m": 0.12738816515786855,
+    "com_step_m": 0.02300675902489964,
+    "limb_scale_step_fraction": 0.1020137676071089,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T03",
+    "from_frame0": 91,
+    "to_frame0": 92,
+    "max_joint": "hand_left",
+    "max_joint_step_m": 0.09424545555113956,
+    "com_step_m": 0.011134828426182759,
+    "limb_scale_step_fraction": 0.038832785135875514,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T03",
+    "from_frame0": 92,
+    "to_frame0": 93,
+    "max_joint": "elbow_left",
+    "max_joint_step_m": 0.15663508004061583,
+    "com_step_m": 0.005467060606889711,
+    "limb_scale_step_fraction": 0.05044750815093372,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T03",
+    "from_frame0": 93,
+    "to_frame0": 94,
+    "max_joint": "thumb_right",
+    "max_joint_step_m": 0.34752181762283885,
+    "com_step_m": 0.01940820525806073,
+    "limb_scale_step_fraction": 0.019408199994702162,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T03",
+    "from_frame0": 98,
+    "to_frame0": 99,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.12448196249470478,
+    "com_step_m": 0.024007981052166297,
+    "limb_scale_step_fraction": 0.09452016396179495,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T03",
+    "from_frame0": 101,
+    "to_frame0": 102,
+    "max_joint": "nose",
+    "max_joint_step_m": 0.14688832824168496,
+    "com_step_m": 0.009024557177309385,
+    "limb_scale_step_fraction": 0.04140399469477807,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T03",
+    "from_frame0": 102,
+    "to_frame0": 103,
+    "max_joint": "ankle_left",
+    "max_joint_step_m": 0.22487131574427918,
+    "com_step_m": 0.059464775963640075,
+    "limb_scale_step_fraction": 0.05204229756418749,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T03",
+    "from_frame0": 105,
+    "to_frame0": 106,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.22544545488357565,
+    "com_step_m": 0.05578007009842616,
+    "limb_scale_step_fraction": 0.02335359526879673,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T03",
+    "from_frame0": 109,
+    "to_frame0": 110,
+    "max_joint": "elbow_left",
+    "max_joint_step_m": 0.18490075185497024,
+    "com_step_m": 0.04971184524131971,
+    "limb_scale_step_fraction": 0.04053826407277142,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T03",
+    "from_frame0": 111,
+    "to_frame0": 112,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.17067651821990695,
+    "com_step_m": 0.029428908904918536,
+    "limb_scale_step_fraction": 0.1293418118111132,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T03",
+    "from_frame0": 112,
+    "to_frame0": 113,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.09972753285218855,
+    "com_step_m": 0.01617627923374038,
+    "limb_scale_step_fraction": 0.06736279078285493,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T03",
+    "from_frame0": 113,
+    "to_frame0": 114,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.08945400400267588,
+    "com_step_m": 0.013741770094780283,
+    "limb_scale_step_fraction": 0.05158026194409447,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T03",
+    "from_frame0": 114,
+    "to_frame0": 115,
+    "max_joint": "elbow_left",
+    "max_joint_step_m": 0.16376175221020858,
+    "com_step_m": 0.009761599908500129,
+    "limb_scale_step_fraction": 0.05717674349610453,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T04",
+    "from_frame0": 1,
+    "to_frame0": 2,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.2099457810352738,
+    "com_step_m": 0.014826034870875561,
+    "limb_scale_step_fraction": 0.013468355591032908,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T04",
+    "from_frame0": 4,
+    "to_frame0": 5,
+    "max_joint": "handtip_left",
+    "max_joint_step_m": 0.2814798650986192,
+    "com_step_m": 0.003976185826130389,
+    "limb_scale_step_fraction": 0.0009222531861043877,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T04",
+    "from_frame0": 5,
+    "to_frame0": 6,
+    "max_joint": "handtip_left",
+    "max_joint_step_m": 0.5763024082170713,
+    "com_step_m": 0.010769124226352695,
+    "limb_scale_step_fraction": 0.01223818202100559,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T04",
+    "from_frame0": 6,
+    "to_frame0": 7,
+    "max_joint": "handtip_right",
+    "max_joint_step_m": 0.33436132636818255,
+    "com_step_m": 0.02755646924453638,
+    "limb_scale_step_fraction": 0.03487735621515719,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T04",
+    "from_frame0": 7,
+    "to_frame0": 8,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.22928838821241,
+    "com_step_m": 0.010307763535133465,
+    "limb_scale_step_fraction": 0.013922831785167242,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T04",
+    "from_frame0": 8,
+    "to_frame0": 9,
+    "max_joint": "handtip_right",
+    "max_joint_step_m": 0.36512017351774756,
+    "com_step_m": 0.012365781548051567,
+    "limb_scale_step_fraction": 0.012826897506530247,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T04",
+    "from_frame0": 9,
+    "to_frame0": 10,
+    "max_joint": "thumb_right",
+    "max_joint_step_m": 0.21735021996779935,
+    "com_step_m": 0.012653014192121398,
+    "limb_scale_step_fraction": 0.004582589589292217,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T04",
+    "from_frame0": 10,
+    "to_frame0": 11,
+    "max_joint": "handtip_right",
+    "max_joint_step_m": 0.8407916774409603,
+    "com_step_m": 0.043998027760427286,
+    "limb_scale_step_fraction": 0.041053926838150435,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T04",
+    "from_frame0": 11,
+    "to_frame0": 12,
+    "max_joint": "handtip_left",
+    "max_joint_step_m": 1.1652642820196613,
+    "com_step_m": 0.024343007269007972,
+    "limb_scale_step_fraction": 0.0015592218341011455,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T04",
+    "from_frame0": 12,
+    "to_frame0": 13,
+    "max_joint": "hand_left",
+    "max_joint_step_m": 0.2450866348555133,
+    "com_step_m": 0.016532849056103253,
+    "limb_scale_step_fraction": 0.011227736730957017,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T04",
+    "from_frame0": 13,
+    "to_frame0": 14,
+    "max_joint": "handtip_left",
+    "max_joint_step_m": 0.2571055493650332,
+    "com_step_m": 0.00881583537064797,
+    "limb_scale_step_fraction": 0.02607880506483738,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T04",
+    "from_frame0": 18,
+    "to_frame0": 19,
+    "max_joint": "hand_right",
+    "max_joint_step_m": 0.21480757443285997,
+    "com_step_m": 0.0088901025967902,
+    "limb_scale_step_fraction": 0.004663754757515701,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T04",
+    "from_frame0": 20,
+    "to_frame0": 21,
+    "max_joint": "thumb_right",
+    "max_joint_step_m": 0.2339496351591563,
+    "com_step_m": 0.002549929574089162,
+    "limb_scale_step_fraction": 0.0017755988043854558,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T04",
+    "from_frame0": 23,
+    "to_frame0": 24,
+    "max_joint": "hand_right",
+    "max_joint_step_m": 0.3187643600501488,
+    "com_step_m": 0.008752324285440463,
+    "limb_scale_step_fraction": 0.0007114303615509937,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T04",
+    "from_frame0": 25,
+    "to_frame0": 26,
+    "max_joint": "handtip_left",
+    "max_joint_step_m": 0.25968112885034006,
+    "com_step_m": 0.007434986807593097,
+    "limb_scale_step_fraction": 0.002382482283368894,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T04",
+    "from_frame0": 29,
+    "to_frame0": 30,
+    "max_joint": "handtip_right",
+    "max_joint_step_m": 0.8007237200259796,
+    "com_step_m": 0.05573729207595551,
+    "limb_scale_step_fraction": 0.030702051359890126,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T04",
+    "from_frame0": 33,
+    "to_frame0": 34,
+    "max_joint": "ankle_right",
+    "max_joint_step_m": 0.20358825241570888,
+    "com_step_m": 0.03734314110458924,
+    "limb_scale_step_fraction": 0.013180585328080413,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T04",
+    "from_frame0": 43,
+    "to_frame0": 44,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.3037341146117003,
+    "com_step_m": 0.04372362012138916,
+    "limb_scale_step_fraction": 0.00951809566964333,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T04",
+    "from_frame0": 49,
+    "to_frame0": 50,
+    "max_joint": "thumb_left",
+    "max_joint_step_m": 0.23690082925534953,
+    "com_step_m": 0.05986426599343544,
+    "limb_scale_step_fraction": 0.004609859313059249,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T04",
+    "from_frame0": 51,
+    "to_frame0": 52,
+    "max_joint": "handtip_left",
+    "max_joint_step_m": 0.2542209423125099,
+    "com_step_m": 0.05947789354930476,
+    "limb_scale_step_fraction": 0.018757855009773203,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T04",
+    "from_frame0": 53,
+    "to_frame0": 54,
+    "max_joint": "eye_right",
+    "max_joint_step_m": 0.1181066268928865,
+    "com_step_m": 0.04261671887280435,
+    "limb_scale_step_fraction": 0.04254314723942719,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T04",
+    "from_frame0": 54,
+    "to_frame0": 55,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.22043565172189292,
+    "com_step_m": 0.03700317659786153,
+    "limb_scale_step_fraction": 0.007134871354613715,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T04",
+    "from_frame0": 55,
+    "to_frame0": 56,
+    "max_joint": "thumb_left",
+    "max_joint_step_m": 0.13058351209657734,
+    "com_step_m": 0.050283217409378134,
+    "limb_scale_step_fraction": 0.030274448966200396,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T04",
+    "from_frame0": 56,
+    "to_frame0": 57,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.3634957648341091,
+    "com_step_m": 0.03522570225163185,
+    "limb_scale_step_fraction": 0.06042241908965691,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T04",
+    "from_frame0": 57,
+    "to_frame0": 58,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.6289967939890483,
+    "com_step_m": 0.04881751272594094,
+    "limb_scale_step_fraction": 0.004770510025352088,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T04",
+    "from_frame0": 58,
+    "to_frame0": 59,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.39265890805285436,
+    "com_step_m": 0.055041731045717336,
+    "limb_scale_step_fraction": 0.05942010202322762,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T04",
+    "from_frame0": 59,
+    "to_frame0": 60,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.2901489346987945,
+    "com_step_m": 0.04258430781470012,
+    "limb_scale_step_fraction": 0.011811224599833171,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T04",
+    "from_frame0": 60,
+    "to_frame0": 61,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.2590852773465334,
+    "com_step_m": 0.05257614292468966,
+    "limb_scale_step_fraction": 0.05939543207505708,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T04",
+    "from_frame0": 61,
+    "to_frame0": 62,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.37574306501948385,
+    "com_step_m": 0.03317164445599737,
+    "limb_scale_step_fraction": 0.030575504482706566,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T04",
+    "from_frame0": 62,
+    "to_frame0": 63,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.4382129518845069,
+    "com_step_m": 0.023088181491331593,
+    "limb_scale_step_fraction": 0.018194940201186276,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T04",
+    "from_frame0": 63,
+    "to_frame0": 64,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.23386505033830055,
+    "com_step_m": 0.0179781887641753,
+    "limb_scale_step_fraction": 0.03255406157264734,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T04",
+    "from_frame0": 65,
+    "to_frame0": 66,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.2202327594899527,
+    "com_step_m": 0.05021188212017162,
+    "limb_scale_step_fraction": 0.10372002369418075,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T04",
+    "from_frame0": 67,
+    "to_frame0": 68,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.366443075578295,
+    "com_step_m": 0.031770769954157584,
+    "limb_scale_step_fraction": 0.09050233109088497,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T04",
+    "from_frame0": 68,
+    "to_frame0": 69,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.23001238201637833,
+    "com_step_m": 0.02067863125606554,
+    "limb_scale_step_fraction": 0.008238729470476273,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T04",
+    "from_frame0": 70,
+    "to_frame0": 71,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.2639383445802666,
+    "com_step_m": 0.05054615422182318,
+    "limb_scale_step_fraction": 0.010581120709709959,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T04",
+    "from_frame0": 72,
+    "to_frame0": 73,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.19078224938884106,
+    "com_step_m": 0.023569332099141707,
+    "limb_scale_step_fraction": 0.08493236658146436,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T04",
+    "from_frame0": 73,
+    "to_frame0": 74,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.251746965181712,
+    "com_step_m": 0.0567267280542062,
+    "limb_scale_step_fraction": 0.15252889697829494,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T04",
+    "from_frame0": 74,
+    "to_frame0": 75,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.1941406700946533,
+    "com_step_m": 0.037871452224166956,
+    "limb_scale_step_fraction": 0.09405750463643434,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T04",
+    "from_frame0": 75,
+    "to_frame0": 76,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.19613306779136494,
+    "com_step_m": 0.06012929899096002,
+    "limb_scale_step_fraction": 0.12849313398207962,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T04",
+    "from_frame0": 76,
+    "to_frame0": 77,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.20964254566723467,
+    "com_step_m": 0.022844525916927556,
+    "limb_scale_step_fraction": 0.017921519515160265,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T04",
+    "from_frame0": 77,
+    "to_frame0": 78,
+    "max_joint": "handtip_right",
+    "max_joint_step_m": 0.2602857296650354,
+    "com_step_m": 0.012335921878705369,
+    "limb_scale_step_fraction": 0.01093966244197708,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T04",
+    "from_frame0": 78,
+    "to_frame0": 79,
+    "max_joint": "handtip_right",
+    "max_joint_step_m": 0.2224498887837137,
+    "com_step_m": 0.005141640693691671,
+    "limb_scale_step_fraction": 0.005118492404241759,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T04",
+    "from_frame0": 81,
+    "to_frame0": 82,
+    "max_joint": "ankle_left",
+    "max_joint_step_m": 0.19249370628763057,
+    "com_step_m": 0.04254549986829928,
+    "limb_scale_step_fraction": 0.06940021651475112,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T04",
+    "from_frame0": 82,
+    "to_frame0": 83,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.1449053651729184,
+    "com_step_m": 0.030057339795970348,
+    "limb_scale_step_fraction": 0.03497553041562445,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T04",
+    "from_frame0": 85,
+    "to_frame0": 86,
+    "max_joint": "ankle_right",
+    "max_joint_step_m": 0.3151210009758725,
+    "com_step_m": 0.05061496550454084,
+    "limb_scale_step_fraction": 0.05069792750721835,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T04",
+    "from_frame0": 94,
+    "to_frame0": 95,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.31118070743529963,
+    "com_step_m": 0.026531457633834514,
+    "limb_scale_step_fraction": 0.007317798213138887,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T04",
+    "from_frame0": 104,
+    "to_frame0": 105,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.34271327394448164,
+    "com_step_m": 0.030317972561340188,
+    "limb_scale_step_fraction": 0.005618929507231249,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T05",
+    "from_frame0": 0,
+    "to_frame0": 1,
+    "max_joint": "handtip_right",
+    "max_joint_step_m": 0.961608402690475,
+    "com_step_m": 0.05026175203288265,
+    "limb_scale_step_fraction": 0.010912869327624315,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T05",
+    "from_frame0": 6,
+    "to_frame0": 7,
+    "max_joint": "hand_right",
+    "max_joint_step_m": 0.2821592927056086,
+    "com_step_m": 0.027126450597396008,
+    "limb_scale_step_fraction": 0.01878438583063126,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T05",
+    "from_frame0": 22,
+    "to_frame0": 23,
+    "max_joint": "handtip_left",
+    "max_joint_step_m": 0.14610327709499432,
+    "com_step_m": 0.049965496130475795,
+    "limb_scale_step_fraction": 0.031112808460614462,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T05",
+    "from_frame0": 26,
+    "to_frame0": 27,
+    "max_joint": "handtip_left",
+    "max_joint_step_m": 0.12690320617092649,
+    "com_step_m": 0.044445666636925056,
+    "limb_scale_step_fraction": 0.03704493262880871,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T05",
+    "from_frame0": 27,
+    "to_frame0": 28,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.3298328439673682,
+    "com_step_m": 0.04152657528686227,
+    "limb_scale_step_fraction": 0.005506465231125527,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T05",
+    "from_frame0": 30,
+    "to_frame0": 31,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.7415728867930141,
+    "com_step_m": 0.052374755532313494,
+    "limb_scale_step_fraction": 0.001712705923179744,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T05",
+    "from_frame0": 31,
+    "to_frame0": 32,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.21712875925732592,
+    "com_step_m": 0.06977539130854539,
+    "limb_scale_step_fraction": 0.09185823257872465,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T05",
+    "from_frame0": 32,
+    "to_frame0": 33,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.1795174161709424,
+    "com_step_m": 0.06467002469925671,
+    "limb_scale_step_fraction": 0.03883389202938068,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T05",
+    "from_frame0": 34,
+    "to_frame0": 35,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.5909713552401538,
+    "com_step_m": 0.05460680422189056,
+    "limb_scale_step_fraction": 0.07191395811773259,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T05",
+    "from_frame0": 35,
+    "to_frame0": 36,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.28886467678600025,
+    "com_step_m": 0.017555983783917872,
+    "limb_scale_step_fraction": 0.032847493852426336,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T05",
+    "from_frame0": 36,
+    "to_frame0": 37,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.4063494558110267,
+    "com_step_m": 0.03215581892709565,
+    "limb_scale_step_fraction": 0.09516820407773063,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T05",
+    "from_frame0": 37,
+    "to_frame0": 38,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.27974039088109764,
+    "com_step_m": 0.05149219677149783,
+    "limb_scale_step_fraction": 0.08368299417467229,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T05",
+    "from_frame0": 39,
+    "to_frame0": 40,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.09283804650739738,
+    "com_step_m": 0.016218906918221195,
+    "limb_scale_step_fraction": 0.03724954236781207,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T05",
+    "from_frame0": 41,
+    "to_frame0": 42,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.07615689520591436,
+    "com_step_m": 0.021680778812321583,
+    "limb_scale_step_fraction": 0.05648457801771412,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T05",
+    "from_frame0": 42,
+    "to_frame0": 43,
+    "max_joint": "foot_left",
+    "max_joint_step_m": 0.5230349443267642,
+    "com_step_m": 0.07559486328930322,
+    "limb_scale_step_fraction": 0.15580372489180505,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T05",
+    "from_frame0": 43,
+    "to_frame0": 44,
+    "max_joint": "knee_left",
+    "max_joint_step_m": 0.22634600550452555,
+    "com_step_m": 0.07111274099249117,
+    "limb_scale_step_fraction": 0.10536215444191349,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T05",
+    "from_frame0": 44,
+    "to_frame0": 45,
+    "max_joint": "knee_left",
+    "max_joint_step_m": 0.16674454396212882,
+    "com_step_m": 0.049938009882282544,
+    "limb_scale_step_fraction": 0.03734510927491993,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T05",
+    "from_frame0": 45,
+    "to_frame0": 46,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.3819328346730431,
+    "com_step_m": 0.02736046882561823,
+    "limb_scale_step_fraction": 0.004430403550828414,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T05",
+    "from_frame0": 75,
+    "to_frame0": 76,
+    "max_joint": "foot_right",
+    "max_joint_step_m": 0.23865883971916746,
+    "com_step_m": 0.013139836200305384,
+    "limb_scale_step_fraction": 0.010128565455819163,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  },
+  {
+    "trial": "S49A14T05",
+    "from_frame0": 81,
+    "to_frame0": 82,
+    "max_joint": "ankle_right",
+    "max_joint_step_m": 0.20711963905263037,
+    "com_step_m": 0.025180728553527657,
+    "limb_scale_step_fraction": 0.0007946767786397698,
+    "reason": "joint step >0.2m and/or scale change >3.0%; review only"
+  }
+]

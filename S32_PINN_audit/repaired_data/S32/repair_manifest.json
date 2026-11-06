@@ -1,0 +1,17 @@
+{
+  "subject": "S32",
+  "policy": {
+    "short_gap_max_frames": 3,
+    "short_gap_method": "forward fill from previous valid frame",
+    "long_internal_gap_method": "per-coordinate linear interpolation between valid boundary frames",
+    "boundary_gap_method": "nearest valid frame carry because two-sided interpolation is impossible",
+    "original_files_modified": false
+  },
+  "source_trial_count": 21,
+  "trial_count": 21,
+  "unusable_trial_count": 0,
+  "unusable_trials": [],
+  "repaired_gap_count": 0,
+  "repaired_frame_count": 0,
+  "gaps": []
+}

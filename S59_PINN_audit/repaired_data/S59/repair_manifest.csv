@@ -1,0 +1,5 @@
+trial,start_row1,end_row1,frame_count,method,previous_valid_row1,next_valid_row1
+S59A10T01,169,172,4,linear_interpolation_long_gap,168,173
+S59A10T02,182,182,1,forward_fill_short_gap,181,183
+S59A10T03,147,149,3,forward_fill_short_gap,146,150
+S59A13T01,72,72,1,forward_fill_short_gap,71,73

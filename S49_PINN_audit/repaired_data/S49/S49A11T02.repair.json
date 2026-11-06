@@ -1,0 +1,9 @@
+{
+  "trial": "S49A11T02",
+  "source_member": "S49_FallSamples/S49A11T02.csv",
+  "source_sha256": "906b5fb645243e8a663f2d684cc44caca491cde775e68eeadad3488151235921",
+  "repaired_sha256": "f06d9ee05075b04a0ff6e5aef96e13ff65106ba05e1dc5210e7d04d95e19a099",
+  "rows": 244,
+  "repaired_rows": 0,
+  "gaps": []
+}

@@ -1,0 +1,170 @@
+[
+  {
+    "trial": "S48A10T01",
+    "trunk_shoulder_midpoint": 0.01706065588405081,
+    "head_neck_midpoint": 0.0028062186338106976,
+    "foot_point": 0.002385458051225584,
+    "shank_fraction_0p4459": 0.0002069241969220288
+  },
+  {
+    "trial": "S48A10T02",
+    "trunk_shoulder_midpoint": 0.009500706624952891,
+    "head_neck_midpoint": 0.0028721777152535574,
+    "foot_point": 0.0024878201503116073,
+    "shank_fraction_0p4459": 0.00021529017113150215
+  },
+  {
+    "trial": "S48A10T03",
+    "trunk_shoulder_midpoint": 0.01082459094831865,
+    "head_neck_midpoint": 0.0028998755087635475,
+    "foot_point": 0.002453104644543591,
+    "shank_fraction_0p4459": 0.00021209108804081514
+  },
+  {
+    "trial": "S48A10T04",
+    "trunk_shoulder_midpoint": 0.016514140116241974,
+    "head_neck_midpoint": 0.0030342010175360363,
+    "foot_point": 0.0026133848416227514,
+    "shank_fraction_0p4459": 0.00022786415527765303
+  },
+  {
+    "trial": "S48A10T05",
+    "trunk_shoulder_midpoint": 0.017680899967961388,
+    "head_neck_midpoint": 0.003011319379532066,
+    "foot_point": 0.00261447156933472,
+    "shank_fraction_0p4459": 0.00022082791906212737
+  },
+  {
+    "trial": "S48A11T01",
+    "trunk_shoulder_midpoint": 0.019491110441752366,
+    "head_neck_midpoint": 0.003041323976117657,
+    "foot_point": 0.0025912866791333758,
+    "shank_fraction_0p4459": 0.00022449621555577058
+  },
+  {
+    "trial": "S48A11T02",
+    "trunk_shoulder_midpoint": 0.01763999970549424,
+    "head_neck_midpoint": 0.003015498194488525,
+    "foot_point": 0.002616608111551303,
+    "shank_fraction_0p4459": 0.0002203036515659583
+  },
+  {
+    "trial": "S48A11T03",
+    "trunk_shoulder_midpoint": 0.019244234548656956,
+    "head_neck_midpoint": 0.003113266534749002,
+    "foot_point": 0.002697206958579133,
+    "shank_fraction_0p4459": 0.00023215645608346471
+  },
+  {
+    "trial": "S48A11T04",
+    "trunk_shoulder_midpoint": 0.01936182667480119,
+    "head_neck_midpoint": 0.0030678964804940188,
+    "foot_point": 0.002534105897538479,
+    "shank_fraction_0p4459": 0.00021899003296100666
+  },
+  {
+    "trial": "S48A11T05",
+    "trunk_shoulder_midpoint": 0.017484670191710183,
+    "head_neck_midpoint": 0.0030869927196988394,
+    "foot_point": 0.0026398181282266645,
+    "shank_fraction_0p4459": 0.0002295125077291546
+  },
+  {
+    "trial": "S48A12T01",
+    "trunk_shoulder_midpoint": 0.025209023602019077,
+    "head_neck_midpoint": 0.0031824656381388788,
+    "foot_point": 0.002707018972510292,
+    "shank_fraction_0p4459": 0.00023566193246117183
+  },
+  {
+    "trial": "S48A12T02",
+    "trunk_shoulder_midpoint": 0.01950362529746256,
+    "head_neck_midpoint": 0.0030947206584209914,
+    "foot_point": 0.0026828964058233425,
+    "shank_fraction_0p4459": 0.00023072048669400534
+  },
+  {
+    "trial": "S48A12T03",
+    "trunk_shoulder_midpoint": 0.017462635663062887,
+    "head_neck_midpoint": 0.002908996187566176,
+    "foot_point": 0.002487367067951176,
+    "shank_fraction_0p4459": 0.00021352254460693505
+  },
+  {
+    "trial": "S48A12T04",
+    "trunk_shoulder_midpoint": 0.02018985815123137,
+    "head_neck_midpoint": 0.003151317788362771,
+    "foot_point": 0.002736309317945419,
+    "shank_fraction_0p4459": 0.00023657684350247415
+  },
+  {
+    "trial": "S48A12T05",
+    "trunk_shoulder_midpoint": 0.01969063249602393,
+    "head_neck_midpoint": 0.003027781863313883,
+    "foot_point": 0.0025827887475573484,
+    "shank_fraction_0p4459": 0.00022080739280520194
+  },
+  {
+    "trial": "S48A13T01",
+    "trunk_shoulder_midpoint": 0.019964035980046157,
+    "head_neck_midpoint": 0.002980977630474363,
+    "foot_point": 0.002527160159884748,
+    "shank_fraction_0p4459": 0.00021965078252141274
+  },
+  {
+    "trial": "S48A13T02",
+    "trunk_shoulder_midpoint": 0.016075190959131905,
+    "head_neck_midpoint": 0.0027014297955218897,
+    "foot_point": 0.0023262882452607307,
+    "shank_fraction_0p4459": 0.0002027104451530265
+  },
+  {
+    "trial": "S48A13T03",
+    "trunk_shoulder_midpoint": 0.017777945686548554,
+    "head_neck_midpoint": 0.002829065840407004,
+    "foot_point": 0.0023880419937347313,
+    "shank_fraction_0p4459": 0.00020621886162636166
+  },
+  {
+    "trial": "S48A13T04",
+    "trunk_shoulder_midpoint": 0.0163601033373761,
+    "head_neck_midpoint": 0.002848978885110424,
+    "foot_point": 0.002451572966814813,
+    "shank_fraction_0p4459": 0.00021326203674162076
+  },
+  {
+    "trial": "S48A13T05",
+    "trunk_shoulder_midpoint": 0.01741264723097294,
+    "head_neck_midpoint": 0.0027614153599597674,
+    "foot_point": 0.0023288044162728277,
+    "shank_fraction_0p4459": 0.0002071137227420928
+  },
+  {
+    "trial": "S48A14T01",
+    "trunk_shoulder_midpoint": 0.01664614882965688,
+    "head_neck_midpoint": 0.0030548771927989215,
+    "foot_point": 0.002602477610121948,
+    "shank_fraction_0p4459": 0.00022452413966030194
+  },
+  {
+    "trial": "S48A14T02",
+    "trunk_shoulder_midpoint": 0.0164908732786445,
+    "head_neck_midpoint": 0.0030776252532805914,
+    "foot_point": 0.002673007323201777,
+    "shank_fraction_0p4459": 0.00023085576759792744
+  },
+  {
+    "trial": "S48A14T03",
+    "trunk_shoulder_midpoint": 0.01984725539089439,
+    "head_neck_midpoint": 0.0030888033755799736,
+    "foot_point": 0.002682381689784713,
+    "shank_fraction_0p4459": 0.00023061037176333593
+  },
+  {
+    "trial": "S48A14T05",
+    "trunk_shoulder_midpoint": 0.018817384927843864,
+    "head_neck_midpoint": 0.0029896578518487024,
+    "foot_point": 0.002572175303744948,
+    "shank_fraction_0p4459": 0.00022291535028434693
+  }
+]

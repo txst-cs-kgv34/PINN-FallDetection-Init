@@ -1,0 +1,42 @@
+{
+  "trial": "S49A13T01",
+  "source_member": "S49_FallSamples/S49A13T01.csv",
+  "source_sha256": "9080ce3abb06c9756f48d03d56583ab9d58f747b4d01d85212043f41e608bbfb",
+  "repaired_sha256": "2f7dd327e846c8045f08d73f0e0a2e75c04240a2e9e6a2871aed5339ff255ade",
+  "rows": 99,
+  "repaired_rows": 5,
+  "gaps": [
+    {
+      "start_row1": 66,
+      "end_row1": 66,
+      "frame_count": 1,
+      "method": "forward_fill_short_gap",
+      "previous_valid_row1": 65,
+      "next_valid_row1": 67
+    },
+    {
+      "start_row1": 69,
+      "end_row1": 69,
+      "frame_count": 1,
+      "method": "forward_fill_short_gap",
+      "previous_valid_row1": 68,
+      "next_valid_row1": 70
+    },
+    {
+      "start_row1": 73,
+      "end_row1": 73,
+      "frame_count": 1,
+      "method": "forward_fill_short_gap",
+      "previous_valid_row1": 72,
+      "next_valid_row1": 74
+    },
+    {
+      "start_row1": 85,
+      "end_row1": 86,
+      "frame_count": 2,
+      "method": "forward_fill_short_gap",
+      "previous_valid_row1": 84,
+      "next_valid_row1": 87
+    }
+  ]
+}

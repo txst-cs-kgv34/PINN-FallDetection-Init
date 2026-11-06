@@ -1,0 +1,38 @@
+{
+  "subject_id": "S49",
+  "decision_date_local": "2026-11-06",
+  "activity": "A11",
+  "excluded_trials": {
+    "S49A11T03": "Trial is absent from the supplied archive."
+  },
+  "remaining_candidate_trials": [
+    "S49A11T01",
+    "S49A11T02",
+    "S49A11T04",
+    "S49A11T05"
+  ],
+  "repair_advisories": {
+    "S49A11T01": {
+      "status": "exclude_primary_modeling",
+      "repaired_rows": 41,
+      "total_rows": 101,
+      "repair_fraction": 0.40594059405940597,
+      "boundary_repair": true
+    },
+    "S49A11T04": {
+      "status": "minor_repair_review",
+      "repaired_rows": 2,
+      "total_rows": 180,
+      "repair_fraction": 0.011111111111111112,
+      "boundary_repair": false
+    },
+    "S49A11T05": {
+      "status": "minor_repair_review",
+      "repaired_rows": 5,
+      "total_rows": 189,
+      "repair_fraction": 0.026455026455026454,
+      "boundary_repair": false
+    }
+  },
+  "status": "Pending user-supplied manual A11 phase marks. Candidate inclusion is provisional until repair impact and phase quality are reviewed."
+}

@@ -1,0 +1,9 @@
+{
+  "trial": "S32A13T05",
+  "source_member": "S32_FallSamples/S32A13T05.csv",
+  "source_sha256": "04f1dda77f1e969ed002010795e21edf62c19318a7998aab860318911222685a",
+  "repaired_sha256": "10bdf9ee3ff18ae42afbc67536290dc64b09f3684b5b3f18423cef8261f1c7fb",
+  "rows": 249,
+  "repaired_rows": 0,
+  "gaps": []
+}

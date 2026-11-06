@@ -1,0 +1,51 @@
+{
+  "subject_id": "S48",
+  "decision_date_local": "2026-11-06",
+  "activity": "A11",
+  "excluded_trials": {},
+  "remaining_candidate_trials": [
+    "S48A11T01",
+    "S48A11T02",
+    "S48A11T03",
+    "S48A11T04",
+    "S48A11T05"
+  ],
+  "repair_advisories": {
+    "S48A11T01": {
+      "status": "exclude_primary_modeling",
+      "repaired_rows": 58,
+      "total_rows": 186,
+      "repair_fraction": 0.3118279569892473,
+      "boundary_repair": false
+    },
+    "S48A11T02": {
+      "status": "exclude_primary_modeling",
+      "repaired_rows": 50,
+      "total_rows": 170,
+      "repair_fraction": 0.29411764705882354,
+      "boundary_repair": false
+    },
+    "S48A11T03": {
+      "status": "minor_repair_review",
+      "repaired_rows": 7,
+      "total_rows": 148,
+      "repair_fraction": 0.0472972972972973,
+      "boundary_repair": false
+    },
+    "S48A11T04": {
+      "status": "sensitivity_check_required",
+      "repaired_rows": 21,
+      "total_rows": 138,
+      "repair_fraction": 0.15217391304347827,
+      "boundary_repair": false
+    },
+    "S48A11T05": {
+      "status": "exclude_primary_modeling",
+      "repaired_rows": 57,
+      "total_rows": 130,
+      "repair_fraction": 0.43846153846153846,
+      "boundary_repair": true
+    }
+  },
+  "status": "Pending user-supplied manual A11 phase marks. Candidate inclusion is provisional until repair impact and phase quality are reviewed."
+}

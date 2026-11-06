@@ -1,0 +1,232 @@
+{
+  "subject": "S44",
+  "nominal_fps": 30,
+  "notes": [
+    {
+      "trial": "S44A11T01",
+      "frame0": 0,
+      "nominal_time_s": 0.0,
+      "view_mode": "raw",
+      "phase": "initial_standing",
+      "note": "Automatic candidate; verify visually before use.",
+      "status": "automatic_suggestion_review_required"
+    },
+    {
+      "trial": "S44A11T01",
+      "frame0": 93,
+      "nominal_time_s": 3.1,
+      "view_mode": "raw",
+      "phase": "fall_onset",
+      "note": "Automatic candidate; verify visually before use.",
+      "status": "automatic_suggestion_review_required"
+    },
+    {
+      "trial": "S44A11T01",
+      "frame0": 101,
+      "nominal_time_s": 3.3666666666666667,
+      "view_mode": "raw",
+      "phase": "descent",
+      "note": "Automatic candidate; verify visually before use.",
+      "status": "automatic_suggestion_review_required"
+    },
+    {
+      "trial": "S44A11T01",
+      "frame0": 122,
+      "nominal_time_s": 4.066666666666666,
+      "view_mode": "raw",
+      "phase": "apparent_contact",
+      "note": "Automatic candidate; verify visually before use.",
+      "status": "automatic_suggestion_review_required"
+    },
+    {
+      "trial": "S44A11T01",
+      "frame0": 269,
+      "nominal_time_s": 8.966666666666667,
+      "view_mode": "raw",
+      "phase": "post_fall",
+      "note": "Automatic candidate; verify visually before use.",
+      "status": "automatic_suggestion_review_required"
+    },
+    {
+      "trial": "S44A11T02",
+      "frame0": 0,
+      "nominal_time_s": 0.0,
+      "view_mode": "raw",
+      "phase": "initial_standing",
+      "note": "Automatic candidate; verify visually before use.",
+      "status": "automatic_suggestion_review_required"
+    },
+    {
+      "trial": "S44A11T02",
+      "frame0": 152,
+      "nominal_time_s": 5.066666666666666,
+      "view_mode": "raw",
+      "phase": "fall_onset",
+      "note": "Automatic candidate; verify visually before use.",
+      "status": "automatic_suggestion_review_required"
+    },
+    {
+      "trial": "S44A11T02",
+      "frame0": 162,
+      "nominal_time_s": 5.4,
+      "view_mode": "raw",
+      "phase": "descent",
+      "note": "Automatic candidate; verify visually before use.",
+      "status": "automatic_suggestion_review_required"
+    },
+    {
+      "trial": "S44A11T02",
+      "frame0": 174,
+      "nominal_time_s": 5.8,
+      "view_mode": "raw",
+      "phase": "apparent_contact",
+      "note": "Automatic candidate; verify visually before use.",
+      "status": "automatic_suggestion_review_required"
+    },
+    {
+      "trial": "S44A11T02",
+      "frame0": 300,
+      "nominal_time_s": 10.0,
+      "view_mode": "raw",
+      "phase": "post_fall",
+      "note": "Automatic candidate; verify visually before use.",
+      "status": "automatic_suggestion_review_required"
+    },
+    {
+      "trial": "S44A11T03",
+      "frame0": 0,
+      "nominal_time_s": 0.0,
+      "view_mode": "raw",
+      "phase": "initial_standing",
+      "note": "Automatic candidate; verify visually before use.",
+      "status": "automatic_suggestion_review_required"
+    },
+    {
+      "trial": "S44A11T03",
+      "frame0": 142,
+      "nominal_time_s": 4.733333333333333,
+      "view_mode": "raw",
+      "phase": "fall_onset",
+      "note": "Automatic candidate; verify visually before use.",
+      "status": "automatic_suggestion_review_required"
+    },
+    {
+      "trial": "S44A11T03",
+      "frame0": 153,
+      "nominal_time_s": 5.1,
+      "view_mode": "raw",
+      "phase": "descent",
+      "note": "Automatic candidate; verify visually before use.",
+      "status": "automatic_suggestion_review_required"
+    },
+    {
+      "trial": "S44A11T03",
+      "frame0": 172,
+      "nominal_time_s": 5.733333333333333,
+      "view_mode": "raw",
+      "phase": "apparent_contact",
+      "note": "Automatic candidate; verify visually before use.",
+      "status": "automatic_suggestion_review_required"
+    },
+    {
+      "trial": "S44A11T03",
+      "frame0": 178,
+      "nominal_time_s": 5.933333333333334,
+      "view_mode": "raw",
+      "phase": "post_fall",
+      "note": "Automatic candidate; verify visually before use.",
+      "status": "automatic_suggestion_review_required"
+    },
+    {
+      "trial": "S44A11T04",
+      "frame0": 0,
+      "nominal_time_s": 0.0,
+      "view_mode": "raw",
+      "phase": "initial_standing",
+      "note": "Automatic candidate; verify visually before use.",
+      "status": "automatic_suggestion_review_required"
+    },
+    {
+      "trial": "S44A11T04",
+      "frame0": 135,
+      "nominal_time_s": 4.5,
+      "view_mode": "raw",
+      "phase": "fall_onset",
+      "note": "Automatic candidate; verify visually before use.",
+      "status": "automatic_suggestion_review_required"
+    },
+    {
+      "trial": "S44A11T04",
+      "frame0": 148,
+      "nominal_time_s": 4.933333333333334,
+      "view_mode": "raw",
+      "phase": "descent",
+      "note": "Automatic candidate; verify visually before use.",
+      "status": "automatic_suggestion_review_required"
+    },
+    {
+      "trial": "S44A11T04",
+      "frame0": 160,
+      "nominal_time_s": 5.333333333333333,
+      "view_mode": "raw",
+      "phase": "apparent_contact",
+      "note": "Automatic candidate; verify visually before use.",
+      "status": "automatic_suggestion_review_required"
+    },
+    {
+      "trial": "S44A11T04",
+      "frame0": 166,
+      "nominal_time_s": 5.533333333333333,
+      "view_mode": "raw",
+      "phase": "post_fall",
+      "note": "Automatic candidate; verify visually before use.",
+      "status": "automatic_suggestion_review_required"
+    },
+    {
+      "trial": "S44A11T05",
+      "frame0": 0,
+      "nominal_time_s": 0.0,
+      "view_mode": "raw",
+      "phase": "initial_standing",
+      "note": "Automatic candidate; verify visually before use.",
+      "status": "automatic_suggestion_review_required"
+    },
+    {
+      "trial": "S44A11T05",
+      "frame0": 131,
+      "nominal_time_s": 4.366666666666666,
+      "view_mode": "raw",
+      "phase": "fall_onset",
+      "note": "Automatic candidate; verify visually before use.",
+      "status": "automatic_suggestion_review_required"
+    },
+    {
+      "trial": "S44A11T05",
+      "frame0": 140,
+      "nominal_time_s": 4.666666666666667,
+      "view_mode": "raw",
+      "phase": "descent",
+      "note": "Automatic candidate; verify visually before use.",
+      "status": "automatic_suggestion_review_required"
+    },
+    {
+      "trial": "S44A11T05",
+      "frame0": 160,
+      "nominal_time_s": 5.333333333333333,
+      "view_mode": "raw",
+      "phase": "apparent_contact",
+      "note": "Automatic candidate; verify visually before use.",
+      "status": "automatic_suggestion_review_required"
+    },
+    {
+      "trial": "S44A11T05",
+      "frame0": 166,
+      "nominal_time_s": 5.533333333333333,
+      "view_mode": "raw",
+      "phase": "post_fall",
+      "note": "Automatic candidate; verify visually before use.",
+      "status": "automatic_suggestion_review_required"
+    }
+  ],
+  "warning": "Signal-derived candidates only; apparent contact is not force-verified."
+}

@@ -1,0 +1,15 @@
+name,mass_fraction,a,b,fraction,mapping,reported_mass_fraction,mass_kg
+head,0.0668066806680668,head,head,0.0,SDK HEAD point proxy; no vertex/neck anatomical head segment,0.0668,3.7878750770077008
+trunk,0.4257425742574258,neck,"hip_left,hip_right",0.4964,"NECK to midpoint(HIP_LEFT,HIP_RIGHT); NECK approximates proximal trunk landmark",0.4257,24.139197908415845
+upper_arm_left,0.0255025502550255,shoulder_left,elbow_left,0.5754,SDK joint centers approximate anatomical endpoints,0.0255,1.44597027640264
+forearm_left,0.0138013801380138,elbow_left,wrist_left,0.4559,SDK joint centers approximate anatomical endpoints,0.0138,0.7825250907590758
+thigh_left,0.1478147814781478,hip_left,knee_left,0.3612,SDK joint centers approximate anatomical endpoints,0.1478,8.380957131463147
+shank_left,0.0481048104810481,knee_left,ankle_left,0.4352,SDK joint centers approximate anatomical endpoints,0.0481,2.7274968743124313
+hand_left,0.0056005600560056,hand_left,hand_left,0.0,"SDK HAND point proxy, not published wrist-to-finger CoM fraction",0.0056,0.31754641364136416
+foot_left,0.0129012901290129,ankle_left,foot_left,0.5,ANKLE/FOOT midpoint proxy; heel and toe landmarks unavailable,0.0129,0.7314908457095709
+upper_arm_right,0.0255025502550255,shoulder_right,elbow_right,0.5754,SDK joint centers approximate anatomical endpoints,0.0255,1.44597027640264
+forearm_right,0.0138013801380138,elbow_right,wrist_right,0.4559,SDK joint centers approximate anatomical endpoints,0.0138,0.7825250907590758
+thigh_right,0.1478147814781478,hip_right,knee_right,0.3612,SDK joint centers approximate anatomical endpoints,0.1478,8.380957131463147
+shank_right,0.0481048104810481,knee_right,ankle_right,0.4352,SDK joint centers approximate anatomical endpoints,0.0481,2.7274968743124313
+hand_right,0.0056005600560056,hand_right,hand_right,0.0,"SDK HAND point proxy, not published wrist-to-finger CoM fraction",0.0056,0.31754641364136416
+foot_right,0.0129012901290129,ankle_right,foot_right,0.5,ANKLE/FOOT midpoint proxy; heel and toe landmarks unavailable,0.0129,0.7314908457095709

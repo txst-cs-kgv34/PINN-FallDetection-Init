@@ -1,0 +1,26 @@
+{
+  "trial": "S48A12T05",
+  "source_member": "S48_FallSamples/S48A12T05.csv",
+  "source_sha256": "05c60f41020653705912f3dba3bf4285e39a7d8bd6324fe16a9f3cab03e72620",
+  "repaired_sha256": "1728ab45bb8190122117b9606273ce395a6b4115e72ccac0522306907d174d8c",
+  "rows": 163,
+  "repaired_rows": 3,
+  "gaps": [
+    {
+      "start_row1": 54,
+      "end_row1": 54,
+      "frame_count": 1,
+      "method": "forward_fill_short_gap",
+      "previous_valid_row1": 53,
+      "next_valid_row1": 55
+    },
+    {
+      "start_row1": 58,
+      "end_row1": 59,
+      "frame_count": 2,
+      "method": "forward_fill_short_gap",
+      "previous_valid_row1": 57,
+      "next_valid_row1": 60
+    }
+  ]
+}

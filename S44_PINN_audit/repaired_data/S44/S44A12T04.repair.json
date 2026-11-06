@@ -1,0 +1,9 @@
+{
+  "trial": "S44A12T04",
+  "source_member": "S44_FallSamples/S44A12T04.csv",
+  "source_sha256": "38a5338f3a8b6cc6410559b5e1e435f44c348194c896d0ad7a70b29096ddd482",
+  "repaired_sha256": "f42592fbfc15d9fbb5b1a687e1865b7299898558412e6a35b10fc36219f8fa8c",
+  "rows": 301,
+  "repaired_rows": 0,
+  "gaps": []
+}

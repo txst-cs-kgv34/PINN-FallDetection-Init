@@ -1,0 +1,9 @@
+{
+  "trial": "S46A14T03",
+  "source_member": "S46_FallSamples/S46A14T03.csv",
+  "source_sha256": "c70e8658ddeb0fbe9c3b0d8470f315ef087f494efe04b92e39171c7f740d1b0d",
+  "repaired_sha256": "69c61897593c0c5f24caae827475592b6b126d9fb9ec05e8c27739d1739754c8",
+  "rows": 227,
+  "repaired_rows": 0,
+  "gaps": []
+}

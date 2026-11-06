@@ -1,0 +1,225 @@
+[
+  {
+    "trial": "S49A10T01",
+    "activity": "A10",
+    "description": "Backfall",
+    "bytes": 137671,
+    "sha256": "804d9cf33c26b920826a91fe24b2ddb0ffe587f12b140d6fa97a09573cf3ad29",
+    "source_member": "S49A10T01.csv",
+    "status": "numeric"
+  },
+  {
+    "trial": "S49A10T02",
+    "activity": "A10",
+    "description": "Backfall",
+    "bytes": 235952,
+    "sha256": "8bd2aa30100434dbb36191d879e3840a42f0054fa9c25a3ae3059e0108fa8744",
+    "source_member": "S49A10T02.csv",
+    "status": "numeric"
+  },
+  {
+    "trial": "S49A10T03",
+    "activity": "A10",
+    "description": "Backfall",
+    "bytes": 154033,
+    "sha256": "0f16ff328fff2ba2051b9e2bf85cff002f945842e78e42c7cb878f06ddb4b152",
+    "source_member": "S49A10T03.csv",
+    "status": "numeric"
+  },
+  {
+    "trial": "S49A10T04",
+    "activity": "A10",
+    "description": "Backfall",
+    "bytes": 256113,
+    "sha256": "d377992b0215109f08d08be10083a019692c6317872cb983121a204d1a3b852c",
+    "source_member": "S49A10T04.csv",
+    "status": "numeric"
+  },
+  {
+    "trial": "S49A10T05",
+    "activity": "A10",
+    "description": "Backfall",
+    "bytes": 115154,
+    "sha256": "afd7a8f10c89ff5549397e818b4aa44410b50c73ec90512f331068a193e80f7e",
+    "source_member": "S49A10T05.csv",
+    "status": "numeric"
+  },
+  {
+    "trial": "S49A11T01",
+    "activity": "A11",
+    "description": "Frontfall",
+    "bytes": 151517,
+    "sha256": "42a8dcde153607882f6255bbbc860bcca5f38174ae3949ed0099eb7ac70b37c9",
+    "source_member": "S49A11T01.csv",
+    "status": "numeric"
+  },
+  {
+    "trial": "S49A11T02",
+    "activity": "A11",
+    "description": "Frontfall",
+    "bytes": 363643,
+    "sha256": "f06d9ee05075b04a0ff6e5aef96e13ff65106ba05e1dc5210e7d04d95e19a099",
+    "source_member": "S49A11T02.csv",
+    "status": "numeric"
+  },
+  {
+    "trial": "S49A11T04",
+    "activity": "A11",
+    "description": "Frontfall",
+    "bytes": 269160,
+    "sha256": "ea5a7e5e09ead1ce14f2ed65c03a5f84e44d6a2bdee170ad919f0cbfc8c6032d",
+    "source_member": "S49A11T04.csv",
+    "status": "numeric"
+  },
+  {
+    "trial": "S49A11T05",
+    "activity": "A11",
+    "description": "Frontfall",
+    "bytes": 282464,
+    "sha256": "f36b38174346277ee30c67543031470a044a2e711c43aec6dcc61d485e16f46a",
+    "source_member": "S49A11T05.csv",
+    "status": "numeric"
+  },
+  {
+    "trial": "S49A12T02",
+    "activity": "A12",
+    "description": "Leftfall",
+    "bytes": 237274,
+    "sha256": "3d862838f2ebf59fc0f613d281562f9cb1c65b42780c5585407e1eda339aff65",
+    "source_member": "S49A12T02.csv",
+    "status": "numeric"
+  },
+  {
+    "trial": "S49A12T03",
+    "activity": "A12",
+    "description": "Leftfall",
+    "bytes": 242643,
+    "sha256": "0d9c5eea84fd82b34648cbfabb18be2fedbabfdf67f1dc31528fc208eb58af6d",
+    "source_member": "S49A12T03.csv",
+    "status": "numeric"
+  },
+  {
+    "trial": "S49A12T04",
+    "activity": "A12",
+    "description": "Leftfall",
+    "bytes": 283450,
+    "sha256": "90bb0e4fce123aabefd27fcb51fa7f0b9cd31886af849cf726802ef1563ef3d7",
+    "source_member": "S49A12T04.csv",
+    "status": "numeric"
+  },
+  {
+    "trial": "S49A12T05",
+    "activity": "A12",
+    "description": "Leftfall",
+    "bytes": 202120,
+    "sha256": "bd461d82b44adaab81ce943a6fda486b84d737ecdaa0180bdf36830bd84bc9ec",
+    "source_member": "S49A12T05.csv",
+    "status": "numeric"
+  },
+  {
+    "trial": "S49A13T01",
+    "activity": "A13",
+    "description": "Rightfall",
+    "bytes": 146380,
+    "sha256": "2f7dd327e846c8045f08d73f0e0a2e75c04240a2e9e6a2871aed5339ff255ade",
+    "source_member": "S49A13T01.csv",
+    "status": "numeric"
+  },
+  {
+    "trial": "S49A13T02",
+    "activity": "A13",
+    "description": "Rightfall",
+    "bytes": 216491,
+    "sha256": "4471e6ae1fe9b8fbc307d2ee20f55bc0f79c1b1977b2ce385247341269230d78",
+    "source_member": "S49A13T02.csv",
+    "status": "numeric"
+  },
+  {
+    "trial": "S49A13T03",
+    "activity": "A13",
+    "description": "Rightfall",
+    "bytes": 117415,
+    "sha256": "654f67638ae50845d1a82aba6cd680b67022320477b737d211c3aa3118e3a1ba",
+    "source_member": "S49A13T03.csv",
+    "status": "numeric"
+  },
+  {
+    "trial": "S49A13T04",
+    "activity": "A13",
+    "description": "Rightfall",
+    "bytes": 172890,
+    "sha256": "01288583db5fc695e2a29ea220f94c3fb73ad86435c3151dd0a0071bf3c50855",
+    "source_member": "S49A13T04.csv",
+    "status": "numeric"
+  },
+  {
+    "trial": "S49A13T05",
+    "activity": "A13",
+    "description": "Rightfall",
+    "bytes": 175730,
+    "sha256": "2f6c3d977d23bcde680f34322703887d9233edc91b69c8afa9e96843ac44c56b",
+    "source_member": "S49A13T05.csv",
+    "status": "numeric"
+  },
+  {
+    "trial": "S49A14T01",
+    "activity": "A14",
+    "description": "Rotatefall (turn and fall)",
+    "bytes": 123690,
+    "sha256": "f1b63255654ff5a4a20c3ed2b2729d5a2bc86b9db131247c1ff1912220c32260",
+    "source_member": "S49A14T01.csv",
+    "status": "numeric"
+  },
+  {
+    "trial": "S49A14T02",
+    "activity": "A14",
+    "description": "Rotatefall (turn and fall)",
+    "bytes": 154979,
+    "sha256": "ea7857a4cc16c4bd2faa25d9a9f6ec7476cd544d2b4437c58180efc6f370fee5",
+    "source_member": "S49A14T02.csv",
+    "status": "numeric"
+  },
+  {
+    "trial": "S49A14T03",
+    "activity": "A14",
+    "description": "Rotatefall (turn and fall)",
+    "bytes": 173295,
+    "sha256": "435d8e14bc5f06d1f15cb8cc555ce2289e598205ef2635593875082a9a580638",
+    "source_member": "S49A14T03.csv",
+    "status": "numeric"
+  },
+  {
+    "trial": "S49A14T04",
+    "activity": "A14",
+    "description": "Rotatefall (turn and fall)",
+    "bytes": 167002,
+    "sha256": "1f2490f4d4b1e3770920f364a00a6c1800d50ba9fb0f21c95134600454ed39ca",
+    "source_member": "S49A14T04.csv",
+    "status": "numeric"
+  },
+  {
+    "trial": "S49A14T05",
+    "activity": "A14",
+    "description": "Rotatefall (turn and fall)",
+    "bytes": 125083,
+    "sha256": "5eeab8d72f43be39976be99c8038471353049cde3fcae2d7f30ceee412e1f4c2",
+    "source_member": "S49A14T05.csv",
+    "status": "numeric"
+  },
+  {
+    "trial": "S49A11T03",
+    "activity": "A11",
+    "description": "Frontfall",
+    "status": "missing",
+    "bytes": null,
+    "sha256": null
+  },
+  {
+    "trial": "S49A12T01",
+    "activity": "A12",
+    "description": "Leftfall",
+    "status": "missing",
+    "bytes": null,
+    "sha256": null
+  }
+]

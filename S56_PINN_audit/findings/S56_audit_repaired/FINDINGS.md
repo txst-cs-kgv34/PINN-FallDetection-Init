@@ -1,0 +1,108 @@
+# S56 audit findings
+
+Clips passing numeric input checks: 24; empty: 1; missing expected: 0; invalid: 0; analyzed frames: 4337.
+
+Review-flagged destination frames: 747. Duplicate rows within clips: 89.
+
+These are data-quality screening results, not validated fall labels or anatomical CoM. The audit does not repair inputs itself; when a derived repaired-data directory is supplied, consult its repair manifest and frame mask. Invalid trials remain in raw/ and manifest.json but are withheld from calculations.
+
+| Trial | Status | Frames | Span (s) | Review frames | Duplicate rows | Scale range (%) |
+|---|---|---:|---:|---:|---:|---:|
+| S56A10T01 | numeric | 97 | 3.2 | 13 | 1 | 31.317044244041025 |
+| S56A10T02 | empty | 0 | None | — | — | — |
+| S56A10T03 | numeric | 141 | 4.666666666666667 | 24 | 5 | 22.039115674563337 |
+| S56A10T04 | numeric | 154 | 5.1 | 32 | 3 | 47.47933543345013 |
+| S56A10T05 | numeric | 178 | 5.9 | 45 | 1 | 90.23733250416028 |
+| S56A11T01 | numeric | 191 | 6.333333333333333 | 46 | 11 | 47.78188440575164 |
+| S56A11T02 | numeric | 156 | 5.166666666666667 | 29 | 3 | 30.22661527303603 |
+| S56A11T03 | numeric | 192 | 6.366666666666666 | 34 | 3 | 89.5931690723607 |
+| S56A11T04 | numeric | 176 | 5.833333333333333 | 24 | 1 | 21.708160494788252 |
+| S56A11T05 | numeric | 197 | 6.533333333333333 | 18 | 2 | 86.1985695229917 |
+| S56A12T01 | numeric | 221 | 7.333333333333333 | 32 | 6 | 27.057168964789092 |
+| S56A12T02 | numeric | 214 | 7.1 | 46 | 2 | 20.013116469749548 |
+| S56A12T03 | numeric | 220 | 7.3 | 50 | 2 | 92.48188464598262 |
+| S56A12T04 | numeric | 230 | 7.633333333333334 | 31 | 4 | 29.62639720629976 |
+| S56A12T05 | numeric | 220 | 7.3 | 43 | 0 | 50.28102698199053 |
+| S56A13T01 | numeric | 175 | 5.8 | 50 | 1 | 95.07725553741311 |
+| S56A13T02 | numeric | 215 | 7.133333333333334 | 33 | 9 | 57.85044702713562 |
+| S56A13T03 | numeric | 160 | 5.3 | 24 | 0 | 103.73679237311038 |
+| S56A13T04 | numeric | 180 | 5.966666666666667 | 30 | 1 | 45.65850355209131 |
+| S56A13T05 | numeric | 190 | 6.3 | 22 | 4 | 60.001689129519534 |
+| S56A14T01 | numeric | 193 | 6.4 | 32 | 5 | 90.9095994213754 |
+| S56A14T02 | numeric | 184 | 6.1 | 27 | 1 | 26.301921067695446 |
+| S56A14T03 | numeric | 159 | 5.266666666666667 | 29 | 10 | 23.68803211245698 |
+| S56A14T04 | numeric | 160 | 5.3 | 16 | 12 | 22.618122995453138 |
+| S56A14T05 | numeric | 134 | 4.433333333333334 | 17 | 2 | 40.236003081824535 |
+
+## Temporal audit
+
+| Trial | Distinct poses | Repeated transitions (%) | Longest constant span (s) |
+|---|---:|---:|---:|
+| S56A10T01 | 96 | 1.04 | 0.033 |
+| S56A10T03 | 136 | 3.57 | 0.100 |
+| S56A10T04 | 151 | 1.96 | 0.067 |
+| S56A10T05 | 177 | 0.56 | 0.033 |
+| S56A11T01 | 180 | 5.79 | 0.067 |
+| S56A11T02 | 153 | 1.94 | 0.100 |
+| S56A11T03 | 189 | 1.57 | 0.100 |
+| S56A11T04 | 175 | 0.57 | 0.033 |
+| S56A11T05 | 195 | 1.02 | 0.033 |
+| S56A12T01 | 215 | 2.73 | 0.067 |
+| S56A12T02 | 212 | 0.94 | 0.033 |
+| S56A12T03 | 218 | 0.91 | 0.033 |
+| S56A12T04 | 226 | 1.75 | 0.067 |
+| S56A12T05 | 220 | 0.00 | 0.000 |
+| S56A13T01 | 174 | 0.57 | 0.033 |
+| S56A13T02 | 206 | 4.21 | 0.067 |
+| S56A13T03 | 160 | 0.00 | 0.000 |
+| S56A13T04 | 179 | 0.56 | 0.033 |
+| S56A13T05 | 186 | 2.12 | 0.100 |
+| S56A14T01 | 188 | 2.60 | 0.100 |
+| S56A14T02 | 183 | 0.55 | 0.033 |
+| S56A14T03 | 149 | 6.33 | 0.100 |
+| S56A14T04 | 148 | 7.55 | 0.133 |
+| S56A14T05 | 132 | 1.50 | 0.033 |
+
+Exact repeats mean identical exported coordinates, not confirmed biological stillness. See results/constant_pose_runs.csv for inclusive zero-based frame ranges. No repeats are deleted.
+
+## Evidence and reproducibility
+
+- results/manifest.json: source paths, hashes and parsing errors.
+- results/trial_summary.csv: clip-level measurements.
+- results/review_events.csv (when flags exist): exact frame pairs for inspection.
+- results/com/: per-frame CoM and camera displacements.
+- results/segment_mass_model.csv and segment_model.json: full mass and landmark mapping.
+- results/landmark_sensitivity.csv: alternative mappings, not uncertainty bounds.
+- config.json and code/: frozen configuration and scripts.
+
+## Questions for the team
+
+Confirm XYZ units/order, camera-to-floor orientation, original timestamps, missing/trimmed recordings and body-tracking confidence. Determine whether changing limb scale is in the raw export or preprocessing. Review full event coverage before selecting PINN trials. No ground contact, BoS, joint forces or external perturbations are inferred here.
+
+## Evidence figures
+
+![A10_skeleton_snapshots](results/plots/A10_skeleton_snapshots.png)
+
+![A11_skeleton_snapshots](results/plots/A11_skeleton_snapshots.png)
+
+![A12_skeleton_snapshots](results/plots/A12_skeleton_snapshots.png)
+
+![A13_skeleton_snapshots](results/plots/A13_skeleton_snapshots.png)
+
+![A14_skeleton_snapshots](results/plots/A14_skeleton_snapshots.png)
+
+![real_CoM_comparison](results/plots/real_CoM_comparison.png)
+
+![shared_limb_scaling](results/plots/shared_limb_scaling.png)
+
+![temporal_repeats](results/plots/temporal_repeats.png)
+
+![tracking_diagnostics](results/plots/tracking_diagnostics.png)
+
+
+
+## Derived blank-row repairs and trial availability
+
+The supplied archive contains 24 numeric trials out of 25 expected. The derived repair layer replaced 391 fully blank frames across 50 gaps. Original files were not modified. Short gaps of 1–3 frames use the preceding valid row; longer internal gaps use per-coordinate linear interpolation; boundary gaps use the nearest valid row. Entire missing or empty trials are never synthesized.
+
+See `../../REPAIR_ASSESSMENT.md` for trial-level repair fractions, boundary carries, and missing/empty trials.

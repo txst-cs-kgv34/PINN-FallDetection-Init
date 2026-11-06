@@ -1,0 +1,15 @@
+trial,start_row1,end_row1,frame_count,method,previous_valid_row1,next_valid_row1
+S49A11T01,1,10,10,backward_fill_leading_boundary,,11
+S49A11T01,16,26,11,linear_interpolation_long_gap,15,27
+S49A11T01,29,29,1,forward_fill_short_gap,28,30
+S49A11T01,31,49,19,linear_interpolation_long_gap,30,50
+S49A11T04,25,26,2,forward_fill_short_gap,24,27
+S49A11T05,44,46,3,forward_fill_short_gap,43,47
+S49A11T05,74,74,1,forward_fill_short_gap,73,75
+S49A11T05,87,87,1,forward_fill_short_gap,86,88
+S49A13T01,66,66,1,forward_fill_short_gap,65,67
+S49A13T01,69,69,1,forward_fill_short_gap,68,70
+S49A13T01,73,73,1,forward_fill_short_gap,72,74
+S49A13T01,85,86,2,forward_fill_short_gap,84,87
+S49A14T02,52,52,1,forward_fill_short_gap,51,53
+S49A14T03,108,108,1,forward_fill_short_gap,107,109

@@ -1,0 +1,15 @@
+{
+  "subject_id": "S34",
+  "decision_date_local": "2026-11-06",
+  "activity": "A11",
+  "excluded_trials": {},
+  "remaining_candidate_trials": [
+    "S34A11T01",
+    "S34A11T02",
+    "S34A11T03",
+    "S34A11T04",
+    "S34A11T05"
+  ],
+  "repair_advisories": {},
+  "status": "Pending user-supplied manual A11 phase marks. Candidate inclusion is provisional until repair impact and phase quality are reviewed."
+}
