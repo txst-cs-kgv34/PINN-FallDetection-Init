@@ -1,0 +1,93 @@
+{
+  "comparison": "Model B versus matched B-no-physics ablation",
+  "direction": "lower is better for every metric",
+  "paired_protocol": {
+    "subjects": [
+      "S43",
+      "S63",
+      "S55",
+      "S57",
+      "S62"
+    ],
+    "test_trial_count": 20,
+    "test_forecast_sample_count": 2838,
+    "same_trials_and_forecast_samples": true,
+    "same_architecture_data_splits_seed_preprocessing_optimizer_and_validation_rule": true,
+    "only_optimization_change": {
+      "model_b": "trajectory loss + 0.01 * biomechanics residual",
+      "b_no_physics": "trajectory loss only"
+    }
+  },
+  "aggregate_metrics": [
+    {
+      "metric": "normalized_mse",
+      "label": "Normalized MSE",
+      "unit": "",
+      "model_b": 0.23362144827842712,
+      "b_no_physics": 0.7876141756772995,
+      "model_b_error_reduction_pct": 70.33808487797631
+    },
+    {
+      "metric": "theta_rmse_deg",
+      "label": "$\\\\theta$ RMSE",
+      "unit": "deg",
+      "model_b": 6.844000720977784,
+      "b_no_physics": 10.415446186065674,
+      "model_b_error_reduction_pct": 34.289894079295
+    },
+    {
+      "metric": "theta_mae_deg",
+      "label": "$\\\\theta$ MAE",
+      "unit": "deg",
+      "model_b": 5.162041139602661,
+      "b_no_physics": 8.268950605392456,
+      "model_b_error_reduction_pct": 37.57320141401832
+    },
+    {
+      "metric": "x_rmse_cm",
+      "label": "x RMSE",
+      "unit": "cm",
+      "model_b": 9.807610660791397,
+      "b_no_physics": 17.978193759918213,
+      "model_b_error_reduction_pct": 45.44718567525321
+    },
+    {
+      "metric": "x_mae_cm",
+      "label": "x MAE",
+      "unit": "cm",
+      "model_b": 7.403009012341499,
+      "b_no_physics": 14.302119612693787,
+      "model_b_error_reduction_pct": 48.23837855634357
+    },
+    {
+      "metric": "theta_w1_deg",
+      "label": "$\\\\theta$ Wasserstein-1",
+      "unit": "deg",
+      "model_b": 3.7864666610497437,
+      "b_no_physics": 5.852288160480486,
+      "model_b_error_reduction_pct": 35.299381075950535
+    },
+    {
+      "metric": "x_w1_cm",
+      "label": "x Wasserstein-1",
+      "unit": "cm",
+      "model_b": 5.043908440212394,
+      "b_no_physics": 11.004864106028696,
+      "model_b_error_reduction_pct": 54.16655406540427
+    }
+  ],
+  "headline": {
+    "model_b_wins_all_seven_aggregate_metrics": true,
+    "model_b_wins_normalized_mse_for_all_five_test_subjects": true,
+    "model_b_wins_x_rmse_for_all_five_test_subjects": true,
+    "b_no_physics_theta_rmse_subject_win": [
+      "S55"
+    ]
+  },
+  "interpretation": "The explicit biomechanics residual materially improved unseen-subject generalization in this matched single-seed five-subject experiment.",
+  "limitations": [
+    "Five subjects and one optimization seed make the result descriptive.",
+    "The comparison should be repeated with multiple seeds.",
+    "The positive B-no-physics coordinates have no gain labels or physics constraint and are not physiologically identifiable."
+  ]
+}
