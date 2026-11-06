@@ -2,7 +2,3 @@ __pycache__/
 *.py[cod]
 .DS_Store
 .pytest_cache/
-outputs/
-results/
-*.pt
-*.zip
