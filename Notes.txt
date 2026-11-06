@@ -11,7 +11,7 @@ Subject 32 - No. of A14 samples - 1
 S32 front fall motion is facing towards the camera i.e Z axis, unlike others with X axis.
 S34 front fall motion is facing towards the camera i.e Z axis, unlike others with X axis.
 S44 front fall motion is slightly tilted towards the camera i.e Z axis, unlike others with X axis.
-S58 - All A11 trails has gap rows(now repaired) after the apparent contact. But the real rows are stopped just before the contact with the ground. So the marked apparent contact is just before the real contact, not the time of the real contact.
+S58 - All A11 trails has gap rows(now repaired) after the apparent contact. But the real rows are stopped just before the contact with the ground. Let Exclude this subject from training.
 
 Participant#,Gender,Weight(lb),Height(ft),(inch)
 S43,Female,130,5,4
