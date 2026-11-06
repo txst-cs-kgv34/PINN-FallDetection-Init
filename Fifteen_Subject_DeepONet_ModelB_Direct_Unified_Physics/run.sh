@@ -7,16 +7,14 @@ cd "$ROOT_DIR"
 MODE="${1:-help}"
 export PYTHONUNBUFFERED=1
 export PYTORCH_ENABLE_MPS_FALLBACK=1
+VENV_ACTIVATE="${HOME}/.venv/bin/activate"
 
 activate_python() {
-  if [[ -f .venv/bin/activate ]]; then
-    source .venv/bin/activate
-  elif [[ -f ~/.venv/bin/activate ]]; then
-    source ~/.venv/bin/activate
-  elif ! command -v python >/dev/null 2>&1; then
-    echo "Python was not found. Install Python 3.10+ or create .venv first." >&2
+  if [[ ! -f "$VENV_ACTIVATE" ]]; then
+    echo "Missing ${HOME}/.venv. Run './run.sh setup' first." >&2
     exit 1
   fi
+  source "$VENV_ACTIVATE"
 }
 
 run_logged() {
@@ -36,10 +34,10 @@ prepare_data() {
 
 case "$MODE" in
   setup)
-    if [[ ! -d .venv ]]; then
-      python3 -m venv .venv
+    if [[ ! -f "$VENV_ACTIVATE" ]]; then
+      python3 -m venv "${HOME}/.venv"
     fi
-    source .venv/bin/activate
+    source "$VENV_ACTIVATE"
     python -m pip install --upgrade pip wheel
     python -m pip install -r requirements.txt
     ;;
