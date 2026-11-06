@@ -8,6 +8,7 @@ This directory audits the supplied Azure Kinect skeleton fall trials and stops b
 - `REPAIR_ASSESSMENT.md`: missing trials, gap repairs, and modeling recommendations.
 - `inspections/S58_candidates_repaired/INSPECT.html`: offline repair-aware skeleton player.
 - `repaired_data/S58/repair_manifest.json`: exact gap and boundary records.
+- `analysis_inputs/S58_phase_notes_manual.json`: user-supplied manual A11 phase marks.
 - `analysis_inputs/S58_automatic_A11_phase_suggestions_repaired.json`: provisional A11 candidates, not labels.
 - `analysis_inputs/S58_phase_notes_template.json`: file to populate with manual phase marks.
 - `analysis_inputs/FRONTFALL_PHASE_STATUS.md`: A11 availability and repair warnings.
@@ -21,13 +22,17 @@ This directory audits the supplied Azure Kinect skeleton fall trials and stops b
 - Invalid trials: 0.
 - Analyzed frames: 4281.
 - Repaired blank frames: 2087 across 57 gaps.
-- A11 trials available for manual review: 5.
+- Manually phase-marked A11 trials: 5.
 
 Original source archives were not modified. A complete missing or empty trial was never fabricated.
 
 ## Manual A11 phases
 
-Open the inspection player and provide five ordered frames for each usable A11 trial: initial standing, fall onset, descent, apparent contact, and post-fall. Purple frames were repaired; peach frames carry raw audit review flags. Update `analysis_inputs/S58_phase_notes_template.json` or send the phase frames back for validation.
+Manual phase notes were received for 5 A11 trial(s) and saved as `analysis_inputs/S58_phase_notes_manual.json`. Strict phase validation status: **fail**. Automatic phase suggestions remain only as historical review aids and are superseded by the manual notes.
+
+Modeling recommendation: Do not use S58 for primary full-trajectory training, contact/post-fall supervision, or headline generalization metrics. It may be retained only for an explicitly labeled exploratory pre-contact or censored-data analysis with repaired frames masked.
+
+See `analysis_inputs/FRONTFALL_PHASE_STATUS.md` and `analysis_inputs/S58_manual_A11_annotation.json` for phase-specific repair intersections, exclusions, and camera-axis interpretation.
 
 ## Reproduce
 

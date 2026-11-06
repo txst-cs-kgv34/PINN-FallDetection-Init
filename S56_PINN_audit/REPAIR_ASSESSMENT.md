@@ -36,3 +36,19 @@ The supplied archive contains 24 numeric trials out of 25 expected. The derived 
 - `minor_repair_review`: less than 5% repaired without a boundary carry.
 
 These are conservative audit recommendations, not validated fall labels. Manual inspection can impose stricter exclusions.
+
+<!-- MANUAL_A11_REPAIR_UPDATE_START -->
+## Phase-aware repair interpretation
+
+All A11 trials were phase marked. Repairs between fall onset and apparent contact were judged acceptable during manual review; T05 has more visible repair involvement but a trajectory consistent with the other trials and is retained.
+
+| Trial | Phase order | Onset-contact repaired | Contact repaired | Post-fall repaired |
+|:---|:---:|---:|:---:|:---:|
+| S56A11T01 | pass | 5/41 (12.2%) | no | no |
+| S56A11T02 | pass | 11/32 (34.4%) | no | no |
+| S56A11T03 | pass | 9/43 (20.9%) | no | no |
+| S56A11T04 | pass | 6/44 (13.6%) | no | no |
+| S56A11T05 | pass | 13/69 (18.8%) | no | no |
+
+**Decision:** `usable_with_repair_sensitivity_check`. Retain all five trials with repair masks. Report a sensitivity analysis because some onset-to-contact intervals contain repaired rows; retain T05 as requested rather than excluding it solely for repair count.
+<!-- MANUAL_A11_REPAIR_UPDATE_END -->

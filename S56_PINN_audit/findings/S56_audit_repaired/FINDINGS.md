@@ -106,3 +106,16 @@ Confirm XYZ units/order, camera-to-floor orientation, original timestamps, missi
 The supplied archive contains 24 numeric trials out of 25 expected. The derived repair layer replaced 391 fully blank frames across 50 gaps. Original files were not modified. Short gaps of 1–3 frames use the preceding valid row; longer internal gaps use per-coordinate linear interpolation; boundary gaps use the nearest valid row. Entire missing or empty trials are never synthesized.
 
 See `../../REPAIR_ASSESSMENT.md` for trial-level repair fractions, boundary carries, and missing/empty trials.
+
+<!-- MANUAL_A11_PHASE_UPDATE_START -->
+## Manual A11 phase update
+
+- Marked trials: 5.
+- Strict phase-order validation: **pass**.
+- Manual observation: All A11 trials were phase marked. Repairs between fall onset and apparent contact were judged acceptable during manual review; T05 has more visible repair involvement but a trajectory consistent with the other trials and is retained.
+- Camera-axis interpretation: `camera_x`.
+- Modeling decision: `usable_with_repair_sensitivity_check`.
+- Recommendation: Retain all five trials with repair masks. Report a sensitivity analysis because some onset-to-contact intervals contain repaired rows; retain T05 as requested rather than excluding it solely for repair count.
+
+See `../../analysis_inputs/FRONTFALL_PHASE_STATUS.md` for trial-level repair overlap and phase frames. The automatic suggestions are superseded by the manual notes.
+<!-- MANUAL_A11_PHASE_UPDATE_END -->

@@ -1,0 +1,103 @@
+{
+  "subject": "S32",
+  "source_phase_notes": "S32_phase_notes_manual.json",
+  "marked_trial_count": 5,
+  "strict_validation_status": "pass",
+  "errors": [],
+  "manual_observation": "All A11 trials were phase marked. Front-fall progression is toward the camera, primarily along camera Z rather than camera X.",
+  "fall_motion_camera_axis": "camera_z",
+  "modeling_decision": "usable_after_axis_alignment",
+  "modeling_recommendation": "Use after mapping the subject-specific horizontal fall direction to the Model B progression coordinate; do not interpret fixed camera X as the sagittal fall coordinate.",
+  "trials": [
+    {
+      "trial": "S32A11T01",
+      "phase_frames0": {
+        "initial_standing": 1,
+        "fall_onset": 13,
+        "descent": 39,
+        "apparent_contact": 66,
+        "post_fall": 174
+      },
+      "strict_order": true,
+      "within_audited_frame_range": true,
+      "onset_to_contact_frames": 54,
+      "onset_to_contact_repaired": 0,
+      "onset_to_contact_repair_fraction": 0.0,
+      "contact_repaired": false,
+      "post_fall_repaired": false,
+      "total_repaired_frames_in_trial": 0
+    },
+    {
+      "trial": "S32A11T02",
+      "phase_frames0": {
+        "initial_standing": 3,
+        "fall_onset": 18,
+        "descent": 46,
+        "apparent_contact": 69,
+        "post_fall": 203
+      },
+      "strict_order": true,
+      "within_audited_frame_range": true,
+      "onset_to_contact_frames": 52,
+      "onset_to_contact_repaired": 0,
+      "onset_to_contact_repair_fraction": 0.0,
+      "contact_repaired": false,
+      "post_fall_repaired": false,
+      "total_repaired_frames_in_trial": 0
+    },
+    {
+      "trial": "S32A11T03",
+      "phase_frames0": {
+        "initial_standing": 1,
+        "fall_onset": 11,
+        "descent": 30,
+        "apparent_contact": 57,
+        "post_fall": 182
+      },
+      "strict_order": true,
+      "within_audited_frame_range": true,
+      "onset_to_contact_frames": 47,
+      "onset_to_contact_repaired": 0,
+      "onset_to_contact_repair_fraction": 0.0,
+      "contact_repaired": false,
+      "post_fall_repaired": false,
+      "total_repaired_frames_in_trial": 0
+    },
+    {
+      "trial": "S32A11T04",
+      "phase_frames0": {
+        "initial_standing": 2,
+        "fall_onset": 14,
+        "descent": 39,
+        "apparent_contact": 71,
+        "post_fall": 200
+      },
+      "strict_order": true,
+      "within_audited_frame_range": true,
+      "onset_to_contact_frames": 58,
+      "onset_to_contact_repaired": 0,
+      "onset_to_contact_repair_fraction": 0.0,
+      "contact_repaired": false,
+      "post_fall_repaired": false,
+      "total_repaired_frames_in_trial": 0
+    },
+    {
+      "trial": "S32A11T05",
+      "phase_frames0": {
+        "initial_standing": 2,
+        "fall_onset": 12,
+        "descent": 41,
+        "apparent_contact": 69,
+        "post_fall": 207
+      },
+      "strict_order": true,
+      "within_audited_frame_range": true,
+      "onset_to_contact_frames": 58,
+      "onset_to_contact_repaired": 0,
+      "onset_to_contact_repair_fraction": 0.0,
+      "contact_repaired": false,
+      "post_fall_repaired": false,
+      "total_repaired_frames_in_trial": 0
+    }
+  ]
+}

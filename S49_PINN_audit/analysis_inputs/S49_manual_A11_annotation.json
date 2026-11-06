@@ -1,0 +1,67 @@
+{
+  "subject": "S49",
+  "source_phase_notes": "S49_phase_notes_manual.json",
+  "marked_trial_count": 3,
+  "strict_validation_status": "pass",
+  "errors": [],
+  "manual_observation": "A11T01 is an incomplete fall and should be ignored. A11T03 is absent. A11T02, A11T04, and A11T05 were phase marked.",
+  "fall_motion_camera_axis": "camera_x",
+  "modeling_decision": "three_trials_usable",
+  "modeling_recommendation": "Exclude A11T01 and the absent A11T03. Use only the three strictly validated marked trials: T02, T04, and T05.",
+  "trials": [
+    {
+      "trial": "S49A11T02",
+      "phase_frames0": {
+        "initial_standing": 2,
+        "fall_onset": 24,
+        "descent": 37,
+        "apparent_contact": 72,
+        "post_fall": 196
+      },
+      "strict_order": true,
+      "within_audited_frame_range": true,
+      "onset_to_contact_frames": 49,
+      "onset_to_contact_repaired": 0,
+      "onset_to_contact_repair_fraction": 0.0,
+      "contact_repaired": false,
+      "post_fall_repaired": false,
+      "total_repaired_frames_in_trial": 0
+    },
+    {
+      "trial": "S49A11T04",
+      "phase_frames0": {
+        "initial_standing": 0,
+        "fall_onset": 1,
+        "descent": 3,
+        "apparent_contact": 34,
+        "post_fall": 65
+      },
+      "strict_order": true,
+      "within_audited_frame_range": true,
+      "onset_to_contact_frames": 34,
+      "onset_to_contact_repaired": 2,
+      "onset_to_contact_repair_fraction": 0.058823529411764705,
+      "contact_repaired": false,
+      "post_fall_repaired": false,
+      "total_repaired_frames_in_trial": 2
+    },
+    {
+      "trial": "S49A11T05",
+      "phase_frames0": {
+        "initial_standing": 1,
+        "fall_onset": 4,
+        "descent": 15,
+        "apparent_contact": 48,
+        "post_fall": 142
+      },
+      "strict_order": true,
+      "within_audited_frame_range": true,
+      "onset_to_contact_frames": 45,
+      "onset_to_contact_repaired": 3,
+      "onset_to_contact_repair_fraction": 0.06666666666666667,
+      "contact_repaired": false,
+      "post_fall_repaired": false,
+      "total_repaired_frames_in_trial": 5
+    }
+  ]
+}

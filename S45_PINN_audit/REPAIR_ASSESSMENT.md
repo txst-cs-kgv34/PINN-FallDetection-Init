@@ -20,3 +20,19 @@ The supplied archive contains 25 numeric trials out of 25 expected. The derived 
 - `minor_repair_review`: less than 5% repaired without a boundary carry.
 
 These are conservative audit recommendations, not validated fall labels. Manual inspection can impose stricter exclusions.
+
+<!-- MANUAL_A11_REPAIR_UPDATE_START -->
+## Phase-aware repair interpretation
+
+All A11 trials were phase marked.
+
+| Trial | Phase order | Onset-contact repaired | Contact repaired | Post-fall repaired |
+|:---|:---:|---:|:---:|:---:|
+| S45A11T01 | pass | 0/34 (0.0%) | no | no |
+| S45A11T02 | pass | 0/44 (0.0%) | no | no |
+| S45A11T03 | pass | 0/43 (0.0%) | no | no |
+| S45A11T04 | pass | 0/33 (0.0%) | no | no |
+| S45A11T05 | pass | 0/50 (0.0%) | no | no |
+
+**Decision:** `usable`. Usable for the planned A11 analysis, subject to the existing audit flags and the provisional nature of skeleton-observed contact.
+<!-- MANUAL_A11_REPAIR_UPDATE_END -->

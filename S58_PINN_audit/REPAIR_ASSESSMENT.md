@@ -43,3 +43,19 @@ The supplied archive contains 24 numeric trials out of 25 expected. The derived 
 - `minor_repair_review`: less than 5% repaired without a boundary carry.
 
 These are conservative audit recommendations, not validated fall labels. Manual inspection can impose stricter exclusions.
+
+<!-- MANUAL_A11_REPAIR_UPDATE_START -->
+## Phase-aware repair interpretation
+
+All A11 trials were marked, but real rows stop immediately before true ground contact. The marked apparent-contact frames are pre-contact proxies, and subsequent rows are repaired rather than observed contact/post-fall motion.
+
+| Trial | Phase order | Onset-contact repaired | Contact repaired | Post-fall repaired |
+|:---|:---:|---:|:---:|:---:|
+| S58A11T01 | pass | 0/35 (0.0%) | no | yes |
+| S58A11T02 | pass | 0/57 (0.0%) | no | yes |
+| S58A11T03 | fail | 1/32 (3.1%) | no | no |
+| S58A11T04 | fail | 1/36 (2.8%) | no | no |
+| S58A11T05 | pass | 0/30 (0.0%) | no | yes |
+
+**Decision:** `exclude_primary_training_and_generalization`. Do not use S58 for primary full-trajectory training, contact/post-fall supervision, or headline generalization metrics. It may be retained only for an explicitly labeled exploratory pre-contact or censored-data analysis with repaired frames masked.
+<!-- MANUAL_A11_REPAIR_UPDATE_END -->
