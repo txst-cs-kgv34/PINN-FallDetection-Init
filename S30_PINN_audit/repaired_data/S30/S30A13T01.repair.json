@@ -1,0 +1,9 @@
+{
+  "trial": "S30A13T01",
+  "source_member": "S30_FallSamples/S30A13T01.csv",
+  "source_sha256": "4be7507aaf472c1a8847916f2368219d6391aa982c9fe97465052e1c176e2a4a",
+  "repaired_sha256": "249db611c4e0d7e215dfe150d0175fae010c8e9fc6a576d77021db262606a3ee",
+  "rows": 203,
+  "repaired_rows": 0,
+  "gaps": []
+}
