@@ -31,6 +31,8 @@ S34,Female,125,5,6
 S32,Male,160,5,10
 S30,Female,190,5,6
 
+Total Available Subjects:
+S43, S55, S57, S62, S63, S59, S56, S49, S48, S46, S45, S44, S34, S32, S30
 
 Complete DeepONet information flow
 flowchart TD
