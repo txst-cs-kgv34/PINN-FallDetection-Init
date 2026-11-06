@@ -1,0 +1,23 @@
+{
+  "reference_repository": "Five_Subject_DeepONet_Experiment2_Direct_Unified_Physics",
+  "reference_model": "Model B",
+  "statement": "The architecture and training implementation files below are byte-identical to Model B.",
+  "sha256": {
+    "operator_core.py": "54e9e58c6feb5791063b177e2251b848f3e80d459a35f713402b98a8dbe7afe8",
+    "train_fold.py": "16d5e3e81ad7f0a4ebc2e44e1ef21d3c4ed30533a81ed8e998e40164cfcb7cba",
+    "prepare_real_data.py": "5b72dc64fe745f202c9a70af96ed943459059a90104e09b9fed98e659cbb9841",
+    "aggregate_results.py": "734185186abebfb43a6ac47273be9e54ae7615ee73ca2746b59eff6f9a8f209b",
+    "run_on_mac.sh": "e76d1dd15b075b20365b18cde3acc3d689b8824ff71063712b8055a5057c690e",
+    "requirements.txt": "10520a6650b4805a955ad653f937e563903aac12e7b6698737d72ef1a5f22e01"
+  },
+  "optimization_changes": {
+    "training.use_physics": {
+      "model_b": true,
+      "b_no_physics": false
+    },
+    "training.physics_weight": {
+      "model_b": 0.01,
+      "b_no_physics": 0.0
+    }
+  }
+}
