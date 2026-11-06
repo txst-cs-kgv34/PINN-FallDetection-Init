@@ -20,3 +20,11 @@ The supplied archive contains 25 numeric trials out of 25 expected. The derived 
 - `minor_repair_review`: less than 5% repaired without a boundary carry.
 
 These are conservative audit recommendations, not validated fall labels. Manual inspection can impose stricter exclusions.
+
+<!-- MANUAL_A11_REPAIR_UPDATE_START -->
+## Phase-aware repair interpretation
+
+All five manually marked A11 trials contain zero repaired frames. All A11 trials were phase marked. Front-fall motion is slightly tilted toward the camera, so it has a camera-Z component in addition to camera X.
+
+**Decision:** `usable_after_axis_alignment`. Use S30 after aligning the subject-specific horizontal fall direction with Model B's progression coordinate (for example, an X-Z rotation or projection onto the observed horizontal fall direction). Do not treat the Z component as generalization error.
+<!-- MANUAL_A11_REPAIR_UPDATE_END -->

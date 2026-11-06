@@ -20,7 +20,7 @@ Entire missing or empty trials were not synthesized. The original numeric audit 
 | Subject | Marked A11 trials | Strict phase order | Camera fall direction | Modeling decision |
 |:---|---:|:---:|:---|:---|
 | S59 | 5 | pass | X | usable |
-| S30 | pending | pending | pending manual review | replacement for retired S58; five clean A11 trials available for marking |
+| S30 | 5 | pass | X with Z tilt | usable after subject-centric horizontal-axis alignment |
 | S56 | 5 | pass | X | usable with repair-mask sensitivity analysis |
 | S49 | 3 | pass | X | use T02, T04, T05; exclude incomplete T01 and absent T03 |
 | S48 | 5 | pass | X | use onset through apparent contact; mask repaired post-contact frames |

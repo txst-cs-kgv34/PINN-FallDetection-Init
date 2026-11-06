@@ -1,0 +1,83 @@
+{
+  "subject": "S30",
+  "source_phase_notes": "S30_phase_notes_manual.json",
+  "marked_trial_count": 5,
+  "strict_validation_status": "pass",
+  "validator_result": "PASS: 5 complete, ordered phase-marked trials",
+  "manual_observation": "All A11 trials were phase marked. Front-fall motion is slightly tilted toward the camera, so it has a camera-Z component in addition to camera X.",
+  "fall_motion_camera_axis": "camera_x_with_z_component",
+  "modeling_decision": "usable_after_axis_alignment",
+  "modeling_recommendation": "Use S30 after aligning the subject-specific horizontal fall direction with Model B's progression coordinate (for example, an X-Z rotation or projection onto the observed horizontal fall direction). Do not treat the Z component as generalization error.",
+  "trials": [
+    {
+      "trial": "S30A11T01",
+      "phase_frames0": {
+        "initial_standing": 1,
+        "fall_onset": 6,
+        "descent": 31,
+        "apparent_contact": 52,
+        "post_fall": 169
+      },
+      "strict_order": true,
+      "onset_to_contact_repaired": 0,
+      "contact_repaired": false,
+      "post_fall_repaired": false
+    },
+    {
+      "trial": "S30A11T02",
+      "phase_frames0": {
+        "initial_standing": 5,
+        "fall_onset": 13,
+        "descent": 35,
+        "apparent_contact": 61,
+        "post_fall": 195
+      },
+      "strict_order": true,
+      "onset_to_contact_repaired": 0,
+      "contact_repaired": false,
+      "post_fall_repaired": false
+    },
+    {
+      "trial": "S30A11T03",
+      "phase_frames0": {
+        "initial_standing": 2,
+        "fall_onset": 7,
+        "descent": 40,
+        "apparent_contact": 65,
+        "post_fall": 177
+      },
+      "strict_order": true,
+      "onset_to_contact_repaired": 0,
+      "contact_repaired": false,
+      "post_fall_repaired": false
+    },
+    {
+      "trial": "S30A11T04",
+      "phase_frames0": {
+        "initial_standing": 2,
+        "fall_onset": 8,
+        "descent": 39,
+        "apparent_contact": 57,
+        "post_fall": 173
+      },
+      "strict_order": true,
+      "onset_to_contact_repaired": 0,
+      "contact_repaired": false,
+      "post_fall_repaired": false
+    },
+    {
+      "trial": "S30A11T05",
+      "phase_frames0": {
+        "initial_standing": 2,
+        "fall_onset": 10,
+        "descent": 38,
+        "apparent_contact": 61,
+        "post_fall": 176
+      },
+      "strict_order": true,
+      "onset_to_contact_repaired": 0,
+      "contact_repaired": false,
+      "post_fall_repaired": false
+    }
+  ]
+}
