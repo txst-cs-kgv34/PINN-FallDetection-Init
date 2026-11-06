@@ -10,6 +10,7 @@ S30 is the replacement candidate for retired subject S58 in the active Model B g
 - `REPAIR_ASSESSMENT.md`: missing trials, gap repairs, and modeling recommendations.
 - `inspections/S30_candidates_repaired/INSPECT.html`: offline repair-aware skeleton player.
 - `repaired_data/S30/repair_manifest.json`: exact gap and boundary records.
+- `analysis_inputs/S30_phase_notes_manual.json`: validated user-supplied A11 phase marks.
 - `analysis_inputs/S30_automatic_A11_phase_suggestions_repaired.json`: provisional A11 candidates, not labels.
 - `analysis_inputs/S30_phase_notes_template.json`: file to populate with manual phase marks.
 - `analysis_inputs/FRONTFALL_PHASE_STATUS.md`: A11 availability and repair warnings.
@@ -23,13 +24,17 @@ S30 is the replacement candidate for retired subject S58 in the active Model B g
 - Invalid trials: 0.
 - Analyzed frames: 5571.
 - Repaired blank frames: 0 across 0 gaps.
-- A11 trials available for manual review: 5.
+- Manually phase-marked A11 trials: 5.
 
 Original source archives were not modified. A complete missing or empty trial was never fabricated.
 
 ## Manual A11 phases
 
-Open the inspection player and provide five ordered frames for each usable A11 trial: initial standing, fall onset, descent, apparent contact, and post-fall. Purple frames were repaired; peach frames carry raw audit review flags. Update `analysis_inputs/S30_phase_notes_template.json` or send the phase frames back for validation.
+All five A11 trials have complete, strictly ordered manual phase marks in `analysis_inputs/S30_phase_notes_manual.json`. The derived windows are in `analysis_inputs/S30_manual_A11_phase_windows.json` and `.csv`.
+
+All A11 trials were phase marked. Front-fall motion is slightly tilted toward the camera, so it has a camera-Z component in addition to camera X. Use S30 after aligning the subject-specific horizontal fall direction with Model B's progression coordinate (for example, an X-Z rotation or projection onto the observed horizontal fall direction). Do not treat the Z component as generalization error.
+
+See `analysis_inputs/FRONTFALL_PHASE_STATUS.md` for the validated zero-based phase frames.
 
 ## Reproduce
 

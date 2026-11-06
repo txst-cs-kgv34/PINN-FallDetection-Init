@@ -1,11 +1,15 @@
 # Validation
 
-The delivered artifacts passed:
+## Audit-package validation
 
-```bash
-python scripts/verify_audit.py --run findings/S30_audit_repaired --source repaired_data/S30
-python scripts/verify_inspection.py --run findings/S30_audit_repaired --inspection inspections/S30_candidates_repaired
-python -m compileall -q scripts
-```
+The numeric audit, offline inspection package, and Python source compilation passed: 25 numeric trials, 5,571 analyzed frames, zero repaired frames, and 25 inspected trials.
 
-Validated status: 25 numeric trials, 5571 analyzed frames, 0 repaired frames, and 25 inspected trials. Manual A11 phase labels remain pending.
+## Manual A11 phase validation
+
+- Notes file: `analysis_inputs/S30_phase_notes_manual.json`
+- Marked trials: 5
+- Strict ordered-phase result: **pass**
+- Validator result: `PASS: 5 complete, ordered phase-marked trials`
+- Modeling decision: `usable_after_axis_alignment`
+
+Use S30 after aligning the subject-specific horizontal fall direction with Model B's progression coordinate (for example, an X-Z rotation or projection onto the observed horizontal fall direction). Do not treat the Z component as generalization error.
