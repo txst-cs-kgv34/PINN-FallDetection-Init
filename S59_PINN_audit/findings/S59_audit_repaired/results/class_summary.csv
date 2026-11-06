@@ -1,0 +1,6 @@
+activity,description,expected,nonempty,unavailable_trials,frames,min_span_s,max_span_s,max_scale_range_pct
+A10,Backfall,5,5,[],1007,4.033333333333333,8.0,46.18454641364869
+A11,Frontfall,5,5,[],983,4.3,8.0,22.230977666013008
+A12,Leftfall,5,5,[],1048,4.5,8.333333333333334,43.484154066453144
+A13,Rightfall,5,5,[],986,5.566666666666666,7.4,99.50136963833849
+A14,Rotatefall (turn and fall),5,1,"['S59A14T02', 'S59A14T03', 'S59A14T04', 'S59A14T05']",157,5.2,5.2,18.420298944844937

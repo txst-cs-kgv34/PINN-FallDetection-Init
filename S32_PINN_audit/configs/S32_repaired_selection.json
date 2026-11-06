@@ -1,0 +1,34 @@
+{
+  "subject_id": "S32",
+  "decision_date_local": "2026-11-06",
+  "excluded_trials": {
+    "S32A14T01": "Trial is absent from the supplied archive.",
+    "S32A14T02": "Trial is absent from the supplied archive.",
+    "S32A14T04": "Trial is absent from the supplied archive.",
+    "S32A14T05": "Trial is absent from the supplied archive."
+  },
+  "remaining_candidate_trials": [
+    "S32A10T01",
+    "S32A10T02",
+    "S32A10T03",
+    "S32A10T04",
+    "S32A10T05",
+    "S32A11T01",
+    "S32A11T02",
+    "S32A11T03",
+    "S32A11T04",
+    "S32A11T05",
+    "S32A12T01",
+    "S32A12T02",
+    "S32A12T03",
+    "S32A12T04",
+    "S32A12T05",
+    "S32A13T01",
+    "S32A13T02",
+    "S32A13T03",
+    "S32A13T04",
+    "S32A13T05",
+    "S32A14T03"
+  ],
+  "status": "Repaired-data inspection candidates. Manual phase, repair-impact, and eligibility review are required before modeling."
+}

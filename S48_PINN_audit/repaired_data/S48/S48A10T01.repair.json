@@ -1,0 +1,58 @@
+{
+  "trial": "S48A10T01",
+  "source_member": "S48_FallSamples/S48A10T01.csv",
+  "source_sha256": "548c8ba6880766eeb6a8072c0bb4a9af291fc3b73fdf59b864e5cd29811a568d",
+  "repaired_sha256": "064d2e394d7234359c6eede5002a4373ae3ff3784a8710760acd714aa1a350e0",
+  "rows": 166,
+  "repaired_rows": 49,
+  "gaps": [
+    {
+      "start_row1": 24,
+      "end_row1": 52,
+      "frame_count": 29,
+      "method": "linear_interpolation_long_gap",
+      "previous_valid_row1": 23,
+      "next_valid_row1": 53
+    },
+    {
+      "start_row1": 122,
+      "end_row1": 122,
+      "frame_count": 1,
+      "method": "forward_fill_short_gap",
+      "previous_valid_row1": 121,
+      "next_valid_row1": 123
+    },
+    {
+      "start_row1": 131,
+      "end_row1": 135,
+      "frame_count": 5,
+      "method": "linear_interpolation_long_gap",
+      "previous_valid_row1": 130,
+      "next_valid_row1": 136
+    },
+    {
+      "start_row1": 139,
+      "end_row1": 146,
+      "frame_count": 8,
+      "method": "linear_interpolation_long_gap",
+      "previous_valid_row1": 138,
+      "next_valid_row1": 147
+    },
+    {
+      "start_row1": 157,
+      "end_row1": 157,
+      "frame_count": 1,
+      "method": "forward_fill_short_gap",
+      "previous_valid_row1": 156,
+      "next_valid_row1": 158
+    },
+    {
+      "start_row1": 162,
+      "end_row1": 166,
+      "frame_count": 5,
+      "method": "forward_fill_trailing_boundary",
+      "previous_valid_row1": 161,
+      "next_valid_row1": null
+    }
+  ]
+}

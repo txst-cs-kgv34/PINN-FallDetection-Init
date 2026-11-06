@@ -1,0 +1,9 @@
+{
+  "trial": "S34A12T01",
+  "source_member": "S34_FallSamples/S34A12T01.csv",
+  "source_sha256": "6fe72483b1d0fd04e1ed04821fba82154b172abe2cf885c4c9e080e0add1885e",
+  "repaired_sha256": "49c432716ed8ce72ad8f707a3afb0acb8b18278d880af2a3aebe3773450879b2",
+  "rows": 225,
+  "repaired_rows": 0,
+  "gaps": []
+}

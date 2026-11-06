@@ -1,0 +1,54 @@
+{
+  "subject": "S59",
+  "policy": {
+    "short_gap_max_frames": 3,
+    "short_gap_method": "forward fill from previous valid frame",
+    "long_internal_gap_method": "per-coordinate linear interpolation between valid boundary frames",
+    "boundary_gap_method": "nearest valid frame carry because two-sided interpolation is impossible",
+    "original_files_modified": false
+  },
+  "source_trial_count": 21,
+  "trial_count": 21,
+  "unusable_trial_count": 0,
+  "unusable_trials": [],
+  "repaired_gap_count": 4,
+  "repaired_frame_count": 9,
+  "gaps": [
+    {
+      "trial": "S59A10T01",
+      "start_row1": 169,
+      "end_row1": 172,
+      "frame_count": 4,
+      "method": "linear_interpolation_long_gap",
+      "previous_valid_row1": 168,
+      "next_valid_row1": 173
+    },
+    {
+      "trial": "S59A10T02",
+      "start_row1": 182,
+      "end_row1": 182,
+      "frame_count": 1,
+      "method": "forward_fill_short_gap",
+      "previous_valid_row1": 181,
+      "next_valid_row1": 183
+    },
+    {
+      "trial": "S59A10T03",
+      "start_row1": 147,
+      "end_row1": 149,
+      "frame_count": 3,
+      "method": "forward_fill_short_gap",
+      "previous_valid_row1": 146,
+      "next_valid_row1": 150
+    },
+    {
+      "trial": "S59A13T01",
+      "start_row1": 72,
+      "end_row1": 72,
+      "frame_count": 1,
+      "method": "forward_fill_short_gap",
+      "previous_valid_row1": 71,
+      "next_valid_row1": 73
+    }
+  ]
+}

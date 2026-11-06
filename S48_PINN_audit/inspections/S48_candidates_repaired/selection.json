@@ -1,0 +1,34 @@
+{
+  "subject_id": "S48",
+  "decision_date_local": "2026-11-06",
+  "excluded_trials": {
+    "S48A14T04": "Audit input check failed: Expected at least two frames and 96 columns, got (1, 96)"
+  },
+  "remaining_candidate_trials": [
+    "S48A10T01",
+    "S48A10T02",
+    "S48A10T03",
+    "S48A10T04",
+    "S48A10T05",
+    "S48A11T01",
+    "S48A11T02",
+    "S48A11T03",
+    "S48A11T04",
+    "S48A11T05",
+    "S48A12T01",
+    "S48A12T02",
+    "S48A12T03",
+    "S48A12T04",
+    "S48A12T05",
+    "S48A13T01",
+    "S48A13T02",
+    "S48A13T03",
+    "S48A13T04",
+    "S48A13T05",
+    "S48A14T01",
+    "S48A14T02",
+    "S48A14T03",
+    "S48A14T05"
+  ],
+  "status": "Repaired-data inspection candidates. Manual phase, repair-impact, and eligibility review are required before modeling."
+}

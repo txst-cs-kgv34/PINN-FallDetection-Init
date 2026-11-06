@@ -1,0 +1,66 @@
+{
+  "trial": "S48A10T05",
+  "source_member": "S48_FallSamples/S48A10T05.csv",
+  "source_sha256": "a5b1cc454954df3e78d5bec94a140c90107a7725aabced0353f92623714e7af4",
+  "repaired_sha256": "e086db388966a6e51b3f424d8fe818283378ddd82c4c60348b58c0042caf6ebe",
+  "rows": 142,
+  "repaired_rows": 35,
+  "gaps": [
+    {
+      "start_row1": 14,
+      "end_row1": 14,
+      "frame_count": 1,
+      "method": "forward_fill_short_gap",
+      "previous_valid_row1": 13,
+      "next_valid_row1": 15
+    },
+    {
+      "start_row1": 41,
+      "end_row1": 62,
+      "frame_count": 22,
+      "method": "linear_interpolation_long_gap",
+      "previous_valid_row1": 40,
+      "next_valid_row1": 63
+    },
+    {
+      "start_row1": 82,
+      "end_row1": 82,
+      "frame_count": 1,
+      "method": "forward_fill_short_gap",
+      "previous_valid_row1": 81,
+      "next_valid_row1": 83
+    },
+    {
+      "start_row1": 86,
+      "end_row1": 87,
+      "frame_count": 2,
+      "method": "forward_fill_short_gap",
+      "previous_valid_row1": 85,
+      "next_valid_row1": 88
+    },
+    {
+      "start_row1": 93,
+      "end_row1": 94,
+      "frame_count": 2,
+      "method": "forward_fill_short_gap",
+      "previous_valid_row1": 92,
+      "next_valid_row1": 95
+    },
+    {
+      "start_row1": 106,
+      "end_row1": 106,
+      "frame_count": 1,
+      "method": "forward_fill_short_gap",
+      "previous_valid_row1": 105,
+      "next_valid_row1": 107
+    },
+    {
+      "start_row1": 120,
+      "end_row1": 125,
+      "frame_count": 6,
+      "method": "linear_interpolation_long_gap",
+      "previous_valid_row1": 119,
+      "next_valid_row1": 126
+    }
+  ]
+}

@@ -1,0 +1,223 @@
+[
+  {
+    "trial": "S34A10T01",
+    "activity": "A10",
+    "description": "Backfall",
+    "bytes": 455680,
+    "sha256": "90100d2c3e744131c549796bfd36dca17f61156d2106a0ebd0eacd5afd122344",
+    "source_member": "S34A10T01.csv",
+    "status": "numeric"
+  },
+  {
+    "trial": "S34A10T02",
+    "activity": "A10",
+    "description": "Backfall",
+    "bytes": 378739,
+    "sha256": "7d4a966d4c2283ddce9216ee14b4a33ef9c4fe0e64b5101cadec594d3e3ef2dd",
+    "source_member": "S34A10T02.csv",
+    "status": "numeric"
+  },
+  {
+    "trial": "S34A10T03",
+    "activity": "A10",
+    "description": "Backfall",
+    "bytes": 426914,
+    "sha256": "15e0bef05c6d1527ec01dd7f07cef61b150e385d08f58b98042e1cc0622949e4",
+    "source_member": "S34A10T03.csv",
+    "status": "numeric"
+  },
+  {
+    "trial": "S34A10T04",
+    "activity": "A10",
+    "description": "Backfall",
+    "bytes": 499950,
+    "sha256": "9fed75c9f3a94f59977330d356eecf51e1c3c58eb0f2bb1d8652dbc53b9f10bd",
+    "source_member": "S34A10T04.csv",
+    "status": "numeric"
+  },
+  {
+    "trial": "S34A10T05",
+    "activity": "A10",
+    "description": "Backfall",
+    "bytes": 416631,
+    "sha256": "030c26efa8b8bf39c886eda964bbf9bdb03d72a97f5690f09a3de4d04ea5be79",
+    "source_member": "S34A10T05.csv",
+    "status": "numeric"
+  },
+  {
+    "trial": "S34A11T01",
+    "activity": "A11",
+    "description": "Frontfall",
+    "bytes": 423895,
+    "sha256": "809e93ec10cf82ddc3c3ec84106050f9806ac2440fd7426ca995159a52161246",
+    "source_member": "S34A11T01.csv",
+    "status": "numeric"
+  },
+  {
+    "trial": "S34A11T02",
+    "activity": "A11",
+    "description": "Frontfall",
+    "bytes": 446794,
+    "sha256": "5e62a3a20a17b34aa2445474d8da6f811305014f625f6406685dffe0d6298690",
+    "source_member": "S34A11T02.csv",
+    "status": "numeric"
+  },
+  {
+    "trial": "S34A11T03",
+    "activity": "A11",
+    "description": "Frontfall",
+    "bytes": 441693,
+    "sha256": "4e6b46498fa2570ad8497c73d5ed0c013589cba03b7dce8e764a6472ddc1b81f",
+    "source_member": "S34A11T03.csv",
+    "status": "numeric"
+  },
+  {
+    "trial": "S34A11T04",
+    "activity": "A11",
+    "description": "Frontfall",
+    "bytes": 420875,
+    "sha256": "45a54a18bd4112d67d2d7482c0c0c6e52c9507b1fe15678654d6a7b9b4819f66",
+    "source_member": "S34A11T04.csv",
+    "status": "numeric"
+  },
+  {
+    "trial": "S34A11T05",
+    "activity": "A11",
+    "description": "Frontfall",
+    "bytes": 386372,
+    "sha256": "85cc166274d207cb97d7e64776ed564acfb185987a323e3bbc23a5a53dea7b5f",
+    "source_member": "S34A11T05.csv",
+    "status": "numeric"
+  },
+  {
+    "trial": "S34A12T01",
+    "activity": "A12",
+    "description": "Leftfall",
+    "bytes": 341869,
+    "sha256": "49c432716ed8ce72ad8f707a3afb0acb8b18278d880af2a3aebe3773450879b2",
+    "source_member": "S34A12T01.csv",
+    "status": "numeric"
+  },
+  {
+    "trial": "S34A12T02",
+    "activity": "A12",
+    "description": "Leftfall",
+    "bytes": 424180,
+    "sha256": "984c849f110a38564c0bf7b4b7bef33df6eb2434f48f7333d4e9d7502397bcf3",
+    "source_member": "S34A12T02.csv",
+    "status": "numeric"
+  },
+  {
+    "trial": "S34A12T03",
+    "activity": "A12",
+    "description": "Leftfall",
+    "bytes": 466787,
+    "sha256": "c6282818145ee4228957b50e6824c423f8525e365d1d1bc3d2401ba411fc5a9b",
+    "source_member": "S34A12T03.csv",
+    "status": "numeric"
+  },
+  {
+    "trial": "S34A12T04",
+    "activity": "A12",
+    "description": "Leftfall",
+    "bytes": 417241,
+    "sha256": "48e9fe2ce6c0133f69ff7820bc6f507e043500957d3d76ead6316d9c3f5f6164",
+    "source_member": "S34A12T04.csv",
+    "status": "numeric"
+  },
+  {
+    "trial": "S34A12T05",
+    "activity": "A12",
+    "description": "Leftfall",
+    "bytes": 354178,
+    "sha256": "cd2d6797122ce06353a7393aa6c02701933b4dd398fd430f560db1f7845b6901",
+    "source_member": "S34A12T05.csv",
+    "status": "numeric"
+  },
+  {
+    "trial": "S34A13T01",
+    "activity": "A13",
+    "description": "Rightfall",
+    "bytes": 492948,
+    "sha256": "ec289a051ae48576d4f686292a41855237e36a80024b471998351325d9b62e39",
+    "source_member": "S34A13T01.csv",
+    "status": "numeric"
+  },
+  {
+    "trial": "S34A13T02",
+    "activity": "A13",
+    "description": "Rightfall",
+    "bytes": 443345,
+    "sha256": "02b9f2078cf7eae6a60a530599e23486feb6d7af7aad035deee23902a0ea96a3",
+    "source_member": "S34A13T02.csv",
+    "status": "numeric"
+  },
+  {
+    "trial": "S34A13T03",
+    "activity": "A13",
+    "description": "Rightfall",
+    "bytes": 426558,
+    "sha256": "e115819dd8aae0c0a8b86c9c4619b14995b6365de6cfc7ea133cbc0da96648e6",
+    "source_member": "S34A13T03.csv",
+    "status": "numeric"
+  },
+  {
+    "trial": "S34A13T04",
+    "activity": "A13",
+    "description": "Rightfall",
+    "bytes": 532703,
+    "sha256": "7f4af975d56ea1680381c4ab94f87f2d6bcc0f84b1863c7642dc48a4e9ea4349",
+    "source_member": "S34A13T04.csv",
+    "status": "numeric"
+  },
+  {
+    "trial": "S34A13T05",
+    "activity": "A13",
+    "description": "Rightfall",
+    "bytes": 374501,
+    "sha256": "feba9a446a9417b0576d8c384c768060ea1a0f3f08c72a11764031b7225a7a4b",
+    "source_member": "S34A13T05.csv",
+    "status": "numeric"
+  },
+  {
+    "trial": "S34A14T04",
+    "activity": "A14",
+    "description": "Rotatefall (turn and fall)",
+    "bytes": 454631,
+    "sha256": "752b41b898525aec5f442fdfe13af1742575a0f44c520196a2d98de88a1e35d1",
+    "source_member": "S34A14T04.csv",
+    "status": "numeric"
+  },
+  {
+    "trial": "S34A14T01",
+    "activity": "A14",
+    "description": "Rotatefall (turn and fall)",
+    "status": "missing",
+    "bytes": null,
+    "sha256": null
+  },
+  {
+    "trial": "S34A14T02",
+    "activity": "A14",
+    "description": "Rotatefall (turn and fall)",
+    "status": "missing",
+    "bytes": null,
+    "sha256": null
+  },
+  {
+    "trial": "S34A14T03",
+    "activity": "A14",
+    "description": "Rotatefall (turn and fall)",
+    "status": "missing",
+    "bytes": null,
+    "sha256": null
+  },
+  {
+    "trial": "S34A14T05",
+    "activity": "A14",
+    "description": "Rotatefall (turn and fall)",
+    "status": "missing",
+    "bytes": null,
+    "sha256": null
+  }
+]

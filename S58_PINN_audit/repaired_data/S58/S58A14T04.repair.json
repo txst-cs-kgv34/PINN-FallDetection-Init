@@ -1,0 +1,18 @@
+{
+  "trial": "S58A14T04",
+  "source_member": "S58_FallSamples/S58A14T04.csv",
+  "source_sha256": "57b8f29a9e347c6fd834315ddf837590901166c7dd4ebba7205a7d8879b693ba",
+  "repaired_sha256": "8555707c26f9d31b9d457203ff1aa3ba7f3cae4ee2952fc8a4065f14bfbc99ea",
+  "rows": 213,
+  "repaired_rows": 104,
+  "gaps": [
+    {
+      "start_row1": 110,
+      "end_row1": 213,
+      "frame_count": 104,
+      "method": "forward_fill_trailing_boundary",
+      "previous_valid_row1": 109,
+      "next_valid_row1": null
+    }
+  ]
+}

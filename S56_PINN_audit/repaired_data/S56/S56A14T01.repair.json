@@ -1,0 +1,18 @@
+{
+  "trial": "S56A14T01",
+  "source_member": "S56_FallSamples/S56A14T01.csv",
+  "source_sha256": "064354f77f77b361d3875424985ba8b1fa2ff40d280ab5e0cad53bbd1753498a",
+  "repaired_sha256": "30a538bae826967101d0b6731f5a744f4a11188a824f94894f677c62f2c2d257",
+  "rows": 193,
+  "repaired_rows": 1,
+  "gaps": [
+    {
+      "start_row1": 94,
+      "end_row1": 94,
+      "frame_count": 1,
+      "method": "forward_fill_short_gap",
+      "previous_valid_row1": 93,
+      "next_valid_row1": 95
+    }
+  ]
+}

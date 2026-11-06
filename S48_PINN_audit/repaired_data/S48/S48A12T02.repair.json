@@ -1,0 +1,34 @@
+{
+  "trial": "S48A12T02",
+  "source_member": "S48_FallSamples/S48A12T02.csv",
+  "source_sha256": "48cd0a259e44166595741aa3b5b98130908a0b95d951071e5c7bd108eabe3a69",
+  "repaired_sha256": "da4756b4d3e980f1965f52d184fec23255bd9e5d3c7dd6eeeb32cc29cc5a4bf5",
+  "rows": 96,
+  "repaired_rows": 16,
+  "gaps": [
+    {
+      "start_row1": 44,
+      "end_row1": 48,
+      "frame_count": 5,
+      "method": "linear_interpolation_long_gap",
+      "previous_valid_row1": 43,
+      "next_valid_row1": 49
+    },
+    {
+      "start_row1": 50,
+      "end_row1": 50,
+      "frame_count": 1,
+      "method": "forward_fill_short_gap",
+      "previous_valid_row1": 49,
+      "next_valid_row1": 51
+    },
+    {
+      "start_row1": 87,
+      "end_row1": 96,
+      "frame_count": 10,
+      "method": "forward_fill_trailing_boundary",
+      "previous_valid_row1": 86,
+      "next_valid_row1": null
+    }
+  ]
+}

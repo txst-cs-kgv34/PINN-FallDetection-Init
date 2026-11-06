@@ -1,0 +1,18 @@
+{
+  "trial": "S59A10T02",
+  "source_member": "S59_FallSamples/S59A10T02.csv",
+  "source_sha256": "9950a44e30027fcc8c2ab923337114acacc4486f87ff92a669687a70945940d4",
+  "repaired_sha256": "32ffbec72d79117251108cb8d42b2060a933fbd299142a8ad6e7762dae956c31",
+  "rows": 224,
+  "repaired_rows": 1,
+  "gaps": [
+    {
+      "start_row1": 182,
+      "end_row1": 182,
+      "frame_count": 1,
+      "method": "forward_fill_short_gap",
+      "previous_valid_row1": 181,
+      "next_valid_row1": 183
+    }
+  ]
+}

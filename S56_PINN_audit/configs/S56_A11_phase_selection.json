@@ -1,0 +1,51 @@
+{
+  "subject_id": "S56",
+  "decision_date_local": "2026-11-06",
+  "activity": "A11",
+  "excluded_trials": {},
+  "remaining_candidate_trials": [
+    "S56A11T01",
+    "S56A11T02",
+    "S56A11T03",
+    "S56A11T04",
+    "S56A11T05"
+  ],
+  "repair_advisories": {
+    "S56A11T01": {
+      "status": "exclude_primary_modeling",
+      "repaired_rows": 57,
+      "total_rows": 191,
+      "repair_fraction": 0.29842931937172773,
+      "boundary_repair": false
+    },
+    "S56A11T02": {
+      "status": "sensitivity_check_required",
+      "repaired_rows": 14,
+      "total_rows": 156,
+      "repair_fraction": 0.08974358974358974,
+      "boundary_repair": false
+    },
+    "S56A11T03": {
+      "status": "exclude_primary_modeling",
+      "repaired_rows": 40,
+      "total_rows": 192,
+      "repair_fraction": 0.20833333333333334,
+      "boundary_repair": false
+    },
+    "S56A11T04": {
+      "status": "exclude_primary_modeling",
+      "repaired_rows": 78,
+      "total_rows": 176,
+      "repair_fraction": 0.4431818181818182,
+      "boundary_repair": false
+    },
+    "S56A11T05": {
+      "status": "sensitivity_check_required",
+      "repaired_rows": 13,
+      "total_rows": 197,
+      "repair_fraction": 0.06598984771573604,
+      "boundary_repair": false
+    }
+  },
+  "status": "Pending user-supplied manual A11 phase marks. Candidate inclusion is provisional until repair impact and phase quality are reviewed."
+}

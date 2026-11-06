@@ -1,0 +1,10 @@
+trial,row1,frame0,method
+S59A10T01,169,168,linear_interpolation_long_gap
+S59A10T01,170,169,linear_interpolation_long_gap
+S59A10T01,171,170,linear_interpolation_long_gap
+S59A10T01,172,171,linear_interpolation_long_gap
+S59A10T02,182,181,forward_fill_short_gap
+S59A10T03,147,146,forward_fill_short_gap
+S59A10T03,148,147,forward_fill_short_gap
+S59A10T03,149,148,forward_fill_short_gap
+S59A13T01,72,71,forward_fill_short_gap

@@ -1,0 +1,18 @@
+{
+  "trial": "S48A11T03",
+  "source_member": "S48_FallSamples/S48A11T03.csv",
+  "source_sha256": "8405268eab7ebb2b244e07c5bd578f2fb676b66004e0843aaf022ea92e9e893e",
+  "repaired_sha256": "b74192662ee3f2a554432eedd7f2db0cd0cee69bc38915e1c83b0544aacde81e",
+  "rows": 148,
+  "repaired_rows": 7,
+  "gaps": [
+    {
+      "start_row1": 58,
+      "end_row1": 64,
+      "frame_count": 7,
+      "method": "linear_interpolation_long_gap",
+      "previous_valid_row1": 57,
+      "next_valid_row1": 65
+    }
+  ]
+}

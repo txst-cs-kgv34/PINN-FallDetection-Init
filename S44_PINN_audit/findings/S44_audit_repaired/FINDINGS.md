@@ -1,0 +1,109 @@
+# S44 audit findings
+
+Clips passing numeric input checks: 25; empty: 0; missing expected: 0; invalid: 0; analyzed frames: 7322.
+
+Review-flagged destination frames: 965. Duplicate rows within clips: 3074.
+
+These are data-quality screening results, not validated fall labels or anatomical CoM. The audit does not repair inputs itself; when a derived repaired-data directory is supplied, consult its repair manifest and frame mask. Invalid trials remain in raw/ and manifest.json but are withheld from calculations.
+
+| Trial | Status | Frames | Span (s) | Review frames | Duplicate rows | Scale range (%) |
+|---|---|---:|---:|---:|---:|---:|
+| S44A10T01 | numeric | 294 | 9.766666666666667 | 37 | 157 | 27.418050762479716 |
+| S44A10T02 | numeric | 268 | 8.9 | 38 | 154 | 54.28419042834969 |
+| S44A10T03 | numeric | 242 | 8.033333333333333 | 48 | 121 | 41.45761972763411 |
+| S44A10T04 | numeric | 277 | 9.2 | 43 | 142 | 44.11440332789791 |
+| S44A10T05 | numeric | 301 | 10.0 | 54 | 109 | 53.354964079818544 |
+| S44A11T01 | numeric | 270 | 8.966666666666667 | 46 | 118 | 52.417467607111966 |
+| S44A11T02 | numeric | 301 | 10.0 | 36 | 179 | 42.67785776104856 |
+| S44A11T03 | numeric | 301 | 10.0 | 24 | 181 | 76.39846720315273 |
+| S44A11T04 | numeric | 302 | 10.033333333333333 | 45 | 165 | 65.12740840879954 |
+| S44A11T05 | numeric | 302 | 10.033333333333333 | 25 | 163 | 49.0860364206535 |
+| S44A12T01 | numeric | 299 | 9.933333333333334 | 37 | 151 | 44.633704989167654 |
+| S44A12T02 | numeric | 293 | 9.733333333333333 | 29 | 156 | 41.486532121475506 |
+| S44A12T03 | numeric | 286 | 9.5 | 29 | 140 | 33.595953534430365 |
+| S44A12T04 | numeric | 301 | 10.0 | 24 | 173 | 26.21239565928 |
+| S44A12T05 | numeric | 302 | 10.033333333333333 | 32 | 164 | 33.08315367289478 |
+| S44A13T01 | numeric | 302 | 10.033333333333333 | 58 | 7 | 46.125123817694735 |
+| S44A13T02 | numeric | 301 | 10.0 | 41 | 0 | 52.81470232486794 |
+| S44A13T03 | numeric | 301 | 10.0 | 49 | 0 | 80.21574198766747 |
+| S44A13T04 | numeric | 301 | 10.0 | 42 | 1 | 40.18474304012523 |
+| S44A13T05 | numeric | 302 | 10.033333333333333 | 51 | 0 | 29.671803798980978 |
+| S44A14T01 | numeric | 296 | 9.833333333333334 | 41 | 168 | 41.377741950985005 |
+| S44A14T02 | numeric | 302 | 10.033333333333333 | 31 | 168 | 26.727684359469485 |
+| S44A14T03 | numeric | 302 | 10.033333333333333 | 42 | 161 | 27.227088508944863 |
+| S44A14T04 | numeric | 293 | 9.733333333333333 | 24 | 169 | 21.91160838434825 |
+| S44A14T05 | numeric | 283 | 9.4 | 39 | 127 | 46.6835100855753 |
+
+## Temporal audit
+
+| Trial | Distinct poses | Repeated transitions (%) | Longest constant span (s) |
+|---|---:|---:|---:|
+| S44A10T01 | 137 | 53.58 | 4.933 |
+| S44A10T02 | 114 | 57.68 | 4.500 |
+| S44A10T03 | 121 | 50.21 | 3.800 |
+| S44A10T04 | 135 | 51.45 | 4.633 |
+| S44A10T05 | 192 | 36.33 | 3.400 |
+| S44A11T01 | 152 | 43.87 | 3.167 |
+| S44A11T02 | 122 | 59.67 | 5.100 |
+| S44A11T03 | 120 | 60.33 | 4.800 |
+| S44A11T04 | 137 | 54.82 | 4.567 |
+| S44A11T05 | 139 | 54.15 | 4.400 |
+| S44A12T01 | 148 | 50.67 | 5.033 |
+| S44A12T02 | 137 | 53.42 | 5.167 |
+| S44A12T03 | 146 | 49.12 | 4.667 |
+| S44A12T04 | 128 | 57.67 | 5.733 |
+| S44A12T05 | 138 | 54.49 | 5.400 |
+| S44A13T01 | 295 | 2.33 | 0.133 |
+| S44A13T02 | 301 | 0.00 | 0.000 |
+| S44A13T03 | 301 | 0.00 | 0.000 |
+| S44A13T04 | 300 | 0.33 | 0.033 |
+| S44A13T05 | 302 | 0.00 | 0.000 |
+| S44A14T01 | 128 | 56.95 | 5.433 |
+| S44A14T02 | 134 | 55.81 | 5.600 |
+| S44A14T03 | 141 | 53.49 | 5.367 |
+| S44A14T04 | 124 | 57.88 | 4.767 |
+| S44A14T05 | 156 | 45.04 | 3.733 |
+
+Exact repeats mean identical exported coordinates, not confirmed biological stillness. See results/constant_pose_runs.csv for inclusive zero-based frame ranges. No repeats are deleted.
+
+## Evidence and reproducibility
+
+- results/manifest.json: source paths, hashes and parsing errors.
+- results/trial_summary.csv: clip-level measurements.
+- results/review_events.csv (when flags exist): exact frame pairs for inspection.
+- results/com/: per-frame CoM and camera displacements.
+- results/segment_mass_model.csv and segment_model.json: full mass and landmark mapping.
+- results/landmark_sensitivity.csv: alternative mappings, not uncertainty bounds.
+- config.json and code/: frozen configuration and scripts.
+
+## Questions for the team
+
+Confirm XYZ units/order, camera-to-floor orientation, original timestamps, missing/trimmed recordings and body-tracking confidence. Determine whether changing limb scale is in the raw export or preprocessing. Review full event coverage before selecting PINN trials. No ground contact, BoS, joint forces or external perturbations are inferred here.
+
+## Evidence figures
+
+![A10_skeleton_snapshots](results/plots/A10_skeleton_snapshots.png)
+
+![A11_skeleton_snapshots](results/plots/A11_skeleton_snapshots.png)
+
+![A12_skeleton_snapshots](results/plots/A12_skeleton_snapshots.png)
+
+![A13_skeleton_snapshots](results/plots/A13_skeleton_snapshots.png)
+
+![A14_skeleton_snapshots](results/plots/A14_skeleton_snapshots.png)
+
+![real_CoM_comparison](results/plots/real_CoM_comparison.png)
+
+![shared_limb_scaling](results/plots/shared_limb_scaling.png)
+
+![temporal_repeats](results/plots/temporal_repeats.png)
+
+![tracking_diagnostics](results/plots/tracking_diagnostics.png)
+
+
+
+## Derived blank-row repairs and trial availability
+
+The supplied archive contains 25 numeric trials out of 25 expected. The derived repair layer replaced 0 fully blank frames across 0 gaps. Original files were not modified. Short gaps of 1–3 frames use the preceding valid row; longer internal gaps use per-coordinate linear interpolation; boundary gaps use the nearest valid row. Entire missing or empty trials are never synthesized.
+
+See `../../REPAIR_ASSESSMENT.md` for trial-level repair fractions, boundary carries, and missing/empty trials.

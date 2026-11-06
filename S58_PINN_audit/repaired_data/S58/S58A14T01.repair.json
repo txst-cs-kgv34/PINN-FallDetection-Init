@@ -1,0 +1,34 @@
+{
+  "trial": "S58A14T01",
+  "source_member": "S58_FallSamples/S58A14T01.csv",
+  "source_sha256": "77c39be0c8714fc88b5f25a2312110d28d1d0cf902ea2084ca0e407e5a741f01",
+  "repaired_sha256": "af8d1f68aa08de891676a9eed950b65107f2ea1727ed8e565a81d3e70a7e6e09",
+  "rows": 182,
+  "repaired_rows": 86,
+  "gaps": [
+    {
+      "start_row1": 87,
+      "end_row1": 118,
+      "frame_count": 32,
+      "method": "linear_interpolation_long_gap",
+      "previous_valid_row1": 86,
+      "next_valid_row1": 119
+    },
+    {
+      "start_row1": 123,
+      "end_row1": 125,
+      "frame_count": 3,
+      "method": "forward_fill_short_gap",
+      "previous_valid_row1": 122,
+      "next_valid_row1": 126
+    },
+    {
+      "start_row1": 132,
+      "end_row1": 182,
+      "frame_count": 51,
+      "method": "forward_fill_trailing_boundary",
+      "previous_valid_row1": 131,
+      "next_valid_row1": null
+    }
+  ]
+}

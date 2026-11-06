@@ -1,0 +1,6 @@
+{
+  "subject": "S46",
+  "nominal_fps": 30,
+  "notes": [],
+  "instructions": "Use inspections/S46_candidates_repaired/INSPECT.html. Review repaired-frame locations before marking the five A11 phases, then return the manually corrected notes."
+}

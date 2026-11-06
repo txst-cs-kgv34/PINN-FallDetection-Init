@@ -1,0 +1,9 @@
+{
+  "trial": "S56A13T05",
+  "source_member": "S56_FallSamples/S56A13T05.csv",
+  "source_sha256": "df5e15136ae8b5c2d46f8ac67aff6107317f5b13aefabfdeb8c4f113b3af0bac",
+  "repaired_sha256": "ec87b9dc3f8da195b8d357394eeff39ec14c088b4f7016c593c15f1d75000c01",
+  "rows": 190,
+  "repaired_rows": 0,
+  "gaps": []
+}
