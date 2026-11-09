@@ -23,7 +23,7 @@ difference:
 - same five train/validation/test subject folds;
 - same DeepONet architecture and context encoder;
 - same data preparation, optimizer, learning rate, maximum epochs, and early
-  stopping rule;
+stopping rule;
 - same 66 eligible held-out trials; and
 - exactly identical stored test time and target theta/x arrays.
 
@@ -124,15 +124,20 @@ must not be described as recovered physiological gains.
 ## Recommended next experiment
 
 1. Repeat both conditions with at least 5, preferably 10, paired optimization
+
    seeds while preserving every fold and pairing seeds across conditions.
 2. Report the distribution of paired subject-level differences across seeds,
+
    not just trial-pooled means.
 3. If retaining physics, tune its weight using training/validation data only;
+
    include `0, 1e-4, 1e-3, 1e-2, 1e-1` as a practical starting grid.
 4. Audit the residual scale relative to data loss and report both unweighted
+
    and weighted terms. A nominal weight of 0.01 does not by itself describe
-   the effective gradient contribution.
+    the effective gradient contribution.
 5. Stratify or standardize the anatomical forward axis before attributing
+
    subject differences to biomechanics.
 
 Until those repeats are available, the defensible statement is:
