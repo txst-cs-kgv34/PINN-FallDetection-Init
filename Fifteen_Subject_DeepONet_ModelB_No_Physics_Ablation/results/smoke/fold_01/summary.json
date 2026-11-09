@@ -1,0 +1,79 @@
+{
+  "checkpoint_selected_only_on_real_validation_subject": true,
+  "context_region_s": 0.4,
+  "display_name": "Model B-no-physics \u2014 15-subject DeepONet ablation",
+  "experiment_name": "fifteen_subject_model_b_no_physics_ablation_v1",
+  "fold": 1,
+  "four_window_context": true,
+  "model_id": "B-no-physics",
+  "physics_loss_enabled": false,
+  "test_forecast_sample_count": 456,
+  "test_pooled_metrics": {
+    "normalized_mse": 0.16363425552845,
+    "theta_mae_deg": 4.127270221710205,
+    "theta_rmse_deg": 5.311295509338379,
+    "theta_w1_deg": 1.015444520732241,
+    "x_mae_cm": 6.638191640377045,
+    "x_rmse_cm": 8.605901896953583,
+    "x_w1_cm": 2.131867026756497
+  },
+  "test_subject_mean_metrics": {
+    "S30": {
+      "normalized_mse": 0.3092185348272324,
+      "theta_mae_deg": 6.578693389892578,
+      "theta_rmse_deg": 6.9666825294494625,
+      "theta_w1_deg": 6.578693710307677,
+      "x_mae_cm": 11.271083950996399,
+      "x_rmse_cm": 11.941899508237839,
+      "x_w1_cm": 11.271083234197338
+    },
+    "S46": {
+      "normalized_mse": 0.04630684033036232,
+      "theta_mae_deg": 2.7891053438186644,
+      "theta_rmse_deg": 3.102418613433838,
+      "theta_w1_deg": 2.7891053676241784,
+      "x_mae_cm": 3.5858210548758507,
+      "x_rmse_cm": 3.959897495806217,
+      "x_w1_cm": 3.5858210414500404
+    },
+    "S57": {
+      "normalized_mse": 0.22040620306506753,
+      "theta_mae_deg": 4.077911734580994,
+      "theta_rmse_deg": 4.336325804392497,
+      "theta_w1_deg": 4.060120915986476,
+      "x_mae_cm": 7.223241527875264,
+      "x_rmse_cm": 7.583709433674812,
+      "x_w1_cm": 7.220667230627856
+    }
+  },
+  "test_subjects": [
+    "S57",
+    "S46",
+    "S30"
+  ],
+  "test_trial_count": 13,
+  "test_trial_mean_metrics": {
+    "normalized_mse": 0.1876034988448597,
+    "theta_mae_deg": 4.544056067099938,
+    "theta_rmse_deg": 4.8734217790456915,
+    "theta_w1_deg": 4.539950625970669,
+    "x_mae_cm": 7.381096124075926,
+    "x_rmse_cm": 7.86616256317267,
+    "x_w1_cm": 7.3805017746246495
+  },
+  "train_subjects": [
+    "S43",
+    "S55",
+    "S62",
+    "S59",
+    "S56",
+    "S49",
+    "S48",
+    "S45",
+    "S44",
+    "S34",
+    "S32"
+  ],
+  "training_regime": "direct_no_physics_ablation",
+  "validation_subject": "S63"
+}
