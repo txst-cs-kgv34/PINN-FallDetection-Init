@@ -1,148 +1,201 @@
-# Findings: Model B physics versus B-no-physics
+# Findings: five-seed Physics versus No-Physics ablation
 
 ## Bottom line
 
-The matched ablation does **not provide evidence that the cart-pole
-biomechanics residual improves prediction of an unseen subject** under the
-tested configuration (`physics_weight = 0.01`). B-no-physics has numerically
-lower subject-mean error on all three primary metrics, but the paired effects
-are inconsistent across the 15 subjects and all uncertainty intervals include
-zero.
+Across five paired seeds, Unified Physics has a lower overall normalized MSE
+than No Physics (`0.2143` versus `0.2762`), a nominal 22.4% reduction.
+However, this mean advantage is dominated by S45. Physics and No Physics are
+essentially tied for angle RMSE (`5.103°` versus `5.105°`) and differ by only
+0.255 cm for CoM displacement RMSE (`7.772` versus `8.027 cm`).
 
-This is a negative or inconclusive ablation result, not proof that physics is
-harmful. Only one optimization seed was run, and the difference changes
-substantially by fold and subject.
+Physics does not win for most subjects: each primary metric favors physics for
+7 subjects and no physics for 8. None of the paired subject-level tests is
+statistically significant, and all confidence intervals include zero.
 
-## Validity of the comparison
+The defensible interpretation is:
 
-The comparison script verified all of the following before calculating any
-difference:
+> At physics weight 0.01, the cart-pole residual acts as a useful protective
+> constraint for the difficult S45/Fold 3 case, but the five-seed experiment
+> does not show a consistent generalization advantage across the 15 subjects.
 
-- same optimization seed and split seed;
-- same 15 subjects and demographics;
-- same five train/validation/test subject folds;
-- same DeepONet architecture and context encoder;
-- same data preparation, optimizer, learning rate, maximum epochs, and early
-stopping rule;
-- same 66 eligible held-out trials; and
-- exactly identical stored test time and target theta/x arrays.
+## Comparison validity
 
-The only objective change is:
+The analysis verified:
 
-```text
-Physics:     L = L_real_forecast + 0.01 * L_cart_pole_biomechanics
-No physics: L = L_real_forecast
-```
+- identical five base seeds and effective fold-seed rules;
+- identical 15 subjects, demographics, folds, and validation assignments;
+- identical context encoder, DeepONet architecture, optimizer, and stopping
+  rules;
+- identical 66 eligible trials;
+- 330 matched prediction evaluations per condition; and
+- zero numerical difference in stored target time, theta, and forward-CoM
+  arrays across conditions and seeds.
 
-## Primary held-out-subject comparison
+The only loss change is removal of the biomechanics residual.
 
-Every subject contributes one value: the mean over that subject's eligible
-held-out trials. This avoids treating correlated trials from the same person
-as independent observations.
+## Primary paired results
 
-Define physics improvement as:
+Each subject was first averaged over the same five seeds. The 15 resulting
+paired subject values are the primary analysis unit.
+
+Physics improvement is defined as:
 
 ```text
-no-physics error - physics error
+no-physics error − physics error
 ```
 
-A positive value favors physics; a negative value favors no-physics.
+Positive values favor Unified Physics.
 
-| Metric | Physics mean | No-physics mean | Mean physics improvement (95% subject-bootstrap CI) | Relative change of physics mean | Physics wins | Wilcoxon p |
-|:---|---:|---:|---:|---:|---:|---:|
-| Normalized MSE | 0.2584 | **0.2363** | -0.0221 [-0.1371, 0.0909] | 9.4% higher error | 7/15 | 0.639 |
-| Angle RMSE (degrees) | 5.698 | **4.810** | -0.888 [-2.135, 0.326] | 18.5% higher error | 6/15 | 0.229 |
-| CoM displacement RMSE (cm) | 8.868 | **7.787** | -1.081 [-3.003, 0.631] | 13.9% higher error | 7/15 | 0.454 |
+| Metric | Physics mean | No-physics mean | Mean improvement | 95% subject-bootstrap CI | Subject wins P/N | Wilcoxon raw p | Holm p |
+|:---|---:|---:|---:|---:|---:|---:|---:|
+| Normalized MSE | **0.2143** | 0.2762 | +0.0619 | [-0.0466, 0.2301] | 7 / 8 | 0.847 | 1.000 |
+| Angle RMSE | **5.103°** | 5.105° | +0.002° | [-0.971, 1.228] | 7 / 8 | 0.561 | 1.000 |
+| CoM displacement RMSE | **7.772 cm** | 8.027 cm | +0.255 cm | [-1.169, 1.949] | 7 / 8 | 0.847 | 1.000 |
 
-All three intervals cross zero and all two-sided paired Wilcoxon p-values are
-greater than 0.05. No formal superiority claim is supported in either
-direction.
+No metric supports a population-wide superiority claim in either direction.
 
-The held-out-trial win counts are similarly balanced: physics wins 31/66,
-30/66, and 32/66 trials for normalized MSE, angle RMSE, and displacement RMSE,
-respectively. These are descriptive only because trials belonging to one
-subject are not independent.
+The rank-based effect is also weak. Paired rank-biserial correlations are
+`-0.067`, `-0.183`, and `-0.067` for normalized MSE, angle RMSE, and
+displacement RMSE. The negative direction occurs because slightly more subject
+ranks favor No Physics even though a few large-magnitude cases favor physics.
 
-## Subject-level normalized MSE
+## Why normalized MSE favors physics in all five seeds
 
-| Subject | Fold | Physics | No physics | Lower-error condition |
-|:---:|---:|---:|---:|:---|
-| S30 | 1 | **0.0151** | 0.0348 | Physics |
-| S32 | 4 | 0.7267 | **0.1397** | No physics |
-| S34 | 4 | 0.2142 | **0.0306** | No physics |
-| S43 | 2 | **0.1184** | 0.1739 | Physics |
-| S44 | 5 | **0.0984** | 0.2458 | Physics |
-| S45 | 3 | **1.1588** | 1.6964 | Physics |
-| S46 | 1 | **0.0971** | 0.1399 | Physics |
-| S48 | 2 | 0.4658 | **0.3417** | No physics |
-| S49 | 4 | 0.2020 | **0.0724** | No physics |
-| S55 | 2 | 0.1666 | **0.0971** | No physics |
-| S56 | 3 | 0.0936 | **0.0750** | No physics |
-| S57 | 1 | **0.1771** | 0.2582 | Physics |
-| S59 | 3 | 0.0688 | **0.0466** | No physics |
-| S62 | 5 | **0.1097** | 0.1499 | Physics |
-| S63 | 5 | 0.1642 | **0.0431** | No physics |
+At the seed-aggregate level, normalized MSE favors physics in all five runs:
 
-S45 is difficult for both conditions but contributes a large improvement in
-favor of physics. Conversely, S32 is a large improvement in favor of
-no-physics. The overall mean is therefore sensitive to a small number of
-subjects; medians, paired plots, and win counts should accompany every mean.
+| Seed | Physics | No Physics | Improvement |
+|---:|---:|---:|---:|
+| 1 | 0.2082 | 0.2369 | +0.0287 |
+| 2 | 0.2311 | 0.2758 | +0.0447 |
+| 3 | 0.2662 | 0.2837 | +0.0175 |
+| 4 | 0.2041 | 0.2649 | +0.0609 |
+| 5 | 0.1619 | 0.3195 | +0.1576 |
 
-## Fold and axis observations
+This does not conflict with physics winning only 7 of 15 subjects. Equal-weight
+seed means are sensitive to large subject errors. S45 has very high error under
+both conditions, and physics reduces that error substantially in every seed.
+That one large reduction outweighs smaller no-physics advantages across more
+subjects.
 
-Physics has lower pooled normalized MSE in Folds 1, 3, and 5; no-physics is
-lower in Folds 2 and 4. Fold 4 shows the largest no-physics advantage
-(`0.3929` versus `0.0993`) and contains S34, S32, and S49. S32 and S34 were the
-front-fall recordings oriented toward the camera/Z axis, but orientation alone
-cannot explain the result: tilted-Z S30 favors physics, and slightly tilted-Z
-S44 also favors physics. Fold-level checkpoint behavior, subject composition,
-trajectory length, and axis construction remain confounded.
+## S45 sensitivity analysis
 
-The validation-selected epochs also differ because removing the physics term
-changes the optimization path:
+S45 is the largest absolute paired effect for every primary metric:
 
-| Fold | Validation subject | Physics epoch / val nMSE | No-physics epoch / val nMSE |
-|---:|:---:|---:|---:|
-| 1 | S63 | 64 / 0.0281 | 169 / 0.0415 |
-| 2 | S62 | 86 / 0.1098 | 276 / 0.0447 |
-| 3 | S57 | 405 / 0.1628 | 84 / 0.1633 |
-| 4 | S55 | 26 / 0.1043 | 97 / 0.0863 |
-| 5 | S43 | 37 / 0.0433 | 50 / 0.0876 |
+| Metric | Physics S45 mean | No-physics S45 mean | Physics improvement |
+|:---|---:|---:|---:|
+| Normalized MSE | 1.1258 | 2.2405 | +1.1147 |
+| Angle RMSE | 11.139° | 18.070° | +6.932° |
+| CoM displacement RMSE | 18.655 cm | 27.862 cm | +9.207 cm |
 
-Lower validation loss does not consistently predict the three-subject test
-result. That is expected with only one validation subject per fold.
+After excluding S45, the mean paired differences become:
 
-## Controller-output interpretation
+| Metric | Mean physics improvement without S45 |
+|:---|---:|
+| Normalized MSE | -0.0133 |
+| Angle RMSE | -0.493° |
+| CoM displacement RMSE | -0.384 cm |
 
-Both models save four outputs from the positive controller head for every
-trial. In the no-physics model those outputs are completely unsupervised
-latent conditioning variables. In the physics model they influence the
-residual but are still not supervised by measured human-control parameters.
-Their numerical values are therefore not a valid target for the ablation and
-must not be described as recovered physiological gains.
+Negative values favor No Physics. The median subject differences are also
+slightly negative: `-0.0075` normalized MSE, `-0.283°`, and `-0.070 cm`.
 
-## Recommended next experiment
+This does not make S45 invalid. It shows that the physics benefit is a
+hard-case effect rather than a broad improvement. S45 should remain in the
+reported result, accompanied by the sensitivity analysis.
 
-1. Repeat both conditions with at least 5, preferably 10, paired optimization
+## Subject heterogeneity
 
-   seeds while preserving every fold and pairing seeds across conditions.
-2. Report the distribution of paired subject-level differences across seeds,
+The strongest consistent physics improvements include:
 
-   not just trial-pooled means.
-3. If retaining physics, tune its weight using training/validation data only;
+- **S45:** physics wins all five seeds on all primary metrics.
+- **S44:** physics wins all five seeds on all primary metrics.
+- **S62:** physics wins all five seeds for normalized MSE and displacement RMSE.
+- **S57 and S43:** mean errors favor physics, though not in every seed.
 
-   include `0, 1e-4, 1e-3, 1e-2, 1e-1` as a practical starting grid.
-4. Audit the residual scale relative to data loss and report both unweighted
+The strongest no-physics result is S63:
 
-   and weighted terms. A nominal weight of 0.01 does not by itself describe
-    the effective gradient contribution.
-5. Stratify or standardize the anatomical forward axis before attributing
+| Metric | Physics | No Physics |
+|:---|---:|---:|
+| Normalized MSE | 0.1815 | **0.0454** |
+| Angle RMSE | 5.848° | **2.707°** |
+| CoM displacement RMSE | 8.646 cm | **4.172 cm** |
 
-   subject differences to biomechanics.
+No Physics wins all five S63 seeds on every primary metric. S30, S32, and S48
+also have notable no-physics advantages in their five-seed means.
 
-Until those repeats are available, the defensible statement is:
+## Fold effects
 
-> In one matched five-fold, 15-subject run, adding the cart-pole residual at
-> weight 0.01 did not improve average held-out-subject trajectory error over
-> the otherwise identical no-physics DeepONet; paired differences were
-> heterogeneous and inconclusive.
+Mean physics improvement across seeds:
+
+| Fold | Test subjects | Normalized MSE | Angle RMSE | CoM RMSE |
+|---:|:---|---:|---:|---:|
+| 1 | S57, S46, S30 | +0.0206 | +0.147° | +0.603 cm |
+| 2 | S55, S48, S43 | +0.0334 | +0.556° | +0.656 cm |
+| 3 | S45, S59, S56 | **+0.4953** | **+4.480°** | **+5.871 cm** |
+| 4 | S34, S32, S49 | -0.0624 | -0.957° | -1.721 cm |
+| 5 | S44, S62, S63 | +0.0752 | +0.574° | +2.825 cm |
+
+Fold 3 is the main source of the overall physics advantage, primarily because
+of S45. Fold 4 favors No Physics. Fold 5 mixes strong physics advantages for
+S44/S62 with a strong no-physics advantage for S63.
+
+## Seed effects
+
+Angle and displacement results change direction by seed:
+
+- Seeds 1–3 favor No Physics on mean angle and displacement RMSE.
+- Seeds 4–5 favor Unified Physics.
+- Normalized MSE favors physics in all five seeds.
+
+Physics has greater across-seed variation than No Physics for angle and
+displacement RMSE:
+
+| Metric | Physics seed SD | No-physics seed SD |
+|:---|---:|---:|
+| Normalized MSE | 0.0383 | 0.0300 |
+| Angle RMSE | 0.420° | 0.207° |
+| CoM displacement RMSE | 0.574 cm | 0.315 cm |
+
+Thus the physics term did not uniformly stabilize optimization under this
+configuration.
+
+## Checkpoint selection
+
+Across the 25 models:
+
+- Physics selected epochs range from 12 to 396, with median 83.
+- No Physics selected epochs range from 35 to 325, with median 125.
+
+Removing the residual changes the gradient path and validation curve, so
+different checkpoint epochs are expected. This is part of the ablation effect,
+not a protocol mismatch.
+
+## Controller outputs
+
+The no-physics model still produces four positive controller-head values to
+preserve the exact Model B architecture. With no physics residual and no gain
+supervision, those values are unsupervised latent conditioning variables. They
+cannot be treated as biomechanical parameters.
+
+The physics outputs influence the residual but are not measured ground-truth
+human gains. Forecast accuracy, not gain magnitude, is the valid ablation
+endpoint.
+
+## Research conclusion
+
+The experiment supports two narrower statements:
+
+1. The physics residual can reduce large prediction failures for some difficult
+   subjects, especially S45.
+2. It does not consistently improve error for the typical held-out subject at
+   the tested weight of 0.01.
+
+The result should be reported as heterogeneous and inconclusive for general
+superiority—not as proof that physics is useless or universally beneficial.
+
+A sensible next experiment is a validation-only physics-weight study, for
+example `0, 1e-4, 1e-3, 1e-2, 1e-1`, using the same folds and seeds. The test
+subjects must remain untouched during weight selection. Reporting median,
+trimmed/robust summaries, and worst-subject error alongside the mean would
+clarify whether the goal is average accuracy or protection against severe
+failures.
+

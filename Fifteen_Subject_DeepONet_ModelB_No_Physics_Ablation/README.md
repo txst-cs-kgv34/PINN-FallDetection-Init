@@ -246,27 +246,24 @@ The packaged result is:
 Fifteen_Subject_ModelB_No_Physics_5_Seeds_Results.zip
 ```
 
-Return that ZIP for the paired physics-versus-no-physics analysis.
+## Completed five-seed results
 
-## Planned paired comparison
+All 25 seed/fold models completed. Each seed evaluated the same 15 held-out
+subjects and 66 eligible trials.
 
-The comparison will match each no-physics result to the physics result using:
+| Metric | No-physics five-seed mean | SD across seed means | Descriptive 95% t interval |
+|:---|---:|---:|---:|
+| Normalized MSE | 0.2762 | 0.0300 | [0.2389, 0.3134] |
+| Angle RMSE | 5.105° | 0.207° | [4.848°, 5.362°] |
+| CoM displacement RMSE | 8.027 cm | 0.315 cm | [7.636, 8.418] cm |
 
-```text
-seed index + fold + held-out subject + trial ID
-```
+The paired comparison matched seed index, fold, subject, and trial ID against
+Unified Physics. Targets were exactly identical. Unified Physics has lower
+overall normalized MSE (`0.2143` versus `0.2762`), but S45 drives that mean
+advantage. Physics wins only 7 of 15 subjects, and no paired subject-level
+metric is statistically significant after correction. See [FINDINGS.md](FINDINGS.md)
+for the updated interpretation.
 
-It will report:
-
-- five-seed means and across-seed variability;
-- paired subject- and trial-level error differences;
-- physics win rates;
-- per-subject and per-fold effects;
-- comparison box plots and seed-paired figures; and
-- whether any improvement is consistent rather than driven by one seed or
-  difficult subject.
-
-Lower held-out normalized MSE, angle RMSE, and CoM displacement RMSE indicate
-better trajectory generalization. The conclusion will be based on all five
-seeds, not the best observed seed.
+The four controller-head outputs remain unsupervised latent variables in this
+condition and must not be described as recovered biomechanical gains.
 
