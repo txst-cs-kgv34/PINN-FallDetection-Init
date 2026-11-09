@@ -1,0 +1,51 @@
+{
+  "all_optimization_seeds": [
+    20261101,
+    20261102,
+    20261103,
+    20261104,
+    20261105
+  ],
+  "base_optimization_seed": 20261103,
+  "context_windows": 4,
+  "controller_semantics": "physical_gains",
+  "device": "mps",
+  "effective_fold_seed": 20261106,
+  "experiment_name": "fifteen_subject_model_b_no_physics_ablation_5seeds_v2",
+  "fixed_pi_rad": 0.0635,
+  "fixed_tau_s": 0.23,
+  "fold": {
+    "id": 3,
+    "test": [
+      "S45",
+      "S59",
+      "S56"
+    ],
+    "train": [
+      "S43",
+      "S55",
+      "S62",
+      "S63",
+      "S49",
+      "S48",
+      "S46",
+      "S44",
+      "S34",
+      "S32",
+      "S30"
+    ],
+    "validation": "S57"
+  },
+  "mode": "full",
+  "model_id": "B-no-physics",
+  "physics_loss_enabled": false,
+  "real_training_trial_count": 49,
+  "seed_index": 3,
+  "synthetic_training_trajectory_count": 0,
+  "test_real_data_used_for_model_selection": false,
+  "test_real_trial_count": 14,
+  "training_regime": "direct_no_physics_ablation",
+  "training_teacher_ids": [],
+  "validation_and_test_subjects_used_for_training": false,
+  "validation_real_trial_count": 3
+}
