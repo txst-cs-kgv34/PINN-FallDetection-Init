@@ -51,3 +51,15 @@ flowchart TD
 We model the human body as a reduced-order cart-pole/inverted-pendulum system. Human CoM trajectories provide the angular and horizontal motion variables, and the physics residual enforces the corresponding biomechanical balance equations.
 
 Model B (Real-data training with physics) uses an explicit reduced-order human biomechanics residual derived from the cart-pole representation of human CoM motion.
+
+Fifteen_Subject_DeepONet_ModelB_Direct_Unified_Physics/results/full/fold_##/test_predictions/<trial>.npz
+file contains:
+| Array | Meaning |
+|---|---|
+| `time_s` | Forecast timestamps starting at 0.40 s |
+| `target_theta_rad` | Real held-out theta trajectory |
+| `target_x_m` | Real held-out forward CoM trajectory |
+| `predicted_theta_rad` | Model-generated theta trajectory |
+| `predicted_x_m` | Model-generated forward CoM trajectory |
+| `inferred_controller` | Four context-inferred effective controls |
+| `controller_semantics` | Identifies the controls as physical-gain parameters |
