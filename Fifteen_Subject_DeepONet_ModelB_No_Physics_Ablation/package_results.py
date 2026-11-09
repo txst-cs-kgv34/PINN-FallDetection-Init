@@ -30,13 +30,11 @@ def main() -> None:
         ROOT / "prepare_real_data.py",
         ROOT / "train_fold.py",
         ROOT / "aggregate_results.py",
-        ROOT / "compare_with_physics.py",
         ROOT / "package_results.py",
         ROOT / "run_on_mac.sh",
         ROOT / "run.sh",
         ROOT / "tests",
         ROOT / "results",
-        ROOT / "comparison",
         ROOT / "outputs" / "real_data_full" / "real_manifest.json",
         ROOT / "outputs" / "audit_pole_inputs" / "audit_adapter_manifest.json",
     ]
@@ -61,8 +59,10 @@ def main() -> None:
                 for path in candidate.rglob("*")
                 if path.is_file() and "__pycache__" not in path.parts
             )
-    if not any(path.name == "aggregate_summary.json" for path in files):
-        raise FileNotFoundError("Aggregate full results are missing; run all five folds first")
+    if not any(path.name == "multi_seed_summary.json" for path in files):
+        raise FileNotFoundError(
+            "Five-seed aggregate results are missing; run all 25 fold models first"
+        )
     with zipfile.ZipFile(destination, "w", compression=zipfile.ZIP_DEFLATED) as archive:
         for path in sorted(files):
             if path.resolve() != destination:

@@ -1,17 +1,17 @@
 {
-  "experiment_name": "fifteen_subject_model_b_no_physics_ablation_v1",
+  "experiment_name": "fifteen_subject_model_b_no_physics_ablation_5seeds_v2",
   "model_id": "B-no-physics",
-  "display_name": "Model B-no-physics — 15-subject DeepONet ablation",
+  "display_name": "Model B-no-physics — 15-subject DeepONet ablation (five seeds)",
   "training_regime": "direct_no_physics_ablation",
   "requires_teachers": false,
   "training_sources": ["real"],
-  "result_archive": "Fifteen_Subject_ModelB_No_Physics_Ablation_Results.zip",
+  "result_archive": "Fifteen_Subject_ModelB_No_Physics_5_Seeds_Results.zip",
   "ablation": {
-    "reference_experiment": "fifteen_subject_model_b_direct_unified_physics_v1",
+    "reference_experiment": "fifteen_subject_model_b_direct_unified_physics_5seeds_v2",
     "removed_component": "cart_pole_biomechanics_residual",
-    "preserved_components": "data, folds, seed, architecture, controller head, optimizer, epochs, early stopping, and evaluation"
+    "preserved_components": "data, folds, five base seeds, fold-specific seed offsets, architecture, controller head, optimizer, epochs, early stopping, and evaluation"
   },
-  "seed": 20261101,
+  "optimization_seeds": [20261101, 20261102, 20261103, 20261104, 20261105],
   "split_seed": 220,
   "randomized_subject_order": [
     "S57", "S46", "S30", "S55", "S48",

@@ -71,8 +71,35 @@ def seed_everything(seed: int) -> None:
         torch.manual_seed(seed)
         if torch.cuda.is_available():
             torch.cuda.manual_seed_all(seed)
+        if hasattr(torch.backends, "cudnn"):
+            torch.backends.cudnn.benchmark = False
+            torch.backends.cudnn.deterministic = True
+        try:
+            torch.use_deterministic_algorithms(True, warn_only=True)
+        except TypeError:
+            torch.use_deterministic_algorithms(True)
     except ImportError:
         pass
+
+
+def optimization_seeds(config: dict[str, Any]) -> list[int]:
+    """Return the configured base seeds, with legacy single-seed compatibility."""
+    values = config.get("optimization_seeds")
+    if values is None:
+        values = [config["seed"]]
+    seeds = [int(value) for value in values]
+    if not seeds or len(seeds) != len(set(seeds)):
+        raise ValueError("optimization_seeds must contain unique integer seeds")
+    return seeds
+
+
+def seed_spec(config: dict[str, Any], seed_index: int) -> tuple[int, str]:
+    """Resolve a one-based seed index into its base seed and output label."""
+    seeds = optimization_seeds(config)
+    if seed_index < 1 or seed_index > len(seeds):
+        raise ValueError(f"seed_index must be between 1 and {len(seeds)}")
+    base_seed = seeds[seed_index - 1]
+    return base_seed, f"seed_{seed_index:02d}_{base_seed}"
 
 
 def choose_torch_device(requested: str):

@@ -9,7 +9,7 @@ from collections import Counter
 
 import numpy as np
 
-from operator_core import load_config, resolve_glob, resolve_path
+from operator_core import load_config, optimization_seeds, resolve_glob, resolve_path
 
 
 def validate_protocol(config: dict) -> list[str]:
@@ -95,9 +95,7 @@ def validate_protocol(config: dict) -> list[str]:
     if config["model"]["controller_semantics"] != "physical_gains":
         errors.append("The ablation must preserve Model B's positive controller head")
     if config["training_regime"] != "direct_no_physics_ablation":
-        errors.append(
-            "The ablation requires training_regime=direct_no_physics_ablation"
-        )
+        errors.append("The ablation requires training_regime=direct_no_physics_ablation")
     if bool(training["use_physics"]):
         errors.append("The cart-pole biomechanics residual must be disabled")
     if bool(config["requires_teachers"]):
@@ -109,6 +107,16 @@ def validate_protocol(config: dict) -> list[str]:
     ablation = config.get("ablation", {})
     if ablation.get("removed_component") != "cart_pole_biomechanics_residual":
         errors.append("The ablation must identify only the biomechanics residual as removed")
+    try:
+        seeds = optimization_seeds(config)
+        expected_seeds = [20261101, 20261102, 20261103, 20261104, 20261105]
+        if seeds != expected_seeds:
+            errors.append(
+                "The paired ablation must use the exact physics seeds "
+                f"{expected_seeds}, found {seeds}"
+            )
+    except (KeyError, TypeError, ValueError) as exc:
+        errors.append(f"Invalid optimization_seeds: {exc}")
     return errors
 
 
@@ -193,8 +201,8 @@ def main() -> None:
         raise SystemExit(1)
     print(
         "\nSetup validation passed for Model B-no-physics: 15 subjects, five folds, "
-        "one real validation subject per fold, no held-out leakage, and the "
-        "cart-pole biomechanics residual disabled."
+        "the same five optimization seeds as physics, one real validation subject "
+        "per fold, no held-out leakage, and the biomechanics residual disabled."
     )
 
 

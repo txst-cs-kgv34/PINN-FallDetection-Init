@@ -33,8 +33,10 @@ from operator_core import (
     load_config,
     load_real_records,
     load_teacher_records,
+    optimization_seeds,
     real_losses,
     seed_everything,
+    seed_spec,
     synthetic_losses,
 )
 
@@ -66,13 +68,13 @@ def tensor_metrics(losses: dict[str, Any], prefix: str = "") -> dict[str, float]
     return result
 
 
-def validate_real(model, dataset, config, device) -> float:
+def validate_real(model, dataset, config, device, run_seed: int) -> float:
     import torch
 
     model.eval()
     losses = []
     with torch.no_grad():
-        for batch in iter_batches(dataset, 1, False, int(config["seed"])):
+        for batch in iter_batches(dataset, 1, False, run_seed):
             batch = batch_to_device(batch, device)
             loss, _, _, _ = infer_real(model, batch, config)
             losses.append(float(loss.detach().cpu()))
@@ -101,6 +103,7 @@ def train(
     device,
     output_dir: Path,
     mode: str,
+    run_seed: int,
 ):
     import torch
 
@@ -131,7 +134,7 @@ def train(
         model.train()
         epoch_rows: list[dict[str, float]] = []
         real_batches = training_batches(
-            real_train_set, real_batch_size, int(config["seed"]) + epoch
+            real_train_set, real_batch_size, run_seed + epoch
         )
         if regime == "hybrid":
             if synthetic_train_set is None:
@@ -139,7 +142,7 @@ def train(
             synthetic_batches = training_batches(
                 synthetic_train_set,
                 synthetic_batch_size,
-                int(config["seed"]) + 10000 + epoch,
+                run_seed + 10000 + epoch,
             )
             steps = max(len(real_batches), len(synthetic_batches))
             for step in range(steps):
@@ -182,7 +185,7 @@ def train(
                 global_batch += 1
 
         training_mean = mean_rows(epoch_rows)
-        validation_loss = validate_real(model, validation_set, config, device)
+        validation_loss = validate_real(model, validation_set, config, device, run_seed)
         row = {"epoch": epoch + 1, "validation_real_forecast_mse": validation_loss}
         row.update({f"train_{key}": value for key, value in training_mean.items()})
         history.append(row)
@@ -416,13 +419,20 @@ def main() -> None:
     parser.add_argument("--config", default="experiment.json")
     parser.add_argument("--mode", choices=("smoke", "full"), default="smoke")
     parser.add_argument("--fold", type=int, required=True)
+    parser.add_argument(
+        "--seed-index",
+        type=int,
+        default=1,
+        help="One-based index into experiment.json optimization_seeds",
+    )
     parser.add_argument("--device", default="auto", choices=("auto", "mps", "cuda", "cpu"))
     args = parser.parse_args()
 
     config = load_config(args.config)
     fold = fold_by_id(config, args.fold)
-    seed = int(config["seed"]) + int(fold["id"])
-    seed_everything(seed)
+    base_seed, seed_label = seed_spec(config, args.seed_index)
+    run_seed = base_seed + int(fold["id"])
+    seed_everything(run_seed)
     device = choose_torch_device(args.device)
     real_records = load_real_records(args.mode)
     limit = 2 if args.mode == "smoke" else None
@@ -450,7 +460,13 @@ def main() -> None:
         )
         training_teacher_ids = [record.teacher_id for record in training_teachers]
 
-    output_dir = ROOT / "results" / args.mode / f"fold_{int(fold['id']):02d}"
+    output_dir = (
+        ROOT
+        / "results"
+        / args.mode
+        / seed_label
+        / f"fold_{int(fold['id']):02d}"
+    )
     output_dir.mkdir(parents=True, exist_ok=True)
     dump_json(
         output_dir / "fold_manifest.json",
@@ -460,7 +476,10 @@ def main() -> None:
             "training_regime": config["training_regime"],
             "fold": fold,
             "mode": args.mode,
-            "seed": seed,
+            "seed_index": int(args.seed_index),
+            "base_optimization_seed": base_seed,
+            "effective_fold_seed": run_seed,
+            "all_optimization_seeds": optimization_seeds(config),
             "device": str(device),
             "real_training_trial_count": len(real_train_set),
             "synthetic_training_trajectory_count": (
@@ -489,6 +508,7 @@ def main() -> None:
         device,
         output_dir,
         args.mode,
+        run_seed,
     )
     write_csv(output_dir / "training_history.csv", history)
     plot_history(history, output_dir / "training_history.png", config)
@@ -504,6 +524,9 @@ def main() -> None:
         "display_name": config["display_name"],
         "training_regime": config["training_regime"],
         "fold": int(fold["id"]),
+        "seed_index": int(args.seed_index),
+        "base_optimization_seed": base_seed,
+        "effective_fold_seed": run_seed,
         "train_subjects": list(fold["train"]),
         "validation_subject": fold["validation"],
         "test_subjects": test_subjects,
