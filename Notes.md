@@ -63,3 +63,13 @@ file contains:
 | `predicted_x_m` | Model-generated forward CoM trajectory |
 | `inferred_controller` | Four context-inferred effective controls |
 | `controller_semantics` | Identifies the controls as physical-gain parameters |
+
+
+What changes with each seed?
+Each seed changes the stochastic optimization process:
+- Initial weights and biases in the context encoder, controller head, branch network, and trunk network
+- Training-trajectory shuffle order
+- Mini-batch/gradient sequence
+- Validation curve and selected early-stopping epoch
+- Learned four control parameters
+- Final generated trajectories and held-out errors
