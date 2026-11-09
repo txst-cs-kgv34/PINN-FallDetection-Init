@@ -195,26 +195,63 @@ def mean_ci(values: np.ndarray) -> tuple[float, float]:
 
 def plot_across_subjects(rows: list[dict], path: Path) -> None:
     subjects = sorted({str(row["test_subject"]) for row in rows}, key=subject_sort_key)
+    seed_indices = sorted({int(row["seed_index"]) for row in rows})
     positions = np.arange(len(subjects), dtype=float)
-    rng = np.random.default_rng(20261109)
+    offsets = np.linspace(-0.16, 0.16, len(seed_indices))
+    colors = plt.cm.tab10(np.linspace(0.0, 0.8, len(seed_indices)))
     fig, axes = plt.subplots(3, 1, figsize=(16, 13), sharex=True, constrained_layout=True)
     for axis, (metric, y_label) in zip(axes, PRIMARY_METRICS):
         values = [
             [float(row[metric]) for row in rows if str(row["test_subject"]) == subject]
             for subject in subjects
         ]
-        boxes = axis.boxplot(values, positions=positions, widths=0.55, patch_artist=True)
+        boxes = axis.boxplot(
+            values,
+            positions=positions,
+            widths=0.55,
+            patch_artist=True,
+            showfliers=False,
+        )
         for box in boxes["boxes"]:
             box.set(facecolor="#4C78A8", alpha=0.58)
         for median in boxes["medians"]:
             median.set(color="white", linewidth=1.7)
-        for index, series in enumerate(values):
-            jitter = rng.uniform(-0.10, 0.10, size=len(series))
-            axis.scatter(positions[index] + jitter, series, s=30, color="#1F4E79", zorder=3)
+        for seed_position, seed_index in enumerate(seed_indices):
+            seed_values = [
+                float(
+                    next(
+                        row[metric]
+                        for row in rows
+                        if str(row["test_subject"]) == subject
+                        and int(row["seed_index"]) == seed_index
+                    )
+                )
+                for subject in subjects
+            ]
+            axis.scatter(
+                positions + offsets[seed_position],
+                seed_values,
+                s=32,
+                color=colors[seed_position],
+                edgecolors="white",
+                linewidths=0.4,
+                label=f"Seed {seed_index}",
+                zorder=3,
+            )
+        axis.scatter(
+            positions,
+            [float(np.mean(series)) for series in values],
+            marker="D",
+            s=27,
+            color="black",
+            label="Five-seed mean",
+            zorder=4,
+        )
         axis.set_ylabel(y_label)
         axis.grid(axis="y", alpha=0.25)
+    axes[0].legend(ncol=6, frameon=False, loc="upper left")
     axes[-1].set_xticks(positions, subjects, rotation=45, ha="right")
-    fig.suptitle("Five-seed held-out subject errors (one point per seed)")
+    fig.suptitle("Held-out subject error across five optimization seeds")
     fig.savefig(path, dpi=190, bbox_inches="tight")
     plt.close(fig)
 
@@ -231,14 +268,62 @@ def plot_seed_means(seed_results: list[dict], path: Path) -> None:
             ],
             dtype=float,
         )
-        axis.plot(x, values, marker="o", linewidth=1.6, color="#4C78A8")
+        lower, upper = mean_ci(values)
+        axis.scatter(x, values, s=65, color="#4C78A8", zorder=3, label="Seed mean")
         axis.axhline(values.mean(), linestyle="--", color="#E1812C", label="Five-seed mean")
+        axis.axhspan(lower, upper, color="#E1812C", alpha=0.12, label="95% t interval")
+        for position, value in zip(x, values):
+            axis.annotate(f"{value:.3f}", (position, value), xytext=(0, 7), textcoords="offset points", ha="center", fontsize=8)
         axis.set_ylabel(y_label)
         axis.grid(alpha=0.25)
-        axis.legend(frameon=False)
+        axis.legend(frameon=False, ncol=3, loc="best")
     axes[-1].set_xticks(x, labels)
     axes[-1].set_xlabel("Seed index and base optimization seed")
-    fig.suptitle("Held-out-subject mean error for each optimization seed")
+    fig.suptitle("Seed-to-seed comparison of held-out-subject mean error")
+    fig.savefig(path, dpi=190, bbox_inches="tight")
+    plt.close(fig)
+
+
+def plot_fold_heatmaps(fold_rows: list[dict], path: Path) -> None:
+    seed_indices = sorted({int(row["seed_index"]) for row in fold_rows})
+    fold_indices = sorted({int(row["fold"]) for row in fold_rows})
+    fig, axes = plt.subplots(1, 3, figsize=(17, 5.5), constrained_layout=True)
+    for axis, (metric, title) in zip(axes, PRIMARY_METRICS):
+        matrix = np.asarray(
+            [
+                [
+                    float(
+                        next(
+                            row[metric]
+                            for row in fold_rows
+                            if int(row["seed_index"]) == seed_index
+                            and int(row["fold"]) == fold_index
+                        )
+                    )
+                    for fold_index in fold_indices
+                ]
+                for seed_index in seed_indices
+            ]
+        )
+        image = axis.imshow(matrix, cmap="YlOrRd", aspect="auto")
+        threshold = float((matrix.min() + matrix.max()) / 2.0)
+        for row_index in range(matrix.shape[0]):
+            for column_index in range(matrix.shape[1]):
+                value = matrix[row_index, column_index]
+                axis.text(
+                    column_index,
+                    row_index,
+                    f"{value:.3f}" if metric == "normalized_mse" else f"{value:.2f}",
+                    ha="center",
+                    va="center",
+                    color="white" if value > threshold else "black",
+                    fontsize=8,
+                )
+        axis.set_xticks(range(len(fold_indices)), [f"Fold {value}" for value in fold_indices])
+        axis.set_yticks(range(len(seed_indices)), [f"Seed {value}" for value in seed_indices])
+        axis.set_title(title)
+        fig.colorbar(image, ax=axis, fraction=0.046, pad=0.04)
+    fig.suptitle("Fold-level held-out error for every seed")
     fig.savefig(path, dpi=190, bbox_inches="tight")
     plt.close(fig)
 
@@ -253,6 +338,7 @@ def aggregate_all_seeds(config: dict, mode: str, seed_results: list[dict]) -> di
     write_csv(result_dir / "multi_seed_trial_metrics.csv", all_trial_rows)
 
     metric_reports = {}
+    variability_rows = []
     for metric in METRICS:
         seed_means = np.asarray(
             [
@@ -294,6 +380,27 @@ def aggregate_all_seeds(config: dict, mode: str, seed_results: list[dict]) -> di
             },
             "test_subject_statistics": subject_reports,
         }
+        lower, upper = mean_ci(seed_means)
+        variability_rows.append(
+            {
+                "metric": metric,
+                "five_seed_mean": float(seed_means.mean()),
+                "std_across_seed_means": float(seed_means.std(ddof=1)),
+                "coefficient_of_variation_pct": float(
+                    100.0 * seed_means.std(ddof=1) / seed_means.mean()
+                ),
+                "t_interval_95_lower": lower,
+                "t_interval_95_upper": upper,
+                "best_seed_index_lower_is_better": int(
+                    seed_results[int(np.argmin(seed_means))]["seed_index"]
+                ),
+                "best_seed_value": float(seed_means.min()),
+                "worst_seed_index_lower_is_better": int(
+                    seed_results[int(np.argmax(seed_means))]["seed_index"]
+                ),
+                "worst_seed_value": float(seed_means.max()),
+            }
+        )
 
     report = {
         "experiment": config["experiment_name"],
@@ -321,8 +428,10 @@ def aggregate_all_seeds(config: dict, mode: str, seed_results: list[dict]) -> di
         ],
     }
     dump_json(result_dir / "multi_seed_summary.json", report)
+    write_csv(result_dir / "seed_variability_summary.csv", variability_rows)
     plot_across_subjects(all_subject_rows, result_dir / "multi_seed_subject_boxplots.png")
     plot_seed_means(seed_results, result_dir / "multi_seed_seed_means.png")
+    plot_fold_heatmaps(all_fold_rows, result_dir / "multi_seed_fold_heatmaps.png")
     return report
 
 

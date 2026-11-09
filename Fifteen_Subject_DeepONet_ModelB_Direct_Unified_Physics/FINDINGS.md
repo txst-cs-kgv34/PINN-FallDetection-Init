@@ -1,177 +1,158 @@
-# Findings — Model B 15-subject direct unified physics DeepONet
+# Findings: five-seed Unified Physics experiment
 
-## Executive conclusion
+## Main result
 
-The experiment demonstrates **partial but meaningful cross-subject
-generalization**. Model B generated plausible held-out theta and forward-x CoM
-continuations for most subjects, including several subjects whose recordings
-were newly converted from phase-marked skeleton audits. Performance was not
-uniform: S45 and S32 were clear failures, and S48 was a weaker case.
+The repeated Unified Physics experiment completed all 25 planned models: five
+optimization seeds for each of the five grouped subject folds. Across seeds,
+the model obtains:
 
-Across the 15 held-out subjects:
+| Held-out-subject metric | Mean | SD across the five seed means | Descriptive 95% t interval | CV |
+|:---|---:|---:|---:|---:|
+| Normalized MSE | 0.2143 | 0.0383 | [0.1667, 0.2619] | 17.9% |
+| Angle RMSE | 5.103° | 0.420° | [4.582°, 5.625°] | 8.2% |
+| CoM displacement RMSE | 7.772 cm | 0.574 cm | [7.059, 8.484] cm | 7.4% |
 
-- mean normalized MSE was **0.2584 ± 0.3068**;
-- median normalized MSE was **0.1642**;
-- mean theta RMSE was **5.70 ± 2.84 degrees**;
-- mean forward-x RMSE was **8.87 ± 4.67 cm**;
-- 10/15 subjects had normalized MSE below 0.20;
-- 13/15 subjects had normalized MSE below 0.50.
+The physical-unit RMSE metrics are moderately stable, while normalized MSE is
+more sensitive to the optimization seed. Five seeds reduce reliance on one
+lucky or unlucky initialization, but they do not add new human subjects.
 
-The large standard deviations and the gap between mean and median show that a
-few poor subjects dominate the overall mean. The correct conclusion is not
-that Model B generalizes equally to all people; it is that it transfers well to
-many unseen subjects while retaining identifiable out-of-distribution failure
-cases.
+## Completeness and data-equivalence checks
 
-## Held-out subject results
+- 5 optimization seeds × 5 folds = 25 completed trained models.
+- 15 unique held-out subjects are evaluated once per seed.
+- 66 unique eligible held-out trials are evaluated per seed.
+- 75 subject-seed evaluations and 330 trial-seed evaluations are present.
+- The trial IDs are identical across seeds.
+- For every corresponding trial, `time_s`, `target_theta_rad`, and `target_x_m`
+  are exactly identical across all five seeds (maximum absolute difference 0).
+- Every corresponding generated trajectory differs from Seed 1 for Seeds 2–5.
+- Every corresponding inferred four-controller vector differs from Seed 1 for
+  Seeds 2–5.
 
-Each row is the mean across that subject's held-out trials. The final aggregate
-weights every subject equally, regardless of trial count.
+These checks confirm that seed variability comes from model fitting, not from
+different held-out samples or targets.
 
-The accompanying `cross_subject_results.png` uses one box per subject for each
-metric. Boxes summarize the subject's held-out trial distribution, individual
-trial values are overlaid as black points, the blue line marks the median, and
-the orange diamond marks the subject mean. With only 2–5 trials per subject,
-the points should be inspected together with the quartiles rather than treating
-the boxes as high-sample population estimates.
+## Seed-level comparison
 
-| Rank | Subject | Fold | Trials | Normalized MSE | Theta RMSE (deg) | Forward-x RMSE (cm) |
-|---:|:---:|---:|---:|---:|---:|---:|
-| 1 | S30 | 1 | 5 | 0.0151 | 1.24 | 2.79 |
-| 2 | S59 | 3 | 5 | 0.0688 | 3.97 | 5.15 |
-| 3 | S56 | 3 | 4 | 0.0936 | 3.87 | 6.30 |
-| 4 | S46 | 1 | 5 | 0.0971 | 3.92 | 6.43 |
-| 5 | S44 | 5 | 5 | 0.0984 | 2.90 | 6.38 |
-| 6 | S62 | 5 | 4 | 0.1097 | 5.57 | 6.04 |
-| 7 | S43 | 2 | 4 | 0.1184 | 4.19 | 7.24 |
-| 8 | S63 | 5 | 4 | 0.1642 | 5.79 | 8.25 |
-| 9 | S55 | 2 | 5 | 0.1666 | 5.30 | 8.09 |
-| 10 | S57 | 1 | 3 | 0.1771 | 4.95 | 8.79 |
-| 11 | S49 | 4 | 2 | 0.2020 | 5.63 | 7.73 |
-| 12 | S34 | 4 | 5 | 0.2142 | 7.03 | 8.92 |
-| 13 | S48 | 2 | 5 | 0.4658 | 8.48 | 13.23 |
-| 14 | S32 | 4 | 5 | 0.7267 | 11.41 | 17.21 |
-| 15 | S45 | 3 | 5 | 1.1588 | 11.22 | 20.46 |
+Each value below is the equal-weight mean of the 15 held-out subject means for
+that seed.
 
-S30 has the lowest numerical error, but its mean forecast region is only about
-0.26 s after the 0.40-s context. Its result should therefore not be compared
-directly with subjects that retain forecasts of roughly 2.5–2.6 s. S44 and S59
-are particularly useful positive examples because both remain accurate over
-long forecast regions. S45 is the strongest negative example: its predicted
-theta and x diverge substantially from the real path across multiple trials.
-
-## Fold-level results and checkpoint selection
-
-Fold metrics below are pooled over the forecast samples in the three test
-subjects, so they are not the equal-subject aggregate reported above.
-
-| Fold | Validation subject | Test subjects | Best epoch | Validation nMSE | Pooled test nMSE | Theta RMSE (deg) | Forward-x RMSE (cm) |
-|---:|:---:|:---|---:|---:|---:|---:|---:|
-| 1 | S63 | S57, S46, S30 | 64 | 0.0281 | 0.1156 | 4.18 | 7.40 |
-| 2 | S62 | S55, S48, S43 | 86 | 0.1098 | 0.2131 | 6.01 | 9.85 |
-| 3 | S57 | S45, S59, S56 | 405 | 0.1628 | 0.5545 | 9.13 | 16.22 |
-| 4 | S55 | S34, S32, S49 | 26 | 0.1043 | 0.3929 | 8.89 | 12.90 |
-| 5 | S43 | S44, S62, S63 | 37 | 0.0433 | 0.1072 | 4.22 | 7.02 |
-
-All checkpoints were selected only from the real validation subject. Test data
-were not used for selection. The physics loss was active and nonzero at the
-selected epochs in every fold. Fold 3 required substantially longer training
-and remained the weakest fold because of S45, while folds 1 and 5 generalized
-best overall.
-
-## Four inferred context-controller parameters
-
-The context pathway does save the four inferred positive controls:
-
-1. `Kp_theta`
-2. `Kd_theta`
-3. `Kp_x`
-4. `Kd_x`
-
-The context encoder first embeds four 0.10-s windows from the first 0.40 s. The
-controller head combines that embedding with demographics and emits one
-four-value vector **per trial**. Consequently, a fold does not have just one
-control vector; it has one inferred vector for each trial processed by that
-fold's model.
-
-Saved locations:
-
-- `results/full/fold_##/test_metrics_by_trial.csv` contains four explicitly
-  named `inferred_*` columns.
-- `results/full/fold_##/test_predictions/<trial>.npz` contains
-  `inferred_controller` ordered as
-  `[Kp_theta, Kd_theta, Kp_x, Kd_x]`.
-
-Mean held-out trial outputs by fold are:
-
-| Fold | Kp_theta | Kd_theta | Kp_x | Kd_x |
+| Seed index | Base seed | Normalized MSE | Angle RMSE | CoM displacement RMSE |
 |---:|---:|---:|---:|---:|
-| 1 | 0.6033 | 0.2688 | 34.4122 | 0.5789 |
-| 2 | 0.000015 | 0.0017 | 0.0258 | 0.0156 |
-| 3 | 0.3423 | 0.0030 | 1.8303 | 2.1500 |
-| 4 | approximately 0 | 0.0175 | 0.0358 | 0.0066 |
-| 5 | 10.5026 | 12.3071 | 8.7677 | 1.4762 |
+| 1 | 20261101 | 0.2082 | 5.500° | 8.274 cm |
+| 2 | 20261102 | 0.2311 | 5.355° | 8.136 cm |
+| 3 | 20261103 | 0.2662 | 5.356° | 8.150 cm |
+| 4 | 20261104 | 0.2041 | 4.737° | 7.231 cm |
+| 5 | 20261105 | **0.1619** | **4.568°** | **7.067 cm** |
 
-These fold-to-fold differences are too large to interpret as reliable human
-controller estimates. Folds 2 and 4 collapse several controls close to zero,
-whereas fold 5 learns much larger theta controls. Because the controls have no
-measured target or gain-supervision loss, the DeepONet branch can compensate
-for different controller representations while still fitting trajectories.
+Seed 5 is numerically best on all three metrics, but selecting it after seeing
+the test results would be optimistic model selection. The reported result must
+remain the five-seed mean and variability. Seed 3 is worst for normalized MSE;
+Seed 1 is worst for angle and displacement RMSE.
 
-Therefore:
+The observed best-to-worst span equals 48.7% of the five-seed normalized-MSE
+mean, 18.3% of the angle-RMSE mean, and 15.5% of the displacement-RMSE mean.
+That spread demonstrates why the earlier one-seed conclusion was fragile.
 
-- **Yes**, the four parameters are saved and can be audited.
-- **No**, they should not yet be described as measured or recovered human
-  biomechanical gains.
-- For scientific control-parameter claims, add identifiability constraints,
-  repeated-seed stability analysis, and independent parameter validation.
+## Subject-level findings
 
-The controller uncertainty head was not trained in this condition, so the NPZ
-files do not contain calibrated uncertainty for these four values.
+S45 is the dominant difficult case in every seed:
 
-## Motion- and data-quality observations
+| Subject | Normalized MSE mean ± SD | Interpretation |
+|:---:|---:|:---|
+| S45 | 1.1258 ± 0.5648 | Highest error and large seed sensitivity |
+| S48 | 0.3947 ± 0.2081 | Second-highest mean; seed sensitive |
+| S32 | 0.2966 ± 0.1881 | Third-highest mean; seed sensitive |
+| S57 | 0.2322 ± 0.0677 | Elevated but more stable |
+| S34 | 0.0393 ± 0.0405 | Lowest mean, though relative variability is large |
+| S49 | 0.0587 ± 0.0651 | Low mean but sensitive in relative terms |
+| S44 | 0.0595 ± 0.0320 | Low mean and moderate spread |
 
-- The standing anatomical frame was sufficient to obtain strong performance
-  for tilted/camera-facing subjects S30 and S44, so camera-axis alignment alone
-  does not prevent transfer.
-- S32, also camera-facing, remained a major failure. Its result indicates a
-  motion-pattern mismatch or subject-specific trajectory problem beyond simple
-  camera orientation.
-- S56 retained repaired frames before apparent contact but still achieved good
-  held-out performance (normalized MSE 0.0936). For S48, repaired frames were
-  after apparent contact and were not used by the adapter; its weaker result
-  therefore cannot be attributed directly to those unused repaired rows.
-- S49 contributes only two eligible trials. S49A11T01 was intentionally
-  ignored, and S49A11T04 was too short after preprocessing.
-- Four trials were excluded because fewer than 41 samples (0.40 s context plus
-  the initial sample) remained: S62A11T02, S63A11T05, S56A11T02, and
-  S49A11T04.
+The result is therefore heterogeneous: an overall seed mean hides subjects
+whose trajectories are consistently difficult and others whose success
+depends strongly on initialization.
 
-## Event-timing metric caution
+## Fold-level findings
 
-A real 10-degree theta crossing exists in 55 of 66 evaluated trials, but the
-prediction crosses 10 degrees in only 14 trials. Crossing-time error is defined
-for both trajectories in only 12 trials. Its mean over those 12 cases is about
-0.091 s, but this is a conditional result and should not be reported as the
-overall timing accuracy. The low predicted-crossing coverage indicates that
-many trajectories underpredict the eventual angular excursion.
+| Fold | Test subjects | Normalized MSE mean ± SD | Angle RMSE mean ± SD | Displacement RMSE mean ± SD |
+|---:|:---|---:|---:|---:|
+| 1 | S57, S46, S30 | 0.1971 ± 0.0501 | 5.670° ± 0.791° | 9.447 ± 1.267 cm |
+| 2 | S55, S48, S43 | 0.1861 ± 0.0575 | 5.675° ± 0.796° | 9.037 ± 1.543 cm |
+| 3 | S45, S59, S56 | 0.5450 ± 0.2536 | 9.449° ± 2.255° | 15.400 ± 3.555 cm |
+| 4 | S34, S32, S49 | 0.1534 ± 0.0930 | 5.384° ± 1.615° | 7.695 ± 2.646 cm |
+| 5 | S44, S62, S63 | 0.0831 ± 0.0125 | 4.161° ± 0.247° | 5.845 ± 0.741 cm |
 
-## Recommended next experiment
+Fold 3 is the hardest and most variable, mainly because S45 is difficult. Fold
+5 is the lowest-error and most stable fold. Fold 4 is also seed sensitive,
+consistent with the large variation observed for S32.
 
-1. Repeat all five folds with at least three optimization seeds and report
-   subject-level mean and uncertainty.
-2. Compare these results against the existing B-no-physics condition using the
-   identical 15-subject splits. This isolates the contribution of the
-   cart-pole biomechanics residual.
-3. Report error at fixed horizons such as 0.25, 0.50, 1.0, and 2.0 s in addition
-   to the current variable-length forecast metric.
-4. Investigate S45, S32, and S48 separately with context/target overlays and
-   coordinate-sign checks before adding more subjects.
-5. Treat the synthetic trajectories as candidates for later fall-detector
-   augmentation only after subject-wise quality filtering and downstream
-   ablation testing.
+## What changes with each seed?
 
-The immediate scientific takeaway is that Model B can synthesize useful
-held-out CoM trajectories for many subjects, but the current run does not yet
-support a claim of universal subject generalization or physiologically valid
-controller recovery.
+The seed is not a new subject split and does not alter the biomechanics. It
+initializes the Python, NumPy, and PyTorch random-number generators. This
+changes:
+
+1. the initial weights and biases of the context encoder, four-controller
+   head, DeepONet branch, and Fourier trunk;
+2. the shuffled order of training trajectories at every epoch;
+3. the sequence of gradient updates and the optimization path;
+4. the validation-loss curve and the checkpoint selected by early stopping;
+5. the resulting held-out trajectory predictions and inferred controller
+   outputs.
+
+The validation-selected epoch ranges from 12 to 396, with a median of 83,
+which is direct evidence that the optimization path changes substantially.
+
+The seed does **not** change:
+
+- the 15 subjects or their demographics;
+- repaired skeleton rows or manual phase marks;
+- the five train/validation/test folds (split seed remains 220);
+- the 0.40-second context input or held-out targets;
+- the DeepONet architecture;
+- the cart-pole residual equations or physics weight 0.01;
+- learning rate, optimizer, batch size, maximum epochs, or patience; or
+- the definitions of normalized MSE, angle RMSE, and displacement RMSE.
+
+The implementation uses:
+
+```text
+effective_fold_seed = base_optimization_seed + fold_id
+```
+
+Consequently, adjacent seed repeats can reuse the same numeric effective seed
+on a *different* fold. Because those folds contain different data and subject
+roles, they remain different training problems. Nevertheless, the five
+seed-level aggregates do not use five completely disjoint sets of RNG numbers.
+For the upcoming no-physics experiment, preserve this exact matrix so every
+physics model has a matched no-physics counterpart. A future independent
+study could use widely spaced base seeds.
+
+## Controller-output interpretation
+
+The four controller-head outputs change with seed because they are learned
+jointly with the forecast model. Their variation is not evidence that a
+person's actual physiology changes. They remain effective internal parameters,
+not supervised or experimentally measured biomechanical gains. Forecast-error
+stability should be the primary endpoint.
+
+## Recommended comparison with no physics
+
+Run B-no-physics with exactly the same five base seeds, fold offsets, subject
+splits, data, and checkpoint-selection rule. Compare physics and no-physics
+within each matched `(seed, subject)` pair. The primary comparison should:
+
+1. average trials within subject;
+2. calculate `no-physics error - physics error` for every matched seed and
+   subject;
+3. summarize the paired differences across seeds without treating the 75 rows
+   as 75 independent people; and
+4. report subject heterogeneity, seed heterogeneity, and fold heatmaps.
+
+## Defensible conclusion
+
+> Across five optimization seeds, Unified Physics achieved mean held-out
+> subject errors of 0.214 normalized MSE, 5.10° angle RMSE, and 7.77 cm CoM
+> displacement RMSE. Performance varied meaningfully with initialization,
+> especially for normalized MSE and the difficult S45/S48/S32 subjects, so the
+> five-seed distribution is more defensible than any single-seed result.

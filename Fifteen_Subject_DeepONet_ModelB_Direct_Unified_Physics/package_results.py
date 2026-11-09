@@ -20,6 +20,7 @@ def main() -> None:
     destination = (ROOT / output_name).resolve()
     candidates = [
         ROOT / "README.md",
+        ROOT / "FINDINGS.md",
         ROOT / "experiment.json",
         ROOT / "requirements.txt",
         ROOT / "operator_core.py",

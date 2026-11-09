@@ -14,8 +14,8 @@
   "metrics": {
     "normalized_mse": {
       "95pct_t_interval_across_seed_level_means": [
-        0.16671269557033155,
-        0.26187239746513463
+        0.16671269557033164,
+        0.2618723974651345
       ],
       "mean_of_seed_level_subject_means": 0.21429254651773308,
       "median_of_seed_level_subject_means": 0.20818151902407409,
@@ -197,8 +197,8 @@
     },
     "theta_mae_deg": {
       "95pct_t_interval_across_seed_level_means": [
-        3.8163104121221525,
-        4.833741184413425
+        3.816310412122154,
+        4.833741184413424
       ],
       "mean_of_seed_level_subject_means": 4.325025798267789,
       "median_of_seed_level_subject_means": 4.533914029730691,
@@ -380,8 +380,8 @@
     },
     "theta_rmse_deg": {
       "95pct_t_interval_across_seed_level_means": [
-        4.581938242780209,
-        5.624840876711367
+        4.58193824278021,
+        5.6248408767113665
       ],
       "mean_of_seed_level_subject_means": 5.103389559745788,
       "median_of_seed_level_subject_means": 5.35536041630639,
@@ -563,8 +563,8 @@
     },
     "theta_w1_deg": {
       "95pct_t_interval_across_seed_level_means": [
-        3.7698843451207793,
-        4.702661602662642
+        3.76988434512078,
+        4.7026616026626415
       ],
       "mean_of_seed_level_subject_means": 4.236272973891711,
       "median_of_seed_level_subject_means": 4.4733664081196105,
@@ -746,8 +746,8 @@
     },
     "x_mae_cm": {
       "95pct_t_interval_across_seed_level_means": [
-        6.009360576016197,
-        7.365622659680753
+        6.009360576016199,
+        7.365622659680751
       ],
       "mean_of_seed_level_subject_means": 6.687491617848475,
       "median_of_seed_level_subject_means": 7.030196653782494,
@@ -929,8 +929,8 @@
     },
     "x_rmse_cm": {
       "95pct_t_interval_across_seed_level_means": [
-        7.058848775644947,
-        8.484380949484128
+        7.058848775644948,
+        8.484380949484127
       ],
       "mean_of_seed_level_subject_means": 7.771614862564538,
       "median_of_seed_level_subject_means": 8.13596050027344,
@@ -1112,8 +1112,8 @@
     },
     "x_w1_cm": {
       "95pct_t_interval_across_seed_level_means": [
-        5.856021655510734,
-        7.081028136631604
+        5.856021655510736,
+        7.081028136631602
       ],
       "mean_of_seed_level_subject_means": 6.468524896071169,
       "median_of_seed_level_subject_means": 6.7913905643569406,

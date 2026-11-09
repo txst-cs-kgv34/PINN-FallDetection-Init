@@ -75,14 +75,34 @@ are also tested once in different folds, exactly like the ten added subjects.
 ## Five-seed repetition protocol
 
 The subject folds, prepared trajectories, architecture, optimizer settings,
-and physics weight remain fixed across seeds. Only stochastic initialization
-and training order change.
+and physics weight remain fixed across seeds. A seed initializes the Python,
+NumPy, and PyTorch random-number generators. It changes:
+
+- initial neural-network weights and biases in the context encoder, controller
+  head, DeepONet branch, and Fourier trunk;
+- the shuffled order of training trajectories in every epoch; and therefore
+- the gradient path, validation-loss history, early-stopping epoch, final
+  checkpoint, generated trajectories, and four inferred controller outputs.
+
+It does **not** change the real trajectories, repaired rows, phase marks,
+demographics, train/validation/test subjects, architecture, loss equation,
+physics coefficient, learning rate, batch size, maximum epochs, or test metric
+definitions. The stored test time and target theta/x arrays were verified to
+be exactly identical for all 66 trials across all five seeds.
 
 For seed index `i` with base seed `b`, fold `f` uses the effective random seed:
 
 ```text
 effective_fold_seed = b + f
 ```
+
+Because the five consecutive base seeds are shifted by fold ID, the same
+numeric effective seed can occur for a different fold in an adjacent repeat.
+Those are still different training problems because their training,
+validation, and test subjects differ. The later no-physics ablation must use
+this exact seed matrix so physics and no-physics remain paired. A future
+standalone repetition could use widely spaced base seeds to avoid numeric
+overlap across different folds.
 
 The complete experiment therefore trains `5 seeds × 5 folds = 25` models.
 Each seed evaluates all 15 held-out subjects exactly once, producing 75
@@ -232,6 +252,9 @@ Within each seed, `cross_subject_metrics.csv`, `cross_trial_metrics.csv`, and
   descriptive 95% t intervals, and per-subject seed distributions;
 - `multi_seed_subject_boxplots.png`: five seed-specific values per subject; and
 - `multi_seed_seed_means.png`: the held-out-subject mean for each seed.
+- `multi_seed_fold_heatmaps.png`: direct seed-by-fold error comparison; and
+- `seed_variability_summary.csv`: mean, standard deviation, coefficient of
+  variation, interval, and best/worst observed seed for each metric.
 
 The primary summary first averages equally over the 15 held-out subjects within
 each seed and then summarizes the five seed-level means. It does not treat 75
@@ -246,6 +269,34 @@ Fifteen_Subject_ModelB_Direct_Unified_Physics_5_Seeds_Results.zip
 Please return that ZIP for analysis. Raw prepared arrays are omitted from it by
 default, while provenance manifests, predictions, plots, metrics, logs, and
 model states are retained.
+
+## Completed five-seed results
+
+All 25 seed-fold models completed. Every seed evaluated the same 15 held-out
+subjects and 66 eligible trials, giving 75 subject-seed evaluations and 330
+trial-seed evaluations. Subject means—not individual trials—remain the primary
+unit within each seed.
+
+| Held-out metric | Five-seed mean | SD across seed means | Descriptive 95% t interval | CV |
+|:---|---:|---:|---:|---:|
+| Normalized MSE | 0.2143 | 0.0383 | [0.1667, 0.2619] | 17.9% |
+| Angle RMSE | 5.103° | 0.420° | [4.582°, 5.625°] | 8.2% |
+| CoM displacement RMSE | 7.772 cm | 0.574 cm | [7.059, 8.484] cm | 7.4% |
+
+Seed 5 has the lowest observed mean on all three metrics, but it must not be
+reported alone as a post-hoc “best model.” The five-seed mean and variability
+are the appropriate result. Seed 3 has the largest normalized MSE, while Seed
+1 has the largest angle and displacement RMSE.
+
+The strongest persistent subject difficulty is S45: normalized MSE is 1.126 ±
+0.565 across seeds. S48 and S32 are the next-highest and are also seed
+sensitive. At the fold level, Fold 3 is consistently hardest and most variable;
+Fold 5 is the most stable and lowest-error fold.
+
+The validation-selected checkpoint epoch ranges from 12 to 396 (median 83),
+showing that the seed changes not only the final prediction but also where
+early stopping selects the model. See [FINDINGS.md](FINDINGS.md) for the full
+interpretation and the updated comparison figures in `results/full/`.
 
 ## Interpretation limits
 
