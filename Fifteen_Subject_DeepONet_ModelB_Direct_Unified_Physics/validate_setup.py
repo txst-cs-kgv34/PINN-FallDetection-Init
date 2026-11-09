@@ -9,7 +9,7 @@ from collections import Counter
 
 import numpy as np
 
-from operator_core import load_config, resolve_glob, resolve_path
+from operator_core import load_config, optimization_seeds, resolve_glob, resolve_path
 
 
 def validate_protocol(config: dict) -> list[str]:
@@ -99,6 +99,12 @@ def validate_protocol(config: dict) -> list[str]:
         errors.append("Model B must train only on real trajectories")
     if float(training["gain_weight"]) != 0.0 or float(training["synthetic_source_weight"]) != 0.0:
         errors.append("Model B must not use gain supervision or synthetic training data")
+    try:
+        seeds = optimization_seeds(config)
+        if len(seeds) != 5:
+            errors.append(f"The repeated experiment requires five optimization seeds, found {len(seeds)}")
+    except (KeyError, TypeError, ValueError) as exc:
+        errors.append(f"Invalid optimization_seeds: {exc}")
     return errors
 
 
@@ -183,7 +189,8 @@ def main() -> None:
         raise SystemExit(1)
     print(
         "\nSetup validation passed for Model B: 15 subjects, five folds, "
-        "one real validation subject per fold, and no held-out leakage."
+        "five optimization seeds, one real validation subject per fold, "
+        "and no held-out leakage."
     )
 
 

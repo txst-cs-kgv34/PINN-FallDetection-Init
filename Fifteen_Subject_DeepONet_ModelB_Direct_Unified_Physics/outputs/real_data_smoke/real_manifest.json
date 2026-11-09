@@ -36,7 +36,7 @@
       "usable_samples": 11
     }
   ],
-  "experiment": "fifteen_subject_model_b_direct_unified_physics_v1",
+  "experiment": "fifteen_subject_model_b_direct_unified_physics_5seeds_v2",
   "included_by_subject": {
     "S30": 5,
     "S32": 5,

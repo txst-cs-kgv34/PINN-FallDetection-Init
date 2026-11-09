@@ -20,7 +20,6 @@ def main() -> None:
     destination = (ROOT / output_name).resolve()
     candidates = [
         ROOT / "README.md",
-        ROOT / "FINDINGS.md",
         ROOT / "experiment.json",
         ROOT / "requirements.txt",
         ROOT / "operator_core.py",
@@ -59,8 +58,10 @@ def main() -> None:
                 for path in candidate.rglob("*")
                 if path.is_file() and "__pycache__" not in path.parts
             )
-    if not any(path.name == "aggregate_summary.json" for path in files):
-        raise FileNotFoundError("Aggregate full results are missing; run all five folds first")
+    if not any(path.name == "multi_seed_summary.json" for path in files):
+        raise FileNotFoundError(
+            "Five-seed aggregate results are missing; run all 25 fold models first"
+        )
     with zipfile.ZipFile(destination, "w", compression=zipfile.ZIP_DEFLATED) as archive:
         for path in sorted(files):
             if path.resolve() != destination:

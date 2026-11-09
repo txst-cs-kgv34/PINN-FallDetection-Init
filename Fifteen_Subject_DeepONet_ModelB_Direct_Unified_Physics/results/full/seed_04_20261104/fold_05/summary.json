@@ -1,0 +1,82 @@
+{
+  "base_optimization_seed": 20261104,
+  "checkpoint_selected_only_on_real_validation_subject": true,
+  "context_region_s": 0.4,
+  "display_name": "Model B \u2014 15-subject direct unified physics DeepONet",
+  "effective_fold_seed": 20261109,
+  "experiment_name": "fifteen_subject_model_b_direct_unified_physics_5seeds_v2",
+  "fold": 5,
+  "four_window_context": true,
+  "model_id": "B",
+  "physics_loss_enabled": true,
+  "seed_index": 4,
+  "test_forecast_sample_count": 2217,
+  "test_pooled_metrics": {
+    "normalized_mse": 0.09253868460655212,
+    "theta_mae_deg": 2.537541627883911,
+    "theta_rmse_deg": 3.849487543106079,
+    "theta_w1_deg": 1.9956252581552967,
+    "x_mae_cm": 4.642333462834358,
+    "x_rmse_cm": 6.5588198602199554,
+    "x_w1_cm": 3.1014960510467784
+  },
+  "test_subject_mean_metrics": {
+    "S44": {
+      "normalized_mse": 0.10413544094190001,
+      "theta_mae_deg": 2.501448130607605,
+      "theta_rmse_deg": 2.8722060680389405,
+      "theta_w1_deg": 2.501447076224267,
+      "x_mae_cm": 5.30887933447957,
+      "x_rmse_cm": 5.936424471437931,
+      "x_w1_cm": 5.308876981250714
+    },
+    "S62": {
+      "normalized_mse": 0.05338773736730218,
+      "theta_mae_deg": 2.333227276802063,
+      "theta_rmse_deg": 4.016716539859772,
+      "theta_w1_deg": 2.288185578684196,
+      "x_mae_cm": 2.7794339461252093,
+      "x_rmse_cm": 3.487678524106741,
+      "x_w1_cm": 2.7004068244367394
+    },
+    "S63": {
+      "normalized_mse": 0.11096459813416004,
+      "theta_mae_deg": 3.514416456222534,
+      "theta_rmse_deg": 4.460807681083679,
+      "theta_w1_deg": 3.5144165219492662,
+      "x_mae_cm": 5.315808765590191,
+      "x_rmse_cm": 6.6925193183124065,
+      "x_w1_cm": 5.315808769775515
+    }
+  },
+  "test_subjects": [
+    "S44",
+    "S62",
+    "S63"
+  ],
+  "test_trial_count": 13,
+  "test_trial_mean_metrics": {
+    "normalized_mse": 0.09062204205502684,
+    "theta_mae_deg": 2.761370429625878,
+    "theta_rmse_deg": 3.713163632612962,
+    "theta_w1_deg": 2.747511060281168,
+    "x_mae_cm": 4.532720578404573,
+    "x_rmse_cm": 5.41560874822048,
+    "x_w1_cm": 4.508403637161738
+  },
+  "train_subjects": [
+    "S55",
+    "S57",
+    "S59",
+    "S56",
+    "S49",
+    "S48",
+    "S46",
+    "S45",
+    "S34",
+    "S32",
+    "S30"
+  ],
+  "training_regime": "direct_physics",
+  "validation_subject": "S43"
+}

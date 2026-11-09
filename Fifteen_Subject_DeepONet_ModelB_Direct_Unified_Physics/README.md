@@ -1,12 +1,22 @@
-# Model B — 15-subject direct unified physics DeepONet
+# Model B — 15-subject direct unified physics DeepONet (five seeds)
 
 This repository extends the exact earlier **Model B** condition to 15 subjects:
 
 `S43, S55, S57, S62, S63, S59, S56, S49, S48, S46, S45, S44, S34, S32, S30`
 
-It trains on real phase-marked CoM trajectories with the differentiable delayed
+It runs the same five-fold experiment with **five optimization seeds**. It
+trains on real phase-marked CoM trajectories with the differentiable delayed
 cart-pole biomechanics residual. It does **not** train on Pole-PINN synthetic
 trajectories, teacher checkpoints, or gain-sweep targets.
+
+The five base seeds are:
+
+```text
+20261101, 20261102, 20261103, 20261104, 20261105
+```
+
+These exact seeds must also be used for the no-physics experiment so every
+physics run has a paired no-physics run.
 
 ## Do Pole_PINN_Human_Motion or Sweep Gain need to be rerun?
 
@@ -62,6 +72,33 @@ subjects, rather than weighting subjects with more trials more heavily.
 The five original Model B subjects serve once each as validation anchors; they
 are also tested once in different folds, exactly like the ten added subjects.
 
+## Five-seed repetition protocol
+
+The subject folds, prepared trajectories, architecture, optimizer settings,
+and physics weight remain fixed across seeds. Only stochastic initialization
+and training order change.
+
+For seed index `i` with base seed `b`, fold `f` uses the effective random seed:
+
+```text
+effective_fold_seed = b + f
+```
+
+The complete experiment therefore trains `5 seeds × 5 folds = 25` models.
+Each seed evaluates all 15 held-out subjects exactly once, producing 75
+subject-seed evaluations while retaining only 15 unique human subjects.
+
+Outputs are isolated by seed so checkpoints cannot overwrite one another:
+
+```text
+results/full/
+├── seed_01_20261101/fold_01 ... fold_05
+├── seed_02_20261102/fold_01 ... fold_05
+├── seed_03_20261103/fold_01 ... fold_05
+├── seed_04_20261104/fold_01 ... fold_05
+└── seed_05_20261105/fold_01 ... fold_05
+```
+
 ## Data placement
 
 Unzip this repository beside the subject directories:
@@ -103,7 +140,9 @@ not configured anywhere in this experiment.
 
 ## Running locally
 
-Python 3.10+ is recommended. `auto` chooses CUDA, then Apple MPS, then CPU.
+Python 3.10+ is recommended. `./run.sh setup` creates or reuses the shared
+environment at `~/.venv` (override with `PINN_VENV_DIR`). `auto` chooses CUDA,
+then Apple MPS, then CPU.
 
 ```bash
 cd Fifteen_Subject_DeepONet_ModelB_Direct_Unified_Physics
@@ -119,9 +158,29 @@ Explicit device examples:
 
 ```bash
 ./run.sh smoke cpu
-./run.sh fold 1 cuda
+./run.sh fold 1 cuda 3
+./run.sh seed 3 cuda
 ./run.sh full cuda
 ./run.sh full cpu
+```
+
+`fold 1 cuda 3` means Fold 1 using seed index 3 (`20261103`). Omitting the
+seed index defaults to seed index 1. `seed 3 cuda` runs all five folds for seed
+index 3 and aggregates that seed. `full cuda` runs all 25 models, performs the
+five-seed aggregation, and packages the result.
+
+Completed fold summaries are skipped automatically, so an interrupted run can
+resume with the same command. Set `FORCE=1` only when you intentionally want to
+overwrite a completed fold:
+
+```bash
+FORCE=1 ./run.sh fold 1 cuda 3
+```
+
+Check progress without starting training:
+
+```bash
+./run.sh status
 ```
 
 `run_on_mac.sh` remains as a compatibility wrapper and accepts the same modes.
@@ -133,10 +192,12 @@ Usage:
 ./run.sh validate
 ./run.sh prepare
 ./run.sh smoke [auto|cuda|mps|cpu]
-./run.sh fold FOLD_ID [auto|cuda|mps|cpu]
+./run.sh fold FOLD_ID [auto|cuda|mps|cpu] [SEED_INDEX]
+./run.sh seed SEED_INDEX [auto|cuda|mps|cpu]
 ./run.sh full [auto|cuda|mps|cpu]
 ./run.sh aggregate
 ./run.sh package
+./run.sh status
 ./run.sh test
 ```
 
@@ -160,77 +221,39 @@ For every held-out trial the repository saves:
   crossing-time error;
 - the validation-selected checkpoint and complete training history.
 
-After all folds, `cross_subject_metrics.csv` compares the subject means, while
-`cross_subject_results.png` shows subject-wise box plots of the held-out trial
-errors. Each box summarizes that subject's trials, black points are individual
-trials, the blue line is the trial median, and the orange diamond is the
-subject mean. The packaged file is:
+Within each seed, `cross_subject_metrics.csv`, `cross_trial_metrics.csv`, and
+`aggregate_summary.json` summarize its five folds. After all seeds, the root
+`results/full/` directory contains:
+
+- `multi_seed_subject_metrics.csv`: 75 rows (15 held-out subjects × 5 seeds);
+- `multi_seed_trial_metrics.csv`: every eligible held-out trial for every seed;
+- `multi_seed_fold_metrics.csv`: 25 trained fold models;
+- `multi_seed_summary.json`: seed-level means, across-seed standard deviations,
+  descriptive 95% t intervals, and per-subject seed distributions;
+- `multi_seed_subject_boxplots.png`: five seed-specific values per subject; and
+- `multi_seed_seed_means.png`: the held-out-subject mean for each seed.
+
+The primary summary first averages equally over the 15 held-out subjects within
+each seed and then summarizes the five seed-level means. It does not treat 75
+subject-seed rows as 75 independent people.
+
+The packaged file is:
 
 ```text
-Fifteen_Subject_ModelB_Direct_Unified_Physics_Results.zip
+Fifteen_Subject_ModelB_Direct_Unified_Physics_5_Seeds_Results.zip
 ```
 
-Raw prepared arrays are omitted by default, while provenance manifests,
-predictions, plots, metrics, logs, and model states are retained.
-
-## Completed 15-subject results
-
-The completed run contains 66 held-out test trials. Every configured subject
-was tested once, with equal subject weighting in the aggregate statistics.
-Detailed analysis is in [`FINDINGS.md`](FINDINGS.md).
-
-| Metric | Mean across 15 subjects | Standard deviation | Median |
-|:---|---:|---:|---:|
-| Normalized MSE | 0.2584 | 0.3068 | 0.1642 |
-| Theta RMSE | 5.70 deg | 2.84 deg | 5.30 deg |
-| Forward-x RMSE | 8.87 cm | 4.67 cm | 7.73 cm |
-| Theta MAE | 4.96 deg | 2.72 deg | 4.10 deg |
-| Forward-x MAE | 7.86 cm | 4.47 cm | 6.70 cm |
-
-Ten of 15 subjects achieved normalized MSE below 0.20 and 13 of 15 were below
-0.50. The strongest held-out subjects were S30, S59, S56, S46, and S44. The
-main failure cases were S45, S32, and S48. Therefore, the run supports useful
-cross-subject generalization, but not uniform generalization to every motion
-pattern.
-
-### Saved context-controller parameters
-
-Yes—the four positive effective controls inferred from the context encoding
-are saved for every held-out test trial:
-
-```text
-Kp_theta, Kd_theta, Kp_x, Kd_x
-```
-
-They are available in two places inside each `results/full/fold_##` directory:
-
-- `test_metrics_by_trial.csv` under the columns `inferred_kp_theta`,
-  `inferred_kd_theta`, `inferred_kp_x`, and `inferred_kd_x`;
-- `test_predictions/<trial>.npz` in `inferred_controller`, in the same order.
-
-The model produces one control vector per trial from that trial's four context
-windows plus demographics—not one universal vector per fold. The current run
-exports test-trial controls; the trained checkpoint can reproduce controls for
-training or validation trials, but those were not separately exported.
-
-The values should remain labeled **effective model controls**, not measured
-human gains. They differ substantially between independently trained folds,
-and folds 2 and 4 show near-zero collapse for several components. This means
-the trajectory predictions can be evaluated, but the control values are not
-yet sufficiently identifiable or stable for biomechanical interpretation.
+Please return that ZIP for analysis. Raw prepared arrays are omitted from it by
+default, while provenance manifests, predictions, plots, metrics, logs, and
+model states are retained.
 
 ## Interpretation limits
 
 - Apparent contact is based on skeleton/video marking, not force-plate contact.
-- One optimization seed remains a pilot; repeated seeds are needed for formal
-  uncertainty estimates.
-- Forecast duration varies by subject because each trial stops at the
-  pre-20-degree cutoff. Short- and long-horizon errors are therefore not
-  perfectly comparable.
-- Four otherwise available trials were excluded because fewer than 0.40 s of
-  usable context remained: S62A11T02, S63A11T05, S56A11T02, and S49A11T04.
-- The inferred controls are unsupervised effective parameters and are not
-  validated physiological measurements.
+- Five seeds measure optimization variability; they do not increase the number
+  of independent human subjects beyond 15.
+- With only five seeds, across-seed confidence intervals remain descriptive and
+  relatively imprecise.
 - Model predictions should be called synthetic only as a provenance label.
   They should not be used to train a future fall detector until their fidelity,
   diversity, leakage risk, and downstream utility have been evaluated.

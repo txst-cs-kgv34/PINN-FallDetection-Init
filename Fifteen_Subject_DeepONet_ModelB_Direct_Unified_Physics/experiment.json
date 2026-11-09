@@ -1,12 +1,12 @@
 {
-  "experiment_name": "fifteen_subject_model_b_direct_unified_physics_v1",
+  "experiment_name": "fifteen_subject_model_b_direct_unified_physics_5seeds_v2",
   "model_id": "B",
   "display_name": "Model B — 15-subject direct unified physics DeepONet",
   "training_regime": "direct_physics",
   "requires_teachers": false,
   "training_sources": ["real"],
-  "result_archive": "Fifteen_Subject_ModelB_Direct_Unified_Physics_Results.zip",
-  "seed": 20261101,
+  "result_archive": "Fifteen_Subject_ModelB_Direct_Unified_Physics_5_Seeds_Results.zip",
+  "optimization_seeds": [20261101, 20261102, 20261103, 20261104, 20261105],
   "split_seed": 220,
   "randomized_subject_order": [
     "S57", "S46", "S30", "S55", "S48",

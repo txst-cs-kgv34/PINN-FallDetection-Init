@@ -1,7 +1,0 @@
-{
-  "best_epoch": 37,
-  "best_validation_value": 0.04326557042077184,
-  "selection_metric": "real validation-subject forecast normalized MSE",
-  "test_subject_used_for_selection": false,
-  "training_regime": "direct_physics"
-}

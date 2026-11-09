@@ -1,5 +1,5 @@
 {
-  "experiment": "fifteen_subject_model_b_direct_unified_physics_v1",
+  "experiment": "fifteen_subject_model_b_direct_unified_physics_5seeds_v2",
   "note": "This deterministic adapter supplies real trajectories only. It does not train Pole-PINN or run gain sweeps.",
   "subjects": [
     {
