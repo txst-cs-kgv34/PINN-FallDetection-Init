@@ -160,9 +160,11 @@ For every held-out trial the repository saves:
   crossing-time error;
 - the validation-selected checkpoint and complete training history.
 
-After all folds, `cross_subject_metrics.csv` and
-`cross_subject_results.png` compare all 15 held-out subjects. The packaged file
-is:
+After all folds, `cross_subject_metrics.csv` compares the subject means, while
+`cross_subject_results.png` shows subject-wise box plots of the held-out trial
+errors. Each box summarizes that subject's trials, black points are individual
+trials, the blue line is the trial median, and the orange diamond is the
+subject mean. The packaged file is:
 
 ```text
 Fifteen_Subject_ModelB_Direct_Unified_Physics_Results.zip

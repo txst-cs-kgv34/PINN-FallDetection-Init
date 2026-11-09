@@ -28,6 +28,13 @@ cases.
 Each row is the mean across that subject's held-out trials. The final aggregate
 weights every subject equally, regardless of trial count.
 
+The accompanying `cross_subject_results.png` uses one box per subject for each
+metric. Boxes summarize the subject's held-out trial distribution, individual
+trial values are overlaid as black points, the blue line marks the median, and
+the orange diamond marks the subject mean. With only 2–5 trials per subject,
+the points should be inspected together with the quartiles rather than treating
+the boxes as high-sample population estimates.
+
 | Rank | Subject | Fold | Trials | Normalized MSE | Theta RMSE (deg) | Forward-x RMSE (cm) |
 |---:|:---:|---:|---:|---:|---:|---:|
 | 1 | S30 | 1 | 5 | 0.0151 | 1.24 | 2.79 |
