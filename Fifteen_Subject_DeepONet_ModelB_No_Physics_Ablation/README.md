@@ -172,6 +172,40 @@ run regenerates the audit inputs, prepares the real trajectories, trains all
 five folds, aggregates all 15 held-out subjects, creates subject-wise trial
 error box plots, and packages the results.
 
+## Completed-run result
+
+The returned full run was verified as a matched ablation against Model B with
+physics. Both result trees contain the same 15 held-out subjects and the same
+66 held-out trials; the stored time and target theta/x arrays are identical.
+
+Subject means are the primary analysis unit because the repeated trials from
+one subject are correlated.
+
+| Held-out subject metric | Model B physics | B-no-physics | Physics minus no-physics | Paired subjects favoring physics | Wilcoxon p |
+|:---|---:|---:|---:|---:|---:|
+| Normalized MSE | 0.2584 | **0.2363** | +0.0221 (+9.4%) | 7/15 | 0.639 |
+| Angle RMSE (degrees) | 5.698 | **4.810** | +0.888 (+18.5%) | 6/15 | 0.229 |
+| CoM displacement RMSE (cm) | 8.868 | **7.787** | +1.081 (+13.9%) | 7/15 | 0.454 |
+
+Lower is better. The no-physics condition has lower mean error for all three
+primary metrics, but none of the paired subject-level differences is
+statistically distinguishable from zero in this single-seed, 15-subject run.
+The 95% subject-bootstrap confidence intervals for the mean physics advantage
+(`no-physics - physics`) all include zero. The correct conclusion is therefore
+that this run does **not demonstrate a generalization benefit from the chosen
+0.01 physics residual**; it does not establish that physics is harmful.
+
+The effect is heterogeneous. Physics improves normalized MSE for S30, S43,
+S44, S45, S46, S57, and S62, while no-physics improves it for the other eight
+subjects. In particular, no-physics is much better for all three Fold 4 test
+subjects (S34, S32, S49), whereas physics is much better for the difficult S45
+case in Fold 3. This fold and subject sensitivity should be tested with
+repeated optimization seeds and, if physics is retained, a physics-weight
+sweep selected without test-subject access.
+
+See [FINDINGS.md](FINDINGS.md) for the complete interpretation. Reproducible
+paired tables, verification records, and figures are in `comparison/`.
+
 ## Saved results
 
 For each held-out trial:
@@ -193,9 +227,15 @@ The final archive is:
 Fifteen_Subject_ModelB_No_Physics_Ablation_Results.zip
 ```
 
-Please return that ZIP. The comparison with the physics result will use the
-same subject-level and trial-level metrics and will report both absolute and
-paired error differences.
+The archive now also includes the paired comparison outputs. To regenerate
+them when both extracted result directories are available:
+
+```bash
+python compare_with_physics.py \
+  --physics-results ../Fifteen_Subject_DeepONet_ModelB_Direct_Unified_Physics \
+  --no-physics-results . \
+  --output comparison
+```
 
 ## Interpretation rules
 
@@ -203,9 +243,9 @@ paired error differences.
   a new architecture.
 - Lower held-out normalized MSE, theta RMSE, or forward-x RMSE indicates better
   trajectory generalization.
-- A useful physics contribution requires Model B with physics to outperform
-  this ablation consistently across subjects or trials, not merely in the
-  overall mean.
+- This one-seed run does not show consistent physics superiority: the paired
+  subject win counts are 7/15 for normalized MSE, 6/15 for angle RMSE, and
+  7/15 for displacement RMSE.
 - The four inferred controller outputs remain effective internal variables,
   especially here where no physics equation constrains them.
 - One seed remains a pilot; repeated seeds are required for formal uncertainty

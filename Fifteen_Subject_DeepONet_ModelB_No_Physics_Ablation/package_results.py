@@ -30,11 +30,13 @@ def main() -> None:
         ROOT / "prepare_real_data.py",
         ROOT / "train_fold.py",
         ROOT / "aggregate_results.py",
+        ROOT / "compare_with_physics.py",
         ROOT / "package_results.py",
         ROOT / "run_on_mac.sh",
         ROOT / "run.sh",
         ROOT / "tests",
         ROOT / "results",
+        ROOT / "comparison",
         ROOT / "outputs" / "real_data_full" / "real_manifest.json",
         ROOT / "outputs" / "audit_pole_inputs" / "audit_adapter_manifest.json",
     ]
