@@ -22,6 +22,13 @@ The five-seed held-out result is:
 | Angle Wasserstein-1 | 16.562° | 0.703° | — |
 | CoM displacement Wasserstein-1 | 22.126 cm | 1.132 cm | — |
 
+The advisor-facing subject figure uses three directly interpretable trajectory
+errors: normalized forecast RMSE, theta RMSE in degrees, and CoM x RMSE in
+centimetres. Each normalized-RMSE point is computed as the square root of that
+subject-seed's normalized MSE before constructing the five-seed boxplot. The
+angular and horizontal equation residuals are intentionally excluded from this
+comparison figure and remain reported separately below.
+
 These are subject-balanced statistics: trials are averaged within each held-out
 subject, the 15 subjects are averaged equally within a seed, and only then are
 the five seed means summarized. The 75 subject-seed rows are repeated

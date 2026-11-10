@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Create subject-level full-fall trajectory/residual summary artifacts."""
+"""Create subject-level full-fall primary-error summary artifacts."""
 
 from pathlib import Path
 
@@ -12,10 +12,13 @@ ROOT = Path(__file__).resolve().parent
 RESULTS = ROOT / "results" / "full"
 INPUT = RESULTS / "multi_seed_subject_metrics.csv"
 OUTPUT_CSV = RESULTS / "five_seed_subject_mean_summary.csv"
+# Keep the original filename for compatibility with the completed results ZIP.
 OUTPUT_FIGURE = RESULTS / "full_fall_physics_residuals_by_subject.png"
+OUTPUT_PRIMARY_FIGURE = RESULTS / "full_fall_primary_errors_by_subject.png"
 
 METRICS = [
     "normalized_mse",
+    "normalized_rmse",
     "theta_rmse_deg",
     "x_rmse_cm",
     "angular_residual_rmse",
@@ -25,6 +28,9 @@ METRICS = [
 
 def main() -> None:
     frame = pd.read_csv(INPUT)
+    # Each plotted point is one held-out subject under one optimization seed.
+    # Convert that point's normalized MSE to normalized RMSE before grouping.
+    frame["normalized_rmse"] = np.sqrt(frame["normalized_mse"].clip(lower=0.0))
     subjects = sorted(frame["test_subject"].unique(), key=lambda value: int(value[1:]))
     grouped = frame.groupby("test_subject", sort=False)
 
@@ -34,11 +40,11 @@ def main() -> None:
     summary.insert(1, "seed_count", grouped.size().reindex(subjects).to_numpy())
     summary.to_csv(OUTPUT_CSV, index=False)
 
-    colors = {"trajectory": "#3B78A4", "angular": "#5A9E6F", "horizontal": "#D9822B"}
+    colors = {"normalized": "#3B78A4", "theta": "#5A9E6F", "x": "#D9822B"}
     panels = [
-        ("normalized_mse", "Normalized forecast MSE", colors["trajectory"]),
-        ("angular_residual_rmse", "Angular physics residual RMSE", colors["angular"]),
-        ("horizontal_residual_rmse", "Horizontal physics residual RMSE", colors["horizontal"]),
+        ("normalized_rmse", "Normalized forecast RMSE", colors["normalized"]),
+        ("theta_rmse_deg", "Theta RMSE (°)", colors["theta"]),
+        ("x_rmse_cm", "CoM x RMSE (cm)", colors["x"]),
     ]
 
     fig, axes = plt.subplots(3, 1, figsize=(15, 11), sharex=True, constrained_layout=True)
@@ -67,10 +73,11 @@ def main() -> None:
         axis.set_ylabel(ylabel)
         axis.grid(axis="y", alpha=0.25)
 
-    axes[0].set_title("Five-seed held-out full-fall errors and separated physics residuals by subject")
+    axes[0].set_title("Five-seed held-out full-fall errors by subject — Model B (Physics)")
     axes[-1].set_xticks(x, subjects)
     axes[-1].set_xlabel("Held-out subject (five optimization seeds per box)")
     fig.savefig(OUTPUT_FIGURE, dpi=180)
+    fig.savefig(OUTPUT_PRIMARY_FIGURE, dpi=180)
     plt.close(fig)
 
 

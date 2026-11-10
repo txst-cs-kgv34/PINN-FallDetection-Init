@@ -309,6 +309,11 @@ seed means.
 | Angle MAE | 17.152° | 0.792° | 16.169–18.136° |
 | CoM displacement MAE | 22.978 cm | 1.279 cm | 21.389–24.566 cm |
 
+For the advisor-facing subject boxplot, normalized forecast RMSE is calculated
+for each subject-seed point as `sqrt(normalized_mse)`. Theta RMSE remains in
+degrees and CoM x RMSE remains in centimetres; these are trajectory errors, not
+physics-equation residuals.
+
 Seed 1 has the lowest mean normalized MSE (2.7734), while Seed 2 has the
 highest (3.6769). This optimization variation is modest compared with subject
 variation. S45 is the hardest held-out subject (mean normalized MSE 14.7969,
@@ -323,10 +328,13 @@ units/scales are not directly comparable to normalized MSE, degrees, or
 centimetres. S49 has an especially large horizontal-residual RMSE (80.95),
 which is concentrated in the difficult short T04 fall.
 
-See `FINDINGS.md` for the subject/trial analysis and interpretation. The new
-`results/full/full_fall_physics_residuals_by_subject.png` keeps angular and
-horizontal residuals separate, as required for diagnosing which equation is
-violated and when.
+See `FINDINGS.md` for the subject/trial analysis and interpretation.
+`results/full/full_fall_physics_residuals_by_subject.png` now shows normalized
+forecast RMSE, theta RMSE (degrees), and CoM x RMSE (centimetres) as five-seed
+boxplots by subject. The clearer alias
+`results/full/full_fall_primary_errors_by_subject.png` contains the same plot.
+Angular and horizontal residuals remain available in the CSV and per-trial NPZ
+outputs for equation-specific diagnostics.
 
 ## Interpretation limits
 
