@@ -23,12 +23,15 @@ This directory contains the completed paired five-seed comparison.
 - `figures/paired_seed_means.png`
 - `figures/paired_subject_means.png`
 - `figures/paired_subject_difference_boxplots.png`
+- `figures/physics_vs_no_physics_five_seed_side_by_side_boxplots.png`
 - `figures/paired_fold_difference_heatmaps.png`
 - `figures/paired_subject_scatter.png`
 
 ## Reproducibility
 
 - `compare_five_seed_results.py` regenerates the tables, JSON summary, and figures.
+- `plot_five_seed_side_by_side_boxplots.py` regenerates the requested
+  three-panel side-by-side five-seed boxplot.
 
 The archive was verified after packaging by extracting it into a separate directory and checking every expected file.
 

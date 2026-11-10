@@ -80,9 +80,14 @@ analysis.
 - `figures/paired_subject_means.png`: per-subject five-seed means and seed SD.
 - `figures/paired_subject_difference_boxplots.png`: five paired seed
   differences per subject.
+- `figures/physics_vs_no_physics_five_seed_side_by_side_boxplots.png`:
+  side-by-side Physics and No-Physics distributions for every held-out subject;
+  each box contains the five matched seed-specific subject means.
 - `figures/paired_fold_difference_heatmaps.png`: seed-by-fold effects.
 - `figures/paired_subject_scatter.png`: subject means against the equality line.
 - `compare_five_seed_results.py`: reproducible comparison script.
+- `plot_five_seed_side_by_side_boxplots.py`: regenerates the three-panel
+  side-by-side boxplot from `paired_subject_seed_metrics.csv`.
 
 ## Reproduce
 
