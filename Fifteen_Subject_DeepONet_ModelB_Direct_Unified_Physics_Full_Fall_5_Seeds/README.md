@@ -81,9 +81,10 @@ post-fall recordings.
 - records endpoint angle, maximum angle, duration, and mask counts in the real
   manifest.
 
-If preparation reports that a trial exceeds the configured 3-s grid, increase
-`data.horizon_s` so the full trial fits and rerun preparation. Do not restore
-the 20-degree cutoff.
+The supplied configuration uses an 8-s grid, which contains every accepted
+trial in this dataset (the longest marked interval is 6.09 s). If a future
+trial exceeds the configured grid, increase `data.horizon_s` and rerun
+preparation. Do not restore the 20-degree cutoff or silently truncate it.
 
 ## Five-fold generalization protocol
 
@@ -286,6 +287,47 @@ Please return that ZIP for analysis. Raw prepared arrays are omitted from it by
 default, while provenance manifests, predictions, plots, metrics, logs, and
 model states are retained.
 
+## Completed five-seed full-fall results
+
+The returned run passed the full-fall integrity checks:
+
+- 25/25 fold-seed models and fold summaries are present;
+- all 15 subjects are evaluated once per seed (75 subject-seed evaluations);
+- 70 unique accepted trials are evaluated for every seed (350 trial-seed
+  evaluations); and
+- all 70 trials retain their complete marked standing-to-contact interval.
+
+The primary aggregate first averages trials within each held-out subject,
+averages the 15 subjects equally within each seed, and then summarizes the five
+seed means.
+
+| Held-out metric | Five-seed mean | Seed SD | Descriptive 95% t interval |
+|:---|---:|---:|:---|
+| Normalized forecast MSE | 3.1852 | 0.3292 | 2.7764–3.5940 |
+| Angle RMSE | 21.484° | 0.901° | 20.365–22.603° |
+| CoM displacement RMSE | 28.464 cm | 1.473 cm | 26.635–30.294 cm |
+| Angle MAE | 17.152° | 0.792° | 16.169–18.136° |
+| CoM displacement MAE | 22.978 cm | 1.279 cm | 21.389–24.566 cm |
+
+Seed 1 has the lowest mean normalized MSE (2.7734), while Seed 2 has the
+highest (3.6769). This optimization variation is modest compared with subject
+variation. S45 is the hardest held-out subject (mean normalized MSE 14.7969,
+angle RMSE 50.847°, displacement RMSE 69.126 cm), followed by S49 (9.0833,
+39.376°, 43.491 cm). Most other subjects have mean normalized MSE between
+0.6810 and 2.8133.
+
+Across subjects and seeds, angular physics-residual RMSE is 12.1061 ± 0.3949
+and horizontal physics-residual RMSE is 17.5184 ± 3.3120. These residuals are
+diagnostics of equation consistency, not trajectory-error metrics, and their
+units/scales are not directly comparable to normalized MSE, degrees, or
+centimetres. S49 has an especially large horizontal-residual RMSE (80.95),
+which is concentrated in the difficult short T04 fall.
+
+See `FINDINGS.md` for the subject/trial analysis and interpretation. The new
+`results/full/full_fall_physics_residuals_by_subject.png` keeps angular and
+horizontal residuals separate, as required for diagnosing which equation is
+violated and when.
+
 ## Interpretation limits
 
 - Apparent contact is based on skeleton/video marking, not force-plate contact.
@@ -298,3 +340,7 @@ model states are retained.
 - Model predictions should be called synthetic only as a provenance label.
   They should not be used to train a future fall detector until their fidelity,
   diversity, leakage risk, and downstream utility have been evaluated.
+- The full-fall results are not directly comparable with the earlier pre-20°
+  experiment: the target interval, angle decoder, grid length, and difficulty
+  changed. A physics-versus-no-physics claim requires rerunning the matched
+  no-physics ablation with this same full-fall preparation and five seeds.

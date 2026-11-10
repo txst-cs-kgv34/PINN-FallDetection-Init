@@ -1,158 +1,158 @@
-# Findings: five-seed Unified Physics experiment
+# Findings — Model B full-fall unified physics, five seeds
 
-## Main result
+## Executive result
 
-The repeated Unified Physics experiment completed all 25 planned models: five
-optimization seeds for each of the five grouped subject folds. Across seeds,
-the model obtains:
+The full standing-to-apparent-contact experiment completed successfully. All
+25 models (five folds × five seeds) are present, with 75 held-out
+subject-seed evaluations and 350 held-out trial-seed evaluations. The prepared
+manifest contains 70 unique accepted trials, and every trial passes the
+complete-source-interval check. Physics is evaluated only on pre-contact
+samples, excluding the final 0.03 s; the real forecast loss and test metrics
+still cover the marked contact endpoint.
 
-| Held-out-subject metric | Mean | SD across the five seed means | Descriptive 95% t interval | CV |
-|:---|---:|---:|---:|---:|
-| Normalized MSE | 0.2143 | 0.0383 | [0.1667, 0.2619] | 17.9% |
-| Angle RMSE | 5.103° | 0.420° | [4.582°, 5.625°] | 8.2% |
-| CoM displacement RMSE | 7.772 cm | 0.574 cm | [7.059, 8.484] cm | 7.4% |
+The five-seed held-out result is:
 
-The physical-unit RMSE metrics are moderately stable, while normalized MSE is
-more sensitive to the optimization seed. Five seeds reduce reliance on one
-lucky or unlucky initialization, but they do not add new human subjects.
+| Metric | Mean of five seed-level subject means | Seed SD | Descriptive 95% t interval |
+|:---|---:|---:|:---|
+| Normalized forecast MSE | 3.1852 | 0.3292 | 2.7764–3.5940 |
+| Angle RMSE | 21.484° | 0.901° | 20.365–22.603° |
+| Angle MAE | 17.152° | 0.792° | 16.169–18.136° |
+| CoM displacement RMSE | 28.464 cm | 1.473 cm | 26.635–30.294 cm |
+| CoM displacement MAE | 22.978 cm | 1.279 cm | 21.389–24.566 cm |
+| Angle Wasserstein-1 | 16.562° | 0.703° | — |
+| CoM displacement Wasserstein-1 | 22.126 cm | 1.132 cm | — |
 
-## Completeness and data-equivalence checks
+These are subject-balanced statistics: trials are averaged within each held-out
+subject, the 15 subjects are averaged equally within a seed, and only then are
+the five seed means summarized. The 75 subject-seed rows are repeated
+optimization evaluations, not 75 independent people.
 
-- 5 optimization seeds × 5 folds = 25 completed trained models.
-- 15 unique held-out subjects are evaluated once per seed.
-- 66 unique eligible held-out trials are evaluated per seed.
-- 75 subject-seed evaluations and 330 trial-seed evaluations are present.
-- The trial IDs are identical across seeds.
-- For every corresponding trial, `time_s`, `target_theta_rad`, and `target_x_m`
-  are exactly identical across all five seeds (maximum absolute difference 0).
-- Every corresponding generated trajectory differs from Seed 1 for Seeds 2–5.
-- Every corresponding inferred four-controller vector differs from Seed 1 for
-  Seeds 2–5.
+## Seed stability
 
-These checks confirm that seed variability comes from model fitting, not from
-different held-out samples or targets.
-
-## Seed-level comparison
-
-Each value below is the equal-weight mean of the 15 held-out subject means for
-that seed.
-
-| Seed index | Base seed | Normalized MSE | Angle RMSE | CoM displacement RMSE |
+| Seed index | Base seed | Normalized MSE | Angle RMSE | CoM RMSE |
 |---:|---:|---:|---:|---:|
-| 1 | 20261101 | 0.2082 | 5.500° | 8.274 cm |
-| 2 | 20261102 | 0.2311 | 5.355° | 8.136 cm |
-| 3 | 20261103 | 0.2662 | 5.356° | 8.150 cm |
-| 4 | 20261104 | 0.2041 | 4.737° | 7.231 cm |
-| 5 | 20261105 | **0.1619** | **4.568°** | **7.067 cm** |
+| 1 | 20261101 | 2.7734 | 20.638° | 27.161 cm |
+| 2 | 20261102 | 3.6769 | 22.940° | 30.874 cm |
+| 3 | 20261103 | 3.0475 | 20.956° | 27.792 cm |
+| 4 | 20261104 | 3.2422 | 21.190° | 27.686 cm |
+| 5 | 20261105 | 3.1858 | 21.698° | 28.809 cm |
 
-Seed 5 is numerically best on all three metrics, but selecting it after seeing
-the test results would be optimistic model selection. The reported result must
-remain the five-seed mean and variability. Seed 3 is worst for normalized MSE;
-Seed 1 is worst for angle and displacement RMSE.
+Seed 1 performs best and Seed 2 performs worst on all three primary RMSE
+summaries. Nevertheless, seed SD is only 0.329 normalized-MSE units, 0.901°,
+and 1.473 cm. Subject identity has a substantially larger effect than the
+optimization seed.
 
-The observed best-to-worst span equals 48.7% of the five-seed normalized-MSE
-mean, 18.3% of the angle-RMSE mean, and 15.5% of the displacement-RMSE mean.
-That spread demonstrates why the earlier one-seed conclusion was fragile.
+The validation-selected epochs range from 14 to 290 (median 43, mean 97.2).
+All histories and checkpoints are finite; no model, metric file, or fold
+summary is missing.
 
-## Subject-level findings
+## Held-out subjects
 
-S45 is the dominant difficult case in every seed:
+The values below are means across the five seeds.
 
-| Subject | Normalized MSE mean ± SD | Interpretation |
-|:---:|---:|:---|
-| S45 | 1.1258 ± 0.5648 | Highest error and large seed sensitivity |
-| S48 | 0.3947 ± 0.2081 | Second-highest mean; seed sensitive |
-| S32 | 0.2966 ± 0.1881 | Third-highest mean; seed sensitive |
-| S57 | 0.2322 ± 0.0677 | Elevated but more stable |
-| S34 | 0.0393 ± 0.0405 | Lowest mean, though relative variability is large |
-| S49 | 0.0587 ± 0.0651 | Low mean but sensitive in relative terms |
-| S44 | 0.0595 ± 0.0320 | Low mean and moderate spread |
+| Subject | Trials | Normalized MSE | Angle RMSE | CoM RMSE | Angular residual RMSE | Horizontal residual RMSE |
+|:---|---:|---:|---:|---:|---:|---:|
+| S30 | 5 | 0.6810 | 7.165° | 18.113 cm | 17.927 | 27.130 |
+| S32 | 5 | 1.7133 | 16.338° | 26.014 cm | 16.036 | 45.668 |
+| S34 | 5 | 1.0119 | 15.681° | 18.158 cm | 11.532 | 18.281 |
+| S43 | 4 | 4.5152 | 26.425° | 38.530 cm | 13.227 | 3.133 |
+| S44 | 5 | 2.1690 | 18.679° | 26.706 cm | 12.560 | 5.881 |
+| S45 | 5 | 14.7969 | 50.847° | 69.126 cm | 17.917 | 33.108 |
+| S46 | 5 | 1.6487 | 18.042° | 24.763 cm | 10.389 | 7.471 |
+| S48 | 5 | 2.5291 | 19.312° | 30.296 cm | 11.099 | 10.241 |
+| S49 | 3 | 9.0833 | 39.376° | 43.491 cm | 13.760 | 80.950 |
+| S55 | 5 | 1.1667 | 14.617° | 20.664 cm | 12.806 | 5.957 |
+| S56 | 5 | 1.2699 | 12.971° | 23.680 cm | 11.841 | 6.292 |
+| S57 | 3 | 1.5495 | 18.544° | 23.930 cm | 8.864 | 5.908 |
+| S59 | 5 | 2.8133 | 21.889° | 26.653 cm | 9.296 | 3.085 |
+| S62 | 5 | 1.6999 | 22.922° | 21.040 cm | 6.761 | 4.643 |
+| S63 | 5 | 1.1300 | 19.455° | 15.799 cm | 7.578 | 5.030 |
 
-The result is therefore heterogeneous: an overall seed mean hides subjects
-whose trajectories are consistently difficult and others whose success
-depends strongly on initialization.
+S45 is the dominant error outlier on every primary trajectory metric. S49 is
+the second-largest outlier and has a uniquely large horizontal physics
+residual. S43 is a smaller third outlier. The remaining 12 subjects have
+normalized MSE between 0.6810 and 2.8133. Aggregate performance should
+therefore always be reported together with subject-level distributions; the
+overall mean alone hides this heterogeneity.
 
-## Fold-level findings
+## Trial-level diagnosis
 
-| Fold | Test subjects | Normalized MSE mean ± SD | Angle RMSE mean ± SD | Displacement RMSE mean ± SD |
-|---:|:---|---:|---:|---:|
-| 1 | S57, S46, S30 | 0.1971 ± 0.0501 | 5.670° ± 0.791° | 9.447 ± 1.267 cm |
-| 2 | S55, S48, S43 | 0.1861 ± 0.0575 | 5.675° ± 0.796° | 9.037 ± 1.543 cm |
-| 3 | S45, S59, S56 | 0.5450 ± 0.2536 | 9.449° ± 2.255° | 15.400 ± 3.555 cm |
-| 4 | S34, S32, S49 | 0.1534 ± 0.0930 | 5.384° ± 1.615° | 7.695 ± 2.646 cm |
-| 5 | S44, S62, S63 | 0.0831 ± 0.0125 | 4.161° ± 0.247° | 5.845 ± 0.741 cm |
+The largest trial errors after averaging each trial over five seeds are:
 
-Fold 3 is the hardest and most variable, mainly because S45 is difficult. Fold
-5 is the lowest-error and most stable fold. Fold 4 is also seed sensitive,
-consistent with the large variation observed for S32.
+| Rank | Trial | Forecast duration after context | Normalized MSE | Angle RMSE | CoM RMSE |
+|---:|:---|---:|---:|---:|---:|
+| 1 | S45A11T02 | 4.12 s | 31.896 | 83.715° | 112.738 cm |
+| 2 | S49A11T04 | 0.72 s | 24.758 | 75.581° | 97.875 cm |
+| 3 | S45A11T04 | 3.52 s | 24.708 | 71.795° | 100.762 cm |
+| 4 | S43A11T02 | 5.32 s | 12.302 | 46.718° | 71.162 cm |
+| 5 | S45A11T03 | 5.06 s | 11.190 | 43.383° | 64.244 cm |
 
-## What changes with each seed?
+Duration has only a modest correlation with trial error (Pearson r = 0.281 for
+normalized MSE, 0.325 for angle RMSE, and 0.364 for displacement RMSE). Longer
+falls are somewhat harder, but duration does not explain the very large error
+of the short S49A11T04 trial. That trial should be visually reviewed against
+its phase marking and subject-forward coordinate construction before changing
+the architecture.
 
-The seed is not a new subject split and does not alter the biomechanics. It
-initializes the Python, NumPy, and PyTorch random-number generators. This
-changes:
+The easiest seed-averaged trials include S48A11T04 (normalized MSE 0.088),
+S30A11T01 (0.276), and S56A11T01 (0.344). This confirms that the model can
+produce close full-fall continuations for some unseen trials; the limitation is
+cross-subject/trial robustness rather than universal failure.
 
-1. the initial weights and biases of the context encoder, four-controller
-   head, DeepONet branch, and Fourier trunk;
-2. the shuffled order of training trajectories at every epoch;
-3. the sequence of gradient updates and the optimization path;
-4. the validation-loss curve and the checkpoint selected by early stopping;
-5. the resulting held-out trajectory predictions and inferred controller
-   outputs.
+## Physics diagnostics
 
-The validation-selected epoch ranges from 12 to 396, with a median of 83,
-which is direct evidence that the optimization path changes substantially.
+| Residual diagnostic | Five-seed mean | Seed SD | Descriptive 95% t interval |
+|:---|---:|---:|:---|
+| Angular residual RMSE | 12.1061 | 0.3949 | 11.6158–12.5965 |
+| Angular residual MAE | 9.8056 | 0.2197 | 9.5328–10.0783 |
+| Horizontal residual RMSE | 17.5184 | 3.3120 | 13.4060–21.6308 |
+| Horizontal residual MAE | 13.3648 | 2.3278 | — |
 
-The seed does **not** change:
+These quantities measure the two cart-pole equations separately. They are not
+forecast errors and should not be added together or compared numerically with
+degrees or centimetres. The saved NPZ files and residual plots make it possible
+to locate whether a violation is angular or horizontal and whether it occurs
+during early descent, late descent, or immediately before the contact
+exclusion window.
 
-- the 15 subjects or their demographics;
-- repaired skeleton rows or manual phase marks;
-- the five train/validation/test folds (split seed remains 220);
-- the 0.40-second context input or held-out targets;
-- the DeepONet architecture;
-- the cart-pole residual equations or physics weight 0.01;
-- learning rate, optimizer, batch size, maximum epochs, or patience; or
-- the definitions of normalized MSE, angle RMSE, and displacement RMSE.
+S49's horizontal-residual RMSE of 80.95 is the clearest equation-specific
+outlier, followed by S32 (45.67), S45 (33.11), and S30 (27.13). By contrast,
+S49's angular residual is not extreme. This separation would be hidden by a
+single combined physics-loss value.
 
-The implementation uses:
+## Effective control parameters
 
-```text
-effective_fold_seed = base_optimization_seed + fold_id
-```
+The four context-encoder outputs are saved per trial in
+`multi_seed_trial_metrics.csv` and each prediction NPZ:
+`inferred_kp_theta`, `inferred_kd_theta`, `inferred_kp_x`, and
+`inferred_kd_x`. Across the 350 trial-seed evaluations, their distributions are
+highly right-skewed:
 
-Consequently, adjacent seed repeats can reuse the same numeric effective seed
-on a *different* fold. Because those folds contain different data and subject
-roles, they remain different training problems. Nevertheless, the five
-seed-level aggregates do not use five completely disjoint sets of RNG numbers.
-For the upcoming no-physics experiment, preserve this exact matrix so every
-physics model has a matched no-physics counterpart. A future independent
-study could use widely spaced base seeds.
+| Parameter | Mean | Median | Maximum |
+|:---|---:|---:|---:|
+| Kp_theta | 2.400 | 0.019 | 337.1 |
+| Kd_theta | 1.170 | 0.200 | 47.63 |
+| Kp_x | 33.98 | 16.63 | 480.18 |
+| Kd_x | 0.977 | 0.179 | 15.68 |
 
-## Controller-output interpretation
+These are effective latent controller parameters jointly fitted with the
+operator. They are not identified physiological measurements. The extreme
+upper tails also warn against interpreting an individual gain without checking
+its trial prediction and residuals.
 
-The four controller-head outputs change with seed because they are learned
-jointly with the forecast model. Their variation is not evidence that a
-person's actual physiology changes. They remain effective internal parameters,
-not supervised or experimentally measured biomechanical gains. Forecast-error
-stability should be the primary endpoint.
+## Scientific interpretation and next comparison
 
-## Recommended comparison with no physics
+The earlier pre-20° experiment and this full-fall experiment answer different
+questions. The full-fall run predicts a longer, more nonlinear descent,
+preserves angles near/beyond 90° with `atan2`, and includes the endpoint in the
+trajectory loss. Its larger errors therefore must not be presented as a fair
+regression relative to the earlier truncated task.
 
-Run B-no-physics with exactly the same five base seeds, fold offsets, subject
-splits, data, and checkpoint-selection rule. Compare physics and no-physics
-within each matched `(seed, subject)` pair. The primary comparison should:
-
-1. average trials within subject;
-2. calculate `no-physics error - physics error` for every matched seed and
-   subject;
-3. summarize the paired differences across seeds without treating the 75 rows
-   as 75 independent people; and
-4. report subject heterogeneity, seed heterogeneity, and fold heatmaps.
-
-## Defensible conclusion
-
-> Across five optimization seeds, Unified Physics achieved mean held-out
-> subject errors of 0.214 normalized MSE, 5.10° angle RMSE, and 7.77 cm CoM
-> displacement RMSE. Performance varied meaningfully with initialization,
-> especially for normalized MSE and the difficult S45/S48/S32 subjects, so the
-> five-seed distribution is more defensible than any single-seed result.
+Likewise, the existing early-fall no-physics results are not a valid ablation
+for this run. To determine whether the biomechanics residual helps full-fall
+generalization, rerun B-no-physics with the identical 8-s preparation,
+full-contact masks, `atan2` decoder, folds, seeds, architecture, and checkpoint
+selection, changing only the physics weight to zero. Then compare paired
+subject-seed and trial-seed errors. Until that matched ablation is complete,
+the present results establish full-fall feasibility and diagnostics—not a
+causal benefit from physics.

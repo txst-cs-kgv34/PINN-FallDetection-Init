@@ -84,8 +84,6 @@ def main() -> None:
 
     config = load_config(args.config)
     settings = config["real_data"]
-    # horizon = 0.8 if args.mode == "smoke" else float(config["data"]["horizon_s"])
-    
     # Smoke mode changes only the number of training epochs and trials.
     # It must still preserve the complete standing-to-contact trajectory.
     horizon = float(config["data"]["horizon_s"])
