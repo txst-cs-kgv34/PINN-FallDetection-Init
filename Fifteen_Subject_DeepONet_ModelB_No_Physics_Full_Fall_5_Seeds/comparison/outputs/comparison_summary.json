@@ -1,0 +1,95 @@
+{
+  "pairing_validation": {
+    "subject_seed_pairs": 75,
+    "trial_seed_pairs": 350,
+    "unique_subjects": 15,
+    "unique_trials": 70,
+    "optimization_seeds": 5
+  },
+  "statistics": {
+    "primary_unit": "15 independent held-out subjects after averaging each subject over five optimization seeds",
+    "difference_direction": "no_physics_minus_physics; positive means Physics has lower error",
+    "multiple_comparison_method": "Holm adjustment across the three primary metrics",
+    "bootstrap": "20,000 subject-level resamples with seed 20261109",
+    "metrics": {
+      "normalized_rmse": {
+        "metric": "normalized_rmse",
+        "label": "Normalized forecast RMSE",
+        "independent_subject_count": 15,
+        "physics_mean": 1.5883008819787274,
+        "no_physics_mean": 1.7292406404679095,
+        "mean_difference_no_minus_physics": 0.14093975848918164,
+        "median_difference_no_minus_physics": 0.14436718085852607,
+        "physics_reduction_percent": 8.150384347377194,
+        "subjects_physics_lower_error": 12,
+        "subjects_no_physics_lower_error": 3,
+        "paired_cohen_dz": 0.6058940931370134,
+        "paired_t_test_p_unadjusted": 0.03418305142878961,
+        "wilcoxon_p_unadjusted": 0.02557373046875,
+        "bootstrap_mean_difference_95pct_low": 0.028567720778156214,
+        "bootstrap_mean_difference_95pct_high": 0.2572287998958232,
+        "wilcoxon_p_holm_three_primary_metrics": 0.06463623046875
+      },
+      "theta_rmse_deg": {
+        "metric": "theta_rmse_deg",
+        "label": "Theta RMSE (\u00b0)",
+        "independent_subject_count": 15,
+        "physics_mean": 21.484285025278723,
+        "no_physics_mean": 22.72230926662021,
+        "mean_difference_no_minus_physics": 1.2380242413414853,
+        "median_difference_no_minus_physics": 1.4484966278076143,
+        "physics_reduction_percent": 5.448496571429832,
+        "subjects_physics_lower_error": 12,
+        "subjects_no_physics_lower_error": 3,
+        "paired_cohen_dz": 0.4248225927336565,
+        "paired_t_test_p_unadjusted": 0.12215874714643137,
+        "wilcoxon_p_unadjusted": 0.1353759765625,
+        "bootstrap_mean_difference_95pct_low": -0.22253158614370613,
+        "bootstrap_mean_difference_95pct_high": 2.5900485761483507,
+        "wilcoxon_p_holm_three_primary_metrics": 0.1353759765625
+      },
+      "x_rmse_cm": {
+        "metric": "x_rmse_cm",
+        "label": "CoM x RMSE (cm)",
+        "independent_subject_count": 15,
+        "physics_mean": 28.46420915954643,
+        "no_physics_mean": 30.952722749445172,
+        "mean_difference_no_minus_physics": 2.4885135898987447,
+        "median_difference_no_minus_physics": 2.282163997491203,
+        "physics_reduction_percent": 8.03972435653775,
+        "subjects_physics_lower_error": 12,
+        "subjects_no_physics_lower_error": 3,
+        "paired_cohen_dz": 0.614693312321977,
+        "paired_t_test_p_unadjusted": 0.0320304455518085,
+        "wilcoxon_p_unadjusted": 0.02154541015625,
+        "bootstrap_mean_difference_95pct_low": 0.4864652624643511,
+        "bootstrap_mean_difference_95pct_high": 4.438128135593399,
+        "wilcoxon_p_holm_three_primary_metrics": 0.06463623046875
+      }
+    }
+  },
+  "exploratory_trial_summary": {
+    "normalized_rmse": {
+      "unique_trial_count": 70,
+      "trials_physics_lower_error": 41,
+      "trials_no_physics_lower_error": 29,
+      "mean_difference_no_minus_physics": 0.10299594324854665,
+      "interpretation": "exploratory because trials within a subject are not independent people"
+    },
+    "theta_rmse_deg": {
+      "unique_trial_count": 70,
+      "trials_physics_lower_error": 43,
+      "trials_no_physics_lower_error": 27,
+      "mean_difference_no_minus_physics": 1.1349847439357217,
+      "interpretation": "exploratory because trials within a subject are not independent people"
+    },
+    "x_rmse_cm": {
+      "unique_trial_count": 70,
+      "trials_physics_lower_error": 41,
+      "trials_no_physics_lower_error": 29,
+      "mean_difference_no_minus_physics": 2.3960162603429387,
+      "interpretation": "exploratory because trials within a subject are not independent people"
+    }
+  },
+  "caution": "Physics residuals are excluded from the primary comparison because the no-physics model's four context coordinates are not physically identified gains."
+}

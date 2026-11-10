@@ -179,9 +179,56 @@ packages:
 Fifteen_Subject_ModelB_No_Physics_Full_Fall_5_Seeds_Results.zip
 ```
 
-Please send that ZIP back for the paired Physics-versus-no-physics analysis.
-The primary comparison will pair the same subject and seed, with trial-level
-paired analysis added where the accepted trial sets match.
+The returned ZIP has now been analyzed against the matched Physics run. See
+`FINDINGS.md` for the interpretation and `comparison/` for the reproducible
+paired analysis, tables, and figures.
+
+## Completed no-physics results
+
+All 25 models completed: five folds by five optimization seeds. The results
+contain 75 held-out subject-seed evaluations and 350 held-out trial-seed
+evaluations, representing 15 independent subjects and 70 accepted trials.
+
+Subject-balanced held-out means across the five seeds are:
+
+| Metric | B-no-physics mean | Across-seed SD | 95% t CI over five seeds |
+|:---|---:|---:|:---|
+| Normalized forecast MSE | 3.7831 | 0.5413 | 3.1109 to 4.4552 |
+| Theta RMSE | 22.7223° | 0.8252° | 21.6976° to 23.7470° |
+| CoM x RMSE | 30.9527 cm | 1.2103 cm | 29.4500 to 32.4555 cm |
+
+These across-seed intervals describe optimization variability; they are not
+population confidence intervals over humans.
+
+## Matched Physics comparison
+
+The Physics and no-physics outputs match exactly on subject, optimization
+seed, and accepted trial: 75 subject-seed pairs and 350 trial-seed pairs. For
+the main inference, each subject is first averaged over its five seeds, leaving
+15 independent paired subject values.
+
+| Metric | Physics | No physics | Physics reduction | Subjects favoring Physics |
+|:---|---:|---:|---:|---:|
+| Normalized forecast RMSE | 1.5883 | 1.7292 | 8.15% | 12/15 |
+| Theta RMSE | 21.4843° | 22.7223° | 5.45% | 12/15 |
+| CoM x RMSE | 28.4642 cm | 30.9527 cm | 8.04% | 12/15 |
+
+The descriptive result consistently favors Physics. Two-sided subject-level
+Wilcoxon tests were below 0.05 before multiple-metric correction for normalized
+RMSE (`p=0.0256`) and CoM x RMSE (`p=0.0215`), but their Holm-adjusted values
+are both `p=0.0646`. Theta RMSE is `p=0.1354`. Therefore, the correct claim is
+that Physics produced lower average errors in this experiment, not that the
+ablation establishes a statistically significant benefit at family-wise
+`alpha=0.05` across all three metrics.
+
+The five points in each box in the comparison figure are the five optimization
+seeds, not five different subjects or trials. Trial-level plots are included as
+exploratory diagnostics because multiple trials from one person are correlated.
+
+Post-hoc physics residuals are excluded from the primary comparison. In the
+no-physics model, the four positive context coordinates are unsupervised latent
+features rather than physically identified controller gains, so its residuals
+are not a fair trajectory-accuracy endpoint.
 
 ## Interpretation limits
 
