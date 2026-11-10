@@ -1,0 +1,53 @@
+{
+  "experiment_name": "fifteen_subject_model_b_direct_unified_physics_full_fall_5seeds_v1",
+  "model_id": "B",
+  "display_name": "Model B — 15-subject full-fall unified physics DeepONet",
+  "training_regime": "direct_physics",
+  "requires_teachers": false,
+  "training_sources": ["real"],
+  "result_archive": "Fifteen_Subject_ModelB_Direct_Unified_Physics_Full_Fall_5_Seeds_Results.zip",
+  "optimization_seeds": [20261101, 20261102, 20261103, 20261104, 20261105],
+  "split_seed": 220,
+  "randomized_subject_order": [
+    "S57", "S46", "S30", "S55", "S48",
+    "S43", "S45", "S59", "S56", "S34",
+    "S32", "S49", "S44", "S62", "S63"
+  ],
+  "protocol": {
+    "fold_count": 5,
+    "test_subjects_per_fold": 3,
+    "validation_subjects_per_fold": 1,
+    "training_subjects_per_fold": 11,
+    "note": "Every subject is held out for testing exactly once. Each checkpoint is selected using one separate real validation subject."
+  },
+  "subjects": [
+    {"id": "S43", "input_kind": "legacy_pole_tsv", "real_data_glob": "../S43_Pole_PINN_Human_Motion/data/pole_compatible/A11/SubjectB_S43A11T*.tsv", "mass_lb": 130.0, "height_in": 64.0},
+    {"id": "S55", "input_kind": "legacy_pole_tsv", "real_data_glob": "../S55_Pole_PINN_Human_Motion/data/pole_compatible/A11/SubjectB_S55A11T*.tsv", "mass_lb": 145.0, "height_in": 65.0},
+    {"id": "S57", "input_kind": "legacy_pole_tsv", "real_data_glob": "../S57_Pole_PINN_Human_Motion/data/pole_compatible/A11/SubjectB_S57A11T*.tsv", "mass_lb": 180.0, "height_in": 68.0},
+    {"id": "S62", "input_kind": "legacy_pole_tsv", "real_data_glob": "../S62_Pole_PINN_Human_Motion/data/pole_compatible/A11/SubjectB_S62A11T*.tsv", "mass_lb": 155.0, "height_in": 64.0},
+    {"id": "S63", "input_kind": "legacy_pole_tsv", "real_data_glob": "../S63_Pole_PINN_Human_Motion/data/pole_compatible/A11/SubjectB_S63A11T*.tsv", "mass_lb": 180.0, "height_in": 66.0},
+    {"id": "S59", "input_kind": "audit_skeleton", "audit_dir": "../S59_PINN_audit", "real_data_glob": "outputs/audit_pole_inputs/S59/SubjectB_S59A11T*.tsv", "sex": "male", "mass_lb": 220.0, "height_in": 72.0},
+    {"id": "S56", "input_kind": "audit_skeleton", "audit_dir": "../S56_PINN_audit", "real_data_glob": "outputs/audit_pole_inputs/S56/SubjectB_S56A11T*.tsv", "sex": "male", "mass_lb": 165.0, "height_in": 70.0},
+    {"id": "S49", "input_kind": "audit_skeleton", "audit_dir": "../S49_PINN_audit", "real_data_glob": "outputs/audit_pole_inputs/S49/SubjectB_S49A11T*.tsv", "sex": "female", "mass_lb": 165.0, "height_in": 59.0},
+    {"id": "S48", "input_kind": "audit_skeleton", "audit_dir": "../S48_PINN_audit", "real_data_glob": "outputs/audit_pole_inputs/S48/SubjectB_S48A11T*.tsv", "sex": "male", "mass_lb": 188.0, "height_in": 68.0},
+    {"id": "S46", "input_kind": "audit_skeleton", "audit_dir": "../S46_PINN_audit", "real_data_glob": "outputs/audit_pole_inputs/S46/SubjectB_S46A11T*.tsv", "sex": "male", "mass_lb": 160.0, "height_in": 68.0},
+    {"id": "S45", "input_kind": "audit_skeleton", "audit_dir": "../S45_PINN_audit", "real_data_glob": "outputs/audit_pole_inputs/S45/SubjectB_S45A11T*.tsv", "sex": "male", "mass_lb": 170.0, "height_in": 71.0},
+    {"id": "S44", "input_kind": "audit_skeleton", "audit_dir": "../S44_PINN_audit", "real_data_glob": "outputs/audit_pole_inputs/S44/SubjectB_S44A11T*.tsv", "sex": "male", "mass_lb": 180.0, "height_in": 73.0},
+    {"id": "S34", "input_kind": "audit_skeleton", "audit_dir": "../S34_PINN_audit", "real_data_glob": "outputs/audit_pole_inputs/S34/SubjectB_S34A11T*.tsv", "sex": "female", "mass_lb": 125.0, "height_in": 66.0},
+    {"id": "S32", "input_kind": "audit_skeleton", "audit_dir": "../S32_PINN_audit", "real_data_glob": "outputs/audit_pole_inputs/S32/SubjectB_S32A11T*.tsv", "sex": "male", "mass_lb": 160.0, "height_in": 70.0},
+    {"id": "S30", "input_kind": "audit_skeleton", "audit_dir": "../S30_PINN_audit", "real_data_glob": "outputs/audit_pole_inputs/S30/SubjectB_S30A11T*.tsv", "sex": "female", "mass_lb": 190.0, "height_in": 66.0}
+  ],
+  "folds": [
+    {"id": 1, "train": ["S43", "S55", "S62", "S59", "S56", "S49", "S48", "S45", "S44", "S34", "S32"], "validation": "S63", "test": ["S57", "S46", "S30"]},
+    {"id": 2, "train": ["S57", "S63", "S59", "S56", "S49", "S46", "S45", "S44", "S34", "S32", "S30"], "validation": "S62", "test": ["S55", "S48", "S43"]},
+    {"id": 3, "train": ["S43", "S55", "S62", "S63", "S49", "S48", "S46", "S44", "S34", "S32", "S30"], "validation": "S57", "test": ["S45", "S59", "S56"]},
+    {"id": 4, "train": ["S43", "S57", "S62", "S63", "S59", "S56", "S48", "S46", "S45", "S44", "S30"], "validation": "S55", "test": ["S34", "S32", "S49"]},
+    {"id": 5, "train": ["S55", "S57", "S59", "S56", "S49", "S48", "S46", "S45", "S34", "S32", "S30"], "validation": "S43", "test": ["S44", "S62", "S63"]}
+  ],
+  "data": {"horizon_s": 8.0, "sample_rate_hz": 100},
+  "audit_adapter": {"target_rate_hz": 250, "pole_loader_warmup_rows": 1024, "encoding_length_mm": 570.0, "standing_radius_frames": 2, "activity": "A11"},
+  "real_data": {"raw_warmup_rows": 1024, "source_rate_hz": 250, "target_rate_hz": 100, "endpoint_semantics": "source_end_is_apparent_contact", "derivative_fit_samples": 11, "minimum_context_duration_s": 0.40},
+  "model": {"latent_width": 96, "context_embedding": 96, "fourier_modes": 12, "context_windows": 4, "context_window_s": 0.10, "context_region_s": 0.40, "controller_semantics": "physical_gains", "controller_uncertainty_trained": false, "gain_scale": [250.0, 30.0, 20.0, 30.0], "theta_scale_rad": 0.4363323129985824, "x_scale_m": 0.25},
+  "training": {"epochs": 800, "real_batch_size": 4, "synthetic_batch_size": 12, "learning_rate": 0.0005, "weight_decay": 0.000001, "early_stopping_patience": 100, "use_physics": true, "data_weight": 1.0, "gain_weight": 0.0, "consistency_weight": 0.0, "physics_weight": 0.01, "physics_every_batches": 1, "real_source_weight": 1.0, "synthetic_source_weight": 0.0, "gradient_clip_norm": 5.0},
+  "physics": {"stick_mass_kg": 0.0138, "effective_cart_mass_kg": 1.0, "stick_length_m": 0.57, "gravity_m_s2": 9.81, "deadzone_sharpness": 50.0, "fixed_pi_rad": 0.0635, "fixed_tau_s": 0.23, "contact_exclusion_s": 0.03}
+}

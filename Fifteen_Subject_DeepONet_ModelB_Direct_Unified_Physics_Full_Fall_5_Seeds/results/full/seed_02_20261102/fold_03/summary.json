@@ -1,0 +1,94 @@
+{
+  "base_optimization_seed": 20261102,
+  "checkpoint_selected_only_on_real_validation_subject": true,
+  "context_region_s": 0.4,
+  "display_name": "Model B \u2014 15-subject full-fall unified physics DeepONet",
+  "effective_fold_seed": 20261105,
+  "experiment_name": "fifteen_subject_model_b_direct_unified_physics_full_fall_5seeds_v1",
+  "fold": 3,
+  "four_window_context": true,
+  "model_id": "B",
+  "physics_loss_enabled": true,
+  "seed_index": 2,
+  "test_forecast_sample_count": 4581,
+  "test_pooled_metrics": {
+    "normalized_mse": 8.208250999450684,
+    "theta_mae_deg": 29.736135482788086,
+    "theta_rmse_deg": 42.71282958984375,
+    "theta_w1_deg": 24.392192615492952,
+    "x_mae_cm": 39.69520926475525,
+    "x_rmse_cm": 57.495832443237305,
+    "x_w1_cm": 30.971859841727024
+  },
+  "test_subject_mean_metrics": {
+    "S45": {
+      "angular_residual_mae": 15.360968589782715,
+      "angular_residual_rmse": 17.93915500640869,
+      "horizontal_residual_mae": 15.325943088531494,
+      "horizontal_residual_rmse": 19.32682752609253,
+      "normalized_mse": 13.828494596481324,
+      "theta_mae_deg": 45.32838859558105,
+      "theta_rmse_deg": 51.45383796691895,
+      "theta_w1_deg": 45.00093518384334,
+      "x_mae_cm": 59.471537470817566,
+      "x_rmse_cm": 68.05270075798035,
+      "x_w1_cm": 58.991916439440615
+    },
+    "S56": {
+      "angular_residual_mae": 8.63101749420166,
+      "angular_residual_rmse": 10.917974472045898,
+      "horizontal_residual_mae": 4.4370049953460695,
+      "horizontal_residual_rmse": 5.723782253265381,
+      "normalized_mse": 1.5090628504753112,
+      "theta_mae_deg": 10.775399780273437,
+      "theta_rmse_deg": 13.421034812927246,
+      "theta_w1_deg": 10.775399650273124,
+      "x_mae_cm": 19.823150038719177,
+      "x_rmse_cm": 25.82572966814041,
+      "x_w1_cm": 19.82315091641133
+    },
+    "S59": {
+      "angular_residual_mae": 6.460229539871216,
+      "angular_residual_rmse": 8.28058910369873,
+      "horizontal_residual_mae": 2.6686336159706117,
+      "horizontal_residual_rmse": 3.5423904776573183,
+      "normalized_mse": 3.3955328345298765,
+      "theta_mae_deg": 16.57836284637451,
+      "theta_rmse_deg": 22.974217414855957,
+      "theta_w1_deg": 16.167640008350116,
+      "x_mae_cm": 21.473647952079773,
+      "x_rmse_cm": 29.028159976005554,
+      "x_w1_cm": 21.172722946303576
+    }
+  },
+  "test_subjects": [
+    "S45",
+    "S59",
+    "S56"
+  ],
+  "test_trial_count": 15,
+  "test_trial_mean_metrics": {
+    "normalized_mse": 6.24436342716217,
+    "theta_mae_deg": 24.227383740743,
+    "theta_rmse_deg": 29.283030064900718,
+    "theta_w1_deg": 23.981324947488865,
+    "x_mae_cm": 33.58944515387217,
+    "x_rmse_cm": 40.968863467375435,
+    "x_w1_cm": 33.32926343405184
+  },
+  "train_subjects": [
+    "S43",
+    "S55",
+    "S62",
+    "S63",
+    "S49",
+    "S48",
+    "S46",
+    "S44",
+    "S34",
+    "S32",
+    "S30"
+  ],
+  "training_regime": "direct_physics",
+  "validation_subject": "S57"
+}
