@@ -1,0 +1,274 @@
+{
+  "comparison": "Model B Unified Physics versus paired B-no-physics ablation, five seeds",
+  "difference_definition": "no_physics_error - physics_error; positive values favor Unified Physics",
+  "primary_analysis_unit": "15 held-out subjects after averaging each subject across the same five seeds",
+  "counts": {
+    "independent_human_subjects": 15,
+    "optimization_seeds": 5,
+    "trained_models_per_condition": 25,
+    "paired_subject_seed_evaluations": 75,
+    "unique_held_out_trials": 66,
+    "paired_trial_seed_evaluations": 330
+  },
+  "design_verification": {
+    "matched": true,
+    "checks": {
+      "requires_teachers_equal": true,
+      "training_sources_equal": true,
+      "optimization_seeds_equal": true,
+      "split_seed_equal": true,
+      "randomized_subject_order_equal": true,
+      "subjects_equal": true,
+      "protocol_equal": true,
+      "folds_equal": true,
+      "data_equal": true,
+      "audit_adapter_equal": true,
+      "real_data_equal": true,
+      "model_equal": true,
+      "physics_equal": true,
+      "remaining_training_config_equal": true,
+      "no_physics_removed_component_declared": true
+    },
+    "ablation_settings": {
+      "physics_use_physics": true,
+      "no_physics_use_physics": false,
+      "physics_weight": 0.01,
+      "no_physics_weight": 0.0
+    },
+    "optimization_seeds": [
+      20261101,
+      20261102,
+      20261103,
+      20261104,
+      20261105
+    ],
+    "split_seed": 220
+  },
+  "target_verification": {
+    "matched_prediction_evaluations": 330,
+    "unique_trials": 66,
+    "targets_identical_across_conditions": true,
+    "targets_identical_across_seeds_within_physics": true,
+    "targets_identical_across_seeds_within_no_physics": true,
+    "maximum_absolute_cross_condition_difference": {
+      "time_s": 0.0,
+      "target_theta_rad": 0.0,
+      "target_x_m": 0.0
+    },
+    "maximum_absolute_within_physics_seed_difference": {
+      "time_s": 0.0,
+      "target_theta_rad": 0.0,
+      "target_x_m": 0.0
+    },
+    "maximum_absolute_within_no_physics_seed_difference": {
+      "time_s": 0.0,
+      "target_theta_rad": 0.0,
+      "target_x_m": 0.0
+    }
+  },
+  "metrics": {
+    "normalized_mse": {
+      "physics_five_seed_subject_mean": 0.21429254651773308,
+      "no_physics_five_seed_subject_mean": 0.27615043029297764,
+      "mean_physics_improvement": 0.061857883775244565,
+      "median_subject_improvement": -0.0074862945009954275,
+      "relative_improvement_pct": 22.400067857803943,
+      "largest_absolute_subject_effect": {
+        "subject": "S45",
+        "physics_improvement": 1.1146916930377484
+      },
+      "mean_improvement_excluding_largest_absolute_subject": -0.013344531172077127,
+      "leave_one_subject_out_mean_improvement_range": [
+        -0.013344531172077127,
+        0.07676245862246668
+      ],
+      "subject_bootstrap_95pct_ci_for_mean_improvement": [
+        -0.04655431293067909,
+        0.23006963674043718
+      ],
+      "seed_level_improvements": [
+        0.028669880664545233,
+        0.04467434132057761,
+        0.01746788793062377,
+        0.06087129535205248,
+        0.1576060136084238
+      ],
+      "mean_seed_level_improvement": 0.06185788377524458,
+      "sd_across_seed_level_improvements": 0.055981843342553274,
+      "descriptive_95pct_t_interval_across_seed_improvements": [
+        -0.007652755656286897,
+        0.13136852320677606
+      ],
+      "physics_seed_wins": 5,
+      "no_physics_seed_wins": 0,
+      "physics_subject_wins_based_on_five_seed_mean": 7,
+      "no_physics_subject_wins_based_on_five_seed_mean": 8,
+      "subject_ties": 0,
+      "subjects_where_physics_won_all_five_seeds": 3,
+      "subjects_where_no_physics_won_all_five_seeds": 1,
+      "wilcoxon_signed_rank_statistic_on_15_subject_seed_averages": 56.0,
+      "wilcoxon_two_sided_raw_p_value": 0.846923828125,
+      "paired_rank_biserial_correlation": -0.06666666666666667,
+      "paired_cohens_dz": 0.20365108708588897,
+      "physics_trial_wins_based_on_five_seed_mean_descriptive": 27,
+      "no_physics_trial_wins_based_on_five_seed_mean_descriptive": 39,
+      "physics_subject_seed_wins_descriptive": 42,
+      "no_physics_subject_seed_wins_descriptive": 33,
+      "physics_trial_seed_wins_descriptive": 156,
+      "no_physics_trial_seed_wins_descriptive": 174,
+      "holm_adjusted_p_value_across_three_primary_metrics": 1.0
+    },
+    "theta_rmse_deg": {
+      "physics_five_seed_subject_mean": 5.103389559745788,
+      "no_physics_five_seed_subject_mean": 5.105076226274173,
+      "mean_physics_improvement": 0.0016866665283838363,
+      "median_subject_improvement": -0.28252674341201756,
+      "relative_improvement_pct": 0.03303900771751674,
+      "largest_absolute_subject_effect": {
+        "subject": "S45",
+        "physics_improvement": 6.931582069396972
+      },
+      "mean_improvement_excluding_largest_absolute_subject": -0.4933058622479439,
+      "leave_one_subject_out_mean_improvement_range": [
+        -0.4933058622479439,
+        0.22616515108517232
+      ],
+      "subject_bootstrap_95pct_ci_for_mean_improvement": [
+        -0.971249672158559,
+        1.2284817957460867
+      ],
+      "seed_level_improvements": [
+        -0.5188276579644945,
+        -0.30784042040506965,
+        -0.26339009854528644,
+        0.2058744450410207,
+        0.8926170645157498
+      ],
+      "mean_seed_level_improvement": 0.0016866665283840065,
+      "sd_across_seed_level_improvements": 0.5640162883023772,
+      "descriptive_95pct_t_interval_across_seed_improvements": [
+        -0.6986320530571926,
+        0.7020053861139606
+      ],
+      "physics_seed_wins": 2,
+      "no_physics_seed_wins": 3,
+      "physics_subject_wins_based_on_five_seed_mean": 7,
+      "no_physics_subject_wins_based_on_five_seed_mean": 8,
+      "subject_ties": 0,
+      "subjects_where_physics_won_all_five_seeds": 2,
+      "subjects_where_no_physics_won_all_five_seeds": 1,
+      "wilcoxon_signed_rank_statistic_on_15_subject_seed_averages": 49.0,
+      "wilcoxon_two_sided_raw_p_value": 0.5614013671875,
+      "paired_rank_biserial_correlation": -0.18333333333333332,
+      "paired_cohens_dz": 0.0007412373179393487,
+      "physics_trial_wins_based_on_five_seed_mean_descriptive": 22,
+      "no_physics_trial_wins_based_on_five_seed_mean_descriptive": 44,
+      "physics_subject_seed_wins_descriptive": 38,
+      "no_physics_subject_seed_wins_descriptive": 37,
+      "physics_trial_seed_wins_descriptive": 148,
+      "no_physics_trial_seed_wins_descriptive": 182,
+      "holm_adjusted_p_value_across_three_primary_metrics": 1.0
+    },
+    "x_rmse_cm": {
+      "physics_five_seed_subject_mean": 7.771614862564537,
+      "no_physics_five_seed_subject_mean": 8.026988880760554,
+      "mean_physics_improvement": 0.2553740181960166,
+      "median_subject_improvement": -0.06988033652305603,
+      "relative_improvement_pct": 3.1814422816519463,
+      "largest_absolute_subject_effect": {
+        "subject": "S45",
+        "physics_improvement": 9.207311257719994
+      },
+      "mean_improvement_excluding_largest_absolute_subject": -0.38405007034141037,
+      "leave_one_subject_out_mean_improvement_range": [
+        -0.38405007034141037,
+        0.5931516860811306
+      ],
+      "subject_bootstrap_95pct_ci_for_mean_improvement": [
+        -1.1690379010963565,
+        1.949011549381539
+      ],
+      "seed_level_improvements": [
+        -0.4100817796877688,
+        -0.32408770235876244,
+        -0.18997847190540693,
+        0.6858536039168636,
+        1.5151644410151575
+      ],
+      "mean_seed_level_improvement": 0.2553740181960166,
+      "sd_across_seed_level_improvements": 0.829055294916179,
+      "descriptive_95pct_t_interval_across_seed_improvements": [
+        -0.7740340940216072,
+        1.2847821304136402
+      ],
+      "physics_seed_wins": 2,
+      "no_physics_seed_wins": 3,
+      "physics_subject_wins_based_on_five_seed_mean": 7,
+      "no_physics_subject_wins_based_on_five_seed_mean": 8,
+      "subject_ties": 0,
+      "subjects_where_physics_won_all_five_seeds": 3,
+      "subjects_where_no_physics_won_all_five_seeds": 1,
+      "wilcoxon_signed_rank_statistic_on_15_subject_seed_averages": 56.0,
+      "wilcoxon_two_sided_raw_p_value": 0.846923828125,
+      "paired_rank_biserial_correlation": -0.06666666666666667,
+      "paired_cohens_dz": 0.07969565213238808,
+      "physics_trial_wins_based_on_five_seed_mean_descriptive": 27,
+      "no_physics_trial_wins_based_on_five_seed_mean_descriptive": 39,
+      "physics_subject_seed_wins_descriptive": 43,
+      "no_physics_subject_seed_wins_descriptive": 32,
+      "physics_trial_seed_wins_descriptive": 162,
+      "no_physics_trial_seed_wins_descriptive": 168,
+      "holm_adjusted_p_value_across_three_primary_metrics": 1.0
+    }
+  },
+  "fold_analysis": {
+    "1": {
+      "test_subjects": "S57+S46+S30",
+      "mean_physics_improvement_across_seeds": {
+        "normalized_mse": 0.020571067929267883,
+        "theta_rmse_deg": 0.1471186637878418,
+        "x_rmse_cm": 0.6026063859462738
+      }
+    },
+    "2": {
+      "test_subjects": "S55+S48+S43",
+      "mean_physics_improvement_across_seeds": {
+        "normalized_mse": 0.03343264311552048,
+        "theta_rmse_deg": 0.5556671142578125,
+        "x_rmse_cm": 0.6557418406009674
+      }
+    },
+    "3": {
+      "test_subjects": "S45+S59+S56",
+      "mean_physics_improvement_across_seeds": {
+        "normalized_mse": 0.49530399441719053,
+        "theta_rmse_deg": 4.479819011688233,
+        "x_rmse_cm": 5.8712781965732574
+      }
+    },
+    "4": {
+      "test_subjects": "S34+S32+S49",
+      "mean_physics_improvement_across_seeds": {
+        "normalized_mse": -0.06239534690976143,
+        "theta_rmse_deg": -0.9567025184631348,
+        "x_rmse_cm": -1.7206700891256332
+      }
+    },
+    "5": {
+      "test_subjects": "S44+S62+S63",
+      "mean_physics_improvement_across_seeds": {
+        "normalized_mse": 0.07521424293518067,
+        "theta_rmse_deg": 0.5740564823150635,
+        "x_rmse_cm": 2.824757471680641
+      }
+    }
+  },
+  "inference_note": "Wilcoxon tests use 15 paired subject-level differences after averaging over the five matched optimization seeds. Holm correction covers the three primary metrics. Seed t intervals and trial win counts are descriptive.",
+  "controller_note": "The four no-physics controller outputs are unsupervised latent variables and are not comparable as biomechanical gains.",
+  "limitations": [
+    "There are 15 independent subjects; five seeds quantify optimization variability but do not create 75 independent people.",
+    "The five-seed t intervals are descriptive and imprecise.",
+    "Trials within a subject are correlated, so trial-level win counts are descriptive.",
+    "Apparent contact is based on skeleton/video phase marking rather than force-plate contact."
+  ]
+}
