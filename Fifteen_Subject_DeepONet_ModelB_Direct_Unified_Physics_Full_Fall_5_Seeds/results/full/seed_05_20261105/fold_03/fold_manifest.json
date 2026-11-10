@@ -1,0 +1,51 @@
+{
+  "all_optimization_seeds": [
+    20261101,
+    20261102,
+    20261103,
+    20261104,
+    20261105
+  ],
+  "base_optimization_seed": 20261105,
+  "context_windows": 4,
+  "controller_semantics": "physical_gains",
+  "device": "mps",
+  "effective_fold_seed": 20261108,
+  "experiment_name": "fifteen_subject_model_b_direct_unified_physics_full_fall_5seeds_v1",
+  "fixed_pi_rad": 0.0635,
+  "fixed_tau_s": 0.23,
+  "fold": {
+    "id": 3,
+    "test": [
+      "S45",
+      "S59",
+      "S56"
+    ],
+    "train": [
+      "S43",
+      "S55",
+      "S62",
+      "S63",
+      "S49",
+      "S48",
+      "S46",
+      "S44",
+      "S34",
+      "S32",
+      "S30"
+    ],
+    "validation": "S57"
+  },
+  "mode": "full",
+  "model_id": "B",
+  "physics_loss_enabled": true,
+  "real_training_trial_count": 52,
+  "seed_index": 5,
+  "synthetic_training_trajectory_count": 0,
+  "test_real_data_used_for_model_selection": false,
+  "test_real_trial_count": 15,
+  "training_regime": "direct_physics",
+  "training_teacher_ids": [],
+  "validation_and_test_subjects_used_for_training": false,
+  "validation_real_trial_count": 3
+}
