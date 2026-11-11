@@ -1,0 +1,153 @@
+{
+  "protocol": {
+    "reference": "within-subject, training-trial real-real variability computed separately by fold",
+    "test_subjects_used": false,
+    "validation_subjects_used_for_thresholds": false,
+    "threshold_percentile": 95.0,
+    "phase_normalized_points": 101,
+    "shape_gate_metrics": [
+      "normalized_rmse",
+      "dtw_normalized"
+    ],
+    "kinematic_gate_metrics": [
+      "theta_displacement_abs_difference_deg",
+      "x_displacement_abs_difference_cm",
+      "peak_abs_theta_velocity_abs_difference_deg_s",
+      "peak_abs_x_velocity_abs_difference_cm_s",
+      "peak_abs_theta_acceleration_abs_difference_deg_s2",
+      "peak_abs_x_acceleration_abs_difference_cm_s2"
+    ],
+    "minimum_kinematic_pass_fraction": 0.75,
+    "duration_used_in_gate": false,
+    "duration_limitation": "synthetic endpoint inherited from the source trial because the model does not predict contact time"
+  },
+  "counts": {
+    "folds": 5,
+    "real_real_pairs": 489,
+    "synthetic_real_pairs": 516,
+    "synthetic_synthetic_diversity_pairs": 258,
+    "quality_pass": 257
+  },
+  "generator_summary": [
+    {
+      "fold": 1,
+      "generator_rank": 1,
+      "seed_index": 3,
+      "trajectory_count": 52,
+      "quality_pass_count": 20,
+      "quality_pass_rate": 0.38461538461538464,
+      "mean_normalized_rmse": 1.1691877070396757,
+      "mean_dtw_normalized": 0.26576457783943636,
+      "mean_theta_rmse_deg": 17.65269801332446,
+      "mean_x_rmse_cm": 23.007446482752112
+    },
+    {
+      "fold": 1,
+      "generator_rank": 2,
+      "seed_index": 1,
+      "trajectory_count": 52,
+      "quality_pass_count": 20,
+      "quality_pass_rate": 0.38461538461538464,
+      "mean_normalized_rmse": 1.1521000803559702,
+      "mean_dtw_normalized": 0.2389664558594873,
+      "mean_theta_rmse_deg": 16.976271107463983,
+      "mean_x_rmse_cm": 22.9836153772253
+    },
+    {
+      "fold": 2,
+      "generator_rank": 1,
+      "seed_index": 5,
+      "trajectory_count": 51,
+      "quality_pass_count": 31,
+      "quality_pass_rate": 0.6078431372549019,
+      "mean_normalized_rmse": 0.6951883574051478,
+      "mean_dtw_normalized": 0.17798449265592411,
+      "mean_theta_rmse_deg": 10.558655406286976,
+      "mean_x_rmse_cm": 13.555670700412215
+    },
+    {
+      "fold": 2,
+      "generator_rank": 2,
+      "seed_index": 2,
+      "trajectory_count": 51,
+      "quality_pass_count": 31,
+      "quality_pass_rate": 0.6078431372549019,
+      "mean_normalized_rmse": 0.5887244886340437,
+      "mean_dtw_normalized": 0.13592107428906236,
+      "mean_theta_rmse_deg": 8.999696771987699,
+      "mean_x_rmse_cm": 11.411361342176665
+    },
+    {
+      "fold": 3,
+      "generator_rank": 1,
+      "seed_index": 4,
+      "trajectory_count": 52,
+      "quality_pass_count": 33,
+      "quality_pass_rate": 0.6346153846153846,
+      "mean_normalized_rmse": 0.8898242749343447,
+      "mean_dtw_normalized": 0.16624788318434205,
+      "mean_theta_rmse_deg": 13.690577165488557,
+      "mean_x_rmse_cm": 17.325426384730104
+    },
+    {
+      "fold": 3,
+      "generator_rank": 2,
+      "seed_index": 5,
+      "trajectory_count": 52,
+      "quality_pass_count": 34,
+      "quality_pass_rate": 0.6538461538461539,
+      "mean_normalized_rmse": 0.8690020124894366,
+      "mean_dtw_normalized": 0.16289152650650945,
+      "mean_theta_rmse_deg": 13.211350984103706,
+      "mean_x_rmse_cm": 16.971543332324387
+    },
+    {
+      "fold": 4,
+      "generator_rank": 1,
+      "seed_index": 3,
+      "trajectory_count": 52,
+      "quality_pass_count": 35,
+      "quality_pass_rate": 0.6730769230769231,
+      "mean_normalized_rmse": 1.0527056534119263,
+      "mean_dtw_normalized": 0.17511237835952453,
+      "mean_theta_rmse_deg": 15.071926611519997,
+      "mean_x_rmse_cm": 21.26867555524802
+    },
+    {
+      "fold": 4,
+      "generator_rank": 2,
+      "seed_index": 5,
+      "trajectory_count": 52,
+      "quality_pass_count": 32,
+      "quality_pass_rate": 0.6153846153846154,
+      "mean_normalized_rmse": 1.1605060199376636,
+      "mean_dtw_normalized": 0.2118209285259685,
+      "mean_theta_rmse_deg": 16.54823905161043,
+      "mean_x_rmse_cm": 23.55510157902851
+    },
+    {
+      "fold": 5,
+      "generator_rank": 1,
+      "seed_index": 3,
+      "trajectory_count": 51,
+      "quality_pass_count": 9,
+      "quality_pass_rate": 0.17647058823529413,
+      "mean_normalized_rmse": 1.3082465777520251,
+      "mean_dtw_normalized": 0.3087408745740733,
+      "mean_theta_rmse_deg": 19.205933516793277,
+      "mean_x_rmse_cm": 26.224986427986117
+    },
+    {
+      "fold": 5,
+      "generator_rank": 2,
+      "seed_index": 4,
+      "trajectory_count": 51,
+      "quality_pass_count": 12,
+      "quality_pass_rate": 0.23529411764705882,
+      "mean_normalized_rmse": 1.2592301255384526,
+      "mean_dtw_normalized": 0.2904948301234619,
+      "mean_theta_rmse_deg": 18.859993328374404,
+      "mean_x_rmse_cm": 24.966527657120423
+    }
+  ]
+}
