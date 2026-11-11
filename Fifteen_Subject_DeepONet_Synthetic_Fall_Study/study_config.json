@@ -4,5 +4,32 @@
   "output_directory": "outputs/generator_selection",
   "expected_folds": 5,
   "expected_seeds_per_fold": 5,
-  "top_k_per_fold": 2
+  "top_k_per_fold": 2,
+  "generation_output_directory": "outputs/synthetic_trajectories",
+  "quality_output_directory": "outputs/trajectory_quality",
+  "generation": {
+    "batch_size": 16,
+    "context_policy": "observed_before_0.40s_then_model_forecast",
+    "prepared_data_mode": "full"
+  },
+  "quality": {
+    "phase_normalized_points": 101,
+    "real_real_percentile": 95.0,
+    "savgol_window_samples": 11,
+    "savgol_polynomial_order": 3,
+    "minimum_real_real_pairs_per_fold": 10,
+    "shape_gate_metrics": [
+      "normalized_rmse",
+      "dtw_normalized"
+    ],
+    "kinematic_gate_metrics": [
+      "theta_displacement_abs_difference_deg",
+      "x_displacement_abs_difference_cm",
+      "peak_abs_theta_velocity_abs_difference_deg_s",
+      "peak_abs_x_velocity_abs_difference_cm_s",
+      "peak_abs_theta_acceleration_abs_difference_deg_s2",
+      "peak_abs_x_acceleration_abs_difference_cm_s2"
+    ],
+    "minimum_kinematic_pass_fraction": 0.75
+  }
 }
