@@ -1,0 +1,21 @@
+fold,reference,trajectory_count,percentile,metric,threshold,used_in_automatic_gate
+1,training-subject real trajectory boundary behavior,52,95.0,boundary_theta_position_step_deg,0.6110901948518708,True
+1,training-subject real trajectory boundary behavior,52,95.0,boundary_x_position_step_cm,0.8821591734886169,True
+1,training-subject real trajectory boundary behavior,52,95.0,boundary_theta_velocity_change_deg_s,2.954432676783946,True
+1,training-subject real trajectory boundary behavior,52,95.0,boundary_x_velocity_change_cm_s,4.885226052224878,True
+2,training-subject real trajectory boundary behavior,51,95.0,boundary_theta_position_step_deg,0.4847639251617809,True
+2,training-subject real trajectory boundary behavior,51,95.0,boundary_x_position_step_cm,0.8416831493377686,True
+2,training-subject real trajectory boundary behavior,51,95.0,boundary_theta_velocity_change_deg_s,3.3590904413545273,True
+2,training-subject real trajectory boundary behavior,51,95.0,boundary_x_velocity_change_cm_s,5.2085388773610966,True
+3,training-subject real trajectory boundary behavior,52,95.0,boundary_theta_position_step_deg,0.4847639251617809,True
+3,training-subject real trajectory boundary behavior,52,95.0,boundary_x_position_step_cm,0.8416831493377686,True
+3,training-subject real trajectory boundary behavior,52,95.0,boundary_theta_velocity_change_deg_s,3.3590904413545273,True
+3,training-subject real trajectory boundary behavior,52,95.0,boundary_x_velocity_change_cm_s,5.2085388773610966,True
+4,training-subject real trajectory boundary behavior,52,95.0,boundary_theta_position_step_deg,0.3905698535351929,True
+4,training-subject real trajectory boundary behavior,52,95.0,boundary_x_position_step_cm,0.6071358919143677,True
+4,training-subject real trajectory boundary behavior,52,95.0,boundary_theta_velocity_change_deg_s,2.0694416939496025,True
+4,training-subject real trajectory boundary behavior,52,95.0,boundary_x_velocity_change_cm_s,3.914303914498607,True
+5,training-subject real trajectory boundary behavior,51,95.0,boundary_theta_position_step_deg,0.4847639251617809,True
+5,training-subject real trajectory boundary behavior,51,95.0,boundary_x_position_step_cm,0.8416831493377686,True
+5,training-subject real trajectory boundary behavior,51,95.0,boundary_theta_velocity_change_deg_s,2.954432676783946,True
+5,training-subject real trajectory boundary behavior,51,95.0,boundary_x_velocity_change_cm_s,4.885226052224878,True
