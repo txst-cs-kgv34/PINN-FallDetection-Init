@@ -9,7 +9,9 @@
   "quality_output_directory": "outputs/trajectory_quality",
   "generation": {
     "batch_size": 16,
-    "context_policy": "observed_before_0.40s_then_model_forecast",
+    "context_policy": "observed_through_0.40s_then_C1_corrected_model_forecast",
+    "continuity_decay_s": 0.15,
+    "continuity_slope_window_samples": 11,
     "prepared_data_mode": "full"
   },
   "quality": {

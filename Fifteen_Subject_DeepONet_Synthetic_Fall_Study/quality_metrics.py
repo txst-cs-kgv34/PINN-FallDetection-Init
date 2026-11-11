@@ -16,6 +16,13 @@ KINEMATIC_FEATURES = (
     "peak_abs_x_acceleration_cm_s2",
 )
 
+BOUNDARY_METRICS = (
+    "boundary_theta_position_step_deg",
+    "boundary_x_position_step_cm",
+    "boundary_theta_velocity_change_deg_s",
+    "boundary_x_velocity_change_cm_s",
+)
+
 
 @dataclass(frozen=True)
 class Trajectory:
@@ -60,6 +67,54 @@ def forecast_trajectory(
     )
     validate_trajectory(trajectory)
     return trajectory
+
+
+def boundary_continuity_metrics(
+    time_s: np.ndarray,
+    theta_rad: np.ndarray,
+    x_m: np.ndarray,
+    valid_mask: np.ndarray,
+    context_region_s: float,
+) -> dict[str, float]:
+    """Measure the sampled position step and velocity change at the join."""
+    time = np.asarray(time_s, dtype=np.float64)
+    theta = np.asarray(theta_rad, dtype=np.float64)
+    x_position = np.asarray(x_m, dtype=np.float64)
+    valid = np.asarray(valid_mask) > 0.5
+    if not (len(time) == len(theta) == len(x_position) == len(valid)):
+        raise ValueError("Boundary arrays must have matching lengths")
+    context_indices = np.flatnonzero(valid & (time <= float(context_region_s)))
+    if len(context_indices) < 2:
+        raise ValueError("Boundary metrics require two observed context samples")
+    anchor = int(context_indices[-1])
+    previous = int(context_indices[-2])
+    later = np.flatnonzero(valid & (time > time[anchor]))
+    if len(later) == 0:
+        raise ValueError("Boundary metrics require a valid sample after the boundary")
+    following = int(later[0])
+    before_dt = float(time[anchor] - time[previous])
+    after_dt = float(time[following] - time[anchor])
+    if before_dt <= 0.0 or after_dt <= 0.0:
+        raise ValueError("Boundary sample times must be strictly increasing")
+
+    theta_before_velocity = (theta[anchor] - theta[previous]) / before_dt
+    theta_after_velocity = (theta[following] - theta[anchor]) / after_dt
+    x_before_velocity = (x_position[anchor] - x_position[previous]) / before_dt
+    x_after_velocity = (x_position[following] - x_position[anchor]) / after_dt
+    return {
+        "boundary_theta_position_step_deg": float(
+            np.degrees(abs(theta[following] - theta[anchor]))
+        ),
+        "boundary_x_position_step_cm": float(
+            100.0 * abs(x_position[following] - x_position[anchor])
+        ),
+        "boundary_theta_velocity_change_deg_s": float(
+            np.degrees(abs(theta_after_velocity - theta_before_velocity))
+        ),
+        "boundary_x_velocity_change_cm_s": float(
+            100.0 * abs(x_after_velocity - x_before_velocity)
+        ),
+    }
 
 
 def phase_resample(values: np.ndarray, points: int) -> np.ndarray:

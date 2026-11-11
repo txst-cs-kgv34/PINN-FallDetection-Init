@@ -18,6 +18,7 @@ def main() -> None:
         OUTPUTS / "synthetic_trajectories" / "synthetic_manifest.json",
         OUTPUTS / "trajectory_quality" / "quality_summary.json",
         OUTPUTS / "trajectory_quality" / "QUALITY_REPORT.md",
+        OUTPUTS / "trajectory_quality" / "final_approved_synthetic_manifest.json",
     )
     missing = [path for path in required if not path.is_file()]
     if missing:

@@ -9,8 +9,10 @@ import numpy as np
 
 from quality_check import (
     apply_quality_gate,
+    build_real_boundary_rows,
     build_real_real_rows,
     build_synthetic_real_rows,
+    continuity_thresholds_by_fold,
     thresholds_by_fold,
 )
 
@@ -58,7 +60,9 @@ class QualityPipelineTests(unittest.TestCase):
             for trial in range(1, 4)
         ]
         real_real = build_real_real_rows(records, experiment, [1], settings)
+        real_boundary = build_real_boundary_rows(records, experiment, [1])
         self.assertEqual(len(real_real), 6)
+        self.assertEqual(len(real_boundary), 6)
         self.assertEqual({row["subject"] for row in real_real}, {"S01", "S02"})
 
         with tempfile.TemporaryDirectory() as temporary:
@@ -96,10 +100,14 @@ class QualityPipelineTests(unittest.TestCase):
             threshold_rows, lookup = thresholds_by_fold(
                 real_real, [1], 95.0, minimum_pairs=2
             )
+            _, continuity_lookup = continuity_thresholds_by_fold(
+                real_boundary, [1], 95.0
+            )
             self.assertTrue(threshold_rows)
             decisions = apply_quality_gate(
                 synthetic_real,
                 lookup,
+                continuity_lookup,
                 ["normalized_rmse", "dtw_normalized"],
                 [
                     "theta_displacement_abs_difference_deg",

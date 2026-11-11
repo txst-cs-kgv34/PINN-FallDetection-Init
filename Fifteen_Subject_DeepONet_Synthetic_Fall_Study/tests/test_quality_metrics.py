@@ -6,6 +6,7 @@ import numpy as np
 
 from quality_metrics import (
     Trajectory,
+    boundary_continuity_metrics,
     kinematic_features,
     normalized_dtw,
     pair_distances,
@@ -49,6 +50,20 @@ class QualityMetricTests(unittest.TestCase):
         values = np.column_stack([np.arange(5.0), np.arange(5.0)])
         self.assertEqual(normalized_dtw(values, values), 0.0)
         self.assertEqual(percentile_threshold([1.0, 2.0, 3.0, 4.0], 75.0), 4.0)
+
+    def test_boundary_metrics_are_zero_velocity_change_for_linear_motion(self) -> None:
+        time = np.arange(0.0, 1.01, 0.01)
+        metrics = boundary_continuity_metrics(
+            time,
+            0.2 * time,
+            0.1 * time,
+            np.ones_like(time),
+            0.4,
+        )
+        self.assertAlmostEqual(metrics["boundary_theta_position_step_deg"], np.degrees(0.002))
+        self.assertAlmostEqual(metrics["boundary_x_position_step_cm"], 0.1)
+        self.assertAlmostEqual(metrics["boundary_theta_velocity_change_deg_s"], 0.0, places=9)
+        self.assertAlmostEqual(metrics["boundary_x_velocity_change_cm_s"], 0.0, places=9)
 
 
 if __name__ == "__main__":

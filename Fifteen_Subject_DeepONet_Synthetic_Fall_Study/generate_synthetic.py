@@ -102,17 +102,93 @@ def combine_context_and_forecast(
     time_s: np.ndarray,
     valid_mask: np.ndarray,
     context_region_s: float,
-) -> tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
+    correction_decay_s: float = 0.15,
+    slope_window_samples: int = 11,
+) -> tuple[
+    np.ndarray,
+    np.ndarray,
+    np.ndarray,
+    np.ndarray,
+    np.ndarray,
+    dict[str, float],
+]:
+    """Join observed context to a C1-corrected model forecast.
+
+    The sample at the boundary belongs to the observed context.  A decaying
+    correction is applied to the model from that sample onward so that its
+    position and analytical first derivative match the observed trajectory at
+    the boundary.  The correction tends to zero, returning the trajectory to
+    the unmodified model forecast away from the join.
+    """
+    if correction_decay_s <= 0.0:
+        raise ValueError("correction_decay_s must be positive")
+    if slope_window_samples < 2:
+        raise ValueError("slope_window_samples must be at least two")
     valid = valid_mask > 0.5
-    context = valid & (time_s < context_region_s)
-    forecast = valid & (time_s >= context_region_s)
+    context = valid & (time_s <= context_region_s)
+    forecast = valid & (time_s > context_region_s)
     if not np.any(context) or not np.any(forecast):
         raise ValueError("Trajectory does not contain both context and forecast samples")
+    boundary_index = int(np.flatnonzero(context)[-1])
+    boundary_time_s = float(time_s[boundary_index])
+    model_region = valid & (time_s >= boundary_time_s)
+    context_indices = np.flatnonzero(context)[-slope_window_samples:]
+    model_indices = np.flatnonzero(model_region)[:slope_window_samples]
+    if len(context_indices) < 2 or len(model_indices) < 2:
+        raise ValueError("Too few samples to estimate boundary velocity")
+
+    def boundary_slope(values: np.ndarray, indices: np.ndarray) -> float:
+        centered_time = np.asarray(time_s[indices], dtype=np.float64) - boundary_time_s
+        degree = min(2, len(indices) - 1)
+        coefficients = np.polyfit(
+            centered_time,
+            np.asarray(values[indices], dtype=np.float64),
+            degree,
+        )
+        derivative = np.polyder(coefficients)
+        return float(np.polyval(derivative, 0.0))
+
+    raw_model = np.asarray(model_prediction, dtype=np.float64)
+    corrected_model = raw_model.copy()
+    correction_metadata: dict[str, float] = {
+        "boundary_time_s": boundary_time_s,
+        "correction_decay_s": float(correction_decay_s),
+        "slope_window_samples": float(slope_window_samples),
+    }
+    channels = (
+        ("theta", np.asarray(real_theta, dtype=np.float64), 0),
+        ("x", np.asarray(real_x, dtype=np.float64), 1),
+    )
+    elapsed = np.asarray(time_s[model_region], dtype=np.float64) - boundary_time_s
+    for name, observed, channel in channels:
+        observed_slope = boundary_slope(observed, context_indices)
+        model_slope = boundary_slope(raw_model[:, channel], model_indices)
+        position_offset = float(
+            observed[boundary_index] - raw_model[boundary_index, channel]
+        )
+        velocity_offset = observed_slope - model_slope
+        correction = (
+            position_offset
+            + (velocity_offset + position_offset / correction_decay_s) * elapsed
+        ) * np.exp(-elapsed / correction_decay_s)
+        corrected_model[model_region, channel] += correction
+        correction_metadata[f"{name}_position_offset"] = position_offset
+        correction_metadata[f"{name}_observed_boundary_velocity"] = observed_slope
+        correction_metadata[f"{name}_raw_model_boundary_velocity"] = model_slope
+        correction_metadata[f"{name}_velocity_offset"] = velocity_offset
+
     theta = np.asarray(real_theta, dtype=np.float32).copy()
     x_m = np.asarray(real_x, dtype=np.float32).copy()
-    theta[forecast] = model_prediction[forecast, 0]
-    x_m[forecast] = model_prediction[forecast, 1]
-    return theta, x_m, context, forecast
+    theta[forecast] = corrected_model[forecast, 0]
+    x_m[forecast] = corrected_model[forecast, 1]
+    return (
+        theta,
+        x_m,
+        context,
+        forecast,
+        corrected_model.astype(np.float32),
+        correction_metadata,
+    )
 
 
 def transition_jump(
@@ -137,6 +213,8 @@ def generate(
     batch_size: int,
     limit_per_subject: int | None,
     maximum_generators: int | None,
+    correction_decay_s: float,
+    slope_window_samples: int,
 ) -> dict[str, Any]:
     import torch
 
@@ -193,7 +271,14 @@ def generate(
                     real_theta = raw_batch["theta_rad"][index].numpy()
                     real_x = raw_batch["x_m"][index].numpy()
                     valid_mask = raw_batch["valid_mask"][index].numpy()
-                    synthetic_theta, synthetic_x, context_mask, forecast_mask = (
+                    (
+                        synthetic_theta,
+                        synthetic_x,
+                        context_mask,
+                        forecast_mask,
+                        corrected_model,
+                        correction,
+                    ) = (
                         combine_context_and_forecast(
                             real_theta,
                             real_x,
@@ -201,6 +286,8 @@ def generate(
                             time_s,
                             valid_mask,
                             context_region_s,
+                            correction_decay_s,
+                            slope_window_samples,
                         )
                     )
                     jump_theta_deg, jump_x_cm = transition_jump(
@@ -218,6 +305,8 @@ def generate(
                         synthetic_x_m=synthetic_x.astype(np.float32),
                         raw_model_theta_rad=predicted[index, :, 0].astype(np.float32),
                         raw_model_x_m=predicted[index, :, 1].astype(np.float32),
+                        corrected_model_theta_rad=corrected_model[:, 0],
+                        corrected_model_x_m=corrected_model[:, 1],
                         valid_mask=valid_mask.astype(np.float32),
                         context_mask=context_mask.astype(np.uint8),
                         forecast_mask=forecast_mask.astype(np.uint8),
@@ -227,6 +316,24 @@ def generate(
                         inferred_physical_gains=(
                             controller_normalized[index] * gain_scale
                         ).astype(np.float32),
+                        continuity_boundary_time_s=np.float32(
+                            correction["boundary_time_s"]
+                        ),
+                        continuity_decay_s=np.float32(
+                            correction["correction_decay_s"]
+                        ),
+                        continuity_theta_position_offset_rad=np.float32(
+                            correction["theta_position_offset"]
+                        ),
+                        continuity_x_position_offset_m=np.float32(
+                            correction["x_position_offset"]
+                        ),
+                        continuity_theta_velocity_offset_rad_s=np.float32(
+                            correction["theta_velocity_offset"]
+                        ),
+                        continuity_x_velocity_offset_m_s=np.float32(
+                            correction["x_velocity_offset"]
+                        ),
                     )
                     manifest_rows.append(
                         {
@@ -251,6 +358,22 @@ def generate(
                             "source_is_training_subject": True,
                             "validation_or_test_context_used": False,
                             "context_region_s": context_region_s,
+                            "continuity_correction": "C1_decaying_exponential",
+                            "continuity_decay_s": correction_decay_s,
+                            "continuity_slope_window_samples": slope_window_samples,
+                            "continuity_boundary_time_s": correction["boundary_time_s"],
+                            "raw_boundary_theta_offset_deg": float(
+                                np.degrees(correction["theta_position_offset"])
+                            ),
+                            "raw_boundary_x_offset_cm": float(
+                                100.0 * correction["x_position_offset"]
+                            ),
+                            "raw_boundary_theta_velocity_offset_deg_s": float(
+                                np.degrees(correction["theta_velocity_offset"])
+                            ),
+                            "raw_boundary_x_velocity_offset_cm_s": float(
+                                100.0 * correction["x_velocity_offset"]
+                            ),
                             "endpoint_semantics": "source_conditioned_apparent_contact",
                             "valid_samples": int(np.sum(valid_mask > 0.5)),
                             "forecast_samples": int(np.sum(forecast_mask)),
@@ -272,7 +395,13 @@ def generate(
         "physics_directory": str(physics_dir.resolve()),
         "selection_file": str(selection_file.resolve()),
         "device": str(device),
-        "context_policy": "real samples for t < 0.40 s; model forecast for t >= 0.40 s",
+        "context_policy": "real samples for t <= 0.40 s; continuity-corrected model forecast for t > 0.40 s",
+        "continuity_correction": {
+            "method": "C1 decaying exponential bridge",
+            "decay_s": correction_decay_s,
+            "slope_window_samples": slope_window_samples,
+            "position_and_velocity_matched_at_boundary": True,
+        },
         "duration_semantics": "apparent-contact endpoint and valid length inherited from the source context trial; contact time is not predicted",
         "held_out_contexts_used": False,
         "generator_count": len(selected),
@@ -326,6 +455,8 @@ def main() -> None:
         batch_size,
         args.limit_per_subject,
         args.maximum_generators,
+        float(config["generation"]["continuity_decay_s"]),
+        int(config["generation"]["continuity_slope_window_samples"]),
     )
     print(
         f"Generated {payload['synthetic_trajectory_count']} conditional trajectories "

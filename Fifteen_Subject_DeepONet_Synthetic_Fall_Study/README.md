@@ -1,128 +1,197 @@
-# Fifteen-subject DeepONet synthetic-fall results
+# Fifteen-subject DeepONet synthetic-fall study
 
-This archive contains the leakage-free generator selection, 516 conditionally generated full-fall trajectories, and real-real versus synthetic-real quality verification for the five-fold Physics DeepONet experiment.
+This directory is intentionally separate from:
 
-## Executive summary
+- `Fifteen_Subject_DeepONet_ModelB_Direct_Unified_Physics_Full_Fall_5_Seeds`
+- all `S##_PINN_audit` directories
 
-| Item | Result |
-|---|---:|
-| Original Physics models | 25: five folds × five optimization seeds |
-| Validation-selected generators | 10: top two seeds per fold |
-| Unique real source contexts | 70 |
-| Generated conditional trajectories | 516 |
-| Training-subject real-real reference pairs | 489 |
-| Synthetic-real quality comparisons | 516 |
-| Passed RMSE and DTW shape gate | 461/516 (89.3%) |
-| Passed kinematic gate | 281/516 (54.5%) |
-| Passed the complete predefined gate | 257/516 (49.8%) |
+The study now contains three stages:
 
-The 257 passing trajectories should be treated as **provisionally quality-approved**, not as 257 fully independent falls. They originate from 70 real contexts and use two closely related generator outputs per context within each fold.
+1. Leakage-free generator selection.
+2. Conditional synthetic trajectory generation from training-subject contexts with position-and-velocity continuity correction at 0.40 s.
+3. Real-real versus synthetic-real quality verification using boundary continuity, RMSE, DTW, duration, displacement, velocity, and acceleration.
+4. Export of an approved-only manifest for the downstream fall-detection study.
 
-## Identifier convention
-
-Synthetic identifiers use:
+## Expected sibling layout
 
 ```text
-F<fold>_R<generator-rank>_S<seed-index>_<source-trial>
+PINN-FallDetection-Init/
+├── Fifteen_Subject_DeepONet_ModelB_Direct_Unified_Physics_Full_Fall_5_Seeds/
+│   └── results/full/seed_*/fold_*/
+├── S30_PINN_audit/
+├── S32_PINN_audit/
+├── ...
+└── Fifteen_Subject_DeepONet_Synthetic_Fall_Study/
 ```
 
-For example, `F01_R01_S03_S43A11T02` means:
+The study reads the 25 model runs and `outputs/real_data_full` from the sibling Physics directory. It does not modify the Physics or audit directories.
 
-| Component | Meaning |
-|---|---|
-| `F01` | Fold 1 |
-| `R01` | Validation rank 1 within Fold 1—not round 1 |
-| `S03` | Optimization-seed index 3, corresponding to base seed 20261103 |
-| `S43A11T02` | Real training-subject context trial used to condition generation |
+## Selection rule
 
-The `R` field is a rank determined from validation-subject normalized forecast MSE. It is not a training round or epoch.
+For each of the five folds:
 
-## Generator selection
+1. Validate all five seed-specific runs.
+2. Read only `best_validation_value` from `training_selection.json`.
+3. Rank lower validation normalized MSE as better.
+4. Select the top two checkpoints.
+5. Never use `test_*` errors for ranking or tie-breaking.
 
-Test-subject performance was not used for generator selection. Each fold retained the two seeds with the lowest validation-subject loss:
+Each seed-specific run has already selected its best epoch using that fold's one real validation subject. This script performs the second selection level: choosing the top two seeds within the fold.
 
-| Fold | Validation subject | Rank 1 | Rank 2 |
-|---:|---|---|---|
-| 1 | S63 | Seed index 3 | Seed index 1 |
-| 2 | S62 | Seed index 5 | Seed index 2 |
-| 3 | S57 | Seed index 4 | Seed index 5 |
-| 4 | S55 | Seed index 3 | Seed index 5 |
-| 5 | S43 | Seed index 3 | Seed index 4 |
+## Run
 
-## Quality protocol
+```bash
+cd Fifteen_Subject_DeepONet_Synthetic_Fall_Study
+chmod +x run.sh run_on_mac.sh
 
-For each fold:
+./run.sh setup       # only if the Physics Python environment is unavailable
+./run.sh test
+./run.sh smoke
+./run.sh validate
+./run.sh select
+./run.sh generate auto
+./run.sh quality
+./run.sh package
+```
 
-1. Only its 11 training subjects were used for generation and threshold construction.
-2. Different real trials from the same subject established natural real-real variability.
-3. Synthetic-real shape was measured using phase-normalized normalized RMSE, theta RMSE, CoM x RMSE, and DTW.
-4. Displacement, velocity, and acceleration were computed on the original 100 Hz time grid after identical Savitzky–Golay smoothing.
-5. Per-fold limits were the 95th percentiles of training-subject real-real distances.
-6. A trajectory passed when normalized RMSE and DTW both passed and at least 75% of six displacement/velocity/acceleration metrics passed.
+`validate` writes ranking tables without copying checkpoints. `select` also copies the ten selected checkpoints into this study directory.
 
-## Results by fold
+To run the complete workflow:
 
-| Fold | Candidates | Complete passes | Pass rate | Mean normalized RMSE | Mean DTW | Mean theta RMSE | Mean x RMSE |
-|---:|---:|---:|---:|---:|---:|---:|---:|
-| 1 | 104 | 40 | 38.5% | 1.1606 | 0.2524 | 17.314° | 22.996 cm |
-| 2 | 102 | 62 | 60.8% | 0.6420 | 0.1570 | 9.779° | 12.484 cm |
-| 3 | 104 | 67 | 64.4% | 0.8794 | 0.1646 | 13.451° | 17.148 cm |
-| 4 | 104 | 67 | 64.4% | 1.1066 | 0.1935 | 15.810° | 22.412 cm |
-| 5 | 102 | 21 | 20.6% | 1.2837 | 0.2996 | 19.033° | 25.596 cm |
-| **Total** | **516** | **257** | **49.8%** | **1.0149** | **0.2133** | **15.083°** | **20.135 cm** |
+```bash
+./run.sh pipeline auto
+```
 
-Fold 5 is the principal bottleneck. Its two generators produced only 21 passing trajectories, partly because Fold 5's training real-real reference distribution produced stricter DTW and displacement thresholds.
+Use `cuda`, `mps`, or `cpu` instead of `auto` when you want to force a device:
 
-## Real-real versus synthetic-real distance
+```bash
+./run.sh generate mps
+```
 
-| Metric | Real-real mean | Synthetic-real mean | Real-real median | Synthetic-real median |
-|---|---:|---:|---:|---:|
-| Normalized RMSE | 0.7818 | 1.0149 | 0.5741 | 0.9695 |
-| Normalized DTW | 0.1709 | 0.2133 | 0.1139 | 0.1718 |
-| Theta RMSE | 11.829° | 15.083° | 8.273° | 14.595° |
-| CoM x RMSE | 14.977 cm | 20.135 cm | 11.696 cm | 19.093 cm |
+If the Physics results are somewhere else:
 
-Synthetic-real distances are generally larger than natural real-real distances, but 89.3% of trajectories remain within their fold-specific shape thresholds. Most rejection therefore comes from kinematic mismatches rather than RMSE or DTW alone.
+```bash
+./run.sh select \
+  --results-dir "/absolute/path/to/results/full"
+```
 
-## Important limitations before fall-detector training
+If you want a different number of retained seeds:
 
-### Contact duration is conditioned, not generated
+```bash
+./run.sh select --top-k 3
+```
 
-DeepONet predicts theta and x but does not predict contact time. Each synthetic trajectory inherits the apparent-contact endpoint and duration of its source trial. Duration is reported but excluded from the gate.
+## Outputs
 
-### Context-to-forecast boundary
+```text
+outputs/generator_selection/
+├── all_generator_rankings.csv
+├── selected_generators.csv
+├── generator_selection.json
+├── SELECTION_SUMMARY.md
+└── selected_generators/
+    ├── fold_01/
+    │   ├── rank_01_seed_.../
+    │   └── rank_02_seed_.../
+    └── ...
+```
 
-The first 0.40 seconds are observed real context and the forecast begins at 0.40 seconds. The median boundary jump is 0.950° and 1.451 cm; the 95th percentiles are 4.488° and 6.788 cm. Because this discontinuity could become a classifier shortcut, the current 257 passes should remain provisional until a continuity rule or boundary correction is applied and the quality metrics are rerun.
+Each selected generator folder contains:
 
-### Diversity is limited
+- `final_best_model_state.pt`
+- `training_selection.json`
+- `generator_manifest.json`
+- SHA-256 checkpoint provenance in the manifest
 
-The two selected generators are less different from each other than separate real trials are:
+Generation outputs:
 
-| Distance | Selected-generator mean | Real-real mean |
-|---|---:|---:|
-| Normalized RMSE | 0.3597 | 0.7818 |
-| Normalized DTW | 0.0753 | 0.1709 |
+```text
+outputs/synthetic_trajectories/
+├── synthetic_manifest.csv
+├── synthetic_manifest.json
+├── fold_01/
+│   ├── rank_01_seed_.../*.npz
+│   └── rank_02_seed_.../*.npz
+└── ...
+```
 
-Thus, adding repeated outputs from the same contexts and deterministic checkpoints would increase file count without proportionally increasing fall diversity.
+Each `.npz` contains the observed context, continuity-corrected forecast, raw and corrected model outputs, correction offsets, validity masks, inferred controller coordinates, and physical-gain values. Generation uses only the 11 training subjects belonging to that fold. Validation and test subject contexts are rejected.
 
-## Should more synthetic data be generated now?
+The 0.40 s sample remains observed context. For theta and x independently, the generator estimates the observed and raw-model boundary velocities over 11 samples and applies
 
-**Not yet.** The current set is sufficient to prepare an initial downstream detector study after the context-to-forecast continuity issue is addressed. The immediate priority is quality refinement, not sample count.
+```text
+c(s) = [Δq + (Δv + Δq/τ)s] exp(-s/τ),  τ = 0.15 s
+```
 
-Recommended order:
+to the raw forecast, where `s = t - 0.40`. This makes position and first derivative agree at the join, while the correction decays smoothly back to the raw model prediction.
 
-1. Add a continuity correction or explicit boundary-jump gate at 0.40 seconds.
-2. Rerun quality verification and define the final accepted set.
-3. Run the real-only, synthetic-only, and real-plus-synthetic detector experiments on unseen real subjects.
-4. Generate more data only if the detector study shows that synthetic-data volume or diversity is limiting performance.
+Quality outputs:
 
-If more data are needed, use new training contexts or validated perturbations of initial state, controller coordinates, and demographics. Simply rerunning the same deterministic generators will reproduce the same trajectories.
+```text
+outputs/trajectory_quality/
+├── QUALITY_REPORT.md
+├── quality_summary.json
+├── real_real_distances.csv
+├── synthetic_real_distances.csv
+├── real_boundary_reference.csv
+├── continuity_thresholds_by_fold.csv
+├── selected_generator_diversity.csv
+├── quality_thresholds_by_fold.csv
+├── quality_decisions.csv
+├── generator_quality_summary.csv
+├── final_approved_synthetic_manifest.csv
+├── final_approved_synthetic_manifest.json
+├── real_real_vs_synthetic_real.png
+└── generator_quality_pass_rates.png
+```
 
-## Archive contents
+## Quality-verification protocol
 
-- `outputs/generator_selection/`: rankings and selected-generator provenance
-- `outputs/synthetic_trajectories/`: 516 generated `.npz` trajectories and manifests
-- `outputs/trajectory_quality/`: distance tables, thresholds, decisions, plots, and generated quality report
-- `FINDINGS.md`: detailed scientific interpretation and recommendations
-- `study_config.json`: exact quality-gate configuration
+For every fold:
 
+1. Use only its 11 training subjects.
+2. Pair different real trials within the same subject to establish natural real-real variability.
+3. Compare every conditional synthetic trajectory with its source real trajectory.
+4. Phase-normalize forecast segments to 101 points for normalized RMSE, theta RMSE, x RMSE, and DTW.
+5. Calculate displacement, peak velocity, and peak acceleration on the original 100 Hz timing after identical Savitzky–Golay smoothing.
+6. Measure the theta/x position step and velocity change at the 0.40 s boundary.
+7. Define per-fold thresholds from the 95th percentile of training-only real behavior.
+
+The default automatic gate requires all three conditions:
+
+- all four boundary-continuity metrics within their real-training thresholds;
+- normalized RMSE and normalized DTW both within their real-real thresholds; and
+- at least 75% of the displacement, velocity, and acceleration distances within their real-real thresholds.
+
+All raw measurements and per-metric thresholds are saved, so this gate can be revised transparently after advisor review.
+
+Only entries in `final_approved_synthetic_manifest.json` are approved for downstream detector training. The other generated `.npz` files are retained solely for audit and sensitivity analysis.
+
+### Duration limitation
+
+DeepONet predicts theta and x but does not predict contact time. The synthetic trajectory therefore inherits the apparent-contact endpoint and valid duration of its source trial. Duration differences are saved for transparency but are excluded from automatic pass/fail decisions. The generated data should be described as **conditionally generated synthetic falls**, not completely de novo falls.
+
+## Safety checks
+
+The selector stops if:
+
+- any of the 25 fold/seed runs is missing;
+- a checkpoint is absent or empty;
+- the validation loss is non-finite;
+- the saved selection metric is not validation forecast normalized MSE;
+- a run indicates that a test subject was used for selection;
+- the train, validation, or test subjects overlap;
+- subject splits change across seeds;
+- any subject is tested in more than one fold.
+
+Generation and quality verification additionally stop if a validation or test subject appears in a generation context, source trial, or threshold-construction set.
+
+The next project stage will train the real-only, synthetic-only, and real-plus-synthetic fall detectors. Only quality-approved synthetic trajectories should enter that downstream experiment.
+
+After the full run, the file to return for review is:
+
+```text
+Fifteen_Subject_DeepONet_Synthetic_Fall_Study_Results.zip
+```
+
+The results archive includes the generated trajectories, manifests, quality tables, plots, and report. It excludes copied `.pt` checkpoints because those model files already exist in the Physics results.

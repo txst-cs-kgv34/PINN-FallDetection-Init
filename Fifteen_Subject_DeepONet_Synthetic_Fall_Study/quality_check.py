@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import csv
 import itertools
 from collections import defaultdict
 from pathlib import Path
@@ -15,7 +16,13 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
 
-from quality_metrics import forecast_trajectory, pair_distances, percentile_threshold
+from quality_metrics import (
+    BOUNDARY_METRICS,
+    boundary_continuity_metrics,
+    forecast_trajectory,
+    pair_distances,
+    percentile_threshold,
+)
 from study_core import (
     HERE,
     dump_json,
@@ -103,6 +110,38 @@ def build_real_real_rows(
     return rows
 
 
+def build_real_boundary_rows(
+    records,
+    experiment: dict[str, Any],
+    folds: list[int],
+) -> list[dict[str, Any]]:
+    """Build fold-specific natural boundary references from training trials."""
+    context = float(experiment["model"]["context_region_s"])
+    rows: list[dict[str, Any]] = []
+    for fold_id in folds:
+        fold = next(item for item in experiment["folds"] if int(item["id"]) == fold_id)
+        train_subjects = set(map(str, fold["train"]))
+        selected = [record for record in records if record.subject in train_subjects]
+        if not selected:
+            raise ValueError(f"Fold {fold_id} has no training records for boundary reference")
+        for record in selected:
+            rows.append(
+                {
+                    "fold": fold_id,
+                    "subject": record.subject,
+                    "trial": record.trial,
+                    **boundary_continuity_metrics(
+                        record.time_s,
+                        record.theta_rad,
+                        record.x_m,
+                        record.valid_mask,
+                        context,
+                    ),
+                }
+            )
+    return rows
+
+
 def build_synthetic_real_rows(
     generation_root: Path,
     generation_manifest: dict[str, Any],
@@ -143,6 +182,13 @@ def build_synthetic_real_rows(
                 data["valid_mask"],
                 context,
             )
+            continuity = boundary_continuity_metrics(
+                data["time_s"],
+                data["synthetic_theta_rad"],
+                data["synthetic_x_m"],
+                data["valid_mask"],
+                context,
+            )
         synthetic_cache[str(item["synthetic_id"])] = synthetic
         distances = pair_distances(
             synthetic,
@@ -162,6 +208,7 @@ def build_synthetic_real_rows(
                 "source_trial": trial,
                 "transition_jump_theta_deg": float(item["transition_jump_theta_deg"]),
                 "transition_jump_x_cm": float(item["transition_jump_x_cm"]),
+                **continuity,
                 **distances,
             }
         )
@@ -237,9 +284,40 @@ def thresholds_by_fold(
     return rows, lookup
 
 
+def continuity_thresholds_by_fold(
+    real_boundary: list[dict[str, Any]],
+    folds: list[int],
+    percentile: float,
+) -> tuple[list[dict[str, Any]], dict[tuple[int, str], float]]:
+    rows: list[dict[str, Any]] = []
+    lookup: dict[tuple[int, str], float] = {}
+    for fold in folds:
+        selected = [row for row in real_boundary if int(row["fold"]) == fold]
+        if not selected:
+            raise ValueError(f"Fold {fold} has no real boundary reference samples")
+        for metric in BOUNDARY_METRICS:
+            threshold = percentile_threshold(
+                [float(row[metric]) for row in selected], percentile
+            )
+            lookup[(fold, metric)] = threshold
+            rows.append(
+                {
+                    "fold": fold,
+                    "reference": "training-subject real trajectory boundary behavior",
+                    "trajectory_count": len(selected),
+                    "percentile": percentile,
+                    "metric": metric,
+                    "threshold": threshold,
+                    "used_in_automatic_gate": True,
+                }
+            )
+    return rows, lookup
+
+
 def apply_quality_gate(
     synthetic_rows: list[dict[str, Any]],
     thresholds: dict[tuple[int, str], float],
+    continuity_thresholds: dict[tuple[int, str], float],
     shape_metrics: list[str],
     kinematic_metrics: list[str],
     minimum_kinematic_fraction: float,
@@ -260,7 +338,12 @@ def apply_quality_gate(
             sum(kinematic_flags.values()) / max(1, len(kinematic_flags))
         )
         shape_pass = bool(shape_flags) and all(shape_flags.values())
-        overall = finite and shape_pass and (
+        continuity_flags = {
+            metric: float(row[metric]) <= continuity_thresholds[(fold, metric)]
+            for metric in BOUNDARY_METRICS
+        }
+        continuity_pass = all(continuity_flags.values())
+        overall = finite and continuity_pass and shape_pass and (
             kinematic_fraction >= minimum_kinematic_fraction
         )
         decisions.append(
@@ -268,6 +351,9 @@ def apply_quality_gate(
                 **row,
                 "finite_trajectory_metrics": finite,
                 "shape_gate_pass": shape_pass,
+                "continuity_gate_pass": continuity_pass,
+                "continuity_metrics_passed": sum(continuity_flags.values()),
+                "continuity_metrics_total": len(continuity_flags),
                 "shape_metrics_passed": sum(shape_flags.values()),
                 "shape_metrics_total": len(shape_flags),
                 "kinematic_metrics_passed": sum(kinematic_flags.values()),
@@ -279,6 +365,52 @@ def apply_quality_gate(
             }
         )
     return decisions
+
+
+def approved_manifest(
+    generation_manifest: dict[str, Any],
+    decisions: list[dict[str, Any]],
+    output_dir: Path,
+) -> dict[str, Any]:
+    decision_map = {str(row["synthetic_id"]): row for row in decisions}
+    approved: list[dict[str, Any]] = []
+    for sample in generation_manifest["samples"]:
+        synthetic_id = str(sample["synthetic_id"])
+        decision = decision_map[synthetic_id]
+        if not bool(decision["overall_quality_pass"]):
+            continue
+        approved.append(
+            {
+                **sample,
+                "continuity_gate_pass": True,
+                "shape_gate_pass": True,
+                "kinematic_pass_fraction": float(
+                    decision["kinematic_pass_fraction"]
+                ),
+                "overall_quality_pass": True,
+            }
+        )
+    payload = {
+        "description": "Final synthetic trajectories approved by continuity, shape, and kinematic gates",
+        "dataset_root_relative_to_manifest": "../synthetic_trajectories",
+        "test_subjects_used": False,
+        "validation_subjects_used_for_thresholds": False,
+        "candidate_count": len(generation_manifest["samples"]),
+        "approved_count": len(approved),
+        "samples": approved,
+    }
+    csv_path = output_dir / "final_approved_synthetic_manifest.csv"
+    if approved:
+        write_csv(csv_path, approved)
+    else:
+        with csv_path.open("w", newline="", encoding="utf-8") as handle:
+            writer = csv.DictWriter(
+                handle,
+                fieldnames=["synthetic_id", "data_file", "overall_quality_pass"],
+            )
+            writer.writeheader()
+    dump_json(output_dir / "final_approved_synthetic_manifest.json", payload)
+    return payload
 
 
 def generator_summary(decisions: list[dict[str, Any]]) -> list[dict[str, Any]]:
@@ -391,6 +523,8 @@ def write_report(
         "- Shape comparisons use phase-normalized forecast trajectories.",
         "- Velocity and acceleration use identical Savitzky–Golay smoothing for real and synthetic signals.",
         f"- Per-fold acceptance thresholds are the {percentile:g}th percentiles of training real-real distances.",
+        f"- Boundary continuity is checked against the fold-specific {percentile:g}th-percentile position step and velocity change of real training trajectories at 0.40 s.",
+        "- Continuity gate: all four theta/x position-step and velocity-change metrics must pass.",
         "- Shape gate: normalized RMSE and DTW must both remain within their reference thresholds.",
         f"- Kinematic gate: at least {100.0 * minimum_kinematic_fraction:.0f}% of displacement, velocity, and acceleration distances must remain within their thresholds.",
         "",
@@ -403,6 +537,7 @@ def write_report(
         f"- Real-real reference pairs: {len(real_real)}",
         f"- Synthetic-real comparisons: {total}",
         f"- Synthetic trajectories passing the complete gate: {passed}/{total} ({100.0 * passed / total:.1f}%)",
+        f"- Continuity-gate passes: {sum(bool(row['continuity_gate_pass']) for row in synthetic_real)}/{total}",
         "",
         "## Generator summary",
         "",
@@ -420,6 +555,8 @@ def write_report(
         [
             "",
             "Passing this gate indicates that a conditional trajectory lies within the predefined training-subject real-real variability envelope. It does not by itself prove downstream fall-detection utility; that must be tested on unseen real subjects.",
+            "",
+            "The detector-ready list is `final_approved_synthetic_manifest.json`; rejected candidates remain available for audit but must not enter downstream training.",
             "",
         ]
     )
@@ -440,6 +577,7 @@ def run_quality(
         raise ValueError("Generation manifest does not certify training-only contexts")
     folds = sorted({int(item["fold"]) for item in generation_manifest["samples"]})
     real_real = build_real_real_rows(records, experiment, folds, settings)
+    real_boundary = build_real_boundary_rows(records, experiment, folds)
     synthetic_real, synthetic_cache = build_synthetic_real_rows(
         generation_manifest_file.parent,
         generation_manifest,
@@ -457,6 +595,9 @@ def run_quality(
         percentile,
         int(settings["minimum_real_real_pairs_per_fold"]),
     )
+    continuity_threshold_rows, continuity_threshold_lookup = (
+        continuity_thresholds_by_fold(real_boundary, folds, percentile)
+    )
     gate_metrics = set(map(str, settings["shape_gate_metrics"])) | set(
         map(str, settings["kinematic_gate_metrics"])
     )
@@ -465,6 +606,7 @@ def run_quality(
     decisions = apply_quality_gate(
         synthetic_real,
         threshold_lookup,
+        continuity_threshold_lookup,
         list(map(str, settings["shape_gate_metrics"])),
         list(map(str, settings["kinematic_gate_metrics"])),
         float(settings["minimum_kinematic_pass_fraction"]),
@@ -473,12 +615,18 @@ def run_quality(
 
     output_dir.mkdir(parents=True, exist_ok=True)
     write_csv(output_dir / "real_real_distances.csv", real_real)
+    write_csv(output_dir / "real_boundary_reference.csv", real_boundary)
     write_csv(output_dir / "synthetic_real_distances.csv", synthetic_real)
     if diversity:
         write_csv(output_dir / "selected_generator_diversity.csv", diversity)
     write_csv(output_dir / "quality_thresholds_by_fold.csv", threshold_rows)
+    write_csv(
+        output_dir / "continuity_thresholds_by_fold.csv",
+        continuity_threshold_rows,
+    )
     write_csv(output_dir / "quality_decisions.csv", decisions)
     write_csv(output_dir / "generator_quality_summary.csv", summary)
+    final_dataset = approved_manifest(generation_manifest, decisions, output_dir)
     plot_distance_comparison(
         real_real, synthetic_real, output_dir / "real_real_vs_synthetic_real.png"
     )
@@ -499,6 +647,8 @@ def run_quality(
             "threshold_percentile": percentile,
             "phase_normalized_points": int(settings["phase_normalized_points"]),
             "shape_gate_metrics": list(settings["shape_gate_metrics"]),
+            "continuity_gate_metrics": list(BOUNDARY_METRICS),
+            "continuity_gate_rule": "all boundary metrics must be at or below their fold-specific real-training p95 thresholds",
             "kinematic_gate_metrics": list(settings["kinematic_gate_metrics"]),
             "minimum_kinematic_pass_fraction": float(
                 settings["minimum_kinematic_pass_fraction"]
@@ -509,11 +659,13 @@ def run_quality(
         "counts": {
             "folds": len(folds),
             "real_real_pairs": len(real_real),
+            "real_boundary_trajectories": len(real_boundary),
             "synthetic_real_pairs": len(synthetic_real),
             "synthetic_synthetic_diversity_pairs": len(diversity),
             "quality_pass": sum(
                 bool(row["overall_quality_pass"]) for row in decisions
             ),
+            "final_approved_trajectories": final_dataset["approved_count"],
         },
         "generator_summary": summary,
     }
