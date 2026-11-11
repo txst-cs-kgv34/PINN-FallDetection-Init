@@ -1,0 +1,36 @@
+{
+  "fold": 1,
+  "validation_subject": "S63",
+  "rank_within_fold": 1,
+  "selected": true,
+  "seed_index": 3,
+  "base_optimization_seed": 20261103,
+  "effective_fold_seed": 20261104,
+  "best_epoch": 34,
+  "best_validation_normalized_mse": 0.42238793075084685,
+  "selection_metric": "real validation-subject forecast normalized MSE",
+  "train_subjects": [
+    "S43",
+    "S55",
+    "S62",
+    "S59",
+    "S56",
+    "S49",
+    "S48",
+    "S45",
+    "S44",
+    "S34",
+    "S32"
+  ],
+  "test_subjects": [
+    "S57",
+    "S46",
+    "S30"
+  ],
+  "source_checkpoint": "/Users/rakeshsuvvari/TXST/PINN Research/PINN-for-FallDetection/git/PINN-FallDetection-Init/Fifteen_Subject_DeepONet_ModelB_Direct_Unified_Physics_Full_Fall_5_Seeds/results/full/seed_03_20261103/fold_01/final_best_model_state.pt",
+  "source_training_selection": "/Users/rakeshsuvvari/TXST/PINN Research/PINN-for-FallDetection/git/PINN-FallDetection-Init/Fifteen_Subject_DeepONet_ModelB_Direct_Unified_Physics_Full_Fall_5_Seeds/results/full/seed_03_20261103/fold_01/training_selection.json",
+  "source_summary": "/Users/rakeshsuvvari/TXST/PINN Research/PINN-for-FallDetection/git/PINN-FallDetection-Init/Fifteen_Subject_DeepONet_ModelB_Direct_Unified_Physics_Full_Fall_5_Seeds/results/full/seed_03_20261103/fold_01/summary.json",
+  "materialized_checkpoint": "/Users/rakeshsuvvari/TXST/PINN Research/PINN-for-FallDetection/git/PINN-FallDetection-Init/Fifteen_Subject_DeepONet_Synthetic_Fall_Study/outputs/generator_selection/selected_generators/fold_01/rank_01_seed_03_20261103/final_best_model_state.pt",
+  "checkpoint_sha256": "6222ed2acfa65f0ddf010534648dceeb647a647523076d44a0dab22e7dc19a06",
+  "test_metrics_used_for_selection": false
+}
