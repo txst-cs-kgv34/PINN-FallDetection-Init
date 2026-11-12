@@ -167,6 +167,33 @@ All raw measurements and per-metric thresholds are saved, so this gate can be re
 
 Only entries in `final_approved_synthetic_manifest.json` are approved for downstream detector training. The other generated `.npz` files are retained solely for audit and sensitivity analysis.
 
+## Results from the continuity-corrected run
+
+The November 11, 2026 run produced 516 conditional synthetic trajectories from ten validation-selected generators and evaluated them against 489 within-subject training real-real pairs. The complete gate approved 226 trajectories (43.8%).
+
+| Gate | Passed | Rate | Rule |
+|---|---:|---:|---|
+| Boundary continuity | 474/516 | 91.9% | All four boundary metrics pass |
+| Shape | 465/516 | 90.1% | Normalized RMSE and normalized DTW both pass |
+| Kinematic | 282/516 | 54.7% | At least five of six gated kinematic differences pass |
+| Complete quality gate | 226/516 | 43.8% | Continuity, shape, and kinematic gates all pass |
+
+The position-and-velocity correction produced small sampled transition steps: median 0.068° for theta and 0.113 cm for CoM x; the corresponding 95th percentiles were 0.482° and 0.782 cm. Kinematic agreement is now the main limiting factor. The fold-specific threshold pass rate was lowest for peak theta-acceleration difference (41.1%), followed by peak theta-velocity difference (68.8%) and peak x-velocity difference (73.6%).
+
+Pass rates also vary by fold: folds 2–4 approved 52.9%–57.7%, fold 1 approved 32.7%, and fold 5 approved 18.6%. The 226 approved files arise from 46 unique real source trials, so they should be treated as conditional variants rather than 226 independent real events.
+
+### How the threshold comparison works
+
+The gate does not ask whether the overall synthetic-real minimum-to-maximum range fits inside the overall real-real range. Every distance is compared with the 95th-percentile threshold calculated separately for its fold from training subjects only. Since these are distance or absolute-difference measures, smaller is better.
+
+- Shape: both normalized RMSE and normalized DTW must be at or below their fold thresholds.
+- Kinematics: at least five of the six displacement, velocity, and acceleration absolute differences must be at or below their fold thresholds. With six metrics, four passes equal 66.7% and five passes equal 83.3%, so the configured 75% requirement effectively means five of six.
+- Boundary continuity: all four position-step and velocity-change values must be at or below their fold thresholds.
+- Theta RMSE and CoM x RMSE are reported for interpretation but are not separate gate conditions.
+- Duration difference is reported but excluded because the synthetic endpoint is inherited from its source trial.
+
+See `FINDINGS.md` for the detailed interpretation and metric formulas.
+
 ### Duration limitation
 
 DeepONet predicts theta and x but does not predict contact time. The synthetic trajectory therefore inherits the apparent-contact endpoint and valid duration of its source trial. Duration differences are saved for transparency but are excluded from automatic pass/fail decisions. The generated data should be described as **conditionally generated synthetic falls**, not completely de novo falls.

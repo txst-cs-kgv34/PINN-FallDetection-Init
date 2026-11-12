@@ -463,7 +463,7 @@ def plot_distance_comparison(
                 [float(row[metric]) for row in real_real],
                 [float(row[metric]) for row in synthetic_real],
             ],
-            labels=["Real–real", "Synthetic–real"],
+            tick_labels=["Real–real", "Synthetic–real"],
             patch_artist=True,
             showfliers=True,
         )

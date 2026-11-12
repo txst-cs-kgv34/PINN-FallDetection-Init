@@ -1,172 +1,173 @@
-# Findings: validation-selected synthetic fall trajectories
+# Findings: continuity-corrected synthetic falls
 
-## 1. Study question
+## Decision summary
 
-This experiment asked whether the validation-selected Physics DeepONet models can generate conditional CoM trajectories whose shape and kinematics fall within the natural variability observed between real falls from the training subjects.
+The corrected workflow generated 516 conditional synthetic falls and approved 226 (43.8%) for downstream use. The approved-only dataset is defined by `outputs/trajectory_quality/final_approved_synthetic_manifest.json`. Rejected candidates remain in the archive for audit but should not enter detector training.
 
-The analysis does not claim that the trajectories are de novo falls. Every sample uses the first 0.40 seconds of a real training trial as context and inherits that trial's apparent-contact endpoint.
+The quality decision is leakage-controlled: generator seeds were selected from validation-subject loss, while all quality thresholds were derived separately by fold from training subjects. Test subjects were not used for selection or threshold construction.
 
-## 2. Data accounting and leakage control
-
-- 25 Physics models were available: five folds × five optimization seeds.
-- Generator seeds were ranked separately within each fold using only validation-subject normalized forecast MSE.
-- The top two seeds per fold were retained, producing ten generator checkpoints.
-- No test-subject error was used for seed selection.
-- No validation or test subject supplied a generation context or a real-real quality threshold.
-- The ten generators produced 516 trajectories from 70 unique real source contexts.
-- The quality reference contained 489 within-subject real-real trial pairs.
-- The two generators produced 258 matched synthetic-synthetic diversity pairs.
-
-The experimental split remains appropriate for the later detector study, provided detector evaluation continues to use only unseen real subjects.
-
-## 3. Identifier interpretation
-
-`F01_R01` means **Fold 1, validation rank 1**. `R01` does not mean round 1.
-
-The complete identifier `F01_R01_S03_S43A11T02` means:
-
-- `F01`: Fold 1
-- `R01`: the best validation-ranked generator in Fold 1
-- `S03`: optimization-seed index 3, base seed 20261103
-- `S43A11T02`: source training trial used for conditional generation
-
-## 4. Primary quality result
-
-Of 516 generated trajectories:
-
-- 461 passed both normalized RMSE and DTW: **89.3%**
-- 281 passed the kinematic requirement: **54.5%**
-- 257 passed both shape and kinematic gates: **49.8%**
-
-Failure decomposition:
-
-| Shape gate | Kinematic gate | Count | Interpretation |
-|---|---|---:|---|
-| Pass | Pass | 257 | Complete predefined pass |
-| Pass | Fail | 204 | Shape is acceptable, but kinematics are outside the reference envelope |
-| Fail | Pass | 24 | Kinematics pass, but RMSE or DTW fails |
-| Fail | Fail | 31 | Both shape and kinematics fail |
-
-The model usually captures the overall trajectory shape, but only about half of the outputs satisfy the stricter combined kinematic criterion.
-
-## 5. Which measurements caused rejection?
-
-| Gate metric | Trajectories exceeding the fold threshold | Failure rate |
-|---|---:|---:|
-| Peak angular acceleration difference | 306/516 | 59.3% |
-| Peak angular velocity difference | 161/516 | 31.2% |
-| Peak horizontal velocity difference | 136/516 | 26.4% |
-| Peak horizontal acceleration difference | 108/516 | 20.9% |
-| Horizontal displacement difference | 81/516 | 15.7% |
-| Angular displacement difference | 79/516 | 15.3% |
-| DTW | 40/516 | 7.8% |
-| Normalized RMSE | 30/516 | 5.8% |
-
-Peak angular-acceleration mismatch is the dominant discriminator. The metric is an absolute synthetic-real difference, so this result does not by itself mean synthetic acceleration is always too high; it means the synthetic and real peaks frequently differ more than the fold's natural real-real limit.
-
-## 6. Fold-level heterogeneity
-
-| Fold | Validation subject | Passing trajectories | Pass rate |
-|---:|---|---:|---:|
-| 1 | S63 | 40/104 | 38.5% |
-| 2 | S62 | 62/102 | 60.8% |
-| 3 | S57 | 67/104 | 64.4% |
-| 4 | S55 | 67/104 | 64.4% |
-| 5 | S43 | 21/102 | 20.6% |
-
-Fold 5 performs substantially worse than Folds 2–4. Its training real-real distribution also yields narrower limits, including normalized DTW 0.359 and angular-displacement difference 32.508°, compared with looser limits in several other folds. Its low count therefore reflects both model error and stricter fold-specific reference variability.
-
-Quality is also subject-dependent. Examples include:
-
-- S63: 28/30 passes, 93.3%
-- S44: 33/40 passes, 82.5%
-- S34: 6/40 passes, 15.0%
-- S56: 8/40 passes, 20.0%
-- S32: 9/40 passes, 22.5%
-
-These counts are descriptive because the same subject can occur in multiple training folds.
-
-## 7. Validation rank versus synthetic quality
-
-Validation rank 1 was not consistently better than rank 2 for generated-data quality:
-
-| Generator group | Complete passes | Pass rate | Mean normalized RMSE | Mean DTW |
-|---|---:|---:|---:|---:|
-| Rank 1 generators | 128/258 | 49.6% | 1.0232 | 0.2186 |
-| Rank 2 generators | 129/258 | 50.0% | 1.0065 | 0.2080 |
-
-This does not invalidate validation-only selection. It shows that validation forecast loss and synthetic-quality pass rate measure related but different properties. Retaining two qualified generators was more defensible than discarding every model except rank 1.
-
-## 8. Generator diversity
-
-The two selected generators produce distinguishable but strongly related trajectories.
-
-| Metric | Synthetic-synthetic mean | Real-real mean | Ratio |
+| Gate | Passed | Failed | Pass rate |
 |---|---:|---:|---:|
-| Normalized RMSE | 0.3597 | 0.7818 | 0.46 |
-| Normalized DTW | 0.0753 | 0.1709 | 0.44 |
-| Theta RMSE | 5.390° | 11.829° | 0.46 |
-| CoM x RMSE | 7.125 cm | 14.977 cm | 0.48 |
+| Boundary continuity | 474 | 42 | 91.9% |
+| Shape | 465 | 51 | 90.1% |
+| Kinematic | 282 | 234 | 54.7% |
+| Complete gate | 226 | 290 | 43.8% |
 
-Selected-seed variation is approximately half the natural real-trial variation. Additional deterministic outputs from the same two generators would add little new information.
+Failures overlap, so the failed counts above should not be added. A trajectory passes the complete gate only when all three component gates pass.
 
-Pass/fail decisions also agree strongly between the two generators. Of the source contexts in each fold:
+## Main findings
 
-- Fold 1: both generators agree on every context
-- Fold 2: only 4 of 51 contexts differ
-- Fold 3: only 1 of 52 contexts differs
-- Fold 4: only 3 of 52 contexts differ
-- Fold 5: only 3 of 51 contexts differ
+1. **The boundary correction is working for most trajectories.** The median sampled transition step is 0.068° for theta and 0.113 cm for CoM x. Their 95th percentiles are 0.482° and 0.782 cm. The complete four-metric continuity gate passes for 474/516 trajectories.
+2. **Overall trajectory shape is usually plausible.** The shape gate passes for 465/516 trajectories. Individually, normalized RMSE passes for 488/516 (94.6%) and normalized DTW passes for 479/516 (92.8%).
+3. **Kinematic agreement is the current bottleneck.** Only 282/516 trajectories meet the kinematic rule. The weakest individual comparison is peak theta-acceleration difference, which passes for 212/516 (41.1%). Peak theta velocity passes for 355/516 (68.8%), and peak CoM x velocity passes for 380/516 (73.6%).
+4. **Fold 5 remains substantially weaker.** Aggregate complete-gate pass rates are 32.7% for fold 1, 52.9% for fold 2, 57.7% for fold 3, 56.7% for fold 4, and 18.6% for fold 5. Fold 5 should be monitored in the detector study and reported separately rather than hidden inside the overall average.
+5. **Approved files are correlated conditional variants.** The 226 approved files come from 46 unique real source trials, often with more than one selected generator applied to the same context. They are useful augmentation samples, but they are not equivalent to 226 independent recorded falls.
 
-Quality is driven more by the source context and fold than by seed choice alone.
+## What is measured for real-real and synthetic-real comparisons
 
-## 9. Context-to-forecast continuity requires another check
+### Kinematic features
 
-The synthetic files splice observed real context for `t < 0.40 s` with model forecast for `t ≥ 0.40 s`.
+The following scalar features are extracted from each forecast trajectory after identical Savitzky–Golay smoothing:
 
-| Boundary measurement | Median | 95th percentile | Maximum |
-|---|---:|---:|---:|
-| Theta jump | 0.950° | 4.488° | 8.974° |
-| CoM x jump | 1.451 cm | 6.788 cm | 10.489 cm |
+- duration;
+- theta displacement;
+- CoM x displacement;
+- peak absolute theta velocity;
+- peak absolute CoM x velocity;
+- peak absolute theta acceleration;
+- peak absolute CoM x acceleration.
 
-The current quality gate does not directly threshold this one-step discontinuity. Acceleration measurements capture some transition behavior, but large boundary jumps can still pass. This matters for the downstream detector because it could learn the synthetic splice artifact instead of fall dynamics.
+For a real-real pair, the saved value is the absolute difference between the feature from two different trials of the same training subject:
 
-Before using the trajectories as positive detector examples, apply one controlled option and rerun the quality analysis:
+```text
+distance_feature = |feature(real trial A) - feature(real trial B)|
+```
 
-1. Add a boundary-jump threshold derived from corresponding real one-step changes.
-2. Continuity-anchor the forecast at the final context value, then recompute all metrics.
-3. Use only the forecast interval for both synthetic falls and equivalently prepared ADL windows.
+For a synthetic-real pair, it is the absolute difference between the synthetic trajectory and its own source real trajectory:
 
-The selected approach must be applied identically across all detector conditions.
+```text
+distance_feature = |feature(synthetic forecast) - feature(source real forecast)|
+```
 
-## 10. Do we need more synthetic data now?
+Duration difference is calculated and reported, but it is not gated. The six gated kinematic distances are the two displacements, two peak velocities, and two peak accelerations.
 
-No additional generation is recommended yet.
+### Boundary metrics
 
-Reasons:
+Boundary metrics are handled differently from the paired kinematic distances. Each real training trajectory is measured individually at 0.40 s to create a natural boundary-behavior distribution. The same four quantities are then measured on each joined synthetic trajectory:
 
-1. There are already 516 candidates and 257 provisional passes—enough for an initial downstream experiment.
-2. Rerunning these deterministic checkpoints on the same 70 contexts will reproduce the same trajectories.
-3. The selected generators provide less diversity than natural real trials.
-4. The immediate limitation is kinematic fidelity and boundary continuity, not raw sample count.
-5. Fold 5 has only 21 passes, but near-duplicate outputs would not resolve its underlying quality problem.
+- absolute theta step from the 0.40 s sample to the next sample;
+- absolute CoM x step from the 0.40 s sample to the next sample;
+- absolute change between the one-step theta velocity before and after 0.40 s;
+- absolute change between the one-step CoM x velocity before and after 0.40 s.
 
-Recommended next sequence:
+Thus, these are not `|synthetic boundary metric - real boundary metric|` pair distances. The synthetic boundary values themselves are compared with the fold-specific distribution of real boundary values.
 
-1. Resolve the 0.40-second continuity issue.
-2. Rerun the same quality protocol and freeze the accepted trajectory list.
-3. Begin the detector pilot with fold-specific accepted samples.
-4. Compare real-only, synthetic-only, and real-plus-synthetic training under the same architecture and class balancing.
-5. Evaluate only on unseen real falls and real ADL.
-6. Generate additional samples only if the pilot reveals a clear data-volume or coverage limitation.
+## Gate definition
 
-If expansion becomes necessary, prioritize genuinely new variability:
+“Within real-real variability” means at or below a fold-specific training-only 95th-percentile threshold. It does not mean inside the global real-real minimum-to-maximum range.
 
-- new real contexts or additional fall directions;
-- validation-qualified additional generators only if they add measurable diversity;
-- bounded perturbations of initial state, inferred controller coordinates, or demographics, followed by the same quality gate.
+For candidate `j` in fold `f`, a metric passes when
 
-## 11. Bottom-line conclusion
+```text
+d(j) <= Q95(real training reference for fold f)
+```
 
-The Physics DeepONet produces useful conditional fall trajectories: 89.3% satisfy the fold-specific shape envelope, demonstrating substantial trajectory fidelity. The complete quality rate falls to 49.8% because kinematic agreement—especially angular acceleration—is more demanding. The current results justify proceeding toward a downstream detector pilot after addressing the context-to-forecast boundary, but they do not justify indiscriminately treating all 516 outputs as realistic or generating more copies from the same deterministic conditions.
+where lower distance is better. The complete rule is:
 
+```text
+overall pass
+  = all 4 boundary metrics pass
+  AND normalized RMSE passes
+  AND normalized DTW passes
+  AND at least 75% of the 6 kinematic metrics pass
+```
+
+Because there are six kinematic metrics, the 75% setting effectively requires at least five passes: four of six is 66.7%, while five of six is 83.3%.
+
+Theta RMSE and CoM x RMSE are descriptive outputs. They are not additional automatic gate conditions because normalized RMSE already combines both channels. Duration is also descriptive only.
+
+## Pairwise trajectory-error calculations
+
+Before the four shape errors are calculated, both forecast segments (`t >= 0.40 s`) are phase-resampled to 101 equally spaced points. This lets trials of different durations be compared at matching relative fall progress.
+
+Let `theta1[i]`, `x1[i]` and `theta2[i]`, `x2[i]` be the two phase-aligned trajectories, with `N = 101`. For synthetic-real, trajectory 1 can be synthetic and trajectory 2 its source real trajectory. For real-real, both are different real trials from the same subject.
+
+### Theta RMSE
+
+```text
+theta_RMSE_deg
+  = (180 / pi) * sqrt(mean((theta1[i] - theta2[i])^2))
+```
+
+This is the ordinary pointwise theta error, reported in degrees.
+
+### CoM x RMSE
+
+```text
+x_RMSE_cm
+  = 100 * sqrt(mean((x1[i] - x2[i])^2))
+```
+
+This is the ordinary pointwise horizontal CoM error, reported in centimeters.
+
+### Normalized RMSE
+
+Theta and x have different units and magnitudes, so each error is divided by the model scale used during training:
+
+```text
+theta_scale = 0.436332 rad = 25 degrees
+x_scale     = 0.25 m = 25 cm
+
+normalized_RMSE
+  = sqrt(mean(
+      ((theta1[i] - theta2[i]) / theta_scale)^2
+      + ((x1[i] - x2[i]) / x_scale)^2
+    ))
+```
+
+The result is dimensionless. A smaller value means the two-channel trajectories are closer after accounting for their different units.
+
+### Normalized DTW
+
+Each phase point is first represented as a normalized two-dimensional vector:
+
+```text
+z[i] = [theta[i] / theta_scale, x[i] / x_scale]
+```
+
+Dynamic Time Warping finds a monotonic alignment path through the two sequences. Its local cost is the Euclidean distance between normalized vectors:
+
+```text
+cost(i, j) = ||z1[i] - z2[j]||2
+D(i, j) = cost(i, j) + min(D(i-1, j), D(i, j-1), D(i-1, j-1))
+normalized_DTW = D(N, N) / (N + N)
+```
+
+Here `N = 101`, so the accumulated cost is divided by 202. DTW can align similar motion patterns that occur at slightly different relative phases, whereas RMSE compares the same phase index directly.
+
+## Fold and generator results
+
+| Fold | Rank | Seed | Candidates | Approved | Pass rate |
+|---:|---:|---:|---:|---:|---:|
+| 1 | 1 | 3 | 52 | 17 | 32.7% |
+| 1 | 2 | 1 | 52 | 17 | 32.7% |
+| 2 | 1 | 5 | 51 | 27 | 52.9% |
+| 2 | 2 | 2 | 51 | 27 | 52.9% |
+| 3 | 1 | 4 | 52 | 29 | 55.8% |
+| 3 | 2 | 5 | 52 | 31 | 59.6% |
+| 4 | 1 | 3 | 52 | 31 | 59.6% |
+| 4 | 2 | 5 | 52 | 28 | 53.8% |
+| 5 | 1 | 3 | 51 | 8 | 15.7% |
+| 5 | 2 | 4 | 51 | 11 | 21.6% |
+
+## Recommended next stage
+
+Proceed to the downstream fall-detection experiment using only the 226 files listed in the approved manifest. Compare:
+
+1. real falls + real ADL;
+2. approved synthetic Physics falls + real ADL;
+3. real falls + approved synthetic Physics falls + real ADL.
+
+All detector splitting must occur by real source subject before augmentation. Synthetic variants derived from a subject must stay in the same training partition as that source and must never cross into validation or test partitions. Report aggregate results together with fold-specific results, especially fold 5.
+
+Do not generate additional synthetic trajectories yet. First establish whether the approved set improves unseen-real-subject fall detection. Generate more data only if the detector study shows a clear coverage or class-balance need that the current approved set cannot satisfy.
