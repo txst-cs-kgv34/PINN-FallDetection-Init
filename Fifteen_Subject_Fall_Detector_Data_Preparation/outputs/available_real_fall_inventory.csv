@@ -1,0 +1,361 @@
+subject,trial,activity_id,activity_code,activity_name,source_file,included_in_current_dataset,disposition
+S30,S30A10T01,10,A10,Backfall,S30_PINN_audit/repaired_data/S30/S30A10T01.csv,False,available but held for later multi-fall-type study
+S30,S30A10T02,10,A10,Backfall,S30_PINN_audit/repaired_data/S30/S30A10T02.csv,False,available but held for later multi-fall-type study
+S30,S30A10T03,10,A10,Backfall,S30_PINN_audit/repaired_data/S30/S30A10T03.csv,False,available but held for later multi-fall-type study
+S30,S30A10T04,10,A10,Backfall,S30_PINN_audit/repaired_data/S30/S30A10T04.csv,False,available but held for later multi-fall-type study
+S30,S30A10T05,10,A10,Backfall,S30_PINN_audit/repaired_data/S30/S30A10T05.csv,False,available but held for later multi-fall-type study
+S30,S30A11T01,11,A11,Frontfall,S30_PINN_audit/repaired_data/S30/S30A11T01.csv,True,included in controlled A11 detector dataset
+S30,S30A11T02,11,A11,Frontfall,S30_PINN_audit/repaired_data/S30/S30A11T02.csv,True,included in controlled A11 detector dataset
+S30,S30A11T03,11,A11,Frontfall,S30_PINN_audit/repaired_data/S30/S30A11T03.csv,True,included in controlled A11 detector dataset
+S30,S30A11T04,11,A11,Frontfall,S30_PINN_audit/repaired_data/S30/S30A11T04.csv,True,included in controlled A11 detector dataset
+S30,S30A11T05,11,A11,Frontfall,S30_PINN_audit/repaired_data/S30/S30A11T05.csv,True,included in controlled A11 detector dataset
+S30,S30A12T01,12,A12,Leftfall,S30_PINN_audit/repaired_data/S30/S30A12T01.csv,False,available but held for later multi-fall-type study
+S30,S30A12T02,12,A12,Leftfall,S30_PINN_audit/repaired_data/S30/S30A12T02.csv,False,available but held for later multi-fall-type study
+S30,S30A12T03,12,A12,Leftfall,S30_PINN_audit/repaired_data/S30/S30A12T03.csv,False,available but held for later multi-fall-type study
+S30,S30A12T04,12,A12,Leftfall,S30_PINN_audit/repaired_data/S30/S30A12T04.csv,False,available but held for later multi-fall-type study
+S30,S30A12T05,12,A12,Leftfall,S30_PINN_audit/repaired_data/S30/S30A12T05.csv,False,available but held for later multi-fall-type study
+S30,S30A13T01,13,A13,Rightfall,S30_PINN_audit/repaired_data/S30/S30A13T01.csv,False,available but held for later multi-fall-type study
+S30,S30A13T02,13,A13,Rightfall,S30_PINN_audit/repaired_data/S30/S30A13T02.csv,False,available but held for later multi-fall-type study
+S30,S30A13T03,13,A13,Rightfall,S30_PINN_audit/repaired_data/S30/S30A13T03.csv,False,available but held for later multi-fall-type study
+S30,S30A13T04,13,A13,Rightfall,S30_PINN_audit/repaired_data/S30/S30A13T04.csv,False,available but held for later multi-fall-type study
+S30,S30A13T05,13,A13,Rightfall,S30_PINN_audit/repaired_data/S30/S30A13T05.csv,False,available but held for later multi-fall-type study
+S30,S30A14T01,14,A14,Rotatefall,S30_PINN_audit/repaired_data/S30/S30A14T01.csv,False,available but held for later multi-fall-type study
+S30,S30A14T02,14,A14,Rotatefall,S30_PINN_audit/repaired_data/S30/S30A14T02.csv,False,available but held for later multi-fall-type study
+S30,S30A14T03,14,A14,Rotatefall,S30_PINN_audit/repaired_data/S30/S30A14T03.csv,False,available but held for later multi-fall-type study
+S30,S30A14T04,14,A14,Rotatefall,S30_PINN_audit/repaired_data/S30/S30A14T04.csv,False,available but held for later multi-fall-type study
+S30,S30A14T05,14,A14,Rotatefall,S30_PINN_audit/repaired_data/S30/S30A14T05.csv,False,available but held for later multi-fall-type study
+S32,S32A10T01,10,A10,Backfall,S32_PINN_audit/repaired_data/S32/S32A10T01.csv,False,available but held for later multi-fall-type study
+S32,S32A10T02,10,A10,Backfall,S32_PINN_audit/repaired_data/S32/S32A10T02.csv,False,available but held for later multi-fall-type study
+S32,S32A10T03,10,A10,Backfall,S32_PINN_audit/repaired_data/S32/S32A10T03.csv,False,available but held for later multi-fall-type study
+S32,S32A10T04,10,A10,Backfall,S32_PINN_audit/repaired_data/S32/S32A10T04.csv,False,available but held for later multi-fall-type study
+S32,S32A10T05,10,A10,Backfall,S32_PINN_audit/repaired_data/S32/S32A10T05.csv,False,available but held for later multi-fall-type study
+S32,S32A11T01,11,A11,Frontfall,S32_PINN_audit/repaired_data/S32/S32A11T01.csv,True,included in controlled A11 detector dataset
+S32,S32A11T02,11,A11,Frontfall,S32_PINN_audit/repaired_data/S32/S32A11T02.csv,True,included in controlled A11 detector dataset
+S32,S32A11T03,11,A11,Frontfall,S32_PINN_audit/repaired_data/S32/S32A11T03.csv,True,included in controlled A11 detector dataset
+S32,S32A11T04,11,A11,Frontfall,S32_PINN_audit/repaired_data/S32/S32A11T04.csv,True,included in controlled A11 detector dataset
+S32,S32A11T05,11,A11,Frontfall,S32_PINN_audit/repaired_data/S32/S32A11T05.csv,True,included in controlled A11 detector dataset
+S32,S32A12T01,12,A12,Leftfall,S32_PINN_audit/repaired_data/S32/S32A12T01.csv,False,available but held for later multi-fall-type study
+S32,S32A12T02,12,A12,Leftfall,S32_PINN_audit/repaired_data/S32/S32A12T02.csv,False,available but held for later multi-fall-type study
+S32,S32A12T03,12,A12,Leftfall,S32_PINN_audit/repaired_data/S32/S32A12T03.csv,False,available but held for later multi-fall-type study
+S32,S32A12T04,12,A12,Leftfall,S32_PINN_audit/repaired_data/S32/S32A12T04.csv,False,available but held for later multi-fall-type study
+S32,S32A12T05,12,A12,Leftfall,S32_PINN_audit/repaired_data/S32/S32A12T05.csv,False,available but held for later multi-fall-type study
+S32,S32A13T01,13,A13,Rightfall,S32_PINN_audit/repaired_data/S32/S32A13T01.csv,False,available but held for later multi-fall-type study
+S32,S32A13T02,13,A13,Rightfall,S32_PINN_audit/repaired_data/S32/S32A13T02.csv,False,available but held for later multi-fall-type study
+S32,S32A13T03,13,A13,Rightfall,S32_PINN_audit/repaired_data/S32/S32A13T03.csv,False,available but held for later multi-fall-type study
+S32,S32A13T04,13,A13,Rightfall,S32_PINN_audit/repaired_data/S32/S32A13T04.csv,False,available but held for later multi-fall-type study
+S32,S32A13T05,13,A13,Rightfall,S32_PINN_audit/repaired_data/S32/S32A13T05.csv,False,available but held for later multi-fall-type study
+S32,S32A14T03,14,A14,Rotatefall,S32_PINN_audit/repaired_data/S32/S32A14T03.csv,False,available but held for later multi-fall-type study
+S34,S34A10T01,10,A10,Backfall,S34_PINN_audit/repaired_data/S34/S34A10T01.csv,False,available but held for later multi-fall-type study
+S34,S34A10T02,10,A10,Backfall,S34_PINN_audit/repaired_data/S34/S34A10T02.csv,False,available but held for later multi-fall-type study
+S34,S34A10T03,10,A10,Backfall,S34_PINN_audit/repaired_data/S34/S34A10T03.csv,False,available but held for later multi-fall-type study
+S34,S34A10T04,10,A10,Backfall,S34_PINN_audit/repaired_data/S34/S34A10T04.csv,False,available but held for later multi-fall-type study
+S34,S34A10T05,10,A10,Backfall,S34_PINN_audit/repaired_data/S34/S34A10T05.csv,False,available but held for later multi-fall-type study
+S34,S34A11T01,11,A11,Frontfall,S34_PINN_audit/repaired_data/S34/S34A11T01.csv,True,included in controlled A11 detector dataset
+S34,S34A11T02,11,A11,Frontfall,S34_PINN_audit/repaired_data/S34/S34A11T02.csv,True,included in controlled A11 detector dataset
+S34,S34A11T03,11,A11,Frontfall,S34_PINN_audit/repaired_data/S34/S34A11T03.csv,True,included in controlled A11 detector dataset
+S34,S34A11T04,11,A11,Frontfall,S34_PINN_audit/repaired_data/S34/S34A11T04.csv,True,included in controlled A11 detector dataset
+S34,S34A11T05,11,A11,Frontfall,S34_PINN_audit/repaired_data/S34/S34A11T05.csv,True,included in controlled A11 detector dataset
+S34,S34A12T01,12,A12,Leftfall,S34_PINN_audit/repaired_data/S34/S34A12T01.csv,False,available but held for later multi-fall-type study
+S34,S34A12T02,12,A12,Leftfall,S34_PINN_audit/repaired_data/S34/S34A12T02.csv,False,available but held for later multi-fall-type study
+S34,S34A12T03,12,A12,Leftfall,S34_PINN_audit/repaired_data/S34/S34A12T03.csv,False,available but held for later multi-fall-type study
+S34,S34A12T04,12,A12,Leftfall,S34_PINN_audit/repaired_data/S34/S34A12T04.csv,False,available but held for later multi-fall-type study
+S34,S34A12T05,12,A12,Leftfall,S34_PINN_audit/repaired_data/S34/S34A12T05.csv,False,available but held for later multi-fall-type study
+S34,S34A13T01,13,A13,Rightfall,S34_PINN_audit/repaired_data/S34/S34A13T01.csv,False,available but held for later multi-fall-type study
+S34,S34A13T02,13,A13,Rightfall,S34_PINN_audit/repaired_data/S34/S34A13T02.csv,False,available but held for later multi-fall-type study
+S34,S34A13T03,13,A13,Rightfall,S34_PINN_audit/repaired_data/S34/S34A13T03.csv,False,available but held for later multi-fall-type study
+S34,S34A13T04,13,A13,Rightfall,S34_PINN_audit/repaired_data/S34/S34A13T04.csv,False,available but held for later multi-fall-type study
+S34,S34A13T05,13,A13,Rightfall,S34_PINN_audit/repaired_data/S34/S34A13T05.csv,False,available but held for later multi-fall-type study
+S34,S34A14T04,14,A14,Rotatefall,S34_PINN_audit/repaired_data/S34/S34A14T04.csv,False,available but held for later multi-fall-type study
+S43,S43A10T01,10,A10,Backfall,S43_PINN_audit/findings/S43_audit/raw/S43A10T01.csv,False,available but held for later multi-fall-type study
+S43,S43A10T02,10,A10,Backfall,S43_PINN_audit/findings/S43_audit/raw/S43A10T02.csv,False,available but held for later multi-fall-type study
+S43,S43A10T03,10,A10,Backfall,S43_PINN_audit/findings/S43_audit/raw/S43A10T03.csv,False,available but held for later multi-fall-type study
+S43,S43A10T04,10,A10,Backfall,S43_PINN_audit/findings/S43_audit/raw/S43A10T04.csv,False,available but held for later multi-fall-type study
+S43,S43A10T05,10,A10,Backfall,S43_PINN_audit/findings/S43_audit/raw/S43A10T05.csv,False,available but held for later multi-fall-type study
+S43,S43A11T01,11,A11,Frontfall,S43_PINN_audit/findings/S43_audit/raw/S43A11T01.csv,False,no complete manual A11 phase sequence; not model-ready
+S43,S43A11T02,11,A11,Frontfall,S43_PINN_audit/findings/S43_audit/raw/S43A11T02.csv,True,included in controlled A11 detector dataset
+S43,S43A11T03,11,A11,Frontfall,S43_PINN_audit/findings/S43_audit/raw/S43A11T03.csv,True,included in controlled A11 detector dataset
+S43,S43A11T04,11,A11,Frontfall,S43_PINN_audit/findings/S43_audit/raw/S43A11T04.csv,True,included in controlled A11 detector dataset
+S43,S43A11T05,11,A11,Frontfall,S43_PINN_audit/findings/S43_audit/raw/S43A11T05.csv,True,included in controlled A11 detector dataset
+S43,S43A12T01,12,A12,Leftfall,S43_PINN_audit/findings/S43_audit/raw/S43A12T01.csv,False,available but held for later multi-fall-type study
+S43,S43A12T02,12,A12,Leftfall,S43_PINN_audit/findings/S43_audit/raw/S43A12T02.csv,False,available but held for later multi-fall-type study
+S43,S43A12T03,12,A12,Leftfall,S43_PINN_audit/findings/S43_audit/raw/S43A12T03.csv,False,available but held for later multi-fall-type study
+S43,S43A12T04,12,A12,Leftfall,S43_PINN_audit/findings/S43_audit/raw/S43A12T04.csv,False,available but held for later multi-fall-type study
+S43,S43A12T05,12,A12,Leftfall,S43_PINN_audit/findings/S43_audit/raw/S43A12T05.csv,False,available but held for later multi-fall-type study
+S43,S43A13T01,13,A13,Rightfall,S43_PINN_audit/findings/S43_audit/raw/S43A13T01.csv,False,available but held for later multi-fall-type study
+S43,S43A13T02,13,A13,Rightfall,S43_PINN_audit/findings/S43_audit/raw/S43A13T02.csv,False,available but held for later multi-fall-type study
+S43,S43A13T03,13,A13,Rightfall,S43_PINN_audit/findings/S43_audit/raw/S43A13T03.csv,False,available but held for later multi-fall-type study
+S43,S43A13T04,13,A13,Rightfall,S43_PINN_audit/findings/S43_audit/raw/S43A13T04.csv,False,available but held for later multi-fall-type study
+S43,S43A13T05,13,A13,Rightfall,S43_PINN_audit/findings/S43_audit/raw/S43A13T05.csv,False,available but held for later multi-fall-type study
+S43,S43A14T01,14,A14,Rotatefall,S43_PINN_audit/findings/S43_audit/raw/S43A14T01.csv,False,available but held for later multi-fall-type study
+S43,S43A14T02,14,A14,Rotatefall,S43_PINN_audit/findings/S43_audit/raw/S43A14T02.csv,False,available but held for later multi-fall-type study
+S43,S43A14T03,14,A14,Rotatefall,S43_PINN_audit/findings/S43_audit/raw/S43A14T03.csv,False,available but held for later multi-fall-type study
+S43,S43A14T04,14,A14,Rotatefall,S43_PINN_audit/findings/S43_audit/raw/S43A14T04.csv,False,available but held for later multi-fall-type study
+S43,S43A14T05,14,A14,Rotatefall,S43_PINN_audit/findings/S43_audit/raw/S43A14T05.csv,False,available but held for later multi-fall-type study
+S44,S44A10T01,10,A10,Backfall,S44_PINN_audit/repaired_data/S44/S44A10T01.csv,False,available but held for later multi-fall-type study
+S44,S44A10T02,10,A10,Backfall,S44_PINN_audit/repaired_data/S44/S44A10T02.csv,False,available but held for later multi-fall-type study
+S44,S44A10T03,10,A10,Backfall,S44_PINN_audit/repaired_data/S44/S44A10T03.csv,False,available but held for later multi-fall-type study
+S44,S44A10T04,10,A10,Backfall,S44_PINN_audit/repaired_data/S44/S44A10T04.csv,False,available but held for later multi-fall-type study
+S44,S44A10T05,10,A10,Backfall,S44_PINN_audit/repaired_data/S44/S44A10T05.csv,False,available but held for later multi-fall-type study
+S44,S44A11T01,11,A11,Frontfall,S44_PINN_audit/repaired_data/S44/S44A11T01.csv,True,included in controlled A11 detector dataset
+S44,S44A11T02,11,A11,Frontfall,S44_PINN_audit/repaired_data/S44/S44A11T02.csv,True,included in controlled A11 detector dataset
+S44,S44A11T03,11,A11,Frontfall,S44_PINN_audit/repaired_data/S44/S44A11T03.csv,True,included in controlled A11 detector dataset
+S44,S44A11T04,11,A11,Frontfall,S44_PINN_audit/repaired_data/S44/S44A11T04.csv,True,included in controlled A11 detector dataset
+S44,S44A11T05,11,A11,Frontfall,S44_PINN_audit/repaired_data/S44/S44A11T05.csv,True,included in controlled A11 detector dataset
+S44,S44A12T01,12,A12,Leftfall,S44_PINN_audit/repaired_data/S44/S44A12T01.csv,False,available but held for later multi-fall-type study
+S44,S44A12T02,12,A12,Leftfall,S44_PINN_audit/repaired_data/S44/S44A12T02.csv,False,available but held for later multi-fall-type study
+S44,S44A12T03,12,A12,Leftfall,S44_PINN_audit/repaired_data/S44/S44A12T03.csv,False,available but held for later multi-fall-type study
+S44,S44A12T04,12,A12,Leftfall,S44_PINN_audit/repaired_data/S44/S44A12T04.csv,False,available but held for later multi-fall-type study
+S44,S44A12T05,12,A12,Leftfall,S44_PINN_audit/repaired_data/S44/S44A12T05.csv,False,available but held for later multi-fall-type study
+S44,S44A13T01,13,A13,Rightfall,S44_PINN_audit/repaired_data/S44/S44A13T01.csv,False,available but held for later multi-fall-type study
+S44,S44A13T02,13,A13,Rightfall,S44_PINN_audit/repaired_data/S44/S44A13T02.csv,False,available but held for later multi-fall-type study
+S44,S44A13T03,13,A13,Rightfall,S44_PINN_audit/repaired_data/S44/S44A13T03.csv,False,available but held for later multi-fall-type study
+S44,S44A13T04,13,A13,Rightfall,S44_PINN_audit/repaired_data/S44/S44A13T04.csv,False,available but held for later multi-fall-type study
+S44,S44A13T05,13,A13,Rightfall,S44_PINN_audit/repaired_data/S44/S44A13T05.csv,False,available but held for later multi-fall-type study
+S44,S44A14T01,14,A14,Rotatefall,S44_PINN_audit/repaired_data/S44/S44A14T01.csv,False,available but held for later multi-fall-type study
+S44,S44A14T02,14,A14,Rotatefall,S44_PINN_audit/repaired_data/S44/S44A14T02.csv,False,available but held for later multi-fall-type study
+S44,S44A14T03,14,A14,Rotatefall,S44_PINN_audit/repaired_data/S44/S44A14T03.csv,False,available but held for later multi-fall-type study
+S44,S44A14T04,14,A14,Rotatefall,S44_PINN_audit/repaired_data/S44/S44A14T04.csv,False,available but held for later multi-fall-type study
+S44,S44A14T05,14,A14,Rotatefall,S44_PINN_audit/repaired_data/S44/S44A14T05.csv,False,available but held for later multi-fall-type study
+S45,S45A10T01,10,A10,Backfall,S45_PINN_audit/repaired_data/S45/S45A10T01.csv,False,available but held for later multi-fall-type study
+S45,S45A10T02,10,A10,Backfall,S45_PINN_audit/repaired_data/S45/S45A10T02.csv,False,available but held for later multi-fall-type study
+S45,S45A10T03,10,A10,Backfall,S45_PINN_audit/repaired_data/S45/S45A10T03.csv,False,available but held for later multi-fall-type study
+S45,S45A10T04,10,A10,Backfall,S45_PINN_audit/repaired_data/S45/S45A10T04.csv,False,available but held for later multi-fall-type study
+S45,S45A10T05,10,A10,Backfall,S45_PINN_audit/repaired_data/S45/S45A10T05.csv,False,available but held for later multi-fall-type study
+S45,S45A11T01,11,A11,Frontfall,S45_PINN_audit/repaired_data/S45/S45A11T01.csv,True,included in controlled A11 detector dataset
+S45,S45A11T02,11,A11,Frontfall,S45_PINN_audit/repaired_data/S45/S45A11T02.csv,True,included in controlled A11 detector dataset
+S45,S45A11T03,11,A11,Frontfall,S45_PINN_audit/repaired_data/S45/S45A11T03.csv,True,included in controlled A11 detector dataset
+S45,S45A11T04,11,A11,Frontfall,S45_PINN_audit/repaired_data/S45/S45A11T04.csv,True,included in controlled A11 detector dataset
+S45,S45A11T05,11,A11,Frontfall,S45_PINN_audit/repaired_data/S45/S45A11T05.csv,True,included in controlled A11 detector dataset
+S45,S45A12T01,12,A12,Leftfall,S45_PINN_audit/repaired_data/S45/S45A12T01.csv,False,available but held for later multi-fall-type study
+S45,S45A12T02,12,A12,Leftfall,S45_PINN_audit/repaired_data/S45/S45A12T02.csv,False,available but held for later multi-fall-type study
+S45,S45A12T03,12,A12,Leftfall,S45_PINN_audit/repaired_data/S45/S45A12T03.csv,False,available but held for later multi-fall-type study
+S45,S45A12T04,12,A12,Leftfall,S45_PINN_audit/repaired_data/S45/S45A12T04.csv,False,available but held for later multi-fall-type study
+S45,S45A12T05,12,A12,Leftfall,S45_PINN_audit/repaired_data/S45/S45A12T05.csv,False,available but held for later multi-fall-type study
+S45,S45A13T01,13,A13,Rightfall,S45_PINN_audit/repaired_data/S45/S45A13T01.csv,False,available but held for later multi-fall-type study
+S45,S45A13T02,13,A13,Rightfall,S45_PINN_audit/repaired_data/S45/S45A13T02.csv,False,available but held for later multi-fall-type study
+S45,S45A13T03,13,A13,Rightfall,S45_PINN_audit/repaired_data/S45/S45A13T03.csv,False,available but held for later multi-fall-type study
+S45,S45A13T04,13,A13,Rightfall,S45_PINN_audit/repaired_data/S45/S45A13T04.csv,False,available but held for later multi-fall-type study
+S45,S45A13T05,13,A13,Rightfall,S45_PINN_audit/repaired_data/S45/S45A13T05.csv,False,available but held for later multi-fall-type study
+S45,S45A14T01,14,A14,Rotatefall,S45_PINN_audit/repaired_data/S45/S45A14T01.csv,False,available but held for later multi-fall-type study
+S45,S45A14T02,14,A14,Rotatefall,S45_PINN_audit/repaired_data/S45/S45A14T02.csv,False,available but held for later multi-fall-type study
+S45,S45A14T03,14,A14,Rotatefall,S45_PINN_audit/repaired_data/S45/S45A14T03.csv,False,available but held for later multi-fall-type study
+S45,S45A14T04,14,A14,Rotatefall,S45_PINN_audit/repaired_data/S45/S45A14T04.csv,False,available but held for later multi-fall-type study
+S45,S45A14T05,14,A14,Rotatefall,S45_PINN_audit/repaired_data/S45/S45A14T05.csv,False,available but held for later multi-fall-type study
+S46,S46A10T01,10,A10,Backfall,S46_PINN_audit/repaired_data/S46/S46A10T01.csv,False,available but held for later multi-fall-type study
+S46,S46A10T02,10,A10,Backfall,S46_PINN_audit/repaired_data/S46/S46A10T02.csv,False,available but held for later multi-fall-type study
+S46,S46A10T03,10,A10,Backfall,S46_PINN_audit/repaired_data/S46/S46A10T03.csv,False,available but held for later multi-fall-type study
+S46,S46A10T04,10,A10,Backfall,S46_PINN_audit/repaired_data/S46/S46A10T04.csv,False,available but held for later multi-fall-type study
+S46,S46A10T05,10,A10,Backfall,S46_PINN_audit/repaired_data/S46/S46A10T05.csv,False,available but held for later multi-fall-type study
+S46,S46A11T01,11,A11,Frontfall,S46_PINN_audit/repaired_data/S46/S46A11T01.csv,True,included in controlled A11 detector dataset
+S46,S46A11T02,11,A11,Frontfall,S46_PINN_audit/repaired_data/S46/S46A11T02.csv,True,included in controlled A11 detector dataset
+S46,S46A11T03,11,A11,Frontfall,S46_PINN_audit/repaired_data/S46/S46A11T03.csv,True,included in controlled A11 detector dataset
+S46,S46A11T04,11,A11,Frontfall,S46_PINN_audit/repaired_data/S46/S46A11T04.csv,True,included in controlled A11 detector dataset
+S46,S46A11T05,11,A11,Frontfall,S46_PINN_audit/repaired_data/S46/S46A11T05.csv,True,included in controlled A11 detector dataset
+S46,S46A12T01,12,A12,Leftfall,S46_PINN_audit/repaired_data/S46/S46A12T01.csv,False,available but held for later multi-fall-type study
+S46,S46A12T02,12,A12,Leftfall,S46_PINN_audit/repaired_data/S46/S46A12T02.csv,False,available but held for later multi-fall-type study
+S46,S46A12T03,12,A12,Leftfall,S46_PINN_audit/repaired_data/S46/S46A12T03.csv,False,available but held for later multi-fall-type study
+S46,S46A12T04,12,A12,Leftfall,S46_PINN_audit/repaired_data/S46/S46A12T04.csv,False,available but held for later multi-fall-type study
+S46,S46A12T05,12,A12,Leftfall,S46_PINN_audit/repaired_data/S46/S46A12T05.csv,False,available but held for later multi-fall-type study
+S46,S46A13T02,13,A13,Rightfall,S46_PINN_audit/repaired_data/S46/S46A13T02.csv,False,available but held for later multi-fall-type study
+S46,S46A13T03,13,A13,Rightfall,S46_PINN_audit/repaired_data/S46/S46A13T03.csv,False,available but held for later multi-fall-type study
+S46,S46A13T04,13,A13,Rightfall,S46_PINN_audit/repaired_data/S46/S46A13T04.csv,False,available but held for later multi-fall-type study
+S46,S46A13T05,13,A13,Rightfall,S46_PINN_audit/repaired_data/S46/S46A13T05.csv,False,available but held for later multi-fall-type study
+S46,S46A14T01,14,A14,Rotatefall,S46_PINN_audit/repaired_data/S46/S46A14T01.csv,False,available but held for later multi-fall-type study
+S46,S46A14T02,14,A14,Rotatefall,S46_PINN_audit/repaired_data/S46/S46A14T02.csv,False,available but held for later multi-fall-type study
+S46,S46A14T03,14,A14,Rotatefall,S46_PINN_audit/repaired_data/S46/S46A14T03.csv,False,available but held for later multi-fall-type study
+S46,S46A14T04,14,A14,Rotatefall,S46_PINN_audit/repaired_data/S46/S46A14T04.csv,False,available but held for later multi-fall-type study
+S46,S46A14T05,14,A14,Rotatefall,S46_PINN_audit/repaired_data/S46/S46A14T05.csv,False,available but held for later multi-fall-type study
+S48,S48A10T01,10,A10,Backfall,S48_PINN_audit/repaired_data/S48/S48A10T01.csv,False,available but held for later multi-fall-type study
+S48,S48A10T02,10,A10,Backfall,S48_PINN_audit/repaired_data/S48/S48A10T02.csv,False,available but held for later multi-fall-type study
+S48,S48A10T03,10,A10,Backfall,S48_PINN_audit/repaired_data/S48/S48A10T03.csv,False,available but held for later multi-fall-type study
+S48,S48A10T04,10,A10,Backfall,S48_PINN_audit/repaired_data/S48/S48A10T04.csv,False,available but held for later multi-fall-type study
+S48,S48A10T05,10,A10,Backfall,S48_PINN_audit/repaired_data/S48/S48A10T05.csv,False,available but held for later multi-fall-type study
+S48,S48A11T01,11,A11,Frontfall,S48_PINN_audit/repaired_data/S48/S48A11T01.csv,True,included in controlled A11 detector dataset
+S48,S48A11T02,11,A11,Frontfall,S48_PINN_audit/repaired_data/S48/S48A11T02.csv,True,included in controlled A11 detector dataset
+S48,S48A11T03,11,A11,Frontfall,S48_PINN_audit/repaired_data/S48/S48A11T03.csv,True,included in controlled A11 detector dataset
+S48,S48A11T04,11,A11,Frontfall,S48_PINN_audit/repaired_data/S48/S48A11T04.csv,True,included in controlled A11 detector dataset
+S48,S48A11T05,11,A11,Frontfall,S48_PINN_audit/repaired_data/S48/S48A11T05.csv,True,included in controlled A11 detector dataset
+S48,S48A12T01,12,A12,Leftfall,S48_PINN_audit/repaired_data/S48/S48A12T01.csv,False,available but held for later multi-fall-type study
+S48,S48A12T02,12,A12,Leftfall,S48_PINN_audit/repaired_data/S48/S48A12T02.csv,False,available but held for later multi-fall-type study
+S48,S48A12T03,12,A12,Leftfall,S48_PINN_audit/repaired_data/S48/S48A12T03.csv,False,available but held for later multi-fall-type study
+S48,S48A12T04,12,A12,Leftfall,S48_PINN_audit/repaired_data/S48/S48A12T04.csv,False,available but held for later multi-fall-type study
+S48,S48A12T05,12,A12,Leftfall,S48_PINN_audit/repaired_data/S48/S48A12T05.csv,False,available but held for later multi-fall-type study
+S48,S48A13T01,13,A13,Rightfall,S48_PINN_audit/repaired_data/S48/S48A13T01.csv,False,available but held for later multi-fall-type study
+S48,S48A13T02,13,A13,Rightfall,S48_PINN_audit/repaired_data/S48/S48A13T02.csv,False,available but held for later multi-fall-type study
+S48,S48A13T03,13,A13,Rightfall,S48_PINN_audit/repaired_data/S48/S48A13T03.csv,False,available but held for later multi-fall-type study
+S48,S48A13T04,13,A13,Rightfall,S48_PINN_audit/repaired_data/S48/S48A13T04.csv,False,available but held for later multi-fall-type study
+S48,S48A13T05,13,A13,Rightfall,S48_PINN_audit/repaired_data/S48/S48A13T05.csv,False,available but held for later multi-fall-type study
+S48,S48A14T01,14,A14,Rotatefall,S48_PINN_audit/repaired_data/S48/S48A14T01.csv,False,available but held for later multi-fall-type study
+S48,S48A14T02,14,A14,Rotatefall,S48_PINN_audit/repaired_data/S48/S48A14T02.csv,False,available but held for later multi-fall-type study
+S48,S48A14T03,14,A14,Rotatefall,S48_PINN_audit/repaired_data/S48/S48A14T03.csv,False,available but held for later multi-fall-type study
+S48,S48A14T04,14,A14,Rotatefall,S48_PINN_audit/repaired_data/S48/S48A14T04.csv,False,available but held for later multi-fall-type study
+S48,S48A14T05,14,A14,Rotatefall,S48_PINN_audit/repaired_data/S48/S48A14T05.csv,False,available but held for later multi-fall-type study
+S49,S49A10T01,10,A10,Backfall,S49_PINN_audit/repaired_data/S49/S49A10T01.csv,False,available but held for later multi-fall-type study
+S49,S49A10T02,10,A10,Backfall,S49_PINN_audit/repaired_data/S49/S49A10T02.csv,False,available but held for later multi-fall-type study
+S49,S49A10T03,10,A10,Backfall,S49_PINN_audit/repaired_data/S49/S49A10T03.csv,False,available but held for later multi-fall-type study
+S49,S49A10T04,10,A10,Backfall,S49_PINN_audit/repaired_data/S49/S49A10T04.csv,False,available but held for later multi-fall-type study
+S49,S49A10T05,10,A10,Backfall,S49_PINN_audit/repaired_data/S49/S49A10T05.csv,False,available but held for later multi-fall-type study
+S49,S49A11T01,11,A11,Frontfall,S49_PINN_audit/repaired_data/S49/S49A11T01.csv,False,no complete manual A11 phase sequence; not model-ready
+S49,S49A11T02,11,A11,Frontfall,S49_PINN_audit/repaired_data/S49/S49A11T02.csv,True,included in controlled A11 detector dataset
+S49,S49A11T04,11,A11,Frontfall,S49_PINN_audit/repaired_data/S49/S49A11T04.csv,True,included in controlled A11 detector dataset
+S49,S49A11T05,11,A11,Frontfall,S49_PINN_audit/repaired_data/S49/S49A11T05.csv,True,included in controlled A11 detector dataset
+S49,S49A12T02,12,A12,Leftfall,S49_PINN_audit/repaired_data/S49/S49A12T02.csv,False,available but held for later multi-fall-type study
+S49,S49A12T03,12,A12,Leftfall,S49_PINN_audit/repaired_data/S49/S49A12T03.csv,False,available but held for later multi-fall-type study
+S49,S49A12T04,12,A12,Leftfall,S49_PINN_audit/repaired_data/S49/S49A12T04.csv,False,available but held for later multi-fall-type study
+S49,S49A12T05,12,A12,Leftfall,S49_PINN_audit/repaired_data/S49/S49A12T05.csv,False,available but held for later multi-fall-type study
+S49,S49A13T01,13,A13,Rightfall,S49_PINN_audit/repaired_data/S49/S49A13T01.csv,False,available but held for later multi-fall-type study
+S49,S49A13T02,13,A13,Rightfall,S49_PINN_audit/repaired_data/S49/S49A13T02.csv,False,available but held for later multi-fall-type study
+S49,S49A13T03,13,A13,Rightfall,S49_PINN_audit/repaired_data/S49/S49A13T03.csv,False,available but held for later multi-fall-type study
+S49,S49A13T04,13,A13,Rightfall,S49_PINN_audit/repaired_data/S49/S49A13T04.csv,False,available but held for later multi-fall-type study
+S49,S49A13T05,13,A13,Rightfall,S49_PINN_audit/repaired_data/S49/S49A13T05.csv,False,available but held for later multi-fall-type study
+S49,S49A14T01,14,A14,Rotatefall,S49_PINN_audit/repaired_data/S49/S49A14T01.csv,False,available but held for later multi-fall-type study
+S49,S49A14T02,14,A14,Rotatefall,S49_PINN_audit/repaired_data/S49/S49A14T02.csv,False,available but held for later multi-fall-type study
+S49,S49A14T03,14,A14,Rotatefall,S49_PINN_audit/repaired_data/S49/S49A14T03.csv,False,available but held for later multi-fall-type study
+S49,S49A14T04,14,A14,Rotatefall,S49_PINN_audit/repaired_data/S49/S49A14T04.csv,False,available but held for later multi-fall-type study
+S49,S49A14T05,14,A14,Rotatefall,S49_PINN_audit/repaired_data/S49/S49A14T05.csv,False,available but held for later multi-fall-type study
+S55,S55A10T01,10,A10,Backfall,S55_PINN_audit/repaired_data/S55/S55A10T01.csv,False,available but held for later multi-fall-type study
+S55,S55A10T02,10,A10,Backfall,S55_PINN_audit/repaired_data/S55/S55A10T02.csv,False,available but held for later multi-fall-type study
+S55,S55A10T03,10,A10,Backfall,S55_PINN_audit/repaired_data/S55/S55A10T03.csv,False,available but held for later multi-fall-type study
+S55,S55A10T04,10,A10,Backfall,S55_PINN_audit/repaired_data/S55/S55A10T04.csv,False,available but held for later multi-fall-type study
+S55,S55A10T05,10,A10,Backfall,S55_PINN_audit/repaired_data/S55/S55A10T05.csv,False,available but held for later multi-fall-type study
+S55,S55A11T01,11,A11,Frontfall,S55_PINN_audit/repaired_data/S55/S55A11T01.csv,True,included in controlled A11 detector dataset
+S55,S55A11T02,11,A11,Frontfall,S55_PINN_audit/repaired_data/S55/S55A11T02.csv,True,included in controlled A11 detector dataset
+S55,S55A11T03,11,A11,Frontfall,S55_PINN_audit/repaired_data/S55/S55A11T03.csv,True,included in controlled A11 detector dataset
+S55,S55A11T04,11,A11,Frontfall,S55_PINN_audit/repaired_data/S55/S55A11T04.csv,True,included in controlled A11 detector dataset
+S55,S55A11T05,11,A11,Frontfall,S55_PINN_audit/repaired_data/S55/S55A11T05.csv,True,included in controlled A11 detector dataset
+S55,S55A12T01,12,A12,Leftfall,S55_PINN_audit/repaired_data/S55/S55A12T01.csv,False,available but held for later multi-fall-type study
+S55,S55A12T02,12,A12,Leftfall,S55_PINN_audit/repaired_data/S55/S55A12T02.csv,False,available but held for later multi-fall-type study
+S55,S55A12T03,12,A12,Leftfall,S55_PINN_audit/repaired_data/S55/S55A12T03.csv,False,available but held for later multi-fall-type study
+S55,S55A12T04,12,A12,Leftfall,S55_PINN_audit/repaired_data/S55/S55A12T04.csv,False,available but held for later multi-fall-type study
+S55,S55A12T05,12,A12,Leftfall,S55_PINN_audit/repaired_data/S55/S55A12T05.csv,False,available but held for later multi-fall-type study
+S55,S55A13T01,13,A13,Rightfall,S55_PINN_audit/repaired_data/S55/S55A13T01.csv,False,available but held for later multi-fall-type study
+S55,S55A13T02,13,A13,Rightfall,S55_PINN_audit/repaired_data/S55/S55A13T02.csv,False,available but held for later multi-fall-type study
+S55,S55A13T03,13,A13,Rightfall,S55_PINN_audit/repaired_data/S55/S55A13T03.csv,False,available but held for later multi-fall-type study
+S55,S55A13T04,13,A13,Rightfall,S55_PINN_audit/repaired_data/S55/S55A13T04.csv,False,available but held for later multi-fall-type study
+S55,S55A13T05,13,A13,Rightfall,S55_PINN_audit/repaired_data/S55/S55A13T05.csv,False,available but held for later multi-fall-type study
+S55,S55A14T01,14,A14,Rotatefall,S55_PINN_audit/repaired_data/S55/S55A14T01.csv,False,available but held for later multi-fall-type study
+S55,S55A14T02,14,A14,Rotatefall,S55_PINN_audit/repaired_data/S55/S55A14T02.csv,False,available but held for later multi-fall-type study
+S55,S55A14T03,14,A14,Rotatefall,S55_PINN_audit/repaired_data/S55/S55A14T03.csv,False,available but held for later multi-fall-type study
+S55,S55A14T04,14,A14,Rotatefall,S55_PINN_audit/repaired_data/S55/S55A14T04.csv,False,available but held for later multi-fall-type study
+S55,S55A14T05,14,A14,Rotatefall,S55_PINN_audit/repaired_data/S55/S55A14T05.csv,False,available but held for later multi-fall-type study
+S56,S56A10T01,10,A10,Backfall,S56_PINN_audit/repaired_data/S56/S56A10T01.csv,False,available but held for later multi-fall-type study
+S56,S56A10T02,10,A10,Backfall,S56_PINN_audit/repaired_data/S56/S56A10T02.csv,False,available but held for later multi-fall-type study
+S56,S56A10T03,10,A10,Backfall,S56_PINN_audit/repaired_data/S56/S56A10T03.csv,False,available but held for later multi-fall-type study
+S56,S56A10T04,10,A10,Backfall,S56_PINN_audit/repaired_data/S56/S56A10T04.csv,False,available but held for later multi-fall-type study
+S56,S56A10T05,10,A10,Backfall,S56_PINN_audit/repaired_data/S56/S56A10T05.csv,False,available but held for later multi-fall-type study
+S56,S56A11T01,11,A11,Frontfall,S56_PINN_audit/repaired_data/S56/S56A11T01.csv,True,included in controlled A11 detector dataset
+S56,S56A11T02,11,A11,Frontfall,S56_PINN_audit/repaired_data/S56/S56A11T02.csv,True,included in controlled A11 detector dataset
+S56,S56A11T03,11,A11,Frontfall,S56_PINN_audit/repaired_data/S56/S56A11T03.csv,True,included in controlled A11 detector dataset
+S56,S56A11T04,11,A11,Frontfall,S56_PINN_audit/repaired_data/S56/S56A11T04.csv,True,included in controlled A11 detector dataset
+S56,S56A11T05,11,A11,Frontfall,S56_PINN_audit/repaired_data/S56/S56A11T05.csv,True,included in controlled A11 detector dataset
+S56,S56A12T01,12,A12,Leftfall,S56_PINN_audit/repaired_data/S56/S56A12T01.csv,False,available but held for later multi-fall-type study
+S56,S56A12T02,12,A12,Leftfall,S56_PINN_audit/repaired_data/S56/S56A12T02.csv,False,available but held for later multi-fall-type study
+S56,S56A12T03,12,A12,Leftfall,S56_PINN_audit/repaired_data/S56/S56A12T03.csv,False,available but held for later multi-fall-type study
+S56,S56A12T04,12,A12,Leftfall,S56_PINN_audit/repaired_data/S56/S56A12T04.csv,False,available but held for later multi-fall-type study
+S56,S56A12T05,12,A12,Leftfall,S56_PINN_audit/repaired_data/S56/S56A12T05.csv,False,available but held for later multi-fall-type study
+S56,S56A13T01,13,A13,Rightfall,S56_PINN_audit/repaired_data/S56/S56A13T01.csv,False,available but held for later multi-fall-type study
+S56,S56A13T02,13,A13,Rightfall,S56_PINN_audit/repaired_data/S56/S56A13T02.csv,False,available but held for later multi-fall-type study
+S56,S56A13T03,13,A13,Rightfall,S56_PINN_audit/repaired_data/S56/S56A13T03.csv,False,available but held for later multi-fall-type study
+S56,S56A13T04,13,A13,Rightfall,S56_PINN_audit/repaired_data/S56/S56A13T04.csv,False,available but held for later multi-fall-type study
+S56,S56A13T05,13,A13,Rightfall,S56_PINN_audit/repaired_data/S56/S56A13T05.csv,False,available but held for later multi-fall-type study
+S56,S56A14T01,14,A14,Rotatefall,S56_PINN_audit/repaired_data/S56/S56A14T01.csv,False,available but held for later multi-fall-type study
+S56,S56A14T02,14,A14,Rotatefall,S56_PINN_audit/repaired_data/S56/S56A14T02.csv,False,available but held for later multi-fall-type study
+S56,S56A14T03,14,A14,Rotatefall,S56_PINN_audit/repaired_data/S56/S56A14T03.csv,False,available but held for later multi-fall-type study
+S56,S56A14T04,14,A14,Rotatefall,S56_PINN_audit/repaired_data/S56/S56A14T04.csv,False,available but held for later multi-fall-type study
+S56,S56A14T05,14,A14,Rotatefall,S56_PINN_audit/repaired_data/S56/S56A14T05.csv,False,available but held for later multi-fall-type study
+S57,S57A10T01,10,A10,Backfall,S57_PINN_audit/repaired_data/S57/S57A10T01.csv,False,available but held for later multi-fall-type study
+S57,S57A10T02,10,A10,Backfall,S57_PINN_audit/repaired_data/S57/S57A10T02.csv,False,available but held for later multi-fall-type study
+S57,S57A10T03,10,A10,Backfall,S57_PINN_audit/repaired_data/S57/S57A10T03.csv,False,available but held for later multi-fall-type study
+S57,S57A10T04,10,A10,Backfall,S57_PINN_audit/repaired_data/S57/S57A10T04.csv,False,available but held for later multi-fall-type study
+S57,S57A10T05,10,A10,Backfall,S57_PINN_audit/repaired_data/S57/S57A10T05.csv,False,available but held for later multi-fall-type study
+S57,S57A11T01,11,A11,Frontfall,S57_PINN_audit/repaired_data/S57/S57A11T01.csv,False,no complete manual A11 phase sequence; not model-ready
+S57,S57A11T02,11,A11,Frontfall,S57_PINN_audit/repaired_data/S57/S57A11T02.csv,False,no complete manual A11 phase sequence; not model-ready
+S57,S57A11T03,11,A11,Frontfall,S57_PINN_audit/repaired_data/S57/S57A11T03.csv,True,included in controlled A11 detector dataset
+S57,S57A11T04,11,A11,Frontfall,S57_PINN_audit/repaired_data/S57/S57A11T04.csv,True,included in controlled A11 detector dataset
+S57,S57A11T05,11,A11,Frontfall,S57_PINN_audit/repaired_data/S57/S57A11T05.csv,True,included in controlled A11 detector dataset
+S57,S57A12T01,12,A12,Leftfall,S57_PINN_audit/repaired_data/S57/S57A12T01.csv,False,available but held for later multi-fall-type study
+S57,S57A12T02,12,A12,Leftfall,S57_PINN_audit/repaired_data/S57/S57A12T02.csv,False,available but held for later multi-fall-type study
+S57,S57A12T03,12,A12,Leftfall,S57_PINN_audit/repaired_data/S57/S57A12T03.csv,False,available but held for later multi-fall-type study
+S57,S57A12T04,12,A12,Leftfall,S57_PINN_audit/repaired_data/S57/S57A12T04.csv,False,available but held for later multi-fall-type study
+S57,S57A12T05,12,A12,Leftfall,S57_PINN_audit/repaired_data/S57/S57A12T05.csv,False,available but held for later multi-fall-type study
+S57,S57A13T01,13,A13,Rightfall,S57_PINN_audit/repaired_data/S57/S57A13T01.csv,False,available but held for later multi-fall-type study
+S57,S57A13T02,13,A13,Rightfall,S57_PINN_audit/repaired_data/S57/S57A13T02.csv,False,available but held for later multi-fall-type study
+S57,S57A13T03,13,A13,Rightfall,S57_PINN_audit/repaired_data/S57/S57A13T03.csv,False,available but held for later multi-fall-type study
+S57,S57A13T04,13,A13,Rightfall,S57_PINN_audit/repaired_data/S57/S57A13T04.csv,False,available but held for later multi-fall-type study
+S57,S57A13T05,13,A13,Rightfall,S57_PINN_audit/repaired_data/S57/S57A13T05.csv,False,available but held for later multi-fall-type study
+S57,S57A14T01,14,A14,Rotatefall,S57_PINN_audit/repaired_data/S57/S57A14T01.csv,False,available but held for later multi-fall-type study
+S57,S57A14T02,14,A14,Rotatefall,S57_PINN_audit/repaired_data/S57/S57A14T02.csv,False,available but held for later multi-fall-type study
+S57,S57A14T03,14,A14,Rotatefall,S57_PINN_audit/repaired_data/S57/S57A14T03.csv,False,available but held for later multi-fall-type study
+S57,S57A14T04,14,A14,Rotatefall,S57_PINN_audit/repaired_data/S57/S57A14T04.csv,False,available but held for later multi-fall-type study
+S57,S57A14T05,14,A14,Rotatefall,S57_PINN_audit/repaired_data/S57/S57A14T05.csv,False,available but held for later multi-fall-type study
+S59,S59A10T01,10,A10,Backfall,S59_PINN_audit/repaired_data/S59/S59A10T01.csv,False,available but held for later multi-fall-type study
+S59,S59A10T02,10,A10,Backfall,S59_PINN_audit/repaired_data/S59/S59A10T02.csv,False,available but held for later multi-fall-type study
+S59,S59A10T03,10,A10,Backfall,S59_PINN_audit/repaired_data/S59/S59A10T03.csv,False,available but held for later multi-fall-type study
+S59,S59A10T04,10,A10,Backfall,S59_PINN_audit/repaired_data/S59/S59A10T04.csv,False,available but held for later multi-fall-type study
+S59,S59A10T05,10,A10,Backfall,S59_PINN_audit/repaired_data/S59/S59A10T05.csv,False,available but held for later multi-fall-type study
+S59,S59A11T01,11,A11,Frontfall,S59_PINN_audit/repaired_data/S59/S59A11T01.csv,True,included in controlled A11 detector dataset
+S59,S59A11T02,11,A11,Frontfall,S59_PINN_audit/repaired_data/S59/S59A11T02.csv,True,included in controlled A11 detector dataset
+S59,S59A11T03,11,A11,Frontfall,S59_PINN_audit/repaired_data/S59/S59A11T03.csv,True,included in controlled A11 detector dataset
+S59,S59A11T04,11,A11,Frontfall,S59_PINN_audit/repaired_data/S59/S59A11T04.csv,True,included in controlled A11 detector dataset
+S59,S59A11T05,11,A11,Frontfall,S59_PINN_audit/repaired_data/S59/S59A11T05.csv,True,included in controlled A11 detector dataset
+S59,S59A12T01,12,A12,Leftfall,S59_PINN_audit/repaired_data/S59/S59A12T01.csv,False,available but held for later multi-fall-type study
+S59,S59A12T02,12,A12,Leftfall,S59_PINN_audit/repaired_data/S59/S59A12T02.csv,False,available but held for later multi-fall-type study
+S59,S59A12T03,12,A12,Leftfall,S59_PINN_audit/repaired_data/S59/S59A12T03.csv,False,available but held for later multi-fall-type study
+S59,S59A12T04,12,A12,Leftfall,S59_PINN_audit/repaired_data/S59/S59A12T04.csv,False,available but held for later multi-fall-type study
+S59,S59A12T05,12,A12,Leftfall,S59_PINN_audit/repaired_data/S59/S59A12T05.csv,False,available but held for later multi-fall-type study
+S59,S59A13T01,13,A13,Rightfall,S59_PINN_audit/repaired_data/S59/S59A13T01.csv,False,available but held for later multi-fall-type study
+S59,S59A13T02,13,A13,Rightfall,S59_PINN_audit/repaired_data/S59/S59A13T02.csv,False,available but held for later multi-fall-type study
+S59,S59A13T03,13,A13,Rightfall,S59_PINN_audit/repaired_data/S59/S59A13T03.csv,False,available but held for later multi-fall-type study
+S59,S59A13T04,13,A13,Rightfall,S59_PINN_audit/repaired_data/S59/S59A13T04.csv,False,available but held for later multi-fall-type study
+S59,S59A13T05,13,A13,Rightfall,S59_PINN_audit/repaired_data/S59/S59A13T05.csv,False,available but held for later multi-fall-type study
+S59,S59A14T01,14,A14,Rotatefall,S59_PINN_audit/repaired_data/S59/S59A14T01.csv,False,available but held for later multi-fall-type study
+S62,S62A10T01,10,A10,Backfall,S62_PINN_audit/repaired_data/S62/S62A10T01.csv,False,available but held for later multi-fall-type study
+S62,S62A10T02,10,A10,Backfall,S62_PINN_audit/repaired_data/S62/S62A10T02.csv,False,available but held for later multi-fall-type study
+S62,S62A10T03,10,A10,Backfall,S62_PINN_audit/repaired_data/S62/S62A10T03.csv,False,available but held for later multi-fall-type study
+S62,S62A10T04,10,A10,Backfall,S62_PINN_audit/repaired_data/S62/S62A10T04.csv,False,available but held for later multi-fall-type study
+S62,S62A10T05,10,A10,Backfall,S62_PINN_audit/repaired_data/S62/S62A10T05.csv,False,available but held for later multi-fall-type study
+S62,S62A11T01,11,A11,Frontfall,S62_PINN_audit/repaired_data/S62/S62A11T01.csv,True,included in controlled A11 detector dataset
+S62,S62A11T02,11,A11,Frontfall,S62_PINN_audit/repaired_data/S62/S62A11T02.csv,True,included in controlled A11 detector dataset
+S62,S62A11T03,11,A11,Frontfall,S62_PINN_audit/repaired_data/S62/S62A11T03.csv,True,included in controlled A11 detector dataset
+S62,S62A11T04,11,A11,Frontfall,S62_PINN_audit/repaired_data/S62/S62A11T04.csv,True,included in controlled A11 detector dataset
+S62,S62A11T05,11,A11,Frontfall,S62_PINN_audit/repaired_data/S62/S62A11T05.csv,True,included in controlled A11 detector dataset
+S62,S62A12T01,12,A12,Leftfall,S62_PINN_audit/repaired_data/S62/S62A12T01.csv,False,available but held for later multi-fall-type study
+S62,S62A12T02,12,A12,Leftfall,S62_PINN_audit/repaired_data/S62/S62A12T02.csv,False,available but held for later multi-fall-type study
+S62,S62A12T03,12,A12,Leftfall,S62_PINN_audit/repaired_data/S62/S62A12T03.csv,False,available but held for later multi-fall-type study
+S62,S62A12T04,12,A12,Leftfall,S62_PINN_audit/repaired_data/S62/S62A12T04.csv,False,available but held for later multi-fall-type study
+S62,S62A12T05,12,A12,Leftfall,S62_PINN_audit/repaired_data/S62/S62A12T05.csv,False,available but held for later multi-fall-type study
+S62,S62A13T01,13,A13,Rightfall,S62_PINN_audit/repaired_data/S62/S62A13T01.csv,False,available but held for later multi-fall-type study
+S62,S62A13T02,13,A13,Rightfall,S62_PINN_audit/repaired_data/S62/S62A13T02.csv,False,available but held for later multi-fall-type study
+S62,S62A13T03,13,A13,Rightfall,S62_PINN_audit/repaired_data/S62/S62A13T03.csv,False,available but held for later multi-fall-type study
+S62,S62A13T04,13,A13,Rightfall,S62_PINN_audit/repaired_data/S62/S62A13T04.csv,False,available but held for later multi-fall-type study
+S62,S62A13T05,13,A13,Rightfall,S62_PINN_audit/repaired_data/S62/S62A13T05.csv,False,available but held for later multi-fall-type study
+S62,S62A14T01,14,A14,Rotatefall,S62_PINN_audit/repaired_data/S62/S62A14T01.csv,False,available but held for later multi-fall-type study
+S62,S62A14T02,14,A14,Rotatefall,S62_PINN_audit/repaired_data/S62/S62A14T02.csv,False,available but held for later multi-fall-type study
+S62,S62A14T03,14,A14,Rotatefall,S62_PINN_audit/repaired_data/S62/S62A14T03.csv,False,available but held for later multi-fall-type study
+S62,S62A14T04,14,A14,Rotatefall,S62_PINN_audit/repaired_data/S62/S62A14T04.csv,False,available but held for later multi-fall-type study
+S62,S62A14T05,14,A14,Rotatefall,S62_PINN_audit/repaired_data/S62/S62A14T05.csv,False,available but held for later multi-fall-type study
+S63,S63A10T01,10,A10,Backfall,S63_PINN_audit/findings/S63_audit/raw/S63A10T01.csv,False,available but held for later multi-fall-type study
+S63,S63A10T02,10,A10,Backfall,S63_PINN_audit/findings/S63_audit/raw/S63A10T02.csv,False,available but held for later multi-fall-type study
+S63,S63A10T03,10,A10,Backfall,S63_PINN_audit/findings/S63_audit/raw/S63A10T03.csv,False,available but held for later multi-fall-type study
+S63,S63A10T04,10,A10,Backfall,S63_PINN_audit/findings/S63_audit/raw/S63A10T04.csv,False,available but held for later multi-fall-type study
+S63,S63A10T05,10,A10,Backfall,S63_PINN_audit/findings/S63_audit/raw/S63A10T05.csv,False,available but held for later multi-fall-type study
+S63,S63A11T01,11,A11,Frontfall,S63_PINN_audit/findings/S63_audit/raw/S63A11T01.csv,True,included in controlled A11 detector dataset
+S63,S63A11T02,11,A11,Frontfall,S63_PINN_audit/findings/S63_audit/raw/S63A11T02.csv,True,included in controlled A11 detector dataset
+S63,S63A11T03,11,A11,Frontfall,S63_PINN_audit/findings/S63_audit/raw/S63A11T03.csv,True,included in controlled A11 detector dataset
+S63,S63A11T04,11,A11,Frontfall,S63_PINN_audit/findings/S63_audit/raw/S63A11T04.csv,True,included in controlled A11 detector dataset
+S63,S63A11T05,11,A11,Frontfall,S63_PINN_audit/findings/S63_audit/raw/S63A11T05.csv,True,included in controlled A11 detector dataset
+S63,S63A12T01,12,A12,Leftfall,S63_PINN_audit/findings/S63_audit/raw/S63A12T01.csv,False,available but held for later multi-fall-type study
+S63,S63A12T02,12,A12,Leftfall,S63_PINN_audit/findings/S63_audit/raw/S63A12T02.csv,False,available but held for later multi-fall-type study
+S63,S63A12T03,12,A12,Leftfall,S63_PINN_audit/findings/S63_audit/raw/S63A12T03.csv,False,available but held for later multi-fall-type study
+S63,S63A12T04,12,A12,Leftfall,S63_PINN_audit/findings/S63_audit/raw/S63A12T04.csv,False,available but held for later multi-fall-type study
+S63,S63A12T05,12,A12,Leftfall,S63_PINN_audit/findings/S63_audit/raw/S63A12T05.csv,False,available but held for later multi-fall-type study
+S63,S63A13T01,13,A13,Rightfall,S63_PINN_audit/findings/S63_audit/raw/S63A13T01.csv,False,available but held for later multi-fall-type study
+S63,S63A13T02,13,A13,Rightfall,S63_PINN_audit/findings/S63_audit/raw/S63A13T02.csv,False,available but held for later multi-fall-type study
+S63,S63A13T03,13,A13,Rightfall,S63_PINN_audit/findings/S63_audit/raw/S63A13T03.csv,False,available but held for later multi-fall-type study
+S63,S63A13T04,13,A13,Rightfall,S63_PINN_audit/findings/S63_audit/raw/S63A13T04.csv,False,available but held for later multi-fall-type study
+S63,S63A13T05,13,A13,Rightfall,S63_PINN_audit/findings/S63_audit/raw/S63A13T05.csv,False,available but held for later multi-fall-type study
+S63,S63A14T01,14,A14,Rotatefall,S63_PINN_audit/findings/S63_audit/raw/S63A14T01.csv,False,available but held for later multi-fall-type study
+S63,S63A14T02,14,A14,Rotatefall,S63_PINN_audit/findings/S63_audit/raw/S63A14T02.csv,False,available but held for later multi-fall-type study
+S63,S63A14T03,14,A14,Rotatefall,S63_PINN_audit/findings/S63_audit/raw/S63A14T03.csv,False,available but held for later multi-fall-type study
+S63,S63A14T04,14,A14,Rotatefall,S63_PINN_audit/findings/S63_audit/raw/S63A14T04.csv,False,available but held for later multi-fall-type study
+S63,S63A14T05,14,A14,Rotatefall,S63_PINN_audit/findings/S63_audit/raw/S63A14T05.csv,False,available but held for later multi-fall-type study

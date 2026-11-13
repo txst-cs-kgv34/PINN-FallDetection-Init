@@ -1,0 +1,9 @@
+source_kind,source_file,trial,reason
+real_adl,ADLSamples/S48_ADLSamples/S48A02T05.csv,S48A02T05,ADLSamples/S48_ADLSamples/S48A02T05.csv: empty skeleton file
+real_adl,ADLSamples/S49_ADLSamples/S49A03T01.csv,S49A03T01,ADLSamples/S49_ADLSamples/S49A03T01.csv: longest blank-row run is 9 frames; maximum repairable run is 3
+real_adl,ADLSamples/S56_ADLSamples/S56A03T03.csv,S56A03T03,ADLSamples/S56_ADLSamples/S56A03T03.csv: longest blank-row run is 4 frames; maximum repairable run is 3
+real_adl,ADLSamples/S57_ADLSamples/S57A02T03.csv,S57A02T03,ADLSamples/S57_ADLSamples/S57A02T03.csv: longest blank-row run is 6 frames; maximum repairable run is 3
+real_fall,S43_PINN_audit/findings/S43_audit/raw/S43A11T01.csv,S43A11T01,no complete manual A11 phase sequence; not model-ready
+real_fall,S49_PINN_audit/repaired_data/S49/S49A11T01.csv,S49A11T01,no complete manual A11 phase sequence; not model-ready
+real_fall,S57_PINN_audit/repaired_data/S57/S57A11T01.csv,S57A11T01,no complete manual A11 phase sequence; not model-ready
+real_fall,S57_PINN_audit/repaired_data/S57/S57A11T02.csv,S57A11T02,no complete manual A11 phase sequence; not model-ready

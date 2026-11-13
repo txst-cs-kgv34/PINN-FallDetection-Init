@@ -1,0 +1,3 @@
+source_kind,trial,source_file,repair,repaired_frame0,repaired_row_count
+real_adl,S57A03T02,ADLSamples/S57_ADLSamples/S57A03T02.csv,linear interpolation of wholly blank skeleton row,63|71|136|169,4
+real_adl,S63A02T04,ADLSamples/S63_ADLSamples/S63A02T04.csv,linear interpolation of wholly blank skeleton row,44,1

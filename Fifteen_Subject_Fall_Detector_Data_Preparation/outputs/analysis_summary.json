@@ -1,0 +1,60 @@
+{
+  "range_summary": [
+    {
+      "source_kind": "real_adl",
+      "sample_count": 545,
+      "median_maximum_abs_theta_deg": 6.789654131722841,
+      "p95_maximum_abs_theta_deg": 69.74645895109336,
+      "maximum_maximum_abs_theta_deg": 79.48145654114516,
+      "median_theta_range_deg": 8.685664272673252,
+      "p95_theta_range_deg": 78.18614992637579,
+      "maximum_theta_range_deg": 123.00169047951182,
+      "median_maximum_abs_x_m": 0.10206140577793121,
+      "p95_maximum_abs_x_m": 2.4094027519226064,
+      "maximum_maximum_abs_x_m": 3.4177608489990234,
+      "median_x_range_m": 0.1329719705390744,
+      "p95_x_range_m": 2.68477311208844,
+      "maximum_x_range_m": 3.423126611392945
+    },
+    {
+      "source_kind": "real_fall",
+      "sample_count": 70,
+      "median_maximum_abs_theta_deg": 70.00310057708093,
+      "p95_maximum_abs_theta_deg": 88.15389799447209,
+      "maximum_maximum_abs_theta_deg": 95.73552408640215,
+      "median_theta_range_deg": 73.06622825708055,
+      "p95_theta_range_deg": 95.43825925398743,
+      "maximum_theta_range_deg": 103.23887535667019,
+      "median_maximum_abs_x_m": 1.0249227285385132,
+      "p95_maximum_abs_x_m": 1.5183434128761288,
+      "maximum_maximum_abs_x_m": 1.7229504585266113,
+      "median_x_range_m": 1.0470851929858327,
+      "p95_x_range_m": 1.5362574723549185,
+      "maximum_x_range_m": 1.7460130881518126
+    },
+    {
+      "source_kind": "synthetic_fall",
+      "sample_count": 226,
+      "median_maximum_abs_theta_deg": 50.04427183166463,
+      "p95_maximum_abs_theta_deg": 88.76140917019889,
+      "maximum_maximum_abs_theta_deg": 99.27932675612824,
+      "median_theta_range_deg": 54.81539797017864,
+      "p95_theta_range_deg": 93.55251174440532,
+      "maximum_theta_range_deg": 110.77641343128145,
+      "median_maximum_abs_x_m": 0.7385464012622833,
+      "p95_maximum_abs_x_m": 1.3795111179351807,
+      "maximum_maximum_abs_x_m": 1.6621551513671875,
+      "median_x_range_m": 0.7763513643294573,
+      "p95_x_range_m": 1.4221856398507953,
+      "maximum_x_range_m": 1.741350218653679
+    }
+  ],
+  "real_synthetic_context_alignment": {
+    "comparison_count": 226,
+    "median_theta_context_rmse_deg": 0.27942336574163495,
+    "maximum_theta_context_rmse_deg": 1.20977789084929,
+    "median_x_context_rmse_cm": 0.5642680937722304,
+    "maximum_x_context_rmse_cm": 1.8812476363053898,
+    "interpretation": "Small nonzero differences are expected because real skeletons are converted directly at 30 Hz while generator contexts passed through the earlier 30-to-250-to-100 Hz preparation before this package resampled them to 30 Hz."
+  }
+}
