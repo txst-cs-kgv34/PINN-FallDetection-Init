@@ -28,6 +28,8 @@ def main() -> None:
             raise ValueError(f"Duplicate sample ID: {sample_id}")
         seen.add(sample_id)
         kind = str(row["source_kind"])
+        if kind not in counts:
+            raise ValueError(f"{sample_id}: unexpected source kind {kind}")
         counts[kind] += 1
         if str(row["split_group"]) != str(row["source_subject"]):
             raise ValueError(f"{sample_id}: split group differs from source subject")
@@ -50,6 +52,9 @@ def main() -> None:
                 raise ValueError(f"{sample_id}: time grid is not 30 Hz")
             if int(data["label"]) != int(row["label"]):
                 raise ValueError(f"{sample_id}: label mismatch")
+            expected_label = 0 if kind == "real_adl" else 1
+            if int(row["label"]) != expected_label:
+                raise ValueError(f"{sample_id}: source kind/label mismatch")
             if int(data["activity_id"]) != int(row["activity_id"]):
                 raise ValueError(f"{sample_id}: activity mismatch")
             if not np.all(np.asarray(data["valid_mask"]) == 1):
@@ -57,8 +62,19 @@ def main() -> None:
     adl_subjects = {row["subject"] for row in samples if row["source_kind"] == "real_adl"}
     if "S59" in adl_subjects or "S31" not in adl_subjects:
         raise ValueError("S59/S31 ADL substitution is not represented correctly")
-    if counts != {"real_adl": 545, "real_fall": 70, "synthetic_fall": 226}:
-        raise ValueError(f"Unexpected source counts: {counts}")
+    if any(value <= 0 for value in counts.values()):
+        raise ValueError(f"Every source kind must be represented: {counts}")
+    manifest_counts = manifest.get("counts", {}).get("by_source_kind", {})
+    if manifest_counts and counts != {key: int(value) for key, value in manifest_counts.items()}:
+        raise ValueError(f"Manifest/source counts disagree: {counts} != {manifest_counts}")
+    real_activities = {
+        int(row["activity_id"]) for row in samples if row["source_kind"] == "real_fall"
+    }
+    scope = str(manifest.get("real_fall_scope", ""))
+    if scope.startswith("A10-A14") and real_activities != set(range(10, 15)):
+        raise ValueError(f"All-fall scope is missing activities: {real_activities}")
+    if scope.startswith("A11") and real_activities != {11}:
+        raise ValueError(f"A11-only scope contains unexpected activities: {real_activities}")
     print(f"Validated {len(samples)} canonical 30 Hz trials: {counts}")
     print("Labels, timing, finite values, file keys, and split groups are consistent.")
 

@@ -1,72 +1,158 @@
 # Fifteen-subject fall-detector data preparation
 
-This directory contains architecture-neutral, trial-level CoM trajectories for the downstream binary fall-detection study. It prepares the data but does not choose or train a detector architecture.
+This directory creates architecture-neutral, trial-level center-of-mass (CoM) data for the downstream binary fall detector.
 
-## Labels and scope
+- Label `0`: real activities of daily living (ADL).
+- Label `1`: real or approved synthetic falls.
+- Sampling rate: 30 Hz.
+- Signals: `theta_rad` and `x_m`.
+- Default real-fall scope: all available A10-A14 recordings.
 
-- Detector label `0`: real activities of daily living (ADL).
-- Detector label `1`: real or synthetic falls.
-- Canonical sampling rate: 30 Hz.
-- Canonical input signals: `theta_rad` and `x_m`.
-- No fixed-length windows, train/validation/test assignments, normalization statistics, or class-balancing operations have been applied yet.
+This stage prepares data only. It does not choose the detector architecture, create fixed-length windows, normalize features, balance classes, or assign train/validation/test subjects.
 
-The initial controlled fall comparison uses A11 Frontfall only because the approved Physics generator produces A11 trajectories. The audit inventory contains 360 available real files across A10–A14, listed in `outputs/available_real_fall_inventory.csv`, but A10 and A12–A14 are held for a later multi-fall-type study after the detector design is agreed upon.
+## Required repository layout
 
-## Prepared dataset
+Place this directory inside `PINN-FallDetection-Init` with the source folders shown below:
 
-| Source | Label | Trials | Subjects |
-|---|---:|---:|---:|
-| Real ADL | 0 | 545 | 15 |
-| Real A11 falls | 1 | 70 | 15 |
-| Quality-approved synthetic Physics A11 falls | 1 | 226 | 15 source subjects |
-| Total | — | 841 | — |
+```text
+PINN-FallDetection-Init/
+├── Fifteen_Subject_DeepONet_ModelB_Direct_Unified_Physics_Full_Fall_5_Seeds/
+├── Fifteen_Subject_Fall_Detector_Data_Preparation/
+├── Fifteen_Subject_DeepONet_Synthetic_Fall_Study/
+├── S30_PINN_audit/
+├── S32_PINN_audit/
+├── ...
+├── S63_PINN_audit/
+├── Activity_Types.md
+├── human_subjects_demographics.csv
+├── ADLSamples/
+│   ├── S30_ADLSamples/*.csv
+│   ├── S31_ADLSamples/*.csv
+│   ├── ...
+│   └── S59_ADLSamples/        # optional; if present, expected to be empty
+└── FallSamples/
+    ├── S30_FallSamples/*.csv
+    ├── S32_FallSamples/*.csv
+    ├── ...
+    └── S63_FallSamples/*.csv
+```
 
-The three requested study conditions are already encoded in `outputs/study_membership.csv`:
+`ADLSamples` and `FallSamples` may remain ignored by Git. They are input data and are never modified by this code.
 
-| Study condition | Samples | Composition |
-|---|---:|---|
-| Real falls + real ADL | 615 | 545 ADL + 70 real falls |
-| Synthetic Physics falls + real ADL | 771 | 545 ADL + 226 synthetic falls |
-| Real and synthetic falls + real ADL | 841 | 545 ADL + 70 real + 226 synthetic falls |
+The default command automatically discovers every path from the parent `PINN-FallDetection-Init` directory. No absolute paths are required when the repository follows this layout.
 
-## ADL activities
+## Input responsibilities
 
-The prepared ADL set includes A01–A03 and A05–A09. As expected for the supplied young-adult recordings, A04 is absent. A08 is retained as walking.
+| Input | Purpose |
+|---|---|
+| `ADLSamples` | Raw 32-joint ADL skeleton CSV files |
+| `FallSamples` | Raw 32-joint A10-A14 fall skeleton CSV files |
+| `S##_PINN_audit` | Subject configuration and demographic consistency checks; also supplies manual A11 phases for the optional A11-only run |
+| `Fifteen_Subject_DeepONet_Synthetic_Fall_Study` | Final quality-approved synthetic manifest and continuity-corrected synthetic trajectories |
+| `human_subjects_demographics.csv` | Sex, mass, and height used by the adult segment-mass CoM model |
+| `Activity_Types.md` | Activity names for A01-A14 |
 
-| Code | Activity | Prepared trials |
-|---|---|---:|
-| A01 | Drinking Water | 69 |
-| A02 | Pick Up Object | 72 |
-| A03 | Put On and Take Off Jacket | 66 |
-| A05 | Sweeping Floor | 70 |
-| A06 | Washing Hand | 66 |
-| A07 | Waving Hand | 69 |
-| A08 | TUG Test/Walking | 64 |
-| A09 | Sit/Stand | 69 |
+Only trajectories listed in the synthetic study's `final_approved_synthetic_manifest.json` are included. Rejected synthetic candidates are not copied.
 
-S59 has no ADL recording. S31 is included as the replacement ADL source using S31's own identifier and demographics. S31 is never relabeled as S59. This distinction is retained in `replacement_for_missing_adl_subject` and `split_group`.
+## Environment setup
 
-## CoM representation
+From this directory:
 
-Real skeleton files use the same adult male/female segment-mass model used by the fall audits. Camera orientation is removed with a fixed anatomical body frame defined from the beginning of an ADL trial or the manually marked initial-standing frame of a real A11 fall.
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+python3 -m pip install --upgrade pip
+python3 -m pip install -r requirements.txt
+```
 
-For ADL:
+On Windows PowerShell, activate the environment with:
 
-- the body frame and foot pivot are estimated from the first 0.5 seconds;
-- the complete recording is retained;
-- `x_m` is the forward CoM displacement relative to the initial foot pivot and centered over the first 0.5 seconds;
-- `theta_rad = atan2(forward CoM displacement, vertical CoM displacement)`.
+```powershell
+.venv\Scripts\Activate.ps1
+```
 
-For real A11 falls:
+## Run the complete preparation pipeline
 
-- the fixed body frame uses the manually marked initial-standing neighborhood;
-- the pivot is the foot midpoint at the manually marked fall onset;
-- the trajectory ends at apparent contact;
-- only trials with a complete manual phase sequence are included.
+Run the unit tests first:
 
-Approved synthetic falls retain the generator's continuity-corrected `theta` and `x` signals and are linearly resampled from 100 Hz to 30 Hz.
+```bash
+./run.sh test
+```
 
-## Output files
+Then create the three prepared folders, validate them, and run the summary analysis:
+
+```bash
+./run.sh all --overwrite
+```
+
+The command performs these operations in order:
+
+1. Converts ADL skeletons into 30 Hz CoM trajectories under `outputs/trials/real_adl`.
+2. Converts all valid A10-A14 real-fall skeletons into 30 Hz CoM trajectories under `outputs/trials/real_fall`.
+3. Converts the approved synthetic A11 trajectories from 100 Hz to 30 Hz under `outputs/trials/synthetic_fall`.
+4. Writes labels, demographics, activity metadata, provenance, and leakage groups to the manifests.
+5. Validates every generated trajectory.
+6. Produces range and real/synthetic context-alignment reports.
+
+`--overwrite` deletes only the generated output directory before rebuilding it. It does not delete or edit any source skeleton, audit, model, or synthetic-study file.
+
+## Run one stage at a time
+
+The same workflow can be run separately:
+
+```bash
+./run.sh prepare --overwrite
+./run.sh validate
+./run.sh analyze
+```
+
+After a successful run, the preparation step prints the exact accepted and excluded counts. The expected ADL count with the supplied files is 545, and the approved synthetic count is 226. The accepted real-fall count is determined from the local `FallSamples` quality checks and is recorded in `outputs/dataset_manifest.json`.
+
+## Real-fall scope
+
+The default is the general detector dataset:
+
+```bash
+./run.sh all --real-fall-scope all --overwrite
+```
+
+This uses full A10 Backfall, A11 Frontfall, A12 Leftfall, A13 Rightfall, and A14 Rotatefall recordings from `FallSamples`.
+
+To reproduce the controlled activity-matched A11-only dataset, use a separate output directory:
+
+```bash
+./run.sh all \
+  --real-fall-scope a11 \
+  --output-dir outputs_a11 \
+  --overwrite
+```
+
+The A11-only mode reads the audited skeleton copies and manual phase notes from the `S##_PINN_audit` directories, requires a complete phase sequence, and clips each trajectory through apparent contact. Keeping it in `outputs_a11` prevents it from replacing the general A10-A14 dataset.
+
+## Nonstandard paths
+
+If the project is stored differently, set the project root:
+
+```bash
+./run.sh all \
+  --project-root /path/to/PINN-FallDetection-Init \
+  --overwrite
+```
+
+Individual locations can also be overridden:
+
+```bash
+./run.sh all \
+  --adl-root /path/to/ADLSamples \
+  --fall-root /path/to/FallSamples \
+  --audit-root /path/to/PINN-FallDetection-Init \
+  --synthetic-results-root /path/to/Fifteen_Subject_DeepONet_Synthetic_Fall_Study \
+  --demographics /path/to/human_subjects_demographics.csv \
+  --activity-types /path/to/Activity_Types.md \
+  --overwrite
+```
+
+## Generated directory
 
 ```text
 outputs/
@@ -88,7 +174,7 @@ outputs/
     └── synthetic_fall/*.npz
 ```
 
-Each trial `.npz` contains:
+The `real_adl`, `real_fall`, and `synthetic_fall` folders contain prepared `.npz` files, not copies of the original skeleton CSV files. Each `.npz` contains:
 
 - `time_s`
 - `theta_rad`
@@ -100,59 +186,78 @@ Each trial `.npz` contains:
 - `mass_kg`
 - `height_m`
 
-Files are variable length and contain only valid samples. Window generation should occur later, after the detector architecture and required observation length are chosen.
+The files remain variable length. Windowing must be added later after the detector architecture and observation length are selected.
 
-## Leakage control
+## CoM construction
 
-The `split_group` field is the actual or source subject identifier:
+Real skeleton data uses the same adult male/female segment-mass model used by the subject audits.
 
-- real ADL stays with its recorded subject;
-- real falls stay with their recorded subject;
-- every synthetic trajectory stays with the subject and real trial that conditioned its generator input.
+For ADL and the default A10-A14 real-fall dataset:
 
-The detector split must be assigned by `split_group` before windowing, oversampling, or augmentation. Random trial-level or window-level splitting is prohibited because it can place synthetic variants or overlapping windows from the same person in both training and evaluation sets.
+- the fixed anatomical body frame and foot pivot are estimated from the first 0.5 seconds;
+- the complete recording is retained;
+- `x_m` is forward CoM displacement relative to the initial foot pivot and is centered over the first 0.5 seconds;
+- `theta_rad = atan2(forward CoM displacement, vertical CoM displacement)`.
 
-## Data-quality handling
+For the optional audited A11-only dataset:
 
-- One empty ADL file was excluded: `S48A02T05`.
-- ADL files with blank runs longer than three frames were excluded: `S49A03T01`, `S56A03T03`, and `S57A02T03`.
-- Five isolated blank rows were linearly repaired across `S57A03T02` and `S63A02T04`; every repaired frame is listed in `outputs/repaired_rows.csv`.
-- Four real A11 files without a complete manual phase sequence were excluded: `S43A11T01`, `S49A11T01`, `S57A11T01`, and `S57A11T02`.
-- Demographic values were checked against every audit configuration.
-- All 841 prepared files passed label, finite-value, 30 Hz timing, required-array, and split-group validation.
+- the body frame uses the manually marked initial-standing neighborhood;
+- the pivot is the foot midpoint at manually marked fall onset;
+- the trajectory ends at apparent contact.
 
-## Commands
+Approved synthetic falls retain the generator's continuity-corrected `theta` and `x` signals and are linearly resampled from 100 Hz to 30 Hz.
 
-Run unit tests:
+## ADL details
+
+The ADL set includes A01-A03 and A05-A09. A04 is absent, as expected for the supplied young-adult recordings. A08 is retained as walking and is an important hard-negative activity.
+
+S59 has no ADL recording. The supplied S31 recordings retain the subject identifier and demographics of S31. They are annotated as the replacement source for missing S59 ADL, but they are never renamed to S59.
+
+## Data-quality rules
+
+- Empty skeleton files are excluded.
+- Partially blank rows are excluded.
+- Continuous fully blank intervals of at most three frames are linearly interpolated.
+- A blank interval longer than three frames is excluded instead of manufacturing a long motion segment.
+- Non-finite values, malformed 96-column rows, duplicate trial identifiers, and recordings shorter than the configured minimum duration are rejected.
+- Every exclusion and repair is recorded in the output tables.
+
+## Study membership
+
+`outputs/study_membership.csv` identifies the samples used by the three planned training conditions:
+
+1. Real falls + real ADL.
+2. Synthetic Physics falls + real ADL.
+3. Real and synthetic falls + real ADL.
+
+With the default `all` scope, the real-fall conditions contain A10-A14 while the synthetic condition contains approved A11 Physics trajectories. Use the separate `a11` run when an activity-matched real-versus-synthetic comparison is required.
+
+## Leakage prevention
+
+The `split_group` is always the actual or source subject:
+
+- real ADL remains with its recorded subject;
+- real falls remain with their recorded subject;
+- synthetic trajectories remain with the subject and real trial that conditioned generation.
+
+Assign train/validation/test subjects by `split_group` before windowing, oversampling, or augmentation. Do not randomly split trials or windows. Otherwise, overlapping windows or synthetic variants of the same person can appear in both training and evaluation data.
+
+## Packaging after a local run
+
+To package the code, reports, manifests, and generated trajectories:
 
 ```bash
-./run.sh test
+./run.sh package
 ```
 
-Validate the included prepared outputs:
+## Next stage
 
-```bash
-./run.sh validate
-```
+After the detector architecture is confirmed, add a separate training stage that consumes `dataset_manifest.csv` and defines:
 
-Recompute the range and context-alignment analysis:
-
-```bash
-./run.sh analyze
-```
-
-To regenerate the dataset from source locations:
-
-```bash
-./run.sh prepare \
-  --adl-root /path/to/ADLSamples \
-  --audit-root /path/to/extracted/audit/directories \
-  --synthetic-results-root /path/to/Fifteen_Subject_DeepONet_Synthetic_Fall_Study_Results \
-  --demographics /path/to/human_subjects_demographics.csv \
-  --activity-types /path/to/Activity_Types.md \
-  --overwrite
-```
-
-## Next decision
-
-After the advisor selects the detector architecture, the next code stage should define subject-disjoint folds, window duration/stride, training-only normalization, class balancing, and evaluation metrics. No additional synthetic generation is needed before that experiment.
+- subject-disjoint folds;
+- input features and observation-window length;
+- window stride and event labels;
+- normalization fitted on training subjects only;
+- class weighting or balanced batches;
+- real-only validation and testing;
+- sensitivity, specificity, precision, F1, AUROC, AUPRC, and false-alarm rate.

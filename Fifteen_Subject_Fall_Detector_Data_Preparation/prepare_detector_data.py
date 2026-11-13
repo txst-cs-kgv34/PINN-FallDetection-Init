@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import shutil
 from collections import Counter, defaultdict
 from pathlib import Path
 from typing import Any
@@ -30,6 +31,7 @@ FALL_SUBJECTS = (
     "S49", "S55", "S56", "S57", "S59", "S62", "S63",
 )
 ADL_SUBJECTS = tuple(subject for subject in FALL_SUBJECTS if subject != "S59") + ("S31",)
+REAL_FALL_ACTIVITY_IDS = set(range(10, 15))
 REQUIRED_PHASES = (
     "initial_standing", "fall_onset", "descent", "apparent_contact", "post_fall"
 )
@@ -89,8 +91,22 @@ def preferred_a11_files(audit_dir: Path, subject: str) -> dict[str, Path]:
     }
 
 
+def fall_sample_files(fall_root: Path, subject: str) -> dict[str, Path]:
+    """Return the raw A10-A14 skeleton recordings for one subject."""
+    subject_dir = fall_root / f"{subject}_FallSamples"
+    result: dict[str, Path] = {}
+    for path in sorted(subject_dir.glob(f"{subject}A1[0-4]T*.csv")):
+        trial_subject, activity_id, _ = parse_trial(path.stem)
+        if trial_subject != subject or activity_id not in REAL_FALL_ACTIVITY_IDS:
+            raise ValueError(f"{path}: unexpected real-fall filename")
+        if path.stem in result:
+            raise ValueError(f"Duplicate real-fall trial: {path.stem}")
+        result[path.stem] = path
+    return result
+
+
 def real_fall_inventory(
-    audit_root: Path,
+    fall_root: Path,
     activities: dict[int, str],
     included_sample_ids: set[str],
     exclusions: list[dict[str, Any]],
@@ -102,15 +118,12 @@ def real_fall_inventory(
     }
     rows: list[dict[str, Any]] = []
     for subject in FALL_SUBJECTS:
-        audit_dir = audit_root / f"{subject}_PINN_audit"
-        for trial, path in sorted(preferred_fall_files(audit_dir, subject).items()):
+        for trial, path in sorted(fall_sample_files(fall_root, subject).items()):
             _, activity_id, _ = parse_trial(trial)
             sample_id = f"REAL_{trial}"
             included = sample_id in included_sample_ids
             if included:
-                disposition = "included in controlled A11 detector dataset"
-            elif activity_id != 11:
-                disposition = "available but held for later multi-fall-type study"
+                disposition = "included in prepared detector dataset"
             else:
                 disposition = exclusion_lookup.get(trial, "not included")
             rows.append(
@@ -120,7 +133,7 @@ def real_fall_inventory(
                     "activity_id": activity_id,
                     "activity_code": f"A{activity_id:02d}",
                     "activity_name": activities[activity_id],
-                    "source_file": str(path.relative_to(audit_root)),
+                    "source_file": str(path.relative_to(fall_root.parent)),
                     "included_in_current_dataset": included,
                     "disposition": disposition,
                 }
@@ -236,8 +249,8 @@ def prepare_adl(
             f"ADL subject set {sorted(discovered_subjects)} does not match expected {sorted(ADL_SUBJECTS)}"
         )
     missing_s59 = adl_root / "S59_ADLSamples"
-    if not missing_s59.is_dir() or any(missing_s59.glob("*.csv")):
-        raise ValueError("Expected an empty S59_ADLSamples directory")
+    if missing_s59.is_dir() and any(missing_s59.glob("*.csv")):
+        raise ValueError("S59_ADLSamples must be absent or contain no CSV files")
 
     for subject in sorted(ADL_SUBJECTS, key=lambda value: int(value[1:])):
         for path in sorted((adl_root / f"{subject}_ADLSamples").glob("*.csv")):
@@ -317,7 +330,125 @@ def prepare_adl(
     return rows, excluded, repairs
 
 
-def prepare_real_falls(
+def prepare_all_real_falls(
+    fall_root: Path,
+    audit_root: Path,
+    output_root: Path,
+    demographics: dict[str, dict[str, Any]],
+    activities: dict[int, str],
+    minimum_duration_s: float,
+) -> tuple[list[dict[str, Any]], list[dict[str, Any]], list[dict[str, Any]]]:
+    """Convert full A10-A14 raw skeleton recordings into canonical CoM trials."""
+    rows: list[dict[str, Any]] = []
+    excluded: list[dict[str, Any]] = []
+    repairs: list[dict[str, Any]] = []
+    discovered_subjects = {
+        path.name.removesuffix("_FallSamples")
+        for path in fall_root.glob("S*_FallSamples")
+        if any(path.glob("*.csv"))
+    }
+    if discovered_subjects != set(FALL_SUBJECTS):
+        raise ValueError(
+            f"Fall subject set {sorted(discovered_subjects)} does not match "
+            f"expected {sorted(FALL_SUBJECTS)}"
+        )
+
+    for subject in FALL_SUBJECTS:
+        audit_dir = audit_root / f"{subject}_PINN_audit"
+        audit_cfg = validate_audit_demographics(audit_dir, subject, demographics)
+        sample_rate_hz = float(audit_cfg["fps"])
+        for trial, path in sorted(fall_sample_files(fall_root, subject).items()):
+            _, activity_id, _ = parse_trial(trial)
+            source_ref = str(path.relative_to(fall_root.parent))
+            try:
+                skeleton, blank_rows = load_skeleton_csv(path)
+                time_s, theta, x_m, coordinates = skeleton_to_theta_x(
+                    skeleton,
+                    demographics[subject]["sex"],
+                    sample_rate_hz,
+                    standing_frame=min(7, len(skeleton) - 1),
+                    standing_radius=min(7, max(0, len(skeleton) - 1)),
+                    pivot_frame=None,
+                    end_frame=None,
+                )
+            except ValueError as exc:
+                excluded.append(
+                    {
+                        "source_kind": "real_fall",
+                        "source_file": source_ref,
+                        "trial": trial,
+                        "reason": str(exc).replace(str(path), source_ref),
+                    }
+                )
+                continue
+            if float(time_s[-1]) < minimum_duration_s:
+                excluded.append(
+                    {
+                        "source_kind": "real_fall",
+                        "source_file": source_ref,
+                        "trial": trial,
+                        "reason": (
+                            f"full-recording duration {float(time_s[-1]):.3f} s is below "
+                            f"{minimum_duration_s:.3f} s"
+                        ),
+                    }
+                )
+                continue
+            sample_id = f"REAL_{trial}"
+            data_file = save_trial(
+                output_root,
+                sample_id,
+                "real_fall",
+                time_s,
+                theta,
+                x_m,
+                1,
+                activity_id,
+                demographics[subject]["mass_kg"],
+                demographics[subject]["height_m"],
+            )
+            row = base_row(
+                sample_id=sample_id,
+                label=1,
+                source_kind="real_fall",
+                subject=subject,
+                activity_id=activity_id,
+                activity_name=activities[activity_id],
+                trial=trial,
+                demographics=demographics[subject],
+                time_s=time_s,
+                data_file=data_file,
+            )
+            row.update(
+                {
+                    "source_file": source_ref,
+                    "source_sha256": sha256(path),
+                    "coordinate_method": (
+                        "adult segment-mass CoM; fixed first-0.5-s body frame and foot pivot; "
+                        "complete real-fall recording"
+                    ),
+                    "audit_config": str(
+                        (audit_dir / "configs" / f"{subject}.json").relative_to(audit_root)
+                    ),
+                    **coordinates,
+                }
+            )
+            rows.append(row)
+            if blank_rows:
+                repairs.append(
+                    {
+                        "source_kind": "real_fall",
+                        "trial": trial,
+                        "source_file": source_ref,
+                        "repair": "linear interpolation of wholly blank skeleton row",
+                        "repaired_frame0": "|".join(map(str, blank_rows)),
+                        "repaired_row_count": len(blank_rows),
+                    }
+                )
+    return rows, excluded, repairs
+
+
+def prepare_a11_real_falls(
     audit_root: Path,
     output_root: Path,
     demographics: dict[str, dict[str, Any]],
@@ -542,41 +673,114 @@ def summary_rows(samples: list[dict[str, Any]]) -> list[dict[str, Any]]:
     return result
 
 
+def resolved_path(override: Path | None, project_root: Path, default_name: str) -> Path:
+    return (override if override is not None else project_root / default_name).expanduser().resolve()
+
+
+def require_input(path: Path, label: str, *, directory: bool) -> None:
+    exists = path.is_dir() if directory else path.is_file()
+    if not exists:
+        kind = "directory" if directory else "file"
+        raise FileNotFoundError(f"Missing {label} {kind}: {path}")
+
+
+def initialize_output(output_root: Path, overwrite: bool, project_root: Path) -> None:
+    if output_root.exists() and any(output_root.iterdir()):
+        if not overwrite:
+            raise FileExistsError(f"{output_root} is not empty; pass --overwrite")
+        protected = {Path("/").resolve(), HERE.resolve(), HERE.parent.resolve(), project_root.resolve()}
+        if output_root.resolve() in protected:
+            raise ValueError(f"Refusing to remove protected output path: {output_root}")
+        shutil.rmtree(output_root)
+    output_root.mkdir(parents=True, exist_ok=True)
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--adl-root", type=Path, required=True)
-    parser.add_argument("--audit-root", type=Path, required=True)
-    parser.add_argument("--synthetic-results-root", type=Path, required=True)
-    parser.add_argument("--demographics", type=Path, required=True)
-    parser.add_argument("--activity-types", type=Path, required=True)
+    parser.add_argument(
+        "--project-root",
+        type=Path,
+        default=HERE.parent,
+        help="PINN-FallDetection-Init root; sibling input paths are discovered from here",
+    )
+    parser.add_argument("--adl-root", type=Path, help="default: PROJECT_ROOT/ADLSamples")
+    parser.add_argument("--fall-root", type=Path, help="default: PROJECT_ROOT/FallSamples")
+    parser.add_argument("--audit-root", type=Path, help="default: PROJECT_ROOT")
+    parser.add_argument(
+        "--synthetic-results-root",
+        type=Path,
+        help="default: PROJECT_ROOT/Fifteen_Subject_DeepONet_Synthetic_Fall_Study",
+    )
+    parser.add_argument(
+        "--demographics", type=Path, help="default: PROJECT_ROOT/human_subjects_demographics.csv"
+    )
+    parser.add_argument(
+        "--activity-types", type=Path, help="default: PROJECT_ROOT/Activity_Types.md"
+    )
     parser.add_argument("--output-dir", type=Path, default=HERE / "outputs")
     parser.add_argument("--minimum-real-fall-duration-s", type=float, default=0.4)
+    parser.add_argument(
+        "--real-fall-scope",
+        choices=("all", "a11"),
+        default="all",
+        help="all: full A10-A14 recordings from FallSamples; a11: audited A11 through contact",
+    )
     parser.add_argument("--overwrite", action="store_true")
     args = parser.parse_args()
-    output_root = args.output_dir.expanduser().resolve()
-    manifest_file = output_root / "dataset_manifest.json"
-    if manifest_file.exists() and not args.overwrite:
-        raise FileExistsError(f"{manifest_file} exists; pass --overwrite")
 
-    demographics = load_demographics(args.demographics.expanduser().resolve())
-    activities = load_activity_types(args.activity_types.expanduser().resolve())
+    project_root = args.project_root.expanduser().resolve()
+    adl_root = resolved_path(args.adl_root, project_root, "ADLSamples")
+    fall_root = resolved_path(args.fall_root, project_root, "FallSamples")
+    audit_root = resolved_path(args.audit_root, project_root, ".")
+    synthetic_root = resolved_path(
+        args.synthetic_results_root,
+        project_root,
+        "Fifteen_Subject_DeepONet_Synthetic_Fall_Study",
+    )
+    demographics_path = resolved_path(
+        args.demographics, project_root, "human_subjects_demographics.csv"
+    )
+    activity_types_path = resolved_path(args.activity_types, project_root, "Activity_Types.md")
+    output_root = args.output_dir.expanduser().resolve()
+
+    require_input(adl_root, "ADL skeleton", directory=True)
+    require_input(fall_root, "real-fall skeleton", directory=True)
+    require_input(audit_root, "audit root", directory=True)
+    require_input(synthetic_root, "synthetic-study", directory=True)
+    require_input(demographics_path, "demographics", directory=False)
+    require_input(activity_types_path, "activity-types", directory=False)
+    initialize_output(output_root, args.overwrite, project_root)
+    manifest_file = output_root / "dataset_manifest.json"
+
+    demographics = load_demographics(demographics_path)
+    activities = load_activity_types(activity_types_path)
     required_demographics = set(FALL_SUBJECTS) | set(ADL_SUBJECTS)
     missing_demographics = required_demographics - set(demographics)
     if missing_demographics:
         raise ValueError(f"Missing demographics for {sorted(missing_demographics)}")
 
     adl_rows, adl_excluded, adl_repairs = prepare_adl(
-        args.adl_root.expanduser().resolve(), output_root, demographics, activities
+        adl_root, output_root, demographics, activities
     )
-    real_rows, real_excluded, real_repairs = prepare_real_falls(
-        args.audit_root.expanduser().resolve(),
-        output_root,
-        demographics,
-        activities,
-        args.minimum_real_fall_duration_s,
-    )
+    if args.real_fall_scope == "all":
+        real_rows, real_excluded, real_repairs = prepare_all_real_falls(
+            fall_root,
+            audit_root,
+            output_root,
+            demographics,
+            activities,
+            args.minimum_real_fall_duration_s,
+        )
+    else:
+        real_rows, real_excluded, real_repairs = prepare_a11_real_falls(
+            audit_root,
+            output_root,
+            demographics,
+            activities,
+            args.minimum_real_fall_duration_s,
+        )
     synthetic_rows = prepare_synthetic_falls(
-        args.synthetic_results_root.expanduser().resolve(), output_root, demographics, activities
+        synthetic_root, output_root, demographics, activities
     )
     samples = adl_rows + real_rows + synthetic_rows
     sample_ids = [str(row["sample_id"]) for row in samples]
@@ -588,7 +792,7 @@ def main() -> None:
     exclusions = adl_excluded + real_excluded
     repairs = adl_repairs + real_repairs
     fall_inventory = real_fall_inventory(
-        args.audit_root.expanduser().resolve(), activities, set(sample_ids), exclusions
+        fall_root, activities, set(sample_ids), exclusions
     )
     counts = Counter(str(row["source_kind"]) for row in samples)
     labels = Counter(int(row["label"]) for row in samples)
@@ -618,7 +822,11 @@ def main() -> None:
         "windowing_applied": False,
         "split_assignment_applied": False,
         "split_rule": "split by split_group/source subject before windowing or augmentation; all synthetic variants remain with their real source subject",
-        "real_fall_scope": "A11 Frontfall only, complete manual phases, through apparent contact, minimum 0.40 s",
+        "real_fall_scope": (
+            "A10-A14 full raw recordings from FallSamples, minimum 0.40 s"
+            if args.real_fall_scope == "all"
+            else "A11 Frontfall only, complete manual phases, through apparent contact, minimum 0.40 s"
+        ),
         "adl_scope": "A01-A03 and A05-A09; A04 absent; A08 treated as walking",
         "adl_subject_substitution": "S59 has no ADL; S31 is included as its replacement source but is never relabeled as S59",
         "counts": {
