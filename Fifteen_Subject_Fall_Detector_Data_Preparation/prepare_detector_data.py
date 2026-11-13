@@ -141,6 +141,43 @@ def real_fall_inventory(
     return rows
 
 
+def audited_a11_fall_inventory(
+    audit_root: Path,
+    activities: dict[int, str],
+    included_sample_ids: set[str],
+    exclusions: list[dict[str, Any]],
+) -> list[dict[str, Any]]:
+    """Inventory the audited A11 files used by the current front-fall study."""
+    exclusion_lookup = {
+        str(row["trial"]): str(row["reason"])
+        for row in exclusions
+        if row["source_kind"] == "real_fall"
+    }
+    rows: list[dict[str, Any]] = []
+    for subject in FALL_SUBJECTS:
+        audit_dir = audit_root / f"{subject}_PINN_audit"
+        for trial, path in sorted(preferred_a11_files(audit_dir, subject).items()):
+            sample_id = f"REAL_{trial}"
+            included = sample_id in included_sample_ids
+            rows.append(
+                {
+                    "subject": subject,
+                    "trial": trial,
+                    "activity_id": 11,
+                    "activity_code": "A11",
+                    "activity_name": activities[11],
+                    "source_file": str(path.relative_to(audit_root)),
+                    "included_in_current_dataset": included,
+                    "disposition": (
+                        "included in phase-marked A11 detector dataset"
+                        if included
+                        else exclusion_lookup.get(trial, "not included")
+                    ),
+                }
+            )
+    return rows
+
+
 def validate_audit_demographics(
     audit_dir: Path, subject: str, demographics: dict[str, dict[str, Any]]
 ) -> dict[str, Any]:
@@ -722,8 +759,8 @@ def main() -> None:
     parser.add_argument(
         "--real-fall-scope",
         choices=("all", "a11"),
-        default="all",
-        help="all: full A10-A14 recordings from FallSamples; a11: audited A11 through contact",
+        default="a11",
+        help="a11 (default): audited front falls through contact; all: future A10-A14 study",
     )
     parser.add_argument("--overwrite", action="store_true")
     args = parser.parse_args()
@@ -744,7 +781,8 @@ def main() -> None:
     output_root = args.output_dir.expanduser().resolve()
 
     require_input(adl_root, "ADL skeleton", directory=True)
-    require_input(fall_root, "real-fall skeleton", directory=True)
+    if args.real_fall_scope == "all":
+        require_input(fall_root, "real-fall skeleton", directory=True)
     require_input(audit_root, "audit root", directory=True)
     require_input(synthetic_root, "synthetic-study", directory=True)
     require_input(demographics_path, "demographics", directory=False)
@@ -791,9 +829,14 @@ def main() -> None:
     summaries = summary_rows(samples)
     exclusions = adl_excluded + real_excluded
     repairs = adl_repairs + real_repairs
-    fall_inventory = real_fall_inventory(
-        fall_root, activities, set(sample_ids), exclusions
-    )
+    if args.real_fall_scope == "all":
+        fall_inventory = real_fall_inventory(
+            fall_root, activities, set(sample_ids), exclusions
+        )
+    else:
+        fall_inventory = audited_a11_fall_inventory(
+            audit_root, activities, set(sample_ids), exclusions
+        )
     counts = Counter(str(row["source_kind"]) for row in samples)
     labels = Counter(int(row["label"]) for row in samples)
     study_counts = {
@@ -835,7 +878,7 @@ def main() -> None:
             "by_label": {str(key): value for key, value in sorted(labels.items())},
             "excluded": len(exclusions),
             "repaired_source_trials": len(repairs),
-            "available_real_fall_files_a10_to_a14": len(fall_inventory),
+            "available_real_fall_files_in_selected_scope": len(fall_inventory),
             "study_membership": study_counts,
         },
         "samples": samples,

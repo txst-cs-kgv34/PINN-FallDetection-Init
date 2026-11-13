@@ -18,7 +18,7 @@ A04 was absent, as expected. A08 contains walking recordings and is retained as 
 
 S59 has no ADL data. S31 supplies the replacement ADL recordings but remains S31 in filenames, demographics, manifests, and subject split groups.
 
-## Real falls
+## Real A11 front falls
 
 The earlier audit inventory identified 360 available raw fall recordings:
 
@@ -30,9 +30,9 @@ The earlier audit inventory identified 360 available raw fall recordings:
 | A13 | Rightfall | 74 |
 | A14 | Rotatefall | 63 |
 
-The updated preparation script uses all A10-A14 recordings by default. Each local run independently checks the supplied `FallSamples` files, so the accepted count is written after execution rather than assumed in advance.
+The current DeepONet and approved synthetic generator are specific to A11 Frontfall. Therefore, the default preparation script uses the phase-marked A11 files from each `S##_PINN_audit` directory. It includes only trials with a complete ordered manual phase sequence and clips them through apparent contact.
 
-The previous controlled dataset used 70 A11 trajectories with complete manual phases. That experiment remains reproducible with `--real-fall-scope a11`, preferably using a separate `outputs_a11` directory.
+The verified controlled dataset contains 70 real A11 trajectories. Four A11 files without a complete manual phase sequence are excluded. The broader A10-A14 inventory is retained only for a future general fall-detector study and is not part of the current default experiment.
 
 ## Synthetic falls
 
@@ -46,19 +46,14 @@ All accepted data is converted to variable-length 30 Hz `.npz` trajectories cont
 
 - ADL label: `0`.
 - Real and synthetic fall label: `1`.
-- Default real-fall activities: A10-A14.
+- Default real-fall activity: A11 Frontfall.
 - Synthetic activity: A11.
 
 The input skeleton folders are read-only. Prepared trajectories are written only under this directory's selected output path.
 
 ## Experimental interpretation
 
-Two distinct comparisons should be retained:
-
-1. **General fall detector:** all real A10-A14 falls, approved synthetic A11 falls, and real ADL.
-2. **Activity-matched controlled comparison:** audited real A11 falls, approved synthetic A11 falls, and real ADL.
-
-The general experiment measures whether synthetic front falls help a detector trained with broader real fall directions. The A11-only experiment isolates the real-versus-synthetic comparison without changing fall activity.
+The current comparison is activity matched: audited real A11 falls, approved synthetic A11 falls, and real ADL. This isolates the contribution of synthetic data without changing the fall direction. The optional general A10-A14 experiment should be treated as a later, separate study.
 
 ## Required leakage rule
 

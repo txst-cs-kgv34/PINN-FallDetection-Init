@@ -3,16 +3,18 @@
 This directory creates architecture-neutral, trial-level center-of-mass (CoM) data for the downstream binary fall detector.
 
 - Label `0`: real activities of daily living (ADL).
-- Label `1`: real or approved synthetic falls.
+- Label `1`: real or approved synthetic A11 front falls.
 - Sampling rate: 30 Hz.
 - Signals: `theta_rad` and `x_m`.
-- Default real-fall scope: all available A10-A14 recordings.
+- Current real-fall scope: phase-marked A11 front falls from the subject audit directories.
+
+The current DeepONet was trained on A11 front falls, and the approved synthetic trajectories are also A11 front falls. Therefore, the default detector-preparation workflow uses only real A11 front falls. A10 and A12-A14 are not included in the current experiment.
 
 This stage prepares data only. It does not choose the detector architecture, create fixed-length windows, normalize features, balance classes, or assign train/validation/test subjects.
 
 ## Required repository layout
 
-Place this directory inside `PINN-FallDetection-Init` with the source folders shown below:
+Place this directory inside `PINN-FallDetection-Init`:
 
 ```text
 PINN-FallDetection-Init/
@@ -29,76 +31,85 @@ PINN-FallDetection-Init/
 │   ├── S30_ADLSamples/*.csv
 │   ├── S31_ADLSamples/*.csv
 │   ├── ...
-│   └── S59_ADLSamples/        # optional; if present, expected to be empty
-└── FallSamples/
-    ├── S30_FallSamples/*.csv
-    ├── S32_FallSamples/*.csv
-    ├── ...
-    └── S63_FallSamples/*.csv
+│   └── S59_ADLSamples/       # optional; if present, it must be empty
+└── FallSamples/              # not used by the default A11 workflow
 ```
 
-`ADLSamples` and `FallSamples` may remain ignored by Git. They are input data and are never modified by this code.
+The default command automatically discovers these paths from the parent `PINN-FallDetection-Init` directory. No absolute paths are required with this layout.
 
-The default command automatically discovers every path from the parent `PINN-FallDetection-Init` directory. No absolute paths are required when the repository follows this layout.
-
-## Input responsibilities
+## Data sources used by the current A11 workflow
 
 | Input | Purpose |
 |---|---|
 | `ADLSamples` | Raw 32-joint ADL skeleton CSV files |
-| `FallSamples` | Raw 32-joint A10-A14 fall skeleton CSV files |
-| `S##_PINN_audit` | Subject configuration and demographic consistency checks; also supplies manual A11 phases for the optional A11-only run |
-| `Fifteen_Subject_DeepONet_Synthetic_Fall_Study` | Final quality-approved synthetic manifest and continuity-corrected synthetic trajectories |
+| `S##_PINN_audit` | Audited A11 skeleton data, subject configuration, and manual A11 phase marks |
+| `Fifteen_Subject_DeepONet_Synthetic_Fall_Study` | Final quality-approved, continuity-corrected synthetic A11 trajectories |
 | `human_subjects_demographics.csv` | Sex, mass, and height used by the adult segment-mass CoM model |
-| `Activity_Types.md` | Activity names for A01-A14 |
+| `Activity_Types.md` | Activity names and labels |
 
 Only trajectories listed in the synthetic study's `final_approved_synthetic_manifest.json` are included. Rejected synthetic candidates are not copied.
 
-## Environment setup
+## Python environment
 
-From this directory:
+`run.sh` uses the existing virtual environment in your home directory:
+
+```text
+~/.venv/bin/python
+```
+
+It does not create or activate another environment. Install the dependency into the existing environment once:
 
 ```bash
-python3 -m venv .venv
-source .venv/bin/activate
-python3 -m pip install --upgrade pip
-python3 -m pip install -r requirements.txt
+~/.venv/bin/python -m pip install -r requirements.txt
 ```
 
-On Windows PowerShell, activate the environment with:
+If the existing environment is stored somewhere other than `~/.venv`, set:
 
-```powershell
-.venv\Scripts\Activate.ps1
+```bash
+export FALL_DETECTOR_VENV=/absolute/path/to/your/.venv
 ```
 
-## Run the complete preparation pipeline
+`run.sh` will then use `$FALL_DETECTOR_VENV/bin/python`.
 
-Run the unit tests first:
+## Run the complete A11 preparation pipeline
+
+From `Fifteen_Subject_Fall_Detector_Data_Preparation`:
 
 ```bash
 ./run.sh test
-```
-
-Then create the three prepared folders, validate them, and run the summary analysis:
-
-```bash
 ./run.sh all --overwrite
 ```
 
-The command performs these operations in order:
+Because `a11` is the default real-fall scope, this is equivalent to:
 
-1. Converts ADL skeletons into 30 Hz CoM trajectories under `outputs/trials/real_adl`.
-2. Converts all valid A10-A14 real-fall skeletons into 30 Hz CoM trajectories under `outputs/trials/real_fall`.
-3. Converts the approved synthetic A11 trajectories from 100 Hz to 30 Hz under `outputs/trials/synthetic_fall`.
-4. Writes labels, demographics, activity metadata, provenance, and leakage groups to the manifests.
-5. Validates every generated trajectory.
-6. Produces range and real/synthetic context-alignment reports.
+```bash
+./run.sh all --real-fall-scope a11 --overwrite
+```
 
-`--overwrite` deletes only the generated output directory before rebuilding it. It does not delete or edit any source skeleton, audit, model, or synthetic-study file.
+The complete command:
+
+1. Creates 30 Hz ADL CoM trajectories under `outputs/trials/real_adl`.
+2. Reads phase-marked A11 skeleton data from the `S##_PINN_audit` directories.
+3. Keeps only A11 trials with a complete manual phase sequence.
+4. Creates real A11 CoM trajectories through apparent contact under `outputs/trials/real_fall`.
+5. Resamples the approved synthetic A11 trajectories from 100 Hz to 30 Hz under `outputs/trials/synthetic_fall`.
+6. Writes labels, demographics, provenance, phase frames, and leakage groups.
+7. Validates every generated trajectory and runs the summary analysis.
+
+With the previously verified input set, the expected prepared counts are:
+
+| Source | Label | Expected trials |
+|---|---:|---:|
+| Real ADL | 0 | 545 |
+| Phase-marked real A11 front falls | 1 | 70 |
+| Approved synthetic A11 front falls | 1 | 226 |
+| **Total** |  | **841** |
+
+The preparation command recalculates these counts from the local inputs and records the actual values in the manifest.
+
+`--overwrite` deletes only the generated output directory before rebuilding it. It does not modify source skeletons, audit directories, trained models, or the synthetic-study outputs.
 
 ## Run one stage at a time
-
-The same workflow can be run separately:
 
 ```bash
 ./run.sh prepare --overwrite
@@ -106,32 +117,9 @@ The same workflow can be run separately:
 ./run.sh analyze
 ```
 
-After a successful run, the preparation step prints the exact accepted and excluded counts. The expected ADL count with the supplied files is 545, and the approved synthetic count is 226. The accepted real-fall count is determined from the local `FallSamples` quality checks and is recorded in `outputs/dataset_manifest.json`.
+## Nonstandard repository location
 
-## Real-fall scope
-
-The default is the general detector dataset:
-
-```bash
-./run.sh all --real-fall-scope all --overwrite
-```
-
-This uses full A10 Backfall, A11 Frontfall, A12 Leftfall, A13 Rightfall, and A14 Rotatefall recordings from `FallSamples`.
-
-To reproduce the controlled activity-matched A11-only dataset, use a separate output directory:
-
-```bash
-./run.sh all \
-  --real-fall-scope a11 \
-  --output-dir outputs_a11 \
-  --overwrite
-```
-
-The A11-only mode reads the audited skeleton copies and manual phase notes from the `S##_PINN_audit` directories, requires a complete phase sequence, and clips each trajectory through apparent contact. Keeping it in `outputs_a11` prevents it from replacing the general A10-A14 dataset.
-
-## Nonstandard paths
-
-If the project is stored differently, set the project root:
+If this directory is not directly inside `PINN-FallDetection-Init`, provide the repository root:
 
 ```bash
 ./run.sh all \
@@ -139,18 +127,19 @@ If the project is stored differently, set the project root:
   --overwrite
 ```
 
-Individual locations can also be overridden:
+Individual paths can also be overridden:
 
 ```bash
 ./run.sh all \
   --adl-root /path/to/ADLSamples \
-  --fall-root /path/to/FallSamples \
   --audit-root /path/to/PINN-FallDetection-Init \
   --synthetic-results-root /path/to/Fifteen_Subject_DeepONet_Synthetic_Fall_Study \
   --demographics /path/to/human_subjects_demographics.csv \
   --activity-types /path/to/Activity_Types.md \
   --overwrite
 ```
+
+No `--fall-root` argument is needed for the current A11 workflow.
 
 ## Generated directory
 
@@ -174,7 +163,7 @@ outputs/
     └── synthetic_fall/*.npz
 ```
 
-The `real_adl`, `real_fall`, and `synthetic_fall` folders contain prepared `.npz` files, not copies of the original skeleton CSV files. Each `.npz` contains:
+These folders contain prepared `.npz` files, not copies of the raw skeleton CSV files. Each `.npz` contains:
 
 - `time_s`
 - `theta_rad`
@@ -186,65 +175,72 @@ The `real_adl`, `real_fall`, and `synthetic_fall` folders contain prepared `.npz
 - `mass_kg`
 - `height_m`
 
-The files remain variable length. Windowing must be added later after the detector architecture and observation length are selected.
+Files remain variable length. Windowing must occur later, after the detector architecture and observation length are selected.
 
 ## CoM construction
 
-Real skeleton data uses the same adult male/female segment-mass model used by the subject audits.
+Real skeleton data uses the same adult male/female segment-mass model used by the audits.
 
-For ADL and the default A10-A14 real-fall dataset:
+For ADL:
 
-- the fixed anatomical body frame and foot pivot are estimated from the first 0.5 seconds;
+- the fixed body frame and foot pivot are estimated from the first 0.5 seconds;
 - the complete recording is retained;
 - `x_m` is forward CoM displacement relative to the initial foot pivot and is centered over the first 0.5 seconds;
 - `theta_rad = atan2(forward CoM displacement, vertical CoM displacement)`.
 
-For the optional audited A11-only dataset:
+For phase-marked real A11 falls:
 
-- the body frame uses the manually marked initial-standing neighborhood;
-- the pivot is the foot midpoint at manually marked fall onset;
-- the trajectory ends at apparent contact.
+- the fixed body frame uses the manually marked initial-standing neighborhood;
+- the pivot is the foot midpoint at the manually marked fall onset;
+- the trajectory ends at apparent contact;
+- trials without a complete ordered phase sequence are excluded.
 
-Approved synthetic falls retain the generator's continuity-corrected `theta` and `x` signals and are linearly resampled from 100 Hz to 30 Hz.
+Approved synthetic A11 falls retain the generator's continuity-corrected `theta` and `x` signals and are linearly resampled from 100 Hz to 30 Hz.
 
 ## ADL details
 
-The ADL set includes A01-A03 and A05-A09. A04 is absent, as expected for the supplied young-adult recordings. A08 is retained as walking and is an important hard-negative activity.
+The ADL set includes A01-A03 and A05-A09. A04 is absent, as expected for the supplied young-adult recordings. A08 is walking and is retained as an important hard-negative activity.
 
-S59 has no ADL recording. The supplied S31 recordings retain the subject identifier and demographics of S31. They are annotated as the replacement source for missing S59 ADL, but they are never renamed to S59.
+S59 has no ADL recording. The supplied S31 recordings retain S31's identifier and demographics. They are annotated as the replacement source for missing S59 ADL but are never renamed to S59.
 
 ## Data-quality rules
 
 - Empty skeleton files are excluded.
 - Partially blank rows are excluded.
 - Continuous fully blank intervals of at most three frames are linearly interpolated.
-- A blank interval longer than three frames is excluded instead of manufacturing a long motion segment.
-- Non-finite values, malformed 96-column rows, duplicate trial identifiers, and recordings shorter than the configured minimum duration are rejected.
+- A blank interval longer than three frames is excluded.
+- Non-finite values, malformed 96-column rows, duplicate identifiers, and trajectories shorter than the minimum duration are rejected.
 - Every exclusion and repair is recorded in the output tables.
 
 ## Study membership
 
-`outputs/study_membership.csv` identifies the samples used by the three planned training conditions:
+`outputs/study_membership.csv` identifies the samples used by the three activity-matched A11 conditions:
 
-1. Real falls + real ADL.
-2. Synthetic Physics falls + real ADL.
-3. Real and synthetic falls + real ADL.
-
-With the default `all` scope, the real-fall conditions contain A10-A14 while the synthetic condition contains approved A11 Physics trajectories. Use the separate `a11` run when an activity-matched real-versus-synthetic comparison is required.
+1. Real A11 falls + real ADL.
+2. Synthetic Physics A11 falls + real ADL.
+3. Real and synthetic A11 falls + real ADL.
 
 ## Leakage prevention
 
 The `split_group` is always the actual or source subject:
 
 - real ADL remains with its recorded subject;
-- real falls remain with their recorded subject;
-- synthetic trajectories remain with the subject and real trial that conditioned generation.
+- real A11 falls remain with their recorded subject;
+- synthetic A11 trajectories remain with the subject and real trial that conditioned their generation.
 
-Assign train/validation/test subjects by `split_group` before windowing, oversampling, or augmentation. Do not randomly split trials or windows. Otherwise, overlapping windows or synthetic variants of the same person can appear in both training and evaluation data.
+Assign train/validation/test subjects by `split_group` before windowing, oversampling, or augmentation. Do not randomly split trials or windows because synthetic variants or overlapping windows from the same person could appear in both training and evaluation sets.
+
+## Future multi-direction experiment
+
+The code retains an optional A10-A14 mode for a later general fall detector:
+
+```bash
+./run.sh all --real-fall-scope all --overwrite
+```
+
+That future mode uses `FallSamples`. It is not the recommended command for the current A11 DeepONet/synthetic-fall study.
 
 ## Packaging after a local run
-
-To package the code, reports, manifests, and generated trajectories:
 
 ```bash
 ./run.sh package
@@ -252,12 +248,4 @@ To package the code, reports, manifests, and generated trajectories:
 
 ## Next stage
 
-After the detector architecture is confirmed, add a separate training stage that consumes `dataset_manifest.csv` and defines:
-
-- subject-disjoint folds;
-- input features and observation-window length;
-- window stride and event labels;
-- normalization fitted on training subjects only;
-- class weighting or balanced batches;
-- real-only validation and testing;
-- sensitivity, specificity, precision, F1, AUROC, AUPRC, and false-alarm rate.
+After the detector architecture is confirmed, add a separate training stage that consumes `dataset_manifest.csv` and defines subject-disjoint folds, window length and stride, training-only normalization, class balancing, and real-data evaluation metrics.

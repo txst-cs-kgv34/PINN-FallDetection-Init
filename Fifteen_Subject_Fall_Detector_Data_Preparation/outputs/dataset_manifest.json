@@ -29,7 +29,7 @@
     },
     "excluded": 8,
     "repaired_source_trials": 2,
-    "available_real_fall_files_a10_to_a14": 360,
+    "available_real_fall_files_in_selected_scope": 74,
     "study_membership": {
       "real_falls_plus_real_adl": 615,
       "synthetic_physics_falls_plus_real_adl": 771,
