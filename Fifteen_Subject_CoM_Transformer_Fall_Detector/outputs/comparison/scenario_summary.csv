@@ -1,0 +1,22 @@
+scenario,scenario_name,metric,run_count,mean,standard_deviation,median,minimum,maximum
+real_fall_real_adl,Real falls + real ADL,test_trial_balanced_accuracy,25,0.943343054563065,0.06045195608400852,0.972972972972973,0.803105151729005,1.0
+real_fall_real_adl,Real falls + real ADL,test_trial_sensitivity,25,0.908923076923077,0.12133092020633189,1.0,0.6153846153846154,1.0
+real_fall_real_adl,Real falls + real ADL,test_trial_specificity,25,0.9777630322030529,0.035896082971982955,0.9905660377358491,0.8288288288288288,1.0
+real_fall_real_adl,Real falls + real ADL,test_trial_f1,25,0.8806312717423165,0.10681022680247158,0.9090909090909091,0.6122448979591837,1.0
+real_fall_real_adl,Real falls + real ADL,test_trial_auroc,25,0.9873175637122321,0.0221888473253428,0.9993710691823899,0.9195483415666902,1.0
+real_fall_real_adl,Real falls + real ADL,test_trial_auprc,25,0.9600012587023014,0.05821693906202293,0.9958333333333333,0.8276976192095555,1.0
+real_fall_real_adl,Real falls + real ADL,false_positive_events_per_adl_minute,25,0.16986451882085796,0.31622930538774346,0.07178178357235634,0.0,1.5647275419600113
+synthetic_fall_real_adl,Synthetic falls + real ADL,test_trial_balanced_accuracy,25,0.8776632672272278,0.09272809274980964,0.9099099099099099,0.6418489767113621,1.0
+synthetic_fall_real_adl,Synthetic falls + real ADL,test_trial_sensitivity,25,0.8260512820512821,0.19826620834380182,0.8666666666666667,0.38461538461538464,1.0
+synthetic_fall_real_adl,Synthetic falls + real ADL,test_trial_specificity,25,0.9292752524031735,0.07113854673238762,0.9369369369369369,0.7387387387387387,1.0
+synthetic_fall_real_adl,Synthetic falls + real ADL,test_trial_f1,25,0.7135489131099191,0.1673950227918263,0.7096774193548387,0.3448275862068966,1.0
+synthetic_fall_real_adl,Synthetic falls + real ADL,test_trial_auroc,25,0.9615961776993455,0.04957410173655864,0.9830188679245283,0.84121383203952,1.0
+synthetic_fall_real_adl,Synthetic falls + real ADL,test_trial_auprc,25,0.8247256704141904,0.17875562203546227,0.885423989495197,0.4507341965437287,1.0
+synthetic_fall_real_adl,Synthetic falls + real ADL,false_positive_events_per_adl_minute,25,0.4633493250069204,0.46683472591167174,0.42109484293719196,0.0,1.8776730503520136
+real_synthetic_fall_real_adl,Real + synthetic falls + real ADL,test_trial_balanced_accuracy,25,0.8860310744331862,0.08392002742313934,0.9144144144144144,0.6556104446012703,0.9774774774774775
+real_synthetic_fall_real_adl,Real + synthetic falls + real ADL,test_trial_sensitivity,25,0.8336556776556777,0.1820958148965589,0.8666666666666667,0.38461538461538464,1.0
+real_synthetic_fall_real_adl,Real + synthetic falls + real ADL,test_trial_specificity,25,0.9384064712106946,0.07218378403566462,0.954954954954955,0.7387387387387387,1.0
+real_synthetic_fall_real_adl,Real + synthetic falls + real ADL,test_trial_f1,25,0.7402415534992212,0.15740926737837205,0.7692307692307693,0.38461538461538464,0.9285714285714286
+real_synthetic_fall_real_adl,Real + synthetic falls + real ADL,test_trial_auroc,25,0.9658128000115189,0.0508546917085036,0.9877734877734877,0.8553281580804516,1.0
+real_synthetic_fall_real_adl,Real + synthetic falls + real ADL,test_trial_auprc,25,0.8702355028537271,0.15522923119496204,0.9423242607066136,0.5595366187757491,0.9999999999999998
+real_synthetic_fall_real_adl,Real + synthetic falls + real ADL,false_positive_events_per_adl_minute,25,0.4173498433535858,0.5070936942812169,0.2605071169899282,0.0,1.8776730503520136

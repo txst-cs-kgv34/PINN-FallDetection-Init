@@ -1,0 +1,19 @@
+{
+  "scenarios": [
+    "real_fall_real_adl",
+    "synthetic_fall_real_adl",
+    "real_synthetic_fall_real_adl"
+  ],
+  "matched_fold_seed_settings": 25,
+  "metrics": [
+    "test_trial_balanced_accuracy",
+    "test_trial_sensitivity",
+    "test_trial_specificity",
+    "test_trial_f1",
+    "test_trial_auroc",
+    "test_trial_auprc",
+    "false_positive_events_per_adl_minute"
+  ],
+  "primary_metric": "test_trial_balanced_accuracy",
+  "best_descriptive_scenario": "real_fall_real_adl"
+}

@@ -1,0 +1,113 @@
+{
+  "scenario": "real_synthetic_fall_real_adl",
+  "fold": "fold_01",
+  "seed": 55,
+  "device": "mps",
+  "split_groups": {
+    "train": [
+      "S30",
+      "S31_S59_PAIR",
+      "S32",
+      "S45",
+      "S48",
+      "S55",
+      "S57",
+      "S62",
+      "S63"
+    ],
+    "validation": [
+      "S34",
+      "S43",
+      "S46"
+    ],
+    "test": [
+      "S44",
+      "S49",
+      "S56"
+    ]
+  },
+  "config": {
+    "data_root": "/Users/rakeshsuvvari/TXST/PINN Research/PINN-for-FallDetection/git/PINN-FallDetection-Init/Fifteen_Subject_Fall_Detector_Data_Preparation/outputs",
+    "output_root": "/Users/rakeshsuvvari/TXST/PINN Research/PINN-for-FallDetection/git/PINN-FallDetection-Init/Fifteen_Subject_CoM_Transformer_Fall_Detector/outputs",
+    "sample_rate_hz": 30.0,
+    "window_length": 64,
+    "adl_stride": 32,
+    "max_train_adl_windows_per_trial": 4,
+    "batch_size": 64,
+    "steps_per_epoch": 32,
+    "max_epochs": 60,
+    "early_stopping_patience": 12,
+    "learning_rate": 0.0005,
+    "weight_decay": 0.0001,
+    "gradient_clip_norm": 1.0,
+    "d_model": 32,
+    "nhead": 4,
+    "num_transformer_layers": 2,
+    "dim_feedforward": 128,
+    "dropout": 0.2,
+    "seeds": [
+      11,
+      22,
+      33,
+      44,
+      55
+    ],
+    "num_workers": 0,
+    "paired_subject_groups": {
+      "S31": "S31_S59_PAIR",
+      "S59": "S31_S59_PAIR"
+    },
+    "folds": [
+      {
+        "name": "fold_01",
+        "test_groups": [
+          "S44",
+          "S56",
+          "S49"
+        ]
+      },
+      {
+        "name": "fold_02",
+        "test_groups": [
+          "S46",
+          "S34",
+          "S43"
+        ]
+      },
+      {
+        "name": "fold_03",
+        "test_groups": [
+          "S63",
+          "S32",
+          "S57"
+        ]
+      },
+      {
+        "name": "fold_04",
+        "test_groups": [
+          "S48",
+          "S30",
+          "S62"
+        ]
+      },
+      {
+        "name": "fold_05",
+        "test_groups": [
+          "S45",
+          "S55",
+          "S31_S59_PAIR"
+        ]
+      }
+    ],
+    "comparison_metrics": [
+      "test_trial_balanced_accuracy",
+      "test_trial_sensitivity",
+      "test_trial_specificity",
+      "test_trial_f1",
+      "test_trial_auroc",
+      "test_trial_auprc",
+      "false_positive_events_per_adl_minute"
+    ],
+    "config_path": "/Users/rakeshsuvvari/TXST/PINN Research/PINN-for-FallDetection/git/PINN-FallDetection-Init/Fifteen_Subject_CoM_Transformer_Fall_Detector/config.json"
+  }
+}

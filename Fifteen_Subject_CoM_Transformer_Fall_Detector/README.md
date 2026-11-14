@@ -143,7 +143,7 @@ From this detector directory:
 ```bash
 chmod +x run.sh
 ./run.sh test
-./run.sh smoke
+./run.sh smoke --device mps
 ./run.sh validate
 ```
 
@@ -154,19 +154,19 @@ chmod +x run.sh
 Run scenario 1:
 
 ```bash
-./run.sh real
+./run.sh real --device mps
 ```
 
 Run scenario 2:
 
 ```bash
-./run.sh synthetic
+./run.sh synthetic --device mps
 ```
 
 Run scenario 3:
 
 ```bash
-./run.sh combined
+./run.sh combined --device mps
 ```
 
 Each command runs five folds and five random seeds by default. Completed fold/seed runs are skipped, so an interrupted experiment can be resumed with the same command.

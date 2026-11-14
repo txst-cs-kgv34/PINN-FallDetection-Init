@@ -1,0 +1,98 @@
+{
+  "scenario": "synthetic_fall_real_adl",
+  "completed_runs": 25,
+  "folds": [
+    "fold_01",
+    "fold_02",
+    "fold_03",
+    "fold_04",
+    "fold_05"
+  ],
+  "seeds": [
+    11,
+    22,
+    33,
+    44,
+    55
+  ],
+  "metrics": {
+    "false_positive_events_per_adl_minute": {
+      "mean": 0.4633493250069204,
+      "standard_deviation": 0.46683472591167174,
+      "minimum": 0.0,
+      "maximum": 1.8776730503520136
+    },
+    "test_trial_accuracy": {
+      "mean": 0.918226199486885,
+      "standard_deviation": 0.05857022425319559,
+      "minimum": 0.7698412698412699,
+      "maximum": 1.0
+    },
+    "test_trial_balanced_accuracy": {
+      "mean": 0.8776632672272278,
+      "standard_deviation": 0.09272809274980964,
+      "minimum": 0.6418489767113621,
+      "maximum": 1.0
+    },
+    "test_trial_sensitivity": {
+      "mean": 0.8260512820512821,
+      "standard_deviation": 0.19826620834380182,
+      "minimum": 0.38461538461538464,
+      "maximum": 1.0
+    },
+    "test_trial_specificity": {
+      "mean": 0.9292752524031735,
+      "standard_deviation": 0.07113854673238762,
+      "minimum": 0.7387387387387387,
+      "maximum": 1.0
+    },
+    "test_trial_precision": {
+      "mean": 0.6791238432066018,
+      "standard_deviation": 0.23811967148113022,
+      "minimum": 0.3125,
+      "maximum": 1.0
+    },
+    "test_trial_f1": {
+      "mean": 0.7135489131099191,
+      "standard_deviation": 0.1673950227918263,
+      "minimum": 0.3448275862068966,
+      "maximum": 1.0
+    },
+    "test_trial_tn": {
+      "mean": 101.2,
+      "standard_deviation": 6.714412359494562,
+      "minimum": 82.0,
+      "maximum": 108.0
+    },
+    "test_trial_fp": {
+      "mean": 7.8,
+      "standard_deviation": 7.905694150420948,
+      "minimum": 0.0,
+      "maximum": 29.0
+    },
+    "test_trial_fn": {
+      "mean": 2.32,
+      "standard_deviation": 2.577466456296441,
+      "minimum": 0.0,
+      "maximum": 8.0
+    },
+    "test_trial_tp": {
+      "mean": 11.68,
+      "standard_deviation": 3.236767935250636,
+      "minimum": 5.0,
+      "maximum": 15.0
+    },
+    "test_trial_auroc": {
+      "mean": 0.9615961776993455,
+      "standard_deviation": 0.04957410173655864,
+      "minimum": 0.84121383203952,
+      "maximum": 1.0
+    },
+    "test_trial_auprc": {
+      "mean": 0.8247256704141904,
+      "standard_deviation": 0.17875562203546227,
+      "minimum": 0.4507341965437287,
+      "maximum": 1.0
+    }
+  }
+}
