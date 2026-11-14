@@ -10,6 +10,28 @@ The detector uses the compact temporal-attention idea from the skeleton teacher 
 
 The code reads the manifest and `.npz` trajectories created by `Fifteen_Subject_Fall_Detector_Data_Preparation`. It does not copy or regenerate the prepared trajectories.
 
+## Completed-study result
+
+The full study completed all **75 expected MPS runs**: three scenarios × five subject-disjoint folds × five seeds.
+
+The descriptive winner is **Real A11 falls + real ADL**. It produced the best mean balanced accuracy, sensitivity, specificity, F1, AUROC, and AUPRC, together with the lowest false-positive event rate.
+
+| Test-trial metric | Real | Synthetic | Combined |
+|---|---:|---:|---:|
+| Balanced accuracy | **0.943** | 0.878 | 0.886 |
+| Sensitivity | **0.909** | 0.826 | 0.834 |
+| Specificity | **0.978** | 0.929 | 0.938 |
+| F1 | **0.881** | 0.714 | 0.740 |
+| AUROC | **0.987** | 0.962 | 0.966 |
+| AUPRC | **0.960** | 0.825 | 0.870 |
+| False-positive events/ADL minute ↓ | **0.170** | 0.463 | 0.417 |
+
+![Scenario performance overview](outputs/comparison/scenario_performance_overview.png)
+
+Real-fall training ranked first in balanced accuracy in every held-out subject fold. The synthetic-only result nevertheless demonstrates useful transfer to unseen real subjects, reaching 0.878 balanced accuracy and 0.962 AUROC. Combined training slightly improved over synthetic-only training but did not beat real-only training.
+
+No pairwise comparison was significant after Holm correction. For balanced accuracy, Real versus Synthetic and Real versus Combined both had unadjusted p = 0.0625 and Holm-adjusted p = 0.1875. With only five fold-level pairs, these tests are exploratory. See [FINDINGS.md](FINDINGS.md) for the complete interpretation and next recommendation.
+
 ## Required repository layout
 
 Place this directory beside the data-preparation directory:
@@ -143,11 +165,11 @@ From this detector directory:
 ```bash
 chmod +x run.sh
 ./run.sh test
-./run.sh smoke --device mps
+./run.sh smoke
 ./run.sh validate
 ```
 
-`test` runs unit tests and compilation checks. `smoke` creates a temporary miniature dataset and trains all three scenarios for two CPU epochs. It does not use or modify the real dataset. `validate` checks the real manifest, NPZ files, source counts, folds, labels, sampling rate, and leakage policy.
+`test` runs unit tests and compilation checks. `smoke` creates a temporary miniature dataset and trains all three scenarios for two CPU epochs. It intentionally uses CPU, ignores device arguments, and deletes its temporary outputs when complete. It does not use or modify the real dataset. `validate` checks the real manifest, NPZ files, source counts, folds, labels, sampling rate, and leakage policy.
 
 ## Run the experiments individually
 
@@ -250,12 +272,32 @@ outputs/comparison/
 ├── scenario_summary.csv
 ├── combined_run_metrics.csv
 ├── fold_seed_averaged_metrics.csv
+├── fold_level_metric_summary.csv
+├── paired_fold_differences_vs_real.csv
 ├── paired_wilcoxon_holm.csv
 ├── comparison_metadata.json
-└── scenario_metric_boxplots.png
+├── scenario_metric_boxplots.png
+├── scenario_performance_overview.png
+├── foldwise_balanced_accuracy.png
+├── paired_balanced_accuracy_differences.png
+└── false_positive_events_by_fold.png
 ```
 
 The Wilcoxon analysis first averages seeds inside each fold, then performs the three paired scenario comparisons across folds. Holm correction is applied separately within each metric. With five folds, these p-values are exploratory; effect sizes and consistency across folds should be emphasized.
+
+### Comparison-figure guide
+
+- `scenario_metric_boxplots.png` shows all 25 fold/seed runs per scenario. The orange line is the median, the green triangle is the mean, the box is the middle 50%, whiskers show the non-outlying range, and open circles are outliers.
+- `scenario_performance_overview.png` reports mean ± fold-level standard deviation and is the clearest overall metric summary.
+- `foldwise_balanced_accuracy.png` preserves subject-fold pairing and shows which scenario performs best on each held-out fold.
+- `paired_balanced_accuracy_differences.png` directly shows the balanced-accuracy difference relative to Real; negative bars favor Real.
+- `false_positive_events_by_fold.png` shows operational false-positive burden; lower bars are better.
+
+Regenerate the enhanced figures from existing comparison CSV files with:
+
+```bash
+~/.venv/bin/python make_comparison_figures.py
+```
 
 ## Package results to share
 
@@ -291,5 +333,6 @@ Share the results archive for review. The CSV predictions and metrics are suffic
 | `validate_setup.py` | Real prepared-data validation |
 | `smoke_test.py` | Temporary end-to-end CPU smoke test |
 | `package_results.py` | Results archive creation |
+| `make_comparison_figures.py` | Enhanced fold-aware comparison figures and tables |
 | `run.sh` | Commands using the existing home-directory virtual environment |
 
