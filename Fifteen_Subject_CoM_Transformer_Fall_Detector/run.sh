@@ -47,6 +47,7 @@ case "${command_name}" in
     ;;
   compare)
     "${PYTHON_BIN}" compare_scenarios.py "$@"
+    "${PYTHON_BIN}" make_comparison_figures.py "$@"
     ;;
   package-results)
     "${PYTHON_BIN}" package_results.py "$@"
