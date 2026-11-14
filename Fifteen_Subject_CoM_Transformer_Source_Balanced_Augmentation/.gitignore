@@ -1,6 +1,4 @@
 __pycache__/
 *.py[cod]
 .pytest_cache/
-outputs/
 *_Results.zip
-
