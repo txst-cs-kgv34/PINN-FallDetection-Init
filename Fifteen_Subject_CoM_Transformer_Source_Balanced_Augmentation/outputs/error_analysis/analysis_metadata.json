@@ -1,0 +1,30 @@
+{
+  "scenarios": [
+    "real_fall_real_adl",
+    "synthetic_fall_real_adl",
+    "real_synthetic_fall_real_adl",
+    "source_balanced_1to1"
+  ],
+  "completed_runs": 100,
+  "trial_seed_predictions": 12300,
+  "window_predictions": 87680,
+  "output_files": [
+    "ERROR_ANALYSIS.md",
+    "activity_error_summary.csv",
+    "activity_false_positive_rates.png",
+    "analysis_metadata.json",
+    "balanced_hardest_trials.png",
+    "balanced_subject_error_heatmap.png",
+    "fold_calibration_summary.csv",
+    "fold_threshold_and_calibration.png",
+    "hard_negative_adl_candidates.csv",
+    "hard_real_fall_candidates.csv",
+    "run_calibration_metrics.csv",
+    "scenario_error_transition_summary.csv",
+    "scenario_error_transitions.png",
+    "scenario_trial_transitions.csv",
+    "subject_error_summary.csv",
+    "trial_error_frequency.csv",
+    "window_false_positive_summary.csv"
+  ]
+}

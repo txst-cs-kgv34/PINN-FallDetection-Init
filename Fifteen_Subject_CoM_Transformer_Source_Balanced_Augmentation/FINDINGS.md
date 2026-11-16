@@ -105,6 +105,33 @@ These errors show two distinct issues: some real falls do not resemble the
 synthetic training distribution closely enough, and several high-motion ADLs look
 fall-like to the detector.
 
+## Completed activity- and subject-level error report
+
+The dedicated report in `outputs/error_analysis/ERROR_ANALYSIS.md` analyzes 12,300
+held-out trial-seed predictions across all 100 runs. Its principal results are:
+
+- Balanced 1:1 produced 111 ADL false-positive decisions. A02 Pick Up Object,
+  A05 Sweeping Floor, and A08 TUG/Walking accounted for 105/111 (94.6%).
+- The original combined scenario produced 170 ADL false positives and 56 real-fall
+  false negatives. Source balancing reduced these to 111 and 52.
+- Real-only produced only 61 ADL false positives and 30 fall false negatives.
+- Against the original combined scenario, balancing corrected 94 ADL decisions
+  while introducing 35, and corrected 21 fall decisions while introducing 17.
+- Against real-only, balancing corrected only 21 ADL decisions while introducing
+  71, and corrected 5 fall decisions while introducing 27.
+- S45 had the highest Balanced 1:1 ADL false-positive rate (18.0%). S44 had the
+  highest fall false-negative rate (72.0%), followed by S30 (52.0%), S49 (46.7%),
+  and S32 (28.0%).
+- Fold 5 remained unstable: its validation threshold was 0.590 ± 0.438 across
+  seeds and it produced 0.889 false-positive events per ADL minute.
+- Mean test-trial Brier score improved from 0.129 for the original combined model
+  to 0.117 after balancing, but real-only remained substantially better calibrated
+  at 0.037.
+
+The report includes activity and subject summaries, trial-level seed consistency,
+window-level false-positive events, scenario error transitions, calibration
+tables, hard-example lists, and five figures. This task required no model reruns.
+
 ## Recommended next steps
 
 ### 1. Freeze the present conclusion
@@ -130,13 +157,13 @@ training subjects only and shared between the paired scenarios. Any ratio or
 checkpoint selection must use validation subjects only. This directly tests
 whether synthetic falls recover performance lost when real falls are limited.
 
-### 3. Add an activity- and subject-level error report
+### 3. Keep hard-negative sampling as a separate later ablation
 
-Before changing the architecture, aggregate false positives by ADL activity and
-subject and false negatives by real-fall subject/trial. Pay particular attention
-to A02, A05, A08, S44 falls, and Fold 5 calibration. Hard-negative ADL sampling or
-activity-aware batching is more likely to reduce false alarms than generating
-additional falls alone.
+The error report identifies A02, A05, and A08 as the main ADL confusion classes.
+Do not add activity-aware sampling to the first low-real-data study because it
+would confound the synthetic-augmentation effect. If false positives remain a
+limitation afterward, train one new activity-aware condition using only
+training/validation subjects to define and select hard negatives.
 
 ### 4. Do not generate more of the same synthetic distribution yet
 

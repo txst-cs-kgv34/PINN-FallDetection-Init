@@ -168,12 +168,20 @@ outputs/
 │   │   └── *_predictions.csv
 │   ├── run_summary.csv
 │   └── experiment_summary.json
-└── comparison_with_prior/
+├── comparison_with_prior/
     ├── four_scenario_run_metrics.csv
     ├── four_scenario_fold_seed_averaged_metrics.csv
     ├── four_scenario_summary.csv
     ├── source_balanced_vs_prior_wilcoxon_holm.csv
     ├── COMPARISON.md
+    └── *.png
+└── error_analysis/
+    ├── ERROR_ANALYSIS.md
+    ├── activity_error_summary.csv
+    ├── subject_error_summary.csv
+    ├── trial_error_frequency.csv
+    ├── scenario_trial_transitions.csv
+    ├── fold_calibration_summary.csv
     └── *.png
 ```
 
@@ -207,6 +215,29 @@ Include checkpoints only if needed:
 
 Share the resulting ZIP when an independently rerun result needs to be reviewed.
 
+## Completed activity- and subject-level error analysis
+
+The post-hoc error analysis covers 12,300 held-out trial-seed predictions from all
+100 completed runs. It requires no retraining. The main findings are:
+
+- Balanced 1:1 made 111 ADL false-positive decisions; A02 Pick Up Object, A05
+  Sweeping Floor, and A08 TUG/Walking produced 105 of them (94.6%).
+- Source balancing reduced the original combined model from 170 to 111 ADL false
+  positives and from 56 to 52 real-fall false negatives.
+- Real-only remained better with 61 ADL false positives and 30 fall false
+  negatives.
+- S44, S30, S49, and S32 account for most repeatedly missed real A11 falls.
+- Fold 5 has unstable validation thresholds and the largest false-positive burden.
+
+The complete report is `outputs/error_analysis/ERROR_ANALYSIS.md`. Reproduce it
+after all four scenario outputs are available with:
+
+```bash
+~/.venv/bin/python error_analysis.py
+```
+
+The script reads existing predictions only and does not change model outputs.
+
 ## Recommended next stage
 
 Do not generate more samples from the same synthetic distribution yet. The next
@@ -219,7 +250,7 @@ recommended controlled experiment is a **low-real-data augmentation study**:
 4. choose any augmentation setting using validation subjects only.
 
 This tests the most defensible use of synthetic data: whether it can recover
-performance when real falls are scarce. Before that run, produce an activity- and
-subject-level error report for the repeated A02, A05, and A08 false positives and
-the difficult S44 fall trials. The current real-only condition should remain the
-primary full-data detector result.
+performance when real falls are scarce. The completed error report shows that
+hard-negative sampling should remain a separate later ablation; adding it to the
+low-real study would confound the effect of synthetic augmentation. The current
+real-only condition remains the primary full-data detector result.
