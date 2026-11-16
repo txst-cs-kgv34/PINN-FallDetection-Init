@@ -1,0 +1,15 @@
+{
+  "descriptive_winner": "real_fall_real_adl",
+  "frozen_reference_run_count": 50,
+  "matched_fold_seed_settings": 25,
+  "new_run_count": 100,
+  "primary_metric": "test_trial_balanced_accuracy",
+  "scenarios": [
+    "real_fall_real_adl",
+    "real_25pct_real_adl",
+    "real_25pct_balanced_synthetic_real_adl",
+    "real_50pct_real_adl",
+    "real_50pct_balanced_synthetic_real_adl",
+    "source_balanced_1to1"
+  ]
+}

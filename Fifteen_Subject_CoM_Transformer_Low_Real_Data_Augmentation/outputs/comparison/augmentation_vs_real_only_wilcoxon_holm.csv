@@ -1,0 +1,15 @@
+metric,real_fraction,reference_scenario,candidate_scenario,fold_count,reference_mean,candidate_mean,mean_difference_candidate_minus_reference,wilcoxon_statistic,wilcoxon_p_unadjusted,wilcoxon_p_holm,holm_significant_at_0_05
+test_trial_balanced_accuracy,0.25,real_25pct_real_adl,real_25pct_balanced_synthetic_real_adl,5,0.9160630024306673,0.9065124806301889,-0.009550521800478462,7.0,1.0,1.0,False
+test_trial_balanced_accuracy,0.5,real_50pct_real_adl,real_50pct_balanced_synthetic_real_adl,5,0.9363579548043802,0.9059968532199795,-0.030361101584400908,4.0,0.4375,0.875,False
+test_trial_sensitivity,0.25,real_25pct_real_adl,real_25pct_balanced_synthetic_real_adl,5,0.8793846153846154,0.8586666666666666,-0.02071794871794872,3.0,0.625,0.75,False
+test_trial_sensitivity,0.5,real_50pct_real_adl,real_50pct_balanced_synthetic_real_adl,5,0.9199999999999999,0.8514871794871794,-0.06851282051282051,2.0,0.375,0.75,False
+test_trial_specificity,0.25,real_25pct_real_adl,real_25pct_balanced_synthetic_real_adl,5,0.9527413894767193,0.954358294593711,0.0016169051169916625,7.0,1.0,1.0,False
+test_trial_specificity,0.5,real_50pct_real_adl,real_50pct_balanced_synthetic_real_adl,5,0.9527159096087606,0.9605065269527792,0.007790617344018735,7.0,1.0,1.0,False
+test_trial_f1,0.25,real_25pct_real_adl,real_25pct_balanced_synthetic_real_adl,5,0.8044109306949124,0.7931590512839936,-0.01125187941091883,6.0,0.8125,1.0,False
+test_trial_f1,0.5,real_50pct_real_adl,real_50pct_balanced_synthetic_real_adl,5,0.8347007329626903,0.8008098404177714,-0.03389089254491886,5.0,0.625,1.0,False
+test_trial_auroc,0.25,real_25pct_real_adl,real_25pct_balanced_synthetic_real_adl,5,0.977974351203709,0.9701986304870156,-0.007775720716693546,7.0,1.0,1.0,False
+test_trial_auroc,0.5,real_50pct_real_adl,real_50pct_balanced_synthetic_real_adl,5,0.9830602571520004,0.973083396574828,-0.009976860577172153,4.0,0.4375,0.875,False
+test_trial_auprc,0.25,real_25pct_real_adl,real_25pct_balanced_synthetic_real_adl,5,0.9305850176540666,0.9026493931461946,-0.027935624507872014,4.0,0.4375,0.875,False
+test_trial_auprc,0.5,real_50pct_real_adl,real_50pct_balanced_synthetic_real_adl,5,0.9438055821479514,0.92042342128477,-0.023382160863181456,4.0,0.4375,0.875,False
+false_positive_events_per_adl_minute,0.25,real_25pct_real_adl,real_25pct_balanced_synthetic_real_adl,5,0.36334712347932047,0.3414214651633077,-0.021925658316012737,7.0,1.0,1.0,False
+false_positive_events_per_adl_minute,0.5,real_50pct_real_adl,real_50pct_balanced_synthetic_real_adl,5,0.33551337030339135,0.260926390609127,-0.07458697969426434,7.0,1.0,1.0,False

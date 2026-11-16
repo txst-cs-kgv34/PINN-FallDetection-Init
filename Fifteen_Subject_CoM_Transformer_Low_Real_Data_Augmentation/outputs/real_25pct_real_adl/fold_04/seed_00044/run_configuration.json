@@ -1,0 +1,160 @@
+{
+  "condition": "real_25pct_real_adl",
+  "fold": "fold_04",
+  "seed": 44,
+  "device": "mps",
+  "real_fraction": 0.25,
+  "use_synthetic": false,
+  "selected_real_fall_ids": [
+    "REAL_S32A11T03",
+    "REAL_S32A11T05",
+    "REAL_S34A11T02",
+    "REAL_S43A11T03",
+    "REAL_S44A11T04",
+    "REAL_S46A11T05",
+    "REAL_S49A11T02",
+    "REAL_S56A11T04",
+    "REAL_S57A11T03",
+    "REAL_S63A11T01"
+  ],
+  "selected_real_fall_digest": "aecc11842e142f3afca8acf53736fdd62312386047e35c2b80d2afec210c1b16",
+  "batch_composition": {
+    "real_adl": 32,
+    "real_fall": 32,
+    "synthetic_fall": 0,
+    "total": 64
+  },
+  "split_groups": {
+    "train": [
+      "S32",
+      "S34",
+      "S43",
+      "S44",
+      "S46",
+      "S49",
+      "S56",
+      "S57",
+      "S63"
+    ],
+    "validation": [
+      "S31_S59_PAIR",
+      "S45",
+      "S55"
+    ],
+    "test": [
+      "S30",
+      "S48",
+      "S62"
+    ]
+  },
+  "config": {
+    "base_detector_root": "../Fifteen_Subject_CoM_Transformer_Fall_Detector",
+    "data_root": "/Users/rakeshsuvvari/TXST/PINN Research/PINN-for-FallDetection/git/PINN-FallDetection-Init/Fifteen_Subject_Fall_Detector_Data_Preparation/outputs",
+    "prior_comparison_csv": "../Fifteen_Subject_CoM_Transformer_Source_Balanced_Augmentation/outputs/comparison_with_prior/four_scenario_run_metrics.csv",
+    "output_root": "/Users/rakeshsuvvari/TXST/PINN Research/PINN-for-FallDetection/git/PINN-FallDetection-Init/Fifteen_Subject_CoM_Transformer_Low_Real_Data_Augmentation/outputs",
+    "subset_seed": 20261115,
+    "real_fall_fractions": [
+      0.25,
+      0.5
+    ],
+    "conditions": {
+      "real_25pct_real_adl": {
+        "real_fraction": 0.25,
+        "use_synthetic": false
+      },
+      "real_25pct_balanced_synthetic_real_adl": {
+        "real_fraction": 0.25,
+        "use_synthetic": true
+      },
+      "real_50pct_real_adl": {
+        "real_fraction": 0.5,
+        "use_synthetic": false
+      },
+      "real_50pct_balanced_synthetic_real_adl": {
+        "real_fraction": 0.5,
+        "use_synthetic": true
+      }
+    },
+    "subject_balanced_within_source": false,
+    "sample_rate_hz": 30.0,
+    "window_length": 64,
+    "adl_stride": 32,
+    "max_train_adl_windows_per_trial": 4,
+    "batch_size": 64,
+    "steps_per_epoch": 32,
+    "max_epochs": 60,
+    "early_stopping_patience": 12,
+    "learning_rate": 0.0005,
+    "weight_decay": 0.0001,
+    "gradient_clip_norm": 1.0,
+    "d_model": 32,
+    "nhead": 4,
+    "num_transformer_layers": 2,
+    "dim_feedforward": 128,
+    "dropout": 0.2,
+    "seeds": [
+      11,
+      22,
+      33,
+      44,
+      55
+    ],
+    "num_workers": 0,
+    "paired_subject_groups": {
+      "S31": "S31_S59_PAIR",
+      "S59": "S31_S59_PAIR"
+    },
+    "folds": [
+      {
+        "name": "fold_01",
+        "test_groups": [
+          "S44",
+          "S56",
+          "S49"
+        ]
+      },
+      {
+        "name": "fold_02",
+        "test_groups": [
+          "S46",
+          "S34",
+          "S43"
+        ]
+      },
+      {
+        "name": "fold_03",
+        "test_groups": [
+          "S63",
+          "S32",
+          "S57"
+        ]
+      },
+      {
+        "name": "fold_04",
+        "test_groups": [
+          "S48",
+          "S30",
+          "S62"
+        ]
+      },
+      {
+        "name": "fold_05",
+        "test_groups": [
+          "S45",
+          "S55",
+          "S31_S59_PAIR"
+        ]
+      }
+    ],
+    "comparison_metrics": [
+      "test_trial_balanced_accuracy",
+      "test_trial_sensitivity",
+      "test_trial_specificity",
+      "test_trial_f1",
+      "test_trial_auroc",
+      "test_trial_auprc",
+      "false_positive_events_per_adl_minute"
+    ],
+    "config_path": "/Users/rakeshsuvvari/TXST/PINN Research/PINN-for-FallDetection/git/PINN-FallDetection-Init/Fifteen_Subject_CoM_Transformer_Low_Real_Data_Augmentation/config.json"
+  }
+}
