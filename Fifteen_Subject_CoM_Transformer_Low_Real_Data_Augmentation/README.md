@@ -6,6 +6,19 @@ This sibling experiment tests the question that the full-data study could not an
 
 It reuses the verified CoM temporal-transformer architecture, subject-disjoint folds, real-only validation/test sets, validation-selected thresholds, and five training seeds from the earlier detector studies. It does **not** rerun the completed 100%-data experiments.
 
+## Completed result
+
+All 100 new runs completed successfully. The full-real condition remained the best configuration with mean test-trial balanced accuracy of **0.9433**. Synthetic augmentation did not recover reduced-real performance:
+
+| Paired comparison | Real-only | With synthetic | Change |
+|---|---:|---:|---:|
+| 25% real: balanced accuracy | 0.9161 | 0.9065 | -0.0096 |
+| 50% real: balanced accuracy | 0.9364 | 0.9060 | -0.0304 |
+| 25% real: F1 | 0.8044 | 0.7932 | -0.0113 |
+| 50% real: F1 | 0.8347 | 0.8008 | -0.0339 |
+
+The augmented conditions slightly improved specificity and reduced false-positive events on average, but they also reduced fall sensitivity. No paired Holm-adjusted test was significant at 0.05. See `FINDINGS.md` for the complete interpretation, fold-level effects, limitations, and recommended next step.
+
 ## Place the directory here
 
 ```text
