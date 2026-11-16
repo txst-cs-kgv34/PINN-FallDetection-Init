@@ -5,6 +5,27 @@ three-scenario detector. It preserves the original 75 runs and adds one controll
 condition: equal real and synthetic representation within the fall half of every
 training batch.
 
+## Completed result
+
+The full experiment completed successfully: 25 new source-balanced runs were
+combined with the 75 prior runs, giving 100 matched scenario runs.
+
+| Training scenario | Balanced accuracy | F1 | AUPRC | FP events/ADL min ↓ |
+|---|---:|---:|---:|---:|
+| **Real falls + real ADL** | **0.943** | **0.881** | **0.960** | **0.170** |
+| Synthetic falls + real ADL | 0.878 | 0.714 | 0.825 | 0.463 |
+| Original combined + real ADL | 0.886 | 0.740 | 0.870 | 0.417 |
+| **Source-balanced 1:1 + real ADL** | **0.904** | **0.804** | **0.897** | **0.276** |
+
+Real-only training is the full-data winner. Source balancing improved the original
+combined condition by 1.77 balanced-accuracy points, 6.33 F1 points, and reduced
+false-positive events by 33.9%, but it remained 3.96 balanced-accuracy points below
+real-only training. No comparison was significant after Holm correction; with
+only five fold-level pairs, the exact two-sided Wilcoxon test has insufficient
+resolution to reach p < 0.05 even when all five differences share one direction.
+
+See `FINDINGS.md` for the complete statistical, fold-level, and error analysis.
+
 ## Why this is a separate directory
 
 The original combined condition drew from 70 real and 226 approved synthetic fall
@@ -94,6 +115,9 @@ all 75 prior runs.
 
 ## Full experiment
 
+The supplied results package already contains all 25 completed runs. The commands
+below are retained for reproducibility or deliberate retraining.
+
 Choose the device available on your machine:
 
 ```bash
@@ -181,5 +205,21 @@ Include checkpoints only if needed:
 ./run.sh package-results --include-models
 ```
 
-Share the resulting ZIP so `README.md` and `FINDINGS.md` can be updated with the
-actual result and the winning scenario.
+Share the resulting ZIP when an independently rerun result needs to be reviewed.
+
+## Recommended next stage
+
+Do not generate more samples from the same synthetic distribution yet. The next
+recommended controlled experiment is a **low-real-data augmentation study**:
+
+1. retain fixed fractions such as 25% and 50% of the real training falls;
+2. compare reduced-real-only training with the same reduced real subset plus
+   source-balanced synthetic falls;
+3. keep validation and test data entirely real and subject-disjoint;
+4. choose any augmentation setting using validation subjects only.
+
+This tests the most defensible use of synthetic data: whether it can recover
+performance when real falls are scarce. Before that run, produce an activity- and
+subject-level error report for the repeated A02, A05, and A08 false positives and
+the difficult S44 fall trials. The current real-only condition should remain the
+primary full-data detector result.
