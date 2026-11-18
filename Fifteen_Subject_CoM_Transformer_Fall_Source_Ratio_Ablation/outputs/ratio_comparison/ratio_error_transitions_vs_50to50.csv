@@ -1,0 +1,5 @@
+candidate_ratio,class,decisions,corrected_vs_50to50,broken_vs_50to50,wrong_in_both,correct_in_both
+40:60,ADL,2725,30,31,81,2583
+40:60,fall,350,11,12,41,286
+60:40,ADL,2725,43,36,68,2578
+60:40,fall,350,10,12,42,286

@@ -18,6 +18,26 @@ The experiment trains **2 ratios × 5 folds × 5 seeds = 50 new runs**.
 The previous 75 original-scenario runs and 25 balanced 50:50 runs are frozen
 references and are not retrained.
 
+## Completed result
+
+All 50 new runs completed successfully. The three mixed-source ratios produced
+nearly identical balanced accuracy:
+
+| Ratio | Balanced accuracy | Sensitivity | Specificity | F1 | AUPRC | FP events/min ↓ |
+|---|---:|---:|---:|---:|---:|---:|
+| 40:60 | 0.9023 | 0.8451 | 0.9594 | 0.7932 | 0.8771 | 0.2738 |
+| **50:50** | **0.9037** | **0.8476** | 0.9598 | **0.8035** | 0.8967 | 0.2760 |
+| 60:40 | 0.9022 | 0.8421 | **0.9623** | 0.8013 | **0.9187** | **0.2730** |
+
+The 50:50 ratio retained the best overall thresholded metric balance. The
+60:40 ratio improved AUPRC, including a higher AUPRC than 40:60 in all five
+folds, but it did not improve balanced accuracy, sensitivity, or F1. Real-only
+training remained the strongest full-data detector at 0.9433 balanced accuracy
+and 0.8806 F1.
+
+See [FINDINGS.md](FINDINGS.md) for the fold-level, statistical, and error
+analysis.
+
 ## Batch design
 
 Every batch still has 64 windows:
@@ -133,6 +153,10 @@ outputs/
     ├── six_scenario_fold_seed_averaged_metrics.csv
     ├── six_scenario_summary.csv
     ├── ratio_paired_wilcoxon_holm.csv
+    ├── ratio_error_decision_summary.csv
+    ├── ratio_activity_false_positive_summary.csv
+    ├── ratio_fall_subject_false_negative_summary.csv
+    ├── ratio_error_transitions_vs_50to50.csv
     ├── COMPARISON.md
     └── *.png
 ```
@@ -156,9 +180,9 @@ show whether performance trends toward more real or more synthetic fall
 windows. A final claim that one ratio is optimal should select the ratio using
 validation data or confirm it on new untouched subjects.
 
-## Share the results
+## Results package
 
-After the run, send:
+The completed archive is:
 
 ```text
 Fifteen_Subject_CoM_Transformer_Fall_Source_Ratio_Ablation_Results.zip

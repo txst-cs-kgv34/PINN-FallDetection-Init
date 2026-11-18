@@ -1,0 +1,4 @@
+ratio,decisions,false_positive_decisions,false_negative_decisions,total_error_decisions
+40:60,3075,112,53,165
+50:50,3075,111,52,163
+60:40,3075,104,54,158
