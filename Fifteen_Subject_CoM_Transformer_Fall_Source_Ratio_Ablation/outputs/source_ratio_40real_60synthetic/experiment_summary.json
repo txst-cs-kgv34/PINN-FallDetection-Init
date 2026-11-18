@@ -1,0 +1,110 @@
+{
+  "experiment": "source_ratio_40real_60synthetic",
+  "completed_runs": 25,
+  "folds": [
+    "fold_01",
+    "fold_02",
+    "fold_03",
+    "fold_04",
+    "fold_05"
+  ],
+  "seeds": [
+    11,
+    22,
+    33,
+    44,
+    55
+  ],
+  "quota_summary": {
+    "real_adl_per_batch": 32,
+    "falls_per_batch": 32,
+    "real_fall_per_batch_min": 12,
+    "real_fall_per_batch_max": 13,
+    "synthetic_fall_per_batch_min": 19,
+    "synthetic_fall_per_batch_max": 20,
+    "real_fall_per_epoch": 410,
+    "synthetic_fall_per_epoch": 614,
+    "effective_real_fraction": 0.400390625,
+    "effective_synthetic_fraction": 0.599609375
+  },
+  "metrics": {
+    "false_positive_events_per_adl_minute": {
+      "mean": 0.2738112007732622,
+      "standard_deviation": 0.38910230163654524,
+      "minimum": 0.0,
+      "maximum": 1.815083948673613
+    },
+    "test_trial_accuracy": {
+      "mean": 0.9466169462132501,
+      "standard_deviation": 0.04470236390575201,
+      "minimum": 0.7777777777777778,
+      "maximum": 0.992
+    },
+    "test_trial_balanced_accuracy": {
+      "mean": 0.9022574613201236,
+      "standard_deviation": 0.07569754455237597,
+      "minimum": 0.7600564573041637,
+      "maximum": 0.9954954954954955
+    },
+    "test_trial_sensitivity": {
+      "mean": 0.8451282051282051,
+      "standard_deviation": 0.16336640435902802,
+      "minimum": 0.5384615384615384,
+      "maximum": 1.0
+    },
+    "test_trial_specificity": {
+      "mean": 0.9593867175120421,
+      "standard_deviation": 0.055204085683976965,
+      "minimum": 0.7477477477477478,
+      "maximum": 1.0
+    },
+    "test_trial_precision": {
+      "mean": 0.7897670721051814,
+      "standard_deviation": 0.18025200566606644,
+      "minimum": 0.3488372093023256,
+      "maximum": 1.0
+    },
+    "test_trial_f1": {
+      "mean": 0.7932480060346448,
+      "standard_deviation": 0.12305079411670107,
+      "minimum": 0.5172413793103449,
+      "maximum": 0.9655172413793104
+    },
+    "test_trial_tn": {
+      "mean": 104.52,
+      "standard_deviation": 5.386093203798093,
+      "minimum": 83.0,
+      "maximum": 110.0
+    },
+    "test_trial_fp": {
+      "mean": 4.48,
+      "standard_deviation": 6.131340255876633,
+      "minimum": 0.0,
+      "maximum": 28.0
+    },
+    "test_trial_fn": {
+      "mean": 2.12,
+      "standard_deviation": 2.2045407685048604,
+      "minimum": 0.0,
+      "maximum": 6.0
+    },
+    "test_trial_tp": {
+      "mean": 11.88,
+      "standard_deviation": 2.603203155089258,
+      "minimum": 7.0,
+      "maximum": 15.0
+    },
+    "test_trial_auroc": {
+      "mean": 0.967311635980149,
+      "standard_deviation": 0.043849106396370324,
+      "minimum": 0.8567395906845449,
+      "maximum": 1.0
+    },
+    "test_trial_auprc": {
+      "mean": 0.877083195271577,
+      "standard_deviation": 0.13655447694777456,
+      "minimum": 0.5315362160859537,
+      "maximum": 1.0
+    }
+  }
+}
