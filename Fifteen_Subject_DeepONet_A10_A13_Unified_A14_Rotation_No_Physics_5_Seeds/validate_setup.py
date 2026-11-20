@@ -61,4 +61,5 @@ def main() -> None:
     print("\nSetup validation passed: 257 planar trials including A11, 49 A14 trials, five paired seeds, and leakage-free folds.")
 
 
-if __name__ == "__main__": main()
+if __name__ == "__main__":
+    main()

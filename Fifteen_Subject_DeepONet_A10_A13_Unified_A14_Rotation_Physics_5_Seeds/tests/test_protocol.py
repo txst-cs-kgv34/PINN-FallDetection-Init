@@ -23,4 +23,5 @@ class ProtocolTests(unittest.TestCase):
         self.assertAlmostEqual(self.config["model"]["context_region_s"],.40); self.assertAlmostEqual(self.config["training"]["cartpole_physics_weight"],.01)
         self.assertAlmostEqual(self.config["physics"]["fixed_tau_s"],.23); self.assertAlmostEqual(self.config["physics"]["fixed_pi_rad"],.0635)
 
-if __name__=="__main__": unittest.main()
+if __name__ == "__main__":
+    unittest.main()

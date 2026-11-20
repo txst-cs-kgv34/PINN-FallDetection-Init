@@ -371,6 +371,7 @@ def physics_residual_components(prediction, gains, time_s, mass_kg, height_m, ph
 
 
 def physics_losses(prediction, gains, batch, config, model_group: str):
+    import torch
     import torch.nn.functional as functional
     r1, r2, ryaw, mask = physics_residual_components(
         prediction, gains, batch["time_s"], batch["mass_kg"], batch["height_m"],

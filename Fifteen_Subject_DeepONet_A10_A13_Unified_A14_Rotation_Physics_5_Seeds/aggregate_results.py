@@ -102,4 +102,5 @@ def main() -> None:
     print(json.dumps(reports, indent=2))
 
 
-if __name__ == "__main__": main()
+if __name__ == "__main__":
+    main()

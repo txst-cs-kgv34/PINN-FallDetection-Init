@@ -21,4 +21,5 @@ def main() -> None:
             if path.resolve() != destination.resolve(): archive.write(path, path.relative_to(ROOT))
     print(destination)
 
-if __name__ == "__main__": main()
+if __name__ == "__main__":
+    main()

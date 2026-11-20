@@ -31,4 +31,5 @@ def main() -> None:
     if seen!=expected_activity: raise ValueError(f"activity counts changed: {seen}")
     print(f"PASS: {expected['planar']} planar and {expected['rotation']} rotation trials; arrays, masks, directions, and activities valid")
 
-if __name__=="__main__": main()
+if __name__ == "__main__":
+    main()

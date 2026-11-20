@@ -194,4 +194,5 @@ def main() -> None:
     dump_json(output_dir / "summary.json", summary); print(json.dumps(summary, indent=2))
 
 
-if __name__ == "__main__": main()
+if __name__ == "__main__":
+    main()

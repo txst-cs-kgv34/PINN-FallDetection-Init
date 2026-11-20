@@ -23,4 +23,5 @@ class ModelShapeTests(unittest.TestCase):
     def test_planar(self): self.run_group("planar",2,4,5)
     def test_rotation(self): self.run_group("rotation",3,6,7)
 
-if __name__=="__main__": unittest.main()
+if __name__ == "__main__":
+    unittest.main()
