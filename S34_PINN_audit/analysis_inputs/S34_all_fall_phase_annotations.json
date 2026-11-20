@@ -1,0 +1,322 @@
+{
+  "S34A10T01": {
+    "trial": "S34A10T01",
+    "subject": "S34",
+    "activity": "A10",
+    "source_kind": "new_manual_A10_A12_A13_A14",
+    "phase_frames0": {
+      "initial_standing": 4,
+      "fall_onset": 6,
+      "descent": 48,
+      "apparent_contact": 84,
+      "post_fall": 247
+    },
+    "manual_fall_valid": true,
+    "dataset_status": "manual_valid",
+    "decision_reason": "Complete ordered manual phases and numeric audit source are available."
+  },
+  "S34A10T02": {
+    "trial": "S34A10T02",
+    "subject": "S34",
+    "activity": "A10",
+    "source_kind": "new_manual_A10_A12_A13_A14",
+    "phase_frames0": {
+      "initial_standing": 0,
+      "fall_onset": 2,
+      "descent": 28,
+      "apparent_contact": 58,
+      "post_fall": 206
+    },
+    "manual_fall_valid": true,
+    "dataset_status": "manual_valid",
+    "decision_reason": "Complete ordered manual phases and numeric audit source are available."
+  },
+  "S34A10T03": {
+    "trial": "S34A10T03",
+    "subject": "S34",
+    "activity": "A10",
+    "source_kind": "new_manual_A10_A12_A13_A14",
+    "phase_frames0": {
+      "initial_standing": 0,
+      "fall_onset": 2,
+      "descent": 31,
+      "apparent_contact": 73,
+      "post_fall": 264
+    },
+    "manual_fall_valid": true,
+    "dataset_status": "manual_valid",
+    "decision_reason": "Complete ordered manual phases and numeric audit source are available."
+  },
+  "S34A10T04": {
+    "trial": "S34A10T04",
+    "subject": "S34",
+    "activity": "A10",
+    "source_kind": "new_manual_A10_A12_A13_A14",
+    "phase_frames0": {
+      "initial_standing": 0,
+      "fall_onset": 1,
+      "descent": 27,
+      "apparent_contact": 56,
+      "post_fall": 260
+    },
+    "manual_fall_valid": true,
+    "dataset_status": "manual_valid",
+    "decision_reason": "Complete ordered manual phases and numeric audit source are available."
+  },
+  "S34A10T05": {
+    "trial": "S34A10T05",
+    "subject": "S34",
+    "activity": "A10",
+    "source_kind": "new_manual_A10_A12_A13_A14",
+    "phase_frames0": {
+      "initial_standing": 1,
+      "fall_onset": 3,
+      "descent": 33,
+      "apparent_contact": 51,
+      "post_fall": 236
+    },
+    "manual_fall_valid": true,
+    "dataset_status": "manual_valid",
+    "decision_reason": "Complete ordered manual phases and numeric audit source are available."
+  },
+  "S34A11T01": {
+    "trial": "S34A11T01",
+    "subject": "S34",
+    "activity": "A11",
+    "source_kind": "existing_manual_A11",
+    "phase_frames0": {
+      "initial_standing": 1,
+      "fall_onset": 11,
+      "descent": 26,
+      "apparent_contact": 54,
+      "post_fall": 152
+    },
+    "manual_fall_valid": true,
+    "dataset_status": "manual_valid",
+    "decision_reason": "Complete ordered manual phases and numeric audit source are available."
+  },
+  "S34A11T02": {
+    "trial": "S34A11T02",
+    "subject": "S34",
+    "activity": "A11",
+    "source_kind": "existing_manual_A11",
+    "phase_frames0": {
+      "initial_standing": 1,
+      "fall_onset": 9,
+      "descent": 25,
+      "apparent_contact": 50,
+      "post_fall": 175
+    },
+    "manual_fall_valid": true,
+    "dataset_status": "manual_valid",
+    "decision_reason": "Complete ordered manual phases and numeric audit source are available."
+  },
+  "S34A11T03": {
+    "trial": "S34A11T03",
+    "subject": "S34",
+    "activity": "A11",
+    "source_kind": "existing_manual_A11",
+    "phase_frames0": {
+      "initial_standing": 1,
+      "fall_onset": 11,
+      "descent": 32,
+      "apparent_contact": 50,
+      "post_fall": 183
+    },
+    "manual_fall_valid": true,
+    "dataset_status": "manual_valid",
+    "decision_reason": "Complete ordered manual phases and numeric audit source are available."
+  },
+  "S34A11T04": {
+    "trial": "S34A11T04",
+    "subject": "S34",
+    "activity": "A11",
+    "source_kind": "existing_manual_A11",
+    "phase_frames0": {
+      "initial_standing": 1,
+      "fall_onset": 9,
+      "descent": 25,
+      "apparent_contact": 48,
+      "post_fall": 155
+    },
+    "manual_fall_valid": true,
+    "dataset_status": "manual_valid",
+    "decision_reason": "Complete ordered manual phases and numeric audit source are available."
+  },
+  "S34A11T05": {
+    "trial": "S34A11T05",
+    "subject": "S34",
+    "activity": "A11",
+    "source_kind": "existing_manual_A11",
+    "phase_frames0": {
+      "initial_standing": 1,
+      "fall_onset": 7,
+      "descent": 30,
+      "apparent_contact": 45,
+      "post_fall": 143
+    },
+    "manual_fall_valid": true,
+    "dataset_status": "manual_valid",
+    "decision_reason": "Complete ordered manual phases and numeric audit source are available."
+  },
+  "S34A12T01": {
+    "trial": "S34A12T01",
+    "subject": "S34",
+    "activity": "A12",
+    "source_kind": "new_manual_A10_A12_A13_A14",
+    "phase_frames0": {
+      "initial_standing": 2,
+      "fall_onset": 15,
+      "descent": 45,
+      "apparent_contact": 68,
+      "post_fall": 198
+    },
+    "manual_fall_valid": true,
+    "dataset_status": "manual_valid",
+    "decision_reason": "Complete ordered manual phases and numeric audit source are available."
+  },
+  "S34A12T02": {
+    "trial": "S34A12T02",
+    "subject": "S34",
+    "activity": "A12",
+    "source_kind": "new_manual_A10_A12_A13_A14",
+    "phase_frames0": {
+      "initial_standing": 1,
+      "fall_onset": 3,
+      "descent": 28,
+      "apparent_contact": 53,
+      "post_fall": 235
+    },
+    "manual_fall_valid": true,
+    "dataset_status": "manual_valid",
+    "decision_reason": "Complete ordered manual phases and numeric audit source are available."
+  },
+  "S34A12T03": {
+    "trial": "S34A12T03",
+    "subject": "S34",
+    "activity": "A12",
+    "source_kind": "new_manual_A10_A12_A13_A14",
+    "phase_frames0": {
+      "initial_standing": 6,
+      "fall_onset": 20,
+      "descent": 45,
+      "apparent_contact": 65,
+      "post_fall": 276
+    },
+    "manual_fall_valid": true,
+    "dataset_status": "manual_valid",
+    "decision_reason": "Complete ordered manual phases and numeric audit source are available."
+  },
+  "S34A12T04": {
+    "trial": "S34A12T04",
+    "subject": "S34",
+    "activity": "A12",
+    "source_kind": "new_manual_A10_A12_A13_A14",
+    "phase_frames0": {
+      "initial_standing": 2,
+      "fall_onset": 5,
+      "descent": 30,
+      "apparent_contact": 59,
+      "post_fall": 223
+    },
+    "manual_fall_valid": true,
+    "dataset_status": "manual_valid",
+    "decision_reason": "Complete ordered manual phases and numeric audit source are available."
+  },
+  "S34A12T05": {
+    "trial": "S34A12T05",
+    "subject": "S34",
+    "activity": "A12",
+    "source_kind": "new_manual_A10_A12_A13_A14",
+    "phase_frames0": {
+      "initial_standing": 1,
+      "fall_onset": 3,
+      "descent": 25,
+      "apparent_contact": 51,
+      "post_fall": 206
+    },
+    "manual_fall_valid": true,
+    "dataset_status": "manual_valid",
+    "decision_reason": "Complete ordered manual phases and numeric audit source are available."
+  },
+  "S34A13T01": {
+    "trial": "S34A13T01",
+    "subject": "S34",
+    "activity": "A13",
+    "source_kind": "new_manual_A10_A12_A13_A14",
+    "phase_frames0": {
+      "initial_standing": 8,
+      "fall_onset": 19,
+      "descent": 51,
+      "apparent_contact": 83,
+      "post_fall": 260
+    },
+    "manual_fall_valid": true,
+    "dataset_status": "manual_valid",
+    "decision_reason": "Complete ordered manual phases and numeric audit source are available."
+  },
+  "S34A13T02": {
+    "trial": "S34A13T02",
+    "subject": "S34",
+    "activity": "A13",
+    "source_kind": "new_manual_A10_A12_A13_A14",
+    "phase_frames0": {
+      "initial_standing": 2,
+      "fall_onset": 6,
+      "descent": 34,
+      "apparent_contact": 71,
+      "post_fall": 239
+    },
+    "manual_fall_valid": true,
+    "dataset_status": "manual_valid",
+    "decision_reason": "Complete ordered manual phases and numeric audit source are available."
+  },
+  "S34A13T03": {
+    "trial": "S34A13T03",
+    "subject": "S34",
+    "activity": "A13",
+    "source_kind": "new_manual_A10_A12_A13_A14",
+    "phase_frames0": {
+      "initial_standing": 2,
+      "fall_onset": 6,
+      "descent": 43,
+      "apparent_contact": 71,
+      "post_fall": 235
+    },
+    "manual_fall_valid": true,
+    "dataset_status": "manual_valid",
+    "decision_reason": "Complete ordered manual phases and numeric audit source are available."
+  },
+  "S34A13T04": {
+    "trial": "S34A13T04",
+    "subject": "S34",
+    "activity": "A13",
+    "source_kind": "new_manual_A10_A12_A13_A14",
+    "phase_frames0": {
+      "initial_standing": 4,
+      "fall_onset": 8,
+      "descent": 48,
+      "apparent_contact": 71,
+      "post_fall": 293
+    },
+    "manual_fall_valid": true,
+    "dataset_status": "manual_valid",
+    "decision_reason": "Complete ordered manual phases and numeric audit source are available."
+  },
+  "S34A13T05": {
+    "trial": "S34A13T05",
+    "subject": "S34",
+    "activity": "A13",
+    "source_kind": "new_manual_A10_A12_A13_A14",
+    "phase_frames0": {
+      "initial_standing": 1,
+      "fall_onset": 3,
+      "descent": 29,
+      "apparent_contact": 57,
+      "post_fall": 232
+    },
+    "manual_fall_valid": true,
+    "dataset_status": "manual_valid",
+    "decision_reason": "Complete ordered manual phases and numeric audit source are available."
+  }
+}

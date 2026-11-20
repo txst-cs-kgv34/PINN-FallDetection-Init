@@ -1,0 +1,51 @@
+{
+  "subject": "S59",
+  "nominal_fps": 30,
+  "notes": [
+    {
+      "trial": "S59A14T01",
+      "frame0": 2,
+      "nominal_time_s": 0.06666666666666667,
+      "view_mode": "raw",
+      "phase": "initial_standing",
+      "note": "",
+      "status": "manual_provisional_skeleton_observation"
+    },
+    {
+      "trial": "S59A14T01",
+      "frame0": 15,
+      "nominal_time_s": 0.5,
+      "view_mode": "raw",
+      "phase": "fall_onset",
+      "note": "",
+      "status": "manual_provisional_skeleton_observation"
+    },
+    {
+      "trial": "S59A14T01",
+      "frame0": 51,
+      "nominal_time_s": 1.7,
+      "view_mode": "raw",
+      "phase": "descent",
+      "note": "",
+      "status": "manual_provisional_skeleton_observation"
+    },
+    {
+      "trial": "S59A14T01",
+      "frame0": 69,
+      "nominal_time_s": 2.3,
+      "view_mode": "raw",
+      "phase": "apparent_contact",
+      "note": "",
+      "status": "manual_provisional_skeleton_observation"
+    },
+    {
+      "trial": "S59A14T01",
+      "frame0": 108,
+      "nominal_time_s": 3.6,
+      "view_mode": "raw",
+      "phase": "post_fall",
+      "note": "",
+      "status": "manual_provisional_skeleton_observation"
+    }
+  ]
+}

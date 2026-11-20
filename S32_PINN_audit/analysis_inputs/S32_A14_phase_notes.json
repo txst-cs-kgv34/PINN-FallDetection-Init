@@ -1,0 +1,51 @@
+{
+  "subject": "S32",
+  "nominal_fps": 30,
+  "notes": [
+    {
+      "trial": "S32A14T03",
+      "frame0": 0,
+      "nominal_time_s": 0,
+      "view_mode": "raw",
+      "phase": "initial_standing",
+      "note": "",
+      "status": "manual_provisional_skeleton_observation"
+    },
+    {
+      "trial": "S32A14T03",
+      "frame0": 4,
+      "nominal_time_s": 0.13333333333333333,
+      "view_mode": "raw",
+      "phase": "fall_onset",
+      "note": "",
+      "status": "manual_provisional_skeleton_observation"
+    },
+    {
+      "trial": "S32A14T03",
+      "frame0": 50,
+      "nominal_time_s": 1.6666666666666667,
+      "view_mode": "raw",
+      "phase": "descent",
+      "note": "",
+      "status": "manual_provisional_skeleton_observation"
+    },
+    {
+      "trial": "S32A14T03",
+      "frame0": 89,
+      "nominal_time_s": 2.966666666666667,
+      "view_mode": "raw",
+      "phase": "apparent_contact",
+      "note": "",
+      "status": "manual_provisional_skeleton_observation"
+    },
+    {
+      "trial": "S32A14T03",
+      "frame0": 270,
+      "nominal_time_s": 9,
+      "view_mode": "raw",
+      "phase": "post_fall",
+      "note": "",
+      "status": "manual_provisional_skeleton_observation"
+    }
+  ]
+}

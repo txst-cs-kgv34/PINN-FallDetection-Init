@@ -110,3 +110,18 @@ Confirm XYZ units/order, camera-to-floor orientation, original timestamps, missi
 
 ![tracking_diagnostics](results/plots/tracking_diagnostics.png)
 
+<!-- MULTIACTIVITY_PHASE_UPDATE_START -->
+## Multi-activity phase findings
+
+Manual review yields **21 detection-ready falls**, **14 strict planar-physics trials**, and **5 strict rotation-physics trials** for S57.
+
+| Activity | Numeric | Detection-ready | Manual exclusions | Unavailable |
+|:--|--:|--:|--:|--:|
+| A10 | 5 | 3 | 2 | 0 |
+| A11 | 5 | 3 | 2 | 0 |
+| A12 | 5 | 5 | 0 | 0 |
+| A13 | 5 | 5 | 0 | 0 |
+| A14 | 5 | 5 | 0 | 0 |
+
+Repair-sensitive valid trials remain available with masks; they are not silently promoted into the strict physics subset. Incomplete falls and missing/empty sources are not represented as training examples.
+<!-- MULTIACTIVITY_PHASE_UPDATE_END -->

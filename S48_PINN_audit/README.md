@@ -46,3 +46,33 @@ python scripts/inspect_trials.py --run findings/S48_audit_repaired_rerun --selec
 ## Scientific boundary
 
 The audit assumes the established Azure Kinect 32-joint XYZ/mm/30-FPS format. Original timestamps, tracking confidence, videos, and camera-to-floor calibration are unavailable. Repairs, review flags, and automatic phase suggestions support inspection; they are not validated fall labels.
+
+<!-- MULTIACTIVITY_PHASE_UPDATE_START -->
+## Multi-activity manual phase update
+
+A10, A12, A13, and A14 manual phase notes were reconciled with this audit; the previously reviewed A11 annotations were retained. The trial manifest separates manual fall validity from repair quality and preserves unavailable or incomplete trials as explicit exclusions.
+
+| Activity | Numeric | Detection-ready | Manual exclusions | Unavailable |
+|:--|--:|--:|--:|--:|
+| A10 | 5 | 1 | 4 | 0 |
+| A11 | 5 | 5 | 0 | 0 |
+| A12 | 5 | 4 | 1 | 0 |
+| A13 | 5 | 2 | 3 | 0 |
+| A14 | 4 | 4 | 0 | 1 |
+
+Machine-readable files: `analysis_inputs/S48_real_fall_trial_manifest.csv` and `analysis_inputs/S48_all_fall_phase_annotations.json`.
+
+A14 may end on either camera side after rotation. Use the per-trial X–Z fall direction rather than an activity-wide sign. Apparent contact remains skeleton-observed.
+
+### Excluded or unavailable trial slots
+
+- `S48A10T01` — Only T04 was manually confirmed as a valid A10 trial.
+- `S48A10T02` — Only T04 was manually confirmed as a valid A10 trial.
+- `S48A10T03` — Only T04 was manually confirmed as a valid A10 trial.
+- `S48A10T05` — Only T04 was manually confirmed as a valid A10 trial.
+- `S48A12T01` — Manually confirmed incomplete fall.
+- `S48A13T02` — Manually confirmed incomplete fall.
+- `S48A13T03` — Manually confirmed incomplete fall.
+- `S48A13T05` — Manually confirmed incomplete fall.
+- `S48A14T04` — Expected trial has no numeric CoM output in the audit (missing or empty source).
+<!-- MULTIACTIVITY_PHASE_UPDATE_END -->

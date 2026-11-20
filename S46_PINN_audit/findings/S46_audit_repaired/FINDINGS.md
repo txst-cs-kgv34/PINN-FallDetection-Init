@@ -119,3 +119,19 @@ See `../../REPAIR_ASSESSMENT.md` for trial-level repair fractions, boundary carr
 
 See `../../analysis_inputs/FRONTFALL_PHASE_STATUS.md` for trial-level repair overlap and phase frames. The automatic suggestions are superseded by the manual notes.
 <!-- MANUAL_A11_PHASE_UPDATE_END -->
+
+<!-- MULTIACTIVITY_PHASE_UPDATE_START -->
+## Multi-activity phase findings
+
+Manual review yields **20 detection-ready falls**, **18 strict planar-physics trials**, and **2 strict rotation-physics trials** for S46.
+
+| Activity | Numeric | Detection-ready | Manual exclusions | Unavailable |
+|:--|--:|--:|--:|--:|
+| A10 | 5 | 5 | 0 | 0 |
+| A11 | 5 | 5 | 0 | 0 |
+| A12 | 5 | 4 | 1 | 0 |
+| A13 | 4 | 4 | 0 | 1 |
+| A14 | 5 | 2 | 3 | 0 |
+
+Repair-sensitive valid trials remain available with masks; they are not silently promoted into the strict physics subset. Incomplete falls and missing/empty sources are not represented as training examples.
+<!-- MULTIACTIVITY_PHASE_UPDATE_END -->
