@@ -1,0 +1,31 @@
+{
+  "manifest": "manifests/trial_manifest.csv",
+  "feature_path_column": "feature_file",
+  "subject_group_column": "subject",
+  "detection_filter": "include_detection_training == true",
+  "planar_physics_primary_filter": "include_planar_physics_primary == true",
+  "planar_physics_sensitivity_filter": "include_planar_physics_sensitivity == true",
+  "rotation_physics_primary_filter": "include_rotation_physics_primary == true",
+  "rotation_physics_sensitivity_filter": "include_rotation_physics_sensitivity == true",
+  "repair_mask_column": "repaired_frame",
+  "time_column": "time_from_fall_onset_s",
+  "physics_state_columns": [
+    "aligned_progression_m",
+    "aligned_lateral_m",
+    "vertical_from_onset_m"
+  ],
+  "camera_com_columns": [
+    "com_camera_x_m",
+    "com_camera_y_down_m",
+    "com_camera_z_m"
+  ],
+  "phase_column": "phase_segment",
+  "phase_boundary_column": "phase_boundary",
+  "recommended_split": "splits/loso_folds.json",
+  "nominal_fps": 30,
+  "notes": [
+    "Group all partitions by subject to prevent identity leakage.",
+    "Mask repaired frames in data and physics losses.",
+    "Do not use a single-plane residual for A14 without a rotation-aware extension."
+  ]
+}

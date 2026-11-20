@@ -1,0 +1,51 @@
+{
+  "subject": "S49",
+  "nominal_fps": 30,
+  "notes": [
+    {
+      "trial": "S49A12T03",
+      "frame0": 0,
+      "nominal_time_s": 0,
+      "view_mode": "raw",
+      "phase": "initial_standing",
+      "note": "",
+      "status": "manual_provisional_skeleton_observation"
+    },
+    {
+      "trial": "S49A12T03",
+      "frame0": 1,
+      "nominal_time_s": 0.03333333333333333,
+      "view_mode": "raw",
+      "phase": "fall_onset",
+      "note": "",
+      "status": "manual_provisional_skeleton_observation"
+    },
+    {
+      "trial": "S49A12T03",
+      "frame0": 20,
+      "nominal_time_s": 0.6666666666666666,
+      "view_mode": "raw",
+      "phase": "descent",
+      "note": "",
+      "status": "manual_provisional_skeleton_observation"
+    },
+    {
+      "trial": "S49A12T03",
+      "frame0": 39,
+      "nominal_time_s": 1.3,
+      "view_mode": "raw",
+      "phase": "apparent_contact",
+      "note": "",
+      "status": "manual_provisional_skeleton_observation"
+    },
+    {
+      "trial": "S49A12T03",
+      "frame0": 85,
+      "nominal_time_s": 2.8333333333333335,
+      "view_mode": "raw",
+      "phase": "post_fall",
+      "note": "",
+      "status": "manual_provisional_skeleton_observation"
+    }
+  ]
+}

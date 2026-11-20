@@ -1,0 +1,347 @@
+[
+  {
+    "fold": "test_S30",
+    "train_subjects": [
+      "S32",
+      "S34",
+      "S43",
+      "S44",
+      "S45",
+      "S46",
+      "S48",
+      "S49",
+      "S55",
+      "S56",
+      "S57",
+      "S59",
+      "S62",
+      "S63"
+    ],
+    "test_subjects": [
+      "S30"
+    ],
+    "grouping_key": "subject"
+  },
+  {
+    "fold": "test_S32",
+    "train_subjects": [
+      "S30",
+      "S34",
+      "S43",
+      "S44",
+      "S45",
+      "S46",
+      "S48",
+      "S49",
+      "S55",
+      "S56",
+      "S57",
+      "S59",
+      "S62",
+      "S63"
+    ],
+    "test_subjects": [
+      "S32"
+    ],
+    "grouping_key": "subject"
+  },
+  {
+    "fold": "test_S34",
+    "train_subjects": [
+      "S30",
+      "S32",
+      "S43",
+      "S44",
+      "S45",
+      "S46",
+      "S48",
+      "S49",
+      "S55",
+      "S56",
+      "S57",
+      "S59",
+      "S62",
+      "S63"
+    ],
+    "test_subjects": [
+      "S34"
+    ],
+    "grouping_key": "subject"
+  },
+  {
+    "fold": "test_S43",
+    "train_subjects": [
+      "S30",
+      "S32",
+      "S34",
+      "S44",
+      "S45",
+      "S46",
+      "S48",
+      "S49",
+      "S55",
+      "S56",
+      "S57",
+      "S59",
+      "S62",
+      "S63"
+    ],
+    "test_subjects": [
+      "S43"
+    ],
+    "grouping_key": "subject"
+  },
+  {
+    "fold": "test_S44",
+    "train_subjects": [
+      "S30",
+      "S32",
+      "S34",
+      "S43",
+      "S45",
+      "S46",
+      "S48",
+      "S49",
+      "S55",
+      "S56",
+      "S57",
+      "S59",
+      "S62",
+      "S63"
+    ],
+    "test_subjects": [
+      "S44"
+    ],
+    "grouping_key": "subject"
+  },
+  {
+    "fold": "test_S45",
+    "train_subjects": [
+      "S30",
+      "S32",
+      "S34",
+      "S43",
+      "S44",
+      "S46",
+      "S48",
+      "S49",
+      "S55",
+      "S56",
+      "S57",
+      "S59",
+      "S62",
+      "S63"
+    ],
+    "test_subjects": [
+      "S45"
+    ],
+    "grouping_key": "subject"
+  },
+  {
+    "fold": "test_S46",
+    "train_subjects": [
+      "S30",
+      "S32",
+      "S34",
+      "S43",
+      "S44",
+      "S45",
+      "S48",
+      "S49",
+      "S55",
+      "S56",
+      "S57",
+      "S59",
+      "S62",
+      "S63"
+    ],
+    "test_subjects": [
+      "S46"
+    ],
+    "grouping_key": "subject"
+  },
+  {
+    "fold": "test_S48",
+    "train_subjects": [
+      "S30",
+      "S32",
+      "S34",
+      "S43",
+      "S44",
+      "S45",
+      "S46",
+      "S49",
+      "S55",
+      "S56",
+      "S57",
+      "S59",
+      "S62",
+      "S63"
+    ],
+    "test_subjects": [
+      "S48"
+    ],
+    "grouping_key": "subject"
+  },
+  {
+    "fold": "test_S49",
+    "train_subjects": [
+      "S30",
+      "S32",
+      "S34",
+      "S43",
+      "S44",
+      "S45",
+      "S46",
+      "S48",
+      "S55",
+      "S56",
+      "S57",
+      "S59",
+      "S62",
+      "S63"
+    ],
+    "test_subjects": [
+      "S49"
+    ],
+    "grouping_key": "subject"
+  },
+  {
+    "fold": "test_S55",
+    "train_subjects": [
+      "S30",
+      "S32",
+      "S34",
+      "S43",
+      "S44",
+      "S45",
+      "S46",
+      "S48",
+      "S49",
+      "S56",
+      "S57",
+      "S59",
+      "S62",
+      "S63"
+    ],
+    "test_subjects": [
+      "S55"
+    ],
+    "grouping_key": "subject"
+  },
+  {
+    "fold": "test_S56",
+    "train_subjects": [
+      "S30",
+      "S32",
+      "S34",
+      "S43",
+      "S44",
+      "S45",
+      "S46",
+      "S48",
+      "S49",
+      "S55",
+      "S57",
+      "S59",
+      "S62",
+      "S63"
+    ],
+    "test_subjects": [
+      "S56"
+    ],
+    "grouping_key": "subject"
+  },
+  {
+    "fold": "test_S57",
+    "train_subjects": [
+      "S30",
+      "S32",
+      "S34",
+      "S43",
+      "S44",
+      "S45",
+      "S46",
+      "S48",
+      "S49",
+      "S55",
+      "S56",
+      "S59",
+      "S62",
+      "S63"
+    ],
+    "test_subjects": [
+      "S57"
+    ],
+    "grouping_key": "subject"
+  },
+  {
+    "fold": "test_S59",
+    "train_subjects": [
+      "S30",
+      "S32",
+      "S34",
+      "S43",
+      "S44",
+      "S45",
+      "S46",
+      "S48",
+      "S49",
+      "S55",
+      "S56",
+      "S57",
+      "S62",
+      "S63"
+    ],
+    "test_subjects": [
+      "S59"
+    ],
+    "grouping_key": "subject"
+  },
+  {
+    "fold": "test_S62",
+    "train_subjects": [
+      "S30",
+      "S32",
+      "S34",
+      "S43",
+      "S44",
+      "S45",
+      "S46",
+      "S48",
+      "S49",
+      "S55",
+      "S56",
+      "S57",
+      "S59",
+      "S63"
+    ],
+    "test_subjects": [
+      "S62"
+    ],
+    "grouping_key": "subject"
+  },
+  {
+    "fold": "test_S63",
+    "train_subjects": [
+      "S30",
+      "S32",
+      "S34",
+      "S43",
+      "S44",
+      "S45",
+      "S46",
+      "S48",
+      "S49",
+      "S55",
+      "S56",
+      "S57",
+      "S59",
+      "S62"
+    ],
+    "test_subjects": [
+      "S63"
+    ],
+    "grouping_key": "subject"
+  }
+]

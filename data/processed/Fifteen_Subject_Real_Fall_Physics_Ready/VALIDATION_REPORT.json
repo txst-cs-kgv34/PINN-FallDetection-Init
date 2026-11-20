@@ -1,0 +1,17 @@
+{
+  "status": "pass",
+  "expected_slots": 375,
+  "numeric_sources": 358,
+  "complete_phase_sets": 322,
+  "detection_ready_trials": 322,
+  "feature_files": 322,
+  "phase_files_new_remaining_activities": 59,
+  "warnings": [],
+  "checks": {
+    "all_manifest_trials_unique": true,
+    "all_detection_trials_have_features": true,
+    "all_features_exist": true,
+    "all_phase_orders_strict": true,
+    "all_phase_frames_in_bounds": true
+  }
+}

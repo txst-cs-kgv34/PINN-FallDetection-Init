@@ -1,0 +1,32 @@
+{
+  "subject": "S43",
+  "nominal_fps": 30,
+  "notes": [
+    {"trial": "S43A11T02", "frame0": 130, "nominal_time_s": 4.333333333333333, "view_mode": "raw", "phase": "initial_standing", "note": "", "status": "manual_provisional_skeleton_observation"},
+    {"trial": "S43A11T02", "frame0": 142, "nominal_time_s": 4.733333333333333, "view_mode": "raw", "phase": "fall_onset", "note": "", "status": "manual_provisional_skeleton_observation"},
+    {"trial": "S43A11T02", "frame0": 163, "nominal_time_s": 5.433333333333334, "view_mode": "raw", "phase": "descent", "note": "", "status": "manual_provisional_skeleton_observation"},
+    {"trial": "S43A11T02", "frame0": 172, "nominal_time_s": 5.733333333333333, "view_mode": "raw", "phase": "apparent_contact", "note": "", "status": "manual_provisional_skeleton_observation"},
+    {"trial": "S43A11T02", "frame0": 255, "nominal_time_s": 8.5, "view_mode": "raw", "phase": "post_fall", "note": "", "status": "manual_provisional_skeleton_observation"},
+    {"trial": "S43A11T03", "frame0": 108, "nominal_time_s": 3.6, "view_mode": "raw", "phase": "initial_standing", "note": "", "status": "manual_provisional_skeleton_observation"},
+    {"trial": "S43A11T03", "frame0": 126, "nominal_time_s": 4.2, "view_mode": "raw", "phase": "fall_onset", "note": "", "status": "manual_provisional_skeleton_observation"},
+    {"trial": "S43A11T03", "frame0": 145, "nominal_time_s": 4.833333333333333, "view_mode": "raw", "phase": "descent", "note": "", "status": "manual_provisional_skeleton_observation"},
+    {"trial": "S43A11T03", "frame0": 155, "nominal_time_s": 5.166666666666667, "view_mode": "raw", "phase": "apparent_contact", "note": "", "status": "manual_provisional_skeleton_observation"},
+    {"trial": "S43A11T03", "frame0": 228, "nominal_time_s": 7.6, "view_mode": "raw", "phase": "post_fall", "note": "", "status": "manual_provisional_skeleton_observation"},
+    {"trial": "S43A11T04", "frame0": 74, "nominal_time_s": 2.466666666666667, "view_mode": "raw", "phase": "initial_standing", "note": "", "status": "manual_provisional_skeleton_observation"},
+    {"trial": "S43A11T04", "frame0": 83, "nominal_time_s": 2.7666666666666666, "view_mode": "raw", "phase": "fall_onset", "note": "", "status": "manual_provisional_skeleton_observation"},
+    {"trial": "S43A11T04", "frame0": 107, "nominal_time_s": 3.566666666666667, "view_mode": "raw", "phase": "descent", "note": "", "status": "manual_provisional_skeleton_observation"},
+    {"trial": "S43A11T04", "frame0": 114, "nominal_time_s": 3.8, "view_mode": "raw", "phase": "apparent_contact", "note": "", "status": "manual_provisional_skeleton_observation"},
+    {"trial": "S43A11T04", "frame0": 183, "nominal_time_s": 6.1, "view_mode": "raw", "phase": "post_fall", "note": "", "status": "manual_provisional_skeleton_observation"},
+    {"trial": "S43A11T05", "frame0": 68, "nominal_time_s": 2.2666666666666666, "view_mode": "raw", "phase": "initial_standing", "note": "", "status": "manual_provisional_skeleton_observation"},
+    {"trial": "S43A11T05", "frame0": 71, "nominal_time_s": 2.3666666666666667, "view_mode": "raw", "phase": "fall_onset", "note": "", "status": "manual_provisional_skeleton_observation"},
+    {"trial": "S43A11T05", "frame0": 91, "nominal_time_s": 3.033333333333333, "view_mode": "raw", "phase": "descent", "note": "", "status": "manual_provisional_skeleton_observation"},
+    {"trial": "S43A11T05", "frame0": 95, "nominal_time_s": 3.1666666666666665, "view_mode": "raw", "phase": "apparent_contact", "note": "", "status": "manual_provisional_skeleton_observation"},
+    {"trial": "S43A11T05", "frame0": 181, "nominal_time_s": 6.033333333333333, "view_mode": "raw", "phase": "post_fall", "note": "", "status": "manual_provisional_skeleton_observation"}
+  ],
+  "experiment_scope": {
+    "included_trials": ["S43A11T02", "S43A11T03", "S43A11T04", "S43A11T05"],
+    "excluded_trials": {
+      "S43A11T01": "User-confirmed invalid fall; excluded from Stage-1 front-fall modeling."
+    }
+  }
+}
