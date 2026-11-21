@@ -12,6 +12,28 @@ patience, validation subject, and checkpoint rule. Only the target physics
 weight differs. Nonzero weights ramp linearly over the first 100 epochs; all
 arms have the same 100-epoch minimum training period.
 
+## Seed-1 pilot result and decision
+
+The seed-1 pilot completed successfully and **passes the gate for the remaining
+four seeds**. The result is promising but not yet conclusive:
+
+- all 20 candidate models completed with finite histories;
+- all four λ arms had identical initialization hashes and identical
+  pre-training validation loss within every fold;
+- validation selected nonzero physics in four of five folds: `0.01` in folds
+  1–3, `0` in fold 4, and `0.001` in fold 5;
+- selected V3 improved theta RMSE by 1.08% and CoM-x RMSE by 1.02%;
+- normalized MSE was 0.75% worse in the mean, but favored V3 for 9 subjects,
+  favored λ=0 for 3, and tied for the 3 subjects in the λ=0-selected fold;
+- S45 is the main adverse outlier and accounts for the aggregate normalized-MSE
+  reversal; and
+- no subject-level endpoint was significant after Holm correction, as expected
+  for a one-seed pilot.
+
+The pilot therefore provides a reason to estimate seed stability, not a final
+claim of physics superiority. Run seeds 2–5 and base the conclusion on the
+predefined five-seed subject-level analysis.
+
 ## Why this experiment is required
 
 The earlier full-fall Model B result and the current Physics-Ready A11 result
@@ -73,7 +95,7 @@ The pilot trains 20 models: four λ arms × five folds for seed 1. Send back:
 
 `Fifteen_Subject_A11_From_Scratch_Physics_Calibration_V3_Seed_01_Pilot_Results.zip`
 
-Do not run seeds 2–5 until the seed-1 gate is reviewed. If approved:
+The seed-1 gate has now been reviewed and approved. Resume the full run with:
 
 ```bash
 ./run_on_mac.sh full mps
@@ -100,9 +122,9 @@ Proceed to all five seeds only when:
    instability; and
 4. residual improvement is not purchased by materially worse trajectory error.
 
-If λ=0 is selected in all five folds, stop and diagnose coordinates/residual
-heads before A10–A13 V2. If results are mixed, inspect fold histories and
-gradient ratios before expanding.
+The seed-1 pilot selected nonzero λ in four folds and therefore passed this
+gate. The five-seed result must still confirm whether the selections and small
+trajectory improvements are stable before proceeding to A10–A13 V2.
 
 ## Interpretation boundaries
 

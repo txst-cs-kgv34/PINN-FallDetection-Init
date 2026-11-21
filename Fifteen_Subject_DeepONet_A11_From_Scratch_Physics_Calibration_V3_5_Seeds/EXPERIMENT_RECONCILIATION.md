@@ -49,7 +49,8 @@ whether a nonzero CartPole weight helps the current 64-trial pipeline.
 
 ## Reporting language
 
-Use this wording until V3 is complete:
+Use this wording after the seed-1 V3 pilot and until the five-seed confirmation
+is complete:
 
 > The earlier matched Model B experiment showed a consistent descriptive
 > physics advantage across 12 of 15 held-out subjects, although adjusted
@@ -58,4 +59,7 @@ Use this wording until V3 is complete:
 > mean advantage. A warm-start calibration was inconclusive because continued
 > optimization was not matched. We therefore designed a matched from-scratch
 > four-weight calibration to isolate the residual's effect in the current
-> pipeline.
+> pipeline. In its first seed, validation selected nonzero physics in four of
+> five folds; theta and CoM-x RMSE improved slightly, while one S45 outlier made
+> mean normalized MSE slightly worse. We are completing all five seeds before
+> making a final claim.
