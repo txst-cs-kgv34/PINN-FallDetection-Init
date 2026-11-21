@@ -1,0 +1,9 @@
+{
+  "pairing": "same held-out subject and model group; five seeds averaged within subject",
+  "planar_subject_count": 15,
+  "rotation_subject_count": 13,
+  "lower_is_better": true,
+  "holm_family": "all metrics within each model group",
+  "physics_root_name": "physics",
+  "baseline_root_name": "baseline"
+}
