@@ -9,6 +9,29 @@ baseline.
 Keep this as a **new directory**. Do not overwrite the completed diagnostic;
 its checkpoints, metrics, and pairing record are the frozen `λ=0` reference.
 
+## Seed-1 pilot result — stop before seeds 2–5
+
+The pilot completed all 15 candidate fine-tunes and five fold selections. Every
+fold selected the unchanged `λ=0` checkpoint:
+
+| Validation fold | Selected weight | Selected epoch after warm start |
+|---:|---:|---:|
+| 1 | 0 | 0 |
+| 2 | 0 | 0 |
+| 3 | 0 | 0 |
+| 4 | 0 | 0 |
+| 5 | 0 | 0 |
+
+All three nonzero candidates also recorded epoch 0 as their best validation
+checkpoint in every fold. Consequently, the selected-policy test predictions
+are exactly the existing no-physics predictions: normalized MSE `3.4014`, theta
+RMSE `21.4531°`, and x RMSE `30.4418 cm` for seed 1.
+
+**Do not run `./run_on_mac.sh full mps` for this warm-start experiment.** The
+pilot failed its preregistered gate because no fold selected nonzero physics.
+Seeds 2–5 would cost 60 additional fine-tunes without resolving the main
+confound described in `FINDINGS.md`.
+
 ## Experimental question
 
 For every fold and seed, the calibration starts from the matching completed
@@ -52,8 +75,10 @@ test-set weight after looking at test results.
 - the same forecast target, context window, masks, and CartPole equations; and
 - validation forecast MSE as the checkpoint-selection metric.
 
-This calibration isolates physics weighting and optimization. It does **not**
-yet test activity-defined sagittal/frontal axes. Changing coordinates would
+This calibration was intended to isolate physics weighting and optimization,
+but the pilot showed that resuming from an already validation-selected
+checkpoint confounds the comparison with optimizer continuation. It does **not**
+test activity-defined sagittal/frontal axes. Changing coordinates would
 invalidate reuse of the existing no-physics checkpoints and would require a
 new matched baseline. That coordinate change belongs in the later full V2
 A10–A13 experiment.
@@ -100,11 +125,13 @@ no-physics seed-1 result. It packages
 `Fifteen_Subject_A11_Physics_Calibration_V2_Seed_01_Pilot_Results.zip`.
 Share that pilot ZIP before spending time on the remaining four seeds.
 
-If the pilot is stable, run:
+If a future pilot passes the gate, the five-seed command is:
 
 ```bash
 ./run_on_mac.sh full mps
 ```
+
+It is intentionally **not recommended for the present pilot result**.
 
 The full run contains:
 
@@ -163,4 +190,10 @@ Fifteen_Subject_A11_Physics_Calibration_V2_5_Seeds_Results.zip
   or credibly matches the existing no-physics model while reducing instability.
 - If `λ=0` dominates, do not search weights on the test data. Move to the
   separately matched activity-defined-coordinate experiment.
+
+The seed-1 result triggered the final rule: `λ=0` was selected in all five
+folds. The next useful calibration must train the normalized/ramped physics
+candidates from the same initial model state as the baseline, rather than
+continuing from a checkpoint that was already selected at its validation
+minimum.
 
