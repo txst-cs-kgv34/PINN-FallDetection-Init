@@ -86,3 +86,23 @@ Smaller commands:
 ```
 
 After the matching baseline finishes, run the comparison command from the no-physics folder.
+
+## Completed five-seed results
+
+All 50 physics models completed: 25 unified A10–A13 fold/seed models and 25 A14 rotation fold/seed models. Together with the matched baseline, the comparison covers 100 trained models.
+
+The table below averages the five seeds within each held-out subject and then averages subjects. Lower is better.
+
+| Model | Metric | No physics | Physics | Physics change |
+|:--|:--|--:|--:|--:|
+| A10–A13 | Normalized MSE | 2.914 | 3.314 | +13.7% |
+| A10–A13 | Theta RMSE (deg) | 21.423 | 23.484 | +9.6% |
+| A10–A13 | x RMSE (cm) | 29.221 | 31.962 | +9.4% |
+| A14 | Normalized MSE | 8.869 | 7.976 | -10.1% |
+| A14 | Theta RMSE (deg) | 30.784 | 29.859 | -3.0% |
+| A14 | x RMSE (cm) | 45.811 | 43.862 | -4.3% |
+| A14 | Yaw RMSE (deg) | 127.769 | 120.232 | -5.9% |
+
+Physics strongly improved dynamics consistency. The planar horizontal residual decreased 97.2%, and the A14 horizontal residual decreased 85.5%. However, the fixed physics weight of 0.01 traded away A10–A13 forecast accuracy. A14 trajectory improvements are promising but were not statistically significant after subject-level Holm correction.
+
+See `FINDINGS.md` and `comparison/COMPARISON.md` for the full interpretation. The combined paired box-plot figure is `comparison/physics_vs_no_physics_subject_boxplots.png`.
