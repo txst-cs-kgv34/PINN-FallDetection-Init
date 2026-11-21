@@ -1,0 +1,62 @@
+{
+  "base_seed": 20261105,
+  "eligible_test_subjects": 13,
+  "experiment": "fifteen_subject_a10_a13_unified_a14_rotation_no_physics_5seeds_v1",
+  "held_out_trials": 49,
+  "metrics": {
+    "normalized_mse": {
+      "mean_across_subjects": 9.166029825391103,
+      "median_across_subjects": 6.872534227371216,
+      "std_across_subjects": 6.411056044511798
+    },
+    "theta_mae_deg": {
+      "mean_across_subjects": 25.563543539780838,
+      "median_across_subjects": 23.143001794815063,
+      "std_across_subjects": 11.382178793977356
+    },
+    "theta_rmse_deg": {
+      "mean_across_subjects": 31.095758808576143,
+      "median_across_subjects": 27.81586151123047,
+      "std_across_subjects": 12.986312592444385
+    },
+    "theta_w1_deg": {
+      "mean_across_subjects": 23.044115796728462,
+      "median_across_subjects": 21.521169544422957,
+      "std_across_subjects": 11.511106058391112
+    },
+    "x_mae_cm": {
+      "mean_across_subjects": 37.85188829526305,
+      "median_across_subjects": 32.38834738731384,
+      "std_across_subjects": 16.51716830336859
+    },
+    "x_rmse_cm": {
+      "mean_across_subjects": 46.622268127707336,
+      "median_across_subjects": 40.90652048587799,
+      "std_across_subjects": 18.63393901482382
+    },
+    "x_w1_cm": {
+      "mean_across_subjects": 34.14612381703999,
+      "median_across_subjects": 31.524995361781606,
+      "std_across_subjects": 17.101945315882492
+    },
+    "yaw_mae_deg": {
+      "mean_across_subjects": 104.6540380697984,
+      "median_across_subjects": 105.45818138122559,
+      "std_across_subjects": 39.07410113898902
+    },
+    "yaw_rmse_deg": {
+      "mean_across_subjects": 125.52552475562463,
+      "median_across_subjects": 121.59119567871093,
+      "std_across_subjects": 43.10087684797255
+    },
+    "yaw_w1_deg": {
+      "mean_across_subjects": 99.01047896043923,
+      "median_across_subjects": 103.55906434450681,
+      "std_across_subjects": 44.616959672563134
+    }
+  },
+  "mode": "full",
+  "model_group": "rotation",
+  "physics_enabled": false,
+  "seed_index": 5
+}

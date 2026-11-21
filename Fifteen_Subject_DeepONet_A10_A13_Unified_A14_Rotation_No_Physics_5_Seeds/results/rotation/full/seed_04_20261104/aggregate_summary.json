@@ -1,0 +1,62 @@
+{
+  "base_seed": 20261104,
+  "eligible_test_subjects": 13,
+  "experiment": "fifteen_subject_a10_a13_unified_a14_rotation_no_physics_5seeds_v1",
+  "held_out_trials": 49,
+  "metrics": {
+    "normalized_mse": {
+      "mean_across_subjects": 8.12085359418908,
+      "median_across_subjects": 7.492890179157257,
+      "std_across_subjects": 4.0652145935402
+    },
+    "theta_mae_deg": {
+      "mean_across_subjects": 23.503853788742653,
+      "median_across_subjects": 22.654104232788086,
+      "std_across_subjects": 9.79650138477379
+    },
+    "theta_rmse_deg": {
+      "mean_across_subjects": 28.94170014491448,
+      "median_across_subjects": 29.184435653686524,
+      "std_across_subjects": 11.149562822305827
+    },
+    "theta_w1_deg": {
+      "mean_across_subjects": 21.99094864596128,
+      "median_across_subjects": 21.49158376221363,
+      "std_across_subjects": 9.736248784584472
+    },
+    "x_mae_cm": {
+      "mean_across_subjects": 34.62083329374973,
+      "median_across_subjects": 32.15085007250309,
+      "std_across_subjects": 14.083238301063643
+    },
+    "x_rmse_cm": {
+      "mean_across_subjects": 43.26862539809484,
+      "median_across_subjects": 41.91484868526459,
+      "std_across_subjects": 15.70022976740759
+    },
+    "x_w1_cm": {
+      "mean_across_subjects": 32.25988357243602,
+      "median_across_subjects": 30.575780687137648,
+      "std_across_subjects": 14.216709319828967
+    },
+    "yaw_mae_deg": {
+      "mean_across_subjects": 106.32904211557829,
+      "median_across_subjects": 99.75260925292969,
+      "std_across_subjects": 42.788051644868695
+    },
+    "yaw_rmse_deg": {
+      "mean_across_subjects": 127.82849828279936,
+      "median_across_subjects": 119.62125015258789,
+      "std_across_subjects": 47.48225012699676
+    },
+    "yaw_w1_deg": {
+      "mean_across_subjects": 102.14702978184201,
+      "median_across_subjects": 99.75259977642625,
+      "std_across_subjects": 46.65612616027667
+    }
+  },
+  "mode": "full",
+  "model_group": "rotation",
+  "physics_enabled": false,
+  "seed_index": 4
+}

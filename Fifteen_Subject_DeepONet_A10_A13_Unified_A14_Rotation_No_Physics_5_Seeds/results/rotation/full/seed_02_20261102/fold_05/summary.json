@@ -1,0 +1,62 @@
+{
+  "base_optimization_seed": 20261102,
+  "checkpoint_selected_only_on_validation_subject": true,
+  "display_name": "Unified A10-A13 + A14 Rotation No-Physics DeepONet",
+  "effective_fold_seed": 20261107,
+  "experiment": "fifteen_subject_a10_a13_unified_a14_rotation_no_physics_5seeds_v1",
+  "fold": 5,
+  "model_group": "rotation",
+  "physics_loss_enabled": false,
+  "seed_index": 2,
+  "test_activity_mean_metrics": {
+    "A14": {
+      "angular_residual_rmse": 6.999104595184326,
+      "horizontal_residual_rmse": 39.226047134399415,
+      "normalized_mse": 6.964460808038711,
+      "theta_mae_deg": 23.07807264328003,
+      "theta_rmse_deg": 30.04194736480713,
+      "theta_w1_deg": 23.05932066400746,
+      "x_mae_cm": 33.13019573688507,
+      "x_rmse_cm": 43.80106061697006,
+      "x_w1_cm": 33.09951979240876,
+      "yaw_mae_deg": 106.89863052368165,
+      "yaw_residual_rmse": 2.503129243850708,
+      "yaw_rmse_deg": 122.25296401977539,
+      "yaw_w1_deg": 104.3742201489808
+    }
+  },
+  "test_forecast_sample_count": 1907,
+  "test_subject_mean_metrics": {
+    "S62": {
+      "angular_residual_rmse": 7.123229885101319,
+      "horizontal_residual_rmse": 42.50236358642578,
+      "normalized_mse": 7.083277571201324,
+      "theta_mae_deg": 22.99338436126709,
+      "theta_rmse_deg": 31.07892837524414,
+      "theta_w1_deg": 22.955881044749255,
+      "x_mae_cm": 32.49248117208481,
+      "x_rmse_cm": 45.14673292636871,
+      "x_w1_cm": 32.43112815809094,
+      "yaw_mae_deg": 98.7184844970703,
+      "yaw_residual_rmse": 2.4986377239227293,
+      "yaw_rmse_deg": 114.62264404296874,
+      "yaw_w1_deg": 98.70728879973545
+    },
+    "S63": {
+      "angular_residual_rmse": 6.874979305267334,
+      "horizontal_residual_rmse": 35.949730682373044,
+      "normalized_mse": 6.8456440448760985,
+      "theta_mae_deg": 23.162760925292968,
+      "theta_rmse_deg": 29.00496635437012,
+      "theta_w1_deg": 23.16276028326566,
+      "x_mae_cm": 33.76791030168533,
+      "x_rmse_cm": 42.45538830757141,
+      "x_w1_cm": 33.76791142672658,
+      "yaw_mae_deg": 115.07877655029297,
+      "yaw_residual_rmse": 2.5076207637786867,
+      "yaw_rmse_deg": 129.88328399658204,
+      "yaw_w1_deg": 110.04115149822613
+    }
+  },
+  "test_trial_count": 10
+}

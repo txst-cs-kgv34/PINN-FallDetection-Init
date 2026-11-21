@@ -1,0 +1,533 @@
+{
+  "baseline_root": "/Users/rakeshsuvvari/TXST/PINN Research/PINN-for-FallDetection/git/PINN-FallDetection-Init/Fifteen_Subject_DeepONet_A10_A13_Unified_A14_Rotation_No_Physics_5_Seeds",
+  "groups": {
+    "planar": {
+      "activity_level": {
+        "normalized_mse": {
+          "baseline_mean": 2.9337453424731437,
+          "mean_percent_change": 13.838789865654602,
+          "mean_physics_minus_baseline": 0.4059948531382873,
+          "pair_count": 20,
+          "paired_p_value": 0.0015844859475010712,
+          "paired_t_statistic": 3.68169605538612,
+          "physics_mean": 3.339740195611431,
+          "physics_win_fraction": 0.25
+        },
+        "theta_mae_deg": {
+          "baseline_mean": 17.671078456068997,
+          "mean_percent_change": 10.220559970817492,
+          "mean_physics_minus_baseline": 1.8060831710927416,
+          "pair_count": 20,
+          "paired_p_value": 0.00013890703347110595,
+          "paired_t_statistic": 4.7512426652234865,
+          "physics_mean": 19.477161627161742,
+          "physics_win_fraction": 0.15
+        },
+        "theta_rmse_deg": {
+          "baseline_mean": 21.714954918045265,
+          "mean_percent_change": 9.547700443194321,
+          "mean_physics_minus_baseline": 2.0732788469496546,
+          "pair_count": 20,
+          "paired_p_value": 6.299697455129869e-05,
+          "paired_t_statistic": 5.104420713382881,
+          "physics_mean": 23.78823376499492,
+          "physics_win_fraction": 0.15
+        },
+        "theta_w1_deg": {
+          "baseline_mean": 16.22663637499492,
+          "mean_percent_change": 11.019436898349417,
+          "mean_physics_minus_baseline": 1.7880839560671784,
+          "pair_count": 20,
+          "paired_p_value": 0.00023395614172909274,
+          "paired_t_statistic": 4.520663144941736,
+          "physics_mean": 18.0147203310621,
+          "physics_win_fraction": 0.15
+        },
+        "x_mae_cm": {
+          "baseline_mean": 23.352756711738817,
+          "mean_percent_change": 10.694024817495803,
+          "mean_physics_minus_baseline": 2.497349598322766,
+          "pair_count": 20,
+          "paired_p_value": 7.300098374610286e-05,
+          "paired_t_statistic": 5.038222011994846,
+          "physics_mean": 25.850106310061584,
+          "physics_win_fraction": 0.15
+        },
+        "x_rmse_cm": {
+          "baseline_mean": 29.123416397371063,
+          "mean_percent_change": 9.487419802557058,
+          "mean_physics_minus_baseline": 2.7630607744653317,
+          "pair_count": 20,
+          "paired_p_value": 5.712935991185162e-05,
+          "paired_t_statistic": 5.148436148030646,
+          "physics_mean": 31.886477171836397,
+          "physics_win_fraction": 0.1
+        },
+        "x_w1_cm": {
+          "baseline_mean": 21.699333418629656,
+          "mean_percent_change": 11.556296552024047,
+          "mean_physics_minus_baseline": 2.507639319669301,
+          "pair_count": 20,
+          "paired_p_value": 6.508269641978626e-05,
+          "paired_t_statistic": 5.089775161682639,
+          "physics_mean": 24.206972738298955,
+          "physics_win_fraction": 0.1
+        }
+      },
+      "subject_level": {
+        "normalized_mse": {
+          "baseline_mean": 2.91419058375667,
+          "mean_percent_change": 13.728990351790962,
+          "mean_physics_minus_baseline": 0.400088944076754,
+          "pair_count": 75,
+          "paired_p_value": 0.003176815159868332,
+          "paired_t_statistic": 3.0497872705075766,
+          "physics_mean": 3.3142795278334236,
+          "physics_win_fraction": 0.3333333333333333
+        },
+        "theta_mae_deg": {
+          "baseline_mean": 17.447750870486438,
+          "mean_percent_change": 10.378537231632304,
+          "mean_physics_minus_baseline": 1.8108213201758843,
+          "pair_count": 75,
+          "paired_p_value": 3.9163204702907624e-05,
+          "paired_t_statistic": 4.375085520138862,
+          "physics_mean": 19.258572190662324,
+          "physics_win_fraction": 0.26666666666666666
+        },
+        "theta_rmse_deg": {
+          "baseline_mean": 21.422740164670866,
+          "mean_percent_change": 9.620702496417103,
+          "mean_physics_minus_baseline": 2.0610180978234394,
+          "pair_count": 75,
+          "paired_p_value": 3.865302459113636e-05,
+          "paired_t_statistic": 4.378688516610985,
+          "physics_mean": 23.48375826249431,
+          "physics_win_fraction": 0.28
+        },
+        "theta_w1_deg": {
+          "baseline_mean": 16.039767696743024,
+          "mean_percent_change": 10.991458563011122,
+          "mean_physics_minus_baseline": 1.7630044199907529,
+          "pair_count": 75,
+          "paired_p_value": 5.468122827765491e-05,
+          "paired_t_statistic": 4.282854654389921,
+          "physics_mean": 17.802772116733777,
+          "physics_win_fraction": 0.29333333333333333
+        },
+        "x_mae_cm": {
+          "baseline_mean": 23.447114734669093,
+          "mean_percent_change": 10.630352982368636,
+          "mean_physics_minus_baseline": 2.492511060476292,
+          "pair_count": 75,
+          "paired_p_value": 2.392832027286642e-05,
+          "paired_t_statistic": 4.5094594309805975,
+          "physics_mean": 25.93962579514539,
+          "physics_win_fraction": 0.26666666666666666
+        },
+        "x_rmse_cm": {
+          "baseline_mean": 29.221386547611285,
+          "mean_percent_change": 9.379125857536636,
+          "mean_physics_minus_baseline": 2.740710621617742,
+          "pair_count": 75,
+          "paired_p_value": 5.3210151454660954e-05,
+          "paired_t_statistic": 4.290428298016852,
+          "physics_mean": 31.962097169229025,
+          "physics_win_fraction": 0.28
+        },
+        "x_w1_cm": {
+          "baseline_mean": 21.854575096563337,
+          "mean_percent_change": 11.309418433401907,
+          "mean_physics_minus_baseline": 2.471625344512397,
+          "pair_count": 75,
+          "paired_p_value": 2.3751771531664078e-05,
+          "paired_t_statistic": 4.511464054465705,
+          "physics_mean": 24.326200441075727,
+          "physics_win_fraction": 0.30666666666666664
+        }
+      },
+      "trial_level": {
+        "normalized_mse": {
+          "baseline_mean": 2.9603394106059455,
+          "mean_percent_change": 13.691450932555396,
+          "mean_physics_minus_baseline": 0.4053134178402127,
+          "pair_count": 1285,
+          "paired_p_value": 7.960474156232557e-07,
+          "paired_t_statistic": 4.960820378723591,
+          "physics_mean": 3.365652828446158,
+          "physics_win_fraction": 0.3688715953307393
+        },
+        "theta_mae_deg": {
+          "baseline_mean": 17.717585270506863,
+          "mean_percent_change": 10.212093645628228,
+          "mean_physics_minus_baseline": 1.8093363995681941,
+          "pair_count": 1285,
+          "paired_p_value": 4.6583653833088733e-17,
+          "paired_t_statistic": 8.513234765850784,
+          "physics_mean": 19.52692167007506,
+          "physics_win_fraction": 0.38287937743190664
+        },
+        "theta_rmse_deg": {
+          "baseline_mean": 21.76765779409891,
+          "mean_percent_change": 9.522719643634728,
+          "mean_physics_minus_baseline": 2.072873024717843,
+          "pair_count": 1285,
+          "paired_p_value": 3.974565459574262e-17,
+          "paired_t_statistic": 8.53265454919734,
+          "physics_mean": 23.840530818816752,
+          "physics_win_fraction": 0.3743190661478599
+        },
+        "theta_w1_deg": {
+          "baseline_mean": 16.28283109253399,
+          "mean_percent_change": 10.889687432036991,
+          "mean_physics_minus_baseline": 1.7731494110634853,
+          "pair_count": 1285,
+          "paired_p_value": 1.4019390335144388e-16,
+          "paired_t_statistic": 8.37737943695017,
+          "physics_mean": 18.055980503597475,
+          "physics_win_fraction": 0.3922178988326848
+        },
+        "x_mae_cm": {
+          "baseline_mean": 23.483758038960776,
+          "mean_percent_change": 10.612684243598222,
+          "mean_physics_minus_baseline": 2.492257089205521,
+          "pair_count": 1285,
+          "paired_p_value": 2.808665905753697e-17,
+          "paired_t_statistic": 8.57499528491413,
+          "physics_mean": 25.976015128166296,
+          "physics_win_fraction": 0.37120622568093387
+        },
+        "x_rmse_cm": {
+          "baseline_mean": 29.274142288715225,
+          "mean_percent_change": 9.392219901244419,
+          "mean_physics_minus_baseline": 2.7494918179593197,
+          "pair_count": 1285,
+          "paired_p_value": 1.2618893975016633e-15,
+          "paired_t_statistic": 8.10053599099289,
+          "physics_mean": 32.02363410667455,
+          "physics_win_fraction": 0.37587548638132295
+        },
+        "x_w1_cm": {
+          "baseline_mean": 21.84881201809321,
+          "mean_percent_change": 11.362668328964514,
+          "mean_physics_minus_baseline": 2.4826080434348694,
+          "pair_count": 1285,
+          "paired_p_value": 6.104073375251765e-17,
+          "paired_t_statistic": 8.480081276373289,
+          "physics_mean": 24.33142006152808,
+          "physics_win_fraction": 0.38210116731517507
+        }
+      }
+    },
+    "rotation": {
+      "activity_level": {
+        "normalized_mse": {
+          "baseline_mean": 8.196692210078544,
+          "mean_percent_change": -2.919134560577608,
+          "mean_physics_minus_baseline": -0.2392724751285753,
+          "pair_count": 5,
+          "paired_p_value": 0.42673478181017993,
+          "paired_t_statistic": -0.8837817564603893,
+          "physics_mean": 7.957419734949968,
+          "physics_win_fraction": 0.6
+        },
+        "theta_mae_deg": {
+          "baseline_mean": 24.011207504661716,
+          "mean_percent_change": 0.31222969850737076,
+          "mean_physics_minus_baseline": 0.07497012079978446,
+          "pair_count": 5,
+          "paired_p_value": 0.9000228759006932,
+          "paired_t_statistic": 0.13379952340913376,
+          "physics_mean": 24.086177625461502,
+          "physics_win_fraction": 0.6
+        },
+        "theta_rmse_deg": {
+          "baseline_mean": 29.45617792557697,
+          "mean_percent_change": 1.5878366584250478,
+          "mean_physics_minus_baseline": 0.46771599127321795,
+          "pair_count": 5,
+          "paired_p_value": 0.5046524956143377,
+          "paired_t_statistic": 0.732172500841103,
+          "physics_mean": 29.923893916850187,
+          "physics_win_fraction": 0.6
+        },
+        "theta_w1_deg": {
+          "baseline_mean": 21.549780561340974,
+          "mean_percent_change": -0.5620056589915114,
+          "mean_physics_minus_baseline": -0.12111098625498898,
+          "pair_count": 5,
+          "paired_p_value": 0.8062225580216628,
+          "paired_t_statistic": -0.26205263849215354,
+          "physics_mean": 21.428669575085983,
+          "physics_win_fraction": 0.6
+        },
+        "x_mae_cm": {
+          "baseline_mean": 35.19900130830249,
+          "mean_percent_change": -0.27422268417165513,
+          "mean_physics_minus_baseline": -0.0965236461892431,
+          "pair_count": 5,
+          "paired_p_value": 0.9064887570173858,
+          "paired_t_statistic": -0.12508774806214298,
+          "physics_mean": 35.102477662113245,
+          "physics_win_fraction": 0.6
+        },
+        "x_rmse_cm": {
+          "baseline_mean": 43.569269432705276,
+          "mean_percent_change": 0.20777929462062592,
+          "mean_physics_minus_baseline": 0.090527920698635,
+          "pair_count": 5,
+          "paired_p_value": 0.9258113430100773,
+          "paired_t_statistic": 0.09912057255303325,
+          "physics_mean": 43.6597973534039,
+          "physics_win_fraction": 0.6
+        },
+        "x_w1_cm": {
+          "baseline_mean": 31.577791845138783,
+          "mean_percent_change": -1.3804889892640675,
+          "mean_physics_minus_baseline": -0.4359279394748675,
+          "pair_count": 5,
+          "paired_p_value": 0.5841916012826373,
+          "paired_t_statistic": -0.5944692658739817,
+          "physics_mean": 31.141863905663918,
+          "physics_win_fraction": 0.6
+        },
+        "yaw_mae_deg": {
+          "baseline_mean": 109.38290034702845,
+          "mean_percent_change": -3.920204288832373,
+          "mean_physics_minus_baseline": -4.28803315065345,
+          "pair_count": 5,
+          "paired_p_value": 0.04770011800296621,
+          "paired_t_statistic": -2.822638402487616,
+          "physics_mean": 105.094867196375,
+          "physics_win_fraction": 1.0
+        },
+        "yaw_rmse_deg": {
+          "baseline_mean": 130.09483732495988,
+          "mean_percent_change": -4.751304877592707,
+          "mean_physics_minus_baseline": -6.181202351317117,
+          "pair_count": 5,
+          "paired_p_value": 0.031049958113547684,
+          "paired_t_statistic": -3.2610527900341384,
+          "physics_mean": 123.91363497364277,
+          "physics_win_fraction": 1.0
+        },
+        "yaw_w1_deg": {
+          "baseline_mean": 105.5773463516235,
+          "mean_percent_change": -3.6545809492012693,
+          "mean_physics_minus_baseline": -3.858409586438674,
+          "pair_count": 5,
+          "paired_p_value": 0.08289588249483631,
+          "paired_t_statistic": -2.300473132180478,
+          "physics_mean": 101.71893676518482,
+          "physics_win_fraction": 0.8
+        }
+      },
+      "subject_level": {
+        "normalized_mse": {
+          "baseline_mean": 8.869298353637928,
+          "mean_percent_change": -10.072759765789218,
+          "mean_physics_minus_baseline": -0.8933831160730468,
+          "pair_count": 65,
+          "paired_p_value": 0.04375684203752714,
+          "paired_t_statistic": -2.0570993443819154,
+          "physics_mean": 7.97591523756488,
+          "physics_win_fraction": 0.46153846153846156
+        },
+        "theta_mae_deg": {
+          "baseline_mean": 25.102696800965532,
+          "mean_percent_change": -4.761392899925737,
+          "mean_physics_minus_baseline": -1.195238023171058,
+          "pair_count": 65,
+          "paired_p_value": 0.11822907483337511,
+          "paired_t_statistic": -1.5835349410691557,
+          "physics_mean": 23.907458777794467,
+          "physics_win_fraction": 0.4153846153846154
+        },
+        "theta_rmse_deg": {
+          "baseline_mean": 30.78435988939725,
+          "mean_percent_change": -3.006145250535275,
+          "mean_physics_minus_baseline": -0.9254225727228017,
+          "pair_count": 65,
+          "paired_p_value": 0.291511266172486,
+          "paired_t_statistic": -1.0635896341435125,
+          "physics_mean": 29.858937316674453,
+          "physics_win_fraction": 0.36923076923076925
+        },
+        "theta_w1_deg": {
+          "baseline_mean": 23.07815422029376,
+          "mean_percent_change": -5.779500134892487,
+          "mean_physics_minus_baseline": -1.333801954292574,
+          "pair_count": 65,
+          "paired_p_value": 0.07837198924692694,
+          "paired_t_statistic": -1.7888464389298004,
+          "physics_mean": 21.74435226600119,
+          "physics_win_fraction": 0.4
+        },
+        "x_mae_cm": {
+          "baseline_mean": 36.868388392317755,
+          "mean_percent_change": -5.240106429123672,
+          "mean_physics_minus_baseline": -1.931942790460128,
+          "pair_count": 65,
+          "paired_p_value": 0.09962378678234739,
+          "paired_t_statistic": -1.6709062493446505,
+          "physics_mean": 34.93644560185763,
+          "physics_win_fraction": 0.4307692307692308
+        },
+        "x_rmse_cm": {
+          "baseline_mean": 45.81089000231945,
+          "mean_percent_change": -4.254197373476746,
+          "mean_physics_minus_baseline": -1.9488856792449951,
+          "pair_count": 65,
+          "paired_p_value": 0.14437341357903105,
+          "paired_t_statistic": -1.4777719267603016,
+          "physics_mean": 43.86200432307445,
+          "physics_win_fraction": 0.46153846153846156
+        },
+        "x_w1_cm": {
+          "baseline_mean": 33.89954135770513,
+          "mean_percent_change": -6.4535050405169825,
+          "mean_physics_minus_baseline": -2.1877086102316396,
+          "pair_count": 65,
+          "paired_p_value": 0.06213929117321186,
+          "paired_t_statistic": -1.8985114543771469,
+          "physics_mean": 31.71183274747349,
+          "physics_win_fraction": 0.47692307692307695
+        },
+        "yaw_mae_deg": {
+          "baseline_mean": 106.55297098746667,
+          "mean_percent_change": -4.868615408702064,
+          "mean_physics_minus_baseline": -5.187654363925642,
+          "pair_count": 65,
+          "paired_p_value": 0.04340722521633512,
+          "paired_t_statistic": -2.0606356247407445,
+          "physics_mean": 101.36531662354103,
+          "physics_win_fraction": 0.5692307692307692
+        },
+        "yaw_rmse_deg": {
+          "baseline_mean": 127.7687922675793,
+          "mean_percent_change": -5.8988108412341775,
+          "mean_physics_minus_baseline": -7.536839369993943,
+          "pair_count": 65,
+          "paired_p_value": 0.013906513149113961,
+          "paired_t_statistic": -2.5292108518614906,
+          "physics_mean": 120.23195289758537,
+          "physics_win_fraction": 0.5692307692307692
+        },
+        "yaw_w1_deg": {
+          "baseline_mean": 101.19860312925469,
+          "mean_percent_change": -4.047148015505972,
+          "mean_physics_minus_baseline": -4.095657258265396,
+          "pair_count": 65,
+          "paired_p_value": 0.12532531005815853,
+          "paired_t_statistic": -1.5531226808786052,
+          "physics_mean": 97.10294587098932,
+          "physics_win_fraction": 0.4153846153846154
+        }
+      },
+      "trial_level": {
+        "normalized_mse": {
+          "baseline_mean": 8.196692210078544,
+          "mean_percent_change": -2.919134560577607,
+          "mean_physics_minus_baseline": -0.23927247512857525,
+          "pair_count": 245,
+          "paired_p_value": 0.4003326313547122,
+          "paired_t_statistic": -0.8425010104935073,
+          "physics_mean": 7.957419734949968,
+          "physics_win_fraction": 0.3795918367346939
+        },
+        "theta_mae_deg": {
+          "baseline_mean": 24.011207504661716,
+          "mean_percent_change": 0.312229698507372,
+          "mean_physics_minus_baseline": 0.07497012079978475,
+          "pair_count": 245,
+          "paired_p_value": 0.8834009301173505,
+          "paired_t_statistic": 0.14681290214663575,
+          "physics_mean": 24.0861776254615,
+          "physics_win_fraction": 0.34285714285714286
+        },
+        "theta_rmse_deg": {
+          "baseline_mean": 29.45617792557697,
+          "mean_percent_change": 1.587836658425049,
+          "mean_physics_minus_baseline": 0.4677159912732183,
+          "pair_count": 245,
+          "paired_p_value": 0.4289366593245997,
+          "paired_t_statistic": 0.7923322086314797,
+          "physics_mean": 29.923893916850187,
+          "physics_win_fraction": 0.3183673469387755
+        },
+        "theta_w1_deg": {
+          "baseline_mean": 21.549780561340974,
+          "mean_percent_change": -0.5620056589915043,
+          "mean_physics_minus_baseline": -0.12111098625498744,
+          "pair_count": 245,
+          "paired_p_value": 0.8101007253783574,
+          "paired_t_statistic": -0.24055667724940843,
+          "physics_mean": 21.42866957508598,
+          "physics_win_fraction": 0.33877551020408164
+        },
+        "x_mae_cm": {
+          "baseline_mean": 35.19900130830249,
+          "mean_percent_change": -0.27422268417165196,
+          "mean_physics_minus_baseline": -0.09652364618924199,
+          "pair_count": 245,
+          "paired_p_value": 0.897534886325424,
+          "paired_t_statistic": -0.1289102169337569,
+          "physics_mean": 35.102477662113245,
+          "physics_win_fraction": 0.3551020408163265
+        },
+        "x_rmse_cm": {
+          "baseline_mean": 43.569269432705276,
+          "mean_percent_change": 0.2077792946206213,
+          "mean_physics_minus_baseline": 0.090527920698633,
+          "pair_count": 245,
+          "paired_p_value": 0.9149525231072608,
+          "paired_t_statistic": 0.10690458140757725,
+          "physics_mean": 43.65979735340391,
+          "physics_win_fraction": 0.34285714285714286
+        },
+        "x_w1_cm": {
+          "baseline_mean": 31.577791845138783,
+          "mean_percent_change": -1.3804889892640686,
+          "mean_physics_minus_baseline": -0.4359279394748679,
+          "pair_count": 245,
+          "paired_p_value": 0.5547843014702505,
+          "paired_t_statistic": -0.5914233691106321,
+          "physics_mean": 31.141863905663918,
+          "physics_win_fraction": 0.363265306122449
+        },
+        "yaw_mae_deg": {
+          "baseline_mean": 109.38290034702845,
+          "mean_percent_change": -3.920204288832373,
+          "mean_physics_minus_baseline": -4.28803315065345,
+          "pair_count": 245,
+          "paired_p_value": 0.03836327104380073,
+          "paired_t_statistic": -2.0822339074834693,
+          "physics_mean": 105.094867196375,
+          "physics_win_fraction": 0.5183673469387755
+        },
+        "yaw_rmse_deg": {
+          "baseline_mean": 130.09483732495988,
+          "mean_percent_change": -4.751304877592705,
+          "mean_physics_minus_baseline": -6.181202351317114,
+          "pair_count": 245,
+          "paired_p_value": 0.008893541973794274,
+          "paired_t_statistic": -2.6373048137503563,
+          "physics_mean": 123.91363497364277,
+          "physics_win_fraction": 0.5346938775510204
+        },
+        "yaw_w1_deg": {
+          "baseline_mean": 105.5773463516235,
+          "mean_percent_change": -3.654580949201264,
+          "mean_physics_minus_baseline": -3.8584095864386683,
+          "pair_count": 245,
+          "paired_p_value": 0.0682324380656033,
+          "paired_t_statistic": -1.8315848583860401,
+          "physics_mean": 101.71893676518484,
+          "physics_win_fraction": 0.45714285714285713
+        }
+      }
+    }
+  },
+  "pairing": "same trial filters, folds, validation subjects, test subjects, seeds, and architecture",
+  "physics_root": "/Users/rakeshsuvvari/TXST/PINN Research/PINN-for-FallDetection/git/PINN-FallDetection-Init/Fifteen_Subject_DeepONet_A10_A13_Unified_A14_Rotation_Physics_5_Seeds"
+}

@@ -1,0 +1,5 @@
+{
+  "best_epoch": 110,
+  "best_validation_forecast_mse": 1.170852791517973,
+  "selection_subject_only": true
+}
