@@ -1,0 +1,36 @@
+{
+  "base_seed": 20261101,
+  "cartpole_physics_weight": 0.01,
+  "condition": "physics",
+  "device": "mps",
+  "effective_seed": 20261102,
+  "experiment": "fifteen_subject_a11_current_data_physics_diagnostic_5seeds_v1",
+  "fold": {
+    "id": 1,
+    "test": [
+      "S57",
+      "S46",
+      "S30"
+    ],
+    "train": [
+      "S43",
+      "S55",
+      "S62",
+      "S59",
+      "S56",
+      "S49",
+      "S48",
+      "S45",
+      "S44",
+      "S34",
+      "S32"
+    ],
+    "validation": "S63"
+  },
+  "model_group": "planar",
+  "physics_enabled": true,
+  "seed_index": 1,
+  "test_trials": 13,
+  "training_trials": 22,
+  "validation_trials": 5
+}
