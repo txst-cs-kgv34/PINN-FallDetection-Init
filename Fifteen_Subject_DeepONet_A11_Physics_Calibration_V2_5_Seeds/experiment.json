@@ -1,0 +1,91 @@
+{
+  "experiment_name": "fifteen_subject_a11_physics_calibration_v2_5seeds_v1",
+  "display_name": "A11 DeepONet physics calibration V2",
+  "result_archive": "Fifteen_Subject_A11_Physics_Calibration_V2_5_Seeds_Results.zip",
+  "baseline_experiment_root": "../Fifteen_Subject_DeepONet_A11_Current_Data_Physics_Diagnostic_5_Seeds",
+  "dataset_root": "../data/processed/Fifteen_Subject_Real_Fall_Physics_Ready",
+  "audit_dir_template": "../{subject}_PINN_audit",
+  "optimization_seeds": [20261101, 20261102, 20261103, 20261104, 20261105],
+  "split_seed": 220,
+  "randomized_subject_order": [
+    "S57", "S46", "S30", "S55", "S48",
+    "S43", "S45", "S59", "S56", "S34",
+    "S32", "S49", "S44", "S62", "S63"
+  ],
+  "subjects": ["S43", "S55", "S57", "S62", "S63", "S59", "S56", "S49", "S48", "S46", "S45", "S44", "S34", "S32", "S30"],
+  "folds": [
+    {"id": 1, "train": ["S43", "S55", "S62", "S59", "S56", "S49", "S48", "S45", "S44", "S34", "S32"], "validation": "S63", "test": ["S57", "S46", "S30"]},
+    {"id": 2, "train": ["S57", "S63", "S59", "S56", "S49", "S46", "S45", "S44", "S34", "S32", "S30"], "validation": "S62", "test": ["S55", "S48", "S43"]},
+    {"id": 3, "train": ["S43", "S55", "S62", "S63", "S49", "S48", "S46", "S44", "S34", "S32", "S30"], "validation": "S57", "test": ["S45", "S59", "S56"]},
+    {"id": 4, "train": ["S43", "S57", "S62", "S63", "S59", "S56", "S48", "S46", "S45", "S44", "S30"], "validation": "S55", "test": ["S34", "S32", "S49"]},
+    {"id": 5, "train": ["S55", "S57", "S59", "S56", "S49", "S48", "S46", "S45", "S34", "S32", "S30"], "validation": "S43", "test": ["S44", "S62", "S63"]}
+  ],
+  "calibration": {
+    "baseline_weight": 0.0,
+    "candidate_weights": [0.0001, 0.001, 0.01],
+    "warm_start_condition": "no_physics",
+    "ramp_epochs": 100,
+    "fine_tune_epochs": 300,
+    "fine_tune_learning_rate": 0.0001,
+    "early_stopping_patience": 80,
+    "residual_scaling": {
+      "angular": "gravity_over_stick_length",
+      "horizontal": "gravity"
+    },
+    "selection_metric": "validation_forecast_mse",
+    "selection_tie_break": "smaller_physics_weight",
+    "test_access_before_selection": false
+  },
+  "data": {
+    "source_rate_hz": 30,
+    "target_rate_hz": 100,
+    "horizon_s": 8.0,
+    "minimum_context_duration_s": 0.40,
+    "derivative_fit_samples": 11,
+    "standing_radius_frames": 2,
+    "contact_exclusion_s": 0.03,
+    "activities": ["A11"],
+    "selection_flag": "include_planar_physics_primary",
+    "expected_trial_count": 64
+  },
+  "model": {
+    "latent_width": 96,
+    "context_embedding": 96,
+    "fourier_modes": 12,
+    "context_windows": 4,
+    "context_window_s": 0.10,
+    "context_region_s": 0.40,
+    "controller_semantics": "physical_gains",
+    "controller_uncertainty_trained": false,
+    "cartpole_gain_scale": [250.0, 30.0, 20.0, 30.0],
+    "rotation_gain_scale": [20.0, 5.0],
+    "theta_scale_rad": 0.4363323129985824,
+    "x_scale_m": 0.25,
+    "yaw_scale_rad": 1.5707963267948966,
+    "activity_count": 4
+  },
+  "training": {
+    "epochs": 300,
+    "batch_size": 4,
+    "learning_rate": 0.0001,
+    "weight_decay": 0.000001,
+    "early_stopping_patience": 80,
+    "use_physics": true,
+    "data_weight": 1.0,
+    "cartpole_physics_weight": 0.0,
+    "rotation_physics_weight": 0.0,
+    "physics_every_batches": 1,
+    "gradient_clip_norm": 5.0,
+    "sampling_balance": "subject_activity"
+  },
+  "physics": {
+    "stick_mass_kg": 0.0138,
+    "effective_cart_mass_kg": 1.0,
+    "stick_length_m": 0.57,
+    "gravity_m_s2": 9.81,
+    "deadzone_sharpness": 50.0,
+    "fixed_pi_rad": 0.0635,
+    "fixed_tau_s": 0.23,
+    "yaw_inertia_mass_height2_fraction": 0.08
+  }
+}
