@@ -1,0 +1,45 @@
+{
+  "options": [
+    {
+      "best_epoch_after_warm_start": 0,
+      "checkpoint": "/Users/rakeshsuvvari/TXST/PINN Research/PINN-for-FallDetection/git/PINN-FallDetection-Init/Fifteen_Subject_DeepONet_A11_Current_Data_Physics_Diagnostic_5_Seeds/results/no_physics/full/seed_01_20261101/fold_01/final_best_model_state.pt",
+      "source": "existing_no_physics",
+      "stored_original_validation_forecast_mse": 0.24475979804992676,
+      "validation_forecast_mse": 0.24475979804992676,
+      "weight": 0.0
+    },
+    {
+      "best_epoch_after_warm_start": 0,
+      "checkpoint": "/Users/rakeshsuvvari/TXST/PINN Research/PINN-for-FallDetection/git/PINN-FallDetection-Init/Fifteen_Subject_DeepONet_A11_Physics_Calibration_V2_5_Seeds/results/candidates/full/lambda_1e-4/seed_01_20261101/fold_01/final_best_model_state.pt",
+      "source": "warm_started_physics_candidate",
+      "validation_forecast_mse": 0.24475979804992676,
+      "weight": 0.0001
+    },
+    {
+      "best_epoch_after_warm_start": 0,
+      "checkpoint": "/Users/rakeshsuvvari/TXST/PINN Research/PINN-for-FallDetection/git/PINN-FallDetection-Init/Fifteen_Subject_DeepONet_A11_Physics_Calibration_V2_5_Seeds/results/candidates/full/lambda_1e-3/seed_01_20261101/fold_01/final_best_model_state.pt",
+      "source": "warm_started_physics_candidate",
+      "validation_forecast_mse": 0.24475979804992676,
+      "weight": 0.001
+    },
+    {
+      "best_epoch_after_warm_start": 0,
+      "checkpoint": "/Users/rakeshsuvvari/TXST/PINN Research/PINN-for-FallDetection/git/PINN-FallDetection-Init/Fifteen_Subject_DeepONet_A11_Physics_Calibration_V2_5_Seeds/results/candidates/full/lambda_1e-2/seed_01_20261101/fold_01/final_best_model_state.pt",
+      "source": "warm_started_physics_candidate",
+      "validation_forecast_mse": 0.24475979804992676,
+      "weight": 0.01
+    }
+  ],
+  "selected_best_epoch_after_warm_start": 0,
+  "selected_source": "existing_no_physics",
+  "selected_validation_forecast_mse": 0.24475979804992676,
+  "selected_weight": 0.0,
+  "selection_metric": "validation_forecast_mse",
+  "test_subjects_not_used_for_selection": [
+    "S57",
+    "S46",
+    "S30"
+  ],
+  "tie_break": "smaller_physics_weight",
+  "validation_subject": "S63"
+}

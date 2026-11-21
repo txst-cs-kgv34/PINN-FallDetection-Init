@@ -1,0 +1,6 @@
+seed_index,base_optimization_seed,fold,validation_subject,selected_physics_weight,selected_source,selected_validation_forecast_mse,selected_best_epoch_after_warm_start
+1,20261101,1,S63,0.0,existing_no_physics,0.24475979804992676,0
+1,20261101,2,S62,0.0,existing_no_physics,1.1595807313919066,0
+1,20261101,3,S57,0.0,existing_no_physics,2.1566027800242105,0
+1,20261101,4,S55,0.0,existing_no_physics,1.7853344321250912,0
+1,20261101,5,S43,0.0,existing_no_physics,1.2418644428253174,0

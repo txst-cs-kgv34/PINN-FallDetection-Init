@@ -1,0 +1,73 @@
+{
+  "comparison": "validation-selected A11 calibration V2 versus existing no physics",
+  "counts": {
+    "independent_subjects": 15,
+    "optimization_seeds": 1,
+    "paired_subject_seed_evaluations": 15,
+    "selected_fold_models": 5
+  },
+  "difference_definition": "no_physics_error - selected_v2_error; positive favors selected V2",
+  "experiment": "fifteen_subject_a11_physics_calibration_v2_5seeds_v1",
+  "inference_note": "Wilcoxon tests use held-out subjects as the independent unit; Holm correction covers three primary endpoints.",
+  "primary_analysis_unit": "15 held-out subjects after averaging 1 matched seed(s)",
+  "primary_metrics": {
+    "normalized_mse": {
+      "holm_adjusted_p_value": 1.0,
+      "mean_v2_improvement": 0.0,
+      "median_v2_improvement": 0.0,
+      "no_physics_mean": 3.4013791951537136,
+      "no_physics_subject_wins": 0,
+      "relative_improvement_pct": 0.0,
+      "selected_v2_mean": 3.4013791951537136,
+      "subject_bootstrap_95pct_ci": [
+        0.0,
+        0.0
+      ],
+      "ties": 15,
+      "v2_subject_wins": 0,
+      "wilcoxon_raw_p_value": 1.0,
+      "wilcoxon_statistic": 0.0
+    },
+    "theta_rmse_deg": {
+      "holm_adjusted_p_value": 1.0,
+      "mean_v2_improvement": 0.0,
+      "median_v2_improvement": 0.0,
+      "no_physics_mean": 21.4531143813663,
+      "no_physics_subject_wins": 0,
+      "relative_improvement_pct": 0.0,
+      "selected_v2_mean": 21.4531143813663,
+      "subject_bootstrap_95pct_ci": [
+        0.0,
+        0.0
+      ],
+      "ties": 15,
+      "v2_subject_wins": 0,
+      "wilcoxon_raw_p_value": 1.0,
+      "wilcoxon_statistic": 0.0
+    },
+    "x_rmse_cm": {
+      "holm_adjusted_p_value": 1.0,
+      "mean_v2_improvement": 0.0,
+      "median_v2_improvement": 0.0,
+      "no_physics_mean": 30.44184707933002,
+      "no_physics_subject_wins": 0,
+      "relative_improvement_pct": 0.0,
+      "selected_v2_mean": 30.44184707933002,
+      "subject_bootstrap_95pct_ci": [
+        0.0,
+        0.0
+      ],
+      "ties": 15,
+      "v2_subject_wins": 0,
+      "wilcoxon_raw_p_value": 1.0,
+      "wilcoxon_statistic": 0.0
+    }
+  },
+  "weight_selection": {
+    "counts": {
+      "0.0": 5
+    },
+    "included_existing_lambda_zero_baseline": true,
+    "used_validation_only": true
+  }
+}
