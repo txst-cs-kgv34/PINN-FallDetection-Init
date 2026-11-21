@@ -1,0 +1,34 @@
+{
+  "base_seed": 20261103,
+  "device": "mps",
+  "effective_seed": 20261108,
+  "experiment": "fifteen_subject_a10_a13_unified_a14_rotation_physics_5seeds_v1",
+  "fold": {
+    "id": 5,
+    "test": [
+      "S44",
+      "S62",
+      "S63"
+    ],
+    "train": [
+      "S55",
+      "S57",
+      "S59",
+      "S56",
+      "S49",
+      "S48",
+      "S46",
+      "S45",
+      "S34",
+      "S32",
+      "S30"
+    ],
+    "validation": "S43"
+  },
+  "model_group": "planar",
+  "physics_enabled": true,
+  "seed_index": 3,
+  "test_trials": 58,
+  "training_trials": 182,
+  "validation_trials": 17
+}

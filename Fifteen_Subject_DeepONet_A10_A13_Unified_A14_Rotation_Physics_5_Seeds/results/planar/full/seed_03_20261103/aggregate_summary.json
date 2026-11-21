@@ -1,0 +1,47 @@
+{
+  "base_seed": 20261103,
+  "eligible_test_subjects": 15,
+  "experiment": "fifteen_subject_a10_a13_unified_a14_rotation_physics_5seeds_v1",
+  "held_out_trials": 257,
+  "metrics": {
+    "normalized_mse": {
+      "mean_across_subjects": 3.3385691382662,
+      "median_across_subjects": 2.5997728005051615,
+      "std_across_subjects": 2.3980011673422563
+    },
+    "theta_mae_deg": {
+      "mean_across_subjects": 19.156383027584234,
+      "median_across_subjects": 18.646505546569824,
+      "std_across_subjects": 7.01743667375983
+    },
+    "theta_rmse_deg": {
+      "mean_across_subjects": 23.328471614595124,
+      "median_across_subjects": 23.141831477483112,
+      "std_across_subjects": 7.989519426550134
+    },
+    "theta_w1_deg": {
+      "mean_across_subjects": 17.54740109815338,
+      "median_across_subjects": 17.062040753621492,
+      "std_across_subjects": 5.37518284550143
+    },
+    "x_mae_cm": {
+      "mean_across_subjects": 25.628196292310854,
+      "median_across_subjects": 24.96026296996408,
+      "std_across_subjects": 9.928308806364575
+    },
+    "x_rmse_cm": {
+      "mean_across_subjects": 31.46322074209488,
+      "median_across_subjects": 30.436077465613682,
+      "std_across_subjects": 11.766660278055465
+    },
+    "x_w1_cm": {
+      "mean_across_subjects": 23.887365924338408,
+      "median_across_subjects": 22.222976637423656,
+      "std_across_subjects": 7.985825278612539
+    }
+  },
+  "mode": "full",
+  "model_group": "planar",
+  "physics_enabled": true,
+  "seed_index": 3
+}
