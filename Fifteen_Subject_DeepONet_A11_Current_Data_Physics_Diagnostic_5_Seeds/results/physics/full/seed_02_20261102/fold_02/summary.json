@@ -1,0 +1,63 @@
+{
+  "base_optimization_seed": 20261102,
+  "cartpole_physics_weight": 0.01,
+  "checkpoint_selected_only_on_validation_subject": true,
+  "condition": "physics",
+  "display_name": "A11 current-data DeepONet physics diagnostic",
+  "effective_fold_seed": 20261104,
+  "experiment": "fifteen_subject_a11_current_data_physics_diagnostic_5seeds_v1",
+  "fold": 2,
+  "model_group": "planar",
+  "physics_loss_enabled": true,
+  "seed_index": 2,
+  "test_activity_mean_metrics": {
+    "A11": {
+      "angular_residual_rmse": 10.13227566805753,
+      "horizontal_residual_rmse": 5.308924393220381,
+      "normalized_mse": 1.2866297161037272,
+      "theta_mae_deg": 11.145580118352717,
+      "theta_rmse_deg": 15.051583853634922,
+      "theta_w1_deg": 10.88767782755606,
+      "x_mae_cm": 16.749312999573622,
+      "x_rmse_cm": 22.41782620549202,
+      "x_w1_cm": 16.05629384054381
+    }
+  },
+  "test_forecast_sample_count": 2644,
+  "test_subject_mean_metrics": {
+    "S43": {
+      "angular_residual_rmse": 9.376626968383789,
+      "horizontal_residual_rmse": 6.597649455070496,
+      "normalized_mse": 1.270629808306694,
+      "theta_mae_deg": 12.189381003379822,
+      "theta_rmse_deg": 16.369256019592285,
+      "theta_w1_deg": 11.482154496061428,
+      "x_mae_cm": 16.85354709625244,
+      "x_rmse_cm": 22.718539461493492,
+      "x_w1_cm": 15.001469562294512
+    },
+    "S48": {
+      "angular_residual_rmse": 11.349262714385986,
+      "horizontal_residual_rmse": 2.7405332922935486,
+      "normalized_mse": 1.8605470061302185,
+      "theta_mae_deg": 14.159066200256348,
+      "theta_rmse_deg": 17.276315689086914,
+      "theta_w1_deg": 14.15906671592287,
+      "x_mae_cm": 23.2704758644104,
+      "x_rmse_cm": 27.163217961788177,
+      "x_w1_cm": 23.27047693076828
+    },
+    "S55": {
+      "angular_residual_rmse": 10.249999809265137,
+      "horizontal_residual_rmse": 5.305300784111023,
+      "normalized_mse": 1.0698627263307572,
+      "theta_mae_deg": 9.10514497756958,
+      "theta_rmse_deg": 13.107553386688233,
+      "theta_w1_deg": 9.103540937405038,
+      "x_mae_cm": 14.057460576295853,
+      "x_rmse_cm": 20.27909889817238,
+      "x_w1_cm": 14.014480027053452
+    }
+  },
+  "test_trial_count": 11
+}

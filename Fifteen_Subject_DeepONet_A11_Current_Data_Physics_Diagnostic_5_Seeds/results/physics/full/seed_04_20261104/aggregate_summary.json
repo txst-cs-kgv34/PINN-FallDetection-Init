@@ -1,0 +1,57 @@
+{
+  "base_seed": 20261104,
+  "condition": "physics",
+  "eligible_test_subjects": 15,
+  "experiment": "fifteen_subject_a11_current_data_physics_diagnostic_5seeds_v1",
+  "held_out_trials": 64,
+  "metrics": {
+    "angular_residual_rmse": {
+      "mean_across_subjects": 14.782403231726754,
+      "median_across_subjects": 16.1200532913208,
+      "std_across_subjects": 4.4278521868076535
+    },
+    "horizontal_residual_rmse": {
+      "mean_across_subjects": 6.455107059544987,
+      "median_across_subjects": 4.455884981155395,
+      "std_across_subjects": 8.752196897853583
+    },
+    "normalized_mse": {
+      "mean_across_subjects": 4.047669734689924,
+      "median_across_subjects": 2.0560946702957152,
+      "std_across_subjects": 6.259507974726286
+    },
+    "theta_mae_deg": {
+      "mean_across_subjects": 18.612791766060727,
+      "median_across_subjects": 16.524948835372925,
+      "std_across_subjects": 11.39833317913015
+    },
+    "theta_rmse_deg": {
+      "mean_across_subjects": 23.00402624554105,
+      "median_across_subjects": 20.107091903686523,
+      "std_across_subjects": 14.233796583897831
+    },
+    "theta_w1_deg": {
+      "mean_across_subjects": 17.17909873914512,
+      "median_across_subjects": 14.834197599755095,
+      "std_across_subjects": 11.000988343519072
+    },
+    "x_mae_cm": {
+      "mean_across_subjects": 26.77672310173511,
+      "median_across_subjects": 23.826545476913452,
+      "std_across_subjects": 15.063861669900088
+    },
+    "x_rmse_cm": {
+      "mean_across_subjects": 32.92415854003694,
+      "median_across_subjects": 28.543508052825928,
+      "std_across_subjects": 18.28063882886795
+    },
+    "x_w1_cm": {
+      "mean_across_subjects": 24.84586960235687,
+      "median_across_subjects": 21.304756124636647,
+      "std_across_subjects": 14.463107735017712
+    }
+  },
+  "mode": "full",
+  "physics_enabled": true,
+  "seed_index": 4
+}

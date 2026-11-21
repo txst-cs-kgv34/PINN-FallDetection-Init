@@ -1,0 +1,93 @@
+{
+  "comparison": "A11 current-data Physics versus paired No physics",
+  "counts": {
+    "independent_subjects": 15,
+    "optimization_seeds": 5,
+    "paired_subject_seed_evaluations": 75,
+    "paired_trial_seed_evaluations": 320,
+    "trained_models_per_condition": 25,
+    "unique_trials": 64
+  },
+  "difference_definition": "no_physics_error - physics_error; positive favors Physics",
+  "experiment": "fifteen_subject_a11_current_data_physics_diagnostic_5seeds_v1",
+  "inference_note": "Wilcoxon tests use 15 subject-level five-seed means; Holm correction covers the three primary trajectory endpoints.",
+  "primary_analysis_unit": "15 held-out subjects after averaging each over five matched seeds",
+  "primary_metrics": {
+    "normalized_mse": {
+      "holm_adjusted_p_value": 0.77880859375,
+      "mean_physics_improvement": -0.18557802988423275,
+      "median_physics_improvement": -0.03342635631561264,
+      "no_physics_mean": 3.300562552240159,
+      "no_physics_subject_wins": 8,
+      "physics_mean": 3.486140582124392,
+      "physics_seed_wins": 3,
+      "physics_subject_wins": 7,
+      "relative_improvement_pct": -5.62261817332555,
+      "subject_bootstrap_95pct_ci": [
+        -0.5582918559576906,
+        0.18686556418033026
+      ],
+      "subject_ties": 0,
+      "wilcoxon_raw_p_value": 0.48870849609375,
+      "wilcoxon_statistic": 47.0
+    },
+    "theta_rmse_deg": {
+      "holm_adjusted_p_value": 0.77880859375,
+      "mean_physics_improvement": -1.2408678819868295,
+      "median_physics_improvement": -0.7918172200520814,
+      "no_physics_mean": 21.577703072441945,
+      "no_physics_subject_wins": 8,
+      "physics_mean": 22.81857095442878,
+      "physics_seed_wins": 1,
+      "physics_subject_wins": 7,
+      "relative_improvement_pct": -5.75069495497697,
+      "subject_bootstrap_95pct_ci": [
+        -3.269628255642783,
+        0.6473464053895738
+      ],
+      "subject_ties": 0,
+      "wilcoxon_raw_p_value": 0.389404296875,
+      "wilcoxon_statistic": 44.0
+    },
+    "x_rmse_cm": {
+      "holm_adjusted_p_value": 0.32098388671875,
+      "mean_physics_improvement": -2.0991688080959845,
+      "median_physics_improvement": -1.4440066615740363,
+      "no_physics_mean": 29.842948677970302,
+      "no_physics_subject_wins": 10,
+      "physics_mean": 31.94211748606629,
+      "physics_seed_wins": 0,
+      "physics_subject_wins": 5,
+      "relative_improvement_pct": -7.034052937421579,
+      "subject_bootstrap_95pct_ci": [
+        -4.394447572483784,
+        0.14408185918297978
+      ],
+      "subject_ties": 0,
+      "wilcoxon_raw_p_value": 0.10699462890625,
+      "wilcoxon_statistic": 31.0
+    }
+  },
+  "residual_diagnostics": {
+    "angular_residual_rmse": {
+      "no_physics_mean": 15.974033543162877,
+      "physics_mean": 13.163514833026461,
+      "relative_change_pct": -17.59429578348018
+    },
+    "horizontal_residual_rmse": {
+      "no_physics_mean": 475.86777833414084,
+      "physics_mean": 14.08923656855689,
+      "relative_change_pct": -97.03925392513888
+    }
+  },
+  "residual_note": "No-physics controller outputs are unsupervised latent coordinates, so residual comparisons are descriptive rather than identified physiological parameters.",
+  "target_verification": {
+    "matched_prediction_evaluations": 320,
+    "maximum_absolute_difference": {
+      "target_theta_rad": 0.0,
+      "target_x_m": 0.0,
+      "time_s": 0.0
+    },
+    "targets_exactly_identical": true
+  }
+}
