@@ -11,3 +11,17 @@ Positive improvement means `no physics − physics`, so positive values favor ph
 Interpret the held-out trajectory endpoints above as primary. The residual diagnostics only show agreement with the specified CartPole equations.
 
 All 320 paired prediction targets were verified exactly identical between conditions.
+
+## Diagnostic decision
+
+A11-only training did not recover the earlier physics advantage. Compared with
+the unified current-data A11 subset, isolation narrowed the physics penalty but
+did not reverse it. Physics also showed higher seed variability, was selected
+at epoch 10 or earlier in 4 of 25 folds/seeds, and never won the seed-mean x
+RMSE comparison.
+
+The full V2 should therefore not use the fixed `0.01` weight unchanged. First
+run an A11 calibration with data-only warm starts, a ramped and
+validation-selected physics weight, normalized angular/horizontal residual
+heads, and activity-defined rather than observed endpoint-derived direction.
+The detailed rationale and the staged V2 plan are in the root `FINDINGS.md`.

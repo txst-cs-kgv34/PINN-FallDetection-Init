@@ -18,6 +18,21 @@ subject folds, five seeds, optimizer, early stopping, and model widths. This
 is intentional: the diagnostic changes the activity scope to A11 only without
 also changing the coordinate system or architecture.
 
+## Completed result
+
+All 50 planned models completed. Removing multi-activity pooling did not restore
+the earlier A11 physics advantage. With the fixed CartPole weight `0.01`,
+physics increased mean held-out normalized MSE by 5.62%, theta RMSE by 5.75%,
+and direction-aligned CoM-x RMSE by 7.03% relative to the paired no-physics
+condition. None of the three subject-level comparisons was significant after
+Holm correction.
+
+Physics nevertheless reduced the angular and horizontal equation residuals by
+17.6% and 97.0%, respectively. This means the residual was active and
+optimizable, but lower equation residual did not translate into better held-out
+trajectory prediction. See `FINDINGS.md` for the full pairing audit, stability
+analysis, and V2 decision.
+
 ## Placement
 
 Keep this folder at the repository root beside `data/` and the fifteen audit
@@ -82,12 +97,17 @@ The archive contains both paired conditions, prediction arrays, model states,
 training histories, subject/trial tables, the combined physics-versus-no-
 physics boxplot, statistical comparison, logs, and the prepared-data manifest.
 
-## Interpretation
+## Interpretation and V2 decision
 
-- If A11 physics again improves held-out trajectory error, the previous
-  reversal was mainly caused by multi-activity pooling/shared physics.
-- If A11 still favors no physics, the next ablation must examine the new
-  coordinate construction, strict-primary trial set, sampling, and effective
-  physics-loss scale before building activity-specific V2 physics.
+- A11 still favors no physics, so multi-activity pooling is not a sufficient
+  explanation for the reversal.
+- Do not carry the fixed `0.01` weight unchanged into full V2.
+- First calibrate A11 using a data-only warm start, a gradual physics ramp, and
+  validation-only candidates `0`, `1e-4`, `1e-3`, and `1e-2`.
+- V2 should use activity-defined sagittal/frontal coordinates and
+  activity-specific controller/residual heads. The observed onset-to-contact
+  direction must not be a forecast input because it is computed from future
+  trajectory information.
+- Keep A14 separate with its CartPole-plus-yaw residual.
 - Smaller CartPole residuals alone are not evidence of better forecasting.
-- Test subjects never select checkpoints or physics settings.
+- Test subjects must never select checkpoints, coordinates, or physics weights.
