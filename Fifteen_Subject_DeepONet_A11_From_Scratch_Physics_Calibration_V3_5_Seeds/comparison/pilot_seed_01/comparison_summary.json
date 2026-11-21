@@ -1,0 +1,75 @@
+{
+  "comparison": "validation-selected A11 calibration V3 versus matched from-scratch lambda=0",
+  "counts": {
+    "independent_subjects": 15,
+    "optimization_seeds": 1,
+    "paired_subject_seed_evaluations": 15,
+    "selected_fold_models": 5
+  },
+  "difference_definition": "matched_lambda_0_error - selected_v3_error; positive favors selected V3",
+  "experiment": "fifteen_subject_a11_from_scratch_physics_calibration_v3_5seeds_v1",
+  "inference_note": "Wilcoxon tests use held-out subjects as the independent unit; Holm correction covers three primary endpoints.",
+  "primary_analysis_unit": "15 held-out subjects after averaging 1 matched seed(s)",
+  "primary_metrics": {
+    "normalized_mse": {
+      "holm_adjusted_p_value": 0.473817931500391,
+      "mean_v3_improvement": -0.027482182780901754,
+      "median_v3_improvement": 0.06982222795486459,
+      "no_physics_mean": 3.644067869120174,
+      "no_physics_subject_wins": 3,
+      "relative_improvement_pct": -0.7541622101439364,
+      "selected_v3_mean": 3.671550051901076,
+      "subject_bootstrap_95pct_ci": [
+        -0.3423103443930551,
+        0.18097244627773748
+      ],
+      "ties": 3,
+      "v3_subject_wins": 9,
+      "wilcoxon_raw_p_value": 0.1823383541807685,
+      "wilcoxon_statistic": 22.0
+    },
+    "theta_rmse_deg": {
+      "holm_adjusted_p_value": 0.5302845968336095,
+      "mean_v3_improvement": 0.2342372152540421,
+      "median_v3_improvement": 0.0,
+      "no_physics_mean": 21.773401525285507,
+      "no_physics_subject_wins": 5,
+      "relative_improvement_pct": 1.0757952310851466,
+      "selected_v3_mean": 21.53916431003147,
+      "subject_bootstrap_95pct_ci": [
+        -0.4115688523186577,
+        0.8622668977578472
+      ],
+      "ties": 3,
+      "v3_subject_wins": 7,
+      "wilcoxon_raw_p_value": 0.5302845968336095,
+      "wilcoxon_statistic": 31.0
+    },
+    "x_rmse_cm": {
+      "holm_adjusted_p_value": 0.473817931500391,
+      "mean_v3_improvement": 0.31421227422025455,
+      "median_v3_improvement": 0.2665337920188904,
+      "no_physics_mean": 30.66413848267661,
+      "no_physics_subject_wins": 3,
+      "relative_improvement_pct": 1.0246897182445402,
+      "selected_v3_mean": 30.349926208456356,
+      "subject_bootstrap_95pct_ci": [
+        -0.6288471580379542,
+        1.0537273916519314
+      ],
+      "ties": 3,
+      "v3_subject_wins": 9,
+      "wilcoxon_raw_p_value": 0.15793931050013033,
+      "wilcoxon_statistic": 21.0
+    }
+  },
+  "weight_selection": {
+    "counts": {
+      "0.0": 1,
+      "0.001": 1,
+      "0.01": 3
+    },
+    "included_matched_from_scratch_lambda_zero": true,
+    "used_validation_only": true
+  }
+}

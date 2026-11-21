@@ -1,0 +1,39 @@
+{
+  "base_seed": 20261101,
+  "device": "mps",
+  "early_stopping_patience": 100,
+  "effective_seed": 20261103,
+  "experiment": "fifteen_subject_a11_from_scratch_physics_calibration_v3_5seeds_v1",
+  "fold": {
+    "id": 2,
+    "test": [
+      "S55",
+      "S48",
+      "S43"
+    ],
+    "train": [
+      "S57",
+      "S63",
+      "S59",
+      "S56",
+      "S49",
+      "S46",
+      "S45",
+      "S44",
+      "S34",
+      "S32",
+      "S30"
+    ],
+    "validation": "S62"
+  },
+  "initialization_sha256": "27b1bb9e430995eac93ffdae7ccd82cf03368fcc86c9c97e0a579551615919ee",
+  "learning_rate": 0.0005,
+  "maximum_epochs": 800,
+  "optimizer": "AdamW",
+  "seed_index": 1,
+  "target_physics_weight": 0.001,
+  "test_data_accessed": false,
+  "trained_from_scratch": true,
+  "training_trials": 48,
+  "validation_trials": 5
+}
