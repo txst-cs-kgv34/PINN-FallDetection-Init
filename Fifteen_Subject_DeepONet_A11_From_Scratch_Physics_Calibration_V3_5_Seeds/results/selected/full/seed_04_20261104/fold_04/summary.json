@@ -1,0 +1,75 @@
+{
+  "base_optimization_seed": 20261104,
+  "best_epoch": 314,
+  "checkpoint_and_weight_selected_only_on_validation_subject": true,
+  "condition": "validation_selected_v3",
+  "display_name": "A11 DeepONet matched from-scratch physics calibration V3",
+  "effective_fold_seed": 20261108,
+  "experiment": "fifteen_subject_a11_from_scratch_physics_calibration_v3_5seeds_v1",
+  "fold": 4,
+  "initialization_sha256": "6f8ab5dde32a74b5122d13501ac86f4f47866b1c57832db56e1123ea6cc4b8c7",
+  "model_group": "planar",
+  "physics_weight": 0.0001,
+  "seed_index": 4,
+  "target_verification_against_matched_lambda_0": {
+    "maximum_absolute_difference": {
+      "target_theta_rad": 0.0,
+      "target_x_m": 0.0,
+      "time_s": 0.0
+    },
+    "targets_exactly_identical": true,
+    "verified_trials": 13
+  },
+  "test_access_before_selection": false,
+  "test_activity_mean_metrics": {
+    "A11": {
+      "angular_residual_rmse": 15.609480087573711,
+      "horizontal_residual_rmse": 912.4725002875695,
+      "normalized_mse": 5.144349658718476,
+      "theta_mae_deg": 20.23546490302453,
+      "theta_rmse_deg": 23.51338507578923,
+      "theta_w1_deg": 20.22333635336878,
+      "x_mae_cm": 29.25286404788494,
+      "x_rmse_cm": 34.81545448303223,
+      "x_w1_cm": 29.136067944556565
+    }
+  },
+  "test_forecast_sample_count": 1937,
+  "test_subject_mean_metrics": {
+    "S32": {
+      "angular_residual_rmse": 13.251493740081788,
+      "horizontal_residual_rmse": 294.3727909088135,
+      "normalized_mse": 8.778543925285339,
+      "theta_mae_deg": 27.84398307800293,
+      "theta_rmse_deg": 32.92739086151123,
+      "theta_w1_deg": 27.82250247339859,
+      "x_mae_cm": 44.14932683110237,
+      "x_rmse_cm": 51.98024466633797,
+      "x_w1_cm": 44.149323353898076
+    },
+    "S34": {
+      "angular_residual_rmse": 15.555306816101075,
+      "horizontal_residual_rmse": 321.9293975830078,
+      "normalized_mse": 0.7538747221231461,
+      "theta_mae_deg": 8.248143768310547,
+      "theta_rmse_deg": 10.1515061378479,
+      "theta_w1_deg": 8.248143315418009,
+      "x_mae_cm": 11.00781299173832,
+      "x_rmse_cm": 15.073271840810776,
+      "x_w1_cm": 11.007813662903228
+    },
+    "S49": {
+      "angular_residual_rmse": 19.629746119181316,
+      "horizontal_residual_rmse": 2926.877187093099,
+      "normalized_mse": 6.404817442099254,
+      "theta_mae_deg": 27.533469835917156,
+      "theta_rmse_deg": 30.093173662821453,
+      "theta_w1_deg": 27.51671454990373,
+      "x_mae_cm": 34.83384450276693,
+      "x_rmse_cm": 39.111108581225075,
+      "x_w1_cm": 34.32773273174296
+    }
+  },
+  "test_trial_count": 13,
+  "validation_forecast_mse": 1.2585416913032532
+}

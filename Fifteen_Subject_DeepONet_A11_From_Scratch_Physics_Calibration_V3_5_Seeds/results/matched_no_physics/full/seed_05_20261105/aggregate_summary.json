@@ -1,0 +1,19 @@
+{
+  "base_seed": 20261105,
+  "condition": "matched_no_physics",
+  "experiment": "fifteen_subject_a11_from_scratch_physics_calibration_v3_5seeds_v1",
+  "held_out_subjects": 15,
+  "held_out_trials": 64,
+  "metrics": {
+    "angular_residual_rmse": 15.692027183638679,
+    "horizontal_residual_rmse": 216.14339971012538,
+    "normalized_mse": 3.1561950564550028,
+    "theta_mae_deg": 17.057298589812383,
+    "theta_rmse_deg": 21.476164950264828,
+    "theta_w1_deg": 16.535727596406733,
+    "x_mae_cm": 23.062766910427147,
+    "x_rmse_cm": 29.24721868998474,
+    "x_w1_cm": 22.33176701220335
+  },
+  "seed_index": 5
+}
