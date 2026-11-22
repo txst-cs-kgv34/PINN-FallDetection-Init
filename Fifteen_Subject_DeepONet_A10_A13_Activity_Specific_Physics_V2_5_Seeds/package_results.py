@@ -47,7 +47,8 @@ def main() -> None:
         if not path.is_file():
             raise FileNotFoundError(f"requested result package is incomplete: {path}")
     names = (
-        "README.md", "FINDINGS.md", "VALIDATION.md", "EXPERIMENT_RECONCILIATION.md", "experiment.json",
+        "README.md", "FINDINGS.md", "VALIDATION.md", "EXPERIMENT_RECONCILIATION.md",
+        "PILOT_SEED_01_AUDIT.md", "experiment.json",
         "requirements.txt", "prepare_data.py", "validate_prepared_data.py",
         "operator_core.py", "calibration_core.py", "train_candidate.py",
         "evaluation.py", "select_fold.py", "aggregate_calibration.py",

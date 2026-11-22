@@ -16,6 +16,44 @@ maximum epochs, minimum training period, early stopping, validation subjects,
 and checkpoint rule are matched. The selected model is compared with the newly
 trained matched lambda=0 arm.
 
+## Seed-1 pilot result
+
+The pilot completed successfully: 20/20 candidate models, five
+validation-selected evaluations, and five matched lambda=0 evaluations. The
+protocol audit found identical initialization hashes and identical
+pre-training validation loss across all four lambda arms within every fold.
+All 257 selected/no-physics test targets were exactly equal, and all 4,591
+training-history rows were finite.
+
+The seed-1 forecasting result is mixed and close to neutral overall:
+
+| Endpoint | Selected V2 | Matched lambda=0 | Relative V2 improvement | Subject wins V2/N/tie | Holm p |
+|:--|--:|--:|--:|--:|--:|
+| Normalized forecast MSE | 3.6402 | 3.5723 | -1.90% | 6/3/6 | 1.0000 |
+| Theta RMSE | 22.2882 degrees | 22.3790 degrees | +0.41% | 5/4/6 | 1.0000 |
+| CoM-x RMSE | 30.8745 cm | 30.8838 cm | +0.03% | 5/4/6 | 1.0000 |
+
+The six ties are the test subjects in folds 4 and 5, where validation selected
+lambda=0. Across the five folds, the selected weights were lambda=0 twice and
+each nonzero candidate once.
+
+Activity behavior was not uniform. A10 and A11 improved descriptively on all
+three primary outcomes. A12 improved theta and CoM-x RMSE but was 0.32% worse
+on normalized MSE. A13 was worse on all three outcomes: -7.39% normalized MSE,
+-5.14% theta RMSE, and -5.94% CoM-x RMSE.
+
+Physics reduced horizontal residual RMSE by 18.14% overall and by 40.82% among
+the nine subjects evaluated with nonzero selected lambda. Angular residual
+RMSE was essentially unchanged/slightly worse (-0.21% overall). Better
+horizontal equation consistency therefore did not yet produce a reliable
+forecast advantage.
+
+This one-seed result is not confirmatory. Because the implementation checks
+passed and A10-A12 contain potentially useful activity-specific signals, the
+recommended next action is to complete seeds 2-5 **without changing the
+protocol**. Do not report that V2 physics improves forecasting until the full
+five-seed comparison is available.
+
 ## What changed from the first unified experiment
 
 1. **Future-free activity axes.** The prediction and physics coordinate is
@@ -71,7 +109,7 @@ PINN-FallDetection-Init/
 └── Fifteen_Subject_DeepONet_A10_A13_Activity_Specific_Physics_V2_5_Seeds/
 ```
 
-## MacBook MPS: seed-1 pilot
+## MacBook MPS commands
 
 The launcher uses `~/.venv` by default. Set `PINN_VENV_DIR` if your environment
 is elsewhere.
@@ -103,26 +141,31 @@ Useful commands:
 
 Use `FORCE=1` only when intentionally replacing completed candidates.
 
-## What to send back after seed 1
+## Run the remaining seeds
 
-Send the generated file:
+Seed 1 is complete. Resume the same experiment with:
 
-`Fifteen_Subject_A10_A13_Activity_Specific_Physics_V2_Seed_01_Pilot_Results.zip`
+```bash
+./run_on_mac.sh full mps
+```
+
+Completed seed-1 candidates are skipped automatically. Send the generated
+full-results file:
+
+`Fifteen_Subject_A10_A13_Activity_Specific_Physics_V2_5_Seeds_Results.zip`
 
 The package includes selection weights, subject and activity comparisons,
 boxplots, prediction archives, histories, initialization hashes, and exact
 target-equality checks.
 
-## Decision rule before seeds 2-5
+## Decision after five seeds
 
-We will inspect all three predefined forecast endpoints, activity consistency,
-subject outliers, selected lambdas, and residual changes. Seed 1 is a screening
-pilot, not the final statistical conclusion. If the signal is coherent and no
-implementation failure is found, run seeds 2-5 with:
-
-```bash
-./run_on_mac.sh full mps
-```
+The full review will inspect the three predefined endpoints, activity
+consistency, subject outliers, lambda stability, validation-to-test transfer,
+and residual changes. If A13 remains systematically worse while A10-A12 remain
+promising, the next experiment should compare all-head physics against
+activity-head ablations, including A13 lambda=0. That decision must be based on
+the five-seed result rather than this single seed.
 
 ## A14 boundary
 
