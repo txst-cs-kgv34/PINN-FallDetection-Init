@@ -1,0 +1,8 @@
+outputs/
+results/
+*.pt
+*.pth
+*.ckpt
+*_Results.zip
+__pycache__/
+.DS_Store
