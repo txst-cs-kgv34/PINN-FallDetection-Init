@@ -12,27 +12,26 @@ patience, validation subject, and checkpoint rule. Only the target physics
 weight differs. Nonzero weights ramp linearly over the first 100 epochs; all
 arms have the same 100-epoch minimum training period.
 
-## Seed-1 pilot result and decision
+## Final five-seed result
 
-The seed-1 pilot completed successfully and **passes the gate for the remaining
-four seeds**. The result is promising but not yet conclusive:
+The complete matched experiment does **not** establish a forecasting advantage
+for CartPole physics on the current 64-trial A11 Physics-Ready pipeline.
 
-- all 20 candidate models completed with finite histories;
-- all four λ arms had identical initialization hashes and identical
-  pre-training validation loss within every fold;
-- validation selected nonzero physics in four of five folds: `0.01` in folds
-  1–3, `0` in fold 4, and `0.001` in fold 5;
-- selected V3 improved theta RMSE by 1.08% and CoM-x RMSE by 1.02%;
-- normalized MSE was 0.75% worse in the mean, but favored V3 for 9 subjects,
-  favored λ=0 for 3, and tied for the 3 subjects in the λ=0-selected fold;
-- S45 is the main adverse outlier and accounts for the aggregate normalized-MSE
-  reversal; and
-- no subject-level endpoint was significant after Holm correction, as expected
-  for a one-seed pilot.
+| Endpoint | Selected V3 | Matched λ=0 | Relative physics improvement | Subject wins V3/N | Holm p |
+|:--|--:|--:|--:|--:|--:|
+| Normalized forecast MSE | 3.4892 | 3.3313 | -4.74% | 7/8 | 1.0000 |
+| Theta RMSE | 21.9119° | 21.6521° | -1.20% | 10/5 | 1.0000 |
+| CoM-x RMSE | 30.3129 cm | 29.8412 cm | -1.58% | 8/7 | 1.0000 |
 
-The pilot therefore provides a reason to estimate seed stability, not a final
-claim of physics superiority. Run seeds 2–5 and base the conclusion on the
-predefined five-seed subject-level analysis.
+Positive improvement would favor selected V3; all three mean improvements are
+negative. Validation nevertheless selected nonzero physics in 17/25 fold-seed
+models (`1e-4`: 3, `1e-3`: 7, `1e-2`: 7), showing that preference on one
+validation subject did not reliably transfer to three unseen test subjects.
+
+Physics reduced horizontal residual RMSE by 41.2%, but angular residual RMSE
+worsened by 6.0%. Equation agreement and trajectory generalization therefore
+remain separate outcomes. The matched λ=0 model is the A11 forecasting
+reference for the current pipeline.
 
 ## Why this experiment is required
 
@@ -80,7 +79,7 @@ Place this directory beside:
 - `data/processed/Fifteen_Subject_Real_Fall_Physics_Ready`
 - all 15 updated `S##_PINN_audit` directories
 
-Then run:
+The experiment is complete. For reproduction, run:
 
 ```bash
 cd Fifteen_Subject_DeepONet_A11_From_Scratch_Physics_Calibration_V3_5_Seeds
@@ -91,11 +90,8 @@ chmod +x run.sh run_on_mac.sh
 ./run_on_mac.sh pilot mps
 ```
 
-The pilot trains 20 models: four λ arms × five folds for seed 1. Send back:
-
-`Fifteen_Subject_A11_From_Scratch_Physics_Calibration_V3_Seed_01_Pilot_Results.zip`
-
-The seed-1 gate has now been reviewed and approved. Resume the full run with:
+The full experiment trains 100 candidates: four λ arms × five folds × five
+seeds, then evaluates the validation-selected and matched λ=0 checkpoints:
 
 ```bash
 ./run_on_mac.sh full mps
@@ -112,23 +108,25 @@ Resume/status helpers:
 Completed models are skipped. Use `FORCE=1` only when intentionally replacing
 an existing candidate.
 
-## Seed-1 decision gate
+## Final decision
 
-Proceed to all five seeds only when:
-
-1. all 20 candidate manifests confirm matched initialization;
-2. at least one nonzero λ is selected in a meaningful number of folds;
-3. selected V3 improves held-out forecast errors without severe seed/fold
-   instability; and
-4. residual improvement is not purchased by materially worse trajectory error.
-
-The seed-1 pilot selected nonzero λ in four folds and therefore passed this
-gate. The five-seed result must still confirm whether the selections and small
-trajectory improvements are stable before proceeding to A10–A13 V2.
+- Do not use this A11 selected-physics V3 as evidence of improved forecasting.
+- Retain matched λ=0 as the current strict-primary A11 forecasting reference.
+- Retain the CartPole residual as a useful consistency constraint, not as a
+  demonstrated generalization benefit in this pipeline.
+- Proceed to A10–A13 only with activity-defined coordinates, activity-specific
+  residual/controller heads, and validation averaged across multiple subjects
+  and activities.
+- Do not reuse the single-validation-subject selection rule for the next model.
 
 ## Interpretation boundaries
 
 V3 answers whether validation-selected CartPole regularization helps the
-current 64-trial A11 pipeline under a matched from-scratch design. It does not
-invalidate the earlier 70-trial result, and it does not yet answer whether
-activity-defined axes and activity-specific residual heads help A10–A13.
+current 64-trial A11 pipeline under a matched from-scratch design: it does not
+on the predefined held-out forecast endpoints. This does not invalidate the
+earlier 70-trial result, which used a different data and preprocessing pipeline.
+It also does not answer whether activity-defined axes and activity-specific
+residual heads help the 257-trial unified A10–A13 model.
+
+See `NEXT_STEPS_A10_A14_SYNTHETIC.md` for the recommended unified-model and
+synthetic-generation plan.
