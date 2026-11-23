@@ -1,115 +1,108 @@
 # Synthetic generator selection and next steps
 
-## Recommended model family
+## Locked model-family decision
 
 Keep two generator families:
 
-1. One unified A10-A13 DeepONet with shared trajectory representation and
-   activity-specific controller heads.
+1. One unified A10-A13 DeepONet with direct CartPole physics active for A10,
+   A11, A12, and A13, using the four activity-specific controller heads.
 2. One separate A14 rotation DeepONet with the previously selected rotational
    physics formulation.
 
-Do not split A10-A13 into four independent trajectory models. The available
-data are limited, and the shared representation is still the more defensible
-way to pool subjects and activities.
+There is no A10/A11 physics exception, no A12+A13-only physics mask, and no plan
+to split A10-A13 into four independent trajectory networks. The matched
+no-physics models remain scientific comparators only.
 
-## Provisional activity policy
+The activity-stratified forecast findings remain part of the report: A10 was
+neutral, A11 descriptively favored lambda=0, and A12/A13 favored selected V2 in
+aggregate. The production choice retains direct physics for all four planar
+activities because the goal is to generate physically constrained candidates
+and then enforce quality with a strict post-generation gate. This operational
+choice should not be described as proof that physics improved A11 forecasting.
 
-| Activity | Direct physics loss in the unified model | Evidence |
-|:--|:--:|:--|
-| A10 backfall | Off | +0.2% to +0.3% aggregate changes are practically neutral |
-| A11 frontfall | Off | Selected V2 is worse on all three activity endpoints |
-| A12 leftfall | On | +2.0% to +3.0% aggregate improvement across endpoints |
-| A13 rightfall | On | +4.76% normalized-MSE and smaller component gains |
-| A14 rotatefall | Separate model | Requires rotational dynamics and already has a selected model family |
+## Top-two validation selection
 
-This is a policy to confirm, not yet a production lock. Activity rows come from
-a unified model with one globally selected lambda per fold, so a masked run is
-needed to isolate the effect of removing direct A10/A11 physics penalties.
+The generator pool must contain only unified all-head models with nonzero
+physics weight. Select the two best models using validation performance only:
 
-## Immediate confirmation experiment
+1. Rank by `validation_subject_activity_balanced_forecast_mse`.
+2. Exclude lambda=0 from the synthesis pool.
+3. Never use held-out test performance, detector results, or post-generation
+   visual preference to select the two models.
+4. Preserve both selected checkpoints and their validation scores in the
+   generation manifest.
 
-Add an activity mask to the existing unified loss:
+Raw validation MSE is affected by which subjects are in the validation set.
+Therefore, top-two candidates must either share the same validation split or
+be ranked through a predefined fold-balanced aggregation. Do not simply take
+the two lowest numbers across different folds.
 
-```text
-physics_active = activity in {A12, A13}
-```
+For a subject-held-out detector experiment, perform this selection separately
+inside each detector fold using only that fold's training and validation
+subjects. For a final all-data generator, use a fixed production validation
+protocol and then refit the selected configurations on the intended real-data
+scope.
 
-Preserve every other choice: subject folds, stored initializations, data order,
-optimizer, schedule, residual scaling, validation metric, early stopping, and
-test timing.
+## Generation with the two selected models
 
-Reuse existing work:
+Generate candidates from both validation-selected models. Retain the source
+model identifier, lambda, seed, conditioning vector, and sampling seed for
+every candidate. The two models can be used to:
 
-- comparator 1: matched lambda=0 candidates already trained;
-- comparator 2: validation-selected all-head V2 already evaluated;
-- new work: masked lambda `{1e-4, 1e-3, 1e-2}` for 5 seeds x 5 folds = 75
-  candidates, followed by 25 validation-selected masked evaluations.
+- contribute separate accepted trajectories, increasing diversity; and
+- provide an agreement/uncertainty signal when generated with matched
+  conditioning variables.
 
-The masked condition should be preferred only if it improves overall forecast
-metrics relative to lambda=0, does not introduce a meaningful A10/A11 penalty,
-and is at least as good as all-head V2 on the prespecified primary endpoints.
-Residual outcomes remain secondary quality evidence.
+Do not average trajectories automatically. Averaging can blur fall onset,
+contact, and directional dynamics. Keep model outputs separate unless a later
+validation study explicitly supports trajectory averaging.
 
-## Locking a production configuration
+## Trajectory-quality gate
 
-After the masked comparison:
+Apply the established gate before a synthetic sequence is admitted to detector
+training. A candidate must pass all relevant checks:
 
-1. Lock one activity mask.
-2. Lock one global lambda using aggregate cross-validation **validation**
-   performance only; do not choose it from held-out test performance.
-3. Lock the epoch budget from the distribution of validation-selected epochs.
-4. Refit five production seeds and preserve all five checkpoints as an
-   ensemble rather than selecting the luckiest seed after generation.
+- finite values and strictly increasing time;
+- valid activity label and activity-appropriate fall direction;
+- valid standing, onset, descent, contact, and post-fall phase order;
+- theta and CoM displacement within robust ranges learned only from the real
+  training data;
+- plausible duration, peak velocity, and peak acceleration;
+- smooth velocities and accelerations without isolated spikes;
+- plausible contact/end state;
+- activity-appropriate normalized CartPole residual threshold for A10-A13;
+- rotational residual threshold for A14;
+- no near-duplicate of a real training trajectory or another accepted sample;
+- acceptable disagreement between the two selected generators for matched
+  conditioning, or an explicitly justified uncertainty threshold.
 
-The current all-head validation table slightly favors lambda=1e-3 on mean
-validation MSE (2.1282), but lambda=1e-2 is nearly identical (2.1287) and the
-per-fold selections are unstable. These numbers are not sufficient to lock the
-masked model's lambda in advance.
+Quality thresholds must be estimated from training/validation data only, not
+from detector test subjects. Save pass/fail reasons and all gate metrics so the
+accepted dataset is auditable.
 
 ## Refit rules by study purpose
 
 ### Unbiased subject-held-out detector experiment
 
-For each detector split, train/refit the DeepONet generator using only the real
-fall subjects in that detector split's training set. Generate synthetic
-detector-training examples only from that generator. The generator must never
-see detector validation or test trajectories.
+For each detector split, train/select the DeepONet generators using only the
+real fall subjects assigned to detector training and validation. Generate
+synthetic detector-training examples only from those models. A generator must
+never see detector-test trajectories.
 
 ### Final all-data generator
 
-After all comparative detector experiments are complete, refit:
+After comparative detector experiments are complete, the selected all-head
+A10-A13 configuration may be refit on all 257 eligible planar trials. The A14
+rotation configuration may be refit separately on all 49 eligible A14 trials.
+This all-data refit is suitable for final synthesis or deployment, but not for
+an unbiased evaluation whose test subjects occur in those data.
 
-- the locked A10-A13 model on all 257 eligible planar trials; and
-- the locked A14 rotation model on all 49 eligible A14 trials.
+## A14 decision
 
-This all-data refit is appropriate for final synthesis/deployment but not for
-an unbiased detector evaluation whose test subjects are among those 15 people.
-
-## Does A14 need to be trained again?
-
-Do not repeat the A14 physics-versus-no-physics comparison. Do train a new A14
-**production refit** after its architecture and physics settings are locked:
-either once per detector training fold for leakage-safe evaluation or on all 49
-trials for the final all-data generator. Existing cross-validation checkpoints
-remain evidence models, not the final production ensemble.
-
-## Generation and acceptance checks
-
-Generate multiple candidates per conditioning vector with the five-seed
-ensemble. Retain samples only if they satisfy all of the following:
-
-- finite values and strictly increasing time;
-- activity-appropriate direction and phase order;
-- plausible theta and CoM displacement ranges relative to real training data;
-- smooth velocity and acceleration without isolated spikes;
-- endpoint/contact plausibility;
-- activity-appropriate physics residual threshold;
-- agreement across ensemble members or an explicit uncertainty ceiling;
-- no near-duplicate of a real training trajectory or another accepted sample.
-
-Record the generating checkpoint, conditioning variables, acceptance metrics,
-and random seed for every synthetic sequence.
+Do not repeat the A14 physics-versus-no-physics comparison. Do perform the A14
+production training/refit needed for the chosen detector fold or final all-data
+scope. Select its two best eligible physics models using the corresponding
+validation-only rule and apply the rotation-specific quality gate.
 
 ## Downstream augmentation study
 
@@ -119,12 +112,12 @@ Within each leakage-safe detector fold, compare at minimum:
 - 40% real / 60% synthetic;
 - 60% real / 40% synthetic.
 
-Keep the detector initialization, optimizer, schedule, and number of update
-steps matched. Report subject-level detection metrics and activity-stratified
-results. A generator that improves residuals but does not improve detector
-generalization should not be called beneficial for fall detection.
+Keep detector initialization, optimizer, schedule, and number of update steps
+matched. Report subject-level and activity-stratified detection metrics. Also
+report how many generated trajectories were rejected by each quality-gate
+criterion.
 
 The present DeepONet predicts CoM trajectory variables. If the detector expects
-complete joint skeletons, first validate a kinematic decoder and audit its bone
+complete joint skeletons, first validate the kinematic decoder and audit bone
 lengths, joint limits, foot-floor contact, and temporal smoothness.
 

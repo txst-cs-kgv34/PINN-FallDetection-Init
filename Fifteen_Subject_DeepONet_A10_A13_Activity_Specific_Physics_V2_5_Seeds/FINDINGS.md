@@ -10,9 +10,10 @@ reduced horizontal residual RMSE by 22.62%.
 This is **not a statistically confirmed forecasting advantage**. The
 subject-bootstrap confidence intervals include zero, the subject win/loss
 counts are close, and all Holm-adjusted p-values are 1.0. Lambda selection is
-unstable. The correct conclusion is that V2 is promising enough for one
-targeted activity-mask confirmation, not that the all-head physics model is
-ready for synthetic generation.
+unstable. The forecasting result must be reported as descriptive. For the
+synthetic-data stage, the project decision is nevertheless to retain the
+all-head direct-physics model and select two validation-ranked generators,
+followed by the established trajectory-quality gate.
 
 The full result reverses the seed-1 A13 warning: A13 is favorable in the
 five-seed aggregate. A11, not A13, is the activity that consistently favors the
@@ -71,8 +72,9 @@ Activity-by-seed signs remain heterogeneous:
 - A13 improves on all three in seeds 3-5, is mixed in seed 2, and worsens in
   seed 1.
 
-These patterns support a focused `A12+A13 physics` mask, but they are not a
-basis for four separate trajectory networks.
+These patterns must remain visible in reporting, but they are not being used
+to remove physics from A10 or A11 and are not a basis for four separate
+trajectory networks.
 
 ## Lambda selection and validation-to-test transfer
 
@@ -150,25 +152,32 @@ future-free activity axes, four controller heads, balanced objective, and
 two-subject validation rule. Within this V2 experiment, A11 favors lambda=0;
 claims from the earlier A11 pipeline remain limited to that earlier pipeline.
 
-## Next experiment and production decision
+## Synthetic-generation decision
 
-Run one unified **A12+A13-only physics-mask** experiment. Reuse the existing
-lambda=0 candidates and current all-head V2 comparison. Train the three
-nonzero masked arms from the same stored seed-fold initializations and retain
-the same validation/test protocol. The comparison must answer whether turning
-off direct physics penalties for A10 and A11 preserves the A12/A13 gains while
-removing A11 degradation.
+Use the unified A10-A13 model with direct CartPole physics active for **all four
+activities**. No A10/A11 exception and no A12+A13-only mask experiment will be
+run. The matched lambda=0 models remain comparison controls and will not be
+used to generate the main synthetic dataset.
 
-Until that comparison is complete, the best provisional synthesis policy is:
+For each common training/validation scope:
 
-- A10 and A11: data-driven paths inside the unified A10-A13 model.
-- A12 and A13: activity-specific CartPole-regularized paths inside the same
-  unified model.
-- A14: the already selected separate rotation-physics DeepONet.
+1. Restrict the generator pool to all-head models with nonzero physics weight.
+2. Rank candidates only by validation subject-activity-balanced forecast MSE.
+3. Retain the best two validation models; do not select from held-out test
+   performance.
+4. Generate candidate trajectories with both models.
+5. Apply the established trajectory-quality gate before admitting any sample:
+   finite/time checks, activity direction and phase order, plausible ranges,
+   smoothness, endpoint/contact behavior, physics residual thresholds,
+   duplicate checks, and agreement between the two selected models.
 
-Do not use the 25 evaluation checkpoints as one production generator. After
-the mask and lambda are locked, refit a five-seed production ensemble. For a
-subject-held-out detector study, refit within each detector training fold;
-for a final non-comparative generator, refit on all 257 A10-A13 trials and all
-49 eligible A14 trials separately.
+Raw validation losses from different folds should not be globally ranked as if
+the validation subjects were the same. Top-two selection must occur within a
+common validation split or use a fold-balanced aggregate rule.
+
+A14 continues to use the separate selected rotation-physics DeepONet. Its
+physics comparison does not need to be repeated, although a production refit
+is still needed for the final generation scope. For subject-held-out detector
+experiments, both the A10-A13 and A14 generators must be trained/selected using
+only the detector fold's training subjects.
 

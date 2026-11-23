@@ -62,8 +62,9 @@ for each activity.
 
 The seed-1 A13 concern did not persist in the five-seed average. However, the
 activity-by-seed effects are heterogeneous, so these rows do not prove that an
-independent A12 or A13 model should be selected. They motivate one targeted
-head-mask confirmation experiment.
+independent activity model should be selected. For synthetic generation, the
+chosen policy is to retain direct CartPole physics for all A10-A13 activities
+and control sample quality after generation.
 
 ## Physics residuals
 
@@ -80,42 +81,42 @@ The unified architecture remains appropriate. The present result does **not**
 support four independent activity models, and it does not support using the
 current per-fold lambda selections as one deployable generator.
 
-The evidence-based provisional policy is:
+The production policy is:
 
-| Activity | Provisional trajectory policy | Reason |
+| Activity | Synthetic trajectory policy | Role of the activity result |
 |:--|:--|:--|
-| A10 | Unified A10-A13, no direct physics penalty | Forecast effect is negligible |
-| A11 | Unified A10-A13, no direct physics penalty | All three activity metrics favor lambda=0 |
-| A12 | Unified A10-A13, activity-specific CartPole physics | Broadest positive aggregate benefit |
-| A13 | Unified A10-A13, activity-specific CartPole physics | Positive full-run aggregate; seed-1 reversal resolved |
+| A10 | Unified A10-A13 with direct CartPole physics | Aggregate forecast effect is neutral, but physics remains part of the common generator |
+| A11 | Unified A10-A13 with direct CartPole physics | Aggregate forecast result is reported honestly; physics is retained for physical consistency and quality-gated generation |
+| A12 | Unified A10-A13 with direct CartPole physics | Broad positive aggregate benefit |
+| A13 | Unified A10-A13 with direct CartPole physics | Positive full-run aggregate; seed-1 reversal resolved |
 | A14 | Existing separate rotation-physics DeepONet | Rotation remains a separate dynamics problem |
 
-For A10-A13, confirm this policy by training a unified model whose physics loss
-is active only for A12 and A13. Reuse the existing matched lambda=0 arm and the
-existing all-head V2 result; train only the three nonzero masked arms
-`{1e-4, 1e-3, 1e-2}` from the same stored initializations. Select with the
-unchanged validation rule and compare the masked model against both existing
-comparators. Do not select independent per-activity trajectory networks.
+No A10/A11 physics mask experiment is planned. The no-physics models remain
+scientific comparators, not synthetic-data generators. For each common
+training/validation scope, rank only the eligible all-head, nonzero-lambda
+models by validation subject-activity-balanced forecast MSE and retain the best
+two. Do not compare raw validation MSE across different validation folds as if
+the validation subjects were identical.
 
 ## Synthetic-generation boundary
 
-The 25 cross-validation checkpoints are evaluation models, not one final
-production generator. After the A12+A13 mask is confirmed:
+The current cross-validation checkpoints must be used within their documented
+subject scope. The synthetic-data procedure is:
 
-1. Lock the activity mask and one global lambda using cross-validation
-   validation results only.
-2. Refit a five-seed A10-A13 ensemble on all 257 eligible planar trials for a
-   final all-data generator.
-3. Refit the already selected A14 rotation architecture on all 49 eligible A14
+1. Keep direct physics active for A10, A11, A12, and A13.
+2. Select the best two eligible nonzero-lambda checkpoints using validation
+   performance only. Both selected models must use the same validation split
+   or otherwise be ranked through a fold-balanced aggregation.
+3. Generate candidates from both selected models and retain only trajectories
+   passing the established quality gate: range, smoothness, phase/direction,
+   physics residual, endpoint/contact, duplicate, and model-agreement checks.
+4. Refit the already selected A14 rotation architecture on all 49 eligible A14
    trials with its locked physics settings and five production seeds. The A14
    physics-versus-no-physics comparison does not need to be repeated.
-4. For an unbiased subject-held-out fall-detection study, instead refit each
+5. For an unbiased subject-held-out fall-detection study, select/refit each
    generator using only the detector fold's training subjects. Never generate
    detector-training samples with a generator that saw that detector fold's
    test subjects.
-5. Generate with an ensemble and retain only samples passing trajectory-range,
-   smoothness, phase/direction, residual, endpoint, and ensemble-agreement
-   quality checks.
 
 The current DeepONet outputs CoM trajectory variables, not a complete skeleton.
 If the downstream detector expects full joint sequences, a validated kinematic

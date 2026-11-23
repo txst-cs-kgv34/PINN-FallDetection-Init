@@ -23,8 +23,10 @@ held-out test subjects are accessed only after selection.
 > statistically significant: all primary confidence intervals included zero
 > and all Holm-adjusted p-values were 1.0. Activity-level results were
 > heterogeneous: A12 and A13 favored selected V2 in aggregate, A10 was neutral,
-> and A11 favored lambda=0. The next step is a unified A12+A13-only physics-mask
-> confirmation before any production refit.
+> and A11 favored lambda=0. For synthetic generation, we retain the unified
+> direct-physics architecture for all A10-A13 activities, select the best two
+> eligible nonzero-physics models by validation performance only, and apply the
+> established trajectory-quality gate.
 
 ## What may and may not be claimed
 
@@ -34,13 +36,16 @@ Supported:
   finite-history audits.
 - Validation-selected V2 has a modest descriptive overall advantage.
 - Physics substantially improves horizontal equation consistency.
-- The aggregate activity pattern motivates masking direct physics loss off for
-  A10 and A11 and retaining it for A12 and A13 in a follow-up.
+- The aggregate activity pattern is heterogeneous and must be reported even
+  though the synthetic-generation policy retains direct physics for all four
+  activities.
 
 Not supported:
 
 - A statistically confirmed V2 forecasting advantage.
-- A single locked production lambda from the current selection counts.
+- A single locked production lambda from the current selection counts; the
+  chosen synthesis procedure instead retains the top two eligible
+  validation-ranked physics models.
 - A claim that every activity benefits from physics.
 - Reusing the 25 cross-validation checkpoints as one final synthetic-data
   generator.
@@ -48,6 +53,8 @@ Not supported:
 
 The earlier favorable A11 Model B result and this V2 result are not mutually
 exclusive. They answer different questions. The honest interpretation is that
-physics benefit is pipeline- and activity-dependent, and production choices
-must follow the result of the targeted mask experiment.
+physics benefit is pipeline- and activity-dependent. The operational choice to
+retain direct physics for every A10-A13 activity is paired with a strict
+trajectory-quality gate and must not be restated as a statistically confirmed
+forecast advantage for every activity.
 

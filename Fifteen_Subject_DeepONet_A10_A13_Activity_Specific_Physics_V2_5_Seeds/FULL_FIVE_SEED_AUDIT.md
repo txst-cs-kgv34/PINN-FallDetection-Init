@@ -58,7 +58,10 @@ Among the 16 seed-folds that selected nonzero lambda, held-out normalized MSE
 improved in 9 and worsened in 7. The mean held-out improvement was +1.63%, but
 the median was +0.06%. The Pearson association between validation and held-out
 percentage improvement was `r=0.61`. This is directionally reassuring but not
-reliable enough for a production decision without the planned mask test.
+reliable enough to lock one lambda from fold frequency alone. The chosen
+synthetic-data procedure therefore retains the best two eligible all-head
+nonzero-physics models ranked by validation performance, followed by the
+trajectory-quality gate.
 
 ## Audit boundary
 
