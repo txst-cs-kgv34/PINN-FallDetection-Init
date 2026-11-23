@@ -1,0 +1,17 @@
+{
+  "fall_batch_size": 10,
+  "scope": "fall portion of each training batch; ADL/fall class balance is separate",
+  "conditions": {
+    "real_only": {"real_fall": 10, "synthetic_fall": 0},
+    "real60_synthetic40": {"real_fall": 6, "synthetic_fall": 4},
+    "real40_synthetic60": {"real_fall": 4, "synthetic_fall": 6}
+  },
+  "rules": [
+    "Split subjects before sampling or windowing.",
+    "Synthetic samples are training-only and inherit source_subject as split_group.",
+    "Stratify the fall sampler by activity where the training fold permits.",
+    "Select synthetic_family_id first, then choose one approved generator variant.",
+    "Fit normalization on training subjects only.",
+    "Validation and test contain real ADL and real falls only."
+  ]
+}
