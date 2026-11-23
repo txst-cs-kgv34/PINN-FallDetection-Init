@@ -1,0 +1,29 @@
+{
+  "counts_by_source": {
+    "real_adl": 545,
+    "real_fall": 322,
+    "synthetic_fall": 1380
+  },
+  "real_falls_by_activity": {
+    "A10": 60,
+    "A11": 70,
+    "A12": 69,
+    "A13": 68,
+    "A14": 55
+  },
+  "subjects_with_synthetic": 15,
+  "synthetic_source_families": 249,
+  "synthetic_variants_by_activity": {
+    "A10": 209,
+    "A11": 284,
+    "A12": 338,
+    "A13": 290,
+    "A14": 259
+  },
+  "zero_synthetic_subject_activity_cells_with_real_falls": [
+    "S44-A14",
+    "S56-A10",
+    "S56-A11",
+    "S57-A13"
+  ]
+}

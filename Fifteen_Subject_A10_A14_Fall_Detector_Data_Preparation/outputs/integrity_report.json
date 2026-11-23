@@ -1,0 +1,22 @@
+{
+  "by_source_kind": {
+    "real_adl": 545,
+    "real_fall": 322,
+    "synthetic_fall": 1380
+  },
+  "finite_arrays": true,
+  "maximum_approved_variants_per_family": 8,
+  "split_group_equals_source_subject": true,
+  "status": "PASS",
+  "synthetic_by_activity": {
+    "A10": 209,
+    "A11": 284,
+    "A12": 338,
+    "A13": 290,
+    "A14": 259
+  },
+  "synthetic_family_count": 249,
+  "synthetic_manifest_is_approved_only": true,
+  "trajectory_count": 2247,
+  "unique_sample_ids": true
+}

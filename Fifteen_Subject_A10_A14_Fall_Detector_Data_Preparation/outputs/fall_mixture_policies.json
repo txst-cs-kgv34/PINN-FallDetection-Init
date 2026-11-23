@@ -1,0 +1,25 @@
+{
+  "policies": {
+    "real40_synthetic60": {
+      "real_fraction": 0.4,
+      "real_per_fall_batch": 4,
+      "synthetic_fraction": 0.6,
+      "synthetic_per_fall_batch": 6
+    },
+    "real60_synthetic40": {
+      "real_fraction": 0.6,
+      "real_per_fall_batch": 6,
+      "synthetic_fraction": 0.4,
+      "synthetic_per_fall_batch": 4
+    },
+    "real_only": {
+      "real_fraction": 1.0,
+      "real_per_fall_batch": 10,
+      "synthetic_fraction": 0.0,
+      "synthetic_per_fall_batch": 0
+    }
+  },
+  "sampling_rule": "stratify by activity where possible; choose synthetic_family_id before generator variant",
+  "scope": "training fall samples only; ADL/fall class balance is separate",
+  "split_rule": "split by source subject before sampling; synthetic is training-only"
+}
