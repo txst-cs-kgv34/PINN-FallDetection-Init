@@ -1,0 +1,41 @@
+{
+  "base_optimization_seed": 20261102,
+  "best_epoch": 39,
+  "checkpoint": "/Users/rakeshsuvvari/TXST/PINN Research/PINN-for-FallDetection/git/PINN-FallDetection-Init/Fifteen_Subject_DeepONet_A10_A13_Activity_Specific_Physics_V2_5_Seeds/results/candidates/full/lambda_1e-2/seed_02_20261102/fold_04/final_best_model_state.pt",
+  "checkpoint_sha256": "287228b0e6f06a4643a8cc2e0f0eb545b1601f8425c230e500def71c2e936854",
+  "effective_fold_seed": 20261106,
+  "fold": 4,
+  "initialization_sha256": "a5298226c6daed86417ffdc8594e47778f874b7c1682bc328c51f1ce746a49cd",
+  "materialized_checkpoint": "/Users/rakeshsuvvari/TXST/PINN Research/PINN-for-FallDetection/git/PINN-FallDetection-Init/Fifteen_Subject_DeepONet_A10_A14_Physics_Synthetic_Fall_Study_GATED/outputs/generator_selection/selected_generators/planar/fold_04/rank_01_seed_02_lambda_0.01/final_best_model_state.pt",
+  "metadata_file": "/Users/rakeshsuvvari/TXST/PINN Research/PINN-for-FallDetection/git/PINN-FallDetection-Init/Fifteen_Subject_DeepONet_A10_A13_Activity_Specific_Physics_V2_5_Seeds/results/candidates/full/lambda_1e-2/seed_02_20261102/fold_04/candidate_manifest.json",
+  "model_group": "planar",
+  "physics_weight": 0.01,
+  "rank_within_fold": 1,
+  "seed_index": 2,
+  "selected": true,
+  "selection_file": "/Users/rakeshsuvvari/TXST/PINN Research/PINN-for-FallDetection/git/PINN-FallDetection-Init/Fifteen_Subject_DeepONet_A10_A13_Activity_Specific_Physics_V2_5_Seeds/results/candidates/full/lambda_1e-2/seed_02_20261102/fold_04/training_selection.json",
+  "selection_metric": "validation_subject_activity_balanced_forecast_mse",
+  "test_metrics_used_for_selection": false,
+  "test_subjects": [
+    "S34",
+    "S32",
+    "S49"
+  ],
+  "train_subjects": [
+    "S43",
+    "S55",
+    "S57",
+    "S62",
+    "S63",
+    "S56",
+    "S48",
+    "S46",
+    "S44",
+    "S30"
+  ],
+  "validation_forecast_mse": 2.008170277252793,
+  "validation_subjects": [
+    "S45",
+    "S59"
+  ]
+}
