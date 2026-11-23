@@ -1,0 +1,47 @@
+{
+  "study_name": "fifteen_subject_a10_a14_physics_synthetic_fall_study_gated_v1",
+  "planar": {
+    "physics_directory": "../Fifteen_Subject_DeepONet_A10_A13_Activity_Specific_Physics_V2_5_Seeds",
+    "results_subdirectory": "results/candidates/full",
+    "model_group": "planar",
+    "activities": ["A10", "A11", "A12", "A13"],
+    "candidate_kind": "calibrated_nonzero_physics",
+    "expected_candidates_per_fold": 15,
+    "expected_folds": 5,
+    "top_k_per_fold": 2
+  },
+  "rotation": {
+    "physics_directory": "../Fifteen_Subject_DeepONet_A10_A13_Unified_A14_Rotation_Physics_5_Seeds",
+    "results_subdirectory": "results/rotation/full",
+    "model_group": "rotation",
+    "activities": ["A14"],
+    "candidate_kind": "five_seed_direct_physics",
+    "expected_candidates_per_fold": 5,
+    "expected_folds": 5,
+    "top_k_per_fold": 2
+  },
+  "selection_output_directory": "outputs/generator_selection",
+  "generation_output_directory": "outputs/synthetic_trajectories",
+  "quality_output_directory": "outputs/trajectory_quality",
+  "generation": {
+    "batch_size": 8,
+    "prepared_data_mode": "full",
+    "context_policy": "observed_through_0.40s_then_C1_corrected_model_forecast",
+    "continuity_decay_s": 0.15,
+    "continuity_slope_window_samples": 11
+  },
+  "quality": {
+    "phase_normalized_points": 101,
+    "real_real_percentile": 95.0,
+    "physics_residual_percentile": 95.0,
+    "savgol_window_samples": 11,
+    "savgol_polynomial_order": 3,
+    "minimum_real_real_pairs_per_activity_fold": 10,
+    "minimum_kinematic_pass_fraction": 0.75,
+    "direction_minimum_source_displacement_cm": 1.0,
+    "require_all_continuity_metrics": true,
+    "require_all_shape_metrics": true,
+    "require_all_physics_metrics": true,
+    "reject_exact_duplicates": true
+  }
+}
