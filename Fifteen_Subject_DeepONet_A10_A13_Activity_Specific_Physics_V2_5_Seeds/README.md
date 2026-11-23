@@ -1,62 +1,132 @@
 # Fifteen-subject A10-A13 activity-specific physics DeepONet V2
 
-This is the recommended seed-1 follow-up to the completed A11 calibration. It
-trains one unified multi-subject, multi-activity DeepONet for A10-A13. The
-context encoder, branch, trunk, and trajectory output are shared, while A10,
-A11, A12, and A13 have four independently parameterized CartPole controller
-heads. It does **not** train four independent trajectory models.
+This experiment trains one unified multi-subject, multi-activity DeepONet for
+A10-A13. The context encoder, branch, trunk, and trajectory output are shared,
+while A10, A11, A12, and A13 have independently parameterized CartPole
+controller heads. It does **not** train four independent trajectory models.
 
-The seed-1 pilot trains four global physics weights from the same original
-model state in each fold:
+Four global physics weights were trained from the same original model state in
+every seed-fold:
 
 `lambda = {0, 1e-4, 1e-3, 1e-2}`
 
-Only lambda differs. Initialization, batch order, optimizer, learning rate,
-maximum epochs, minimum training period, early stopping, validation subjects,
-and checkpoint rule are matched. The selected model is compared with the newly
-trained matched lambda=0 arm.
+Only lambda differs within a matched seed-fold. Initialization, batch order,
+optimizer, learning rate, maximum epochs, early stopping, subject split, and
+checkpoint rule are matched. Lambda and the checkpoint are selected using only
+two validation subjects. The chosen model is then compared with its newly
+trained, matched lambda=0 arm on three held-out subjects.
 
-## Seed-1 pilot result
+## Full five-seed result
 
-The pilot completed successfully: 20/20 candidate models, five
-validation-selected evaluations, and five matched lambda=0 evaluations. The
-protocol audit found identical initialization hashes and identical
-pre-training validation loss across all four lambda arms within every fold.
-All 257 selected/no-physics test targets were exactly equal, and all 4,591
-training-history rows were finite.
+The run is complete: 100/100 candidates, 25 validation-selected evaluations,
+and 25 matched lambda=0 evaluations. The primary analysis averages the five
+optimization seeds within each of the 15 held-out subjects, so the independent
+sample size remains 15 subjects rather than 75 subject-seed cells.
 
-The seed-1 forecasting result is mixed and close to neutral overall:
+Positive improvement means `matched lambda=0 - selected V2`; positive values
+favor selected V2.
 
-| Endpoint | Selected V2 | Matched lambda=0 | Relative V2 improvement | Subject wins V2/N/tie | Holm p |
-|:--|--:|--:|--:|--:|--:|
-| Normalized forecast MSE | 3.6402 | 3.5723 | -1.90% | 6/3/6 | 1.0000 |
-| Theta RMSE | 22.2882 degrees | 22.3790 degrees | +0.41% | 5/4/6 | 1.0000 |
-| CoM-x RMSE | 30.8745 cm | 30.8838 cm | +0.03% | 5/4/6 | 1.0000 |
+| Endpoint | Selected V2 | Matched lambda=0 | Relative V2 improvement | Subject wins V2/N | Bootstrap 95% CI for absolute improvement | Holm p |
+|:--|--:|--:|--:|--:|--:|--:|
+| Normalized forecast MSE | 3.5870 | 3.6887 | +2.76% | 8/7 | [-0.0659, +0.3102] | 1.0000 |
+| Theta RMSE | 23.0432 degrees | 23.2487 degrees | +0.88% | 8/7 | [-0.1720, +0.6486] degrees | 1.0000 |
+| CoM-x RMSE | 31.3921 cm | 31.6980 cm | +0.97% | 9/6 | [-0.2367, +0.8814] cm | 1.0000 |
 
-The six ties are the test subjects in folds 4 and 5, where validation selected
-lambda=0. Across the five folds, the selected weights were lambda=0 twice and
-each nonzero candidate once.
+V2 therefore has a **small descriptive forecasting advantage**, not a
+statistically confirmed advantage. Three of five seeds favored V2 on all three
+primary endpoints; seed 1 was mixed and seed 5 was slightly worse. The
+confidence intervals include zero, and all Holm-adjusted p-values are 1.0.
 
-Activity behavior was not uniform. A10 and A11 improved descriptively on all
-three primary outcomes. A12 improved theta and CoM-x RMSE but was 0.32% worse
-on normalized MSE. A13 was worse on all three outcomes: -7.39% normalized MSE,
--5.14% theta RMSE, and -5.94% CoM-x RMSE.
+The selected weights were unstable across the 25 seed-folds:
 
-Physics reduced horizontal residual RMSE by 18.14% overall and by 40.82% among
-the nine subjects evaluated with nonzero selected lambda. Angular residual
-RMSE was essentially unchanged/slightly worse (-0.21% overall). Better
-horizontal equation consistency therefore did not yet produce a reliable
-forecast advantage.
+| Selected lambda | 0 | 1e-4 | 1e-3 | 1e-2 |
+|:--|--:|--:|--:|--:|
+| Count | 9 | 2 | 5 | 9 |
 
-This one-seed result is not confirmatory. Because the implementation checks
-passed and A10-A12 contain potentially useful activity-specific signals, the
-recommended next action is to complete seeds 2-5 **without changing the
-protocol**. Do not report that V2 physics improves forecasting until the full
-five-seed comparison is available.
+Sixteen of 25 selections used nonzero physics, but the two most frequent
+choices were the opposite endpoints, lambda=0 and lambda=1e-2. A single
+production lambda cannot be justified from selection frequency alone.
+
+## Activity-level result
+
+Activity rows equalize trials within subject-activity-seed cells. They are
+descriptive because lambda was selected globally per fold, not independently
+for each activity.
+
+| Activity | Normalized MSE improvement | Theta RMSE improvement | CoM-x RMSE improvement | Current reading |
+|:--|--:|--:|--:|:--|
+| A10 backfall | +0.32% | +0.31% | +0.22% | Effectively neutral |
+| A11 frontfall | -1.16% | -1.13% | -0.82% | No-physics favored |
+| A12 leftfall | +2.99% | +2.43% | +2.00% | Clearest physics-favored activity |
+| A13 rightfall | +4.76% | +0.63% | +1.16% | Physics-favored in aggregate, but seed-dependent |
+
+The seed-1 A13 concern did not persist in the five-seed average. However, the
+activity-by-seed effects are heterogeneous, so these rows do not prove that an
+independent A12 or A13 model should be selected. They motivate one targeted
+head-mask confirmation experiment.
+
+## Physics residuals
+
+Across subject-seed evaluations, selected V2 reduced angular residual RMSE
+from 15.3236 to 15.2266 (+0.63%) and horizontal residual RMSE from 244.7598 to
+189.3938 (+22.62%). Horizontal residual RMSE improved in all five seeds. The
+constraint is therefore changing trajectories in the intended direction, but
+the much larger residual gain does not translate into a comparably large
+forecast gain.
+
+## Interpretation and model decision
+
+The unified architecture remains appropriate. The present result does **not**
+support four independent activity models, and it does not support using the
+current per-fold lambda selections as one deployable generator.
+
+The evidence-based provisional policy is:
+
+| Activity | Provisional trajectory policy | Reason |
+|:--|:--|:--|
+| A10 | Unified A10-A13, no direct physics penalty | Forecast effect is negligible |
+| A11 | Unified A10-A13, no direct physics penalty | All three activity metrics favor lambda=0 |
+| A12 | Unified A10-A13, activity-specific CartPole physics | Broadest positive aggregate benefit |
+| A13 | Unified A10-A13, activity-specific CartPole physics | Positive full-run aggregate; seed-1 reversal resolved |
+| A14 | Existing separate rotation-physics DeepONet | Rotation remains a separate dynamics problem |
+
+For A10-A13, confirm this policy by training a unified model whose physics loss
+is active only for A12 and A13. Reuse the existing matched lambda=0 arm and the
+existing all-head V2 result; train only the three nonzero masked arms
+`{1e-4, 1e-3, 1e-2}` from the same stored initializations. Select with the
+unchanged validation rule and compare the masked model against both existing
+comparators. Do not select independent per-activity trajectory networks.
+
+## Synthetic-generation boundary
+
+The 25 cross-validation checkpoints are evaluation models, not one final
+production generator. After the A12+A13 mask is confirmed:
+
+1. Lock the activity mask and one global lambda using cross-validation
+   validation results only.
+2. Refit a five-seed A10-A13 ensemble on all 257 eligible planar trials for a
+   final all-data generator.
+3. Refit the already selected A14 rotation architecture on all 49 eligible A14
+   trials with its locked physics settings and five production seeds. The A14
+   physics-versus-no-physics comparison does not need to be repeated.
+4. For an unbiased subject-held-out fall-detection study, instead refit each
+   generator using only the detector fold's training subjects. Never generate
+   detector-training samples with a generator that saw that detector fold's
+   test subjects.
+5. Generate with an ensemble and retain only samples passing trajectory-range,
+   smoothness, phase/direction, residual, endpoint, and ensemble-agreement
+   quality checks.
+
+The current DeepONet outputs CoM trajectory variables, not a complete skeleton.
+If the downstream detector expects full joint sequences, a validated kinematic
+decoder is required before augmentation.
+
+See `FINDINGS.md`, `FULL_FIVE_SEED_AUDIT.md`, and
+`SYNTHETIC_GENERATOR_PLAN.md` for the detailed interpretation and handoff.
 
 ## What changed from the first unified experiment
 
-1. **Future-free activity axes.** The prediction and physics coordinate is
+1. **Future-free activity axes.** Prediction and physics coordinates are
    defined by activity identity in the fixed standing anatomical frame:
 
    | Activity | Signed subject-frame axis `[lateral, forward]` |
@@ -66,41 +136,35 @@ five-seed comparison is available.
    | A12 leftfall | `[-1, 0]` |
    | A13 rightfall | `[+1, 0]` |
 
-   The axis is no longer estimated from onset-to-contact target motion.
-
-2. **Activity-specific physics heads.** Four separate controller heads infer
-   the delayed CartPole gains. The exact Model B CartPole residual family is
-   retained for every activity; only the head parameters differ.
-
-3. **Balanced objectives.** Training forecast loss and normalized residual
-   loss average over the activities present in a batch. Sampling is balanced by
+2. **Activity-specific controller heads.** Four heads infer delayed CartPole
+   gains. The same Model B CartPole residual family is retained for every
+   activity; only the head parameters differ.
+3. **Balanced objectives.** Forecast and normalized residual losses average
+   over activities present in a batch; sampling is balanced by
    subject-activity cell.
-
 4. **Stronger validation.** Every fold uses 10 training, 2 validation, and 3
-   test subjects. Lambda and checkpoints are selected by mean forecast loss
-   over validation subject-activity cells, not by one validation subject.
-
+   test subjects. Selection uses validation subject-activity-balanced forecast
+   MSE.
 5. **Residual scaling.** Angular acceleration residual is divided by `g/l` and
-   horizontal acceleration residual by `g` before the global lambda is applied.
+   horizontal acceleration residual by `g` before lambda is applied.
 
 ## Data and model scope
 
-- Strict-primary trials: 257 total.
-- Counts: A10=58, A11=64, A12=68, A13=67.
-- One unified trajectory model, conditioned on activity, demographics, and the
+- Strict-primary trials: 257 total (A10=58, A11=64, A12=68, A13=67).
+- One unified trajectory model conditioned on activity, demographics, and the
   activity-defined direction.
 - Shared DeepONet latent width 96 and 12 Fourier modes.
 - Four 0.10-s context windows covering the first 0.40 s.
 - Hard initial condition: `q(t) = q0 + qdot0*t + t^2*f(t)`.
-- Delayed CartPole constants remain `m=0.0138`, `m0=1`, `l=0.57`, `g=9.81`,
+- Delayed CartPole constants: `m=0.0138`, `m0=1`, `l=0.57`, `g=9.81`,
   `tau=0.23`, and `Pi=0.0635`.
 - AdamW, learning rate `5e-4`, weight decay `1e-6`, batch size 8.
 - Maximum 800 epochs, 100-epoch physics ramp and minimum training period, and
   patience 100.
 
-## Placement
+## Placement and commands
 
-Place this folder at the repository root beside the data and updated audits:
+Place this folder at the repository root:
 
 ```text
 PINN-FallDetection-Init/
@@ -109,68 +173,18 @@ PINN-FallDetection-Init/
 └── Fifteen_Subject_DeepONet_A10_A13_Activity_Specific_Physics_V2_5_Seeds/
 ```
 
-## MacBook MPS commands
-
 The launcher uses `~/.venv` by default. Set `PINN_VENV_DIR` if your environment
 is elsewhere.
 
 ```bash
 cd Fifteen_Subject_DeepONet_A10_A13_Activity_Specific_Physics_V2_5_Seeds
 chmod +x run.sh run_on_mac.sh
-./run_on_mac.sh setup
 ./run_on_mac.sh validate
 ./run_on_mac.sh test
-./run_on_mac.sh smoke mps
-./run_on_mac.sh pilot mps
-```
-
-The pilot trains 20 candidates: four lambda arms x five folds x one seed. It
-then evaluates five selected checkpoints and their five matched lambda=0
-checkpoints. Completed candidates are skipped, so an interrupted run can be
-resumed with the same command.
-
-Useful commands:
-
-```bash
 ./run_on_mac.sh status
-./run_on_mac.sh fold 3 mps 1
-./run_on_mac.sh seed 1 mps
 ./run_on_mac.sh compare
 ./run_on_mac.sh package
 ```
 
 Use `FORCE=1` only when intentionally replacing completed candidates.
-
-## Run the remaining seeds
-
-Seed 1 is complete. Resume the same experiment with:
-
-```bash
-./run_on_mac.sh full mps
-```
-
-Completed seed-1 candidates are skipped automatically. Send the generated
-full-results file:
-
-`Fifteen_Subject_A10_A13_Activity_Specific_Physics_V2_5_Seeds_Results.zip`
-
-The package includes selection weights, subject and activity comparisons,
-boxplots, prediction archives, histories, initialization hashes, and exact
-target-equality checks.
-
-## Decision after five seeds
-
-The full review will inspect the three predefined endpoints, activity
-consistency, subject outliers, lambda stability, validation-to-test transfer,
-and residual changes. If A13 remains systematically worse while A10-A12 remain
-promising, the next experiment should compare all-head physics against
-activity-head ablations, including A13 lambda=0. That decision must be based on
-the five-seed result rather than this single seed.
-
-## A14 boundary
-
-A14 is deliberately excluded. Do not repeat its completed 50-model
-physics-versus-no-physics comparison now. After A10-A13 is finalized, the
-existing best A14 architecture can be refit on all 49 eligible rotation trials
-with its locked settings and five production seeds for synthetic generation.
 
