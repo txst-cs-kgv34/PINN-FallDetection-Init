@@ -1,0 +1,166 @@
+{
+  "comparison": "validation-selected A10-A13 activity-specific V2 versus matched from-scratch lambda=0",
+  "counts": {
+    "independent_subjects": 15,
+    "optimization_seeds": 5,
+    "paired_subject_seed_evaluations": 75,
+    "selected_fold_models": 25
+  },
+  "descriptive_activity_results": [
+    {
+      "activity": "A10",
+      "no_physics_cell_wins_normalized_mse": 24,
+      "no_physics_cell_wins_theta_rmse_deg": 27,
+      "no_physics_cell_wins_x_rmse_cm": 25,
+      "no_physics_normalized_mse": 1.6898662133372964,
+      "no_physics_theta_rmse_deg": 18.04326594704673,
+      "no_physics_x_rmse_cm": 22.575759108932246,
+      "selected_v2_cell_wins_normalized_mse": 20,
+      "selected_v2_cell_wins_theta_rmse_deg": 17,
+      "selected_v2_cell_wins_x_rmse_cm": 19,
+      "selected_v2_improvement_normalized_mse": 0.005419108053403236,
+      "selected_v2_improvement_theta_rmse_deg": 0.05629080624807456,
+      "selected_v2_improvement_x_rmse_cm": 0.04887160667706105,
+      "selected_v2_normalized_mse": 1.6844471052838932,
+      "selected_v2_relative_improvement_pct_normalized_mse": 0.3206826676948056,
+      "selected_v2_relative_improvement_pct_theta_rmse_deg": 0.3119768140273301,
+      "selected_v2_relative_improvement_pct_x_rmse_cm": 0.21647824306259844,
+      "selected_v2_theta_rmse_deg": 17.98697514079866,
+      "selected_v2_x_rmse_cm": 22.52688750225518,
+      "subject_seed_cells": 70
+    },
+    {
+      "activity": "A11",
+      "no_physics_cell_wins_normalized_mse": 25,
+      "no_physics_cell_wins_theta_rmse_deg": 28,
+      "no_physics_cell_wins_x_rmse_cm": 28,
+      "no_physics_normalized_mse": 2.4661502193278744,
+      "no_physics_theta_rmse_deg": 19.960063156975636,
+      "no_physics_x_rmse_cm": 26.653879205054707,
+      "selected_v2_cell_wins_normalized_mse": 23,
+      "selected_v2_cell_wins_theta_rmse_deg": 20,
+      "selected_v2_cell_wins_x_rmse_cm": 20,
+      "selected_v2_improvement_normalized_mse": -0.028601552526156104,
+      "selected_v2_improvement_theta_rmse_deg": -0.22467539723714186,
+      "selected_v2_improvement_x_rmse_cm": -0.21829498873816608,
+      "selected_v2_normalized_mse": 2.49475177185403,
+      "selected_v2_relative_improvement_pct_normalized_mse": -1.1597652203826896,
+      "selected_v2_relative_improvement_pct_theta_rmse_deg": -1.125624680995172,
+      "selected_v2_relative_improvement_pct_x_rmse_cm": -0.8189989421756217,
+      "selected_v2_theta_rmse_deg": 20.18473855421278,
+      "selected_v2_x_rmse_cm": 26.872174193792873,
+      "subject_seed_cells": 75
+    },
+    {
+      "activity": "A12",
+      "no_physics_cell_wins_normalized_mse": 25,
+      "no_physics_cell_wins_theta_rmse_deg": 23,
+      "no_physics_cell_wins_x_rmse_cm": 25,
+      "no_physics_normalized_mse": 4.158069057275852,
+      "no_physics_theta_rmse_deg": 26.042076292037965,
+      "no_physics_x_rmse_cm": 35.574727105349304,
+      "selected_v2_cell_wins_normalized_mse": 23,
+      "selected_v2_cell_wins_theta_rmse_deg": 25,
+      "selected_v2_cell_wins_x_rmse_cm": 23,
+      "selected_v2_improvement_normalized_mse": 0.12415585886438692,
+      "selected_v2_improvement_theta_rmse_deg": 0.633117439905802,
+      "selected_v2_improvement_x_rmse_cm": 0.7123351293305556,
+      "selected_v2_normalized_mse": 4.033913198411465,
+      "selected_v2_relative_improvement_pct_normalized_mse": 2.9859018009125444,
+      "selected_v2_relative_improvement_pct_theta_rmse_deg": 2.4311327284582513,
+      "selected_v2_relative_improvement_pct_x_rmse_cm": 2.002362877503123,
+      "selected_v2_theta_rmse_deg": 25.408958852132162,
+      "selected_v2_x_rmse_cm": 34.86239197601875,
+      "subject_seed_cells": 75
+    },
+    {
+      "activity": "A13",
+      "no_physics_cell_wins_normalized_mse": 27,
+      "no_physics_cell_wins_theta_rmse_deg": 25,
+      "no_physics_cell_wins_x_rmse_cm": 26,
+      "no_physics_normalized_mse": 5.395323997939626,
+      "no_physics_theta_rmse_deg": 25.89678881772359,
+      "no_physics_x_rmse_cm": 36.53150759910544,
+      "selected_v2_cell_wins_normalized_mse": 21,
+      "selected_v2_cell_wins_theta_rmse_deg": 23,
+      "selected_v2_cell_wins_x_rmse_cm": 22,
+      "selected_v2_improvement_normalized_mse": 0.25678505457441014,
+      "selected_v2_improvement_theta_rmse_deg": 0.1638809275627135,
+      "selected_v2_improvement_x_rmse_cm": 0.4252615042030811,
+      "selected_v2_normalized_mse": 5.1385389433652175,
+      "selected_v2_relative_improvement_pct_normalized_mse": 4.759400078150479,
+      "selected_v2_relative_improvement_pct_theta_rmse_deg": 0.6328233539540411,
+      "selected_v2_relative_improvement_pct_x_rmse_cm": 1.1640951391053314,
+      "selected_v2_theta_rmse_deg": 25.732907890160877,
+      "selected_v2_x_rmse_cm": 36.10624609490235,
+      "subject_seed_cells": 75
+    }
+  ],
+  "difference_definition": "matched_lambda_0_error - selected_v2_error; positive favors selected V2",
+  "experiment": "fifteen_subject_a10_a13_activity_specific_physics_v2_5seeds_v1",
+  "inference_note": "Wilcoxon tests use held-out subjects as the independent unit; Holm correction covers three primary endpoints.",
+  "primary_analysis_unit": "15 held-out subjects after averaging 5 matched seed(s)",
+  "primary_metrics": {
+    "normalized_mse": {
+      "holm_adjusted_p_value": 1.0,
+      "mean_v2_improvement": 0.10173524339876268,
+      "median_v2_improvement": 0.0007070463895799683,
+      "no_physics_mean": 3.6887385850928625,
+      "no_physics_subject_wins": 7,
+      "relative_improvement_pct": 2.7579954787227496,
+      "selected_v2_mean": 3.5870033416941003,
+      "subject_bootstrap_95pct_ci": [
+        -0.06585957749851451,
+        0.3101640552054249
+      ],
+      "ties": 0,
+      "v2_subject_wins": 8,
+      "wilcoxon_raw_p_value": 0.67877197265625,
+      "wilcoxon_statistic": 52.0
+    },
+    "theta_rmse_deg": {
+      "holm_adjusted_p_value": 1.0,
+      "mean_v2_improvement": 0.20557162816561256,
+      "median_v2_improvement": 0.03645251592000065,
+      "no_physics_mean": 23.24873731907006,
+      "no_physics_subject_wins": 7,
+      "relative_improvement_pct": 0.8842270672351308,
+      "selected_v2_mean": 23.04316569090445,
+      "subject_bootstrap_95pct_ci": [
+        -0.1719559730849071,
+        0.6485736937749853
+      ],
+      "ties": 0,
+      "v2_subject_wins": 8,
+      "wilcoxon_raw_p_value": 0.67877197265625,
+      "wilcoxon_statistic": 52.0
+    },
+    "x_rmse_cm": {
+      "holm_adjusted_p_value": 1.0,
+      "mean_v2_improvement": 0.30589606235616124,
+      "median_v2_improvement": 0.11399783194065094,
+      "no_physics_mean": 31.698026627156374,
+      "no_physics_subject_wins": 6,
+      "relative_improvement_pct": 0.9650318802309718,
+      "selected_v2_mean": 31.392130564800215,
+      "subject_bootstrap_95pct_ci": [
+        -0.2366549389093867,
+        0.8813803518159987
+      ],
+      "ties": 0,
+      "v2_subject_wins": 9,
+      "wilcoxon_raw_p_value": 0.52447509765625,
+      "wilcoxon_statistic": 48.0
+    }
+  },
+  "weight_selection": {
+    "counts": {
+      "0.0": 9,
+      "0.0001": 2,
+      "0.001": 5,
+      "0.01": 9
+    },
+    "included_matched_from_scratch_lambda_zero": true,
+    "used_validation_only": true
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "best_epoch": 59,
+  "best_validation_forecast_mse": 1.838774976506829,
+  "checkpoint_selected_only_on_validation_subjects": true,
+  "random_initialization_validation_forecast_mse": 4.986144995689392,
+  "residual_scaling": {
+    "angular": "gravity_over_stick_length",
+    "horizontal": "gravity"
+  },
+  "target_physics_weight": 0.01,
+  "test_data_accessed": false,
+  "trained_from_scratch": true
+}

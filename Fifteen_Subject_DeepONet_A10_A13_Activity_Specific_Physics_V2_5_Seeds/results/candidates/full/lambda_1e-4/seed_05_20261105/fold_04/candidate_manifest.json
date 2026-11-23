@@ -1,0 +1,52 @@
+{
+  "activity_specific_controller_heads": [
+    "A10",
+    "A11",
+    "A12",
+    "A13"
+  ],
+  "base_seed": 20261105,
+  "device": "mps",
+  "early_stopping_patience": 100,
+  "effective_seed": 20261109,
+  "experiment": "fifteen_subject_a10_a13_activity_specific_physics_v2_5seeds_v1",
+  "fold": {
+    "id": 4,
+    "test": [
+      "S34",
+      "S32",
+      "S49"
+    ],
+    "train": [
+      "S43",
+      "S55",
+      "S57",
+      "S62",
+      "S63",
+      "S56",
+      "S48",
+      "S46",
+      "S44",
+      "S30"
+    ],
+    "validation": [
+      "S45",
+      "S59"
+    ]
+  },
+  "initialization_sha256": "6cb0d9e20f760c887f1542b68cac7aa6c91fec15d48c2885d1b75bcdedbf8cea",
+  "learning_rate": 0.0005,
+  "maximum_epochs": 800,
+  "optimizer": "AdamW",
+  "seed_index": 5,
+  "target_physics_weight": 0.0001,
+  "test_data_accessed": false,
+  "trained_from_scratch": true,
+  "training_trials": 167,
+  "validation_metric": "validation_subject_activity_balanced_forecast_mse",
+  "validation_subjects": [
+    "S45",
+    "S59"
+  ],
+  "validation_trials": 38
+}

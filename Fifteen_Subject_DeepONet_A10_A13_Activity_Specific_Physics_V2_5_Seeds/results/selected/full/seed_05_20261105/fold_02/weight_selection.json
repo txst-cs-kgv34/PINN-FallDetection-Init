@@ -1,0 +1,51 @@
+{
+  "all_arms_share_initialization": true,
+  "options": [
+    {
+      "best_epoch": 74,
+      "checkpoint": "/Users/rakeshsuvvari/TXST/PINN Research/PINN-for-FallDetection/git/PINN-FallDetection-Init/Fifteen_Subject_DeepONet_A10_A13_Activity_Specific_Physics_V2_5_Seeds/results/candidates/full/lambda_0/seed_05_20261105/fold_02/final_best_model_state.pt",
+      "initialization_sha256": "36efb35078353d9ff7c0d010f9f84d9133dc68e03712be4b11463d995452a8c7",
+      "source": "matched_from_scratch_candidate",
+      "validation_forecast_mse": 1.6772309289313854,
+      "weight": 0.0
+    },
+    {
+      "best_epoch": 74,
+      "checkpoint": "/Users/rakeshsuvvari/TXST/PINN Research/PINN-for-FallDetection/git/PINN-FallDetection-Init/Fifteen_Subject_DeepONet_A10_A13_Activity_Specific_Physics_V2_5_Seeds/results/candidates/full/lambda_1e-4/seed_05_20261105/fold_02/final_best_model_state.pt",
+      "initialization_sha256": "36efb35078353d9ff7c0d010f9f84d9133dc68e03712be4b11463d995452a8c7",
+      "source": "matched_from_scratch_candidate",
+      "validation_forecast_mse": 1.678806141857058,
+      "weight": 0.0001
+    },
+    {
+      "best_epoch": 74,
+      "checkpoint": "/Users/rakeshsuvvari/TXST/PINN Research/PINN-for-FallDetection/git/PINN-FallDetection-Init/Fifteen_Subject_DeepONet_A10_A13_Activity_Specific_Physics_V2_5_Seeds/results/candidates/full/lambda_1e-3/seed_05_20261105/fold_02/final_best_model_state.pt",
+      "initialization_sha256": "36efb35078353d9ff7c0d010f9f84d9133dc68e03712be4b11463d995452a8c7",
+      "source": "matched_from_scratch_candidate",
+      "validation_forecast_mse": 1.6499875469443697,
+      "weight": 0.001
+    },
+    {
+      "best_epoch": 65,
+      "checkpoint": "/Users/rakeshsuvvari/TXST/PINN Research/PINN-for-FallDetection/git/PINN-FallDetection-Init/Fifteen_Subject_DeepONet_A10_A13_Activity_Specific_Physics_V2_5_Seeds/results/candidates/full/lambda_1e-2/seed_05_20261105/fold_02/final_best_model_state.pt",
+      "initialization_sha256": "36efb35078353d9ff7c0d010f9f84d9133dc68e03712be4b11463d995452a8c7",
+      "source": "matched_from_scratch_candidate",
+      "validation_forecast_mse": 1.6934458831325174,
+      "weight": 0.01
+    }
+  ],
+  "selected_best_epoch": 74,
+  "selected_validation_forecast_mse": 1.6499875469443697,
+  "selected_weight": 0.001,
+  "selection_metric": "validation_subject_activity_balanced_forecast_mse",
+  "test_subjects_not_used_for_selection": [
+    "S55",
+    "S48",
+    "S43"
+  ],
+  "tie_break": "smaller_physics_weight",
+  "validation_subjects": [
+    "S57",
+    "S46"
+  ]
+}

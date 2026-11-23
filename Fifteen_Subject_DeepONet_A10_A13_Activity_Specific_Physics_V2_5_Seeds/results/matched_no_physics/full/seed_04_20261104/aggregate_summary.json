@@ -1,0 +1,19 @@
+{
+  "base_seed": 20261104,
+  "condition": "matched_no_physics",
+  "experiment": "fifteen_subject_a10_a13_activity_specific_physics_v2_5seeds_v1",
+  "held_out_subjects": 15,
+  "held_out_trials": 257,
+  "metrics": {
+    "angular_residual_rmse": 15.02059481123178,
+    "horizontal_residual_rmse": 276.9556794958708,
+    "normalized_mse": 3.931350570157338,
+    "theta_mae_deg": 19.300754949839895,
+    "theta_rmse_deg": 24.265018579439857,
+    "theta_w1_deg": 17.986729598406495,
+    "x_mae_cm": 26.116943798003202,
+    "x_rmse_cm": 33.126367717554295,
+    "x_w1_cm": 24.653574478223724
+  },
+  "seed_index": 4
+}
