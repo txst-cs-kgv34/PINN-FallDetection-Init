@@ -32,6 +32,7 @@ def main() -> None:
                 archive.write(path, path.relative_to(HERE))
         for path in (
             HERE / "README.md",
+            HERE / "FINDINGS.md",
             HERE / "GATE_PROTOCOL.md",
             HERE / "VERIFIED_SELECTION_REFERENCE.md",
             HERE / "study_config.json",

@@ -206,3 +206,28 @@ training partition. After these results are reviewed, the next folder will
 construct real-only and real/synthetic detector datasets—including the planned
 40:60 and 60:40 ratios—from the approved manifest only.
 
+## Completed full-run result
+
+The MacBook MPS run produced 2,044 candidates and GATE approved 1,380
+(67.5%). All 15 source subjects remain represented. The approved set covers
+249 of the 306 strict physics-source trials, with one to eight accepted model
+variants per represented source trial.
+
+| Activity | Candidates | Approved | Approval |
+|:--|--:|--:|--:|
+| A10 | 380 | 209 | 55.0% |
+| A11 | 422 | 284 | 67.3% |
+| A12 | 450 | 338 | 75.1% |
+| A13 | 448 | 290 | 64.7% |
+| A14 | 344 | 259 | 75.3% |
+| **Total** | **2,044** | **1,380** | **67.5%** |
+
+A10 is the limiting activity because its kinematic pass rate is 61.8%; its
+physics pass rate is still 97.1%. Across all activities, 457 candidates failed
+the kinematic gate, compared with 160 continuity, 111 shape, 69 direction, and
+56 physics failures. No exact duplicate was found. These results support using
+the approved set for detector augmentation; they do not support relaxing GATE
+or retraining a model solely to increase candidate acceptance.
+
+See `FINDINGS.md` for the reviewed interpretation and downstream safeguards.
+
