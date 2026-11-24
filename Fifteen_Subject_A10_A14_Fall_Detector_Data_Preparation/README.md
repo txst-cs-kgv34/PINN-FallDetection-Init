@@ -148,3 +148,17 @@ After the local run, share
 `Fifteen_Subject_A10_A14_Fall_Detector_Data_Preparation_Results.zip`. The next
 folder can then implement the detector architecture, subject folds, windowing,
 and the three controlled training conditions.
+
+## Verified completed preparation
+
+The full local run passed integrity validation and produced exactly **2,247**
+trajectories: 545 real ADL, 322 real A10-A14 falls, and 1,380 GATE-approved
+synthetic falls. All identifiers are unique, all arrays are finite, every
+synthetic sample retains its real source subject, and all 15 source subjects are
+represented in the synthetic pool.
+
+Four real subject/activity cells have no approved synthetic family:
+S44-A14, S56-A10, S56-A11, and S57-A13. Every five-fold training partition
+still contains substantial real and synthetic coverage for all A10-A14
+activities, so ratios can be enforced safely at the activity-balanced fold
+level. See `FINDINGS.md` for the reviewed decision.
