@@ -1,0 +1,802 @@
+check,passed
+real40_synthetic60/fold_01/11 history completion,True
+real40_synthetic60/fold_01/11 best epoch,True
+real40_synthetic60/fold_01/11 disjoint groups,True
+real40_synthetic60/fold_01/11 test metrics,True
+real40_synthetic60/fold_01/11 predicted labels,True
+real40_synthetic60/fold_01/11 window max aggregation,True
+real40_synthetic60/fold_01/11 real only evaluation,True
+real40_synthetic60/fold_01/11 heldout membership,True
+real40_synthetic60/fold_01/11 validation threshold,True
+real40_synthetic60/fold_01/11 false alarm rate,True
+real40_synthetic60/fold_01/22 history completion,True
+real40_synthetic60/fold_01/22 best epoch,True
+real40_synthetic60/fold_01/22 disjoint groups,True
+real40_synthetic60/fold_01/22 test metrics,True
+real40_synthetic60/fold_01/22 predicted labels,True
+real40_synthetic60/fold_01/22 window max aggregation,True
+real40_synthetic60/fold_01/22 real only evaluation,True
+real40_synthetic60/fold_01/22 heldout membership,True
+real40_synthetic60/fold_01/22 validation threshold,True
+real40_synthetic60/fold_01/22 false alarm rate,True
+real40_synthetic60/fold_01/33 history completion,True
+real40_synthetic60/fold_01/33 best epoch,True
+real40_synthetic60/fold_01/33 disjoint groups,True
+real40_synthetic60/fold_01/33 test metrics,True
+real40_synthetic60/fold_01/33 predicted labels,True
+real40_synthetic60/fold_01/33 window max aggregation,True
+real40_synthetic60/fold_01/33 real only evaluation,True
+real40_synthetic60/fold_01/33 heldout membership,True
+real40_synthetic60/fold_01/33 validation threshold,True
+real40_synthetic60/fold_01/33 false alarm rate,True
+real40_synthetic60/fold_01/44 history completion,True
+real40_synthetic60/fold_01/44 best epoch,True
+real40_synthetic60/fold_01/44 disjoint groups,True
+real40_synthetic60/fold_01/44 test metrics,True
+real40_synthetic60/fold_01/44 predicted labels,True
+real40_synthetic60/fold_01/44 window max aggregation,True
+real40_synthetic60/fold_01/44 real only evaluation,True
+real40_synthetic60/fold_01/44 heldout membership,True
+real40_synthetic60/fold_01/44 validation threshold,True
+real40_synthetic60/fold_01/44 false alarm rate,True
+real40_synthetic60/fold_01/55 history completion,True
+real40_synthetic60/fold_01/55 best epoch,True
+real40_synthetic60/fold_01/55 disjoint groups,True
+real40_synthetic60/fold_01/55 test metrics,True
+real40_synthetic60/fold_01/55 predicted labels,True
+real40_synthetic60/fold_01/55 window max aggregation,True
+real40_synthetic60/fold_01/55 real only evaluation,True
+real40_synthetic60/fold_01/55 heldout membership,True
+real40_synthetic60/fold_01/55 validation threshold,True
+real40_synthetic60/fold_01/55 false alarm rate,True
+real40_synthetic60/fold_02/11 history completion,True
+real40_synthetic60/fold_02/11 best epoch,True
+real40_synthetic60/fold_02/11 disjoint groups,True
+real40_synthetic60/fold_02/11 test metrics,True
+real40_synthetic60/fold_02/11 predicted labels,True
+real40_synthetic60/fold_02/11 window max aggregation,True
+real40_synthetic60/fold_02/11 real only evaluation,True
+real40_synthetic60/fold_02/11 heldout membership,True
+real40_synthetic60/fold_02/11 validation threshold,True
+real40_synthetic60/fold_02/11 false alarm rate,True
+real40_synthetic60/fold_02/22 history completion,True
+real40_synthetic60/fold_02/22 best epoch,True
+real40_synthetic60/fold_02/22 disjoint groups,True
+real40_synthetic60/fold_02/22 test metrics,True
+real40_synthetic60/fold_02/22 predicted labels,True
+real40_synthetic60/fold_02/22 window max aggregation,True
+real40_synthetic60/fold_02/22 real only evaluation,True
+real40_synthetic60/fold_02/22 heldout membership,True
+real40_synthetic60/fold_02/22 validation threshold,True
+real40_synthetic60/fold_02/22 false alarm rate,True
+real40_synthetic60/fold_02/33 history completion,True
+real40_synthetic60/fold_02/33 best epoch,True
+real40_synthetic60/fold_02/33 disjoint groups,True
+real40_synthetic60/fold_02/33 test metrics,True
+real40_synthetic60/fold_02/33 predicted labels,True
+real40_synthetic60/fold_02/33 window max aggregation,True
+real40_synthetic60/fold_02/33 real only evaluation,True
+real40_synthetic60/fold_02/33 heldout membership,True
+real40_synthetic60/fold_02/33 validation threshold,True
+real40_synthetic60/fold_02/33 false alarm rate,True
+real40_synthetic60/fold_02/44 history completion,True
+real40_synthetic60/fold_02/44 best epoch,True
+real40_synthetic60/fold_02/44 disjoint groups,True
+real40_synthetic60/fold_02/44 test metrics,True
+real40_synthetic60/fold_02/44 predicted labels,True
+real40_synthetic60/fold_02/44 window max aggregation,True
+real40_synthetic60/fold_02/44 real only evaluation,True
+real40_synthetic60/fold_02/44 heldout membership,True
+real40_synthetic60/fold_02/44 validation threshold,True
+real40_synthetic60/fold_02/44 false alarm rate,True
+real40_synthetic60/fold_02/55 history completion,True
+real40_synthetic60/fold_02/55 best epoch,True
+real40_synthetic60/fold_02/55 disjoint groups,True
+real40_synthetic60/fold_02/55 test metrics,True
+real40_synthetic60/fold_02/55 predicted labels,True
+real40_synthetic60/fold_02/55 window max aggregation,True
+real40_synthetic60/fold_02/55 real only evaluation,True
+real40_synthetic60/fold_02/55 heldout membership,True
+real40_synthetic60/fold_02/55 validation threshold,True
+real40_synthetic60/fold_02/55 false alarm rate,True
+real40_synthetic60/fold_03/11 history completion,True
+real40_synthetic60/fold_03/11 best epoch,True
+real40_synthetic60/fold_03/11 disjoint groups,True
+real40_synthetic60/fold_03/11 test metrics,True
+real40_synthetic60/fold_03/11 predicted labels,True
+real40_synthetic60/fold_03/11 window max aggregation,True
+real40_synthetic60/fold_03/11 real only evaluation,True
+real40_synthetic60/fold_03/11 heldout membership,True
+real40_synthetic60/fold_03/11 validation threshold,True
+real40_synthetic60/fold_03/11 false alarm rate,True
+real40_synthetic60/fold_03/22 history completion,True
+real40_synthetic60/fold_03/22 best epoch,True
+real40_synthetic60/fold_03/22 disjoint groups,True
+real40_synthetic60/fold_03/22 test metrics,True
+real40_synthetic60/fold_03/22 predicted labels,True
+real40_synthetic60/fold_03/22 window max aggregation,True
+real40_synthetic60/fold_03/22 real only evaluation,True
+real40_synthetic60/fold_03/22 heldout membership,True
+real40_synthetic60/fold_03/22 validation threshold,True
+real40_synthetic60/fold_03/22 false alarm rate,True
+real40_synthetic60/fold_03/33 history completion,True
+real40_synthetic60/fold_03/33 best epoch,True
+real40_synthetic60/fold_03/33 disjoint groups,True
+real40_synthetic60/fold_03/33 test metrics,True
+real40_synthetic60/fold_03/33 predicted labels,True
+real40_synthetic60/fold_03/33 window max aggregation,True
+real40_synthetic60/fold_03/33 real only evaluation,True
+real40_synthetic60/fold_03/33 heldout membership,True
+real40_synthetic60/fold_03/33 validation threshold,True
+real40_synthetic60/fold_03/33 false alarm rate,True
+real40_synthetic60/fold_03/44 history completion,True
+real40_synthetic60/fold_03/44 best epoch,True
+real40_synthetic60/fold_03/44 disjoint groups,True
+real40_synthetic60/fold_03/44 test metrics,True
+real40_synthetic60/fold_03/44 predicted labels,True
+real40_synthetic60/fold_03/44 window max aggregation,True
+real40_synthetic60/fold_03/44 real only evaluation,True
+real40_synthetic60/fold_03/44 heldout membership,True
+real40_synthetic60/fold_03/44 validation threshold,True
+real40_synthetic60/fold_03/44 false alarm rate,True
+real40_synthetic60/fold_03/55 history completion,True
+real40_synthetic60/fold_03/55 best epoch,True
+real40_synthetic60/fold_03/55 disjoint groups,True
+real40_synthetic60/fold_03/55 test metrics,True
+real40_synthetic60/fold_03/55 predicted labels,True
+real40_synthetic60/fold_03/55 window max aggregation,True
+real40_synthetic60/fold_03/55 real only evaluation,True
+real40_synthetic60/fold_03/55 heldout membership,True
+real40_synthetic60/fold_03/55 validation threshold,True
+real40_synthetic60/fold_03/55 false alarm rate,True
+real40_synthetic60/fold_04/11 history completion,True
+real40_synthetic60/fold_04/11 best epoch,True
+real40_synthetic60/fold_04/11 disjoint groups,True
+real40_synthetic60/fold_04/11 test metrics,True
+real40_synthetic60/fold_04/11 predicted labels,True
+real40_synthetic60/fold_04/11 window max aggregation,True
+real40_synthetic60/fold_04/11 real only evaluation,True
+real40_synthetic60/fold_04/11 heldout membership,True
+real40_synthetic60/fold_04/11 validation threshold,True
+real40_synthetic60/fold_04/11 false alarm rate,True
+real40_synthetic60/fold_04/22 history completion,True
+real40_synthetic60/fold_04/22 best epoch,True
+real40_synthetic60/fold_04/22 disjoint groups,True
+real40_synthetic60/fold_04/22 test metrics,True
+real40_synthetic60/fold_04/22 predicted labels,True
+real40_synthetic60/fold_04/22 window max aggregation,True
+real40_synthetic60/fold_04/22 real only evaluation,True
+real40_synthetic60/fold_04/22 heldout membership,True
+real40_synthetic60/fold_04/22 validation threshold,True
+real40_synthetic60/fold_04/22 false alarm rate,True
+real40_synthetic60/fold_04/33 history completion,True
+real40_synthetic60/fold_04/33 best epoch,True
+real40_synthetic60/fold_04/33 disjoint groups,True
+real40_synthetic60/fold_04/33 test metrics,True
+real40_synthetic60/fold_04/33 predicted labels,True
+real40_synthetic60/fold_04/33 window max aggregation,True
+real40_synthetic60/fold_04/33 real only evaluation,True
+real40_synthetic60/fold_04/33 heldout membership,True
+real40_synthetic60/fold_04/33 validation threshold,True
+real40_synthetic60/fold_04/33 false alarm rate,True
+real40_synthetic60/fold_04/44 history completion,True
+real40_synthetic60/fold_04/44 best epoch,True
+real40_synthetic60/fold_04/44 disjoint groups,True
+real40_synthetic60/fold_04/44 test metrics,True
+real40_synthetic60/fold_04/44 predicted labels,True
+real40_synthetic60/fold_04/44 window max aggregation,True
+real40_synthetic60/fold_04/44 real only evaluation,True
+real40_synthetic60/fold_04/44 heldout membership,True
+real40_synthetic60/fold_04/44 validation threshold,True
+real40_synthetic60/fold_04/44 false alarm rate,True
+real40_synthetic60/fold_04/55 history completion,True
+real40_synthetic60/fold_04/55 best epoch,True
+real40_synthetic60/fold_04/55 disjoint groups,True
+real40_synthetic60/fold_04/55 test metrics,True
+real40_synthetic60/fold_04/55 predicted labels,True
+real40_synthetic60/fold_04/55 window max aggregation,True
+real40_synthetic60/fold_04/55 real only evaluation,True
+real40_synthetic60/fold_04/55 heldout membership,True
+real40_synthetic60/fold_04/55 validation threshold,True
+real40_synthetic60/fold_04/55 false alarm rate,True
+real40_synthetic60/fold_05/11 history completion,True
+real40_synthetic60/fold_05/11 best epoch,True
+real40_synthetic60/fold_05/11 disjoint groups,True
+real40_synthetic60/fold_05/11 test metrics,True
+real40_synthetic60/fold_05/11 predicted labels,True
+real40_synthetic60/fold_05/11 window max aggregation,True
+real40_synthetic60/fold_05/11 real only evaluation,True
+real40_synthetic60/fold_05/11 heldout membership,True
+real40_synthetic60/fold_05/11 validation threshold,True
+real40_synthetic60/fold_05/11 false alarm rate,True
+real40_synthetic60/fold_05/22 history completion,True
+real40_synthetic60/fold_05/22 best epoch,True
+real40_synthetic60/fold_05/22 disjoint groups,True
+real40_synthetic60/fold_05/22 test metrics,True
+real40_synthetic60/fold_05/22 predicted labels,True
+real40_synthetic60/fold_05/22 window max aggregation,True
+real40_synthetic60/fold_05/22 real only evaluation,True
+real40_synthetic60/fold_05/22 heldout membership,True
+real40_synthetic60/fold_05/22 validation threshold,True
+real40_synthetic60/fold_05/22 false alarm rate,True
+real40_synthetic60/fold_05/33 history completion,True
+real40_synthetic60/fold_05/33 best epoch,True
+real40_synthetic60/fold_05/33 disjoint groups,True
+real40_synthetic60/fold_05/33 test metrics,True
+real40_synthetic60/fold_05/33 predicted labels,True
+real40_synthetic60/fold_05/33 window max aggregation,True
+real40_synthetic60/fold_05/33 real only evaluation,True
+real40_synthetic60/fold_05/33 heldout membership,True
+real40_synthetic60/fold_05/33 validation threshold,True
+real40_synthetic60/fold_05/33 false alarm rate,True
+real40_synthetic60/fold_05/44 history completion,True
+real40_synthetic60/fold_05/44 best epoch,True
+real40_synthetic60/fold_05/44 disjoint groups,True
+real40_synthetic60/fold_05/44 test metrics,True
+real40_synthetic60/fold_05/44 predicted labels,True
+real40_synthetic60/fold_05/44 window max aggregation,True
+real40_synthetic60/fold_05/44 real only evaluation,True
+real40_synthetic60/fold_05/44 heldout membership,True
+real40_synthetic60/fold_05/44 validation threshold,True
+real40_synthetic60/fold_05/44 false alarm rate,True
+real40_synthetic60/fold_05/55 history completion,True
+real40_synthetic60/fold_05/55 best epoch,True
+real40_synthetic60/fold_05/55 disjoint groups,True
+real40_synthetic60/fold_05/55 test metrics,True
+real40_synthetic60/fold_05/55 predicted labels,True
+real40_synthetic60/fold_05/55 window max aggregation,True
+real40_synthetic60/fold_05/55 real only evaluation,True
+real40_synthetic60/fold_05/55 heldout membership,True
+real40_synthetic60/fold_05/55 validation threshold,True
+real40_synthetic60/fold_05/55 false alarm rate,True
+real60_synthetic40/fold_01/11 history completion,True
+real60_synthetic40/fold_01/11 best epoch,True
+real60_synthetic40/fold_01/11 disjoint groups,True
+real60_synthetic40/fold_01/11 test metrics,True
+real60_synthetic40/fold_01/11 predicted labels,True
+real60_synthetic40/fold_01/11 window max aggregation,True
+real60_synthetic40/fold_01/11 real only evaluation,True
+real60_synthetic40/fold_01/11 heldout membership,True
+real60_synthetic40/fold_01/11 validation threshold,True
+real60_synthetic40/fold_01/11 false alarm rate,True
+real60_synthetic40/fold_01/11 matched controls,True
+real60_synthetic40/fold_01/22 history completion,True
+real60_synthetic40/fold_01/22 best epoch,True
+real60_synthetic40/fold_01/22 disjoint groups,True
+real60_synthetic40/fold_01/22 test metrics,True
+real60_synthetic40/fold_01/22 predicted labels,True
+real60_synthetic40/fold_01/22 window max aggregation,True
+real60_synthetic40/fold_01/22 real only evaluation,True
+real60_synthetic40/fold_01/22 heldout membership,True
+real60_synthetic40/fold_01/22 validation threshold,True
+real60_synthetic40/fold_01/22 false alarm rate,True
+real60_synthetic40/fold_01/22 matched controls,True
+real60_synthetic40/fold_01/33 history completion,True
+real60_synthetic40/fold_01/33 best epoch,True
+real60_synthetic40/fold_01/33 disjoint groups,True
+real60_synthetic40/fold_01/33 test metrics,True
+real60_synthetic40/fold_01/33 predicted labels,True
+real60_synthetic40/fold_01/33 window max aggregation,True
+real60_synthetic40/fold_01/33 real only evaluation,True
+real60_synthetic40/fold_01/33 heldout membership,True
+real60_synthetic40/fold_01/33 validation threshold,True
+real60_synthetic40/fold_01/33 false alarm rate,True
+real60_synthetic40/fold_01/33 matched controls,True
+real60_synthetic40/fold_01/44 history completion,True
+real60_synthetic40/fold_01/44 best epoch,True
+real60_synthetic40/fold_01/44 disjoint groups,True
+real60_synthetic40/fold_01/44 test metrics,True
+real60_synthetic40/fold_01/44 predicted labels,True
+real60_synthetic40/fold_01/44 window max aggregation,True
+real60_synthetic40/fold_01/44 real only evaluation,True
+real60_synthetic40/fold_01/44 heldout membership,True
+real60_synthetic40/fold_01/44 validation threshold,True
+real60_synthetic40/fold_01/44 false alarm rate,True
+real60_synthetic40/fold_01/44 matched controls,True
+real60_synthetic40/fold_01/55 history completion,True
+real60_synthetic40/fold_01/55 best epoch,True
+real60_synthetic40/fold_01/55 disjoint groups,True
+real60_synthetic40/fold_01/55 test metrics,True
+real60_synthetic40/fold_01/55 predicted labels,True
+real60_synthetic40/fold_01/55 window max aggregation,True
+real60_synthetic40/fold_01/55 real only evaluation,True
+real60_synthetic40/fold_01/55 heldout membership,True
+real60_synthetic40/fold_01/55 validation threshold,True
+real60_synthetic40/fold_01/55 false alarm rate,True
+real60_synthetic40/fold_01/55 matched controls,True
+real60_synthetic40/fold_02/11 history completion,True
+real60_synthetic40/fold_02/11 best epoch,True
+real60_synthetic40/fold_02/11 disjoint groups,True
+real60_synthetic40/fold_02/11 test metrics,True
+real60_synthetic40/fold_02/11 predicted labels,True
+real60_synthetic40/fold_02/11 window max aggregation,True
+real60_synthetic40/fold_02/11 real only evaluation,True
+real60_synthetic40/fold_02/11 heldout membership,True
+real60_synthetic40/fold_02/11 validation threshold,True
+real60_synthetic40/fold_02/11 false alarm rate,True
+real60_synthetic40/fold_02/11 matched controls,True
+real60_synthetic40/fold_02/22 history completion,True
+real60_synthetic40/fold_02/22 best epoch,True
+real60_synthetic40/fold_02/22 disjoint groups,True
+real60_synthetic40/fold_02/22 test metrics,True
+real60_synthetic40/fold_02/22 predicted labels,True
+real60_synthetic40/fold_02/22 window max aggregation,True
+real60_synthetic40/fold_02/22 real only evaluation,True
+real60_synthetic40/fold_02/22 heldout membership,True
+real60_synthetic40/fold_02/22 validation threshold,True
+real60_synthetic40/fold_02/22 false alarm rate,True
+real60_synthetic40/fold_02/22 matched controls,True
+real60_synthetic40/fold_02/33 history completion,True
+real60_synthetic40/fold_02/33 best epoch,True
+real60_synthetic40/fold_02/33 disjoint groups,True
+real60_synthetic40/fold_02/33 test metrics,True
+real60_synthetic40/fold_02/33 predicted labels,True
+real60_synthetic40/fold_02/33 window max aggregation,True
+real60_synthetic40/fold_02/33 real only evaluation,True
+real60_synthetic40/fold_02/33 heldout membership,True
+real60_synthetic40/fold_02/33 validation threshold,True
+real60_synthetic40/fold_02/33 false alarm rate,True
+real60_synthetic40/fold_02/33 matched controls,True
+real60_synthetic40/fold_02/44 history completion,True
+real60_synthetic40/fold_02/44 best epoch,True
+real60_synthetic40/fold_02/44 disjoint groups,True
+real60_synthetic40/fold_02/44 test metrics,True
+real60_synthetic40/fold_02/44 predicted labels,True
+real60_synthetic40/fold_02/44 window max aggregation,True
+real60_synthetic40/fold_02/44 real only evaluation,True
+real60_synthetic40/fold_02/44 heldout membership,True
+real60_synthetic40/fold_02/44 validation threshold,True
+real60_synthetic40/fold_02/44 false alarm rate,True
+real60_synthetic40/fold_02/44 matched controls,True
+real60_synthetic40/fold_02/55 history completion,True
+real60_synthetic40/fold_02/55 best epoch,True
+real60_synthetic40/fold_02/55 disjoint groups,True
+real60_synthetic40/fold_02/55 test metrics,True
+real60_synthetic40/fold_02/55 predicted labels,True
+real60_synthetic40/fold_02/55 window max aggregation,True
+real60_synthetic40/fold_02/55 real only evaluation,True
+real60_synthetic40/fold_02/55 heldout membership,True
+real60_synthetic40/fold_02/55 validation threshold,True
+real60_synthetic40/fold_02/55 false alarm rate,True
+real60_synthetic40/fold_02/55 matched controls,True
+real60_synthetic40/fold_03/11 history completion,True
+real60_synthetic40/fold_03/11 best epoch,True
+real60_synthetic40/fold_03/11 disjoint groups,True
+real60_synthetic40/fold_03/11 test metrics,True
+real60_synthetic40/fold_03/11 predicted labels,True
+real60_synthetic40/fold_03/11 window max aggregation,True
+real60_synthetic40/fold_03/11 real only evaluation,True
+real60_synthetic40/fold_03/11 heldout membership,True
+real60_synthetic40/fold_03/11 validation threshold,True
+real60_synthetic40/fold_03/11 false alarm rate,True
+real60_synthetic40/fold_03/11 matched controls,True
+real60_synthetic40/fold_03/22 history completion,True
+real60_synthetic40/fold_03/22 best epoch,True
+real60_synthetic40/fold_03/22 disjoint groups,True
+real60_synthetic40/fold_03/22 test metrics,True
+real60_synthetic40/fold_03/22 predicted labels,True
+real60_synthetic40/fold_03/22 window max aggregation,True
+real60_synthetic40/fold_03/22 real only evaluation,True
+real60_synthetic40/fold_03/22 heldout membership,True
+real60_synthetic40/fold_03/22 validation threshold,True
+real60_synthetic40/fold_03/22 false alarm rate,True
+real60_synthetic40/fold_03/22 matched controls,True
+real60_synthetic40/fold_03/33 history completion,True
+real60_synthetic40/fold_03/33 best epoch,True
+real60_synthetic40/fold_03/33 disjoint groups,True
+real60_synthetic40/fold_03/33 test metrics,True
+real60_synthetic40/fold_03/33 predicted labels,True
+real60_synthetic40/fold_03/33 window max aggregation,True
+real60_synthetic40/fold_03/33 real only evaluation,True
+real60_synthetic40/fold_03/33 heldout membership,True
+real60_synthetic40/fold_03/33 validation threshold,True
+real60_synthetic40/fold_03/33 false alarm rate,True
+real60_synthetic40/fold_03/33 matched controls,True
+real60_synthetic40/fold_03/44 history completion,True
+real60_synthetic40/fold_03/44 best epoch,True
+real60_synthetic40/fold_03/44 disjoint groups,True
+real60_synthetic40/fold_03/44 test metrics,True
+real60_synthetic40/fold_03/44 predicted labels,True
+real60_synthetic40/fold_03/44 window max aggregation,True
+real60_synthetic40/fold_03/44 real only evaluation,True
+real60_synthetic40/fold_03/44 heldout membership,True
+real60_synthetic40/fold_03/44 validation threshold,True
+real60_synthetic40/fold_03/44 false alarm rate,True
+real60_synthetic40/fold_03/44 matched controls,True
+real60_synthetic40/fold_03/55 history completion,True
+real60_synthetic40/fold_03/55 best epoch,True
+real60_synthetic40/fold_03/55 disjoint groups,True
+real60_synthetic40/fold_03/55 test metrics,True
+real60_synthetic40/fold_03/55 predicted labels,True
+real60_synthetic40/fold_03/55 window max aggregation,True
+real60_synthetic40/fold_03/55 real only evaluation,True
+real60_synthetic40/fold_03/55 heldout membership,True
+real60_synthetic40/fold_03/55 validation threshold,True
+real60_synthetic40/fold_03/55 false alarm rate,True
+real60_synthetic40/fold_03/55 matched controls,True
+real60_synthetic40/fold_04/11 history completion,True
+real60_synthetic40/fold_04/11 best epoch,True
+real60_synthetic40/fold_04/11 disjoint groups,True
+real60_synthetic40/fold_04/11 test metrics,True
+real60_synthetic40/fold_04/11 predicted labels,True
+real60_synthetic40/fold_04/11 window max aggregation,True
+real60_synthetic40/fold_04/11 real only evaluation,True
+real60_synthetic40/fold_04/11 heldout membership,True
+real60_synthetic40/fold_04/11 validation threshold,True
+real60_synthetic40/fold_04/11 false alarm rate,True
+real60_synthetic40/fold_04/11 matched controls,True
+real60_synthetic40/fold_04/22 history completion,True
+real60_synthetic40/fold_04/22 best epoch,True
+real60_synthetic40/fold_04/22 disjoint groups,True
+real60_synthetic40/fold_04/22 test metrics,True
+real60_synthetic40/fold_04/22 predicted labels,True
+real60_synthetic40/fold_04/22 window max aggregation,True
+real60_synthetic40/fold_04/22 real only evaluation,True
+real60_synthetic40/fold_04/22 heldout membership,True
+real60_synthetic40/fold_04/22 validation threshold,True
+real60_synthetic40/fold_04/22 false alarm rate,True
+real60_synthetic40/fold_04/22 matched controls,True
+real60_synthetic40/fold_04/33 history completion,True
+real60_synthetic40/fold_04/33 best epoch,True
+real60_synthetic40/fold_04/33 disjoint groups,True
+real60_synthetic40/fold_04/33 test metrics,True
+real60_synthetic40/fold_04/33 predicted labels,True
+real60_synthetic40/fold_04/33 window max aggregation,True
+real60_synthetic40/fold_04/33 real only evaluation,True
+real60_synthetic40/fold_04/33 heldout membership,True
+real60_synthetic40/fold_04/33 validation threshold,True
+real60_synthetic40/fold_04/33 false alarm rate,True
+real60_synthetic40/fold_04/33 matched controls,True
+real60_synthetic40/fold_04/44 history completion,True
+real60_synthetic40/fold_04/44 best epoch,True
+real60_synthetic40/fold_04/44 disjoint groups,True
+real60_synthetic40/fold_04/44 test metrics,True
+real60_synthetic40/fold_04/44 predicted labels,True
+real60_synthetic40/fold_04/44 window max aggregation,True
+real60_synthetic40/fold_04/44 real only evaluation,True
+real60_synthetic40/fold_04/44 heldout membership,True
+real60_synthetic40/fold_04/44 validation threshold,True
+real60_synthetic40/fold_04/44 false alarm rate,True
+real60_synthetic40/fold_04/44 matched controls,True
+real60_synthetic40/fold_04/55 history completion,True
+real60_synthetic40/fold_04/55 best epoch,True
+real60_synthetic40/fold_04/55 disjoint groups,True
+real60_synthetic40/fold_04/55 test metrics,True
+real60_synthetic40/fold_04/55 predicted labels,True
+real60_synthetic40/fold_04/55 window max aggregation,True
+real60_synthetic40/fold_04/55 real only evaluation,True
+real60_synthetic40/fold_04/55 heldout membership,True
+real60_synthetic40/fold_04/55 validation threshold,True
+real60_synthetic40/fold_04/55 false alarm rate,True
+real60_synthetic40/fold_04/55 matched controls,True
+real60_synthetic40/fold_05/11 history completion,True
+real60_synthetic40/fold_05/11 best epoch,True
+real60_synthetic40/fold_05/11 disjoint groups,True
+real60_synthetic40/fold_05/11 test metrics,True
+real60_synthetic40/fold_05/11 predicted labels,True
+real60_synthetic40/fold_05/11 window max aggregation,True
+real60_synthetic40/fold_05/11 real only evaluation,True
+real60_synthetic40/fold_05/11 heldout membership,True
+real60_synthetic40/fold_05/11 validation threshold,True
+real60_synthetic40/fold_05/11 false alarm rate,True
+real60_synthetic40/fold_05/11 matched controls,True
+real60_synthetic40/fold_05/22 history completion,True
+real60_synthetic40/fold_05/22 best epoch,True
+real60_synthetic40/fold_05/22 disjoint groups,True
+real60_synthetic40/fold_05/22 test metrics,True
+real60_synthetic40/fold_05/22 predicted labels,True
+real60_synthetic40/fold_05/22 window max aggregation,True
+real60_synthetic40/fold_05/22 real only evaluation,True
+real60_synthetic40/fold_05/22 heldout membership,True
+real60_synthetic40/fold_05/22 validation threshold,True
+real60_synthetic40/fold_05/22 false alarm rate,True
+real60_synthetic40/fold_05/22 matched controls,True
+real60_synthetic40/fold_05/33 history completion,True
+real60_synthetic40/fold_05/33 best epoch,True
+real60_synthetic40/fold_05/33 disjoint groups,True
+real60_synthetic40/fold_05/33 test metrics,True
+real60_synthetic40/fold_05/33 predicted labels,True
+real60_synthetic40/fold_05/33 window max aggregation,True
+real60_synthetic40/fold_05/33 real only evaluation,True
+real60_synthetic40/fold_05/33 heldout membership,True
+real60_synthetic40/fold_05/33 validation threshold,True
+real60_synthetic40/fold_05/33 false alarm rate,True
+real60_synthetic40/fold_05/33 matched controls,True
+real60_synthetic40/fold_05/44 history completion,True
+real60_synthetic40/fold_05/44 best epoch,True
+real60_synthetic40/fold_05/44 disjoint groups,True
+real60_synthetic40/fold_05/44 test metrics,True
+real60_synthetic40/fold_05/44 predicted labels,True
+real60_synthetic40/fold_05/44 window max aggregation,True
+real60_synthetic40/fold_05/44 real only evaluation,True
+real60_synthetic40/fold_05/44 heldout membership,True
+real60_synthetic40/fold_05/44 validation threshold,True
+real60_synthetic40/fold_05/44 false alarm rate,True
+real60_synthetic40/fold_05/44 matched controls,True
+real60_synthetic40/fold_05/55 history completion,True
+real60_synthetic40/fold_05/55 best epoch,True
+real60_synthetic40/fold_05/55 disjoint groups,True
+real60_synthetic40/fold_05/55 test metrics,True
+real60_synthetic40/fold_05/55 predicted labels,True
+real60_synthetic40/fold_05/55 window max aggregation,True
+real60_synthetic40/fold_05/55 real only evaluation,True
+real60_synthetic40/fold_05/55 heldout membership,True
+real60_synthetic40/fold_05/55 validation threshold,True
+real60_synthetic40/fold_05/55 false alarm rate,True
+real60_synthetic40/fold_05/55 matched controls,True
+real_only/fold_01/11 history completion,True
+real_only/fold_01/11 best epoch,True
+real_only/fold_01/11 disjoint groups,True
+real_only/fold_01/11 test metrics,True
+real_only/fold_01/11 predicted labels,True
+real_only/fold_01/11 window max aggregation,True
+real_only/fold_01/11 real only evaluation,True
+real_only/fold_01/11 heldout membership,True
+real_only/fold_01/11 validation threshold,True
+real_only/fold_01/11 false alarm rate,True
+real_only/fold_01/11 matched controls,True
+real_only/fold_01/22 history completion,True
+real_only/fold_01/22 best epoch,True
+real_only/fold_01/22 disjoint groups,True
+real_only/fold_01/22 test metrics,True
+real_only/fold_01/22 predicted labels,True
+real_only/fold_01/22 window max aggregation,True
+real_only/fold_01/22 real only evaluation,True
+real_only/fold_01/22 heldout membership,True
+real_only/fold_01/22 validation threshold,True
+real_only/fold_01/22 false alarm rate,True
+real_only/fold_01/22 matched controls,True
+real_only/fold_01/33 history completion,True
+real_only/fold_01/33 best epoch,True
+real_only/fold_01/33 disjoint groups,True
+real_only/fold_01/33 test metrics,True
+real_only/fold_01/33 predicted labels,True
+real_only/fold_01/33 window max aggregation,True
+real_only/fold_01/33 real only evaluation,True
+real_only/fold_01/33 heldout membership,True
+real_only/fold_01/33 validation threshold,True
+real_only/fold_01/33 false alarm rate,True
+real_only/fold_01/33 matched controls,True
+real_only/fold_01/44 history completion,True
+real_only/fold_01/44 best epoch,True
+real_only/fold_01/44 disjoint groups,True
+real_only/fold_01/44 test metrics,True
+real_only/fold_01/44 predicted labels,True
+real_only/fold_01/44 window max aggregation,True
+real_only/fold_01/44 real only evaluation,True
+real_only/fold_01/44 heldout membership,True
+real_only/fold_01/44 validation threshold,True
+real_only/fold_01/44 false alarm rate,True
+real_only/fold_01/44 matched controls,True
+real_only/fold_01/55 history completion,True
+real_only/fold_01/55 best epoch,True
+real_only/fold_01/55 disjoint groups,True
+real_only/fold_01/55 test metrics,True
+real_only/fold_01/55 predicted labels,True
+real_only/fold_01/55 window max aggregation,True
+real_only/fold_01/55 real only evaluation,True
+real_only/fold_01/55 heldout membership,True
+real_only/fold_01/55 validation threshold,True
+real_only/fold_01/55 false alarm rate,True
+real_only/fold_01/55 matched controls,True
+real_only/fold_02/11 history completion,True
+real_only/fold_02/11 best epoch,True
+real_only/fold_02/11 disjoint groups,True
+real_only/fold_02/11 test metrics,True
+real_only/fold_02/11 predicted labels,True
+real_only/fold_02/11 window max aggregation,True
+real_only/fold_02/11 real only evaluation,True
+real_only/fold_02/11 heldout membership,True
+real_only/fold_02/11 validation threshold,True
+real_only/fold_02/11 false alarm rate,True
+real_only/fold_02/11 matched controls,True
+real_only/fold_02/22 history completion,True
+real_only/fold_02/22 best epoch,True
+real_only/fold_02/22 disjoint groups,True
+real_only/fold_02/22 test metrics,True
+real_only/fold_02/22 predicted labels,True
+real_only/fold_02/22 window max aggregation,True
+real_only/fold_02/22 real only evaluation,True
+real_only/fold_02/22 heldout membership,True
+real_only/fold_02/22 validation threshold,True
+real_only/fold_02/22 false alarm rate,True
+real_only/fold_02/22 matched controls,True
+real_only/fold_02/33 history completion,True
+real_only/fold_02/33 best epoch,True
+real_only/fold_02/33 disjoint groups,True
+real_only/fold_02/33 test metrics,True
+real_only/fold_02/33 predicted labels,True
+real_only/fold_02/33 window max aggregation,True
+real_only/fold_02/33 real only evaluation,True
+real_only/fold_02/33 heldout membership,True
+real_only/fold_02/33 validation threshold,True
+real_only/fold_02/33 false alarm rate,True
+real_only/fold_02/33 matched controls,True
+real_only/fold_02/44 history completion,True
+real_only/fold_02/44 best epoch,True
+real_only/fold_02/44 disjoint groups,True
+real_only/fold_02/44 test metrics,True
+real_only/fold_02/44 predicted labels,True
+real_only/fold_02/44 window max aggregation,True
+real_only/fold_02/44 real only evaluation,True
+real_only/fold_02/44 heldout membership,True
+real_only/fold_02/44 validation threshold,True
+real_only/fold_02/44 false alarm rate,True
+real_only/fold_02/44 matched controls,True
+real_only/fold_02/55 history completion,True
+real_only/fold_02/55 best epoch,True
+real_only/fold_02/55 disjoint groups,True
+real_only/fold_02/55 test metrics,True
+real_only/fold_02/55 predicted labels,True
+real_only/fold_02/55 window max aggregation,True
+real_only/fold_02/55 real only evaluation,True
+real_only/fold_02/55 heldout membership,True
+real_only/fold_02/55 validation threshold,True
+real_only/fold_02/55 false alarm rate,True
+real_only/fold_02/55 matched controls,True
+real_only/fold_03/11 history completion,True
+real_only/fold_03/11 best epoch,True
+real_only/fold_03/11 disjoint groups,True
+real_only/fold_03/11 test metrics,True
+real_only/fold_03/11 predicted labels,True
+real_only/fold_03/11 window max aggregation,True
+real_only/fold_03/11 real only evaluation,True
+real_only/fold_03/11 heldout membership,True
+real_only/fold_03/11 validation threshold,True
+real_only/fold_03/11 false alarm rate,True
+real_only/fold_03/11 matched controls,True
+real_only/fold_03/22 history completion,True
+real_only/fold_03/22 best epoch,True
+real_only/fold_03/22 disjoint groups,True
+real_only/fold_03/22 test metrics,True
+real_only/fold_03/22 predicted labels,True
+real_only/fold_03/22 window max aggregation,True
+real_only/fold_03/22 real only evaluation,True
+real_only/fold_03/22 heldout membership,True
+real_only/fold_03/22 validation threshold,True
+real_only/fold_03/22 false alarm rate,True
+real_only/fold_03/22 matched controls,True
+real_only/fold_03/33 history completion,True
+real_only/fold_03/33 best epoch,True
+real_only/fold_03/33 disjoint groups,True
+real_only/fold_03/33 test metrics,True
+real_only/fold_03/33 predicted labels,True
+real_only/fold_03/33 window max aggregation,True
+real_only/fold_03/33 real only evaluation,True
+real_only/fold_03/33 heldout membership,True
+real_only/fold_03/33 validation threshold,True
+real_only/fold_03/33 false alarm rate,True
+real_only/fold_03/33 matched controls,True
+real_only/fold_03/44 history completion,True
+real_only/fold_03/44 best epoch,True
+real_only/fold_03/44 disjoint groups,True
+real_only/fold_03/44 test metrics,True
+real_only/fold_03/44 predicted labels,True
+real_only/fold_03/44 window max aggregation,True
+real_only/fold_03/44 real only evaluation,True
+real_only/fold_03/44 heldout membership,True
+real_only/fold_03/44 validation threshold,True
+real_only/fold_03/44 false alarm rate,True
+real_only/fold_03/44 matched controls,True
+real_only/fold_03/55 history completion,True
+real_only/fold_03/55 best epoch,True
+real_only/fold_03/55 disjoint groups,True
+real_only/fold_03/55 test metrics,True
+real_only/fold_03/55 predicted labels,True
+real_only/fold_03/55 window max aggregation,True
+real_only/fold_03/55 real only evaluation,True
+real_only/fold_03/55 heldout membership,True
+real_only/fold_03/55 validation threshold,True
+real_only/fold_03/55 false alarm rate,True
+real_only/fold_03/55 matched controls,True
+real_only/fold_04/11 history completion,True
+real_only/fold_04/11 best epoch,True
+real_only/fold_04/11 disjoint groups,True
+real_only/fold_04/11 test metrics,True
+real_only/fold_04/11 predicted labels,True
+real_only/fold_04/11 window max aggregation,True
+real_only/fold_04/11 real only evaluation,True
+real_only/fold_04/11 heldout membership,True
+real_only/fold_04/11 validation threshold,True
+real_only/fold_04/11 false alarm rate,True
+real_only/fold_04/11 matched controls,True
+real_only/fold_04/22 history completion,True
+real_only/fold_04/22 best epoch,True
+real_only/fold_04/22 disjoint groups,True
+real_only/fold_04/22 test metrics,True
+real_only/fold_04/22 predicted labels,True
+real_only/fold_04/22 window max aggregation,True
+real_only/fold_04/22 real only evaluation,True
+real_only/fold_04/22 heldout membership,True
+real_only/fold_04/22 validation threshold,True
+real_only/fold_04/22 false alarm rate,True
+real_only/fold_04/22 matched controls,True
+real_only/fold_04/33 history completion,True
+real_only/fold_04/33 best epoch,True
+real_only/fold_04/33 disjoint groups,True
+real_only/fold_04/33 test metrics,True
+real_only/fold_04/33 predicted labels,True
+real_only/fold_04/33 window max aggregation,True
+real_only/fold_04/33 real only evaluation,True
+real_only/fold_04/33 heldout membership,True
+real_only/fold_04/33 validation threshold,True
+real_only/fold_04/33 false alarm rate,True
+real_only/fold_04/33 matched controls,True
+real_only/fold_04/44 history completion,True
+real_only/fold_04/44 best epoch,True
+real_only/fold_04/44 disjoint groups,True
+real_only/fold_04/44 test metrics,True
+real_only/fold_04/44 predicted labels,True
+real_only/fold_04/44 window max aggregation,True
+real_only/fold_04/44 real only evaluation,True
+real_only/fold_04/44 heldout membership,True
+real_only/fold_04/44 validation threshold,True
+real_only/fold_04/44 false alarm rate,True
+real_only/fold_04/44 matched controls,True
+real_only/fold_04/55 history completion,True
+real_only/fold_04/55 best epoch,True
+real_only/fold_04/55 disjoint groups,True
+real_only/fold_04/55 test metrics,True
+real_only/fold_04/55 predicted labels,True
+real_only/fold_04/55 window max aggregation,True
+real_only/fold_04/55 real only evaluation,True
+real_only/fold_04/55 heldout membership,True
+real_only/fold_04/55 validation threshold,True
+real_only/fold_04/55 false alarm rate,True
+real_only/fold_04/55 matched controls,True
+real_only/fold_05/11 history completion,True
+real_only/fold_05/11 best epoch,True
+real_only/fold_05/11 disjoint groups,True
+real_only/fold_05/11 test metrics,True
+real_only/fold_05/11 predicted labels,True
+real_only/fold_05/11 window max aggregation,True
+real_only/fold_05/11 real only evaluation,True
+real_only/fold_05/11 heldout membership,True
+real_only/fold_05/11 validation threshold,True
+real_only/fold_05/11 false alarm rate,True
+real_only/fold_05/11 matched controls,True
+real_only/fold_05/22 history completion,True
+real_only/fold_05/22 best epoch,True
+real_only/fold_05/22 disjoint groups,True
+real_only/fold_05/22 test metrics,True
+real_only/fold_05/22 predicted labels,True
+real_only/fold_05/22 window max aggregation,True
+real_only/fold_05/22 real only evaluation,True
+real_only/fold_05/22 heldout membership,True
+real_only/fold_05/22 validation threshold,True
+real_only/fold_05/22 false alarm rate,True
+real_only/fold_05/22 matched controls,True
+real_only/fold_05/33 history completion,True
+real_only/fold_05/33 best epoch,True
+real_only/fold_05/33 disjoint groups,True
+real_only/fold_05/33 test metrics,True
+real_only/fold_05/33 predicted labels,True
+real_only/fold_05/33 window max aggregation,True
+real_only/fold_05/33 real only evaluation,True
+real_only/fold_05/33 heldout membership,True
+real_only/fold_05/33 validation threshold,True
+real_only/fold_05/33 false alarm rate,True
+real_only/fold_05/33 matched controls,True
+real_only/fold_05/44 history completion,True
+real_only/fold_05/44 best epoch,True
+real_only/fold_05/44 disjoint groups,True
+real_only/fold_05/44 test metrics,True
+real_only/fold_05/44 predicted labels,True
+real_only/fold_05/44 window max aggregation,True
+real_only/fold_05/44 real only evaluation,True
+real_only/fold_05/44 heldout membership,True
+real_only/fold_05/44 validation threshold,True
+real_only/fold_05/44 false alarm rate,True
+real_only/fold_05/44 matched controls,True
+real_only/fold_05/55 history completion,True
+real_only/fold_05/55 best epoch,True
+real_only/fold_05/55 disjoint groups,True
+real_only/fold_05/55 test metrics,True
+real_only/fold_05/55 predicted labels,True
+real_only/fold_05/55 window max aggregation,True
+real_only/fold_05/55 real only evaluation,True
+real_only/fold_05/55 heldout membership,True
+real_only/fold_05/55 validation threshold,True
+real_only/fold_05/55 false alarm rate,True
+real_only/fold_05/55 matched controls,True
+75 unique runs,True

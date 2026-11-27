@@ -20,3 +20,7 @@ All conditions use identical folds, seeds, architecture, optimizer, real-only no
 | test_A14_sensitivity | Real only | 0.9920 |
 
 Wilcoxon tests use five seed-averaged fold pairs with Holm adjustment. Interpret effect direction and fold consistency alongside p-values.
+
+## Reviewed interpretation
+
+Real only remains the reference. Both synthetic replacement ratios reduce balanced accuracy in all five seed-averaged folds and increase mean false-positive rate. These tests do not establish equivalence or a general failure of synthetic data. See ../../FINDINGS.md and ../../review/ for the complete audit and recommended follow-up.

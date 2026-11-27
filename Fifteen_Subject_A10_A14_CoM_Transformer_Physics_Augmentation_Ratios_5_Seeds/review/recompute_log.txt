@@ -1,0 +1,52 @@
+real60_synthetic40 BA fold deltas [-0.029728, -0.00744, -0.005855, -0.020383, -0.013487]
+real40_synthetic60 BA fold deltas [-0.035676, -0.014603, -0.000328, -0.012664, -0.015988]
+CHECKS 801 FAILED 0
+                    best_epoch  epochs_completed  validation_threshold  fixed05_balanced_accuracy  fixed05_specificity  real_fall_draws_to_best_epoch
+condition                                                                                                                                            
+real40_synthetic60       18.28             30.28              0.874142                   0.909638             0.842506                        7019.52
+real60_synthetic40       17.08             29.08              0.889969                   0.916637             0.855166                        9838.08
+real_only                21.92             33.92              0.566283                   0.963512             0.974593                       21043.20
+ADL errors
+ condition           activity
+real40_synthetic60  A01          0
+                    A02         62
+                    A03          1
+                    A05         10
+                    A06          0
+                    A07          0
+                    A08         39
+                    A09         13
+real60_synthetic40  A01          0
+                    A02         46
+                    A03          0
+                    A05         11
+                    A06          0
+                    A07          0
+                    A08         30
+                    A09         17
+real_only           A01          0
+                    A02         16
+                    A03          3
+                    A05          0
+                    A06          0
+                    A07          0
+                    A08         26
+                    A09          8
+SUBJECT BA
+ condition     real40_synthetic60  real60_synthetic40  real_only
+subject                                                        
+S30                       0.9772              0.9889     1.0000
+S31_S59_PAIR              0.9613              0.9774     0.9806
+S32                       0.9553              0.9492     1.0000
+S34                       0.9938              0.9969     1.0000
+S43                       0.9743              0.9793     0.9955
+S44                       0.8605              0.8510     0.9045
+S45                       0.8784              0.8609     0.8920
+S46                       0.9167              0.9314     0.9300
+S48                       0.9923              0.9692     0.9974
+S49                       0.8966              0.8981     0.9080
+S55                       0.9875              0.9950     1.0000
+S56                       0.9481              0.9776     0.9952
+S57                       0.9286              0.9190     0.8952
+S62                       0.9545              0.9460     0.9650
+S63                       0.9925              0.9925     0.9845

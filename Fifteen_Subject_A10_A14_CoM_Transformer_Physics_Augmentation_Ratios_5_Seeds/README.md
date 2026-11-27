@@ -5,6 +5,10 @@ improve multi-activity fall detection and which training ratio works better.
 It uses one unchanged compact two-channel CoM Transformer for three controlled
 conditions.
 
+## Completed review — November 27, 2026
+
+All 75/75 runs completed. Real-only training remains the reference: balanced accuracy 96.19%, versus 94.65% (60:40) and 94.60% (40:60). False-positive events per ADL minute increased from 0.134 to 0.265 and 0.309. Both mixtures reduced seed-averaged balanced accuracy in all five folds; adjusted tests did not reach significance. See `FINDINGS.md` for the verified results, interpretation, limitations, and prioritized follow-up experiments, and `review/` for reproducible checks and tables. Recommended next experiment: preserve real-data exposure and add a low-weight synthetic loss.
+
 ## Conditions
 
 The batch size is 60 so the 30 fall positions support exact ratios.
