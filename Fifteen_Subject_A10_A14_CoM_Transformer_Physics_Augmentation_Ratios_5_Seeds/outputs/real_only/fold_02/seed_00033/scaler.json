@@ -1,0 +1,19 @@
+{
+  "features": [
+    "theta_rad",
+    "x_m"
+  ],
+  "mean": [
+    0.07385822012664274,
+    0.10765662399787637
+  ],
+  "std": [
+    0.3667378220786255,
+    0.462740485284309
+  ],
+  "valid_real_training_frames": 102574,
+  "fit_sources": [
+    "real_adl",
+    "real_fall"
+  ]
+}

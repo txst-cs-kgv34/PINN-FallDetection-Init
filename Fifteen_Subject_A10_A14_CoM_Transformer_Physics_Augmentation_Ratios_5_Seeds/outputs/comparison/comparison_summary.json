@@ -1,0 +1,67 @@
+{
+  "completed_runs": 75,
+  "conditions": [
+    "real_only",
+    "real60_synthetic40",
+    "real40_synthetic60"
+  ],
+  "folds": 5,
+  "seeds": [
+    11,
+    22,
+    33,
+    44,
+    55
+  ],
+  "inference_unit": "seed-averaged fold",
+  "best_mean_by_metric": {
+    "test_trial_balanced_accuracy": {
+      "condition": "real_only",
+      "mean": 0.9618942042754313
+    },
+    "test_trial_sensitivity": {
+      "condition": "real_only",
+      "mean": 0.9432413165393426
+    },
+    "test_trial_specificity": {
+      "condition": "real_only",
+      "mean": 0.9805470920115199
+    },
+    "test_trial_f1": {
+      "condition": "real_only",
+      "mean": 0.9544988196936418
+    },
+    "test_trial_auroc": {
+      "condition": "real_only",
+      "mean": 0.9869758929139407
+    },
+    "test_trial_auprc": {
+      "condition": "real_only",
+      "mean": 0.9874732894722448
+    },
+    "false_positive_events_per_adl_minute": {
+      "condition": "real_only",
+      "mean": 0.13443043131757443
+    },
+    "test_A10_sensitivity": {
+      "condition": "real40_synthetic60",
+      "mean": 0.9159440559440558
+    },
+    "test_A11_sensitivity": {
+      "condition": "real_only",
+      "mean": 0.96
+    },
+    "test_A12_sensitivity": {
+      "condition": "real60_synthetic40",
+      "mean": 0.9301818181818181
+    },
+    "test_A13_sensitivity": {
+      "condition": "real60_synthetic40",
+      "mean": 0.9687619047619047
+    },
+    "test_A14_sensitivity": {
+      "condition": "real_only",
+      "mean": 0.992
+    }
+  }
+}
